@@ -1,0 +1,220 @@
+@model PropertySurveyService.ViewModels.ItemIndexViewModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Aluminium Details</h1>
+<hr />
+
+<div class="row mb-3">
+    <div class="col-md-4">
+        <dl>
+            <dt>@Html.DisplayNameFor(model => model.Alum.udi_cont)</dt>
+            <dd>@Html.DisplayFor(model => model.Alum.udi_cont)</dd>
+            <dt>@Html.DisplayNameFor(model => model.Alum.item_number)</dt>
+            <dd>@Html.DisplayFor(model => model.Alum.item_number)</dd>
+            <dt>@Html.DisplayNameFor(model => model.Alum.HeaderId)</dt>
+            <dd>@Html.DisplayFor(model => model.Alum.HeaderId)</dd>
+            <dt>@Html.DisplayNameFor(model => model.Alum.isComplete)</dt>
+            <dd>@Html.DisplayFor(model => model.Alum.isComplete)</dd>
+            <dt>@Html.DisplayNameFor(model => model.Alum.bRepair)</dt>
+            <dd>@Html.DisplayFor(model => model.Alum.bRepair)</dd>
+            <dt>@Html.DisplayNameFor(model => model.Alum.type)</dt>
+            <dd>@Html.DisplayFor(model => model.Alum.type)</dd>
+            <dt>@Html.DisplayNameFor(model => model.Alum.cause_of_damage)</dt>
+            <dd>@Html.DisplayFor(model => model.Alum.cause_of_damage)</dd>
+            <dt>@Html.DisplayNameFor(model => model.Alum.cause_of_damage_reason_different)</dt>
+            <dd>@Html.DisplayFor(model => model.Alum.cause_of_damage_reason_different)</dd>
+            <dt>@Html.DisplayNameFor(model => model.Alum.point_of_entry)</dt>
+            <dd>@Html.DisplayFor(model => model.Alum.point_of_entry)</dd>
+            <dt>@Html.DisplayNameFor(model => model.Alum.was_it_locked)</dt>
+            <dd>@Html.DisplayFor(model => model.Alum.was_it_locked)</dd>
+            <dt>@Html.DisplayNameFor(model => model.Alum.room_location)</dt>
+            <dd>@Html.DisplayFor(model => model.Alum.room_location)</dd>
+            <dt>@Html.DisplayNameFor(model => model.Alum.type_of_lockng_system_required)</dt>
+            <dd>@Html.DisplayFor(model => model.Alum.type_of_lockng_system_required)</dd>
+        </dl>
+    </div>
+    <div class="col-md-4">
+        <dl>
+            <dt>@Html.DisplayNameFor(model => model.Alum.section_type)</dt>
+            <dd>@Html.DisplayFor(model => model.Alum.section_type)</dd>
+            <dt>@Html.DisplayNameFor(model => model.Alum.item_frame_width)</dt>
+            <dd>@Html.DisplayFor(model => model.Alum.item_frame_width)</dd>
+            <dt>@Html.DisplayNameFor(model => model.Alum.item_frame_height)</dt>
+            <dd>@Html.DisplayFor(model => model.Alum.item_frame_height)</dd>
+            <dt>@Html.DisplayNameFor(model => model.Alum.internal_width)</dt>
+            <dd>@Html.DisplayFor(model => model.Alum.internal_width)</dd>
+            <dt>@Html.DisplayNameFor(model => model.Alum.internal_height)</dt>
+            <dd>@Html.DisplayFor(model => model.Alum.internal_height)</dd>
+            <dt>@Html.DisplayNameFor(model => model.Alum.brick_width)</dt>
+            <dd>@Html.DisplayFor(model => model.Alum.brick_width)</dd>
+            <dt>@Html.DisplayNameFor(model => model.Alum.brick_height)</dt>
+            <dd>@Html.DisplayFor(model => model.Alum.brick_height)</dd>
+            <dt>@Html.DisplayNameFor(model => model.Alum.outer_section_width)</dt>
+            <dd>@Html.DisplayFor(model => model.Alum.outer_section_width)</dd>
+            <dt>@Html.DisplayNameFor(model => model.Alum.outer_section_height)</dt>
+            <dd>@Html.DisplayFor(model => model.Alum.outer_section_height)</dd>
+            <dt>@Html.DisplayNameFor(model => model.Alum.new_timber_sub_frame)</dt>
+            <dd>@Html.DisplayFor(model => model.Alum.new_timber_sub_frame)</dd>
+            <dt>@Html.DisplayNameFor(model => model.Alum.sub_frame_depth)</dt>
+            <dd>@Html.DisplayFor(model => model.Alum.sub_frame_depth)</dd>
+            <dt>@Html.DisplayNameFor(model => model.Alum.sub_frame_color)</dt>
+            <dd>@Html.DisplayFor(model => model.Alum.sub_frame_color)</dd>
+            <dt>@Html.DisplayNameFor(model => model.Alum.frame_type)</dt>
+            <dd>@Html.DisplayFor(model => model.Alum.frame_type)</dd>
+            <dt>@Html.DisplayNameFor(model => model.Alum.midrail_type)</dt>
+            <dd>@Html.DisplayFor(model => model.Alum.midrail_type)</dd>
+            <dt>@Html.DisplayNameFor(model => model.Alum.midrail_height)</dt>
+            <dd>@Html.DisplayFor(model => model.Alum.midrail_height)</dd>
+            <dt>@Html.DisplayNameFor(model => model.Alum.threshold_type)</dt>
+            <dd>@Html.DisplayFor(model => model.Alum.threshold_type)</dd>
+        </dl>
+    </div>
+    <div class="col-md-4">
+        <dl>
+            <dt>@Html.DisplayNameFor(model => model.Alum.item_color)</dt>
+            <dd>@Html.DisplayFor(model => model.Alum.item_color)</dd>
+            <dt>@Html.DisplayNameFor(model => model.Alum.handle_color)</dt>
+            <dd>@Html.DisplayFor(model => model.Alum.handle_color)</dd>
+            <dt>@Html.DisplayNameFor(model => model.Alum.locking_type)</dt>
+            <dd>@Html.DisplayFor(model => model.Alum.locking_type)</dd>
+            <dt>@Html.DisplayNameFor(model => model.Alum.letter_box)</dt>
+            <dd>@Html.DisplayFor(model => model.Alum.letter_box)</dd>
+            <dt>@Html.DisplayNameFor(model => model.Alum.letter_box_pos)</dt>
+            <dd>@Html.DisplayFor(model => model.Alum.letter_box_pos)</dd>
+            <dt>@Html.DisplayNameFor(model => model.Alum.pet_flap)</dt>
+            <dd>@Html.DisplayFor(model => model.Alum.pet_flap)</dd>
+            <dt>@Html.DisplayNameFor(model => model.Alum.pet_type)</dt>
+            <dd>@Html.DisplayFor(model => model.Alum.pet_type)</dd>
+            <dt>@Html.DisplayNameFor(model => model.Alum.pet_magnetic)</dt>
+            <dd>@Html.DisplayFor(model => model.Alum.pet_magnetic)</dd>
+            <dt>@Html.DisplayNameFor(model => model.Alum.opens)</dt>
+            <dd>@Html.DisplayFor(model => model.Alum.opens)</dd>
+            <dt>@Html.DisplayNameFor(model => model.Alum.cill)</dt>
+            <dd>@Html.DisplayFor(model => model.Alum.cill)</dd>
+            <dt>@Html.DisplayNameFor(model => model.Alum.cill_on_subframe)</dt>
+            <dd>@Html.DisplayFor(model => model.Alum.cill_on_subframe)</dd>
+            <dt>@Html.DisplayNameFor(model => model.Alum.cill_type)</dt>
+            <dd>@Html.DisplayFor(model => model.Alum.cill_type)</dd>
+            <dt>@Html.DisplayNameFor(model => model.Alum.drip)</dt>
+            <dd>@Html.DisplayFor(model => model.Alum.drip)</dd>
+            <dt>@Html.DisplayNameFor(model => model.Alum.night_vent)</dt>
+            <dd>@Html.DisplayFor(model => model.Alum.night_vent)</dd>
+            <dt>@Html.DisplayNameFor(model => model.Alum.LPHandles)</dt>
+            <dd>@Html.DisplayFor(model => model.Alum.LPHandles)</dd>
+        </dl>
+    </div>
+</div>
+
+<div class="row mb-3">
+    <div class="col-md-4">
+        <dl>
+            <dt>@Html.DisplayNameFor(model => model.Alum.glass_type)</dt>
+            <dd>@Html.DisplayFor(model => model.Alum.glass_type)</dd>
+            <dt>@Html.DisplayNameFor(model => model.Alum.glass_pattern)</dt>
+            <dd>@Html.DisplayFor(model => model.Alum.glass_pattern)</dd>
+            <dt>@Html.DisplayNameFor(model => model.Alum.special_glass)</dt>
+            <dd>@Html.DisplayFor(model => model.Alum.special_glass)</dd>
+            <dt>@Html.DisplayNameFor(model => model.Alum.spacer_thickness)</dt>
+            <dd>@Html.DisplayFor(model => model.Alum.spacer_thickness)</dd>
+            <dt>@Html.DisplayNameFor(model => model.Alum.spacer_color)</dt>
+            <dd>@Html.DisplayFor(model => model.Alum.spacer_color)</dd>
+            <dt>@Html.DisplayNameFor(model => model.Alum.glazed)</dt>
+            <dd>@Html.DisplayFor(model => model.Alum.glazed)</dd>
+            <dt>@Html.DisplayNameFor(model => model.Alum.bead_type)</dt>
+            <dd>@Html.DisplayFor(model => model.Alum.bead_type)</dd>
+            <dt>@Html.DisplayNameFor(model => model.Alum.docl)</dt>
+            <dd>@Html.DisplayFor(model => model.Alum.docl)</dd>
+            <dt>@Html.DisplayNameFor(model => model.Alum.bFencer)</dt>
+            <dd>@Html.DisplayFor(model => model.Alum.bFencer)</dd>
+            <dt>@Html.DisplayNameFor(model => model.Alum.FecerRating)</dt>
+            <dd>@Html.DisplayFor(model => model.Alum.FecerRating)</dd>
+            <dt>@Html.DisplayNameFor(model => model.Alum.glass_complete)</dt>
+            <dd>@Html.DisplayFor(model => model.Alum.glass_complete)</dd>
+            <dt>@Html.DisplayNameFor(model => model.Alum.replace_glass)</dt>
+            <dd>@Html.DisplayFor(model => model.Alum.replace_glass)</dd>
+        </dl>
+    </div>
+    <div class="col-md-4">
+        <dl>
+            <dt>@Html.DisplayNameFor(model => model.Alum.cosmetic_damage)</dt>
+            <dd>@Html.DisplayFor(model => model.Alum.cosmetic_damage)</dd>
+            <dt>@Html.DisplayNameFor(model => model.Alum.additional_locks)</dt>
+            <dd>@Html.DisplayFor(model => model.Alum.additional_locks)</dd>
+            <dt>@Html.DisplayNameFor(model => model.Alum.gaskets)</dt>
+            <dd>@Html.DisplayFor(model => model.Alum.gaskets)</dd>
+            <dt>@Html.DisplayNameFor(model => model.Alum.gaskets_text)</dt>
+            <dd>@Html.DisplayFor(model => model.Alum.gaskets_text)</dd>
+            <dt>@Html.DisplayNameFor(model => model.Alum.handles_req)</dt>
+            <dd>@Html.DisplayFor(model => model.Alum.handles_req)</dd>
+            <dt>@Html.DisplayNameFor(model => model.Alum.handles_text)</dt>
+            <dd>@Html.DisplayFor(model => model.Alum.handles_text)</dd>
+            <dt>@Html.DisplayNameFor(model => model.Alum.replace_panel)</dt>
+            <dd>@Html.DisplayFor(model => model.Alum.replace_panel)</dd>
+            <dt>@Html.DisplayNameFor(model => model.Alum.replace_reason)</dt>
+            <dd>@Html.DisplayFor(model => model.Alum.replace_reason)</dd>
+            <dt>@Html.DisplayNameFor(model => model.Alum.replace_explain)</dt>
+            <dd>@Html.DisplayFor(model => model.Alum.replace_explain)</dd>
+            <dt>@Html.DisplayNameFor(model => model.Alum.bNewLockingMech)</dt>
+            <dd>@Html.DisplayFor(model => model.Alum.bNewLockingMech)</dd>
+            <dt>@Html.DisplayNameFor(model => model.Alum.bLockComplete)</dt>
+            <dd>@Html.DisplayFor(model => model.Alum.bLockComplete)</dd>
+            <dt>@Html.DisplayNameFor(model => model.Alum.lock_make)</dt>
+            <dd>@Html.DisplayFor(model => model.Alum.lock_make)</dd>
+            <dt>@Html.DisplayNameFor(model => model.Alum.lock_codes)</dt>
+            <dd>@Html.DisplayFor(model => model.Alum.lock_codes)</dd>
+            <dt>@Html.DisplayNameFor(model => model.Alum.GearBox)</dt>
+            <dd>@Html.DisplayFor(model => model.Alum.GearBox)</dd>
+            <dt>@Html.DisplayNameFor(model => model.Alum.left_bolt)</dt>
+            <dd>@Html.DisplayFor(model => model.Alum.left_bolt)</dd>
+            <dt>@Html.DisplayNameFor(model => model.Alum.right_bolt)</dt>
+            <dd>@Html.DisplayFor(model => model.Alum.right_bolt)</dd>
+        </dl>
+    </div>
+    <div class="col-md-4">
+        <dl>
+            <dt>@Html.DisplayNameFor(model => model.Alum.bDifferentFromOriginal)</dt>
+            <dd>@Html.DisplayFor(model => model.Alum.bDifferentFromOriginal)</dd>
+            <dt>@Html.DisplayNameFor(model => model.Alum.ChangeItemTo)</dt>
+            <dd>@Html.DisplayFor(model => model.Alum.ChangeItemTo)</dd>
+            <dt>@Html.DisplayNameFor(model => model.Alum.print_name)</dt>
+            <dd>@Html.DisplayFor(model => model.Alum.print_name)</dd>
+            <dt>@Html.DisplayNameFor(model => model.Alum.parts_to_order)</dt>
+            <dd>@Html.DisplayFor(model => model.Alum.parts_to_order)</dd>
+            <dt>@Html.DisplayNameFor(model => model.Alum.bDoorComplete)</dt>
+            <dd>@Html.DisplayFor(model => model.Alum.bDoorComplete)</dd>
+            <dt>@Html.DisplayNameFor(model => model.Alum.bWindowComplete)</dt>
+            <dd>@Html.DisplayFor(model => model.Alum.bWindowComplete)</dd>
+            <dt>@Html.DisplayNameFor(model => model.Alum.bHandleDrawingComplete)</dt>
+            <dd>@Html.DisplayFor(model => model.Alum.bHandleDrawingComplete)</dd>
+            <dt>@Html.DisplayNameFor(model => model.Alum.bPanelComplete)</dt>
+            <dd>@Html.DisplayFor(model => model.Alum.bPanelComplete)</dd>
+            <dt>@Html.DisplayNameFor(model => model.Alum.is_a_flat)</dt>
+            <dd>@Html.DisplayFor(model => model.Alum.is_a_flat)</dd>
+            <dt>@Html.DisplayNameFor(model => model.Alum.no_of_pics)</dt>
+            <dd>@Html.DisplayFor(model => model.Alum.no_of_pics)</dd>
+            <dt>@Html.DisplayNameFor(model => model.Alum.no_of_photos)</dt>
+            <dd>@Html.DisplayFor(model => model.Alum.no_of_photos)</dd>
+            <dt>@Html.DisplayNameFor(model => model.Alum.no_of_vids)</dt>
+            <dd>@Html.DisplayFor(model => model.Alum.no_of_vids)</dd>
+            <dt>@Html.DisplayNameFor(model => model.Alum.long_comments)</dt>
+            <dd>@Html.DisplayFor(model => model.Alum.long_comments)</dd>
+        </dl>
+    </div>
+</div>
+
+@if (Model.Images != null && Model.Images.Any())
+{
+    <hr />
+    <h4>Photos</h4>
+    <div class="row">
+        @foreach (var item in Model.Images)
+        {
+            <div class="col-md-4 mb-3">
+                <img src="data:image/png;base64,@item.Data" class="img-fluid rounded" />
+            </div>
+        }
+    </div>
+}

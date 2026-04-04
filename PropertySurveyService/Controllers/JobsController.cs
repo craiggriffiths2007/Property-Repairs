@@ -130,10 +130,10 @@ namespace PropertySurveyService.Controllers
 
         private void PopulateSurveyorsDropDownList(object selectedSurveyor = null)
         {
-            var customersQuery = from d in _context.Surveyor
+            var surveyorsQuery = from d in _context.Surveyor
                                  orderby d.Name
-                                 select d;
-            ViewBag.SurveyorId = new SelectList(customersQuery.AsNoTracking(), "SurveyorId", "SurveyorCode", selectedSurveyor);
+                                 select new { d.SurveyorId, DisplayText = d.SurveyorCode + " - " + d.Name };
+            ViewBag.SurveyorId = new SelectList(surveyorsQuery.AsNoTracking(), "SurveyorId", "DisplayText", selectedSurveyor);
         }
 
 
@@ -167,7 +167,7 @@ namespace PropertySurveyService.Controllers
         // GET: Jobs/Create
         public IActionResult Create()
         {
-            Contract job = new Contract();
+            Job job = new Job();
             job.Date = DateTime.Now;
             job.Time = DateTime.Now;
             PopulateCustomersDropDownList();
@@ -180,7 +180,7 @@ namespace PropertySurveyService.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Date,Time,DamageDesc,Instructions,CustomerId,SurveyorId")] Contract job)
+        public async Task<IActionResult> Create([Bind("Id,Date,Time,DamageDesc,Instructions,CustomerId,SurveyorId")] Job job)
         {
             if (ModelState.IsValid)
             {
@@ -224,7 +224,7 @@ namespace PropertySurveyService.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,ContractCode,ContractId,Date,Time,DamageDesc,Instructions,CustomerId,SurveyorId")] Contract job)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,ContractCode,ContractId,Date,Time,DamageDesc,Instructions,CustomerId,SurveyorId")] Job job)
         {
             if (id != job.Id)
             {

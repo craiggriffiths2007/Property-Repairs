@@ -14,7 +14,7 @@
     var jobsByDay = Model.Jobs?
         .GroupBy(j => j.Date.Day)
         .ToDictionary(g => g.Key, g => g.ToList())
-        ?? new Dictionary<int, List<PropertySurveyService.Models.Contract>>();
+        ?? new Dictionary<int, List<PropertySurveyService.Models.Job>>();
 
     // Week view helpers
     var weekStart = Model.WeekStartDate;
@@ -24,9 +24,9 @@
     string[] weekDayNames = { "Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun" };
 
     // Build a lookup: dayOfWeek (0=Mon) -> hour -> list of jobs
-    var weekJobs = new Dictionary<int, Dictionary<int, List<PropertySurveyService.Models.Contract>>>();
+    var weekJobs = new Dictionary<int, Dictionary<int, List<PropertySurveyService.Models.Job>>>();
     for (int d = 0; d < 7; d++)
-        weekJobs[d] = new Dictionary<int, List<PropertySurveyService.Models.Contract>>();
+        weekJobs[d] = new Dictionary<int, List<PropertySurveyService.Models.Job>>();
 
     if (Model.Jobs != null)
     {
@@ -35,7 +35,7 @@
             int dayIdx = ((int)job.Date.DayOfWeek - 1 + 7) % 7;
             int hour = job.Time.Hour;
             if (!weekJobs[dayIdx].ContainsKey(hour))
-                weekJobs[dayIdx][hour] = new List<PropertySurveyService.Models.Contract>();
+                weekJobs[dayIdx][hour] = new List<PropertySurveyService.Models.Job>();
             weekJobs[dayIdx][hour].Add(job);
         }
     }
@@ -173,20 +173,13 @@ else if (Model.ViewMode == "week")
                                     @foreach (var job in weekJobs[d][hour])
                                     {
                                         <div class="calendar-event">
-                                            <a asp-action="Edit" asp-route-id="@job.Id" class="calendar-event-link">
+                                            <a asp-action="Details" asp-route-id="@job.Id" class="calendar-event-link">
                                                 <strong>@job.Time.ToString("HH:mm")</strong>
                                                 @if (job.Customer != null)
                                                 {
                                                     <span> - @job.Customer.Name</span>
                                                 }
                                             </a>
-                                            <div class="calendar-event-actions">
-                                                <a asp-action="Details" asp-route-id="@job.Id" title="Details">📋</a>
-                                                <a asp-action="Index" asp-route-id="@job.Id"
-                                                   asp-route-view="week"
-                                                   asp-route-weekStart="@weekStart.ToString("yyyy-MM-dd")"
-                                                   title="Select">📂</a>
-                                            </div>
                                         </div>
                                     }
                                 }

@@ -4,7 +4,7 @@ namespace PropertySurveyService.ViewModels
 {
     public class JobIndexViewModel
     {
-        public IEnumerable<Contract>? Jobs { get; set; }
+        public IEnumerable<Job>? Jobs { get; set; }
         public IEnumerable<Header>? Headers { get; set; }
         public int Year { get; set; }
         public int Month { get; set; }
