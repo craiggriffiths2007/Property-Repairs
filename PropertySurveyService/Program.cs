@@ -57,7 +57,7 @@ app.MapPost("/GetSurveyJobs", (GetSurveysDTO gs, PropertySurveyService.Data.AppD
 {
     List<JobDTO> send_jobs = new List<JobDTO>();
 
-    foreach (var j in db.Job.Where<Job>(x => x.Surveyor.SurveyorCode == gs.SurveyorCode).ToList<Job>())
+    foreach (var j in db.Job.Where<Contract>(x => x.Surveyor.SurveyorCode == gs.SurveyorCode).ToList<Contract>())
     {
         Customer? c = db.Customer.FirstOrDefault<Customer>(x => x.CustomerId == j.CustomerId);
         

@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace PropertySurveyService.Models
 {
-    public class Job
+    public class Contract
     {
         public int Id { get; set; }
         public int ContractId { get; set; }
@@ -66,7 +66,7 @@ namespace PropertySurveyService.Models
         public string? DamageDesc { get; set; }
         public string? Instructions { get; set; }
         public JobDTO() { }
-        public JobDTO(Job jobItem,Customer custItem)
+        public JobDTO(Contract jobItem,Customer custItem)
         { 
             
 

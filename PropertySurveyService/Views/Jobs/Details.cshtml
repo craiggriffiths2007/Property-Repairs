@@ -1,4 +1,4 @@
-﻿@model PropertySurveyService.Models.Job
+﻿@model PropertySurveyService.Models.Contract
 
 @{
     ViewData["Title"] = "Details";
@@ -52,3 +52,49 @@
     <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
     <a asp-action="Index">Back to List</a>
 </div>
+
+@if (ViewBag.Headers is IEnumerable<PropertySurveyService.Models.Header> headers && headers.Any())
+{
+    <hr />
+    <h4>Survey Records</h4>
+    <table class="table table-sm table-bordered">
+        <thead class="table-light">
+            <tr>
+                <th>Contract</th>
+                <th>Surveyor</th>
+                <th>Date</th>
+                <th>Status</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var header in headers)
+            {
+                <tr>
+                    <td>@header.udi_cont</td>
+                    <td>@header.nsn</td>
+                    <td>@header.udi_date</td>
+                    <td>
+                        @if (header.bDone)
+                        {
+                            <span class="badge bg-success">Complete</span>
+                        }
+                        else
+                        {
+                            <span class="badge bg-warning text-dark">In Progress</span>
+                        }
+                    </td>
+                    <td>
+                        <a asp-controller="Headers" asp-action="Details" asp-route-id="@header.Id"
+                           class="btn btn-outline-primary btn-sm">View</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <hr />
+    <p class="text-muted">No survey records found for this job.</p>
+}

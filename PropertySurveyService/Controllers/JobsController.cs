@@ -28,11 +28,62 @@ namespace PropertySurveyService.Controllers
         }
 
         // GET: Jobs
-        public async Task<IActionResult> Index(int? Id, int? headerId)
+        public async Task<IActionResult> Index(int? Id, int? headerId, int? month, int? year, string? view, string? weekStart)
         {
-            var viewModel = new JobIndexViewModel();
+            var now = DateTime.Today;
+            string viewMode = view ?? "month";
+            int displayYear = year ?? now.Year;
+            int displayMonth = month ?? now.Month;
 
-            viewModel.Jobs = _context.Job.Include(j => j.Customer).Include(j => j.Surveyor);
+            // Calculate the week start (Monday) for week view
+            DateTime weekStartDate;
+            if (!string.IsNullOrEmpty(weekStart) && DateTime.TryParse(weekStart, out var parsed))
+            {
+                weekStartDate = parsed;
+            }
+            else
+            {
+                // Default to the Monday of the current week
+                int diff = ((int)now.DayOfWeek - 1 + 7) % 7;
+                weekStartDate = now.AddDays(-diff);
+            }
+            DateTime weekEndDate = weekStartDate.AddDays(7);
+
+            var viewModel = new JobIndexViewModel
+            {
+                Year = displayYear,
+                Month = displayMonth,
+                ViewMode = viewMode,
+                WeekStartDate = weekStartDate
+            };
+
+            if (viewMode == "week")
+            {
+                viewModel.Jobs = await _context.Job
+                    .Include(j => j.Customer)
+                    .Include(j => j.Surveyor)
+                    .Where(j => j.Date >= weekStartDate && j.Date < weekEndDate)
+                    .OrderBy(j => j.Date).ThenBy(j => j.Time)
+                    .ToListAsync();
+            }
+            else if (viewMode == "list")
+            {
+                viewModel.Jobs = await _context.Job
+                    .Include(j => j.Customer)
+                    .Include(j => j.Surveyor)
+                    .Where(j => j.Date.Year == displayYear && j.Date.Month == displayMonth)
+                    .OrderBy(j => j.Date).ThenBy(j => j.Time)
+                    .ToListAsync();
+            }
+            else
+            {
+                viewModel.Jobs = await _context.Job
+                    .Include(j => j.Customer)
+                    .Include(j => j.Surveyor)
+                    .Where(j => j.Date.Year == displayYear && j.Date.Month == displayMonth)
+                    .OrderBy(j => j.Date).ThenBy(j => j.Time)
+                    .ToListAsync();
+            }
 
             if(Id!=null)
             {
@@ -103,13 +154,20 @@ namespace PropertySurveyService.Controllers
                 return NotFound();
             }
 
+            if (!string.IsNullOrEmpty(job.ContractCode))
+            {
+                ViewBag.Headers = await _context.Header
+                    .Where(h => h.udi_cont == job.ContractCode)
+                    .ToListAsync();
+            }
+
             return View(job);
         }
 
         // GET: Jobs/Create
         public IActionResult Create()
         {
-            Job job = new Job();
+            Contract job = new Contract();
             job.Date = DateTime.Now;
             job.Time = DateTime.Now;
             PopulateCustomersDropDownList();
@@ -122,7 +180,7 @@ namespace PropertySurveyService.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Date,Time,DamageDesc,Instructions,CustomerId,SurveyorId")] Job job)
+        public async Task<IActionResult> Create([Bind("Id,Date,Time,DamageDesc,Instructions,CustomerId,SurveyorId")] Contract job)
         {
             if (ModelState.IsValid)
             {
@@ -154,9 +212,10 @@ namespace PropertySurveyService.Controllers
             {
                 return NotFound();
             }
-            
+
             PopulateCustomersDropDownList(job.CustomerId);
             PopulateSurveyorsDropDownList(job.SurveyorId);
+
             return View(job);
         }
 
@@ -165,7 +224,7 @@ namespace PropertySurveyService.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,ContractCode,ContractId,Date,Time,DamageDesc,Instructions,CustomerId,SurveyorId")] Job job)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,ContractCode,ContractId,Date,Time,DamageDesc,Instructions,CustomerId,SurveyorId")] Contract job)
         {
             if (id != job.Id)
             {
@@ -195,6 +254,7 @@ namespace PropertySurveyService.Controllers
             }
             PopulateCustomersDropDownList(job.CustomerId);
             PopulateSurveyorsDropDownList(job.SurveyorId);
+
             return View(job);
         }
 

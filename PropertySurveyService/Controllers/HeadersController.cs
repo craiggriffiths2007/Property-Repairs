@@ -79,6 +79,13 @@ namespace PropertySurveyService.Controllers
                 viewModel.Images = photoimages;
             }
 
+            var parentJob = await _context.Job
+                .FirstOrDefaultAsync(j => j.ContractCode == viewModel.Header.udi_cont);
+            if (parentJob != null)
+            {
+                ViewBag.ParentJobId = parentJob.Id;
+            }
+
             return View(viewModel);
         }
 

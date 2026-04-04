@@ -2,59 +2,258 @@
 
 @{
     ViewData["Title"] = "Jobs";
+
+    var currentDate = new DateTime(Model.Year, Model.Month, 1);
+    var prevMonth = currentDate.AddMonths(-1);
+    var nextMonth = currentDate.AddMonths(1);
+    var daysInMonth = DateTime.DaysInMonth(Model.Year, Model.Month);
+    int startDayOfWeek = (int)currentDate.DayOfWeek;
+    // Convert Sunday=0 to Monday-first: Mon=0 .. Sun=6
+    startDayOfWeek = (startDayOfWeek == 0) ? 6 : startDayOfWeek - 1;
+
+    var jobsByDay = Model.Jobs?
+        .GroupBy(j => j.Date.Day)
+        .ToDictionary(g => g.Key, g => g.ToList())
+        ?? new Dictionary<int, List<PropertySurveyService.Models.Contract>>();
+
+    // Week view helpers
+    var weekStart = Model.WeekStartDate;
+    var weekEnd = weekStart.AddDays(6);
+    var prevWeek = weekStart.AddDays(-7);
+    var nextWeek = weekStart.AddDays(7);
+    string[] weekDayNames = { "Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun" };
+
+    // Build a lookup: dayOfWeek (0=Mon) -> hour -> list of jobs
+    var weekJobs = new Dictionary<int, Dictionary<int, List<PropertySurveyService.Models.Contract>>>();
+    for (int d = 0; d < 7; d++)
+        weekJobs[d] = new Dictionary<int, List<PropertySurveyService.Models.Contract>>();
+
+    if (Model.Jobs != null)
+    {
+        foreach (var job in Model.Jobs)
+        {
+            int dayIdx = ((int)job.Date.DayOfWeek - 1 + 7) % 7;
+            int hour = job.Time.Hour;
+            if (!weekJobs[dayIdx].ContainsKey(hour))
+                weekJobs[dayIdx][hour] = new List<PropertySurveyService.Models.Contract>();
+            weekJobs[dayIdx][hour].Add(job);
+        }
+    }
 }
 
 <h1>Jobs</h1>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>Contract Code</th>
-            <th>Date</th>
-            <th>Time</th>
-            <th>Damage</th>
-            <th>Surveyor</th>
-            <th>Customer</th>
+<!-- View mode toggle -->
+<div class="btn-group mb-3" role="group">
+    <a asp-action="Index" asp-route-view="month" asp-route-month="@Model.Month" asp-route-year="@Model.Year"
+       class="btn btn-sm @(Model.ViewMode == "month" ? "btn-primary" : "btn-outline-primary")">Month</a>
+    <a asp-action="Index" asp-route-view="week" asp-route-weekStart="@weekStart.ToString("yyyy-MM-dd")"
+       class="btn btn-sm @(Model.ViewMode == "week" ? "btn-primary" : "btn-outline-primary")">Week</a>
+    <a asp-action="Index" asp-route-view="list" asp-route-month="@Model.Month" asp-route-year="@Model.Year"
+       class="btn btn-sm @(Model.ViewMode == "list" ? "btn-primary" : "btn-outline-primary")">List</a>
+</div>
 
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model.Jobs)
-        {
+@if (Model.ViewMode == "month")
+{
+    <!-- MONTH VIEW -->
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <a asp-action="Index" asp-route-month="@prevMonth.Month" asp-route-year="@prevMonth.Year" asp-route-view="month"
+           class="btn btn-outline-secondary btn-sm">&laquo; Previous</a>
+        <h3 class="mb-0">@currentDate.ToString("MMMM yyyy")</h3>
+        <a asp-action="Index" asp-route-month="@nextMonth.Month" asp-route-year="@nextMonth.Year" asp-route-view="month"
+           class="btn btn-outline-secondary btn-sm">Next &raquo;</a>
+    </div>
+
+    <p>
+        <a asp-action="Create" class="btn btn-primary btn-sm">Create New Job</a>
+    </p>
+
+    <table class="table table-bordered calendar-table">
+        <thead class="table-light">
             <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.ContractCode)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Date)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Time)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.DamageDesc)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Surveyor.SurveyorCode)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Customer.Name)
-                </td>
-                <td>
-                    <a asp-action="Index" asp-route-id="@item.Id">Select</a> |
-                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                    <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-                </td>
+                <th>Mon</th>
+                <th>Tue</th>
+                <th>Wed</th>
+                <th>Thu</th>
+                <th>Fri</th>
+                <th>Sat</th>
+                <th>Sun</th>
             </tr>
-        }
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+            @{
+                int day = 1;
+                int totalCells = startDayOfWeek + daysInMonth;
+                int rows = (int)Math.Ceiling(totalCells / 7.0);
+            }
+            @for (int row = 0; row < rows; row++)
+            {
+                <tr>
+                    @for (int col = 0; col < 7; col++)
+                    {
+                        int cellIndex = row * 7 + col;
+                        if (cellIndex < startDayOfWeek || day > daysInMonth)
+                        {
+                            <td class="calendar-cell calendar-empty"></td>
+                        }
+                        else
+                        {
+                            bool isToday = (day == DateTime.Today.Day && Model.Month == DateTime.Today.Month && Model.Year == DateTime.Today.Year);
+                            <td class="calendar-cell @(isToday ? "calendar-today" : "")">
+                                <div class="calendar-day-number">@day</div>
+                                @if (jobsByDay.ContainsKey(day))
+                                {
+                                    @foreach (var job in jobsByDay[day])
+                                    {
+                                        <div class="calendar-event">
+                                            <a asp-action="Details" asp-route-id="@job.Id" class="calendar-event-link">
+                                                <strong>@job.Time.ToString("HH:mm")</strong>
+                                                @if (job.Customer != null)
+                                                {
+                                                    <span> - @job.Customer.Name</span>
+                                                }
+                                            </a>
+                                        </div>
+                                    }
+                                }
+                            </td>
+                            day++;
+                        }
+                    }
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else if (Model.ViewMode == "week")
+{
+    <!-- WEEK VIEW -->
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <a asp-action="Index" asp-route-view="week" asp-route-weekStart="@prevWeek.ToString("yyyy-MM-dd")"
+           class="btn btn-outline-secondary btn-sm">&laquo; Previous Week</a>
+        <h3 class="mb-0">
+            @weekStart.ToString("dd MMM") &ndash; @weekEnd.ToString("dd MMM yyyy")
+        </h3>
+        <a asp-action="Index" asp-route-view="week" asp-route-weekStart="@nextWeek.ToString("yyyy-MM-dd")"
+           class="btn btn-outline-secondary btn-sm">Next Week &raquo;</a>
+    </div>
 
+    <p>
+        <a asp-action="Create" class="btn btn-primary btn-sm">Create New Job</a>
+    </p>
+
+    <div class="week-view-container">
+        <table class="table table-bordered week-table">
+            <thead class="table-light">
+                <tr>
+                    <th class="week-time-col">Time</th>
+                    @for (int d = 0; d < 7; d++)
+                    {
+                        var colDate = weekStart.AddDays(d);
+                        bool isToday = colDate == DateTime.Today;
+                        <th class="week-day-col @(isToday ? "week-today-header" : "")">
+                            @weekDayNames[d]<br />
+                            <span class="week-date-label">@colDate.ToString("dd/MM")</span>
+                        </th>
+                    }
+                </tr>
+            </thead>
+            <tbody>
+                @for (int hour = 7; hour <= 19; hour++)
+                {
+                    <tr>
+                        <td class="week-time-label">@hour.ToString("00"):00</td>
+                        @for (int d = 0; d < 7; d++)
+                        {
+                            var colDate = weekStart.AddDays(d);
+                            bool isToday = colDate == DateTime.Today;
+                            <td class="week-cell @(isToday ? "week-today-cell" : "")">
+                                @if (weekJobs[d].ContainsKey(hour))
+                                {
+                                    @foreach (var job in weekJobs[d][hour])
+                                    {
+                                        <div class="calendar-event">
+                                            <a asp-action="Edit" asp-route-id="@job.Id" class="calendar-event-link">
+                                                <strong>@job.Time.ToString("HH:mm")</strong>
+                                                @if (job.Customer != null)
+                                                {
+                                                    <span> - @job.Customer.Name</span>
+                                                }
+                                            </a>
+                                            <div class="calendar-event-actions">
+                                                <a asp-action="Details" asp-route-id="@job.Id" title="Details">📋</a>
+                                                <a asp-action="Index" asp-route-id="@job.Id"
+                                                   asp-route-view="week"
+                                                   asp-route-weekStart="@weekStart.ToString("yyyy-MM-dd")"
+                                                   title="Select">📂</a>
+                                            </div>
+                                        </div>
+                                    }
+                                }
+                            </td>
+                        }
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+}
+else if (Model.ViewMode == "list")
+{
+    <!-- LIST VIEW -->
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <a asp-action="Index" asp-route-month="@prevMonth.Month" asp-route-year="@prevMonth.Year" asp-route-view="list"
+           class="btn btn-outline-secondary btn-sm">&laquo; Previous</a>
+        <h3 class="mb-0">@currentDate.ToString("MMMM yyyy")</h3>
+        <a asp-action="Index" asp-route-month="@nextMonth.Month" asp-route-year="@nextMonth.Year" asp-route-view="list"
+           class="btn btn-outline-secondary btn-sm">Next &raquo;</a>
+    </div>
+
+    <p>
+        <a asp-action="Create" class="btn btn-primary btn-sm">Create New Job</a>
+    </p>
+
+    <table class="table table-sm table-striped table-bordered">
+        <thead class="table-light">
+            <tr>
+                <th>Contract Code</th>
+                <th>Date</th>
+                <th>Time</th>
+                <th>Customer</th>
+                <th>Surveyor</th>
+                <th>Damage</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model.Jobs != null && Model.Jobs.Any())
+            {
+                @foreach (var job in Model.Jobs)
+                {
+                    <tr>
+                        <td>@job.ContractCode</td>
+                        <td>@job.Date.ToString("dd/MM/yyyy")</td>
+                        <td>@job.Time.ToString("HH:mm")</td>
+                        <td>@job.Customer?.Name</td>
+                        <td>@job.Surveyor?.SurveyorCode</td>
+                        <td>@job.DamageDesc</td>
+                        <td>
+                            <a asp-action="Edit" asp-route-id="@job.Id" class="btn btn-outline-primary btn-sm">Edit</a>
+                            <a asp-action="Details" asp-route-id="@job.Id" class="btn btn-outline-secondary btn-sm">Details</a>
+                            <a asp-action="Delete" asp-route-id="@job.Id" class="btn btn-outline-danger btn-sm">Delete</a>
+                        </td>
+                    </tr>
+                }
+            }
+            else
+            {
+                <tr>
+                    <td colspan="7" class="text-center text-muted">No jobs found for this month.</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
 
 
 @if (Model.Headers != null)
@@ -87,6 +286,3 @@
     </table>
 
 }
-
-
-
