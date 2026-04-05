@@ -70,11 +70,11 @@ namespace PropertySurveyService.Data
                 context.Add(c);
             }
 
-            var surveyors = new Surveyor[]
+            var agents = new Agent[]
             {
-                new Surveyor{Name="James Dean", SurveyorCode="H1"},
+                new Agent{Name="James Dean", AgentCode="H1"},
             };
-            foreach (Surveyor s in surveyors)
+            foreach (Agent s in agents)
             {
                 context.Add(s);
             }

@@ -6,6 +6,13 @@
         Fitting = 1
     }
 
+    public enum AgentType
+    {
+        Surveyor = 0,
+        Fitter = 1,
+        Satellite = 3
+    }
+
     public enum enum_item_type
     {
         upvc, panel, glass, alum, garage, timber,

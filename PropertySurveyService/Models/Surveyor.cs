@@ -2,15 +2,17 @@
 
 namespace PropertySurveyService.Models
 {
-    public class Surveyor
+    public class Agent
     {
         [Key]
-        public int SurveyorId { get; set; }
+        public int AgentId { get; set; }
         [Required]
         [Display(Name = "Code")]
-        public string? SurveyorCode { get; set; }
+        public string? AgentCode { get; set; }
         [Required]
         [Display(Name = "Name")]
         public string? Name { get; set; }
+        [Display(Name = "Agent Type")]
+        public int AgentType { get; set; }
     }
 }

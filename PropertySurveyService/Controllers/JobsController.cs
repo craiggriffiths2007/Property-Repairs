@@ -61,7 +61,7 @@ namespace PropertySurveyService.Controllers
             {
                 viewModel.Jobs = await _context.Job
                     .Include(j => j.Customer)
-                    .Include(j => j.Surveyor)
+                    .Include(j => j.Agent)
                     .Where(j => j.Date >= weekStartDate && j.Date < weekEndDate)
                     .OrderBy(j => j.Date).ThenBy(j => j.Time)
                     .ToListAsync();
@@ -70,7 +70,7 @@ namespace PropertySurveyService.Controllers
             {
                 viewModel.Jobs = await _context.Job
                     .Include(j => j.Customer)
-                    .Include(j => j.Surveyor)
+                    .Include(j => j.Agent)
                     .Where(j => j.Date.Year == displayYear && j.Date.Month == displayMonth)
                     .OrderBy(j => j.Date).ThenBy(j => j.Time)
                     .ToListAsync();
@@ -79,7 +79,7 @@ namespace PropertySurveyService.Controllers
             {
                 viewModel.Jobs = await _context.Job
                     .Include(j => j.Customer)
-                    .Include(j => j.Surveyor)
+                    .Include(j => j.Agent)
                     .Where(j => j.Date.Year == displayYear && j.Date.Month == displayMonth)
                     .OrderBy(j => j.Date).ThenBy(j => j.Time)
                     .ToListAsync();
@@ -145,12 +145,12 @@ namespace PropertySurveyService.Controllers
             ViewBag.ContractId = new SelectList(contractsQuery.AsNoTracking(), "Id", "DisplayText", selectedContract);
         }
 
-        private void PopulateSurveyorsDropDownList(object selectedSurveyor = null)
+        private void PopulateAgentsDropDownList(object selectedAgent = null)
         {
-            var surveyorsQuery = from d in _context.Surveyor
+            var agentsQuery = from d in _context.Agent
                                  orderby d.Name
-                                 select new { d.SurveyorId, DisplayText = d.SurveyorCode + " - " + d.Name };
-            ViewBag.SurveyorId = new SelectList(surveyorsQuery.AsNoTracking(), "SurveyorId", "DisplayText", selectedSurveyor);
+                                 select new { d.AgentId, DisplayText = d.AgentCode + " - " + d.Name };
+            ViewBag.AgentId = new SelectList(agentsQuery.AsNoTracking(), "AgentId", "DisplayText", selectedAgent);
         }
 
         private void PopulateJobTypeDropDownList(object? selectedValue = null)
@@ -172,7 +172,7 @@ namespace PropertySurveyService.Controllers
 
             var job = await _context.Job
                 .Include(j => j.Customer)
-                .Include(j => j.Surveyor)
+                .Include(j => j.Agent)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (job == null)
             {
@@ -196,7 +196,7 @@ namespace PropertySurveyService.Controllers
             job.Date = DateTime.Now;
             job.Time = DateTime.Now;
             PopulateContractsDropDownList();
-            PopulateSurveyorsDropDownList();
+            PopulateAgentsDropDownList();
             PopulateJobTypeDropDownList();
             return View(job);
         }
@@ -206,7 +206,7 @@ namespace PropertySurveyService.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Date,Time,DamageDesc,Instructions,ContractId,SurveyorId,JobType")] Job job)
+        public async Task<IActionResult> Create([Bind("Id,Date,Time,DamageDesc,Instructions,ContractId,AgentId,JobType")] Job job)
         {
             if (ModelState.IsValid)
             {
@@ -221,7 +221,7 @@ namespace PropertySurveyService.Controllers
                 return RedirectToAction(nameof(Index));
             }
             PopulateContractsDropDownList(job.ContractId);
-            PopulateSurveyorsDropDownList(job.SurveyorId);
+            PopulateAgentsDropDownList(job.AgentId);
             PopulateJobTypeDropDownList(job.JobType);
             return View(job);
         }
@@ -242,7 +242,7 @@ namespace PropertySurveyService.Controllers
             }
 
             PopulateContractsDropDownList(job.ContractId);
-            PopulateSurveyorsDropDownList(job.SurveyorId);
+            PopulateAgentsDropDownList(job.AgentId);
             PopulateJobTypeDropDownList(job.JobType);
 
             return View(job);
@@ -253,7 +253,7 @@ namespace PropertySurveyService.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,ContractId,Date,Time,DamageDesc,Instructions,SurveyorId,JobType")] Job job)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,ContractId,Date,Time,DamageDesc,Instructions,AgentId,JobType")] Job job)
         {
             if (id != job.Id)
             {
@@ -287,7 +287,7 @@ namespace PropertySurveyService.Controllers
                 return RedirectToAction(nameof(Index));
             }
             PopulateContractsDropDownList(job.ContractId);
-            PopulateSurveyorsDropDownList(job.SurveyorId);
+            PopulateAgentsDropDownList(job.AgentId);
             PopulateJobTypeDropDownList(job.JobType);
 
             return View(job);
@@ -303,7 +303,7 @@ namespace PropertySurveyService.Controllers
 
             var job = await _context.Job
                 .Include(j => j.Customer)
-                .Include(j => j.Surveyor)
+                .Include(j => j.Agent)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (job == null)
             {

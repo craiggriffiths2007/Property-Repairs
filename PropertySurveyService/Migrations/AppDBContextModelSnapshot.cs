@@ -234,6 +234,30 @@ namespace PropertySurveyService.Migrations
                     b.ToTable("AspNetUsers", (string)null);
                 });
 
+            modelBuilder.Entity("PropertySurveyService.Models.Agent", b =>
+                {
+                    b.Property<int>("AgentId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("AgentId"));
+
+                    b.Property<string>("AgentCode")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("AgentType")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("AgentId");
+
+                    b.ToTable("Agent");
+                });
+
             modelBuilder.Entity("PropertySurveyService.Models.AluminiumTable", b =>
                 {
                     b.Property<int>("Id")
@@ -3273,6 +3297,9 @@ namespace PropertySurveyService.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<int?>("AgentId")
+                        .HasColumnType("int");
+
                     b.Property<string>("ContractCode")
                         .HasColumnType("nvarchar(max)");
 
@@ -3294,19 +3321,16 @@ namespace PropertySurveyService.Migrations
                     b.Property<int>("JobType")
                         .HasColumnType("int");
 
-                    b.Property<int?>("SurveyorId")
-                        .HasColumnType("int");
-
                     b.Property<DateTime>("Time")
                         .HasColumnType("datetime2");
 
                     b.HasKey("Id");
 
+                    b.HasIndex("AgentId");
+
                     b.HasIndex("ContractId");
 
                     b.HasIndex("CustomerId");
-
-                    b.HasIndex("SurveyorId");
 
                     b.ToTable("Job");
                 });
@@ -3638,27 +3662,6 @@ namespace PropertySurveyService.Migrations
                     b.HasIndex("Filename");
 
                     b.ToTable("Images");
-                });
-
-            modelBuilder.Entity("PropertySurveyService.Models.Surveyor", b =>
-                {
-                    b.Property<int>("SurveyorId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("SurveyorId"));
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("SurveyorCode")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("SurveyorId");
-
-                    b.ToTable("Surveyor");
                 });
 
             modelBuilder.Entity("PropertySurveyService.Models.TimberTable", b =>
@@ -4577,6 +4580,10 @@ namespace PropertySurveyService.Migrations
 
             modelBuilder.Entity("PropertySurveyService.Models.Job", b =>
                 {
+                    b.HasOne("PropertySurveyService.Models.Agent", "Agent")
+                        .WithMany()
+                        .HasForeignKey("AgentId");
+
                     b.HasOne("PropertySurveyService.Models.Contract", "Contract")
                         .WithMany()
                         .HasForeignKey("ContractId")
@@ -4587,15 +4594,11 @@ namespace PropertySurveyService.Migrations
                         .WithMany()
                         .HasForeignKey("CustomerId");
 
-                    b.HasOne("PropertySurveyService.Models.Surveyor", "Surveyor")
-                        .WithMany()
-                        .HasForeignKey("SurveyorId");
+                    b.Navigation("Agent");
 
                     b.Navigation("Contract");
 
                     b.Navigation("Customer");
-
-                    b.Navigation("Surveyor");
                 });
 #pragma warning restore 612, 618
         }

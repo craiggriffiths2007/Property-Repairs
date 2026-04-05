@@ -57,7 +57,7 @@ app.MapPost("/GetSurveyJobs", (GetSurveysDTO gs, PropertySurveyService.Data.AppD
 {
     List<JobDTO> send_jobs = new List<JobDTO>();
 
-    foreach (var j in db.Job.Where<Job>(x => x.Surveyor.SurveyorCode == gs.SurveyorCode &&
+    foreach (var j in db.Job.Where<Job>(x => x.Agent.AgentCode == gs.AgentCode &&
                                                 x.JobType == 0).ToList<Job>())
     {
         Customer? c = db.Customer.FirstOrDefault<Customer>(x => x.CustomerId == j.CustomerId);
@@ -71,22 +71,45 @@ app.MapPost("/GetSurveyJobs", (GetSurveysDTO gs, PropertySurveyService.Data.AppD
     return Task.FromResult<IResult>(Results.Ok(send_jobs));
 });
 
-app.MapPost("/GetFittingJobs", (GetSurveysDTO gs, PropertySurveyService.Data.AppDBContext db) =>
+app.MapPost("/GetFittingJobs", (GetFittingDTO gs, PropertySurveyService.Data.AppDBContext db) =>
 {
-    List<JobDTO> send_jobs = new List<JobDTO>();
+    var fittingJobs = db.Job
+        .Where(x => x.Agent.AgentCode == gs.FitterCode && x.JobType == 1)
+        .ToList();
 
-    foreach (var j in db.Job.Where<Job>(x => x.Surveyor.SurveyorCode == gs.SurveyorCode &&
-                                                x.JobType == 0).ToList<Job>())
+    var results = new List<FittingJobDTO>();
+
+    foreach (var job in fittingJobs)
     {
-        Customer? c = db.Customer.FirstOrDefault<Customer>(x => x.CustomerId == j.CustomerId);
+        var customer = db.Customer.FirstOrDefault(x => x.CustomerId == job.CustomerId) ?? new Customer();
 
-        if (c == null)
-            c = new Customer();
+        var header = db.Header
+            .Where(h => h.udi_cont == job.ContractCode)
+            .OrderByDescending(h => h.Id)
+            .FirstOrDefault();
 
-        send_jobs.Add(new JobDTO(j, c));
+        if (header == null)
+            continue;
+
+        results.Add(new FittingJobDTO
+        {
+            Job = new JobDTO(job, customer),
+            Head = header,
+            Panels = db.PanelTable.Where(p => p.HeaderId == header.Id).ToList(),
+            Aluminia = db.AlumTable.Where(a => a.HeaderId == header.Id).ToList(),
+            Bifolds = db.BifoldTable.Where(b => b.HeaderId == header.Id).ToList(),
+            Composites = db.CompositeTable.Where(c => c.HeaderId == header.Id).ToList(),
+            Cons = db.ConsTable.Where(c => c.HeaderId == header.Id).ToList(),
+            Garages = db.GarageTable.Where(g => g.HeaderId == header.Id).ToList(),
+            Glass = db.GlassTable.Where(g => g.HeaderId == header.Id).ToList(),
+            Greens = db.GreenTable.Where(g => g.HeaderId == header.Id).ToList(),
+            Locks = db.LockingTable.Where(l => l.HeaderId == header.Id).ToList(),
+            Timbers = db.TimberTable.Where(t => t.HeaderId == header.Id).ToList(),
+            UPVCs = db.UPVCTable.Where(u => u.HeaderId == header.Id).ToList()
+        });
     }
 
-    return Task.FromResult<IResult>(Results.Ok(send_jobs));
+    return Task.FromResult<IResult>(Results.Ok(results));
 });
 
 app.MapPost("/SendSurveyHeader", (Header survey_header, PropertySurveyService.Data.AppDBContext db) =>

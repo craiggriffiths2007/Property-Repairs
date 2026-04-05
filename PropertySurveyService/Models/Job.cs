@@ -29,9 +29,9 @@ namespace PropertySurveyService.Models
 
         public int? CustomerId { get; set; }
 
-        public int? SurveyorId { get; set; }
+        public int? AgentId { get; set; }
 
-        public Surveyor? Surveyor { get; set; }
+        public Agent? Agent { get; set; }
 
         public Customer? Customer { get; set; }
 
@@ -46,7 +46,12 @@ namespace PropertySurveyService.Models
 
     public class GetSurveysDTO
     {
-        public string? SurveyorCode { get; set; }
+        public string? AgentCode { get; set; }
+
+    }
+    public class GetFittingDTO
+    {
+        public string FitterCode { get; set; }
 
     }
 

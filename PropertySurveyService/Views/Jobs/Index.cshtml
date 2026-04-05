@@ -215,7 +215,7 @@ else if (Model.ViewMode == "list")
                 <th>Date</th>
                 <th>Time</th>
                 <th>Customer</th>
-                <th>Surveyor</th>
+                <th>Agent</th>
                 <th>Damage</th>
                 <th></th>
             </tr>
@@ -230,7 +230,7 @@ else if (Model.ViewMode == "list")
                         <td>@job.Date.ToString("dd/MM/yyyy")</td>
                         <td>@job.Time.ToString("HH:mm")</td>
                         <td>@job.Customer?.Name</td>
-                        <td>@job.Surveyor?.SurveyorCode</td>
+                        <td>@job.Agent?.AgentCode</td>
                         <td>@job.DamageDesc</td>
                         <td>
                             <a asp-action="Edit" asp-route-id="@job.Id" class="btn btn-outline-primary btn-sm">Edit</a>
