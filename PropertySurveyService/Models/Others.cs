@@ -1,5 +1,11 @@
 ﻿namespace PropertySurveyService.Models
 {
+    public enum JobType
+    {
+        Survey = 0,
+        Fitting = 1
+    }
+
     public enum enum_item_type
     {
         upvc, panel, glass, alum, garage, timber,

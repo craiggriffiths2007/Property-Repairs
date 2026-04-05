@@ -92,6 +92,22 @@ namespace PropertySurveyService.Controllers
                 viewModel.Headers = _context.Header.Where(x => x.udi_cont == _context.Job.FirstOrDefault(j => j.Id == Id).ContractCode).ToList();
             }
 
+            // Build set of contract codes that have at least one Header record
+            if (viewModel.Jobs != null)
+            {
+                var codes = viewModel.Jobs
+                    .Where(j => !string.IsNullOrEmpty(j.ContractCode))
+                    .Select(j => j.ContractCode!)
+                    .Distinct()
+                    .ToList();
+                var codesWithHeaders = await _context.Header
+                    .Where(h => h.udi_cont != null && codes.Contains(h.udi_cont))
+                    .Select(h => h.udi_cont!)
+                    .Distinct()
+                    .ToListAsync();
+                viewModel.ContractCodesWithHeaders = new HashSet<string>(codesWithHeaders);
+            }
+
             /*
             if(headerId!=null)
             {
@@ -120,12 +136,13 @@ namespace PropertySurveyService.Controllers
             return View(viewModel);
         }
 
-        private void PopulateCustomersDropDownList(object selectedCustomer = null)
+        private void PopulateContractsDropDownList(object selectedContract = null)
         {
-            var customersQuery = from d in _context.Customer
-                                 orderby d.Name
-                                 select d;
-            ViewBag.CustomerId = new SelectList(customersQuery.AsNoTracking(), "CustomerId", "Name", selectedCustomer);
+            var contractsQuery = _context.Contract
+                .Include(c => c.Customer)
+                .OrderBy(c => c.ContractCode)
+                .Select(c => new { c.Id, DisplayText = c.ContractCode + " - " + (c.Customer != null ? c.Customer.Name : "") });
+            ViewBag.ContractId = new SelectList(contractsQuery.AsNoTracking(), "Id", "DisplayText", selectedContract);
         }
 
         private void PopulateSurveyorsDropDownList(object selectedSurveyor = null)
@@ -134,6 +151,14 @@ namespace PropertySurveyService.Controllers
                                  orderby d.Name
                                  select new { d.SurveyorId, DisplayText = d.SurveyorCode + " - " + d.Name };
             ViewBag.SurveyorId = new SelectList(surveyorsQuery.AsNoTracking(), "SurveyorId", "DisplayText", selectedSurveyor);
+        }
+
+        private void PopulateJobTypeDropDownList(object? selectedValue = null)
+        {
+            ViewBag.JobTypes = new SelectList(
+                Enum.GetValues<JobType>()
+                    .Select(j => new { Value = (int)j, Text = j.ToString() }),
+                "Value", "Text", selectedValue);
         }
 
 
@@ -170,8 +195,9 @@ namespace PropertySurveyService.Controllers
             Job job = new Job();
             job.Date = DateTime.Now;
             job.Time = DateTime.Now;
-            PopulateCustomersDropDownList();
+            PopulateContractsDropDownList();
             PopulateSurveyorsDropDownList();
+            PopulateJobTypeDropDownList();
             return View(job);
         }
 
@@ -180,21 +206,23 @@ namespace PropertySurveyService.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Date,Time,DamageDesc,Instructions,CustomerId,SurveyorId")] Job job)
+        public async Task<IActionResult> Create([Bind("Id,Date,Time,DamageDesc,Instructions,ContractId,SurveyorId,JobType")] Job job)
         {
             if (ModelState.IsValid)
             {
-                job.ContractCode = (job.Id + 1000).ToString("00000000");
+                var contract = await _context.Contract.FindAsync(job.ContractId);
+                if (contract != null)
+                {
+                    job.ContractCode = contract.ContractCode;
+                    job.CustomerId = contract.CustomerId;
+                }
                 _context.Add(job);
-                await _context.SaveChangesAsync();
-                job.ContractCode = (job.Id + 1000).ToString("00000000");
-                _context.Update(job);
-
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            PopulateCustomersDropDownList(job.CustomerId);
+            PopulateContractsDropDownList(job.ContractId);
             PopulateSurveyorsDropDownList(job.SurveyorId);
+            PopulateJobTypeDropDownList(job.JobType);
             return View(job);
         }
 
@@ -213,8 +241,9 @@ namespace PropertySurveyService.Controllers
                 return NotFound();
             }
 
-            PopulateCustomersDropDownList(job.CustomerId);
+            PopulateContractsDropDownList(job.ContractId);
             PopulateSurveyorsDropDownList(job.SurveyorId);
+            PopulateJobTypeDropDownList(job.JobType);
 
             return View(job);
         }
@@ -224,7 +253,7 @@ namespace PropertySurveyService.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,ContractCode,ContractId,Date,Time,DamageDesc,Instructions,CustomerId,SurveyorId")] Job job)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,ContractId,Date,Time,DamageDesc,Instructions,SurveyorId,JobType")] Job job)
         {
             if (id != job.Id)
             {
@@ -235,7 +264,12 @@ namespace PropertySurveyService.Controllers
             {
                 try
                 {
-                    job.ContractCode = (job.Id + 1000).ToString("00000000");
+                    var contract = await _context.Contract.FindAsync(job.ContractId);
+                    if (contract != null)
+                    {
+                        job.ContractCode = contract.ContractCode;
+                        job.CustomerId = contract.CustomerId;
+                    }
                     _context.Update(job);
                     await _context.SaveChangesAsync();
                 }
@@ -252,8 +286,9 @@ namespace PropertySurveyService.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            PopulateCustomersDropDownList(job.CustomerId);
+            PopulateContractsDropDownList(job.ContractId);
             PopulateSurveyorsDropDownList(job.SurveyorId);
+            PopulateJobTypeDropDownList(job.JobType);
 
             return View(job);
         }
@@ -300,6 +335,17 @@ namespace PropertySurveyService.Controllers
         private bool JobExists(int id)
         {
             return (_context.Job?.Any(e => e.Id == id)).GetValueOrDefault();
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetContractDamageDescription(int id)
+        {
+            var contract = await _context.Contract.FindAsync(id);
+            if (contract == null)
+            {
+                return Json(new { damageDescription = "" });
+            }
+            return Json(new { damageDescription = contract.DamageDescription ?? "" });
         }
     }
 }

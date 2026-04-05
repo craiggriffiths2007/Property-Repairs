@@ -105,7 +105,8 @@
                                 {
                                     @foreach (var job in jobsByDay[day])
                                     {
-                                        <div class="calendar-event">
+                                        var hasHeader = !string.IsNullOrEmpty(job.ContractCode) && Model.ContractCodesWithHeaders.Contains(job.ContractCode);
+                                        <div class="calendar-event @(job.JobType == 0 ? "job-type-survey" : "job-type-fitting") @(hasHeader ? "has-header" : "")">
                                             <a asp-action="Details" asp-route-id="@job.Id" class="calendar-event-link">
                                                 <strong>@job.Time.ToString("HH:mm")</strong>
                                                 @if (job.Customer != null)
@@ -172,7 +173,8 @@ else if (Model.ViewMode == "week")
                                 {
                                     @foreach (var job in weekJobs[d][hour])
                                     {
-                                        <div class="calendar-event">
+                                        var hasHeader = !string.IsNullOrEmpty(job.ContractCode) && Model.ContractCodesWithHeaders.Contains(job.ContractCode);
+                                        <div class="calendar-event @(job.JobType == 0 ? "job-type-survey" : "job-type-fitting") @(hasHeader ? "has-header" : "")">
                                             <a asp-action="Details" asp-route-id="@job.Id" class="calendar-event-link">
                                                 <strong>@job.Time.ToString("HH:mm")</strong>
                                                 @if (job.Customer != null)

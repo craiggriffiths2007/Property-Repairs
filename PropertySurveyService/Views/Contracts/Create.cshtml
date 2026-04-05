@@ -1,0 +1,45 @@
+@model PropertySurveyService.Models.Contract
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Contract</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="CustomerId" class="control-label">Customer</label>
+                <select asp-for="CustomerId" asp-items="@((SelectList)ViewBag.Customers)" class="form-control">
+                    <option value="">-- Select Customer --</option>
+                </select>
+                <span asp-validation-for="CustomerId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IncidentAdded" class="control-label"></label>
+                <input asp-for="IncidentAdded" class="form-control" type="datetime-local" />
+                <span asp-validation-for="IncidentAdded" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DamageDescription" class="control-label"></label>
+                <input asp-for="DamageDescription" class="form-control" />
+                <span asp-validation-for="DamageDescription" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

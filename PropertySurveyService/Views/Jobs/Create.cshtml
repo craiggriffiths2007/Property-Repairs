@@ -33,12 +33,20 @@
                 <span asp-validation-for="Instructions" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Customer" class="control-label"></label>
-                <select asp-for="Customer" class ="form-control" asp-items="ViewBag.CustomerId"></select>
+                <label asp-for="ContractId" class="control-label">Contract</label>
+                <select asp-for="ContractId" class="form-control" asp-items="ViewBag.ContractId" id="ContractId">
+                    <option value="">-- Select Contract --</option>
+                </select>
+                <span asp-validation-for="ContractId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="JobType" class="control-label">Job Type</label>
+                <select asp-for="JobType" class="form-control" asp-items="@((SelectList)ViewBag.JobTypes)"></select>
+                <span asp-validation-for="JobType" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="SurveyorId" class="control-label"></label>
-                <select asp-for="SurveyorId" class ="form-control" asp-items="ViewBag.SurveyorId"></select>
+                <select asp-for="SurveyorId" class="form-control" asp-items="ViewBag.SurveyorId"></select>
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
@@ -53,4 +61,18 @@
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script>
+        document.getElementById('ContractId').addEventListener('change', function () {
+            var contractId = this.value;
+            if (contractId) {
+                fetch('@Url.Action("GetContractDamageDescription", "Jobs")' + '?id=' + contractId)
+                    .then(response => response.json())
+                    .then(data => {
+                        document.getElementById('DamageDesc').value = data.damageDescription;
+                    });
+            } else {
+                document.getElementById('DamageDesc').value = '';
+            }
+        });
+    </script>
 }

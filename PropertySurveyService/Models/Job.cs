@@ -11,6 +11,8 @@ namespace PropertySurveyService.Models
         [Display(Name = "Contract Code")]
         public string? ContractCode { get; set; }
 
+        public int JobType { get; set; } // 0 - Survey 1 - Fitting
+
         [Display(Name = "Job Date")]
         [DataType(DataType.Date)]
 
@@ -32,6 +34,8 @@ namespace PropertySurveyService.Models
         public Surveyor? Surveyor { get; set; }
 
         public Customer? Customer { get; set; }
+
+        public Contract? Contract { get; set; }
         /*
         public Job()
         {
@@ -50,7 +54,7 @@ namespace PropertySurveyService.Models
     {
         public int Id { get; set; }
         public int ContractId { get; set; }
-
+        public int iRecordType { get; set; }
         public string? ContractCode { get; set; }
         public string? udi_cont { get; set; }
         public string? Date { get; set; }

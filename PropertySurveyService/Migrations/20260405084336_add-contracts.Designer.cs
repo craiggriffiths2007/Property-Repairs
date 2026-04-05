@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PropertySurveyService.Data;
 
@@ -11,9 +12,11 @@ using PropertySurveyService.Data;
 namespace PropertySurveyService.Migrations
 {
     [DbContext(typeof(AppDBContext))]
-    partial class AppDBContextModelSnapshot : ModelSnapshot
+    [Migration("20260405084336_add-contracts")]
+    partial class addcontracts
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -1352,6 +1355,9 @@ namespace PropertySurveyService.Migrations
 
                     b.Property<string>("ContractCode")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("ContractId")
+                        .HasColumnType("int");
 
                     b.Property<int?>("CustomerId")
                         .HasColumnType("int");
@@ -3291,9 +3297,6 @@ namespace PropertySurveyService.Migrations
                     b.Property<string>("Instructions")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("JobType")
-                        .HasColumnType("int");
-
                     b.Property<int?>("SurveyorId")
                         .HasColumnType("int");
 
@@ -3301,8 +3304,6 @@ namespace PropertySurveyService.Migrations
                         .HasColumnType("datetime2");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("ContractId");
 
                     b.HasIndex("CustomerId");
 
@@ -4577,12 +4578,6 @@ namespace PropertySurveyService.Migrations
 
             modelBuilder.Entity("PropertySurveyService.Models.Job", b =>
                 {
-                    b.HasOne("PropertySurveyService.Models.Contract", "Contract")
-                        .WithMany()
-                        .HasForeignKey("ContractId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("PropertySurveyService.Models.Customer", "Customer")
                         .WithMany()
                         .HasForeignKey("CustomerId");
@@ -4590,8 +4585,6 @@ namespace PropertySurveyService.Migrations
                     b.HasOne("PropertySurveyService.Models.Surveyor", "Surveyor")
                         .WithMany()
                         .HasForeignKey("SurveyorId");
-
-                    b.Navigation("Contract");
 
                     b.Navigation("Customer");
 

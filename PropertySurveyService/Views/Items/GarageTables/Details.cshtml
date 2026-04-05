@@ -1,0 +1,180 @@
+@model PropertySurveyService.ViewModels.ItemIndexViewModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Garage Details</h1>
+<hr />
+
+<div class="row mb-3">
+    <div class="col-md-4">
+        <dl>
+            <dt>@Html.DisplayNameFor(model => model.Garage.udi_cont)</dt>
+            <dd>@Html.DisplayFor(model => model.Garage.udi_cont)</dd>
+            <dt>@Html.DisplayNameFor(model => model.Garage.item_number)</dt>
+            <dd>@Html.DisplayFor(model => model.Garage.item_number)</dd>
+            <dt>@Html.DisplayNameFor(model => model.Garage.HeaderId)</dt>
+            <dd>@Html.DisplayFor(model => model.Garage.HeaderId)</dd>
+            <dt>@Html.DisplayNameFor(model => model.Garage.isComplete)</dt>
+            <dd>@Html.DisplayFor(model => model.Garage.isComplete)</dd>
+            <dt>@Html.DisplayNameFor(model => model.Garage.cause_of_damage)</dt>
+            <dd>@Html.DisplayFor(model => model.Garage.cause_of_damage)</dd>
+            <dt>@Html.DisplayNameFor(model => model.Garage.cause_of_damage_reason_different)</dt>
+            <dd>@Html.DisplayFor(model => model.Garage.cause_of_damage_reason_different)</dd>
+            <dt>@Html.DisplayNameFor(model => model.Garage.point_of_entry)</dt>
+            <dd>@Html.DisplayFor(model => model.Garage.point_of_entry)</dd>
+            <dt>@Html.DisplayNameFor(model => model.Garage.was_it_locked)</dt>
+            <dd>@Html.DisplayFor(model => model.Garage.was_it_locked)</dd>
+            <dt>@Html.DisplayNameFor(model => model.Garage.type_of_lockng_system_required)</dt>
+            <dd>@Html.DisplayFor(model => model.Garage.type_of_lockng_system_required)</dd>
+            <dt>@Html.DisplayNameFor(model => model.Garage.where_is_garage)</dt>
+            <dd>@Html.DisplayFor(model => model.Garage.where_is_garage)</dd>
+            <dt>@Html.DisplayNameFor(model => model.Garage.type_of_garage)</dt>
+            <dd>@Html.DisplayFor(model => model.Garage.type_of_garage)</dd>
+            <dt>@Html.DisplayNameFor(model => model.Garage.opening_direction)</dt>
+            <dd>@Html.DisplayFor(model => model.Garage.opening_direction)</dd>
+            <dt>@Html.DisplayNameFor(model => model.Garage.opening_type)</dt>
+            <dd>@Html.DisplayFor(model => model.Garage.opening_type)</dd>
+        </dl>
+    </div>
+    <div class="col-md-4">
+        <dl>
+            <dt>@Html.DisplayNameFor(model => model.Garage.actual_door_width)</dt>
+            <dd>@Html.DisplayFor(model => model.Garage.actual_door_width)</dd>
+            <dt>@Html.DisplayNameFor(model => model.Garage.actual_door_height)</dt>
+            <dd>@Html.DisplayFor(model => model.Garage.actual_door_height)</dd>
+            <dt>@Html.DisplayNameFor(model => model.Garage.door_fits_into)</dt>
+            <dd>@Html.DisplayFor(model => model.Garage.door_fits_into)</dd>
+            <dt>@Html.DisplayNameFor(model => model.Garage.frame_fix_type)</dt>
+            <dd>@Html.DisplayFor(model => model.Garage.frame_fix_type)</dd>
+            <dt>@Html.DisplayNameFor(model => model.Garage.new_subframe_req)</dt>
+            <dd>@Html.DisplayFor(model => model.Garage.new_subframe_req)</dd>
+            <dt>@Html.DisplayNameFor(model => model.Garage.side_size_A)</dt>
+            <dd>@Html.DisplayFor(model => model.Garage.side_size_A)</dd>
+            <dt>@Html.DisplayNameFor(model => model.Garage.side_size_B)</dt>
+            <dd>@Html.DisplayFor(model => model.Garage.side_size_B)</dd>
+            <dt>@Html.DisplayNameFor(model => model.Garage.side_size_C)</dt>
+            <dd>@Html.DisplayFor(model => model.Garage.side_size_C)</dd>
+            <dt>@Html.DisplayNameFor(model => model.Garage.side_size_D)</dt>
+            <dd>@Html.DisplayFor(model => model.Garage.side_size_D)</dd>
+            <dt>@Html.DisplayNameFor(model => model.Garage.side_size_E)</dt>
+            <dd>@Html.DisplayFor(model => model.Garage.side_size_E)</dd>
+            <dt>@Html.DisplayNameFor(model => model.Garage.side_size_F)</dt>
+            <dd>@Html.DisplayFor(model => model.Garage.side_size_F)</dd>
+            <dt>@Html.DisplayNameFor(model => model.Garage.side_size_G)</dt>
+            <dd>@Html.DisplayFor(model => model.Garage.side_size_G)</dd>
+            <dt>@Html.DisplayNameFor(model => model.Garage.side_timber_1)</dt>
+            <dd>@Html.DisplayFor(model => model.Garage.side_timber_1)</dd>
+            <dt>@Html.DisplayNameFor(model => model.Garage.side_timber_2)</dt>
+            <dd>@Html.DisplayFor(model => model.Garage.side_timber_2)</dd>
+            <dt>@Html.DisplayNameFor(model => model.Garage.plan_size_A)</dt>
+            <dd>@Html.DisplayFor(model => model.Garage.plan_size_A)</dd>
+            <dt>@Html.DisplayNameFor(model => model.Garage.plan_size_B)</dt>
+            <dd>@Html.DisplayFor(model => model.Garage.plan_size_B)</dd>
+            <dt>@Html.DisplayNameFor(model => model.Garage.plan_size_C1)</dt>
+            <dd>@Html.DisplayFor(model => model.Garage.plan_size_C1)</dd>
+            <dt>@Html.DisplayNameFor(model => model.Garage.plan_size_C2)</dt>
+            <dd>@Html.DisplayFor(model => model.Garage.plan_size_C2)</dd>
+            <dt>@Html.DisplayNameFor(model => model.Garage.plan_size_D)</dt>
+            <dd>@Html.DisplayFor(model => model.Garage.plan_size_D)</dd>
+            <dt>@Html.DisplayNameFor(model => model.Garage.plan_timber_1)</dt>
+            <dd>@Html.DisplayFor(model => model.Garage.plan_timber_1)</dd>
+            <dt>@Html.DisplayNameFor(model => model.Garage.plan_timber_2)</dt>
+            <dd>@Html.DisplayFor(model => model.Garage.plan_timber_2)</dd>
+        </dl>
+    </div>
+    <div class="col-md-4">
+        <dl>
+            <dt>@Html.DisplayNameFor(model => model.Garage.color)</dt>
+            <dd>@Html.DisplayFor(model => model.Garage.color)</dd>
+            <dt>@Html.DisplayNameFor(model => model.Garage.finish)</dt>
+            <dd>@Html.DisplayFor(model => model.Garage.finish)</dd>
+            <dt>@Html.DisplayNameFor(model => model.Garage.insulated)</dt>
+            <dd>@Html.DisplayFor(model => model.Garage.insulated)</dd>
+            <dt>@Html.DisplayNameFor(model => model.Garage.electric_door)</dt>
+            <dd>@Html.DisplayFor(model => model.Garage.electric_door)</dd>
+            <dt>@Html.DisplayNameFor(model => model.Garage.new_electric_operator_req)</dt>
+            <dd>@Html.DisplayFor(model => model.Garage.new_electric_operator_req)</dd>
+            <dt>@Html.DisplayNameFor(model => model.Garage.power_points)</dt>
+            <dd>@Html.DisplayFor(model => model.Garage.power_points)</dd>
+            <dt>@Html.DisplayNameFor(model => model.Garage.handle_outside)</dt>
+            <dd>@Html.DisplayFor(model => model.Garage.handle_outside)</dd>
+            <dt>@Html.DisplayNameFor(model => model.Garage.other_access)</dt>
+            <dd>@Html.DisplayFor(model => model.Garage.other_access)</dd>
+            <dt>@Html.DisplayNameFor(model => model.Garage.need_safety_release)</dt>
+            <dd>@Html.DisplayFor(model => model.Garage.need_safety_release)</dd>
+            <dt>@Html.DisplayNameFor(model => model.Garage.obstruction_outside_b)</dt>
+            <dd>@Html.DisplayFor(model => model.Garage.obstruction_outside_b)</dd>
+            <dt>@Html.DisplayNameFor(model => model.Garage.obstruction_outside)</dt>
+            <dd>@Html.DisplayFor(model => model.Garage.obstruction_outside)</dd>
+            <dt>@Html.DisplayNameFor(model => model.Garage.obstruction_inside_b)</dt>
+            <dd>@Html.DisplayFor(model => model.Garage.obstruction_inside_b)</dd>
+            <dt>@Html.DisplayNameFor(model => model.Garage.obstruction_inside)</dt>
+            <dd>@Html.DisplayFor(model => model.Garage.obstruction_inside)</dd>
+            <dt>@Html.DisplayNameFor(model => model.Garage.door_stuck_shut)</dt>
+            <dd>@Html.DisplayFor(model => model.Garage.door_stuck_shut)</dd>
+            <dt>@Html.DisplayNameFor(model => model.Garage.motor_position)</dt>
+            <dd>@Html.DisplayFor(model => model.Garage.motor_position)</dd>
+        </dl>
+    </div>
+</div>
+
+<div class="row mb-3">
+    <div class="col-md-4">
+        <dl>
+            <dt>@Html.DisplayNameFor(model => model.Garage.roller_door_type)</dt>
+            <dd>@Html.DisplayFor(model => model.Garage.roller_door_type)</dd>
+            <dt>@Html.DisplayNameFor(model => model.Garage.roller_box_type)</dt>
+            <dd>@Html.DisplayFor(model => model.Garage.roller_box_type)</dd>
+            <dt>@Html.DisplayNameFor(model => model.Garage.colour_match_roll_box)</dt>
+            <dd>@Html.DisplayFor(model => model.Garage.colour_match_roll_box)</dd>
+            <dt>@Html.DisplayNameFor(model => model.Garage.door_within_perimeter)</dt>
+            <dd>@Html.DisplayFor(model => model.Garage.door_within_perimeter)</dd>
+            <dt>@Html.DisplayNameFor(model => model.Garage.socket_within_1m)</dt>
+            <dd>@Html.DisplayFor(model => model.Garage.socket_within_1m)</dd>
+            <dt>@Html.DisplayNameFor(model => model.Garage.wire_type)</dt>
+            <dd>@Html.DisplayFor(model => model.Garage.wire_type)</dd>
+            <dt>@Html.DisplayNameFor(model => model.Garage.additional_drawn)</dt>
+            <dd>@Html.DisplayFor(model => model.Garage.additional_drawn)</dd>
+        </dl>
+    </div>
+    <div class="col-md-4">
+        <dl>
+            <dt>@Html.DisplayNameFor(model => model.Garage.bDifferentFromOriginal)</dt>
+            <dd>@Html.DisplayFor(model => model.Garage.bDifferentFromOriginal)</dd>
+            <dt>@Html.DisplayNameFor(model => model.Garage.ChangeItemTo)</dt>
+            <dd>@Html.DisplayFor(model => model.Garage.ChangeItemTo)</dd>
+            <dt>@Html.DisplayNameFor(model => model.Garage.print_name)</dt>
+            <dd>@Html.DisplayFor(model => model.Garage.print_name)</dd>
+            <dt>@Html.DisplayNameFor(model => model.Garage.parts_to_order)</dt>
+            <dd>@Html.DisplayFor(model => model.Garage.parts_to_order)</dd>
+        </dl>
+    </div>
+    <div class="col-md-4">
+        <dl>
+            <dt>@Html.DisplayNameFor(model => model.Garage.no_of_pics)</dt>
+            <dd>@Html.DisplayFor(model => model.Garage.no_of_pics)</dd>
+            <dt>@Html.DisplayNameFor(model => model.Garage.no_of_photos)</dt>
+            <dd>@Html.DisplayFor(model => model.Garage.no_of_photos)</dd>
+            <dt>@Html.DisplayNameFor(model => model.Garage.no_of_vids)</dt>
+            <dd>@Html.DisplayFor(model => model.Garage.no_of_vids)</dd>
+            <dt>@Html.DisplayNameFor(model => model.Garage.long_comments)</dt>
+            <dd>@Html.DisplayFor(model => model.Garage.long_comments)</dd>
+        </dl>
+    </div>
+</div>
+
+@if (Model.Images != null && Model.Images.Any())
+{
+    <hr />
+    <h4>Photos</h4>
+    <div class="row">
+        @foreach (var item in Model.Images)
+        {
+            <div class="col-md-4 mb-3">
+                <img src="data:image/png;base64,@item.Data" class="img-fluid rounded" />
+            </div>
+        }
+    </div>
+}

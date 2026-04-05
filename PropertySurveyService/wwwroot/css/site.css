@@ -61,9 +61,28 @@ body {
     white-space: nowrap;
 }
 
+.calendar-event.job-type-survey {
+    background-color: #add8e6;
+    color: #000;
+}
+
+.calendar-event.job-type-fitting {
+    background-color: #fa8072;
+    color: #000;
+}
+
+.calendar-event.has-header {
+    border: 1px solid purple;
+}
+
 .calendar-event-link {
     color: #fff;
     text-decoration: none;
+}
+
+.job-type-survey .calendar-event-link,
+.job-type-fitting .calendar-event-link {
+    color: #000;
 }
 
 .calendar-event-link:hover {

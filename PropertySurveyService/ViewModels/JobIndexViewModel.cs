@@ -6,6 +6,7 @@ namespace PropertySurveyService.ViewModels
     {
         public IEnumerable<Job>? Jobs { get; set; }
         public IEnumerable<Header>? Headers { get; set; }
+        public HashSet<string> ContractCodesWithHeaders { get; set; } = new();
         public int Year { get; set; }
         public int Month { get; set; }
         public string ViewMode { get; set; } = "month";
