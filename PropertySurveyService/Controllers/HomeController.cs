@@ -15,6 +15,10 @@ namespace PropertySurveyService.Controllers
 
         public IActionResult Index()
         {
+            if (User.Identity?.IsAuthenticated == true)
+            {
+                return RedirectToAction("Index", "Jobs");
+            }
             return View();
         }
 

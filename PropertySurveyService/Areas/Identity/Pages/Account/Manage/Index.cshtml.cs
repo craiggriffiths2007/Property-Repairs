@@ -4,8 +4,10 @@
 
 using System;
 using System.ComponentModel.DataAnnotations;
+using System.IO;
 using System.Text.Encodings.Web;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -31,6 +33,8 @@ namespace PropertySurveyService.Areas.Identity.Pages.Account.Manage
         ///     directly from your code. This API may change or be removed in future releases.
         /// </summary>
         public string Username { get; set; }
+
+        public byte[] ProfilePicture { get; set; }
 
         /// <summary>
         ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
@@ -59,6 +63,9 @@ namespace PropertySurveyService.Areas.Identity.Pages.Account.Manage
             [Phone]
             [Display(Name = "Phone number")]
             public string PhoneNumber { get; set; }
+
+            [Display(Name = "Profile Picture")]
+            public IFormFile Photo { get; set; }
         }
 
         private async Task LoadAsync(AppUser user)
@@ -67,6 +74,7 @@ namespace PropertySurveyService.Areas.Identity.Pages.Account.Manage
             var phoneNumber = await _userManager.GetPhoneNumberAsync(user);
 
             Username = userName;
+            ProfilePicture = user.ProfilePicture;
 
             Input = new InputModel
             {
@@ -109,6 +117,14 @@ namespace PropertySurveyService.Areas.Identity.Pages.Account.Manage
                     StatusMessage = "Unexpected error when trying to set phone number.";
                     return RedirectToPage();
                 }
+            }
+
+            if (Input.Photo != null && Input.Photo.Length > 0)
+            {
+                using var ms = new MemoryStream();
+                await Input.Photo.CopyToAsync(ms);
+                user.ProfilePicture = ms.ToArray();
+                await _userManager.UpdateAsync(user);
             }
 
             await _signInManager.RefreshSignInAsync(user);
