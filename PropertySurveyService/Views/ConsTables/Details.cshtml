@@ -146,12 +146,20 @@
 @if (Model.Images != null && Model.Images.Any())
 {
     <hr />
-    <h4>Photos</h4>
+    <h4>Photos & Videos</h4>
     <div class="row">
         @foreach (var item in Model.Images)
         {
             <div class="col-md-4 mb-3">
-                <img src="data:image/png;base64,@item.Data" class="img-fluid rounded" />
+                @if (item.Filename != null && item.Filename.EndsWith(".mp4", StringComparison.OrdinalIgnoreCase))
+                {
+                    <video src="data:video/mp4;base64,@item.Data" class="img-fluid rounded" controls></video>
+                    <a href="data:video/mp4;base64,@item.Data" download="@item.Filename" class="btn btn-sm btn-outline-primary mt-1"><i class="bi bi-download"></i> Download</a>
+                }
+                else
+                {
+                    <img src="data:image/png;base64,@item.Data" class="img-fluid rounded" />
+                }
             </div>
         }
     </div>

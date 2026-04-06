@@ -90,7 +90,9 @@ app.MapPost("/GetFittingJobs", (GetFittingDTO gs, PropertySurveyService.Data.App
 
         if (header == null)
             continue;
-
+        header.iRecordType = 1;
+        header.udi_date = job.Date.ToShortDateString();
+        header.bSurvey = true;
         results.Add(new FittingJobDTO
         {
             Job = new JobDTO(job, customer),

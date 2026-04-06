@@ -216,6 +216,7 @@
                 @if (item.Filename != null && item.Filename.EndsWith(".mp4", StringComparison.OrdinalIgnoreCase))
                 {
                     <video src="data:video/mp4;base64,@item.Data" class="img-fluid rounded" controls></video>
+                    <a href="data:video/mp4;base64,@item.Data" download="@item.Filename" class="btn btn-sm btn-outline-primary mt-1"><i class="bi bi-download"></i> Download</a>
                 }
                 else
                 {
