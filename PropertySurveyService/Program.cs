@@ -71,6 +71,22 @@ app.MapPost("/GetSurveyJobs", (GetSurveysDTO gs, PropertySurveyService.Data.AppD
     return Task.FromResult<IResult>(Results.Ok(send_jobs));
 });
 
+app.MapGet("/GetImage", (string filename, PropertySurveyService.Data.AppDBContext db) =>
+{
+
+    var image = db.Images.FirstOrDefault(img => img.Filename == filename);
+    if (image == null)
+    {
+        return Results.NotFound();
+    }
+    return Results.Ok(new PropertySurveyService.Models.ImageDTO
+    {
+        Filename = image.Filename,
+        Data = image.Data
+    });
+});
+
+
 app.MapPost("/GetFittingJobs", (GetFittingDTO gs, PropertySurveyService.Data.AppDBContext db) =>
 {
     var fittingJobs = db.Job
@@ -92,7 +108,16 @@ app.MapPost("/GetFittingJobs", (GetFittingDTO gs, PropertySurveyService.Data.App
             continue;
         header.iRecordType = 1;
         header.udi_date = job.Date.ToShortDateString();
+        header.fit_diary = job.Date.ToShortDateString();
         header.bSurvey = true;
+
+        // Get all images for this header
+        var images = db.Images
+            .Where(img => img.ContractCode == header.udi_cont)
+            .Select(img => img.Filename)
+            .Where(fn => fn != null)
+            .ToList();
+
         results.Add(new FittingJobDTO
         {
             Job = new JobDTO(job, customer),
@@ -107,7 +132,8 @@ app.MapPost("/GetFittingJobs", (GetFittingDTO gs, PropertySurveyService.Data.App
             Greens = db.GreenTable.Where(g => g.HeaderId == header.Id).ToList(),
             Locks = db.LockingTable.Where(l => l.HeaderId == header.Id).ToList(),
             Timbers = db.TimberTable.Where(t => t.HeaderId == header.Id).ToList(),
-            UPVCs = db.UPVCTable.Where(u => u.HeaderId == header.Id).ToList()
+            UPVCs = db.UPVCTable.Where(u => u.HeaderId == header.Id).ToList(),
+            Images = images
         });
     }
 
@@ -299,7 +325,6 @@ app.MapPost("/SendSurveyImage", (ImageDTO imageDTO, PropertySurveyService.Data.A
     OKRecordDTO return_record = new OKRecordDTO();
 
     PhotoImage image = new PhotoImage();
-
     image.Filename = imageDTO.Filename;
     image.Data = imageDTO.Data;
     image.DateTime = DateTime.Now;

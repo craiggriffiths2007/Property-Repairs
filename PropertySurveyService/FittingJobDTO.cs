@@ -16,4 +16,7 @@ internal class FittingJobDTO
     public List<LockingTable> Locks { get; set; }
     public List<TimberTable> Timbers { get; set; }
     public List<UPVCTable> UPVCs { get; set; }
+
+    public List<string> Images { get; set; }
+
 }
