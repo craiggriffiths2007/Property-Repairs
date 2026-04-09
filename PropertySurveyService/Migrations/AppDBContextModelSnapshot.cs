@@ -717,10 +717,10 @@ namespace PropertySurveyService.Migrations
                     b.Property<string>("cill_type")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("color_ernal")
+                    b.Property<string>("color_external")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("color_external")
+                    b.Property<string>("color_internal")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("colour_of_doors")
@@ -730,15 +730,6 @@ namespace PropertySurveyService.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("door_type")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ernal_door_colour")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ernal_height")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ernal_width")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("fensa")
@@ -766,6 +757,15 @@ namespace PropertySurveyService.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("hardware")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("internal_door_colour")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("internal_height")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("internal_width")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("isComplete")
@@ -807,7 +807,7 @@ namespace PropertySurveyService.Migrations
                     b.Property<int>("point_of_entry")
                         .HasColumnType("int");
 
-                    b.Property<string>("pr_name")
+                    b.Property<string>("print_name")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("reason_not_repaired")

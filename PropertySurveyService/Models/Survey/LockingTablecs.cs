@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 
 namespace PropertySurveyService.Models
 {
@@ -7,60 +8,169 @@ namespace PropertySurveyService.Models
         [Key]
         public int Id { get; set; }
         public int HeaderId { get; set; }
+        [DisplayName("Contract Number")]
         public string? udi_cont { get; set; }
+
+        [DisplayName("Item Number")]
         public int item_number { get; set; }
+
+        [DisplayName("Is Complete")]
         public int isComplete { get; set; }
+
+        [DisplayName("Comments")]
         public string? comments { get; set; }
+
+        [DisplayName("Point of Entry")]
         public string? point_of_entry { get; set; }
+
+        [DisplayName("Type of Locking System Required")]
         public string? type_of_lockng_system_required { get; set; }
+
+        [DisplayName("Was It Locked")]
         public int was_it_locked { get; set; }
+
+        [DisplayName("Number of Pictures")]
         public int no_of_pics { get; set; }
+
+        [DisplayName("Number of Photos")]
         public int no_of_photos { get; set; }
+
+        [DisplayName("Multipoint Locking")]
         public bool bMulti { get; set; }
-        public string? item { get; set; }// multi choice drop down
+
+        [DisplayName("Lock Item")]
+        public string? item { get; set; }
+
+        [DisplayName("Locking Make")]
         public string? locking_make { get; set; }
+
+        [DisplayName("Locking Codes")]
         public string? locking_codes { get; set; }
+
+        [DisplayName("Door Complete")]
         public bool bDoorComplete { get; set; }
+
+        [DisplayName("Window Complete")]
         public bool bWindowComplete { get; set; }
+
+        [DisplayName("Lock Colour")]
         public string? lock_colour { get; set; }
+
+        [DisplayName("Page Number")]
         public string? pagenum { get; set; }
+
+        [DisplayName("Different From Original")]
         public bool bDifferentFromOriginal { get; set; }
+
+        [DisplayName("Change Item To")]
         public string? ChangeItemTo { get; set; }
+
+        [DisplayName("Print Name")]
         public string? print_name { get; set; }
+
+        [DisplayName("COD Code")]
         public string? COD_Code { get; set; }
+
+        [DisplayName("Cause of Damage")]
         public string? cause_of_damage { get; set; }
+
+        [DisplayName("Reason Damage Different")]
         public string? cause_of_damage_reason_different { get; set; }
+
+        [DisplayName("Gear Box")]
         public int GearBox { get; set; }
+
+        [DisplayName("Number of Videos")]
         public int no_of_vids { get; set; }
+
+        [DisplayName("Left Bolt")]
         public int left_bolt { get; set; }
+
+        [DisplayName("Right Bolt")]
         public int right_bolt { get; set; }
+
+        [DisplayName("Parts to Order")]
         public string? parts_to_order { get; set; }
+
+        [DisplayName("Lock Complete")]
         public bool bLockComplete { get; set; }
+
+        [DisplayName("Lock Size 1")]
         public string? l_size1 { get; set; }
+
+        [DisplayName("Lock Size 2")]
         public string? l_size2 { get; set; }
+
+        [DisplayName("Lock Size A")]
         public string? l_sizeA { get; set; }
+
+        [DisplayName("Lock Size B")]
         public string? l_sizeB { get; set; }
+
+        [DisplayName("Lock Size C")]
         public string? l_sizeC { get; set; }
+
+        [DisplayName("Lock Size D")]
         public string? l_sizeD { get; set; }
+
+        [DisplayName("Lock Size E")]
         public string? l_sizeE { get; set; }
+
+        [DisplayName("Lock Size F")]
         public string? l_sizeF { get; set; }
+
+        [DisplayName("Lock Size G")]
         public string? l_sizeG { get; set; }
+
+        [DisplayName("Lock Number")]
         public int l_num { get; set; }
+
+        [DisplayName("Lock FPos1")]
         public float l_fpos1 { get; set; }
+
+        [DisplayName("Lock FPos2")]
         public float l_fpos2 { get; set; }
+
+        [DisplayName("Lock FPos3")]
         public float l_fpos3 { get; set; }
+
+        [DisplayName("Lock FPos4")]
         public float l_fpos4 { get; set; }
+
+        [DisplayName("Lock FPos5")]
         public float l_fpos5 { get; set; }
+
+        [DisplayName("Lock FPos6")]
         public float l_fpos6 { get; set; }
+
+        [DisplayName("Lock FPos7")]
         public float l_fpos7 { get; set; }
+
+        [DisplayName("Lock Position")]
         public float lock_position { get; set; }
+
+        [DisplayName("Lock IType1")]
         public int l_itype1 { get; set; }
+
+        [DisplayName("Lock IType2")]
         public int l_itype2 { get; set; }
+
+        [DisplayName("Lock IType3")]
         public int l_itype3 { get; set; }
+
+        [DisplayName("Lock IType4")]
         public int l_itype4 { get; set; }
+
+        [DisplayName("Lock IType5")]
         public int l_itype5 { get; set; }
+
+        [DisplayName("Lock IType6")]
         public int l_itype6 { get; set; }
+
+        [DisplayName("Lock IType7")]
         public int l_itype7 { get; set; }
+
+        [DisplayName("Long Comments")]
         public string? long_comments { get; set; }
         public SurveyItem AsSurveyItem() { return new SurveyItem(Id, enum_item_type.lockin); }
 
