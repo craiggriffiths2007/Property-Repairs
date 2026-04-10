@@ -27,28 +27,28 @@ namespace PropertySurveyService.Data
 
         public static async Task SeedSuperAdminAsync(UserManager<AppUser> userManager, RoleManager<IdentityRole> roleManager)
         {
-            //Seed Default User
-            var defaultUser = new AppUser
+
+            // Seed Craig Griffiths user
+            var craigUser = new AppUser
             {
-                UserName = "superadmin",
-                Email = "superadmin@gmail.com",
-                FirstName = "Super",
-                LastName = "Admin",
+                UserName = "craig.griffiths2007@gmail.com",
+                Email = "craig.griffiths2007@gmail.com",
+                FirstName = "Craig",
+                LastName = "Griffiths",
                 EmailConfirmed = true,
                 PhoneNumberConfirmed = true
             };
-            if (userManager.Users.All(u => u.Id != defaultUser.Id))
+            var craig = await userManager.FindByEmailAsync(craigUser.Email);
+            if (craig == null)
             {
-                var user = await userManager.FindByEmailAsync(defaultUser.Email);
-                if (user == null)
+                var result = await userManager.CreateAsync(craigUser, "pass1+");
+                if (result.Succeeded)
                 {
-                    await userManager.CreateAsync(defaultUser, "superadmin");
-                    await userManager.AddToRoleAsync(defaultUser, Roles.Basic.ToString());
-                    await userManager.AddToRoleAsync(defaultUser, Roles.Moderator.ToString());
-                    await userManager.AddToRoleAsync(defaultUser, Roles.Admin.ToString());
-                    await userManager.AddToRoleAsync(defaultUser, Roles.SuperAdmin.ToString());
+                    await userManager.AddToRoleAsync(craigUser, Roles.Basic.ToString());
+                    await userManager.AddToRoleAsync(craigUser, Roles.Moderator.ToString());
+                    await userManager.AddToRoleAsync(craigUser, Roles.Admin.ToString());
+                    await userManager.AddToRoleAsync(craigUser, Roles.SuperAdmin.ToString());
                 }
-
             }
 
             // Elevate all existing users to SuperAdmin (and all roles)
