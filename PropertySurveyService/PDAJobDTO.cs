@@ -1,6 +1,6 @@
 ﻿using PropertySurveyService.Models;
 
-internal class FittingJobDTO
+internal class PDAJobDTO
 {
     public JobDTO Job { get; set; }
 

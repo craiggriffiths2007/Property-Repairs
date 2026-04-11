@@ -44,14 +44,9 @@ namespace PropertySurveyService.Models
         }*/
     }
 
-    public class GetSurveysDTO
+    public class GetJobsDTO
     {
         public string? AgentCode { get; set; }
-
-    }
-    public class GetFittingDTO
-    {
-        public string FitterCode { get; set; }
 
     }
 
