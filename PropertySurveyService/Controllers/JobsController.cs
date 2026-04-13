@@ -49,6 +49,7 @@ namespace PropertySurveyService.Controllers
             }
             DateTime weekEndDate = weekStartDate.AddDays(7);
 
+
             var viewModel = new JobIndexViewModel
             {
                 Year = displayYear,
@@ -85,14 +86,8 @@ namespace PropertySurveyService.Controllers
                     .ToListAsync();
             }
 
-            if(Id!=null)
-            {
-                ViewData["JobID"] = Id.Value;
 
-                viewModel.Headers = _context.Header.Where(x => x.udi_cont == _context.Job.FirstOrDefault(j => j.Id == Id).ContractCode).ToList();
-            }
-
-            // Build set of contract codes that have at least one Header record
+            // Always populate Headers with all headers for jobs in view
             if (viewModel.Jobs != null)
             {
                 var codes = viewModel.Jobs
@@ -100,11 +95,14 @@ namespace PropertySurveyService.Controllers
                     .Select(j => j.ContractCode!)
                     .Distinct()
                     .ToList();
-                var codesWithHeaders = await _context.Header
+                viewModel.Headers = await _context.Header
                     .Where(h => h.udi_cont != null && codes.Contains(h.udi_cont))
+                    .ToListAsync();
+
+                var codesWithHeaders = viewModel.Headers
                     .Select(h => h.udi_cont!)
                     .Distinct()
-                    .ToListAsync();
+                    .ToList();
                 viewModel.ContractCodesWithHeaders = new HashSet<string>(codesWithHeaders);
             }
 

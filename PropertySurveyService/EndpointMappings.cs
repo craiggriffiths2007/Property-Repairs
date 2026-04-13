@@ -156,7 +156,24 @@ namespace PropertySurveyService
                 return Results.Ok(new { status = "success" });
             });
 
-            app.MapPost("/SendSurveyImage", (ImageDTO imageDTO, AppDBContext db) =>
+            app.MapPost("/SendFittings", async (List<PDAJobDTO> jobs, AppDBContext db) =>
+            {
+                foreach (var job in jobs)
+                {
+                    if (job.Head != null)
+                    {
+                        job.Head.Id = 0; // Ensure a new record is created
+                        db.Header.Add(job.Head);
+                        await db.SaveChangesAsync();
+                        int headerId = job.Head.Id;
+
+                        await db.SaveChangesAsync();
+                    }
+                }
+                return Results.Ok(new { status = "success" });
+            });
+
+            app.MapPost("/SendImage", (ImageDTO imageDTO, AppDBContext db) =>
             {
                 OKRecordDTO return_record = new OKRecordDTO();
 
