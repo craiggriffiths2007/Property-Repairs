@@ -39,6 +39,10 @@ namespace PropertySurveyService
             app.MapPost("/GetImage", (GetDataDTO gs, AppDBContext db) =>
             {
                 // check password here
+                var agent = db.Agent.FirstOrDefault(x => x.AgentCode == gs.AgentCode);
+
+                if (agent == null)
+                    return Results.BadRequest(new { ReasonPhrase = "Agent Code Not Found : " + gs.AgentCode });
 
                 var image = db.Images.FirstOrDefault(img => img.Filename == gs.Filename);
                 if (image == null)
