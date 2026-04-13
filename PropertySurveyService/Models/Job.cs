@@ -44,10 +44,13 @@ namespace PropertySurveyService.Models
         }*/
     }
 
-    public class GetJobsDTO
+    public class GetDataDTO
     {
         public string? AgentCode { get; set; }
 
+        public string? Password { get; set; }
+
+        public string? Filename { get; set; } // for images
     }
 
     public class JobDTO

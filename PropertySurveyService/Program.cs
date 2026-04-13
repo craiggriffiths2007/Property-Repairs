@@ -53,7 +53,7 @@ app.UseRouting();
 
 app.UseSwagger();
 
-app.MapPost("/GetSurveyJobs", (GetJobsDTO gs, PropertySurveyService.Data.AppDBContext db) =>
+app.MapPost("/GetSurveyJobs", (GetDataDTO gs, PropertySurveyService.Data.AppDBContext db) =>
 {
     List<JobDTO> send_jobs = new List<JobDTO>();
 
@@ -71,10 +71,11 @@ app.MapPost("/GetSurveyJobs", (GetJobsDTO gs, PropertySurveyService.Data.AppDBCo
     return Task.FromResult<IResult>(Results.Ok(send_jobs));
 });
 
-app.MapGet("/GetImage", (string filename, PropertySurveyService.Data.AppDBContext db) =>
+app.MapPost("/GetImage", (GetDataDTO gs, PropertySurveyService.Data.AppDBContext db) =>
 {
+    // check password here
 
-    var image = db.Images.FirstOrDefault(img => img.Filename == filename);
+    var image = db.Images.FirstOrDefault(img => img.Filename == gs.Filename);
     if (image == null)
     {
         return Results.NotFound();
@@ -87,10 +88,15 @@ app.MapGet("/GetImage", (string filename, PropertySurveyService.Data.AppDBContex
 });
 
 
-app.MapPost("/GetFittingJobs", (GetJobsDTO gs, PropertySurveyService.Data.AppDBContext db) =>
+app.MapPost("/GetFittingJobs", (GetDataDTO gs, PropertySurveyService.Data.AppDBContext db) =>
 {
+    var agent = db.Agent.FirstOrDefault(x => x.AgentCode == gs.AgentCode);
+
+    if (agent == null)
+        return Task.FromResult<IResult>(Results.BadRequest(new { ReasonPhrase = "Agent Code Not Found : " + gs.AgentCode }));
+
     var fittingJobs = db.Job
-        .Where(x => x.Agent.AgentCode == gs.AgentCode && x.JobType == 1)
+        .Where(x => x.AgentId == agent.AgentId && x.JobType == 1)
         .ToList();
 
     var results = new List<PDAJobDTO>();
