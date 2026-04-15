@@ -37,6 +37,9 @@ namespace PropertySurveyService.Data
 
         public DbSet<PropertySurveyService.Models.PhotoImage> Images { get; set; } = default!;
 
+        public DbSet<PropertySurveyService.Models.Branch> Branches { get; set; } = default!;
+        public DbSet<PropertySurveyService.Models.Vehicle> Vehicles { get; set; } = default!;
+
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
