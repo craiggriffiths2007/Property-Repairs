@@ -51,6 +51,8 @@ namespace PropertySurveyService.Models
         public string? Password { get; set; }
 
         public string? Filename { get; set; } // for images
+
+        public string? BranchCode { get; set; } // for vehicle checks
     }
 
     public class JobDTO

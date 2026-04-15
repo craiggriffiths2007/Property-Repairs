@@ -9,6 +9,26 @@ namespace PropertySurveyService
     {
         public static void MapAPIEndpoints(this IEndpointRouteBuilder app)
         {
+            app.MapPost("/GetVehicles", (GetDataDTO gs, AppDBContext db) =>
+            {
+                var agent = db.Agent.FirstOrDefault(x => x.AgentCode == gs.AgentCode);
+                var branch = db.Branches.FirstOrDefault(x => x.BranchCode == gs.BranchCode);
+
+                if (agent == null)
+                    return Task.FromResult<IResult>(Results.BadRequest(new { ReasonPhrase = "Agent Code Not Found : " + gs.AgentCode }));
+
+                if (branch == null)
+                    return Task.FromResult<IResult>(Results.BadRequest(new { ReasonPhrase = "Branch Code Not Found : " + gs.BranchCode }));
+
+                var vehicles = db.Vehicles
+                    .Where(x => x.BranchId == branch.Id)
+                    .ToList();
+
+                List<VehicleDTO> vehicleDTOs = vehicles.Select(v => new VehicleDTO(v)).ToList();
+
+                return Task.FromResult<IResult>(Results.Ok(vehicleDTOs));
+            });
+
             app.MapPost("/GetSurveyJobs", (GetDataDTO gs, AppDBContext db) =>
             {
                 var agent = db.Agent.FirstOrDefault(x => x.AgentCode == gs.AgentCode);
