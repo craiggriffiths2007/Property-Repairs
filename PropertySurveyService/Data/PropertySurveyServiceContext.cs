@@ -1,12 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-
 using PropertySurveyService.Models;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Reflection.Emit;
+using System.Threading.Tasks;
 
 
 namespace PropertySurveyService.Data
@@ -40,6 +40,14 @@ namespace PropertySurveyService.Data
         public DbSet<PropertySurveyService.Models.Branch> Branches { get; set; } = default!;
         public DbSet<PropertySurveyService.Models.Vehicle> Vehicles { get; set; } = default!;
 
+        public DbSet<PropertySurveyService.Models.VehicleCheckHeader> VehicleCheckHeaders { get; set; } = default!;
+
+        public DbSet<PropertySurveyService.Models.DeliveryVan> DeliveryVans { get; set; } = default!;
+        public DbSet<PropertySurveyService.Models.DeliveryHGV> DeliveryHGVs { get; set; } = default!;
+        public DbSet<PropertySurveyService.Models.FitterVan> FitterVans { get; set; } = default!;
+        public DbSet<PropertySurveyService.Models.SalesCar> SalesCars { get; set; } = default!;
+
+
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
@@ -51,6 +59,11 @@ namespace PropertySurveyService.Data
             .GetEntityTypes()
             .SelectMany(t => t.GetProperties())
             .Where(p => (System.Nullable.GetUnderlyingType(p.ClrType) ?? p.ClrType) == typeof(decimal));
+
+            //builder.Entity<DeliveryVan>();
+            //builder.Entity<DeliveryHGV>();
+            //builder.Entity<FitterVan>();
+            //builder.Entity<SalesCar>();
 
             foreach (var property in decimalProps)
             {

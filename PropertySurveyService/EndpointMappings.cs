@@ -9,6 +9,41 @@ namespace PropertySurveyService
     {
         public static void MapAPIEndpoints(this IEndpointRouteBuilder app)
         {
+            app.MapPost("/SendVehicleChecks", async (List<VehicleCheckDTO> checks, AppDBContext db) =>
+            {
+                foreach (var check in checks)
+                {
+                    if (check.VehicleCheckHeader != null)
+                    {
+                        check.VehicleCheckHeader.Id = 0;
+                        db.VehicleCheckHeaders.Add(check.VehicleCheckHeader);
+                        await db.SaveChangesAsync();
+                        int headerId = check.VehicleCheckHeader.Id;
+                        void SaveItems<T>(IEnumerable<T> items) where T : class
+                        {
+                            if (items != null)
+                            {
+                                foreach (var item in items)
+                                {
+                                    var prop = item.GetType().GetProperty("VehicleCheckHeaderId");
+                                    if (prop != null)
+                                        prop.SetValue(item, headerId);
+                                    db.Add(item);
+                                }
+                            }
+                        }
+
+                        SaveItems(check.DeliveryVans);
+                        SaveItems(check.DeliveryHGVs);
+                        SaveItems(check.FitterVans);
+                        SaveItems(check.SalesCars);
+
+                        await db.SaveChangesAsync();
+                    }
+                }
+                return Results.Ok(new { status = "success" });
+            });
+
             app.MapPost("/GetVehicles", (GetDataDTO gs, AppDBContext db) =>
             {
                 var agent = db.Agent.FirstOrDefault(x => x.AgentCode == gs.AgentCode);
