@@ -90,12 +90,17 @@ namespace PropertySurveyService
                             }
                         }
 
+                        check.DeliveryVans = check.DeliveryVans.Select(s => { s.Id = 0; return s; }).ToList();
+                        check.DeliveryHGVs = check.DeliveryHGVs.Select(s => { s.Id = 0; return s; }).ToList();
+                        check.FitterVans = check.FitterVans.Select(s => { s.Id = 0; return s; }).ToList();
+                        check.SalesCars = check.SalesCars.Select(s => { s.Id = 0; return s; }).ToList();
+
                         //SaveItems(check.DeliveryVans);
                         //SaveItems(check.DeliveryHGVs);
                         //SaveItems(check.FitterVans);
                         //SaveItems(check.SalesCars);
 
-                        foreach(var vehicle in check.strDeliveryVans)
+                        foreach (var vehicle in check.strDeliveryVans)
                         {
                             check.DeliveryVans.Add(JsonSerializer.Deserialize<DeliveryVan>(vehicle));
                         }
@@ -254,6 +259,18 @@ namespace PropertySurveyService
                                 }
                             }
                         }
+
+                        job.Panels = job.Panels.Select(s => { s.Id = 0; return s; }).ToList();
+                        job.Aluminia = job.Aluminia.Select(s => { s.Id = 0; return s; }).ToList();
+                        job.Bifolds = job.Bifolds.Select(s => { s.Id = 0; return s; }).ToList();
+                        job.Composites = job.Composites.Select(s => { s.Id = 0; return s; }).ToList();
+                        job.Cons = job.Cons.Select(s => { s.Id = 0; return s; }).ToList();
+                        job.Garages = job.Garages.Select(s => { s.Id = 0; return s; }).ToList();
+                        job.Glass = job.Glass.Select(s => { s.Id = 0; return s; }).ToList();
+                        job.Greens = job.Greens.Select(s => { s.Id = 0; return s; }).ToList();
+                        job.Locks = job.Locks.Select(s => { s.Id = 0; return s; }).ToList();
+                        job.Timbers = job.Timbers.Select(s => { s.Id = 0; return s; }).ToList();
+                        job.UPVCs = job.UPVCs.Select(s => { s.Id = 0; return s; }).ToList();
 
                         SaveItems(job.Panels);
                         SaveItems(job.Aluminia);
