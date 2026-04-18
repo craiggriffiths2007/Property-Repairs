@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 using PropertySurveyService.Data;
 using PropertySurveyService.Models;
+using System.Text.Json;
 
 namespace PropertySurveyService
 {
@@ -9,8 +10,64 @@ namespace PropertySurveyService
     {
         public static void MapAPIEndpoints(this IEndpointRouteBuilder app)
         {
+            app.MapPost("/SendVehicleAccidents", async (List<AccidentsVehicleDTO> checks, AppDBContext db) =>
+            {
+                JsonSerializerOptions serializerOptions;
+                serializerOptions = new JsonSerializerOptions
+                {
+                    PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
+                    WriteIndented = true,
+
+                };
+
+                foreach (var check in checks)
+                {
+                    if (check.Accident != null)
+                    {
+                        check.Accident.Id = 0;
+                        db.Accident_sheets.Add(check.Accident);
+                        await db.SaveChangesAsync();
+                        int headerId = check.Accident.Id;
+                        void SaveItems<T>(IEnumerable<T> items) where T : class
+                        {
+                            if (items != null)
+                            {
+                                foreach (var item in items)
+                                {
+                                    var prop = item.GetType().GetProperty("Accident_sheetId");
+                                    if (prop != null)
+                                        prop.SetValue(item, headerId);
+                                    db.Add(item);
+                                }
+                            }
+                        }
+                        check.Whitnesses = check.Whitnesses.Select(s => { s.Id = 0; return s; }).ToList();
+                        SaveItems(check.Whitnesses);
+                        //SaveItems(check.DeliveryHGVs);
+                        //SaveItems(check.FitterVans);
+                        //SaveItems(check.SalesCars);
+
+                        //foreach (var vehicle in check.strDeliveryVans)
+                        //{
+                         //   check.DeliveryVans.Add(JsonSerializer.Deserialize<DeliveryVan>(vehicle));
+                        //}
+
+                        await db.SaveChangesAsync();
+                    }
+                }
+                return Results.Ok(new { status = "success" });
+            });
+            
             app.MapPost("/SendVehicleChecks", async (List<VehicleCheckDTO> checks, AppDBContext db) =>
             {
+                JsonSerializerOptions serializerOptions;
+                serializerOptions = new JsonSerializerOptions
+                {
+                    PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
+                    WriteIndented = true,
+
+                };
+
                 foreach (var check in checks)
                 {
                     if (check.VehicleCheckHeader != null)
@@ -33,10 +90,15 @@ namespace PropertySurveyService
                             }
                         }
 
-                        SaveItems(check.DeliveryVans);
-                        SaveItems(check.DeliveryHGVs);
-                        SaveItems(check.FitterVans);
-                        SaveItems(check.SalesCars);
+                        //SaveItems(check.DeliveryVans);
+                        //SaveItems(check.DeliveryHGVs);
+                        //SaveItems(check.FitterVans);
+                        //SaveItems(check.SalesCars);
+
+                        foreach(var vehicle in check.strDeliveryVans)
+                        {
+                            check.DeliveryVans.Add(JsonSerializer.Deserialize<DeliveryVan>(vehicle));
+                        }
 
                         await db.SaveChangesAsync();
                     }

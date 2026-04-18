@@ -46,6 +46,8 @@ namespace PropertySurveyService.Data
         public DbSet<PropertySurveyService.Models.DeliveryHGV> DeliveryHGVs { get; set; } = default!;
         public DbSet<PropertySurveyService.Models.FitterVan> FitterVans { get; set; } = default!;
         public DbSet<PropertySurveyService.Models.SalesCar> SalesCars { get; set; } = default!;
+        public DbSet<PropertySurveyService.Models.Accident_sheet> Accident_sheets { get; set; } = default!;
+        public DbSet<PropertySurveyService.Models.Whitness> Whitnesses { get; set; } = default!;
 
 
         protected override void OnModelCreating(ModelBuilder builder)

@@ -47,10 +47,15 @@ namespace PropertySurveyService.Models
     {
         public VehicleCheckHeader VehicleCheckHeader { get; set; } = new VehicleCheckHeader();
 
-        public List<DeliveryHGV>? DeliveryHGVs;
-        public List<DeliveryVan>? DeliveryVans;
-        public List<FitterVan>? FitterVans;
-        public List<SalesCar>? SalesCars;
+        public List<string> strDeliveryHGVs = new List<string>();
+        public List<string> strDeliveryVans = new List<string>();
+        public List<string> strFitterVans = new List<string>();
+        public List<string> strSalesCars = new List<string>();
+
+        public List<DeliveryHGV> DeliveryHGVs = new List<DeliveryHGV>();
+        public List<DeliveryVan> DeliveryVans = new List<DeliveryVan>();
+        public List<FitterVan> FitterVans = new List<FitterVan>();
+        public List<SalesCar> SalesCars = new List<SalesCar>();
     }
 
     public class VehicleCheckHeader
