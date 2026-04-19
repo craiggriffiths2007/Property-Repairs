@@ -1,4 +1,6 @@
-﻿namespace PropertySurveyService.Models
+﻿using Microsoft.EntityFrameworkCore;
+
+namespace PropertySurveyService.Models
 {
     public class AccidentsVehicleDTO
     {
@@ -99,5 +101,43 @@
 
         public string acc_time { get; set; }
 
+    }
+
+    public class FAccidents
+    {
+        public int Id { get; set; }
+        public string date_time { get; set; } = "";
+        public bool bSent { get; set; }
+        public bool bComplete { get; set; }
+        public string full_name { get; set; } = "";
+        public string add1 { get; set; } = "";
+        public string add2 { get; set; } = "";
+        public string add3 { get; set; } = "";
+        public string pcode { get; set; } = "";
+        public string occupation { get; set; } = "";
+        public string filer_full_name { get; set; } = "";
+        public string filer_add1 { get; set; } = "";
+        public string filer_add2 { get; set; } = "";
+        public string filer_add3 { get; set; } = "";
+        public string filer_pcode { get; set; } = "";
+        public string filer_occupation { get; set; } = "";
+        public string sign_date { get; set; } = "";
+        public string filer_sign_date { get; set; } = "";
+        public string date_happened { get; set; } = "";
+        public string time_happened { get; set; } = "";
+        public string how_did_accident_happen { get; set; } = "";
+        public string materials_used_in_treatment { get; set; } = "";
+        public int person_signed { get; set; }
+        public int supervisor_signed { get; set; }
+        public int num_of_photographs { get; set; }
+        public string sig_fname1 { get; set; } = "";
+        public string sig_fname2 { get; set; } = "";
+        public Guid GUID { get; set; } = Guid.NewGuid();
+        public string injuries { get; set; } = "";
+        public string where_happ_acc { get; set; } = "";
+        public string Type { get; set; } = "";
+        public string what_happened { get; set; } = "";
+        public string where_abouts { get; set; } = "";
+        public string anon_or_name { get; set; } = "";
     }
 }

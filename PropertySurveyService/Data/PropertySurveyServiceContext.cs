@@ -48,7 +48,9 @@ namespace PropertySurveyService.Data
         public DbSet<PropertySurveyService.Models.SalesCar> SalesCars { get; set; } = default!;
         public DbSet<PropertySurveyService.Models.Accident_sheet> Accident_sheets { get; set; } = default!;
         public DbSet<PropertySurveyService.Models.Whitness> Whitnesses { get; set; } = default!;
-
+        public DbSet<PropertySurveyService.Models.FAccidents> FAccidents { get; set; } = default!;
+        public DbSet<PropertySurveyService.Models.ToolsTable> ToolsTable { get; set; } = default!;
+        public DbSet<PropertySurveyService.Models.MileageSheet> MileageSheets { get; set; } = default!;
 
         protected override void OnModelCreating(ModelBuilder builder)
         {

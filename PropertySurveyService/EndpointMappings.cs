@@ -10,6 +10,72 @@ namespace PropertySurveyService
     {
         public static void MapAPIEndpoints(this IEndpointRouteBuilder app)
         {
+            app.MapPost("/SendMileageSheets", async (List<MileageSheet> milageSheets, AppDBContext db) =>
+            {
+                JsonSerializerOptions serializerOptions;
+                serializerOptions = new JsonSerializerOptions
+                {
+                    PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
+                    WriteIndented = true,
+
+                };
+
+                foreach (var sheet in milageSheets)
+                {
+                    if (sheet != null)
+                    {
+                        sheet.Id = 0;
+                        db.MileageSheets.Add(sheet);
+                        await db.SaveChangesAsync();
+                    }
+                }
+                return Results.Ok(new { status = "success" });
+            });
+
+            app.MapPost("/SendToolChecks", async (List<ToolsTable> tools, AppDBContext db) =>
+            {
+                JsonSerializerOptions serializerOptions;
+                serializerOptions = new JsonSerializerOptions
+                {
+                    PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
+                    WriteIndented = true,
+
+                };
+
+                foreach (var check in tools)
+                {
+                    if (check != null)
+                    {
+                        check.Id = 0;
+                        db.ToolsTable.Add(check);
+                        await db.SaveChangesAsync();
+                    }
+                }
+                return Results.Ok(new { status = "success" });
+            });
+
+            app.MapPost("/SendWorkAccidents", async (List<FAccidents> accs, AppDBContext db) =>
+            {
+                JsonSerializerOptions serializerOptions;
+                serializerOptions = new JsonSerializerOptions
+                {
+                    PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
+                    WriteIndented = true,
+
+                };
+
+                foreach (var acc in accs)
+                {
+                    if (acc != null)
+                    {
+                        acc.Id = 0;
+                        db.FAccidents.Add(acc);
+                        await db.SaveChangesAsync();
+                    }
+                }
+                return Results.Ok(new { status = "success" });
+            });
+
             app.MapPost("/SendVehicleAccidents", async (List<AccidentsVehicleDTO> checks, AppDBContext db) =>
             {
                 JsonSerializerOptions serializerOptions;
