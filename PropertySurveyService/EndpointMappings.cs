@@ -10,6 +10,28 @@ namespace PropertySurveyService
     {
         public static void MapAPIEndpoints(this IEndpointRouteBuilder app)
         {
+            app.MapPost("/SendLadderChecks", async (List<LaddersTable> laddersSheets, AppDBContext db) =>
+            {
+                JsonSerializerOptions serializerOptions;
+                serializerOptions = new JsonSerializerOptions
+                {
+                    PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
+                    WriteIndented = true,
+
+                };
+
+                foreach (var sheet in laddersSheets)
+                {
+                    if (sheet != null)
+                    {
+                        sheet.Id = 0;
+                        db.LaddersTable.Add(sheet);
+                        await db.SaveChangesAsync();
+                    }
+                }
+                return Results.Ok(new { status = "success" });
+            });
+
             app.MapPost("/SendMileageSheets", async (List<MileageSheet> milageSheets, AppDBContext db) =>
             {
                 JsonSerializerOptions serializerOptions;
