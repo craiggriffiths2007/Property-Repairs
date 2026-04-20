@@ -1,0 +1,365 @@
+﻿@model IEnumerable<PropertySurveyService.Models.MileageSheet>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.sheet_date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.start_postcode)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.finish_postcode)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.start_mileage)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.end_mileage)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.start_time)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.end_time)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.no_of_other_places)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.time1)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.pcode1)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.time2)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.pcode2)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.time3)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.pcode3)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.registration)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.bSigned)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.signature_filename)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.bComplete)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.bSent)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.comments)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OtehrPlaceNo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.op_time1)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.op_postcode1)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.op_time2)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.op_postcode2)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.op_time3)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.op_postcode3)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.op_time4)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.op_postcode4)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.op_time5)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.op_postcode5)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.op_time6)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.op_postcode6)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.op_time7)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.op_postcode7)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.op_time8)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.op_postcode8)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.op_time9)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.op_postcode9)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.op_time10)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.op_postcode10)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.op_time11)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.op_postcode11)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.op_time12)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.op_postcode12)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.op_time13)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.op_postcode13)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.op_time14)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.op_postcode14)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.op_time15)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.op_postcode15)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.toll_charges)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.toll_charge_for)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.toll_charge_ammount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.photo_am)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.photo_pm)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.sheet_date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.start_postcode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.finish_postcode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.start_mileage)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.end_mileage)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.start_time)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.end_time)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.no_of_other_places)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.time1)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.pcode1)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.time2)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.pcode2)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.time3)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.pcode3)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.registration)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.bSigned)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.signature_filename)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.bComplete)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.bSent)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.comments)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OtehrPlaceNo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.op_time1)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.op_postcode1)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.op_time2)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.op_postcode2)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.op_time3)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.op_postcode3)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.op_time4)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.op_postcode4)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.op_time5)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.op_postcode5)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.op_time6)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.op_postcode6)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.op_time7)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.op_postcode7)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.op_time8)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.op_postcode8)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.op_time9)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.op_postcode9)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.op_time10)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.op_postcode10)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.op_time11)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.op_postcode11)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.op_time12)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.op_postcode12)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.op_time13)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.op_postcode13)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.op_time14)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.op_postcode14)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.op_time15)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.op_postcode15)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.toll_charges)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.toll_charge_for)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.toll_charge_ammount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.photo_am)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.photo_pm)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

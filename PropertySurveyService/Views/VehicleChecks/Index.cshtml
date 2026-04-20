@@ -1,0 +1,107 @@
+﻿@model IEnumerable<PropertySurveyService.Models.VehicleCheckHeader>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CheckWeekDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BranchCode)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CheckID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.bComplete)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.bSent)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TotalDeliveryHGVs)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TotalDeliveryVans)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TotalFitterVans)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TotalSalesCars)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CompleteDeliveryHGVs)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CompleteDeliveryVans)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CompleteFitterVans)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CompleteSalesCars)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CheckWeekDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BranchCode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CheckID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.bComplete)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.bSent)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TotalDeliveryHGVs)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TotalDeliveryVans)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TotalFitterVans)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TotalSalesCars)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CompleteDeliveryHGVs)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CompleteDeliveryVans)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CompleteFitterVans)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CompleteSalesCars)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

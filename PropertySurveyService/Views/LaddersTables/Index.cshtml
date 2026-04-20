@@ -1,0 +1,197 @@
+﻿@model IEnumerable<PropertySurveyService.Models.LaddersTable>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.date_done)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.branch)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ladder_number)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.registration)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.fitter_surveyor_name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.managers_name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CheckID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.in_reasonable_condition)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.rungs_missing_or_loose)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.stiles_damaged_or_bent)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.any_cracks)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.any_corrosion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.rubber_plastic_feet)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.sharp_or_metal_splinters)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.rungs_dented)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.painted_or_decorated)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.hooks_sit_properly)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ladders_been_repaired)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.comments)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.bSent)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.bComplete)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.bSigned)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.bSigned2)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.signature_filename)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.any_damage)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.signature_filename_2)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ladder_type)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.total_photos)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.date_done)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.branch)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ladder_number)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.registration)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.fitter_surveyor_name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.managers_name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CheckID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.in_reasonable_condition)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.rungs_missing_or_loose)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.stiles_damaged_or_bent)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.any_cracks)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.any_corrosion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.rubber_plastic_feet)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.sharp_or_metal_splinters)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.rungs_dented)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.painted_or_decorated)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.hooks_sit_properly)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ladders_been_repaired)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.comments)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.bSent)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.bComplete)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.bSigned)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.bSigned2)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.signature_filename)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.any_damage)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.signature_filename_2)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ladder_type)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.total_photos)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

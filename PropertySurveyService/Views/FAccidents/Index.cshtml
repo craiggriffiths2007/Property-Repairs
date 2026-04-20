@@ -1,0 +1,227 @@
+﻿@model IEnumerable<PropertySurveyService.Models.FAccidents>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.date_time)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.bSent)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.bComplete)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.full_name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.add1)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.add2)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.add3)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.pcode)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.occupation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.filer_full_name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.filer_add1)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.filer_add2)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.filer_add3)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.filer_pcode)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.filer_occupation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.sign_date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.filer_sign_date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.date_happened)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.time_happened)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.how_did_accident_happen)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.materials_used_in_treatment)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.person_signed)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.supervisor_signed)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.num_of_photographs)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.sig_fname1)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.sig_fname2)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.GUID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.injuries)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.where_happ_acc)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Type)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.what_happened)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.where_abouts)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.anon_or_name)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.date_time)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.bSent)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.bComplete)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.full_name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.add1)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.add2)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.add3)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.pcode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.occupation)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.filer_full_name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.filer_add1)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.filer_add2)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.filer_add3)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.filer_pcode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.filer_occupation)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.sign_date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.filer_sign_date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.date_happened)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.time_happened)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.how_did_accident_happen)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.materials_used_in_treatment)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.person_signed)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.supervisor_signed)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.num_of_photographs)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.sig_fname1)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.sig_fname2)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GUID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.injuries)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.where_happ_acc)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Type)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.what_happened)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.where_abouts)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.anon_or_name)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

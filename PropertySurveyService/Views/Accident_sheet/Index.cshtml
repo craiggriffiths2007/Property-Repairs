@@ -1,0 +1,413 @@
+﻿@model IEnumerable<PropertySurveyService.Models.Accident_sheet>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.date_time)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.bSent)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.bComplete)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.brief)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.c_instructions)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.c_details)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.c_you)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.c_them)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.c_police)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.c_witness)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.c_photographs)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.c_drawings)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.d_bPolice)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.d_officers_name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.d_officers_number)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.d_station)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.d_place)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.d_speed)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.d_weather)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.d_description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.d_sign_date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.y_make)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.y_model)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.y_reg)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.y_used_for)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.y_driver_full_name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.y_driver_dob)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.y_address1)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.y_address2)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.y_address3)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.y_pcode)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.y_occupation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.y_years_employed)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.y_months_employed)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.y_any_other_accidents)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.y_infirmity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.y_prosecution)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.y_vehicle_damage)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.y_driveable)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.y_damage_to_property)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.y_injuries_sustained)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.y_signed)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.t_name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.t_add1)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.t_add2)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.t_add3)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.t_pcode)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.t_make)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.t_reg)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.t_model)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.t_insurer)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.t_policy_no)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.t_telnum)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.no_of_other_people)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.p_name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.p_add1)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.p_add2)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.p_add3)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.p_pcode)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.p_wittel)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.v_reg)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.v_model)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.acc_date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.acc_time)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.date_time)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.bSent)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.bComplete)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.brief)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.c_instructions)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.c_details)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.c_you)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.c_them)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.c_police)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.c_witness)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.c_photographs)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.c_drawings)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.d_bPolice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.d_officers_name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.d_officers_number)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.d_station)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.d_place)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.d_speed)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.d_weather)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.d_description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.d_sign_date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.y_make)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.y_model)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.y_reg)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.y_used_for)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.y_driver_full_name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.y_driver_dob)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.y_address1)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.y_address2)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.y_address3)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.y_pcode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.y_occupation)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.y_years_employed)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.y_months_employed)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.y_any_other_accidents)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.y_infirmity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.y_prosecution)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.y_vehicle_damage)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.y_driveable)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.y_damage_to_property)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.y_injuries_sustained)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.y_signed)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.t_name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.t_add1)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.t_add2)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.t_add3)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.t_pcode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.t_make)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.t_reg)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.t_model)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.t_insurer)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.t_policy_no)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.t_telnum)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.no_of_other_people)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.p_name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.p_add1)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.p_add2)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.p_add3)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.p_pcode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.p_wittel)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.v_reg)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.v_model)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.acc_date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.acc_time)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
