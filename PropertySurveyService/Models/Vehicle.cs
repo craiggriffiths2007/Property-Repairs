@@ -61,6 +61,8 @@ namespace PropertySurveyService.Models
     public class VehicleCheckHeader
     {
         public int Id { get; set; }
+        public Guid Guid { get; set; } = new Guid();
+
         public string CheckWeekDate { get; set; } = "";
         public string BranchCode { get; set; } = "";  // branch code
         public string CheckID { get; set; } = ""; // consists of date, pda code, and unique Van Check ID number. Kind of a guid for the van check

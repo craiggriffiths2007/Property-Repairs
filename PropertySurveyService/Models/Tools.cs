@@ -5,6 +5,7 @@ namespace PropertySurveyService.Models
     public class ToolsTable
     {
         public int Id { get; set; }
+        public Guid Guid { get; set; }
         public int files_a { get; set; }
         public int pliers_a { get; set; }
         public int chisels_a { get; set; }

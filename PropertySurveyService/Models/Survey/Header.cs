@@ -14,8 +14,7 @@ namespace PropertySurveyService.Models
         [Key]
         public int Id { get; set; }
         [DisplayName("Record ID")]
-        public int RecID { get; set; }
-        [DisplayName("Done")]
+        public Guid Guid { get; set; }
         public bool bDone { get; set; }
         [DisplayName("Sent")]
         public bool bSent { get; set; }

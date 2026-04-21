@@ -5,6 +5,7 @@ namespace PropertySurveyService.Models
     public class LaddersTable
     {
         public int Id { get; set; }
+        public Guid Guid { get; set; }
         public string date_done { get; set; }
         public string branch { get; set; }
         public string ladder_number { get; set; }

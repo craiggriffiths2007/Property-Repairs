@@ -5,6 +5,7 @@ namespace PropertySurveyService.Models
     public class MileageSheet
     {
         public int Id { get; set; }
+        public Guid Guid { get; set; }
         public string sheet_date { get; set; }
         public string start_postcode { get; set; }
         public string finish_postcode { get; set; }
