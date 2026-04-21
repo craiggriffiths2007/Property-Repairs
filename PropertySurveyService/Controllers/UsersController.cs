@@ -34,7 +34,7 @@ namespace PropertySurveyService.Controllers
                     FirstName = user.FirstName,
                     LastName = user.LastName,
                     Roles = await _userManager.GetRolesAsync(user),
-                    ProfilePicture = user.ProfilePicture
+                    //ProfilePicture = user.ProfilePicture
                 });
             }
             return View(userList);
@@ -58,7 +58,7 @@ namespace PropertySurveyService.Controllers
                 FirstName = user.FirstName,
                 LastName = user.LastName,
                 Roles = await _userManager.GetRolesAsync(user),
-                ProfilePicture = user.ProfilePicture
+                //ProfilePicture = user.ProfilePicture
             };
             return View(model);
         }
@@ -93,7 +93,7 @@ namespace PropertySurveyService.Controllers
                 {
                     using var ms = new MemoryStream();
                     await model.Photo.CopyToAsync(ms);
-                    user.ProfilePicture = ms.ToArray();
+                    //user.ProfilePicture = ms.ToArray();
                 }
 
                 var result = await _userManager.CreateAsync(user, model.Password);
@@ -140,7 +140,7 @@ namespace PropertySurveyService.Controllers
                 FirstName = user.FirstName,
                 LastName = user.LastName,
                 Roles = roles,
-                ExistingPhoto = user.ProfilePicture
+                //ExistingPhoto = user.ProfilePicture
             };
             return View(model);
         }
@@ -168,7 +168,7 @@ namespace PropertySurveyService.Controllers
                 {
                     using var ms = new MemoryStream();
                     await model.Photo.CopyToAsync(ms);
-                    user.ProfilePicture = ms.ToArray();
+                    //user.ProfilePicture = ms.ToArray();
                 }
 
                 var result = await _userManager.UpdateAsync(user);
@@ -225,7 +225,7 @@ namespace PropertySurveyService.Controllers
                 FirstName = user.FirstName,
                 LastName = user.LastName,
                 Roles = await _userManager.GetRolesAsync(user),
-                ProfilePicture = user.ProfilePicture
+                //ProfilePicture = user.ProfilePicture
             };
             return View(model);
         }

@@ -12,8 +12,8 @@ using PropertySurveyService.Data;
 namespace PropertySurveyService.Migrations
 {
     [DbContext(typeof(AppDBContext))]
-    [Migration("20260415125723_vehicles-and-branch")]
-    partial class vehiclesandbranch
+    [Migration("20260421145106_InitialCreate")]
+    partial class InitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -208,9 +208,6 @@ namespace PropertySurveyService.Migrations
                     b.Property<bool>("PhoneNumberConfirmed")
                         .HasColumnType("bit");
 
-                    b.Property<byte[]>("ProfilePicture")
-                        .HasColumnType("varbinary(max)");
-
                     b.Property<string>("SecurityStamp")
                         .HasColumnType("nvarchar(max)");
 
@@ -235,6 +232,261 @@ namespace PropertySurveyService.Migrations
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.ToTable("AspNetUsers", (string)null);
+                });
+
+            modelBuilder.Entity("PropertySurveyService.Models.Accident_sheet", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("acc_date")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("acc_time")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("bComplete")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("bSent")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("brief")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("c_details")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("c_drawings")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("c_instructions")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("c_photographs")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("c_police")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("c_them")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("c_witness")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("c_you")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("d_bPolice")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("d_description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("d_officers_name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("d_officers_number")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("d_place")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("d_sign_date")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("d_speed")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("d_station")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("d_weather")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("date_time")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("no_of_other_people")
+                        .HasColumnType("int");
+
+                    b.Property<string>("p_add1")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("p_add2")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("p_add3")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("p_name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("p_pcode")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("p_wittel")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("t_add1")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("t_add2")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("t_add3")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("t_insurer")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("t_make")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("t_model")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("t_name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("t_pcode")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("t_policy_no")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("t_reg")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("t_telnum")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("v_model")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("v_reg")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("y_address1")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("y_address2")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("y_address3")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("y_any_other_accidents")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("y_damage_to_property")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("y_driveable")
+                        .HasColumnType("int");
+
+                    b.Property<string>("y_driver_dob")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("y_driver_full_name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("y_infirmity")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("y_injuries_sustained")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("y_make")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("y_model")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("y_months_employed")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("y_occupation")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("y_pcode")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("y_prosecution")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("y_reg")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("y_signed")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("y_used_for")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("y_vehicle_damage")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("y_years_employed")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Accident_sheets");
                 });
 
             modelBuilder.Entity("PropertySurveyService.Models.Agent", b =>
@@ -277,6 +529,9 @@ namespace PropertySurveyService.Migrations
 
                     b.Property<int>("GearBox")
                         .HasColumnType("int");
+
+                    b.Property<Guid>("Guid")
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<int>("HeaderId")
                         .HasColumnType("int");
@@ -684,6 +939,9 @@ namespace PropertySurveyService.Migrations
                     b.Property<string>("ChangeItemTo")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<Guid>("Guid")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<int>("HeaderId")
                         .HasColumnType("int");
 
@@ -874,6 +1132,9 @@ namespace PropertySurveyService.Migrations
 
                     b.Property<string>("ChangeItemTo")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid>("Guid")
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<int>("HeaderId")
                         .HasColumnType("int");
@@ -1136,6 +1397,9 @@ namespace PropertySurveyService.Migrations
 
                     b.Property<string>("ChangeItemTo")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid>("Guid")
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<int>("HeaderId")
                         .HasColumnType("int");
@@ -1456,6 +1720,1629 @@ namespace PropertySurveyService.Migrations
                     b.ToTable("Customer");
                 });
 
+            modelBuilder.Entity("PropertySurveyService.Models.DeliveryHGV", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("BranchCode")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CheckDoneDate")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CheckID")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Destination")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Mileage")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PDAVersionDate")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ReasonNotCompleted")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Registration")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("VehicleCheckHeaderId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("accident_pack")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ad_blue_level_check")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("bCheckedBySigned")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("bComplete")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("bDiagramsComplete")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("bDriverSigned")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("bPhotosInsideComplete")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("bPhotosOutsideComplete")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("bSent")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("bSignaturesComplete")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("battery_security_condition")
+                        .HasColumnType("int");
+
+                    b.Property<int>("blue_bags")
+                        .HasColumnType("int");
+
+                    b.Property<int>("brakes")
+                        .HasColumnType("int");
+
+                    b.Property<string>("checked_printed")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("clean_external")
+                        .HasColumnType("int");
+
+                    b.Property<int>("clean_internal")
+                        .HasColumnType("int");
+
+                    b.Property<int>("collection_lists")
+                        .HasColumnType("int");
+
+                    b.Property<int>("coolant_anti_freez")
+                        .HasColumnType("int");
+
+                    b.Property<string>("damage_back")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("damage_driver")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("damage_front")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("damage_pass")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("date_signed")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("delivery_lists")
+                        .HasColumnType("int");
+
+                    b.Property<string>("driver_printed")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("excessive_exhaust_smoke")
+                        .HasColumnType("int");
+
+                    b.Property<int>("fan_belt")
+                        .HasColumnType("int");
+
+                    b.Property<int>("fire_extinguisher")
+                        .HasColumnType("int");
+
+                    b.Property<int>("first_aid_box")
+                        .HasColumnType("int");
+
+                    b.Property<int>("fmg_support_sticker")
+                        .HasColumnType("int");
+
+                    b.Property<int>("fuel_card")
+                        .HasColumnType("int");
+
+                    b.Property<int>("fuel_oil_leaks")
+                        .HasColumnType("int");
+
+                    b.Property<int>("glass_windscreen")
+                        .HasColumnType("int");
+
+                    b.Property<int>("horn")
+                        .HasColumnType("int");
+
+                    b.Property<int>("horn_comp")
+                        .HasColumnType("int");
+
+                    b.Property<int>("inducators")
+                        .HasColumnType("int");
+
+                    b.Property<int>("is_complete")
+                        .HasColumnType("int");
+
+                    b.Property<int>("keys_for_branches_sat")
+                        .HasColumnType("int");
+
+                    b.Property<int>("lights")
+                        .HasColumnType("int");
+
+                    b.Property<int>("loading_area_good_condition")
+                        .HasColumnType("int");
+
+                    b.Property<int>("markers")
+                        .HasColumnType("int");
+
+                    b.Property<int>("mirrors")
+                        .HasColumnType("int");
+
+                    b.Property<int>("national_tyres_card")
+                        .HasColumnType("int");
+
+                    b.Property<int>("no_smoking_sticker")
+                        .HasColumnType("int");
+
+                    b.Property<int>("oil_and_water_checked")
+                        .HasColumnType("int");
+
+                    b.Property<int>("pda_phone_accident_pack")
+                        .HasColumnType("int");
+
+                    b.Property<int>("photos_front")
+                        .HasColumnType("int");
+
+                    b.Property<int>("photos_left")
+                        .HasColumnType("int");
+
+                    b.Property<int>("photos_rear")
+                        .HasColumnType("int");
+
+                    b.Property<int>("photos_right")
+                        .HasColumnType("int");
+
+                    b.Property<int>("portable_lighting")
+                        .HasColumnType("int");
+
+                    b.Property<int>("pressure_driver_front")
+                        .HasColumnType("int");
+
+                    b.Property<string>("pressure_driver_front_s")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("pressure_driver_rear")
+                        .HasColumnType("int");
+
+                    b.Property<string>("pressure_driver_rear_s")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("pressure_passenger_front")
+                        .HasColumnType("int");
+
+                    b.Property<string>("pressure_passenger_front_s")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("pressure_passenger_rear")
+                        .HasColumnType("int");
+
+                    b.Property<string>("pressure_passenger_rear_s")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("pressure_spare")
+                        .HasColumnType("int");
+
+                    b.Property<string>("pressure_spare_s")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("racks_and_poles")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ratchet_straps")
+                        .HasColumnType("int");
+
+                    b.Property<string>("reason_loading_area_not_good_condition")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("receipt_book")
+                        .HasColumnType("int");
+
+                    b.Property<int>("reflectors")
+                        .HasColumnType("int");
+
+                    b.Property<string>("report_defects")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("security_of_body")
+                        .HasColumnType("int");
+
+                    b.Property<int>("security_of_load")
+                        .HasColumnType("int");
+
+                    b.Property<int>("service_due_sticker")
+                        .HasColumnType("int");
+
+                    b.Property<int>("shell_fuel_card")
+                        .HasColumnType("int");
+
+                    b.Property<int>("spare_oil")
+                        .HasColumnType("int");
+
+                    b.Property<int>("spray_suppression")
+                        .HasColumnType("int");
+
+                    b.Property<int>("steering")
+                        .HasColumnType("int");
+
+                    b.Property<int>("trade_delivery_notes")
+                        .HasColumnType("int");
+
+                    b.Property<int>("trade_invoices")
+                        .HasColumnType("int");
+
+                    b.Property<int>("tyre_pressure")
+                        .HasColumnType("int");
+
+                    b.Property<int>("tyres_and_wheel_fixing")
+                        .HasColumnType("int");
+
+                    b.Property<int>("van_height_sticker")
+                        .HasColumnType("int");
+
+                    b.Property<int>("van_locks")
+                        .HasColumnType("int");
+
+                    b.Property<int>("washers")
+                        .HasColumnType("int");
+
+                    b.Property<int>("wheel_nut_check_sticker")
+                        .HasColumnType("int");
+
+                    b.Property<int>("windscreen_washer")
+                        .HasColumnType("int");
+
+                    b.Property<int>("wipers")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("DeliveryHGVs");
+                });
+
+            modelBuilder.Entity("PropertySurveyService.Models.DeliveryVan", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("BranchCode")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CheckDoneDate")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CheckID")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Destination")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Mileage")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PDAVersionDate")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ReasonNotCompleted")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Registration")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("VehicleCheckHeaderId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ats_card")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ats_card_s")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("bCheckedBySigned")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("bComplete")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("bDiagramsComplete")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("bDriverSigned")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("bPhotosInsideComplete")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("bPhotosOutsideComplete")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("bSent")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("bSignaturesComplete")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("bodywork_check")
+                        .HasColumnType("int");
+
+                    b.Property<string>("bodywork_check_s")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("branch_keys")
+                        .HasColumnType("int");
+
+                    b.Property<string>("branch_keys_s")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("breakdown_card")
+                        .HasColumnType("int");
+
+                    b.Property<string>("breakdown_card_s")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("bump_hats")
+                        .HasColumnType("int");
+
+                    b.Property<string>("bump_hats_s")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("checked_printed")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("clean_external")
+                        .HasColumnType("int");
+
+                    b.Property<string>("clean_external_s")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("clean_internal")
+                        .HasColumnType("int");
+
+                    b.Property<string>("clean_internal_s")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("coolant_anti_freeze_mix")
+                        .HasColumnType("int");
+
+                    b.Property<string>("coolant_anti_freeze_mix_s")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("damage_back")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("damage_driver")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("damage_front")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("damage_pass")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("driver_printed")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("fan_belt")
+                        .HasColumnType("int");
+
+                    b.Property<string>("fan_belt_s")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("fire_extinguisher")
+                        .HasColumnType("int");
+
+                    b.Property<string>("fire_extinguisher_s")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("first_aid_box")
+                        .HasColumnType("int");
+
+                    b.Property<string>("first_aid_box_s")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("fuel_card")
+                        .HasColumnType("int");
+
+                    b.Property<string>("fuel_card_s")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("horn")
+                        .HasColumnType("int");
+
+                    b.Property<string>("horn_s")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("is_complete")
+                        .HasColumnType("int");
+
+                    b.Property<int>("jack")
+                        .HasColumnType("int");
+
+                    b.Property<string>("jack_s")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("jump_leads")
+                        .HasColumnType("int");
+
+                    b.Property<string>("jump_leads_s")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("keys_for_branches")
+                        .HasColumnType("int");
+
+                    b.Property<string>("keys_for_branches_s")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("lights_inducators")
+                        .HasColumnType("int");
+
+                    b.Property<string>("lights_inducators_s")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("loading_area_good_condition")
+                        .HasColumnType("int");
+
+                    b.Property<int>("oil_water_checked")
+                        .HasColumnType("int");
+
+                    b.Property<string>("oil_water_checked_s")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("pda_phone_accident_pack")
+                        .HasColumnType("int");
+
+                    b.Property<string>("pda_phone_accident_pack_s")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("photos_front")
+                        .HasColumnType("int");
+
+                    b.Property<int>("photos_left")
+                        .HasColumnType("int");
+
+                    b.Property<int>("photos_rear")
+                        .HasColumnType("int");
+
+                    b.Property<int>("photos_right")
+                        .HasColumnType("int");
+
+                    b.Property<int>("pressure_driver_front")
+                        .HasColumnType("int");
+
+                    b.Property<string>("pressure_driver_front_s")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("pressure_driver_rear")
+                        .HasColumnType("int");
+
+                    b.Property<string>("pressure_driver_rear_s")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("pressure_passenger_front")
+                        .HasColumnType("int");
+
+                    b.Property<string>("pressure_passenger_front_s")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("pressure_passenger_rear")
+                        .HasColumnType("int");
+
+                    b.Property<string>("pressure_passenger_rear_s")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("pressure_spare")
+                        .HasColumnType("int");
+
+                    b.Property<string>("pressure_spare_s")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("racks_poles")
+                        .HasColumnType("int");
+
+                    b.Property<string>("racks_poles_s")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("ratchet_straps")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ratchet_straps_s")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("reason_loading_area_not_good_condition")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("receipt_book")
+                        .HasColumnType("int");
+
+                    b.Property<string>("receipt_book_s")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("service_due_sticker")
+                        .HasColumnType("int");
+
+                    b.Property<string>("service_due_sticker_s")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("spanners_for_rack_removal")
+                        .HasColumnType("int");
+
+                    b.Property<string>("spanners_for_rack_removal_s")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("spare_oil")
+                        .HasColumnType("int");
+
+                    b.Property<string>("spare_oil_s")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("spare_s_1")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("spare_wheel")
+                        .HasColumnType("int");
+
+                    b.Property<string>("spare_wheel_s")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("tow_ropes")
+                        .HasColumnType("int");
+
+                    b.Property<string>("tow_ropes_s")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("tyre_pressure")
+                        .HasColumnType("int");
+
+                    b.Property<string>("tyre_pressure_s")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("van_height_sticker")
+                        .HasColumnType("int");
+
+                    b.Property<string>("van_height_sticker_s")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("van_locks")
+                        .HasColumnType("int");
+
+                    b.Property<string>("van_locks_s")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("wheel_nut_check_sticker")
+                        .HasColumnType("int");
+
+                    b.Property<string>("wheel_nut_check_sticker_s")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("wheelbrace")
+                        .HasColumnType("int");
+
+                    b.Property<string>("wheelbrace_s")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("windscreen_washer")
+                        .HasColumnType("int");
+
+                    b.Property<string>("windscreen_washer_s")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("DeliveryVans");
+                });
+
+            modelBuilder.Entity("PropertySurveyService.Models.FAccidents", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<Guid>("GUID")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Type")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("add1")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("add2")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("add3")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("anon_or_name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("bComplete")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("bSent")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("date_happened")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("date_time")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("filer_add1")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("filer_add2")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("filer_add3")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("filer_full_name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("filer_occupation")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("filer_pcode")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("filer_sign_date")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("full_name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("how_did_accident_happen")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("injuries")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("materials_used_in_treatment")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("num_of_photographs")
+                        .HasColumnType("int");
+
+                    b.Property<string>("occupation")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("pcode")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("person_signed")
+                        .HasColumnType("int");
+
+                    b.Property<string>("sig_fname1")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("sig_fname2")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("sign_date")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("supervisor_signed")
+                        .HasColumnType("int");
+
+                    b.Property<string>("time_happened")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("what_happened")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("where_abouts")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("where_happ_acc")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("FAccidents");
+                });
+
+            modelBuilder.Entity("PropertySurveyService.Models.FitterVan", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("BranchCode")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CheckDoneDate")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CheckID")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Destination")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ManufactureDateOnHelmet")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ManufactureDateOnHelmet10")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ManufactureDateOnHelmet2")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ManufactureDateOnHelmet3")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ManufactureDateOnHelmet4")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ManufactureDateOnHelmet5")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ManufactureDateOnHelmet6")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ManufactureDateOnHelmet7")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ManufactureDateOnHelmet8")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ManufactureDateOnHelmet9")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Mileage")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PDAVersionDate")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ReasonNotCompleted")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Registration")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("VehicleCheckHeaderId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("accident_pack_on_pda")
+                        .HasColumnType("int");
+
+                    b.Property<string>("accident_pack_on_pda_s")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("bCheckedBySigned")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("bComplete")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("bDiagramsComplete")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("bDriverSigned")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("bPhotosInsideComplete")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("bPhotosOutsideComplete")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("bSent")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("bSignaturesComplete")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("bag")
+                        .HasColumnType("int");
+
+                    b.Property<string>("bag_s")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("blue_external_dust_sheet")
+                        .HasColumnType("int");
+
+                    b.Property<string>("blue_external_dust_sheet_s")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("breakdown_card")
+                        .HasColumnType("int");
+
+                    b.Property<string>("breakdown_card_s")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("brush_and_shovel")
+                        .HasColumnType("int");
+
+                    b.Property<string>("brush_and_shovel_s")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("cabin_condition")
+                        .HasColumnType("int");
+
+                    b.Property<string>("cabin_condition_s")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("checked_printed")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("circuit_breaker")
+                        .HasColumnType("int");
+
+                    b.Property<string>("circuit_breaker_s")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("circular_saw")
+                        .HasColumnType("int");
+
+                    b.Property<string>("circular_saw_s")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("cleaner_bottle")
+                        .HasColumnType("int");
+
+                    b.Property<string>("cleaner_bottle_s")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("completion_forms")
+                        .HasColumnType("int");
+
+                    b.Property<string>("completion_forms_s")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("coolant_anti_freeze")
+                        .HasColumnType("int");
+
+                    b.Property<string>("coolant_anti_freeze_s")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("cordless_drill")
+                        .HasColumnType("int");
+
+                    b.Property<string>("cordless_drill_s")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("customer_care_cards")
+                        .HasColumnType("int");
+
+                    b.Property<string>("customer_care_cards_s")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("damage_back")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("damage_driver")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("damage_front")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("damage_pass")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("dressing")
+                        .HasColumnType("int");
+
+                    b.Property<string>("dressing_s")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("driver_printed")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("dust_masks")
+                        .HasColumnType("int");
+
+                    b.Property<string>("dust_masks_s")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("ear_defenders")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ear_defenders_s")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("ecloth")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ecloth_s")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("extension_lead")
+                        .HasColumnType("int");
+
+                    b.Property<string>("extension_lead_s")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("eyewashers")
+                        .HasColumnType("int");
+
+                    b.Property<string>("eyewashers_s")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("fan_belt")
+                        .HasColumnType("int");
+
+                    b.Property<string>("fan_belt_s")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("fire_extinguisher")
+                        .HasColumnType("int");
+
+                    b.Property<string>("fire_extinguisher_s")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("fitters_own_power_tools_ladders_on_van")
+                        .HasColumnType("int");
+
+                    b.Property<int>("flexi_meter")
+                        .HasColumnType("int");
+
+                    b.Property<string>("flexi_meter_s")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("freepost_envelopes")
+                        .HasColumnType("int");
+
+                    b.Property<string>("freepost_envelopes_s")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("fuel_card")
+                        .HasColumnType("int");
+
+                    b.Property<string>("fuel_card_s")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("glass_suckers")
+                        .HasColumnType("int");
+
+                    b.Property<string>("glass_suckers_s")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("gloves")
+                        .HasColumnType("int");
+
+                    b.Property<string>("gloves_s")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("goggles")
+                        .HasColumnType("int");
+
+                    b.Property<string>("goggles_s")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("grinder")
+                        .HasColumnType("int");
+
+                    b.Property<string>("grinder_s")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("halogen_lamp")
+                        .HasColumnType("int");
+
+                    b.Property<string>("halogen_lamp_s")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("hammer_drill")
+                        .HasColumnType("int");
+
+                    b.Property<string>("hammer_drill_s")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("heat_gun")
+                        .HasColumnType("int");
+
+                    b.Property<string>("heat_gun_s")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("helmet_manufacture_date")
+                        .HasColumnType("int");
+
+                    b.Property<string>("helmet_manufacture_date_s")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("hi_vis_vests")
+                        .HasColumnType("int");
+
+                    b.Property<string>("hi_vis_vests_s")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("hoover")
+                        .HasColumnType("int");
+
+                    b.Property<string>("hoover_s")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("hows_my_driving_sticker")
+                        .HasColumnType("int");
+
+                    b.Property<string>("hows_my_driving_sticker_s")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("industrial_ladders")
+                        .HasColumnType("int");
+
+                    b.Property<string>("industrial_ladders_s")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("internal_dust_sheets_x3")
+                        .HasColumnType("int");
+
+                    b.Property<string>("internal_dust_sheets_x3_s")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("is_complete")
+                        .HasColumnType("int");
+
+                    b.Property<int>("jack")
+                        .HasColumnType("int");
+
+                    b.Property<string>("jack_s")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("jig_saw")
+                        .HasColumnType("int");
+
+                    b.Property<string>("jig_saw_s")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("jump_leads")
+                        .HasColumnType("int");
+
+                    b.Property<string>("jump_leads_s")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("ladder_clamps")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ladder_clamps_s")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("ladder_stopper")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ladder_stopper_s")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("letterbox_jig")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("mandate_forms")
+                        .HasColumnType("int");
+
+                    b.Property<string>("mandate_forms_s")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("marks_out_of_10")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("mastic_guns")
+                        .HasColumnType("int");
+
+                    b.Property<string>("mastic_guns_s")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("merlin_low_e_detector")
+                        .HasColumnType("int");
+
+                    b.Property<string>("merlin_low_e_detector_s")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("national_tyres_card")
+                        .HasColumnType("int");
+
+                    b.Property<string>("national_tyres_card_s")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("no_smoking_sticker")
+                        .HasColumnType("int");
+
+                    b.Property<string>("no_smoking_sticker_s")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("oil_and_water_checked")
+                        .HasColumnType("int");
+
+                    b.Property<string>("oil_and_water_checked_s")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("ordinary_drill")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ordinary_drill_s")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("pda_setup_date")
+                        .HasColumnType("int");
+
+                    b.Property<string>("pda_setup_date_s")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("philips_bit")
+                        .HasColumnType("int");
+
+                    b.Property<string>("philips_bit_s")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("photos_front")
+                        .HasColumnType("int");
+
+                    b.Property<int>("photos_left")
+                        .HasColumnType("int");
+
+                    b.Property<int>("photos_rear")
+                        .HasColumnType("int");
+
+                    b.Property<int>("photos_right")
+                        .HasColumnType("int");
+
+                    b.Property<int>("planer_check_blade")
+                        .HasColumnType("int");
+
+                    b.Property<string>("planer_check_blade_s")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("plasters")
+                        .HasColumnType("int");
+
+                    b.Property<string>("plasters_s")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("power_breaker")
+                        .HasColumnType("int");
+
+                    b.Property<string>("power_breaker_s")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("pressure_driver_front")
+                        .HasColumnType("int");
+
+                    b.Property<string>("pressure_driver_front_s")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("pressure_driver_rear")
+                        .HasColumnType("int");
+
+                    b.Property<string>("pressure_driver_rear_s")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("pressure_passenger_front")
+                        .HasColumnType("int");
+
+                    b.Property<string>("pressure_passenger_front_s")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("pressure_passenger_rear")
+                        .HasColumnType("int");
+
+                    b.Property<string>("pressure_passenger_rear_s")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("pressure_spare")
+                        .HasColumnType("int");
+
+                    b.Property<string>("pressure_spare_s")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("quality_manuals")
+                        .HasColumnType("int");
+
+                    b.Property<string>("quality_manuals_s")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("racks_and_poles")
+                        .HasColumnType("int");
+
+                    b.Property<string>("racks_and_poles_s")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("ratchett_straps_x4")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ratchett_straps_x4_s")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("router")
+                        .HasColumnType("int");
+
+                    b.Property<string>("router_s")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("safety_helmets")
+                        .HasColumnType("int");
+
+                    b.Property<string>("safety_helmets_s")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("sander")
+                        .HasColumnType("int");
+
+                    b.Property<string>("sander_s")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("screw_box")
+                        .HasColumnType("int");
+
+                    b.Property<string>("screw_box_s")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("shell_points_card")
+                        .HasColumnType("int");
+
+                    b.Property<string>("shell_points_card_s")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("spare_battery_and_charger")
+                        .HasColumnType("int");
+
+                    b.Property<string>("spare_battery_and_charger_s")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("spare_i_1")
+                        .HasColumnType("int");
+
+                    b.Property<int>("spare_i_2")
+                        .HasColumnType("int");
+
+                    b.Property<int>("spare_i_3")
+                        .HasColumnType("int");
+
+                    b.Property<int>("spare_i_4")
+                        .HasColumnType("int");
+
+                    b.Property<int>("spare_oil")
+                        .HasColumnType("int");
+
+                    b.Property<string>("spare_oil_s")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("spare_s_1")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("spare_s_2")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("spare_s_3")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("spare_s_4")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("spare_wheel")
+                        .HasColumnType("int");
+
+                    b.Property<string>("spare_wheel_s")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("stapler")
+                        .HasColumnType("int");
+
+                    b.Property<string>("stapler_s")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("step_ladders")
+                        .HasColumnType("int");
+
+                    b.Property<string>("step_ladders_s")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("steri_wipes")
+                        .HasColumnType("int");
+
+                    b.Property<string>("steri_wipes_s")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("torch_working")
+                        .HasColumnType("int");
+
+                    b.Property<string>("torch_working_s")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("tow_ropes")
+                        .HasColumnType("int");
+
+                    b.Property<string>("tow_ropes_s")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("tresles_x2")
+                        .HasColumnType("int");
+
+                    b.Property<string>("tresles_x2_s")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("tyre_conditions")
+                        .HasColumnType("int");
+
+                    b.Property<string>("tyre_conditions_s")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("van_height_sticker")
+                        .HasColumnType("int");
+
+                    b.Property<string>("van_height_sticker_s")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("van_locks")
+                        .HasColumnType("int");
+
+                    b.Property<string>("van_locks_s")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("vehicle_reg")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("wheel_nut_check_sticker")
+                        .HasColumnType("int");
+
+                    b.Property<string>("wheel_nut_check_sticker_s")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("wheelbrace")
+                        .HasColumnType("int");
+
+                    b.Property<string>("wheelbrace_s")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("windscreen_good_contidion")
+                        .HasColumnType("int");
+
+                    b.Property<string>("windscreen_good_contidion_s")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("worksheets")
+                        .HasColumnType("int");
+
+                    b.Property<string>("worksheets_s")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("wrist_guards")
+                        .HasColumnType("int");
+
+                    b.Property<string>("wrist_guards_s")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("FitterVans");
+                });
+
             modelBuilder.Entity("PropertySurveyService.Models.GarageTable", b =>
                 {
                     b.Property<int>("Id")
@@ -1466,6 +3353,9 @@ namespace PropertySurveyService.Migrations
 
                     b.Property<string>("ChangeItemTo")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid>("Guid")
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<int>("HeaderId")
                         .HasColumnType("int");
@@ -1671,6 +3561,9 @@ namespace PropertySurveyService.Migrations
 
                     b.Property<string>("ChangeItemTo")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid>("Guid")
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<int>("HeaderId")
                         .HasColumnType("int");
@@ -1925,6 +3818,9 @@ namespace PropertySurveyService.Migrations
                     b.Property<string>("ChangeItemTo")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<Guid>("Guid")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<int>("HeaderId")
                         .HasColumnType("int");
 
@@ -2043,8 +3939,8 @@ namespace PropertySurveyService.Migrations
                     b.Property<string>("Group")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("RecID")
-                        .HasColumnType("int");
+                    b.Property<Guid>("Guid")
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<int>("SSRequired")
                         .HasColumnType("int");
@@ -3360,6 +5256,117 @@ namespace PropertySurveyService.Migrations
                     b.ToTable("Job");
                 });
 
+            modelBuilder.Entity("PropertySurveyService.Models.LaddersTable", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("CheckID")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid>("Guid")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<int>("any_corrosion")
+                        .HasColumnType("int");
+
+                    b.Property<int>("any_cracks")
+                        .HasColumnType("int");
+
+                    b.Property<int>("any_damage")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("bComplete")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("bSent")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("bSigned")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("bSigned2")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("branch")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("comments")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("date_done")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("fitter_surveyor_name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("hooks_sit_properly")
+                        .HasColumnType("int");
+
+                    b.Property<int>("in_reasonable_condition")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ladder_number")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ladder_type")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("ladders_been_repaired")
+                        .HasColumnType("int");
+
+                    b.Property<string>("managers_name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("painted_or_decorated")
+                        .HasColumnType("int");
+
+                    b.Property<string>("registration")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("rubber_plastic_feet")
+                        .HasColumnType("int");
+
+                    b.Property<int>("rungs_dented")
+                        .HasColumnType("int");
+
+                    b.Property<int>("rungs_missing_or_loose")
+                        .HasColumnType("int");
+
+                    b.Property<int>("sharp_or_metal_splinters")
+                        .HasColumnType("int");
+
+                    b.Property<string>("signature_filename")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("signature_filename_2")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("stiles_damaged_or_bent")
+                        .HasColumnType("int");
+
+                    b.Property<int>("total_photos")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("LaddersTable");
+                });
+
             modelBuilder.Entity("PropertySurveyService.Models.LockingTable", b =>
                 {
                     b.Property<int>("Id")
@@ -3376,6 +5383,9 @@ namespace PropertySurveyService.Migrations
 
                     b.Property<int>("GearBox")
                         .HasColumnType("int");
+
+                    b.Property<Guid>("Guid")
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<int>("HeaderId")
                         .HasColumnType("int");
@@ -3541,6 +5551,240 @@ namespace PropertySurveyService.Migrations
                     b.ToTable("LockingTable");
                 });
 
+            modelBuilder.Entity("PropertySurveyService.Models.MileageSheet", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<Guid>("Guid")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<int>("OtehrPlaceNo")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("bComplete")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("bSent")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("bSigned")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("comments")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("end_mileage")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("end_time")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("finish_postcode")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("no_of_other_places")
+                        .HasColumnType("int");
+
+                    b.Property<string>("op_postcode1")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("op_postcode10")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("op_postcode11")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("op_postcode12")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("op_postcode13")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("op_postcode14")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("op_postcode15")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("op_postcode2")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("op_postcode3")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("op_postcode4")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("op_postcode5")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("op_postcode6")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("op_postcode7")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("op_postcode8")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("op_postcode9")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("op_time1")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("op_time10")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("op_time11")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("op_time12")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("op_time13")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("op_time14")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("op_time15")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("op_time2")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("op_time3")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("op_time4")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("op_time5")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("op_time6")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("op_time7")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("op_time8")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("op_time9")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("pcode1")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("pcode2")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("pcode3")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("photo_am")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("photo_pm")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("registration")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("sheet_date")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("signature_filename")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("start_mileage")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("start_postcode")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("start_time")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("time1")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("time2")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("time3")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("toll_charge_ammount")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("toll_charge_for")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("toll_charges")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("MileageSheets");
+                });
+
             modelBuilder.Entity("PropertySurveyService.Models.PanelTable", b =>
                 {
                     b.Property<int>("Id")
@@ -3551,6 +5795,9 @@ namespace PropertySurveyService.Migrations
 
                     b.Property<string>("ChangeItemTo")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid>("Guid")
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<int>("HeaderId")
                         .HasColumnType("int");
@@ -3689,6 +5936,236 @@ namespace PropertySurveyService.Migrations
                     b.ToTable("Images");
                 });
 
+            modelBuilder.Entity("PropertySurveyService.Models.SalesCar", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("BranchCode")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CheckDoneDate")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CheckID")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Destination")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Mileage")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PDAVersionDate")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ReasonNotCompleted")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Registration")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("VehicleCheckHeaderId")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("bCheckedBySigned")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("bComplete")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("bDiagramsComplete")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("bDriverSigned")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("bPhotosInsideComplete")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("bPhotosOutsideComplete")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("bSent")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("bSignaturesComplete")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("checked_printed")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("damage_back")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("damage_driver")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("damage_front")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("damage_pass")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("driver_printed")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("fuel_card")
+                        .HasColumnType("int");
+
+                    b.Property<string>("fuel_card_s")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("interior_clean")
+                        .HasColumnType("int");
+
+                    b.Property<string>("interior_clean_s")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("is_complete")
+                        .HasColumnType("int");
+
+                    b.Property<int>("jack")
+                        .HasColumnType("int");
+
+                    b.Property<string>("jack_s")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("oil_level")
+                        .HasColumnType("int");
+
+                    b.Property<string>("oil_level_s")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("photos_front")
+                        .HasColumnType("int");
+
+                    b.Property<int>("photos_left")
+                        .HasColumnType("int");
+
+                    b.Property<int>("photos_rear")
+                        .HasColumnType("int");
+
+                    b.Property<int>("photos_right")
+                        .HasColumnType("int");
+
+                    b.Property<int>("pressure_driver_front")
+                        .HasColumnType("int");
+
+                    b.Property<string>("pressure_driver_front_s")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("pressure_driver_rear")
+                        .HasColumnType("int");
+
+                    b.Property<string>("pressure_driver_rear_s")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("pressure_passenger_front")
+                        .HasColumnType("int");
+
+                    b.Property<string>("pressure_passenger_front_s")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("pressure_passenger_rear")
+                        .HasColumnType("int");
+
+                    b.Property<string>("pressure_passenger_rear_s")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("pressure_spare")
+                        .HasColumnType("int");
+
+                    b.Property<string>("pressure_spare_s")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("shell_fuel_card")
+                        .HasColumnType("int");
+
+                    b.Property<string>("shell_fuel_card_s")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("shell_points_card")
+                        .HasColumnType("int");
+
+                    b.Property<string>("shell_points_card_s")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("spare_wheel")
+                        .HasColumnType("int");
+
+                    b.Property<string>("spare_wheel_s")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("tools")
+                        .HasColumnType("int");
+
+                    b.Property<string>("tools_s")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("tyre_condition")
+                        .HasColumnType("int");
+
+                    b.Property<string>("tyre_condition_s")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("water_level")
+                        .HasColumnType("int");
+
+                    b.Property<string>("water_level_s")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("wheel_brace")
+                        .HasColumnType("int");
+
+                    b.Property<string>("wheel_brace_s")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("windscreen_wash")
+                        .HasColumnType("int");
+
+                    b.Property<string>("windscreen_wash_s")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("SalesCars");
+                });
+
             modelBuilder.Entity("PropertySurveyService.Models.TimberTable", b =>
                 {
                     b.Property<int>("Id")
@@ -3705,6 +6182,9 @@ namespace PropertySurveyService.Migrations
 
                     b.Property<int>("GearBox")
                         .HasColumnType("int");
+
+                    b.Property<Guid>("Guid")
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<int>("HeaderId")
                         .HasColumnType("int");
@@ -4137,6 +6617,274 @@ namespace PropertySurveyService.Migrations
                     b.ToTable("TimberTable");
                 });
 
+            modelBuilder.Entity("PropertySurveyService.Models.ToolsTable", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("CheckID")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid>("Guid")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<int>("adjustablespanner_a")
+                        .HasColumnType("int");
+
+                    b.Property<int>("adjustablespanner_f")
+                        .HasColumnType("int");
+
+                    b.Property<int>("augerbits_a")
+                        .HasColumnType("int");
+
+                    b.Property<int>("augerbits_f")
+                        .HasColumnType("int");
+
+                    b.Property<int>("augerbitsjoin_a")
+                        .HasColumnType("int");
+
+                    b.Property<int>("augerbitsjoin_f")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("bComplete")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("bSent")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("bSigned")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("bSigned2")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("bolsterchisel_a")
+                        .HasColumnType("int");
+
+                    b.Property<int>("bolsterchisel_f")
+                        .HasColumnType("int");
+
+                    b.Property<string>("branch")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("chisels_a")
+                        .HasColumnType("int");
+
+                    b.Property<int>("chisels_f")
+                        .HasColumnType("int");
+
+                    b.Property<int>("clubhammer_a")
+                        .HasColumnType("int");
+
+                    b.Property<int>("clubhammer_f")
+                        .HasColumnType("int");
+
+                    b.Property<int>("copingsaw_a")
+                        .HasColumnType("int");
+
+                    b.Property<int>("copingsaw_f")
+                        .HasColumnType("int");
+
+                    b.Property<int>("copingsawjoin_a")
+                        .HasColumnType("int");
+
+                    b.Property<int>("copingsawjoin_f")
+                        .HasColumnType("int");
+
+                    b.Property<int>("crowbar_a")
+                        .HasColumnType("int");
+
+                    b.Property<int>("crowbar_f")
+                        .HasColumnType("int");
+
+                    b.Property<string>("date_done")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("files_a")
+                        .HasColumnType("int");
+
+                    b.Property<int>("files_f")
+                        .HasColumnType("int");
+
+                    b.Property<int>("glazingshovel_a")
+                        .HasColumnType("int");
+
+                    b.Property<int>("glazingshovel_f")
+                        .HasColumnType("int");
+
+                    b.Property<int>("hacksaw_a")
+                        .HasColumnType("int");
+
+                    b.Property<int>("hacksaw_f")
+                        .HasColumnType("int");
+
+                    b.Property<int>("hammer_a")
+                        .HasColumnType("int");
+
+                    b.Property<int>("hammer_f")
+                        .HasColumnType("int");
+
+                    b.Property<int>("handsaw_a")
+                        .HasColumnType("int");
+
+                    b.Property<int>("handsaw_f")
+                        .HasColumnType("int");
+
+                    b.Property<int>("molegrips_a")
+                        .HasColumnType("int");
+
+                    b.Property<int>("molegrips_f")
+                        .HasColumnType("int");
+
+                    b.Property<int>("nailpunch_a")
+                        .HasColumnType("int");
+
+                    b.Property<int>("nailpunch_f")
+                        .HasColumnType("int");
+
+                    b.Property<int>("nailpunchjoin_a")
+                        .HasColumnType("int");
+
+                    b.Property<int>("nailpunchjoin_f")
+                        .HasColumnType("int");
+
+                    b.Property<string>("photo_filename")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("pincers_a")
+                        .HasColumnType("int");
+
+                    b.Property<int>("pincers_f")
+                        .HasColumnType("int");
+
+                    b.Property<int>("pliers_a")
+                        .HasColumnType("int");
+
+                    b.Property<int>("pliers_f")
+                        .HasColumnType("int");
+
+                    b.Property<int>("pointingtrowel_a")
+                        .HasColumnType("int");
+
+                    b.Property<int>("pointingtrowel_f")
+                        .HasColumnType("int");
+
+                    b.Property<int>("puttyknife_a")
+                        .HasColumnType("int");
+
+                    b.Property<int>("puttyknife_f")
+                        .HasColumnType("int");
+
+                    b.Property<int>("puttyknifejoin_a")
+                        .HasColumnType("int");
+
+                    b.Property<int>("puttyknifejoin_f")
+                        .HasColumnType("int");
+
+                    b.Property<string>("registration")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("rivetgunjoin_a")
+                        .HasColumnType("int");
+
+                    b.Property<int>("rivetgunjoin_f")
+                        .HasColumnType("int");
+
+                    b.Property<int>("scraper_a")
+                        .HasColumnType("int");
+
+                    b.Property<int>("scraper_f")
+                        .HasColumnType("int");
+
+                    b.Property<int>("screwdrivers_a")
+                        .HasColumnType("int");
+
+                    b.Property<int>("screwdrivers_f")
+                        .HasColumnType("int");
+
+                    b.Property<int>("setofallenkeys_a")
+                        .HasColumnType("int");
+
+                    b.Property<int>("setofallenkeys_f")
+                        .HasColumnType("int");
+
+                    b.Property<int>("setsquare_a")
+                        .HasColumnType("int");
+
+                    b.Property<int>("setsquare_f")
+                        .HasColumnType("int");
+
+                    b.Property<int>("sidecutters_a")
+                        .HasColumnType("int");
+
+                    b.Property<int>("sidecutters_f")
+                        .HasColumnType("int");
+
+                    b.Property<string>("signature_filename")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("signature_filename2")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("signature_printed")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("signature_printed2")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("slidingbevel_a")
+                        .HasColumnType("int");
+
+                    b.Property<int>("slidingbevel_f")
+                        .HasColumnType("int");
+
+                    b.Property<int>("socketset_a")
+                        .HasColumnType("int");
+
+                    b.Property<int>("socketset_f")
+                        .HasColumnType("int");
+
+                    b.Property<int>("socketsetjoin_a")
+                        .HasColumnType("int");
+
+                    b.Property<int>("socketsetjoin_f")
+                        .HasColumnType("int");
+
+                    b.Property<int>("spiritlevel_a")
+                        .HasColumnType("int");
+
+                    b.Property<int>("spiritlevel_f")
+                        .HasColumnType("int");
+
+                    b.Property<int>("stanleyknife_a")
+                        .HasColumnType("int");
+
+                    b.Property<int>("stanleyknife_f")
+                        .HasColumnType("int");
+
+                    b.Property<int>("tapemeasure_a")
+                        .HasColumnType("int");
+
+                    b.Property<int>("tapemeasure_f")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("ToolsTable");
+                });
+
             modelBuilder.Entity("PropertySurveyService.Models.UPVCTable", b =>
                 {
                     b.Property<int>("Id")
@@ -4150,6 +6898,9 @@ namespace PropertySurveyService.Migrations
 
                     b.Property<int>("GearBox")
                         .HasColumnType("int");
+
+                    b.Property<Guid>("Guid")
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<int>("HeaderId")
                         .HasColumnType("int");
@@ -4571,6 +7322,107 @@ namespace PropertySurveyService.Migrations
                     b.HasIndex("BranchId");
 
                     b.ToTable("Vehicles");
+                });
+
+            modelBuilder.Entity("PropertySurveyService.Models.VehicleCheckHeader", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("BranchCode")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CheckID")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CheckWeekDate")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("CompleteDeliveryHGVs")
+                        .HasColumnType("int");
+
+                    b.Property<int>("CompleteDeliveryVans")
+                        .HasColumnType("int");
+
+                    b.Property<int>("CompleteFitterVans")
+                        .HasColumnType("int");
+
+                    b.Property<int>("CompleteSalesCars")
+                        .HasColumnType("int");
+
+                    b.Property<Guid>("Guid")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<int>("TotalDeliveryHGVs")
+                        .HasColumnType("int");
+
+                    b.Property<int>("TotalDeliveryVans")
+                        .HasColumnType("int");
+
+                    b.Property<int>("TotalFitterVans")
+                        .HasColumnType("int");
+
+                    b.Property<int>("TotalSalesCars")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("bComplete")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("bSent")
+                        .HasColumnType("bit");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("VehicleCheckHeaders");
+                });
+
+            modelBuilder.Entity("PropertySurveyService.Models.Whitness", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("Accident_sheetId")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("complete")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("p_add1")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("p_add2")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("p_add3")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("p_name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("p_pcode")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("p_wittel")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Whitnesses");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

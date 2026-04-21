@@ -5,10 +5,103 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace PropertySurveyService.Migrations
 {
+    /// <inheritdoc />
     public partial class InitialCreate : Migration
     {
+        /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.CreateTable(
+                name: "Accident_sheets",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    date_time = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    bSent = table.Column<bool>(type: "bit", nullable: false),
+                    bComplete = table.Column<bool>(type: "bit", nullable: false),
+                    brief = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    c_instructions = table.Column<bool>(type: "bit", nullable: false),
+                    c_details = table.Column<bool>(type: "bit", nullable: false),
+                    c_you = table.Column<bool>(type: "bit", nullable: false),
+                    c_them = table.Column<bool>(type: "bit", nullable: false),
+                    c_police = table.Column<bool>(type: "bit", nullable: false),
+                    c_witness = table.Column<bool>(type: "bit", nullable: false),
+                    c_photographs = table.Column<bool>(type: "bit", nullable: false),
+                    c_drawings = table.Column<bool>(type: "bit", nullable: false),
+                    d_bPolice = table.Column<bool>(type: "bit", nullable: false),
+                    d_officers_name = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    d_officers_number = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    d_station = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    d_place = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    d_speed = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    d_weather = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    d_description = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    d_sign_date = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    y_make = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    y_model = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    y_reg = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    y_used_for = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    y_driver_full_name = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    y_driver_dob = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    y_address1 = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    y_address2 = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    y_address3 = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    y_pcode = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    y_occupation = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    y_years_employed = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    y_months_employed = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    y_any_other_accidents = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    y_infirmity = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    y_prosecution = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    y_vehicle_damage = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    y_driveable = table.Column<int>(type: "int", nullable: false),
+                    y_damage_to_property = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    y_injuries_sustained = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    y_signed = table.Column<bool>(type: "bit", nullable: false),
+                    t_name = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    t_add1 = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    t_add2 = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    t_add3 = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    t_pcode = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    t_make = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    t_reg = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    t_model = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    t_insurer = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    t_policy_no = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    t_telnum = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    no_of_other_people = table.Column<int>(type: "int", nullable: false),
+                    p_name = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    p_add1 = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    p_add2 = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    p_add3 = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    p_pcode = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    p_wittel = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    v_reg = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    v_model = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    acc_date = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    acc_time = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Accident_sheets", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Agent",
+                columns: table => new
+                {
+                    AgentId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    AgentCode = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    AgentType = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Agent", x => x.AgentId);
+                });
+
             migrationBuilder.CreateTable(
                 name: "AlumTable",
                 columns: table => new
@@ -16,6 +109,7 @@ namespace PropertySurveyService.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     HeaderId = table.Column<int>(type: "int", nullable: false),
+                    Guid = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     udi_cont = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     item_number = table.Column<int>(type: "int", nullable: false),
                     bRepair = table.Column<bool>(type: "bit", nullable: false),
@@ -176,7 +270,6 @@ namespace PropertySurveyService.Migrations
                     FirstName = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: true),
                     LastName = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: true),
                     UsernameChangeLimit = table.Column<int>(type: "int", nullable: false),
-                    ProfilePicture = table.Column<byte[]>(type: "varbinary(max)", nullable: true),
                     UserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     NormalizedUserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     Email = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
@@ -204,16 +297,17 @@ namespace PropertySurveyService.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     HeaderId = table.Column<int>(type: "int", nullable: false),
+                    Guid = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     udi_cont = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     item_number = table.Column<int>(type: "int", nullable: false),
-                    ernal_width = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    ernal_height = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    internal_width = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    internal_height = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     overall_width = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     overall_height = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     opens = table.Column<int>(type: "int", nullable: false),
                     trickle_vents = table.Column<int>(type: "int", nullable: false),
                     hardware = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    color_ernal = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    color_internal = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     color_external = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     threshold_type = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     no_of_pics = table.Column<int>(type: "int", nullable: false),
@@ -232,14 +326,14 @@ namespace PropertySurveyService.Migrations
                     handle_colour = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     cill_type = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     knock_on = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    ernal_door_colour = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    internal_door_colour = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     s_spare12 = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     parts_to_order = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     type_of_lockng_system_required = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     was_it_locked = table.Column<int>(type: "int", nullable: false),
                     point_of_entry = table.Column<int>(type: "int", nullable: false),
                     ChangeItemTo = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    pr_name = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    print_name = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     bDifferentFromOriginal = table.Column<bool>(type: "bit", nullable: false),
                     glass_complete = table.Column<bool>(type: "bit", nullable: false),
                     replace_glass = table.Column<int>(type: "int", nullable: false),
@@ -262,12 +356,28 @@ namespace PropertySurveyService.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Branches",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    BranchName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    BranchCode = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    BranchDescription = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Branches", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "CompositeTable",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     HeaderId = table.Column<int>(type: "int", nullable: false),
+                    Guid = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     udi_cont = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     item_number = table.Column<int>(type: "int", nullable: false),
                     isComplete = table.Column<int>(type: "int", nullable: false),
@@ -363,6 +473,7 @@ namespace PropertySurveyService.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     HeaderId = table.Column<int>(type: "int", nullable: false),
+                    Guid = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     udi_cont = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     item_number = table.Column<int>(type: "int", nullable: false),
                     isComplete = table.Column<int>(type: "int", nullable: false),
@@ -473,12 +584,512 @@ namespace PropertySurveyService.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "DeliveryHGVs",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    national_tyres_card = table.Column<int>(type: "int", nullable: false),
+                    fmg_support_sticker = table.Column<int>(type: "int", nullable: false),
+                    fuel_card = table.Column<int>(type: "int", nullable: false),
+                    clean_external = table.Column<int>(type: "int", nullable: false),
+                    clean_internal = table.Column<int>(type: "int", nullable: false),
+                    fan_belt = table.Column<int>(type: "int", nullable: false),
+                    fire_extinguisher = table.Column<int>(type: "int", nullable: false),
+                    first_aid_box = table.Column<int>(type: "int", nullable: false),
+                    horn = table.Column<int>(type: "int", nullable: false),
+                    oil_and_water_checked = table.Column<int>(type: "int", nullable: false),
+                    accident_pack = table.Column<int>(type: "int", nullable: false),
+                    portable_lighting = table.Column<int>(type: "int", nullable: false),
+                    ad_blue_level_check = table.Column<int>(type: "int", nullable: false),
+                    racks_and_poles = table.Column<int>(type: "int", nullable: false),
+                    ratchet_straps = table.Column<int>(type: "int", nullable: false),
+                    service_due_sticker = table.Column<int>(type: "int", nullable: false),
+                    no_smoking_sticker = table.Column<int>(type: "int", nullable: false),
+                    spare_oil = table.Column<int>(type: "int", nullable: false),
+                    coolant_anti_freez = table.Column<int>(type: "int", nullable: false),
+                    tyre_pressure = table.Column<int>(type: "int", nullable: false),
+                    van_height_sticker = table.Column<int>(type: "int", nullable: false),
+                    van_locks = table.Column<int>(type: "int", nullable: false),
+                    wheel_nut_check_sticker = table.Column<int>(type: "int", nullable: false),
+                    windscreen_washer = table.Column<int>(type: "int", nullable: false),
+                    fuel_oil_leaks = table.Column<int>(type: "int", nullable: false),
+                    battery_security_condition = table.Column<int>(type: "int", nullable: false),
+                    tyres_and_wheel_fixing = table.Column<int>(type: "int", nullable: false),
+                    spray_suppression = table.Column<int>(type: "int", nullable: false),
+                    steering = table.Column<int>(type: "int", nullable: false),
+                    security_of_load = table.Column<int>(type: "int", nullable: false),
+                    mirrors = table.Column<int>(type: "int", nullable: false),
+                    lights = table.Column<int>(type: "int", nullable: false),
+                    reflectors = table.Column<int>(type: "int", nullable: false),
+                    inducators = table.Column<int>(type: "int", nullable: false),
+                    wipers = table.Column<int>(type: "int", nullable: false),
+                    washers = table.Column<int>(type: "int", nullable: false),
+                    horn_comp = table.Column<int>(type: "int", nullable: false),
+                    excessive_exhaust_smoke = table.Column<int>(type: "int", nullable: false),
+                    brakes = table.Column<int>(type: "int", nullable: false),
+                    security_of_body = table.Column<int>(type: "int", nullable: false),
+                    markers = table.Column<int>(type: "int", nullable: false),
+                    glass_windscreen = table.Column<int>(type: "int", nullable: false),
+                    receipt_book = table.Column<int>(type: "int", nullable: false),
+                    keys_for_branches_sat = table.Column<int>(type: "int", nullable: false),
+                    pda_phone_accident_pack = table.Column<int>(type: "int", nullable: false),
+                    trade_invoices = table.Column<int>(type: "int", nullable: false),
+                    blue_bags = table.Column<int>(type: "int", nullable: false),
+                    delivery_lists = table.Column<int>(type: "int", nullable: false),
+                    collection_lists = table.Column<int>(type: "int", nullable: false),
+                    trade_delivery_notes = table.Column<int>(type: "int", nullable: false),
+                    report_defects = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    date_signed = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    loading_area_good_condition = table.Column<int>(type: "int", nullable: false),
+                    reason_loading_area_not_good_condition = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    shell_fuel_card = table.Column<int>(type: "int", nullable: false),
+                    VehicleCheckHeaderId = table.Column<int>(type: "int", nullable: false),
+                    CheckID = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Destination = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    CheckDoneDate = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Registration = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Mileage = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    BranchCode = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    PDAVersionDate = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    is_complete = table.Column<int>(type: "int", nullable: false),
+                    ReasonNotCompleted = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    bComplete = table.Column<bool>(type: "bit", nullable: false),
+                    bSent = table.Column<bool>(type: "bit", nullable: false),
+                    pressure_passenger_front = table.Column<int>(type: "int", nullable: false),
+                    pressure_passenger_rear = table.Column<int>(type: "int", nullable: false),
+                    pressure_driver_front = table.Column<int>(type: "int", nullable: false),
+                    pressure_driver_rear = table.Column<int>(type: "int", nullable: false),
+                    pressure_spare = table.Column<int>(type: "int", nullable: false),
+                    pressure_passenger_front_s = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    pressure_passenger_rear_s = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    pressure_driver_front_s = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    pressure_driver_rear_s = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    pressure_spare_s = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    bPhotosOutsideComplete = table.Column<bool>(type: "bit", nullable: false),
+                    bPhotosInsideComplete = table.Column<bool>(type: "bit", nullable: false),
+                    bDiagramsComplete = table.Column<bool>(type: "bit", nullable: false),
+                    bSignaturesComplete = table.Column<bool>(type: "bit", nullable: false),
+                    damage_pass = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    damage_driver = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    damage_front = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    damage_back = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    photos_front = table.Column<int>(type: "int", nullable: false),
+                    photos_rear = table.Column<int>(type: "int", nullable: false),
+                    photos_left = table.Column<int>(type: "int", nullable: false),
+                    photos_right = table.Column<int>(type: "int", nullable: false),
+                    bDriverSigned = table.Column<bool>(type: "bit", nullable: false),
+                    bCheckedBySigned = table.Column<bool>(type: "bit", nullable: false),
+                    driver_printed = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    checked_printed = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_DeliveryHGVs", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "DeliveryVans",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    ats_card = table.Column<int>(type: "int", nullable: false),
+                    bodywork_check = table.Column<int>(type: "int", nullable: false),
+                    breakdown_card = table.Column<int>(type: "int", nullable: false),
+                    clean_external = table.Column<int>(type: "int", nullable: false),
+                    clean_internal = table.Column<int>(type: "int", nullable: false),
+                    fan_belt = table.Column<int>(type: "int", nullable: false),
+                    fire_extinguisher = table.Column<int>(type: "int", nullable: false),
+                    first_aid_box = table.Column<int>(type: "int", nullable: false),
+                    fuel_card = table.Column<int>(type: "int", nullable: false),
+                    horn = table.Column<int>(type: "int", nullable: false),
+                    jack = table.Column<int>(type: "int", nullable: false),
+                    jump_leads = table.Column<int>(type: "int", nullable: false),
+                    keys_for_branches = table.Column<int>(type: "int", nullable: false),
+                    lights_inducators = table.Column<int>(type: "int", nullable: false),
+                    oil_water_checked = table.Column<int>(type: "int", nullable: false),
+                    racks_poles = table.Column<int>(type: "int", nullable: false),
+                    ratchet_straps = table.Column<int>(type: "int", nullable: false),
+                    receipt_book = table.Column<int>(type: "int", nullable: false),
+                    bump_hats = table.Column<int>(type: "int", nullable: false),
+                    service_due_sticker = table.Column<int>(type: "int", nullable: false),
+                    spanners_for_rack_removal = table.Column<int>(type: "int", nullable: false),
+                    spare_oil = table.Column<int>(type: "int", nullable: false),
+                    coolant_anti_freeze_mix = table.Column<int>(type: "int", nullable: false),
+                    spare_wheel = table.Column<int>(type: "int", nullable: false),
+                    tow_ropes = table.Column<int>(type: "int", nullable: false),
+                    tyre_pressure = table.Column<int>(type: "int", nullable: false),
+                    van_height_sticker = table.Column<int>(type: "int", nullable: false),
+                    van_locks = table.Column<int>(type: "int", nullable: false),
+                    wheel_nut_check_sticker = table.Column<int>(type: "int", nullable: false),
+                    wheelbrace = table.Column<int>(type: "int", nullable: false),
+                    windscreen_washer = table.Column<int>(type: "int", nullable: false),
+                    pda_phone_accident_pack = table.Column<int>(type: "int", nullable: false),
+                    branch_keys = table.Column<int>(type: "int", nullable: false),
+                    ats_card_s = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    bodywork_check_s = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    breakdown_card_s = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    clean_external_s = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    clean_internal_s = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    fan_belt_s = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    fire_extinguisher_s = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    first_aid_box_s = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    fuel_card_s = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    horn_s = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    jack_s = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    jump_leads_s = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    keys_for_branches_s = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    lights_inducators_s = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    oil_water_checked_s = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    racks_poles_s = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    ratchet_straps_s = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    receipt_book_s = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    bump_hats_s = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    service_due_sticker_s = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    spanners_for_rack_removal_s = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    spare_oil_s = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    coolant_anti_freeze_mix_s = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    spare_wheel_s = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    tow_ropes_s = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    tyre_pressure_s = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    van_height_sticker_s = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    van_locks_s = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    wheel_nut_check_sticker_s = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    wheelbrace_s = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    windscreen_washer_s = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    pda_phone_accident_pack_s = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    branch_keys_s = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    loading_area_good_condition = table.Column<int>(type: "int", nullable: false),
+                    reason_loading_area_not_good_condition = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    spare_s_1 = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    VehicleCheckHeaderId = table.Column<int>(type: "int", nullable: false),
+                    CheckID = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Destination = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    CheckDoneDate = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Registration = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Mileage = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    BranchCode = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    PDAVersionDate = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    is_complete = table.Column<int>(type: "int", nullable: false),
+                    ReasonNotCompleted = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    bComplete = table.Column<bool>(type: "bit", nullable: false),
+                    bSent = table.Column<bool>(type: "bit", nullable: false),
+                    pressure_passenger_front = table.Column<int>(type: "int", nullable: false),
+                    pressure_passenger_rear = table.Column<int>(type: "int", nullable: false),
+                    pressure_driver_front = table.Column<int>(type: "int", nullable: false),
+                    pressure_driver_rear = table.Column<int>(type: "int", nullable: false),
+                    pressure_spare = table.Column<int>(type: "int", nullable: false),
+                    pressure_passenger_front_s = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    pressure_passenger_rear_s = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    pressure_driver_front_s = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    pressure_driver_rear_s = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    pressure_spare_s = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    bPhotosOutsideComplete = table.Column<bool>(type: "bit", nullable: false),
+                    bPhotosInsideComplete = table.Column<bool>(type: "bit", nullable: false),
+                    bDiagramsComplete = table.Column<bool>(type: "bit", nullable: false),
+                    bSignaturesComplete = table.Column<bool>(type: "bit", nullable: false),
+                    damage_pass = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    damage_driver = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    damage_front = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    damage_back = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    photos_front = table.Column<int>(type: "int", nullable: false),
+                    photos_rear = table.Column<int>(type: "int", nullable: false),
+                    photos_left = table.Column<int>(type: "int", nullable: false),
+                    photos_right = table.Column<int>(type: "int", nullable: false),
+                    bDriverSigned = table.Column<bool>(type: "bit", nullable: false),
+                    bCheckedBySigned = table.Column<bool>(type: "bit", nullable: false),
+                    driver_printed = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    checked_printed = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_DeliveryVans", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "FAccidents",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    date_time = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    bSent = table.Column<bool>(type: "bit", nullable: false),
+                    bComplete = table.Column<bool>(type: "bit", nullable: false),
+                    full_name = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    add1 = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    add2 = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    add3 = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    pcode = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    occupation = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    filer_full_name = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    filer_add1 = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    filer_add2 = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    filer_add3 = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    filer_pcode = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    filer_occupation = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    sign_date = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    filer_sign_date = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    date_happened = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    time_happened = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    how_did_accident_happen = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    materials_used_in_treatment = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    person_signed = table.Column<int>(type: "int", nullable: false),
+                    supervisor_signed = table.Column<int>(type: "int", nullable: false),
+                    num_of_photographs = table.Column<int>(type: "int", nullable: false),
+                    sig_fname1 = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    sig_fname2 = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    GUID = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    injuries = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    where_happ_acc = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Type = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    what_happened = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    where_abouts = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    anon_or_name = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_FAccidents", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "FitterVans",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    circuit_breaker = table.Column<int>(type: "int", nullable: false),
+                    power_breaker = table.Column<int>(type: "int", nullable: false),
+                    hammer_drill = table.Column<int>(type: "int", nullable: false),
+                    ordinary_drill = table.Column<int>(type: "int", nullable: false),
+                    cordless_drill = table.Column<int>(type: "int", nullable: false),
+                    spare_battery_and_charger = table.Column<int>(type: "int", nullable: false),
+                    circular_saw = table.Column<int>(type: "int", nullable: false),
+                    jig_saw = table.Column<int>(type: "int", nullable: false),
+                    planer_check_blade = table.Column<int>(type: "int", nullable: false),
+                    heat_gun = table.Column<int>(type: "int", nullable: false),
+                    sander = table.Column<int>(type: "int", nullable: false),
+                    hoover = table.Column<int>(type: "int", nullable: false),
+                    halogen_lamp = table.Column<int>(type: "int", nullable: false),
+                    extension_lead = table.Column<int>(type: "int", nullable: false),
+                    router = table.Column<int>(type: "int", nullable: false),
+                    industrial_ladders = table.Column<int>(type: "int", nullable: false),
+                    ladder_clamps = table.Column<int>(type: "int", nullable: false),
+                    step_ladders = table.Column<int>(type: "int", nullable: false),
+                    ladder_stopper = table.Column<int>(type: "int", nullable: false),
+                    philips_bit = table.Column<int>(type: "int", nullable: false),
+                    screw_box = table.Column<int>(type: "int", nullable: false),
+                    tresles_x2 = table.Column<int>(type: "int", nullable: false),
+                    torch_working = table.Column<int>(type: "int", nullable: false),
+                    ratchett_straps_x4 = table.Column<int>(type: "int", nullable: false),
+                    spare_wheel = table.Column<int>(type: "int", nullable: false),
+                    blue_external_dust_sheet = table.Column<int>(type: "int", nullable: false),
+                    internal_dust_sheets_x3 = table.Column<int>(type: "int", nullable: false),
+                    brush_and_shovel = table.Column<int>(type: "int", nullable: false),
+                    cleaner_bottle = table.Column<int>(type: "int", nullable: false),
+                    ecloth = table.Column<int>(type: "int", nullable: false),
+                    mastic_guns = table.Column<int>(type: "int", nullable: false),
+                    glass_suckers = table.Column<int>(type: "int", nullable: false),
+                    safety_helmets = table.Column<int>(type: "int", nullable: false),
+                    helmet_manufacture_date = table.Column<int>(type: "int", nullable: false),
+                    gloves = table.Column<int>(type: "int", nullable: false),
+                    wrist_guards = table.Column<int>(type: "int", nullable: false),
+                    goggles = table.Column<int>(type: "int", nullable: false),
+                    ear_defenders = table.Column<int>(type: "int", nullable: false),
+                    dust_masks = table.Column<int>(type: "int", nullable: false),
+                    customer_care_cards = table.Column<int>(type: "int", nullable: false),
+                    completion_forms = table.Column<int>(type: "int", nullable: false),
+                    freepost_envelopes = table.Column<int>(type: "int", nullable: false),
+                    mandate_forms = table.Column<int>(type: "int", nullable: false),
+                    quality_manuals = table.Column<int>(type: "int", nullable: false),
+                    stapler = table.Column<int>(type: "int", nullable: false),
+                    worksheets = table.Column<int>(type: "int", nullable: false),
+                    plasters = table.Column<int>(type: "int", nullable: false),
+                    dressing = table.Column<int>(type: "int", nullable: false),
+                    eyewashers = table.Column<int>(type: "int", nullable: false),
+                    steri_wipes = table.Column<int>(type: "int", nullable: false),
+                    bag = table.Column<int>(type: "int", nullable: false),
+                    flexi_meter = table.Column<int>(type: "int", nullable: false),
+                    merlin_low_e_detector = table.Column<int>(type: "int", nullable: false),
+                    cabin_condition = table.Column<int>(type: "int", nullable: false),
+                    national_tyres_card = table.Column<int>(type: "int", nullable: false),
+                    breakdown_card = table.Column<int>(type: "int", nullable: false),
+                    fuel_card = table.Column<int>(type: "int", nullable: false),
+                    shell_points_card = table.Column<int>(type: "int", nullable: false),
+                    fire_extinguisher = table.Column<int>(type: "int", nullable: false),
+                    jack = table.Column<int>(type: "int", nullable: false),
+                    wheelbrace = table.Column<int>(type: "int", nullable: false),
+                    jump_leads = table.Column<int>(type: "int", nullable: false),
+                    fan_belt = table.Column<int>(type: "int", nullable: false),
+                    tow_ropes = table.Column<int>(type: "int", nullable: false),
+                    spare_oil = table.Column<int>(type: "int", nullable: false),
+                    coolant_anti_freeze = table.Column<int>(type: "int", nullable: false),
+                    van_height_sticker = table.Column<int>(type: "int", nullable: false),
+                    wheel_nut_check_sticker = table.Column<int>(type: "int", nullable: false),
+                    no_smoking_sticker = table.Column<int>(type: "int", nullable: false),
+                    racks_and_poles = table.Column<int>(type: "int", nullable: false),
+                    tyre_conditions = table.Column<int>(type: "int", nullable: false),
+                    van_locks = table.Column<int>(type: "int", nullable: false),
+                    oil_and_water_checked = table.Column<int>(type: "int", nullable: false),
+                    hows_my_driving_sticker = table.Column<int>(type: "int", nullable: false),
+                    pda_setup_date = table.Column<int>(type: "int", nullable: false),
+                    accident_pack_on_pda = table.Column<int>(type: "int", nullable: false),
+                    hi_vis_vests = table.Column<int>(type: "int", nullable: false),
+                    grinder = table.Column<int>(type: "int", nullable: false),
+                    windscreen_good_contidion = table.Column<int>(type: "int", nullable: false),
+                    circuit_breaker_s = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    power_breaker_s = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    hammer_drill_s = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    ordinary_drill_s = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    cordless_drill_s = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    spare_battery_and_charger_s = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    circular_saw_s = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    jig_saw_s = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    planer_check_blade_s = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    heat_gun_s = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    sander_s = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    hoover_s = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    halogen_lamp_s = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    extension_lead_s = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    router_s = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    industrial_ladders_s = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    ladder_clamps_s = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    step_ladders_s = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    ladder_stopper_s = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    philips_bit_s = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    screw_box_s = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    tresles_x2_s = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    torch_working_s = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    ratchett_straps_x4_s = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    spare_wheel_s = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    blue_external_dust_sheet_s = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    internal_dust_sheets_x3_s = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    brush_and_shovel_s = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    cleaner_bottle_s = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    ecloth_s = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    mastic_guns_s = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    glass_suckers_s = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    safety_helmets_s = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    helmet_manufacture_date_s = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    gloves_s = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    wrist_guards_s = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    goggles_s = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    ear_defenders_s = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    dust_masks_s = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    customer_care_cards_s = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    completion_forms_s = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    freepost_envelopes_s = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    mandate_forms_s = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    quality_manuals_s = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    stapler_s = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    worksheets_s = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    plasters_s = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    dressing_s = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    eyewashers_s = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    steri_wipes_s = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    bag_s = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    flexi_meter_s = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    merlin_low_e_detector_s = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    cabin_condition_s = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    national_tyres_card_s = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    breakdown_card_s = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    fuel_card_s = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    shell_points_card_s = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    fire_extinguisher_s = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    jack_s = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    wheelbrace_s = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    jump_leads_s = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    fan_belt_s = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    tow_ropes_s = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    spare_oil_s = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    coolant_anti_freeze_s = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    van_height_sticker_s = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    wheel_nut_check_sticker_s = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    no_smoking_sticker_s = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    racks_and_poles_s = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    tyre_conditions_s = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    van_locks_s = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    oil_and_water_checked_s = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    hows_my_driving_sticker_s = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    pda_setup_date_s = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    accident_pack_on_pda_s = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    hi_vis_vests_s = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    grinder_s = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    windscreen_good_contidion_s = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    fitters_own_power_tools_ladders_on_van = table.Column<int>(type: "int", nullable: false),
+                    marks_out_of_10 = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    vehicle_reg = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    spare_s_1 = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    spare_s_2 = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    spare_s_3 = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    spare_s_4 = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    spare_i_1 = table.Column<int>(type: "int", nullable: false),
+                    spare_i_2 = table.Column<int>(type: "int", nullable: false),
+                    spare_i_3 = table.Column<int>(type: "int", nullable: false),
+                    spare_i_4 = table.Column<int>(type: "int", nullable: false),
+                    ManufactureDateOnHelmet = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    ManufactureDateOnHelmet2 = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    ManufactureDateOnHelmet3 = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    ManufactureDateOnHelmet4 = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    ManufactureDateOnHelmet5 = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    ManufactureDateOnHelmet6 = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    ManufactureDateOnHelmet7 = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    ManufactureDateOnHelmet8 = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    ManufactureDateOnHelmet9 = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    ManufactureDateOnHelmet10 = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    letterbox_jig = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    VehicleCheckHeaderId = table.Column<int>(type: "int", nullable: false),
+                    CheckID = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Destination = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    CheckDoneDate = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Registration = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Mileage = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    BranchCode = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    PDAVersionDate = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    is_complete = table.Column<int>(type: "int", nullable: false),
+                    ReasonNotCompleted = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    bComplete = table.Column<bool>(type: "bit", nullable: false),
+                    bSent = table.Column<bool>(type: "bit", nullable: false),
+                    pressure_passenger_front = table.Column<int>(type: "int", nullable: false),
+                    pressure_passenger_rear = table.Column<int>(type: "int", nullable: false),
+                    pressure_driver_front = table.Column<int>(type: "int", nullable: false),
+                    pressure_driver_rear = table.Column<int>(type: "int", nullable: false),
+                    pressure_spare = table.Column<int>(type: "int", nullable: false),
+                    pressure_passenger_front_s = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    pressure_passenger_rear_s = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    pressure_driver_front_s = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    pressure_driver_rear_s = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    pressure_spare_s = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    bPhotosOutsideComplete = table.Column<bool>(type: "bit", nullable: false),
+                    bPhotosInsideComplete = table.Column<bool>(type: "bit", nullable: false),
+                    bDiagramsComplete = table.Column<bool>(type: "bit", nullable: false),
+                    bSignaturesComplete = table.Column<bool>(type: "bit", nullable: false),
+                    damage_pass = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    damage_driver = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    damage_front = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    damage_back = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    photos_front = table.Column<int>(type: "int", nullable: false),
+                    photos_rear = table.Column<int>(type: "int", nullable: false),
+                    photos_left = table.Column<int>(type: "int", nullable: false),
+                    photos_right = table.Column<int>(type: "int", nullable: false),
+                    bDriverSigned = table.Column<bool>(type: "bit", nullable: false),
+                    bCheckedBySigned = table.Column<bool>(type: "bit", nullable: false),
+                    driver_printed = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    checked_printed = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_FitterVans", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "GarageTable",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     HeaderId = table.Column<int>(type: "int", nullable: false),
+                    Guid = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     udi_cont = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     item_number = table.Column<int>(type: "int", nullable: false),
                     opening_direction = table.Column<int>(type: "int", nullable: false),
@@ -555,6 +1166,7 @@ namespace PropertySurveyService.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     HeaderId = table.Column<int>(type: "int", nullable: false),
+                    Guid = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     udi_cont = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     item_number = table.Column<int>(type: "int", nullable: false),
                     isComplete = table.Column<int>(type: "int", nullable: false),
@@ -647,6 +1259,7 @@ namespace PropertySurveyService.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     HeaderId = table.Column<int>(type: "int", nullable: false),
+                    Guid = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     udi_cont = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     item_number = table.Column<int>(type: "int", nullable: false),
                     isComplete = table.Column<int>(type: "int", nullable: false),
@@ -691,7 +1304,7 @@ namespace PropertySurveyService.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    RecID = table.Column<int>(type: "int", nullable: false),
+                    Guid = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     bDone = table.Column<bool>(type: "bit", nullable: false),
                     bSent = table.Column<bool>(type: "bit", nullable: false),
                     iRecordType = table.Column<int>(type: "int", nullable: false),
@@ -1140,12 +1753,54 @@ namespace PropertySurveyService.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "LaddersTable",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Guid = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    date_done = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    branch = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    ladder_number = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    registration = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    fitter_surveyor_name = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    managers_name = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    CheckID = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    in_reasonable_condition = table.Column<int>(type: "int", nullable: false),
+                    rungs_missing_or_loose = table.Column<int>(type: "int", nullable: false),
+                    stiles_damaged_or_bent = table.Column<int>(type: "int", nullable: false),
+                    any_cracks = table.Column<int>(type: "int", nullable: false),
+                    any_corrosion = table.Column<int>(type: "int", nullable: false),
+                    rubber_plastic_feet = table.Column<int>(type: "int", nullable: false),
+                    sharp_or_metal_splinters = table.Column<int>(type: "int", nullable: false),
+                    rungs_dented = table.Column<int>(type: "int", nullable: false),
+                    painted_or_decorated = table.Column<int>(type: "int", nullable: false),
+                    hooks_sit_properly = table.Column<int>(type: "int", nullable: false),
+                    ladders_been_repaired = table.Column<int>(type: "int", nullable: false),
+                    comments = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    bSent = table.Column<bool>(type: "bit", nullable: false),
+                    bComplete = table.Column<bool>(type: "bit", nullable: false),
+                    bSigned = table.Column<bool>(type: "bit", nullable: false),
+                    bSigned2 = table.Column<bool>(type: "bit", nullable: false),
+                    signature_filename = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    any_damage = table.Column<int>(type: "int", nullable: false),
+                    signature_filename_2 = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    ladder_type = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    total_photos = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_LaddersTable", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "LockingTable",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     HeaderId = table.Column<int>(type: "int", nullable: false),
+                    Guid = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     udi_cont = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     item_number = table.Column<int>(type: "int", nullable: false),
                     isComplete = table.Column<int>(type: "int", nullable: false),
@@ -1208,12 +1863,82 @@ namespace PropertySurveyService.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "MileageSheets",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Guid = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    sheet_date = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    start_postcode = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    finish_postcode = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    start_mileage = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    end_mileage = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    start_time = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    end_time = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    no_of_other_places = table.Column<int>(type: "int", nullable: false),
+                    time1 = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    pcode1 = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    time2 = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    pcode2 = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    time3 = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    pcode3 = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    registration = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    bSigned = table.Column<bool>(type: "bit", nullable: false),
+                    signature_filename = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    bComplete = table.Column<bool>(type: "bit", nullable: false),
+                    bSent = table.Column<bool>(type: "bit", nullable: false),
+                    comments = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    OtehrPlaceNo = table.Column<int>(type: "int", nullable: false),
+                    op_time1 = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    op_postcode1 = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    op_time2 = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    op_postcode2 = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    op_time3 = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    op_postcode3 = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    op_time4 = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    op_postcode4 = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    op_time5 = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    op_postcode5 = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    op_time6 = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    op_postcode6 = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    op_time7 = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    op_postcode7 = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    op_time8 = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    op_postcode8 = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    op_time9 = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    op_postcode9 = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    op_time10 = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    op_postcode10 = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    op_time11 = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    op_postcode11 = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    op_time12 = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    op_postcode12 = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    op_time13 = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    op_postcode13 = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    op_time14 = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    op_postcode14 = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    op_time15 = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    op_postcode15 = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    toll_charges = table.Column<int>(type: "int", nullable: false),
+                    toll_charge_for = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    toll_charge_ammount = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    photo_am = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    photo_pm = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_MileageSheets", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "PanelTable",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     HeaderId = table.Column<int>(type: "int", nullable: false),
+                    Guid = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     udi_cont = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     item_number = table.Column<int>(type: "int", nullable: false),
                     isComplete = table.Column<int>(type: "int", nullable: false),
@@ -1255,17 +1980,77 @@ namespace PropertySurveyService.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Surveyor",
+                name: "SalesCars",
                 columns: table => new
                 {
-                    SurveyorId = table.Column<int>(type: "int", nullable: false)
+                    Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    SurveyorCode = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    fuel_card = table.Column<int>(type: "int", nullable: false),
+                    shell_points_card = table.Column<int>(type: "int", nullable: false),
+                    interior_clean = table.Column<int>(type: "int", nullable: false),
+                    oil_level = table.Column<int>(type: "int", nullable: false),
+                    water_level = table.Column<int>(type: "int", nullable: false),
+                    windscreen_wash = table.Column<int>(type: "int", nullable: false),
+                    spare_wheel = table.Column<int>(type: "int", nullable: false),
+                    jack = table.Column<int>(type: "int", nullable: false),
+                    wheel_brace = table.Column<int>(type: "int", nullable: false),
+                    tools = table.Column<int>(type: "int", nullable: false),
+                    tyre_condition = table.Column<int>(type: "int", nullable: false),
+                    fuel_card_s = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    shell_points_card_s = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    interior_clean_s = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    oil_level_s = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    water_level_s = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    windscreen_wash_s = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    spare_wheel_s = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    jack_s = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    wheel_brace_s = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    tools_s = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    tyre_condition_s = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    shell_fuel_card_s = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    shell_fuel_card = table.Column<int>(type: "int", nullable: false),
+                    VehicleCheckHeaderId = table.Column<int>(type: "int", nullable: false),
+                    CheckID = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Destination = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    CheckDoneDate = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Registration = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Mileage = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    BranchCode = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    PDAVersionDate = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    is_complete = table.Column<int>(type: "int", nullable: false),
+                    ReasonNotCompleted = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    bComplete = table.Column<bool>(type: "bit", nullable: false),
+                    bSent = table.Column<bool>(type: "bit", nullable: false),
+                    pressure_passenger_front = table.Column<int>(type: "int", nullable: false),
+                    pressure_passenger_rear = table.Column<int>(type: "int", nullable: false),
+                    pressure_driver_front = table.Column<int>(type: "int", nullable: false),
+                    pressure_driver_rear = table.Column<int>(type: "int", nullable: false),
+                    pressure_spare = table.Column<int>(type: "int", nullable: false),
+                    pressure_passenger_front_s = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    pressure_passenger_rear_s = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    pressure_driver_front_s = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    pressure_driver_rear_s = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    pressure_spare_s = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    bPhotosOutsideComplete = table.Column<bool>(type: "bit", nullable: false),
+                    bPhotosInsideComplete = table.Column<bool>(type: "bit", nullable: false),
+                    bDiagramsComplete = table.Column<bool>(type: "bit", nullable: false),
+                    bSignaturesComplete = table.Column<bool>(type: "bit", nullable: false),
+                    damage_pass = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    damage_driver = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    damage_front = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    damage_back = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    photos_front = table.Column<int>(type: "int", nullable: false),
+                    photos_rear = table.Column<int>(type: "int", nullable: false),
+                    photos_left = table.Column<int>(type: "int", nullable: false),
+                    photos_right = table.Column<int>(type: "int", nullable: false),
+                    bDriverSigned = table.Column<bool>(type: "bit", nullable: false),
+                    bCheckedBySigned = table.Column<bool>(type: "bit", nullable: false),
+                    driver_printed = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    checked_printed = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Surveyor", x => x.SurveyorId);
+                    table.PrimaryKey("PK_SalesCars", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -1275,6 +2060,7 @@ namespace PropertySurveyService.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     HeaderId = table.Column<int>(type: "int", nullable: false),
+                    Guid = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     udi_cont = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     item_number = table.Column<int>(type: "int", nullable: false),
                     isComplete = table.Column<int>(type: "int", nullable: false),
@@ -1426,12 +2212,107 @@ namespace PropertySurveyService.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "ToolsTable",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Guid = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    files_a = table.Column<int>(type: "int", nullable: false),
+                    pliers_a = table.Column<int>(type: "int", nullable: false),
+                    chisels_a = table.Column<int>(type: "int", nullable: false),
+                    pincers_a = table.Column<int>(type: "int", nullable: false),
+                    scraper_a = table.Column<int>(type: "int", nullable: false),
+                    hacksaw_a = table.Column<int>(type: "int", nullable: false),
+                    crowbar_a = table.Column<int>(type: "int", nullable: false),
+                    handsaw_a = table.Column<int>(type: "int", nullable: false),
+                    molegrips_a = table.Column<int>(type: "int", nullable: false),
+                    sidecutters_a = table.Column<int>(type: "int", nullable: false),
+                    hammer_a = table.Column<int>(type: "int", nullable: false),
+                    spiritlevel_a = table.Column<int>(type: "int", nullable: false),
+                    screwdrivers_a = table.Column<int>(type: "int", nullable: false),
+                    bolsterchisel_a = table.Column<int>(type: "int", nullable: false),
+                    setsquare_a = table.Column<int>(type: "int", nullable: false),
+                    stanleyknife_a = table.Column<int>(type: "int", nullable: false),
+                    clubhammer_a = table.Column<int>(type: "int", nullable: false),
+                    tapemeasure_a = table.Column<int>(type: "int", nullable: false),
+                    slidingbevel_a = table.Column<int>(type: "int", nullable: false),
+                    glazingshovel_a = table.Column<int>(type: "int", nullable: false),
+                    pointingtrowel_a = table.Column<int>(type: "int", nullable: false),
+                    setofallenkeys_a = table.Column<int>(type: "int", nullable: false),
+                    adjustablespanner_a = table.Column<int>(type: "int", nullable: false),
+                    augerbits_a = table.Column<int>(type: "int", nullable: false),
+                    nailpunch_a = table.Column<int>(type: "int", nullable: false),
+                    puttyknife_a = table.Column<int>(type: "int", nullable: false),
+                    socketset_a = table.Column<int>(type: "int", nullable: false),
+                    copingsaw_a = table.Column<int>(type: "int", nullable: false),
+                    augerbitsjoin_a = table.Column<int>(type: "int", nullable: false),
+                    nailpunchjoin_a = table.Column<int>(type: "int", nullable: false),
+                    puttyknifejoin_a = table.Column<int>(type: "int", nullable: false),
+                    socketsetjoin_a = table.Column<int>(type: "int", nullable: false),
+                    copingsawjoin_a = table.Column<int>(type: "int", nullable: false),
+                    rivetgunjoin_a = table.Column<int>(type: "int", nullable: false),
+                    files_f = table.Column<int>(type: "int", nullable: false),
+                    pliers_f = table.Column<int>(type: "int", nullable: false),
+                    chisels_f = table.Column<int>(type: "int", nullable: false),
+                    pincers_f = table.Column<int>(type: "int", nullable: false),
+                    scraper_f = table.Column<int>(type: "int", nullable: false),
+                    hacksaw_f = table.Column<int>(type: "int", nullable: false),
+                    crowbar_f = table.Column<int>(type: "int", nullable: false),
+                    handsaw_f = table.Column<int>(type: "int", nullable: false),
+                    molegrips_f = table.Column<int>(type: "int", nullable: false),
+                    sidecutters_f = table.Column<int>(type: "int", nullable: false),
+                    hammer_f = table.Column<int>(type: "int", nullable: false),
+                    spiritlevel_f = table.Column<int>(type: "int", nullable: false),
+                    screwdrivers_f = table.Column<int>(type: "int", nullable: false),
+                    bolsterchisel_f = table.Column<int>(type: "int", nullable: false),
+                    setsquare_f = table.Column<int>(type: "int", nullable: false),
+                    stanleyknife_f = table.Column<int>(type: "int", nullable: false),
+                    clubhammer_f = table.Column<int>(type: "int", nullable: false),
+                    tapemeasure_f = table.Column<int>(type: "int", nullable: false),
+                    slidingbevel_f = table.Column<int>(type: "int", nullable: false),
+                    glazingshovel_f = table.Column<int>(type: "int", nullable: false),
+                    pointingtrowel_f = table.Column<int>(type: "int", nullable: false),
+                    setofallenkeys_f = table.Column<int>(type: "int", nullable: false),
+                    adjustablespanner_f = table.Column<int>(type: "int", nullable: false),
+                    augerbits_f = table.Column<int>(type: "int", nullable: false),
+                    nailpunch_f = table.Column<int>(type: "int", nullable: false),
+                    puttyknife_f = table.Column<int>(type: "int", nullable: false),
+                    socketset_f = table.Column<int>(type: "int", nullable: false),
+                    copingsaw_f = table.Column<int>(type: "int", nullable: false),
+                    augerbitsjoin_f = table.Column<int>(type: "int", nullable: false),
+                    nailpunchjoin_f = table.Column<int>(type: "int", nullable: false),
+                    puttyknifejoin_f = table.Column<int>(type: "int", nullable: false),
+                    socketsetjoin_f = table.Column<int>(type: "int", nullable: false),
+                    copingsawjoin_f = table.Column<int>(type: "int", nullable: false),
+                    rivetgunjoin_f = table.Column<int>(type: "int", nullable: false),
+                    date_done = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    bComplete = table.Column<bool>(type: "bit", nullable: false),
+                    bSent = table.Column<bool>(type: "bit", nullable: false),
+                    bSigned = table.Column<bool>(type: "bit", nullable: false),
+                    bSigned2 = table.Column<bool>(type: "bit", nullable: false),
+                    signature_filename = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    signature_filename2 = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    signature_printed = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    signature_printed2 = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    registration = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    branch = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    CheckID = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    photo_filename = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ToolsTable", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "UPVCTable",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     HeaderId = table.Column<int>(type: "int", nullable: false),
+                    Guid = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     udi_cont = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     item_number = table.Column<int>(type: "int", nullable: false),
                     isComplete = table.Column<int>(type: "int", nullable: false),
@@ -1569,6 +2450,52 @@ namespace PropertySurveyService.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "VehicleCheckHeaders",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Guid = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    CheckWeekDate = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    BranchCode = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    CheckID = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    bComplete = table.Column<bool>(type: "bit", nullable: false),
+                    bSent = table.Column<bool>(type: "bit", nullable: false),
+                    TotalDeliveryHGVs = table.Column<int>(type: "int", nullable: false),
+                    TotalDeliveryVans = table.Column<int>(type: "int", nullable: false),
+                    TotalFitterVans = table.Column<int>(type: "int", nullable: false),
+                    TotalSalesCars = table.Column<int>(type: "int", nullable: false),
+                    CompleteDeliveryHGVs = table.Column<int>(type: "int", nullable: false),
+                    CompleteDeliveryVans = table.Column<int>(type: "int", nullable: false),
+                    CompleteFitterVans = table.Column<int>(type: "int", nullable: false),
+                    CompleteSalesCars = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_VehicleCheckHeaders", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Whitnesses",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Accident_sheetId = table.Column<int>(type: "int", nullable: false),
+                    p_name = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    p_add1 = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    p_add2 = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    p_add3 = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    p_pcode = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    p_wittel = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    complete = table.Column<bool>(type: "bit", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Whitnesses", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "AspNetRoleClaims",
                 columns: table => new
                 {
@@ -1675,6 +2602,50 @@ namespace PropertySurveyService.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Vehicles",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    BranchId = table.Column<int>(type: "int", nullable: false),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Registration = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Type = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Vehicles", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Vehicles_Branches_BranchId",
+                        column: x => x.BranchId,
+                        principalTable: "Branches",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Contract",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    ContractCode = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    CustomerId = table.Column<int>(type: "int", nullable: true),
+                    IncidentAdded = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    DamageDescription = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Contract", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Contract_Customer_CustomerId",
+                        column: x => x.CustomerId,
+                        principalTable: "Customer",
+                        principalColumn: "CustomerId");
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Job",
                 columns: table => new
                 {
@@ -1682,26 +2653,33 @@ namespace PropertySurveyService.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     ContractId = table.Column<int>(type: "int", nullable: false),
                     ContractCode = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    JobType = table.Column<int>(type: "int", nullable: false),
                     Date = table.Column<DateTime>(type: "datetime2", nullable: false),
                     Time = table.Column<DateTime>(type: "datetime2", nullable: false),
                     DamageDesc = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Instructions = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     CustomerId = table.Column<int>(type: "int", nullable: true),
-                    SurveyorId = table.Column<int>(type: "int", nullable: true)
+                    AgentId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Job", x => x.Id);
                     table.ForeignKey(
+                        name: "FK_Job_Agent_AgentId",
+                        column: x => x.AgentId,
+                        principalTable: "Agent",
+                        principalColumn: "AgentId");
+                    table.ForeignKey(
+                        name: "FK_Job_Contract_ContractId",
+                        column: x => x.ContractId,
+                        principalTable: "Contract",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
                         name: "FK_Job_Customer_CustomerId",
                         column: x => x.CustomerId,
                         principalTable: "Customer",
                         principalColumn: "CustomerId");
-                    table.ForeignKey(
-                        name: "FK_Job_Surveyor_SurveyorId",
-                        column: x => x.SurveyorId,
-                        principalTable: "Surveyor",
-                        principalColumn: "SurveyorId");
                 });
 
             migrationBuilder.CreateIndex(
@@ -1744,9 +2722,24 @@ namespace PropertySurveyService.Migrations
                 filter: "[NormalizedUserName] IS NOT NULL");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Contract_CustomerId",
+                table: "Contract",
+                column: "CustomerId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Images_Filename",
                 table: "Images",
                 column: "Filename");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Job_AgentId",
+                table: "Job",
+                column: "AgentId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Job_ContractId",
+                table: "Job",
+                column: "ContractId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Job_CustomerId",
@@ -1754,13 +2747,17 @@ namespace PropertySurveyService.Migrations
                 column: "CustomerId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Job_SurveyorId",
-                table: "Job",
-                column: "SurveyorId");
+                name: "IX_Vehicles_BranchId",
+                table: "Vehicles",
+                column: "BranchId");
         }
 
+        /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropTable(
+                name: "Accident_sheets");
+
             migrationBuilder.DropTable(
                 name: "AlumTable");
 
@@ -1789,6 +2786,18 @@ namespace PropertySurveyService.Migrations
                 name: "ConsTable");
 
             migrationBuilder.DropTable(
+                name: "DeliveryHGVs");
+
+            migrationBuilder.DropTable(
+                name: "DeliveryVans");
+
+            migrationBuilder.DropTable(
+                name: "FAccidents");
+
+            migrationBuilder.DropTable(
+                name: "FitterVans");
+
+            migrationBuilder.DropTable(
                 name: "GarageTable");
 
             migrationBuilder.DropTable(
@@ -1807,16 +2816,37 @@ namespace PropertySurveyService.Migrations
                 name: "Job");
 
             migrationBuilder.DropTable(
+                name: "LaddersTable");
+
+            migrationBuilder.DropTable(
                 name: "LockingTable");
+
+            migrationBuilder.DropTable(
+                name: "MileageSheets");
 
             migrationBuilder.DropTable(
                 name: "PanelTable");
 
             migrationBuilder.DropTable(
+                name: "SalesCars");
+
+            migrationBuilder.DropTable(
                 name: "TimberTable");
 
             migrationBuilder.DropTable(
+                name: "ToolsTable");
+
+            migrationBuilder.DropTable(
                 name: "UPVCTable");
+
+            migrationBuilder.DropTable(
+                name: "VehicleCheckHeaders");
+
+            migrationBuilder.DropTable(
+                name: "Vehicles");
+
+            migrationBuilder.DropTable(
+                name: "Whitnesses");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");
@@ -1825,10 +2855,16 @@ namespace PropertySurveyService.Migrations
                 name: "AspNetUsers");
 
             migrationBuilder.DropTable(
-                name: "Customer");
+                name: "Agent");
 
             migrationBuilder.DropTable(
-                name: "Surveyor");
+                name: "Contract");
+
+            migrationBuilder.DropTable(
+                name: "Branches");
+
+            migrationBuilder.DropTable(
+                name: "Customer");
         }
     }
 }
