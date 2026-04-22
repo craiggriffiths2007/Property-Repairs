@@ -12,7 +12,7 @@ using PropertySurveyService.Data;
 namespace PropertySurveyService.Migrations
 {
     [DbContext(typeof(AppDBContext))]
-    [Migration("20260421145106_InitialCreate")]
+    [Migration("20260422185153_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />

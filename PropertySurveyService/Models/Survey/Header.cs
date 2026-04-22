@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace PropertySurveyService.Models
 {
@@ -11,9 +12,9 @@ namespace PropertySurveyService.Models
     }
     public class Header
     {
-        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
-        [DisplayName("Record ID")]
+
         public Guid Guid { get; set; }
         public bool bDone { get; set; }
         [DisplayName("Sent")]

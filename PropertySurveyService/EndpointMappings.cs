@@ -330,6 +330,7 @@ namespace PropertySurveyService
                 {
                     if (job.Head != null)
                     {
+                        job.Head.Id = 0; // Ensure a new record is created
                         db.Header.Add(job.Head);
                         await db.SaveChangesAsync();
                         int headerId = job.Head.Id;
