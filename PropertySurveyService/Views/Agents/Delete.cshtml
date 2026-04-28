@@ -12,10 +12,10 @@
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.AgentCode)
+            @Html.DisplayNameFor(model => model.Code)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.AgentCode)
+            @Html.DisplayFor(model => model.Code)
         </dd>
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Name)
@@ -24,15 +24,15 @@
             @Html.DisplayFor(model => model.Name)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.AgentType)
+            @Html.DisplayNameFor(model => model.Type)
         </dt>
         <dd class = "col-sm-10">
-            @(((PropertySurveyService.Models.AgentType)Model.AgentType).ToString())
+            @(((PropertySurveyService.Models.AgentType)Model.Type).ToString())
         </dd>
     </dl>
     
     <form asp-action="Delete">
-        <input type="hidden" asp-for="AgentId" />
+        <input type="hidden" asp-for="Id" />
         <input type="submit" value="Delete" class="btn btn-danger" /> |
         <a asp-action="Index">Back to List</a>
     </form>

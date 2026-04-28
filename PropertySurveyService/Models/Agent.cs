@@ -5,14 +5,14 @@ namespace PropertySurveyService.Models
     public class Agent
     {
         [Key]
-        public int AgentId { get; set; }
+        public int Id { get; set; }
         [Required]
         [Display(Name = "Code")]
-        public string? AgentCode { get; set; }
+        public string? Code { get; set; }
         [Required]
         [Display(Name = "Name")]
         public string? Name { get; set; }
         [Display(Name = "Agent Type")]
-        public int AgentType { get; set; }
+        public int Type { get; set; }
     }
 }

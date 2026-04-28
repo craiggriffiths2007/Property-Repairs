@@ -48,7 +48,7 @@ namespace PropertySurveyService.Controllers
         // GET: Vehicles/Create
         public IActionResult Create()
         {
-            ViewData["BranchId"] = new SelectList(_context.Branches, "Id", "Id");
+            ViewData["BranchId"] = new SelectList(_context.Branches, "Id", "Name");
             return View();
         }
 
@@ -65,7 +65,7 @@ namespace PropertySurveyService.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["BranchId"] = new SelectList(_context.Branches, "Id", "Id", vehicle.BranchId);
+            ViewData["BranchId"] = new SelectList(_context.Branches, "Id", "Name", vehicle.BranchId);
             return View(vehicle);
         }
 
@@ -82,7 +82,7 @@ namespace PropertySurveyService.Controllers
             {
                 return NotFound();
             }
-            ViewData["BranchId"] = new SelectList(_context.Branches, "Id", "Id", vehicle.BranchId);
+            ViewData["BranchId"] = new SelectList(_context.Branches, "Id", "Name", vehicle.BranchId);
             return View(vehicle);
         }
 
@@ -118,7 +118,7 @@ namespace PropertySurveyService.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["BranchId"] = new SelectList(_context.Branches, "Id", "Id", vehicle.BranchId);
+            ViewData["BranchId"] = new SelectList(_context.Branches, "Id", "Name", vehicle.BranchId);
             return View(vehicle);
         }
 

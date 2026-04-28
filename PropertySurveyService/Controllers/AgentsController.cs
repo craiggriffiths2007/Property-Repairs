@@ -44,7 +44,7 @@ namespace PropertySurveyService.Controllers
             }
 
             var agent = await _context.Agent
-                .FirstOrDefaultAsync(m => m.AgentId == id);
+                .FirstOrDefaultAsync(m => m.Id == id);
             if (agent == null)
             {
                 return NotFound();
@@ -73,7 +73,7 @@ namespace PropertySurveyService.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            PopulateAgentTypeDropDownList(agent.AgentType);
+            PopulateAgentTypeDropDownList(agent.Type);
             return View(agent);
         }
 
@@ -90,7 +90,7 @@ namespace PropertySurveyService.Controllers
             {
                 return NotFound();
             }
-            PopulateAgentTypeDropDownList(agent.AgentType);
+            PopulateAgentTypeDropDownList(agent.Type);
             return View(agent);
         }
 
@@ -101,7 +101,7 @@ namespace PropertySurveyService.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("AgentId,AgentCode,Name,AgentType")] Agent agent)
         {
-            if (id != agent.AgentId)
+            if (id != agent.Id)
             {
                 return NotFound();
             }
@@ -115,7 +115,7 @@ namespace PropertySurveyService.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!AgentExists(agent.AgentId))
+                    if (!AgentExists(agent.Id))
                     {
                         return NotFound();
                     }
@@ -126,7 +126,7 @@ namespace PropertySurveyService.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            PopulateAgentTypeDropDownList(agent.AgentType);
+            PopulateAgentTypeDropDownList(agent.Type);
             return View(agent);
         }
 
@@ -139,7 +139,7 @@ namespace PropertySurveyService.Controllers
             }
 
             var agent = await _context.Agent
-                .FirstOrDefaultAsync(m => m.AgentId == id);
+                .FirstOrDefaultAsync(m => m.Id == id);
             if (agent == null)
             {
                 return NotFound();
@@ -169,7 +169,7 @@ namespace PropertySurveyService.Controllers
 
         private bool AgentExists(int id)
         {
-          return (_context.Agent?.Any(e => e.AgentId == id)).GetValueOrDefault();
+          return (_context.Agent?.Any(e => e.Id == id)).GetValueOrDefault();
         }
     }
 }

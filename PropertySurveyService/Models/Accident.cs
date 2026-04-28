@@ -105,7 +105,7 @@ namespace PropertySurveyService.Models
 
     public class FAccidents
     {
-        public int Id { get; set; }
+        public int Id { get; set; } = 0;
         public string date_time { get; set; } = "";
         public bool bSent { get; set; }
         public bool bComplete { get; set; }

@@ -84,7 +84,7 @@ namespace PropertySurveyService.Data
 
             var agents = new Agent[]
             {
-                new Agent{Name="James Dean", AgentCode="H1"},
+                new Agent{Name="James Dean", Code="H1"},
             };
             foreach (Agent s in agents)
             {

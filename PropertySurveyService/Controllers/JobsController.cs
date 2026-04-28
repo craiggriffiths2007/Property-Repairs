@@ -147,8 +147,8 @@ namespace PropertySurveyService.Controllers
         {
             var agentsQuery = from d in _context.Agent
                                  orderby d.Name
-                                 select new { d.AgentId, DisplayText = d.AgentCode + " - " + d.Name };
-            ViewBag.AgentId = new SelectList(agentsQuery.AsNoTracking(), "AgentId", "DisplayText", selectedAgent);
+                                 select new { d.Id, DisplayText = d.Code + " - " + d.Name };
+            ViewBag.AgentId = new SelectList(agentsQuery.AsNoTracking(), "Id", "DisplayText", selectedAgent);
         }
 
         private void PopulateJobTypeDropDownList(object? selectedValue = null)

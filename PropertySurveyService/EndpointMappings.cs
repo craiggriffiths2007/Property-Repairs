@@ -201,8 +201,8 @@ namespace PropertySurveyService
 
             app.MapPost("/GetVehicles", (GetDataDTO gs, AppDBContext db) =>
             {
-                var agent = db.Agent.FirstOrDefault(x => x.AgentCode == gs.AgentCode);
-                var branch = db.Branches.FirstOrDefault(x => x.BranchCode == gs.BranchCode);
+                var agent = db.Agent.FirstOrDefault(x => x.Code == gs.AgentCode);
+                var branch = db.Branches.FirstOrDefault(x => x.Code == gs.BranchCode);
 
                 if (agent == null)
                     return Task.FromResult<IResult>(Results.BadRequest(new { ReasonPhrase = "Agent Code Not Found : " + gs.AgentCode }));
@@ -221,18 +221,18 @@ namespace PropertySurveyService
 
             app.MapPost("/GetSurveyJobs", (GetDataDTO gs, AppDBContext db) =>
             {
-                var agent = db.Agent.FirstOrDefault(x => x.AgentCode == gs.AgentCode);
+                var agent = db.Agent.FirstOrDefault(x => x.Code == gs.AgentCode);
 
                 if (agent == null)
                     return Task.FromResult<IResult>(Results.BadRequest(new { ReasonPhrase = "Agent Code Not Found : " + gs.AgentCode }));
 
                 var surveyJobs = db.Job
-                    .Where(x => x.AgentId == agent.AgentId && x.JobType == 1)
+                    .Where(x => x.AgentId == agent.Id && x.JobType == 1)
                     .ToList();
 
                 List<JobDTO> send_jobs = new List<JobDTO>();
 
-                foreach (var j in db.Job.Where<Job>(x => x.Agent.AgentCode == gs.AgentCode &&
+                foreach (var j in db.Job.Where<Job>(x => x.Agent.Code == gs.AgentCode &&
                                                         x.JobType == 0 && x.Date >= DateTime.Today).ToList<Job>())
                 {
                     Customer? c = db.Customer.FirstOrDefault<Customer>(x => x.CustomerId == j.CustomerId);
@@ -249,7 +249,7 @@ namespace PropertySurveyService
             app.MapPost("/GetImage", (GetDataDTO gs, AppDBContext db) =>
             {
                 // check password here
-                var agent = db.Agent.FirstOrDefault(x => x.AgentCode == gs.AgentCode);
+                var agent = db.Agent.FirstOrDefault(x => x.Code == gs.AgentCode);
 
                 if (agent == null)
                     return Results.BadRequest(new { ReasonPhrase = "Agent Code Not Found : " + gs.AgentCode });
@@ -268,13 +268,13 @@ namespace PropertySurveyService
 
             app.MapPost("/GetFittingJobs", (GetDataDTO gs, AppDBContext db) =>
             {
-                var agent = db.Agent.FirstOrDefault(x => x.AgentCode == gs.AgentCode);
+                var agent = db.Agent.FirstOrDefault(x => x.Code == gs.AgentCode);
 
                 if (agent == null)
                     return Task.FromResult<IResult>(Results.BadRequest(new { ReasonPhrase = "Agent Code Not Found : " + gs.AgentCode }));
 
                 var fittingJobs = db.Job
-                    .Where(x => x.AgentId == agent.AgentId && x.JobType == 1)
+                    .Where(x => x.AgentId == agent.Id && x.JobType == 1)
                     .ToList();
 
                 var results = new List<PDAJobDTO>();

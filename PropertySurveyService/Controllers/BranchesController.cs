@@ -54,7 +54,7 @@ namespace PropertySurveyService.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,BranchName,BranchCode,BranchDescription")] Branch branch)
+        public async Task<IActionResult> Create([Bind("Id,Name,Code,Description")] Branch branch)
         {
             if (ModelState.IsValid)
             {
@@ -86,7 +86,7 @@ namespace PropertySurveyService.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,BranchName,BranchCode,BranchDescription")] Branch branch)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Code,Description")] Branch branch)
         {
             if (id != branch.Id)
             {

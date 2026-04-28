@@ -13,13 +13,13 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.AgentCode)
+                @Html.DisplayNameFor(model => model.Code)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Name)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.AgentType)
+                @Html.DisplayNameFor(model => model.Type)
             </th>
             <th></th>
         </tr>
@@ -28,18 +28,18 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.AgentCode)
+                @Html.DisplayFor(modelItem => item.Code)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Name)
             </td>
             <td>
-                @(((PropertySurveyService.Models.AgentType)item.AgentType).ToString())
+                @(((PropertySurveyService.Models.AgentType)item.Type).ToString())
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.AgentId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.AgentId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.AgentId">Delete</a>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
             </td>
         </tr>
 }

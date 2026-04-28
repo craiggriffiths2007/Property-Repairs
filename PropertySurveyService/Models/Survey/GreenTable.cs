@@ -9,7 +9,7 @@ namespace PropertySurveyService.Models
         public int Id { get; set; }
         public int HeaderId { get; set; }
 
-        public Guid Guid { get; set; }
+        public Guid Guid { get; set; } 
         [DisplayName("Contract Number")]
         public string? udi_cont { get; set; }
 
