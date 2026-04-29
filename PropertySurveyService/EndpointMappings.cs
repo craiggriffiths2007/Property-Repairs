@@ -16,15 +16,6 @@ namespace PropertySurveyService
             ////////////////////////////////////////
             app.MapPost("/SendLadderChecks", async (List<LaddersTable> laddersSheets, AppDBContext db) =>
             {
-                JsonSerializerSettings serializerSettings;
-                serializerSettings = new JsonSerializerSettings
-                {
-                    ContractResolver = new Newtonsoft.Json.Serialization.CamelCasePropertyNamesContractResolver(),
-                    TypeNameHandling = TypeNameHandling.Auto,
-                    Formatting = Formatting.Indented,
-
-                };
-
                 foreach (var sheet in laddersSheets)
                 {
                     if (sheet != null)
@@ -39,15 +30,6 @@ namespace PropertySurveyService
 
             app.MapPost("/SendMileageSheets", async (List<MileageSheet> milageSheets, AppDBContext db) =>
             {
-                JsonSerializerSettings serializerSettings;
-                serializerSettings = new JsonSerializerSettings
-                {
-                    ContractResolver = new Newtonsoft.Json.Serialization.CamelCasePropertyNamesContractResolver(),
-                    TypeNameHandling = TypeNameHandling.Auto,
-                    Formatting = Formatting.Indented,
-
-                };
-
                 foreach (var sheet in milageSheets)
                 {
                     if (sheet != null)
@@ -76,15 +58,6 @@ namespace PropertySurveyService
 
             app.MapPost("/SendWorkAccidents", async (List<FAccidents> accs, AppDBContext db) =>
             {
-                JsonSerializerSettings serializerSettings;
-                serializerSettings = new JsonSerializerSettings
-                {
-                    ContractResolver = new Newtonsoft.Json.Serialization.CamelCasePropertyNamesContractResolver(),
-                    TypeNameHandling = TypeNameHandling.Auto,
-                    Formatting = Formatting.Indented,
-
-                };
-
                 foreach (var acc in accs)
                 {
                     if (acc != null)
@@ -99,15 +72,6 @@ namespace PropertySurveyService
 
             app.MapPost("/SendVehicleAccidents", async (List<AccidentsVehicleDTO> checks, AppDBContext db) =>
             {
-                JsonSerializerSettings serializerSettings;
-                serializerSettings = new JsonSerializerSettings
-                {
-                    ContractResolver = new Newtonsoft.Json.Serialization.CamelCasePropertyNamesContractResolver(),
-                    TypeNameHandling = TypeNameHandling.Auto,
-                    Formatting = Formatting.Indented,
-
-                };
-
                 foreach (var check in checks)
                 {
                     if (check.Accident != null)
@@ -131,14 +95,6 @@ namespace PropertySurveyService
                         }
                         check.Whitnesses = check.Whitnesses.Select(s => { s.Id = 0; return s; }).ToList();
                         SaveItems(check.Whitnesses);
-                        //SaveItems(check.DeliveryHGVs);
-                        //SaveItems(check.FitterVans);
-                        //SaveItems(check.SalesCars);
-
-                        //foreach (var vehicle in check.strDeliveryVans)
-                        //{
-                         //   check.DeliveryVans.Add(JsonSerializer.Deserialize<DeliveryVan>(vehicle));
-                        //}
 
                         await db.SaveChangesAsync();
                     }
@@ -149,9 +105,9 @@ namespace PropertySurveyService
 
 
 
-        app.MapPost("/SendVehicleChecks2", async (JsonDTO jsonChecks, AppDBContext db) =>
+        app.MapPost("/SendVehicleChecks", async (JsonDTO jsonChecks, AppDBContext db) =>
             {
-                
+                // Using Newtonsoft just for this one endpoint as System.Text.Json doesn't support TypeNameHandling which is needed for the polymorphic deserialization of the vehicle check items
                 JsonSerializerSettings serializerSettings;
                 serializerSettings = new JsonSerializerSettings
                 {
