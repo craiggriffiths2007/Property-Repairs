@@ -42,6 +42,8 @@ namespace PropertySurveyService.Controllers
                 return NotFound();
             }
 
+            // Check for vehicle checks
+
             return View(vehicle);
         }
 

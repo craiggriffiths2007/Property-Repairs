@@ -2,21 +2,26 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 using PropertySurveyService.Data;
 using PropertySurveyService.Models;
-using System.Text.Json;
-
+//using System.Text.Json;
+using Newtonsoft.Json;
 namespace PropertySurveyService
 {
+
     public static class EndpointMappings
     {
         public static void MapAPIEndpoints(this IEndpointRouteBuilder app)
         {
+            ///////////////////////
+            // SENDING FROM PDA , RECEIVING TO PDA
+            ////////////////////////////////////////
             app.MapPost("/SendLadderChecks", async (List<LaddersTable> laddersSheets, AppDBContext db) =>
             {
-                JsonSerializerOptions serializerOptions;
-                serializerOptions = new JsonSerializerOptions
+                JsonSerializerSettings serializerSettings;
+                serializerSettings = new JsonSerializerSettings
                 {
-                    PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
-                    WriteIndented = true,
+                    ContractResolver = new Newtonsoft.Json.Serialization.CamelCasePropertyNamesContractResolver(),
+                    TypeNameHandling = TypeNameHandling.Auto,
+                    Formatting = Formatting.Indented,
 
                 };
 
@@ -34,11 +39,12 @@ namespace PropertySurveyService
 
             app.MapPost("/SendMileageSheets", async (List<MileageSheet> milageSheets, AppDBContext db) =>
             {
-                JsonSerializerOptions serializerOptions;
-                serializerOptions = new JsonSerializerOptions
+                JsonSerializerSettings serializerSettings;
+                serializerSettings = new JsonSerializerSettings
                 {
-                    PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
-                    WriteIndented = true,
+                    ContractResolver = new Newtonsoft.Json.Serialization.CamelCasePropertyNamesContractResolver(),
+                    TypeNameHandling = TypeNameHandling.Auto,
+                    Formatting = Formatting.Indented,
 
                 };
 
@@ -56,14 +62,6 @@ namespace PropertySurveyService
 
             app.MapPost("/SendToolChecks", async (List<ToolsTable> tools, AppDBContext db) =>
             {
-                JsonSerializerOptions serializerOptions;
-                serializerOptions = new JsonSerializerOptions
-                {
-                    PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
-                    WriteIndented = true,
-
-                };
-
                 foreach (var check in tools)
                 {
                     if (check != null)
@@ -78,11 +76,12 @@ namespace PropertySurveyService
 
             app.MapPost("/SendWorkAccidents", async (List<FAccidents> accs, AppDBContext db) =>
             {
-                JsonSerializerOptions serializerOptions;
-                serializerOptions = new JsonSerializerOptions
+                JsonSerializerSettings serializerSettings;
+                serializerSettings = new JsonSerializerSettings
                 {
-                    PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
-                    WriteIndented = true,
+                    ContractResolver = new Newtonsoft.Json.Serialization.CamelCasePropertyNamesContractResolver(),
+                    TypeNameHandling = TypeNameHandling.Auto,
+                    Formatting = Formatting.Indented,
 
                 };
 
@@ -100,11 +99,12 @@ namespace PropertySurveyService
 
             app.MapPost("/SendVehicleAccidents", async (List<AccidentsVehicleDTO> checks, AppDBContext db) =>
             {
-                JsonSerializerOptions serializerOptions;
-                serializerOptions = new JsonSerializerOptions
+                JsonSerializerSettings serializerSettings;
+                serializerSettings = new JsonSerializerSettings
                 {
-                    PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
-                    WriteIndented = true,
+                    ContractResolver = new Newtonsoft.Json.Serialization.CamelCasePropertyNamesContractResolver(),
+                    TypeNameHandling = TypeNameHandling.Auto,
+                    Formatting = Formatting.Indented,
 
                 };
 
@@ -145,16 +145,23 @@ namespace PropertySurveyService
                 }
                 return Results.Ok(new { status = "success" });
             });
-            
-            app.MapPost("/SendVehicleChecks", async (List<VehicleCheckDTO> checks, AppDBContext db) =>
+
+
+
+
+        app.MapPost("/SendVehicleChecks2", async (JsonDTO jsonChecks, AppDBContext db) =>
             {
-                JsonSerializerOptions serializerOptions;
-                serializerOptions = new JsonSerializerOptions
+                
+                JsonSerializerSettings serializerSettings;
+                serializerSettings = new JsonSerializerSettings
                 {
-                    PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
-                    WriteIndented = true,
+                    ContractResolver = new Newtonsoft.Json.Serialization.CamelCasePropertyNamesContractResolver(),
+                    TypeNameHandling = TypeNameHandling.Auto,
+                    Formatting = Formatting.Indented,
 
                 };
+
+                List<VehicleCheckDTO> checks = JsonConvert.DeserializeObject<List<VehicleCheckDTO>>(jsonChecks.json, serializerSettings);
 
                 foreach (var check in checks)
                 {
@@ -177,25 +184,20 @@ namespace PropertySurveyService
                                 }
                             }
                         }
-
                         check.DeliveryVans = check.DeliveryVans.Select(s => { s.Id = 0; return s; }).ToList();
                         check.DeliveryHGVs = check.DeliveryHGVs.Select(s => { s.Id = 0; return s; }).ToList();
                         check.FitterVans = check.FitterVans.Select(s => { s.Id = 0; return s; }).ToList();
                         check.SalesCars = check.SalesCars.Select(s => { s.Id = 0; return s; }).ToList();
 
-                        //SaveItems(check.DeliveryVans);
-                        //SaveItems(check.DeliveryHGVs);
-                        //SaveItems(check.FitterVans);
-                        //SaveItems(check.SalesCars);
-
-                        foreach (var vehicle in check.strDeliveryVans)
-                        {
-                            check.DeliveryVans.Add(JsonSerializer.Deserialize<DeliveryVan>(vehicle));
-                        }
+                        SaveItems(check.DeliveryVans);
+                        SaveItems(check.DeliveryHGVs);
+                        SaveItems(check.FitterVans);
+                        SaveItems(check.SalesCars);
 
                         await db.SaveChangesAsync();
                     }
                 }
+                
                 return Results.Ok(new { status = "success" });
             });
 
@@ -406,7 +408,7 @@ namespace PropertySurveyService
                 image.DateTime = DateTime.Now;
                 image.ContractCode = imageDTO.Filename.Substring(0, 8);
 
-                if (db.Images.Where<PhotoImage>(x => x.Filename == image.Filename).Count<PhotoImage>()==0)
+                //if (db.Images.Where<PhotoImage>(x => x.Filename == image.Filename).Count<PhotoImage>()==0)
                     db.Add<PhotoImage>(image);
 
                 db.SaveChanges();

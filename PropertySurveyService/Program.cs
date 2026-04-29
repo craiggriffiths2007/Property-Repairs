@@ -6,6 +6,8 @@ using Microsoft.AspNetCore.Identity;
 using PropertySurveyService.Data;
 using PropertySurveyService;
 
+using Newtonsoft.Json;
+
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddSwaggerGen();
@@ -34,8 +36,17 @@ builder.Services.AddIdentity<AppUser, IdentityRole>(options =>
 
 // swagger
 builder.Services.AddEndpointsApiExplorer();
-
-// Add services to the container.
+/*
+builder.Services.AddControllers()
+        .AddNewtonsoftJson(options =>
+        {
+            // Configure Newtonsoft.Json options here
+            options.SerializerSettings.TypeNameHandling = TypeNameHandling.Auto;
+            options.SerializerSettings.Formatting = Formatting.Indented;
+            options.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
+            options.SerializerSettings.NullValueHandling = NullValueHandling.Ignore;
+        });
+*/
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();

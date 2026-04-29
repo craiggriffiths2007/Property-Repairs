@@ -45,9 +45,9 @@ namespace PropertySurveyService.Controllers
             {
                 return NotFound();
             }
-
-            List<PhotoImage> photoimages = _context.Images.Where(x => x.Filename.Substring(0,8) == viewModel.Panel.udi_cont &&
-            x.Filename.Substring(12, 3) == viewModel.Panel.item_number.ToString("000")).ToList();
+            /// make sure item numbers work on the pda
+            List<PhotoImage> photoimages = _context.Images.Where(x => x.Filename.Substring(0,8) == viewModel.Panel.udi_cont  /*&&
+            x.Filename.Substring(12, 3) == viewModel.Panel.item_number.ToString("000") */).ToList();
 
             viewModel.Images = photoimages;
 
