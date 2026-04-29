@@ -81,7 +81,6 @@ namespace PropertySurveyService.Models
 
     public class VehicleCheck
     {
-        public int Id { get; set; }
         public int VehicleCheckHeaderId { get; set; }
         public string CheckID { get; set; }
         public string Destination { get; set; } = "";
@@ -127,6 +126,7 @@ namespace PropertySurveyService.Models
 
     public class DeliveryVan : VehicleCheck
     {
+        public int Id { get; set; }
         public int ats_card { get; set; }
         public int bodywork_check { get; set; }
         public int breakdown_card { get; set; }
@@ -202,6 +202,7 @@ namespace PropertySurveyService.Models
     }
     public class DeliveryHGV : VehicleCheck
     {
+        public int Id { get; set; }
         public int national_tyres_card { get; set; }
         public int fmg_support_sticker { get; set; }
         public int fuel_card { get; set; }
@@ -261,6 +262,7 @@ namespace PropertySurveyService.Models
     }
     public class FitterVan : VehicleCheck
     {
+        public int Id { get; set; }
         public int circuit_breaker { get; set; }
         public int power_breaker { get; set; }
         public int hammer_drill { get; set; }
@@ -448,7 +450,7 @@ namespace PropertySurveyService.Models
     }
     public class SalesCar : VehicleCheck
     {
-
+        public int Id { get; set; }
         public int fuel_card { get; set; }
         public int shell_points_card { get; set; }
         public int interior_clean { get; set; }
