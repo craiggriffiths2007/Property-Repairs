@@ -22,7 +22,7 @@ namespace PropertySurveyService.Controllers
         private void PopulateAgentTypeDropDownList(object? selectedValue = null)
         {
             ViewBag.AgentTypes = new SelectList(
-                Enum.GetValues<AgentType>()
+                Enum.GetValues<agent_type>()
                     .Select(a => new { Value = (int)a, Text = a.ToString() }),
                 "Value", "Text", selectedValue);
         }

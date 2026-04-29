@@ -19,37 +19,16 @@
                 @Html.DisplayNameFor(model => model.BranchCode)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.CheckID)
+                HGVs
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.bComplete)
+                Delivery Vans
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.bSent)
+                Fitter Vans
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.TotalDeliveryHGVs)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.TotalDeliveryVans)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.TotalFitterVans)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.TotalSalesCars)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CompleteDeliveryHGVs)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CompleteDeliveryVans)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CompleteFitterVans)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CompleteSalesCars)
+                Sales Cars
             </th>
             <th></th>
         </tr>
@@ -64,15 +43,6 @@
                 @Html.DisplayFor(modelItem => item.BranchCode)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.CheckID)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.bComplete)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.bSent)
-            </td>
-            <td>
                 @Html.DisplayFor(modelItem => item.TotalDeliveryHGVs)
             </td>
             <td>
@@ -83,18 +53,6 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.TotalSalesCars)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CompleteDeliveryHGVs)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CompleteDeliveryVans)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CompleteFitterVans)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CompleteSalesCars)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |

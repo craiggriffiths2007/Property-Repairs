@@ -154,7 +154,7 @@ namespace PropertySurveyService.Controllers
         private void PopulateJobTypeDropDownList(object? selectedValue = null)
         {
             ViewBag.JobTypes = new SelectList(
-                Enum.GetValues<JobType>()
+                Enum.GetValues<enum_job_type>()
                     .Select(j => new { Value = (int)j, Text = j.ToString() }),
                 "Value", "Text", selectedValue);
         }

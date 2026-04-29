@@ -1,4 +1,4 @@
-﻿@model PropertySurveyService.Models.VehicleCheckHeader
+﻿@model PropertySurveyService.ViewModels.VehicleCheckHeaderIndexViewModel
 
 @{
     ViewData["Title"] = "Details";
@@ -11,86 +11,92 @@
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.CheckWeekDate)
+            @Html.DisplayNameFor(model => model.VehicleCheckHeader.CheckWeekDate)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.CheckWeekDate)
+            @Html.DisplayFor(model => model.VehicleCheckHeader.CheckWeekDate)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.BranchCode)
+            @Html.DisplayNameFor(model => model.VehicleCheckHeader.BranchCode)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.BranchCode)
+            @Html.DisplayFor(model => model.VehicleCheckHeader.BranchCode)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.CheckID)
+            @Html.DisplayNameFor(model => model.VehicleCheckHeader.CheckID)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.CheckID)
+            @Html.DisplayFor(model => model.VehicleCheckHeader.CheckID)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.bComplete)
+            @Html.DisplayNameFor(model => model.VehicleCheckHeader.bComplete)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.bComplete)
+            @Html.DisplayFor(model => model.VehicleCheckHeader.bComplete)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.bSent)
+            @Html.DisplayNameFor(model => model.VehicleCheckHeader.bSent)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.bSent)
+            @Html.DisplayFor(model => model.VehicleCheckHeader.bSent)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.TotalDeliveryHGVs)
+            @Html.DisplayNameFor(model => model.VehicleCheckHeader.TotalDeliveryHGVs)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.TotalDeliveryHGVs)
+            @Html.DisplayFor(model => model.VehicleCheckHeader.TotalDeliveryHGVs)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.TotalDeliveryVans)
+            @Html.DisplayNameFor(model => model.VehicleCheckHeader.TotalDeliveryVans)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.TotalDeliveryVans)
+            @Html.DisplayFor(model => model.VehicleCheckHeader.TotalDeliveryVans)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.TotalFitterVans)
+            @Html.DisplayNameFor(model => model.VehicleCheckHeader.TotalFitterVans)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.TotalFitterVans)
+            @Html.DisplayFor(model => model.VehicleCheckHeader.TotalFitterVans)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.TotalSalesCars)
+            @Html.DisplayNameFor(model => model.VehicleCheckHeader.TotalSalesCars)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.TotalSalesCars)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.CompleteDeliveryHGVs)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.CompleteDeliveryHGVs)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.CompleteDeliveryVans)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.CompleteDeliveryVans)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.CompleteFitterVans)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.CompleteFitterVans)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.CompleteSalesCars)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.CompleteSalesCars)
-        </dd>
+            @Html.DisplayFor(model => model.VehicleCheckHeader.TotalSalesCars)
+
     </dl>
 </div>
+
+    <h4>Vehicles</h4>
+    @if (Model.VehicleCheckVehicles != null && Model.VehicleCheckVehicles.Any())
+    {
+        <table class="table table-sm table-bordered table-striped">
+            <thead class="table-light">
+                <tr>
+                    <th>Item</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.VehicleCheckVehicles)
+                {
+                    <tr>
+                        <td>@item.VehicleName</td>
+                        <td>
+                            <a asp-controller="@item.ControllerName" asp-action="Details" asp-route-id="@item.Id"
+                               class="btn btn-outline-primary btn-sm">View</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <p class="text-muted">No vehicles found for this vehicle check.</p>
+    }
+
 <div>
-    <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
+        <a asp-action="Edit" asp-route-id="@Model.VehicleCheckHeader?.Id">Edit</a> |
     <a asp-action="Index">Back to List</a>
 </div>

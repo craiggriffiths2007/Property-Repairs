@@ -10,22 +10,23 @@ using PropertySurveyService.Models;
 
 namespace PropertySurveyService.Controllers
 {
-    public class VehicleChecksController : Controller
+    public class VehiclesController : Controller
     {
         private readonly AppDBContext _context;
 
-        public VehicleChecksController(AppDBContext context)
+        public VehiclesController(AppDBContext context)
         {
             _context = context;
         }
 
-        // GET: VehicleChecks
+        // GET: Vehicles
         public async Task<IActionResult> Index()
         {
-            return View(await _context.VehicleCheckHeaders.ToListAsync());
+            var appDBContext = _context.Vehicles.Include(v => v.Branch);
+            return View(await appDBContext.ToListAsync());
         }
 
-        // GET: VehicleChecks/Details/5
+        // GET: Vehicles/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -33,39 +34,46 @@ namespace PropertySurveyService.Controllers
                 return NotFound();
             }
 
-            var vehicleCheckHeader = await _context.VehicleCheckHeaders
+            var vehicle = await _context.Vehicles
+                .Include(v => v.Branch)
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (vehicleCheckHeader == null)
+            if (vehicle == null)
             {
                 return NotFound();
             }
 
-            return View(vehicleCheckHeader);
+            // Check for vehicle checks
+
+
+
+            return View(vehicle);
         }
 
-        // GET: VehicleChecks/Create
+        // GET: Vehicles/Create
         public IActionResult Create()
         {
+            ViewData["BranchId"] = new SelectList(_context.Branches, "Id", "Name");
             return View();
         }
 
-        // POST: VehicleChecks/Create
+        // POST: Vehicles/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,CheckWeekDate,BranchCode,CheckID,bComplete,bSent,TotalDeliveryHGVs,TotalDeliveryVans,TotalFitterVans,TotalSalesCars,CompleteDeliveryHGVs,CompleteDeliveryVans,CompleteFitterVans,CompleteSalesCars")] VehicleCheckHeader vehicleCheckHeader)
+        public async Task<IActionResult> Create([Bind("Id,BranchId,Name,Registration,Description,Type")] Vehicle vehicle)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(vehicleCheckHeader);
+                _context.Add(vehicle);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(vehicleCheckHeader);
+            ViewData["BranchId"] = new SelectList(_context.Branches, "Id", "Name", vehicle.BranchId);
+            return View(vehicle);
         }
 
-        // GET: VehicleChecks/Edit/5
+        // GET: Vehicles/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -73,22 +81,23 @@ namespace PropertySurveyService.Controllers
                 return NotFound();
             }
 
-            var vehicleCheckHeader = await _context.VehicleCheckHeaders.FindAsync(id);
-            if (vehicleCheckHeader == null)
+            var vehicle = await _context.Vehicles.FindAsync(id);
+            if (vehicle == null)
             {
                 return NotFound();
             }
-            return View(vehicleCheckHeader);
+            ViewData["BranchId"] = new SelectList(_context.Branches, "Id", "Name", vehicle.BranchId);
+            return View(vehicle);
         }
 
-        // POST: VehicleChecks/Edit/5
+        // POST: Vehicles/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,CheckWeekDate,BranchCode,CheckID,bComplete,bSent,TotalDeliveryHGVs,TotalDeliveryVans,TotalFitterVans,TotalSalesCars,CompleteDeliveryHGVs,CompleteDeliveryVans,CompleteFitterVans,CompleteSalesCars")] VehicleCheckHeader vehicleCheckHeader)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,BranchId,Name,Registration,Description,Type")] Vehicle vehicle)
         {
-            if (id != vehicleCheckHeader.Id)
+            if (id != vehicle.Id)
             {
                 return NotFound();
             }
@@ -97,12 +106,12 @@ namespace PropertySurveyService.Controllers
             {
                 try
                 {
-                    _context.Update(vehicleCheckHeader);
+                    _context.Update(vehicle);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!VehicleCheckHeaderExists(vehicleCheckHeader.Id))
+                    if (!VehicleExists(vehicle.Id))
                     {
                         return NotFound();
                     }
@@ -113,10 +122,11 @@ namespace PropertySurveyService.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(vehicleCheckHeader);
+            ViewData["BranchId"] = new SelectList(_context.Branches, "Id", "Name", vehicle.BranchId);
+            return View(vehicle);
         }
 
-        // GET: VehicleChecks/Delete/5
+        // GET: Vehicles/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -124,34 +134,35 @@ namespace PropertySurveyService.Controllers
                 return NotFound();
             }
 
-            var vehicleCheckHeader = await _context.VehicleCheckHeaders
+            var vehicle = await _context.Vehicles
+                .Include(v => v.Branch)
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (vehicleCheckHeader == null)
+            if (vehicle == null)
             {
                 return NotFound();
             }
 
-            return View(vehicleCheckHeader);
+            return View(vehicle);
         }
 
-        // POST: VehicleChecks/Delete/5
+        // POST: Vehicles/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var vehicleCheckHeader = await _context.VehicleCheckHeaders.FindAsync(id);
-            if (vehicleCheckHeader != null)
+            var vehicle = await _context.Vehicles.FindAsync(id);
+            if (vehicle != null)
             {
-                _context.VehicleCheckHeaders.Remove(vehicleCheckHeader);
+                _context.Vehicles.Remove(vehicle);
             }
 
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool VehicleCheckHeaderExists(int id)
+        private bool VehicleExists(int id)
         {
-            return _context.VehicleCheckHeaders.Any(e => e.Id == id);
+            return _context.Vehicles.Any(e => e.Id == id);
         }
     }
 }

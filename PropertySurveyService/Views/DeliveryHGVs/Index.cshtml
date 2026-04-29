@@ -1,0 +1,587 @@
+﻿@model IEnumerable<PropertySurveyService.Models.DeliveryHGV>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.national_tyres_card)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.fmg_support_sticker)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.fuel_card)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.clean_external)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.clean_internal)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.fan_belt)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.fire_extinguisher)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.first_aid_box)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.horn)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.oil_and_water_checked)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.accident_pack)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.portable_lighting)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ad_blue_level_check)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.racks_and_poles)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ratchet_straps)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.service_due_sticker)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.no_smoking_sticker)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.spare_oil)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.coolant_anti_freez)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.tyre_pressure)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.van_height_sticker)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.van_locks)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.wheel_nut_check_sticker)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.windscreen_washer)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.fuel_oil_leaks)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.battery_security_condition)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.tyres_and_wheel_fixing)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.spray_suppression)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.steering)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.security_of_load)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.mirrors)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.lights)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.reflectors)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.inducators)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.wipers)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.washers)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.horn_comp)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.excessive_exhaust_smoke)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.brakes)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.security_of_body)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.markers)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.glass_windscreen)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.receipt_book)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.keys_for_branches_sat)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.pda_phone_accident_pack)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.trade_invoices)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.blue_bags)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.delivery_lists)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.collection_lists)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.trade_delivery_notes)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.report_defects)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.date_signed)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.loading_area_good_condition)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.reason_loading_area_not_good_condition)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.shell_fuel_card)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.VehicleCheckHeaderId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CheckID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Destination)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CheckDoneDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Registration)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Mileage)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BranchCode)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PDAVersionDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.is_complete)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ReasonNotCompleted)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.bComplete)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.bSent)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.pressure_passenger_front)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.pressure_passenger_rear)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.pressure_driver_front)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.pressure_driver_rear)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.pressure_spare)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.pressure_passenger_front_s)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.pressure_passenger_rear_s)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.pressure_driver_front_s)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.pressure_driver_rear_s)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.pressure_spare_s)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.bPhotosOutsideComplete)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.bPhotosInsideComplete)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.bDiagramsComplete)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.bSignaturesComplete)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.damage_pass)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.damage_driver)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.damage_front)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.damage_back)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.photos_front)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.photos_rear)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.photos_left)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.photos_right)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.bDriverSigned)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.bCheckedBySigned)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.driver_printed)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.checked_printed)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.national_tyres_card)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.fmg_support_sticker)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.fuel_card)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.clean_external)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.clean_internal)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.fan_belt)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.fire_extinguisher)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.first_aid_box)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.horn)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.oil_and_water_checked)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.accident_pack)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.portable_lighting)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ad_blue_level_check)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.racks_and_poles)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ratchet_straps)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.service_due_sticker)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.no_smoking_sticker)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.spare_oil)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.coolant_anti_freez)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.tyre_pressure)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.van_height_sticker)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.van_locks)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.wheel_nut_check_sticker)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.windscreen_washer)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.fuel_oil_leaks)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.battery_security_condition)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.tyres_and_wheel_fixing)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.spray_suppression)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.steering)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.security_of_load)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.mirrors)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.lights)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.reflectors)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.inducators)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.wipers)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.washers)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.horn_comp)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.excessive_exhaust_smoke)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.brakes)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.security_of_body)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.markers)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.glass_windscreen)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.receipt_book)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.keys_for_branches_sat)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.pda_phone_accident_pack)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.trade_invoices)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.blue_bags)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.delivery_lists)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.collection_lists)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.trade_delivery_notes)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.report_defects)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.date_signed)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.loading_area_good_condition)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.reason_loading_area_not_good_condition)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.shell_fuel_card)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VehicleCheckHeaderId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CheckID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Destination)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CheckDoneDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Registration)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Mileage)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BranchCode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PDAVersionDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.is_complete)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ReasonNotCompleted)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.bComplete)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.bSent)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.pressure_passenger_front)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.pressure_passenger_rear)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.pressure_driver_front)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.pressure_driver_rear)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.pressure_spare)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.pressure_passenger_front_s)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.pressure_passenger_rear_s)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.pressure_driver_front_s)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.pressure_driver_rear_s)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.pressure_spare_s)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.bPhotosOutsideComplete)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.bPhotosInsideComplete)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.bDiagramsComplete)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.bSignaturesComplete)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.damage_pass)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.damage_driver)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.damage_front)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.damage_back)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.photos_front)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.photos_rear)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.photos_left)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.photos_right)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.bDriverSigned)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.bCheckedBySigned)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.driver_printed)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.checked_printed)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

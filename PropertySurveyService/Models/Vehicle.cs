@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 
 namespace PropertySurveyService.Models
 {
@@ -60,6 +61,7 @@ namespace PropertySurveyService.Models
 
     public class VehicleCheckHeader
     {
+        [Key]
         public int Id { get; set; }
         public Guid Guid { get; set; } = new Guid();
 
@@ -124,6 +126,69 @@ namespace PropertySurveyService.Models
         public string checked_printed { get; set; } = "";
     }
 
+ 
+    public class DeliveryHGV : VehicleCheck
+    {
+        [Key]
+        public int Id { get; set; }
+        public int national_tyres_card { get; set; }
+        public int fmg_support_sticker { get; set; }
+        public int fuel_card { get; set; }
+        public int clean_external { get; set; }
+        public int clean_internal { get; set; }
+        public int fan_belt { get; set; }
+        public int fire_extinguisher { get; set; }
+        public int first_aid_box { get; set; }
+        public int horn { get; set; }
+        public int oil_and_water_checked { get; set; }
+        public int accident_pack { get; set; }
+        public int portable_lighting { get; set; }
+        public int ad_blue_level_check { get; set; }
+        public int racks_and_poles { get; set; }
+        public int ratchet_straps { get; set; }
+        public int service_due_sticker { get; set; }
+        public int no_smoking_sticker { get; set; }
+        public int spare_oil { get; set; }
+        public int coolant_anti_freez { get; set; }
+        public int tyre_pressure { get; set; }
+        public int van_height_sticker { get; set; }
+        public int van_locks { get; set; }
+        public int wheel_nut_check_sticker { get; set; }
+        public int windscreen_washer { get; set; }
+        public int fuel_oil_leaks { get; set; }
+        public int battery_security_condition { get; set; }
+        public int tyres_and_wheel_fixing { get; set; }
+        public int spray_suppression { get; set; }
+        public int steering { get; set; }
+        public int security_of_load { get; set; }
+        public int mirrors { get; set; }
+        public int lights { get; set; }
+        public int reflectors { get; set; }
+        public int inducators { get; set; }
+        public int wipers { get; set; }
+        public int washers { get; set; }
+        public int horn_comp { get; set; }
+        public int excessive_exhaust_smoke { get; set; }
+        public int brakes { get; set; }
+        public int security_of_body { get; set; }
+        public int markers { get; set; }
+        public int glass_windscreen { get; set; }
+        public int receipt_book { get; set; }
+        public int keys_for_branches_sat { get; set; }
+        public int pda_phone_accident_pack { get; set; }
+        public int trade_invoices { get; set; }
+        public int blue_bags { get; set; }
+        public int delivery_lists { get; set; }
+        public int collection_lists { get; set; }
+        public int trade_delivery_notes { get; set; }
+        public string report_defects { get; set; } = "";
+        public string date_signed { get; set; } = "";
+        public int loading_area_good_condition { get; set; }// No of additional photos
+        public string reason_loading_area_not_good_condition { get; set; } = "";
+        public int shell_fuel_card { get; set; }
+
+        public VehicleCheckVehicle AsVehicleCheckVehicle() { return new VehicleCheckVehicle(Id, enum_vehicle_type.delivery_hgv); }
+    }
     public class DeliveryVan : VehicleCheck
     {
         public int Id { get; set; }
@@ -198,67 +263,7 @@ namespace PropertySurveyService.Models
         public string reason_loading_area_not_good_condition { get; set; } = "";
         public string spare_s_1 { get; set; } = ""; // Shell Fuel Card
 
-
-    }
-    public class DeliveryHGV : VehicleCheck
-    {
-        public int Id { get; set; }
-        public int national_tyres_card { get; set; }
-        public int fmg_support_sticker { get; set; }
-        public int fuel_card { get; set; }
-        public int clean_external { get; set; }
-        public int clean_internal { get; set; }
-        public int fan_belt { get; set; }
-        public int fire_extinguisher { get; set; }
-        public int first_aid_box { get; set; }
-        public int horn { get; set; }
-        public int oil_and_water_checked { get; set; }
-        public int accident_pack { get; set; }
-        public int portable_lighting { get; set; }
-        public int ad_blue_level_check { get; set; }
-        public int racks_and_poles { get; set; }
-        public int ratchet_straps { get; set; }
-        public int service_due_sticker { get; set; }
-        public int no_smoking_sticker { get; set; }
-        public int spare_oil { get; set; }
-        public int coolant_anti_freez { get; set; }
-        public int tyre_pressure { get; set; }
-        public int van_height_sticker { get; set; }
-        public int van_locks { get; set; }
-        public int wheel_nut_check_sticker { get; set; }
-        public int windscreen_washer { get; set; }
-        public int fuel_oil_leaks { get; set; }
-        public int battery_security_condition { get; set; }
-        public int tyres_and_wheel_fixing { get; set; }
-        public int spray_suppression { get; set; }
-        public int steering { get; set; }
-        public int security_of_load { get; set; }
-        public int mirrors { get; set; }
-        public int lights { get; set; }
-        public int reflectors { get; set; }
-        public int inducators { get; set; }
-        public int wipers { get; set; }
-        public int washers { get; set; }
-        public int horn_comp { get; set; }
-        public int excessive_exhaust_smoke { get; set; }
-        public int brakes { get; set; }
-        public int security_of_body { get; set; }
-        public int markers { get; set; }
-        public int glass_windscreen { get; set; }
-        public int receipt_book { get; set; }
-        public int keys_for_branches_sat { get; set; }
-        public int pda_phone_accident_pack { get; set; }
-        public int trade_invoices { get; set; }
-        public int blue_bags { get; set; }
-        public int delivery_lists { get; set; }
-        public int collection_lists { get; set; }
-        public int trade_delivery_notes { get; set; }
-        public string report_defects { get; set; } = "";
-        public string date_signed { get; set; } = "";
-        public int loading_area_good_condition { get; set; }// No of additional photos
-        public string reason_loading_area_not_good_condition { get; set; } = "";
-        public int shell_fuel_card { get; set; }
-
+        public VehicleCheckVehicle AsVehicleCheckVehicle() { return new VehicleCheckVehicle(Id, enum_vehicle_type.delivery_van); }
     }
     public class FitterVan : VehicleCheck
     {
@@ -447,6 +452,7 @@ namespace PropertySurveyService.Models
 
         public string letterbox_jig { get; set; } = ""; // needs adding to the input
 
+        public VehicleCheckVehicle AsVehicleCheckVehicle() { return new VehicleCheckVehicle(Id, enum_vehicle_type.fitter_van); }
     }
     public class SalesCar : VehicleCheck
     {
@@ -477,6 +483,6 @@ namespace PropertySurveyService.Models
         public string shell_fuel_card_s { get; set; } = "";  // Shell fuel card
         public int shell_fuel_card { get; set; }
 
-
+        public VehicleCheckVehicle AsVehicleCheckVehicle() { return new VehicleCheckVehicle(Id, enum_vehicle_type.sales_car); }
     }
 }

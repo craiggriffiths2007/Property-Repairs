@@ -1,0 +1,1337 @@
+﻿@model IEnumerable<PropertySurveyService.Models.FitterVan>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.circuit_breaker)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.power_breaker)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.hammer_drill)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ordinary_drill)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.cordless_drill)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.spare_battery_and_charger)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.circular_saw)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.jig_saw)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.planer_check_blade)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.heat_gun)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.sander)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.hoover)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.halogen_lamp)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.extension_lead)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.router)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.industrial_ladders)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ladder_clamps)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.step_ladders)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ladder_stopper)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.philips_bit)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.screw_box)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.tresles_x2)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.torch_working)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ratchett_straps_x4)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.spare_wheel)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.blue_external_dust_sheet)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.internal_dust_sheets_x3)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.brush_and_shovel)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.cleaner_bottle)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ecloth)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.mastic_guns)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.glass_suckers)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.safety_helmets)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.helmet_manufacture_date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.gloves)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.wrist_guards)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.goggles)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ear_defenders)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.dust_masks)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.customer_care_cards)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.completion_forms)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.freepost_envelopes)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.mandate_forms)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.quality_manuals)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.stapler)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.worksheets)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.plasters)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.dressing)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.eyewashers)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.steri_wipes)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.bag)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.flexi_meter)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.merlin_low_e_detector)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.cabin_condition)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.national_tyres_card)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.breakdown_card)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.fuel_card)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.shell_points_card)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.fire_extinguisher)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.jack)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.wheelbrace)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.jump_leads)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.fan_belt)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.tow_ropes)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.spare_oil)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.coolant_anti_freeze)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.van_height_sticker)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.wheel_nut_check_sticker)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.no_smoking_sticker)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.racks_and_poles)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.tyre_conditions)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.van_locks)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.oil_and_water_checked)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.hows_my_driving_sticker)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.pda_setup_date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.accident_pack_on_pda)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.hi_vis_vests)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.grinder)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.windscreen_good_contidion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.circuit_breaker_s)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.power_breaker_s)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.hammer_drill_s)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ordinary_drill_s)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.cordless_drill_s)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.spare_battery_and_charger_s)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.circular_saw_s)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.jig_saw_s)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.planer_check_blade_s)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.heat_gun_s)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.sander_s)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.hoover_s)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.halogen_lamp_s)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.extension_lead_s)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.router_s)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.industrial_ladders_s)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ladder_clamps_s)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.step_ladders_s)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ladder_stopper_s)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.philips_bit_s)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.screw_box_s)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.tresles_x2_s)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.torch_working_s)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ratchett_straps_x4_s)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.spare_wheel_s)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.blue_external_dust_sheet_s)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.internal_dust_sheets_x3_s)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.brush_and_shovel_s)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.cleaner_bottle_s)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ecloth_s)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.mastic_guns_s)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.glass_suckers_s)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.safety_helmets_s)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.helmet_manufacture_date_s)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.gloves_s)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.wrist_guards_s)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.goggles_s)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ear_defenders_s)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.dust_masks_s)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.customer_care_cards_s)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.completion_forms_s)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.freepost_envelopes_s)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.mandate_forms_s)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.quality_manuals_s)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.stapler_s)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.worksheets_s)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.plasters_s)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.dressing_s)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.eyewashers_s)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.steri_wipes_s)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.bag_s)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.flexi_meter_s)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.merlin_low_e_detector_s)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.cabin_condition_s)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.national_tyres_card_s)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.breakdown_card_s)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.fuel_card_s)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.shell_points_card_s)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.fire_extinguisher_s)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.jack_s)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.wheelbrace_s)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.jump_leads_s)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.fan_belt_s)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.tow_ropes_s)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.spare_oil_s)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.coolant_anti_freeze_s)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.van_height_sticker_s)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.wheel_nut_check_sticker_s)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.no_smoking_sticker_s)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.racks_and_poles_s)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.tyre_conditions_s)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.van_locks_s)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.oil_and_water_checked_s)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.hows_my_driving_sticker_s)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.pda_setup_date_s)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.accident_pack_on_pda_s)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.hi_vis_vests_s)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.grinder_s)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.windscreen_good_contidion_s)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.fitters_own_power_tools_ladders_on_van)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.marks_out_of_10)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.vehicle_reg)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.spare_s_1)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.spare_s_2)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.spare_s_3)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.spare_s_4)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.spare_i_1)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.spare_i_2)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.spare_i_3)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.spare_i_4)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ManufactureDateOnHelmet)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ManufactureDateOnHelmet2)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ManufactureDateOnHelmet3)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ManufactureDateOnHelmet4)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ManufactureDateOnHelmet5)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ManufactureDateOnHelmet6)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ManufactureDateOnHelmet7)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ManufactureDateOnHelmet8)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ManufactureDateOnHelmet9)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ManufactureDateOnHelmet10)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.letterbox_jig)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.VehicleCheckHeaderId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CheckID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Destination)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CheckDoneDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Registration)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Mileage)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BranchCode)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PDAVersionDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.is_complete)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ReasonNotCompleted)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.bComplete)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.bSent)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.pressure_passenger_front)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.pressure_passenger_rear)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.pressure_driver_front)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.pressure_driver_rear)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.pressure_spare)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.pressure_passenger_front_s)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.pressure_passenger_rear_s)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.pressure_driver_front_s)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.pressure_driver_rear_s)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.pressure_spare_s)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.bPhotosOutsideComplete)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.bPhotosInsideComplete)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.bDiagramsComplete)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.bSignaturesComplete)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.damage_pass)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.damage_driver)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.damage_front)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.damage_back)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.photos_front)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.photos_rear)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.photos_left)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.photos_right)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.bDriverSigned)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.bCheckedBySigned)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.driver_printed)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.checked_printed)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.circuit_breaker)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.power_breaker)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.hammer_drill)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ordinary_drill)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.cordless_drill)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.spare_battery_and_charger)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.circular_saw)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.jig_saw)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.planer_check_blade)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.heat_gun)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.sander)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.hoover)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.halogen_lamp)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.extension_lead)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.router)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.industrial_ladders)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ladder_clamps)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.step_ladders)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ladder_stopper)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.philips_bit)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.screw_box)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.tresles_x2)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.torch_working)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ratchett_straps_x4)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.spare_wheel)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.blue_external_dust_sheet)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.internal_dust_sheets_x3)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.brush_and_shovel)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.cleaner_bottle)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ecloth)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.mastic_guns)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.glass_suckers)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.safety_helmets)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.helmet_manufacture_date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.gloves)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.wrist_guards)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.goggles)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ear_defenders)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.dust_masks)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.customer_care_cards)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.completion_forms)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.freepost_envelopes)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.mandate_forms)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.quality_manuals)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.stapler)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.worksheets)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.plasters)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.dressing)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.eyewashers)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.steri_wipes)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.bag)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.flexi_meter)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.merlin_low_e_detector)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.cabin_condition)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.national_tyres_card)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.breakdown_card)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.fuel_card)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.shell_points_card)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.fire_extinguisher)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.jack)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.wheelbrace)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.jump_leads)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.fan_belt)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.tow_ropes)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.spare_oil)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.coolant_anti_freeze)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.van_height_sticker)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.wheel_nut_check_sticker)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.no_smoking_sticker)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.racks_and_poles)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.tyre_conditions)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.van_locks)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.oil_and_water_checked)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.hows_my_driving_sticker)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.pda_setup_date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.accident_pack_on_pda)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.hi_vis_vests)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.grinder)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.windscreen_good_contidion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.circuit_breaker_s)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.power_breaker_s)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.hammer_drill_s)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ordinary_drill_s)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.cordless_drill_s)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.spare_battery_and_charger_s)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.circular_saw_s)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.jig_saw_s)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.planer_check_blade_s)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.heat_gun_s)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.sander_s)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.hoover_s)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.halogen_lamp_s)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.extension_lead_s)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.router_s)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.industrial_ladders_s)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ladder_clamps_s)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.step_ladders_s)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ladder_stopper_s)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.philips_bit_s)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.screw_box_s)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.tresles_x2_s)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.torch_working_s)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ratchett_straps_x4_s)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.spare_wheel_s)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.blue_external_dust_sheet_s)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.internal_dust_sheets_x3_s)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.brush_and_shovel_s)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.cleaner_bottle_s)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ecloth_s)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.mastic_guns_s)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.glass_suckers_s)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.safety_helmets_s)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.helmet_manufacture_date_s)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.gloves_s)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.wrist_guards_s)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.goggles_s)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ear_defenders_s)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.dust_masks_s)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.customer_care_cards_s)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.completion_forms_s)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.freepost_envelopes_s)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.mandate_forms_s)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.quality_manuals_s)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.stapler_s)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.worksheets_s)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.plasters_s)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.dressing_s)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.eyewashers_s)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.steri_wipes_s)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.bag_s)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.flexi_meter_s)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.merlin_low_e_detector_s)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.cabin_condition_s)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.national_tyres_card_s)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.breakdown_card_s)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.fuel_card_s)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.shell_points_card_s)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.fire_extinguisher_s)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.jack_s)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.wheelbrace_s)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.jump_leads_s)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.fan_belt_s)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.tow_ropes_s)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.spare_oil_s)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.coolant_anti_freeze_s)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.van_height_sticker_s)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.wheel_nut_check_sticker_s)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.no_smoking_sticker_s)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.racks_and_poles_s)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.tyre_conditions_s)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.van_locks_s)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.oil_and_water_checked_s)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.hows_my_driving_sticker_s)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.pda_setup_date_s)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.accident_pack_on_pda_s)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.hi_vis_vests_s)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.grinder_s)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.windscreen_good_contidion_s)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.fitters_own_power_tools_ladders_on_van)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.marks_out_of_10)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.vehicle_reg)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.spare_s_1)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.spare_s_2)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.spare_s_3)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.spare_s_4)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.spare_i_1)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.spare_i_2)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.spare_i_3)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.spare_i_4)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ManufactureDateOnHelmet)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ManufactureDateOnHelmet2)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ManufactureDateOnHelmet3)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ManufactureDateOnHelmet4)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ManufactureDateOnHelmet5)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ManufactureDateOnHelmet6)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ManufactureDateOnHelmet7)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ManufactureDateOnHelmet8)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ManufactureDateOnHelmet9)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ManufactureDateOnHelmet10)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.letterbox_jig)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VehicleCheckHeaderId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CheckID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Destination)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CheckDoneDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Registration)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Mileage)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BranchCode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PDAVersionDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.is_complete)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ReasonNotCompleted)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.bComplete)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.bSent)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.pressure_passenger_front)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.pressure_passenger_rear)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.pressure_driver_front)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.pressure_driver_rear)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.pressure_spare)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.pressure_passenger_front_s)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.pressure_passenger_rear_s)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.pressure_driver_front_s)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.pressure_driver_rear_s)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.pressure_spare_s)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.bPhotosOutsideComplete)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.bPhotosInsideComplete)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.bDiagramsComplete)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.bSignaturesComplete)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.damage_pass)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.damage_driver)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.damage_front)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.damage_back)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.photos_front)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.photos_rear)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.photos_left)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.photos_right)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.bDriverSigned)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.bCheckedBySigned)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.driver_printed)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.checked_printed)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -34,7 +34,7 @@
                 @Html.DisplayFor(modelItem => item.Name)
             </td>
             <td>
-                @(((PropertySurveyService.Models.AgentType)item.Type).ToString())
+                    @(((PropertySurveyService.Models.agent_type)item.Type).ToString())
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
