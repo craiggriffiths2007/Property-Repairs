@@ -4,6 +4,7 @@ using PropertySurveyService.Data;
 using PropertySurveyService.Models;
 //using System.Text.Json;
 using Newtonsoft.Json;
+using Microsoft.EntityFrameworkCore;
 namespace PropertySurveyService
 {
 
@@ -21,6 +22,7 @@ namespace PropertySurveyService
                     if (sheet != null)
                     {
                         sheet.Id = 0;
+                        db.LaddersTable.Where(l => l.Guid == sheet.Guid).ExecuteDelete();
                         db.LaddersTable.Add(sheet);
                         await db.SaveChangesAsync();
                     }
@@ -35,6 +37,7 @@ namespace PropertySurveyService
                     if (sheet != null)
                     {
                         sheet.Id = 0;
+                        db.MileageSheets.Where(l => l.Guid == sheet.Guid).ExecuteDelete();
                         db.MileageSheets.Add(sheet);
                         await db.SaveChangesAsync();
                     }
@@ -49,6 +52,7 @@ namespace PropertySurveyService
                     if (check != null)
                     {
                         check.Id = 0;
+                        db.ToolsTable.Where(l => l.Guid == check.Guid).ExecuteDelete();
                         db.ToolsTable.Add(check);
                         await db.SaveChangesAsync();
                     }
@@ -63,6 +67,7 @@ namespace PropertySurveyService
                     if (acc != null)
                     {
                         acc.Id = 0;
+                        db.FAccidents.Where(l => l.Guid == acc.Guid).ExecuteDelete();
                         db.FAccidents.Add(acc);
                         await db.SaveChangesAsync();
                     }
@@ -77,6 +82,7 @@ namespace PropertySurveyService
                     if (check.Accident != null)
                     {
                         check.Accident.Id = 0;
+                        db.Accident_sheets.Where(l => l.Guid == check.Accident.Guid).ExecuteDelete(); 
                         db.Accident_sheets.Add(check.Accident);
                         await db.SaveChangesAsync();
                         int headerId = check.Accident.Id;
@@ -93,8 +99,13 @@ namespace PropertySurveyService
                                 }
                             }
                         }
-                        check.Whitnesses = check.Whitnesses.Select(s => { s.Id = 0; return s; }).ToList();
-                        SaveItems(check.Whitnesses);
+
+                        if (check.Whitnesses != null)
+                        {
+                            check.Whitnesses.ForEach(o => o.Id = 0);
+                            foreach (var whitnesses in check.Whitnesses) { db.Whitnesses.Where(l => l.Guid == whitnesses.Guid).ExecuteDelete(); }
+                            SaveItems(check.Whitnesses);
+                        }
 
                         await db.SaveChangesAsync();
                     }
@@ -124,6 +135,7 @@ namespace PropertySurveyService
                     if (check.VehicleCheckHeader != null)
                     {
                         check.VehicleCheckHeader.Id = 0;
+                        db.VehicleCheckHeaders.Where(l => l.Guid == check.VehicleCheckHeader.Guid).ExecuteDelete();
                         db.VehicleCheckHeaders.Add(check.VehicleCheckHeader);
                         await db.SaveChangesAsync();
                         int headerId = check.VehicleCheckHeader.Id;
@@ -140,10 +152,16 @@ namespace PropertySurveyService
                                 }
                             }
                         }
-                        check.DeliveryVans = check.DeliveryVans.Select(s => { s.Id = 0; return s; }).ToList();
-                        check.DeliveryHGVs = check.DeliveryHGVs.Select(s => { s.Id = 0; return s; }).ToList();
-                        check.FitterVans = check.FitterVans.Select(s => { s.Id = 0; return s; }).ToList();
-                        check.SalesCars = check.SalesCars.Select(s => { s.Id = 0; return s; }).ToList();
+
+                        check.DeliveryVans.ForEach(o => o.Id = 0);
+                        check.DeliveryHGVs.ForEach(o => o.Id = 0);
+                        check.FitterVans.ForEach(o => o.Id = 0);
+                        check.SalesCars.ForEach(o => o.Id = 0);
+
+                        foreach (var vehicle in check.DeliveryVans) { db.DeliveryVans.Where(l => l.Guid == vehicle.Guid).ExecuteDelete(); }
+                        foreach (var vehicle in check.DeliveryHGVs) { db.DeliveryHGVs.Where(l => l.Guid == vehicle.Guid).ExecuteDelete(); }
+                        foreach (var vehicle in check.FitterVans) { db.FitterVans.Where(l => l.Guid == vehicle.Guid).ExecuteDelete(); }
+                        foreach (var vehicle in check.SalesCars) { db.SalesCars.Where(l => l.Guid == vehicle.Guid).ExecuteDelete(); }
 
                         SaveItems(check.DeliveryVans);
                         SaveItems(check.DeliveryHGVs);
@@ -289,6 +307,7 @@ namespace PropertySurveyService
                     if (job.Head != null)
                     {
                         job.Head.Id = 0; // Ensure a new record is created
+                        db.Header.Where(l => l.Guid == job.Head.Guid).ExecuteDelete();
                         db.Header.Add(job.Head);
                         await db.SaveChangesAsync();
                         int headerId = job.Head.Id;
@@ -307,17 +326,29 @@ namespace PropertySurveyService
                             }
                         }
 
-                        job.Panels = job.Panels.Select(s => { s.Id = 0; return s; }).ToList();
-                        job.Aluminia = job.Aluminia.Select(s => { s.Id = 0; return s; }).ToList();
-                        job.Bifolds = job.Bifolds.Select(s => { s.Id = 0; return s; }).ToList();
-                        job.Composites = job.Composites.Select(s => { s.Id = 0; return s; }).ToList();
-                        job.Cons = job.Cons.Select(s => { s.Id = 0; return s; }).ToList();
-                        job.Garages = job.Garages.Select(s => { s.Id = 0; return s; }).ToList();
-                        job.Glass = job.Glass.Select(s => { s.Id = 0; return s; }).ToList();
-                        job.Greens = job.Greens.Select(s => { s.Id = 0; return s; }).ToList();
-                        job.Locks = job.Locks.Select(s => { s.Id = 0; return s; }).ToList();
-                        job.Timbers = job.Timbers.Select(s => { s.Id = 0; return s; }).ToList();
-                        job.UPVCs = job.UPVCs.Select(s => { s.Id = 0; return s; }).ToList();
+                        job.Panels?.ForEach(o => o.Id = 0);
+                        job.Aluminia?.ForEach(o => o.Id = 0);
+                        job.Bifolds?.ForEach(o => o.Id = 0);
+                        job.Composites?.ForEach(o => o.Id = 0);
+                        job.Cons?.ForEach(o => o.Id = 0);
+                        job.Garages?.ForEach(o => o.Id = 0);
+                        job.Glass?.ForEach(o => o.Id = 0);
+                        job.Greens?.ForEach(o => o.Id = 0);
+                        job.Locks?.ForEach(o => o.Id = 0);
+                        job.Timbers?.ForEach(o => o.Id = 0);
+                        job.UPVCs?.ForEach(o => o.Id = 0);
+
+                        foreach (var item in job.Panels) { db.PanelTable.Where(l => l.Guid == item.Guid).ExecuteDelete(); }
+                        foreach (var item in job.Aluminia) { db.AlumTable.Where(l => l.Guid == item.Guid).ExecuteDelete(); }
+                        foreach (var item in job.Bifolds) { db.BifoldTable.Where(l => l.Guid == item.Guid).ExecuteDelete(); }
+                        foreach (var item in job.Composites) { db.CompositeTable.Where(l => l.Guid == item.Guid).ExecuteDelete(); }
+                        foreach (var item in job.Cons) { db.ConsTable.Where(l => l.Guid == item.Guid).ExecuteDelete(); }
+                        foreach (var item in job.Garages) { db.GarageTable.Where(l => l.Guid == item.Guid).ExecuteDelete(); }
+                        foreach (var item in job.Glass) { db.GlassTable.Where(l => l.Guid == item.Guid).ExecuteDelete(); }
+                        foreach (var item in job.Greens) { db.GreenTable.Where(l => l.Guid == item.Guid).ExecuteDelete(); }
+                        foreach (var item in job.Locks) { db.LockingTable.Where(l => l.Guid == item.Guid).ExecuteDelete(); }
+                        foreach (var item in job.Timbers) { db.TimberTable.Where(l => l.Guid == item.Guid).ExecuteDelete(); }
+                        foreach (var item in job.UPVCs) { db.UPVCTable.Where(l => l.Guid == item.Guid).ExecuteDelete(); }
 
                         SaveItems(job.Panels);
                         SaveItems(job.Aluminia);

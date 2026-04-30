@@ -83,6 +83,7 @@ namespace PropertySurveyService.Models
 
     public class VehicleCheck
     {
+        public Guid Guid { get; set; } = new Guid();
         public int VehicleCheckHeaderId { get; set; }
         public string CheckID { get; set; }
         public string Destination { get; set; } = "";

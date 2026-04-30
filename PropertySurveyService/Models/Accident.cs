@@ -12,6 +12,7 @@ namespace PropertySurveyService.Models
     public class Whitness
     {
         public int Id { get; set; }
+        public Guid Guid { get; set; } 
         public int Accident_sheetId { get; set; }
         public string p_name { get; set; }
         public string p_add1 { get; set; }
@@ -28,6 +29,7 @@ namespace PropertySurveyService.Models
     {
  
         public int Id { get; set; }
+        public Guid Guid { get; set; }
         //Header
         public string date_time { get; set; }
         public bool bSent { get; set; }
@@ -106,6 +108,8 @@ namespace PropertySurveyService.Models
     public class FAccidents
     {
         public int Id { get; set; } = 0;
+
+        public Guid Guid { get; set; }
         public string date_time { get; set; } = "";
         public bool bSent { get; set; }
         public bool bComplete { get; set; }
@@ -132,7 +136,6 @@ namespace PropertySurveyService.Models
         public int num_of_photographs { get; set; }
         public string sig_fname1 { get; set; } = "";
         public string sig_fname2 { get; set; } = "";
-        public Guid GUID { get; set; } = Guid.NewGuid();
         public string injuries { get; set; } = "";
         public string where_happ_acc { get; set; } = "";
         public string Type { get; set; } = "";
