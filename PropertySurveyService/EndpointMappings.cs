@@ -326,17 +326,17 @@ namespace PropertySurveyService
                             }
                         }
 
-                        job.Panels?.ForEach(o => o.Id = 0);
-                        job.Aluminia?.ForEach(o => o.Id = 0);
-                        job.Bifolds?.ForEach(o => o.Id = 0);
-                        job.Composites?.ForEach(o => o.Id = 0);
-                        job.Cons?.ForEach(o => o.Id = 0);
-                        job.Garages?.ForEach(o => o.Id = 0);
-                        job.Glass?.ForEach(o => o.Id = 0);
-                        job.Greens?.ForEach(o => o.Id = 0);
-                        job.Locks?.ForEach(o => o.Id = 0);
-                        job.Timbers?.ForEach(o => o.Id = 0);
-                        job.UPVCs?.ForEach(o => o.Id = 0);
+                        job.Panels.ForEach(o => o.Id = 0);
+                        job.Aluminia.ForEach(o => o.Id = 0);
+                        job.Bifolds.ForEach(o => o.Id = 0);
+                        job.Composites.ForEach(o => o.Id = 0);
+                        job.Cons.ForEach(o => o.Id = 0);
+                        job.Garages.ForEach(o => o.Id = 0);
+                        job.Glass.ForEach(o => o.Id = 0);
+                        job.Greens.ForEach(o => o.Id = 0);
+                        job.Locks.ForEach(o => o.Id = 0);
+                        job.Timbers.ForEach(o => o.Id = 0);
+                        job.UPVCs.ForEach(o => o.Id = 0);
 
                         foreach (var item in job.Panels) { db.PanelTable.Where(l => l.Guid == item.Guid).ExecuteDelete(); }
                         foreach (var item in job.Aluminia) { db.AlumTable.Where(l => l.Guid == item.Guid).ExecuteDelete(); }
