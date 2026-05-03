@@ -180,7 +180,7 @@ namespace PropertySurveyService.Models
         [DisplayName("Right Bolt")]
         public int right_bolt { get; set; }
         [DisplayName("Is Complete")]
-        public int isComplete { get; set; }
+        public bool bComplete { get; set; }
         [DisplayName("Cill on Subframe")]
         public int cill_on_subframe { get; set; }               // Renamed from i_spare1
         [DisplayName("Cill Type")]

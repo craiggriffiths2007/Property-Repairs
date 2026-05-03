@@ -17,11 +17,10 @@ namespace PropertySurveyService.Models
         public int item_number { get; set; }
 
         [DisplayName("Is Complete")]
-        public int isComplete { get; set; }
+        public bool bComplete { get; set; }
 
         [DisplayName("Cause of Damage")]
         public string? cause_of_damage { get; set; }
-
         [DisplayName("Reason Damage Different")]
         public string? cause_of_damage_reason_different { get; set; }
 

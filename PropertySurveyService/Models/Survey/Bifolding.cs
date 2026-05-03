@@ -56,8 +56,7 @@ namespace PropertySurveyService.Models
         public int no_of_vids { get; set; }
 
         [DisplayName("Is Complete")]
-        public int isComplete { get; set; }
-
+        public bool bComplete { get; set; }
         [DisplayName("Comments")]
         public string? comments { get; set; }
 

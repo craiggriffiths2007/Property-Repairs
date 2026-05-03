@@ -17,7 +17,7 @@ namespace PropertySurveyService.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "10.0.6")
+                .HasAnnotation("ProductVersion", "10.0.7")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
@@ -542,6 +542,9 @@ namespace PropertySurveyService.Migrations
                     b.Property<string>("additional_locks")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<bool>("bComplete")
+                        .HasColumnType("bit");
+
                     b.Property<bool>("bDifferentFromOriginal")
                         .HasColumnType("bit");
 
@@ -649,9 +652,6 @@ namespace PropertySurveyService.Migrations
 
                     b.Property<string>("internal_width")
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("isComplete")
-                        .HasColumnType("int");
 
                     b.Property<int>("is_a_flat")
                         .HasColumnType("int");
@@ -957,6 +957,9 @@ namespace PropertySurveyService.Migrations
                     b.Property<int>("addons")
                         .HasColumnType("int");
 
+                    b.Property<bool>("bComplete")
+                        .HasColumnType("bit");
+
                     b.Property<bool>("bDifferentFromOriginal")
                         .HasColumnType("bit");
 
@@ -1028,9 +1031,6 @@ namespace PropertySurveyService.Migrations
 
                     b.Property<string>("internal_width")
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("isComplete")
-                        .HasColumnType("int");
 
                     b.Property<int>("item_number")
                         .HasColumnType("int");
@@ -1151,6 +1151,9 @@ namespace PropertySurveyService.Migrations
                     b.Property<string>("addons_width")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<bool>("bComplete")
+                        .HasColumnType("bit");
+
                     b.Property<bool>("bDifferentFromOriginal")
                         .HasColumnType("bit");
 
@@ -1249,9 +1252,6 @@ namespace PropertySurveyService.Migrations
 
                     b.Property<string>("internal_width")
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("isComplete")
-                        .HasColumnType("int");
 
                     b.Property<int>("is_a_flat")
                         .HasColumnType("int");
@@ -1419,6 +1419,9 @@ namespace PropertySurveyService.Migrations
                     b.Property<string>("angle4")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<bool>("bComplete")
+                        .HasColumnType("bit");
+
                     b.Property<bool>("bDifferentFromOriginal")
                         .HasColumnType("bit");
 
@@ -1453,9 +1456,6 @@ namespace PropertySurveyService.Migrations
                         .HasColumnType("bit");
 
                     b.Property<int>("good_conditions")
-                        .HasColumnType("int");
-
-                    b.Property<int>("isComplete")
                         .HasColumnType("int");
 
                     b.Property<int>("item_number")
@@ -3378,6 +3378,9 @@ namespace PropertySurveyService.Migrations
                     b.Property<bool>("additional_drawn")
                         .HasColumnType("bit");
 
+                    b.Property<bool>("bComplete")
+                        .HasColumnType("bit");
+
                     b.Property<bool>("bDifferentFromOriginal")
                         .HasColumnType("bit");
 
@@ -3415,9 +3418,6 @@ namespace PropertySurveyService.Migrations
                         .HasColumnType("int");
 
                     b.Property<int>("insulated")
-                        .HasColumnType("int");
-
-                    b.Property<int>("isComplete")
                         .HasColumnType("int");
 
                     b.Property<int>("item_number")
@@ -3583,6 +3583,9 @@ namespace PropertySurveyService.Migrations
                     b.Property<string>("TapeorGasket")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<bool>("bComplete")
+                        .HasColumnType("bit");
+
                     b.Property<bool>("bDifferentFromOriginal")
                         .HasColumnType("bit");
 
@@ -3675,9 +3678,6 @@ namespace PropertySurveyService.Migrations
 
                     b.Property<string>("int_width")
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("isComplete")
-                        .HasColumnType("int");
 
                     b.Property<int>("item_number")
                         .HasColumnType("int");
@@ -3836,6 +3836,9 @@ namespace PropertySurveyService.Migrations
                     b.Property<int>("auto_or_manual")
                         .HasColumnType("int");
 
+                    b.Property<bool>("bComplete")
+                        .HasColumnType("bit");
+
                     b.Property<bool>("bDifferentFromOriginal")
                         .HasColumnType("bit");
 
@@ -3865,9 +3868,6 @@ namespace PropertySurveyService.Migrations
 
                     b.Property<string>("glaze_type")
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("isComplete")
-                        .HasColumnType("int");
 
                     b.Property<int>("item_number")
                         .HasColumnType("int");
@@ -5399,6 +5399,9 @@ namespace PropertySurveyService.Migrations
                     b.Property<int>("HeaderId")
                         .HasColumnType("int");
 
+                    b.Property<bool>("bComplete")
+                        .HasColumnType("bit");
+
                     b.Property<bool>("bDifferentFromOriginal")
                         .HasColumnType("bit");
 
@@ -5422,9 +5425,6 @@ namespace PropertySurveyService.Migrations
 
                     b.Property<string>("comments")
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("isComplete")
-                        .HasColumnType("int");
 
                     b.Property<string>("item")
                         .HasColumnType("nvarchar(max)");
@@ -5814,6 +5814,9 @@ namespace PropertySurveyService.Migrations
                     b.Property<int>("alum_item_number")
                         .HasColumnType("int");
 
+                    b.Property<bool>("bComplete")
+                        .HasColumnType("bit");
+
                     b.Property<bool>("bDifferentFromOriginal")
                         .HasColumnType("bit");
 
@@ -5834,9 +5837,6 @@ namespace PropertySurveyService.Migrations
 
                     b.Property<string>("hedit")
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("isComplete")
-                        .HasColumnType("int");
 
                     b.Property<int>("item_number")
                         .HasColumnType("int");
@@ -6207,6 +6207,9 @@ namespace PropertySurveyService.Migrations
                     b.Property<string>("additional_locks")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<bool>("bComplete")
+                        .HasColumnType("bit");
+
                     b.Property<bool>("bDifferentFromOriginal")
                         .HasColumnType("bit");
 
@@ -6350,9 +6353,6 @@ namespace PropertySurveyService.Migrations
 
                     b.Property<string>("internal_width")
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("isComplete")
-                        .HasColumnType("int");
 
                     b.Property<int>("is_a_flat")
                         .HasColumnType("int");
@@ -6935,6 +6935,9 @@ namespace PropertySurveyService.Migrations
                     b.Property<int>("addons")
                         .HasColumnType("int");
 
+                    b.Property<bool>("bComplete")
+                        .HasColumnType("bit");
+
                     b.Property<bool>("bDifferentFromOriginal")
                         .HasColumnType("bit");
 
@@ -7045,9 +7048,6 @@ namespace PropertySurveyService.Migrations
 
                     b.Property<string>("internal_width")
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("isComplete")
-                        .HasColumnType("int");
 
                     b.Property<int>("is_a_flat")
                         .HasColumnType("int");

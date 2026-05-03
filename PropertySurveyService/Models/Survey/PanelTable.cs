@@ -16,7 +16,7 @@ namespace PropertySurveyService.Models
         public int item_number { get; set; }
 
         [DisplayName("Is Complete")]
-        public int isComplete { get; set; }
+        public bool bComplete { get; set; }
 
         [DisplayName("Cause of Damage")]
         public string? cause_of_damage { get; set; }
@@ -32,8 +32,7 @@ namespace PropertySurveyService.Models
 
         [DisplayName("Letter Edit")]
         public string? letteredit { get; set; }
-
-        [DisplayName("Letter Box Position")]
+		[DisplayName("Letter Box Position")]
         public string? letter_box_pos { get; set; }
 
         [DisplayName("Width (text)")]

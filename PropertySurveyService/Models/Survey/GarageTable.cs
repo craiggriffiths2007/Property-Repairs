@@ -30,7 +30,6 @@ namespace PropertySurveyService.Models
 
         [DisplayName("New Subframe Required")]
         public int new_subframe_req { get; set; }
-
         [DisplayName("Obstruction Outside (Bool)")]
         public int obstruction_outside_b { get; set; }
 
@@ -161,7 +160,7 @@ namespace PropertySurveyService.Models
         public string? long_comments { get; set; }
 
         [DisplayName("Is Complete")]
-        public int isComplete { get; set; }
+        public bool bComplete { get; set; }
 
         [DisplayName("Door Within Perimeter")]
         public int door_within_perimeter { get; set; }      // Is the garage door in the customers house perimeter? Renamed from i_spare1

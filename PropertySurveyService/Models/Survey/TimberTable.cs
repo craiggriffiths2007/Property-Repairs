@@ -16,15 +16,14 @@ namespace PropertySurveyService.Models
         public int item_number { get; set; }
 
         [DisplayName("Is Complete")]
-        public int isComplete { get; set; }
+        public bool bComplete { get; set; }
 
         [DisplayName("Repair Item")]
         public bool bRepair { get; set; }
 
         [DisplayName("Cosmetic Damage")]
         public int cosmetic_damage { get; set; }
-
-        [DisplayName("Additional Locks")]
+		[DisplayName("Additional Locks")]
         public string? additional_locks { get; set; }
 
         [DisplayName("Gaskets")]

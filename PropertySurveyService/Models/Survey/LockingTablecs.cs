@@ -16,7 +16,7 @@ namespace PropertySurveyService.Models
         public int item_number { get; set; }
 
         [DisplayName("Is Complete")]
-        public int isComplete { get; set; }
+        public bool bComplete { get; set; }
 
         [DisplayName("Comments")]
         public string? comments { get; set; }
@@ -29,7 +29,6 @@ namespace PropertySurveyService.Models
 
         [DisplayName("Was It Locked")]
         public int was_it_locked { get; set; }
-
         [DisplayName("Number of Pictures")]
         public int no_of_pics { get; set; }
 

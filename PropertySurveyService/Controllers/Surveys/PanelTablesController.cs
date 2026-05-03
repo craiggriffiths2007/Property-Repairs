@@ -65,7 +65,7 @@ namespace PropertySurveyService.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,HeaderId,udi_cont,item_number,isComplete,cause_of_damage,cause_of_damage_reason_different,knockedit,knocoledit,letteredit,letter_box_pos,wedit,hedit,typeedit,thickedit,backgedit,coledit,gltext,spaccoloedit,pet_flap,pet_type,pet_magnetic,no_of_pics,no_of_photos,no_of_vids,room_location,bDifferentFromOriginal,ChangeItemTo,print_name,long_sptext,upvc_item_number,alum_item_number,parts_to_order,point_of_entry,type_of_lockng_system_required,was_it_locked")] PanelTable panelTable)
+        public async Task<IActionResult> Create([Bind("Id,HeaderId,udi_cont,item_number,bComplete,cause_of_damage,cause_of_damage_reason_different,knockedit,knocoledit,letteredit,letter_box_pos,wedit,hedit,typeedit,thickedit,backgedit,coledit,gltext,spaccoloedit,pet_flap,pet_type,pet_magnetic,no_of_pics,no_of_photos,no_of_vids,room_location,bDifferentFromOriginal,ChangeItemTo,print_name,long_sptext,upvc_item_number,alum_item_number,parts_to_order,point_of_entry,type_of_lockng_system_required,was_it_locked")] PanelTable panelTable)
         {
             if (ModelState.IsValid)
             {
@@ -97,7 +97,7 @@ namespace PropertySurveyService.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,HeaderId,udi_cont,item_number,isComplete,cause_of_damage,cause_of_damage_reason_different,knockedit,knocoledit,letteredit,letter_box_pos,wedit,hedit,typeedit,thickedit,backgedit,coledit,gltext,spaccoloedit,pet_flap,pet_type,pet_magnetic,no_of_pics,no_of_photos,no_of_vids,room_location,bDifferentFromOriginal,ChangeItemTo,print_name,long_sptext,upvc_item_number,alum_item_number,parts_to_order,point_of_entry,type_of_lockng_system_required,was_it_locked")] PanelTable panelTable)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,HeaderId,udi_cont,item_number,bComplete,cause_of_damage,cause_of_damage_reason_different,knockedit,knocoledit,letteredit,letter_box_pos,wedit,hedit,typeedit,thickedit,backgedit,coledit,gltext,spaccoloedit,pet_flap,pet_type,pet_magnetic,no_of_pics,no_of_photos,no_of_vids,room_location,bDifferentFromOriginal,ChangeItemTo,print_name,long_sptext,upvc_item_number,alum_item_number,parts_to_order,point_of_entry,type_of_lockng_system_required,was_it_locked")] PanelTable panelTable)
         {
             if (id != panelTable.Id)
             {

@@ -17,8 +17,7 @@ namespace PropertySurveyService.Models
         public int item_number { get; set; }
 
         [DisplayName("Is Complete")]
-        public int isComplete { get; set; }
-
+        public bool bComplete { get; set; }
         [DisplayName("Type")]
         public string? type { get; set; }
 

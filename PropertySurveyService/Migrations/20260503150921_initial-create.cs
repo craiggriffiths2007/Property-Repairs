@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace PropertySurveyService.Migrations
 {
     /// <inheritdoc />
-    public partial class InitialCreate : Migration
+    public partial class initialcreate : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -17,6 +17,7 @@ namespace PropertySurveyService.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
+                    Guid = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     date_time = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     bSent = table.Column<bool>(type: "bit", nullable: false),
                     bComplete = table.Column<bool>(type: "bit", nullable: false),
@@ -91,15 +92,15 @@ namespace PropertySurveyService.Migrations
                 name: "Agent",
                 columns: table => new
                 {
-                    AgentId = table.Column<int>(type: "int", nullable: false)
+                    Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    AgentCode = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Code = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    AgentType = table.Column<int>(type: "int", nullable: false)
+                    Type = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Agent", x => x.AgentId);
+                    table.PrimaryKey("PK_Agent", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -193,7 +194,7 @@ namespace PropertySurveyService.Migrations
                     GearBox = table.Column<int>(type: "int", nullable: false),
                     left_bolt = table.Column<int>(type: "int", nullable: false),
                     right_bolt = table.Column<int>(type: "int", nullable: false),
-                    isComplete = table.Column<int>(type: "int", nullable: false),
+                    bComplete = table.Column<bool>(type: "bit", nullable: false),
                     cill_on_subframe = table.Column<int>(type: "int", nullable: false),
                     cill_type = table.Column<int>(type: "int", nullable: false),
                     i_spare3 = table.Column<int>(type: "int", nullable: false),
@@ -313,7 +314,7 @@ namespace PropertySurveyService.Migrations
                     no_of_pics = table.Column<int>(type: "int", nullable: false),
                     no_of_photos = table.Column<int>(type: "int", nullable: false),
                     no_of_vids = table.Column<int>(type: "int", nullable: false),
-                    isComplete = table.Column<int>(type: "int", nullable: false),
+                    bComplete = table.Column<bool>(type: "bit", nullable: false),
                     comments = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     bifold_signed = table.Column<int>(type: "int", nullable: false),
                     number_of_doors = table.Column<int>(type: "int", nullable: false),
@@ -361,9 +362,9 @@ namespace PropertySurveyService.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    BranchName = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    BranchCode = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    BranchDescription = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Code = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Description = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -380,7 +381,7 @@ namespace PropertySurveyService.Migrations
                     Guid = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     udi_cont = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     item_number = table.Column<int>(type: "int", nullable: false),
-                    isComplete = table.Column<int>(type: "int", nullable: false),
+                    bComplete = table.Column<bool>(type: "bit", nullable: false),
                     cause_of_damage = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     cause_of_damage_reason_different = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     door_make = table.Column<string>(type: "nvarchar(max)", nullable: true),
@@ -476,7 +477,7 @@ namespace PropertySurveyService.Migrations
                     Guid = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     udi_cont = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     item_number = table.Column<int>(type: "int", nullable: false),
-                    isComplete = table.Column<int>(type: "int", nullable: false),
+                    bComplete = table.Column<bool>(type: "bit", nullable: false),
                     type = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     cause_of_damage = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     cause_of_damage_reason_different = table.Column<string>(type: "nvarchar(max)", nullable: true),
@@ -644,6 +645,7 @@ namespace PropertySurveyService.Migrations
                     loading_area_good_condition = table.Column<int>(type: "int", nullable: false),
                     reason_loading_area_not_good_condition = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     shell_fuel_card = table.Column<int>(type: "int", nullable: false),
+                    Guid = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     VehicleCheckHeaderId = table.Column<int>(type: "int", nullable: false),
                     CheckID = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Destination = table.Column<string>(type: "nvarchar(max)", nullable: false),
@@ -763,6 +765,7 @@ namespace PropertySurveyService.Migrations
                     loading_area_good_condition = table.Column<int>(type: "int", nullable: false),
                     reason_loading_area_not_good_condition = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     spare_s_1 = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Guid = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     VehicleCheckHeaderId = table.Column<int>(type: "int", nullable: false),
                     CheckID = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Destination = table.Column<string>(type: "nvarchar(max)", nullable: false),
@@ -813,6 +816,7 @@ namespace PropertySurveyService.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
+                    Guid = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     date_time = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     bSent = table.Column<bool>(type: "bit", nullable: false),
                     bComplete = table.Column<bool>(type: "bit", nullable: false),
@@ -839,7 +843,6 @@ namespace PropertySurveyService.Migrations
                     num_of_photographs = table.Column<int>(type: "int", nullable: false),
                     sig_fname1 = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     sig_fname2 = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    GUID = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     injuries = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     where_happ_acc = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Type = table.Column<string>(type: "nvarchar(max)", nullable: false),
@@ -1038,6 +1041,7 @@ namespace PropertySurveyService.Migrations
                     ManufactureDateOnHelmet9 = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     ManufactureDateOnHelmet10 = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     letterbox_jig = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Guid = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     VehicleCheckHeaderId = table.Column<int>(type: "int", nullable: false),
                     CheckID = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Destination = table.Column<string>(type: "nvarchar(max)", nullable: false),
@@ -1140,7 +1144,7 @@ namespace PropertySurveyService.Migrations
                     ChangeItemTo = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     print_name = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     long_comments = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    isComplete = table.Column<int>(type: "int", nullable: false),
+                    bComplete = table.Column<bool>(type: "bit", nullable: false),
                     door_within_perimeter = table.Column<int>(type: "int", nullable: false),
                     socket_within_1m = table.Column<int>(type: "int", nullable: false),
                     wire_type = table.Column<string>(type: "nvarchar(max)", nullable: true),
@@ -1169,7 +1173,7 @@ namespace PropertySurveyService.Migrations
                     Guid = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     udi_cont = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     item_number = table.Column<int>(type: "int", nullable: false),
-                    isComplete = table.Column<int>(type: "int", nullable: false),
+                    bComplete = table.Column<bool>(type: "bit", nullable: false),
                     cause_of_damage = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     cause_of_damage_reason_different = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     units_required = table.Column<int>(type: "int", nullable: false),
@@ -1262,7 +1266,7 @@ namespace PropertySurveyService.Migrations
                     Guid = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     udi_cont = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     item_number = table.Column<int>(type: "int", nullable: false),
-                    isComplete = table.Column<int>(type: "int", nullable: false),
+                    bComplete = table.Column<bool>(type: "bit", nullable: false),
                     bDifferentFromOriginal = table.Column<bool>(type: "bit", nullable: false),
                     cause_of_damage = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     cause_of_damage_reason_different = table.Column<string>(type: "nvarchar(max)", nullable: true),
@@ -1803,7 +1807,7 @@ namespace PropertySurveyService.Migrations
                     Guid = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     udi_cont = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     item_number = table.Column<int>(type: "int", nullable: false),
-                    isComplete = table.Column<int>(type: "int", nullable: false),
+                    bComplete = table.Column<bool>(type: "bit", nullable: false),
                     comments = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     point_of_entry = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     type_of_lockng_system_required = table.Column<string>(type: "nvarchar(max)", nullable: true),
@@ -1941,7 +1945,7 @@ namespace PropertySurveyService.Migrations
                     Guid = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     udi_cont = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     item_number = table.Column<int>(type: "int", nullable: false),
-                    isComplete = table.Column<int>(type: "int", nullable: false),
+                    bComplete = table.Column<bool>(type: "bit", nullable: false),
                     cause_of_damage = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     cause_of_damage_reason_different = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     knockedit = table.Column<string>(type: "nvarchar(max)", nullable: true),
@@ -2009,6 +2013,7 @@ namespace PropertySurveyService.Migrations
                     tyre_condition_s = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     shell_fuel_card_s = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     shell_fuel_card = table.Column<int>(type: "int", nullable: false),
+                    Guid = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     VehicleCheckHeaderId = table.Column<int>(type: "int", nullable: false),
                     CheckID = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Destination = table.Column<string>(type: "nvarchar(max)", nullable: false),
@@ -2063,7 +2068,7 @@ namespace PropertySurveyService.Migrations
                     Guid = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     udi_cont = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     item_number = table.Column<int>(type: "int", nullable: false),
-                    isComplete = table.Column<int>(type: "int", nullable: false),
+                    bComplete = table.Column<bool>(type: "bit", nullable: false),
                     bRepair = table.Column<bool>(type: "bit", nullable: false),
                     cosmetic_damage = table.Column<int>(type: "int", nullable: false),
                     additional_locks = table.Column<string>(type: "nvarchar(max)", nullable: true),
@@ -2315,7 +2320,7 @@ namespace PropertySurveyService.Migrations
                     Guid = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     udi_cont = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     item_number = table.Column<int>(type: "int", nullable: false),
-                    isComplete = table.Column<int>(type: "int", nullable: false),
+                    bComplete = table.Column<bool>(type: "bit", nullable: false),
                     bRepair = table.Column<bool>(type: "bit", nullable: false),
                     cosmetic_damage = table.Column<int>(type: "int", nullable: false),
                     additional_locks = table.Column<string>(type: "nvarchar(max)", nullable: true),
@@ -2481,6 +2486,7 @@ namespace PropertySurveyService.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
+                    Guid = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     Accident_sheetId = table.Column<int>(type: "int", nullable: false),
                     p_name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     p_add1 = table.Column<string>(type: "nvarchar(max)", nullable: false),
@@ -2668,7 +2674,7 @@ namespace PropertySurveyService.Migrations
                         name: "FK_Job_Agent_AgentId",
                         column: x => x.AgentId,
                         principalTable: "Agent",
-                        principalColumn: "AgentId");
+                        principalColumn: "Id");
                     table.ForeignKey(
                         name: "FK_Job_Contract_ContractId",
                         column: x => x.ContractId,

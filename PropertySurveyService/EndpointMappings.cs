@@ -30,21 +30,6 @@ namespace PropertySurveyService
                 return Results.Ok(new { status = "success" });
             });
 
-            app.MapPost("/SendMileageSheets", async (List<MileageSheet> milageSheets, AppDBContext db) =>
-            {
-                foreach (var sheet in milageSheets)
-                {
-                    if (sheet != null)
-                    {
-                        sheet.Id = 0;
-                        db.MileageSheets.Where(l => l.Guid == sheet.Guid).ExecuteDelete();
-                        db.MileageSheets.Add(sheet);
-                        await db.SaveChangesAsync();
-                    }
-                }
-                return Results.Ok(new { status = "success" });
-            });
-
             app.MapPost("/SendToolChecks", async (List<ToolsTable> tools, AppDBContext db) =>
             {
                 foreach (var check in tools)
@@ -54,6 +39,21 @@ namespace PropertySurveyService
                         check.Id = 0;
                         db.ToolsTable.Where(l => l.Guid == check.Guid).ExecuteDelete();
                         db.ToolsTable.Add(check);
+                        await db.SaveChangesAsync();
+                    }
+                }
+                return Results.Ok(new { status = "success" });
+            });
+
+            app.MapPost("/SendMileageSheets", async (List<MileageSheet> milageSheets, AppDBContext db) =>
+            {
+                foreach (var sheet in milageSheets)
+                {
+                    if (sheet != null)
+                    {
+                        sheet.Id = 0;
+                        db.MileageSheets.Where(l => l.Guid == sheet.Guid).ExecuteDelete();
+                        db.MileageSheets.Add(sheet);
                         await db.SaveChangesAsync();
                     }
                 }
