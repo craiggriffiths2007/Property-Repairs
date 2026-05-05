@@ -18,33 +18,32 @@
             <div class="logo">
                 <a asp-controller="Home" asp-action="Index"><img src="/img/cs.png" width="60" height="60"></a>
             </div>
-            <div class="nav-item">
-                <a asp-controller="Jobs" asp-action="Index">Jobs</a>
-            </div>
-            <div class="nav-item">
-                <a asp-controller="Contracts" asp-action="Index">Contracts</a>
-            </div>
+            @if (User.IsInRole("User") || User.IsInRole("Manager") || User.IsInRole("Admin") || User.IsInRole("SuperAdmin"))
+            {
+                <a class="nav-item" asp-controller="Jobs" asp-action="Index">Diary</a>
+                <a class="nav-item" asp-controller="Contracts" asp-action="Index">Contracts</a>
 
-            <div class="nav-item">
-                <a href="javascript:void(0)">Branch ▼</a>
-                <div class="dropdown">
-                    <a asp-controller="Branches" asp-action="Index">Branches</a>
-                    <a asp-controller="Vehicles" asp-action="Index">Vehicles</a>
-                    <a asp-controller="VehicleChecks" asp-action="Index">Vehicle Checks</a>
-                    <a asp-controller="ToolsTables" asp-action="Index">Tool Checks</a>
-                    <a asp-controller="LaddersTables" asp-action="Index">Ladder Checks</a>
+                <div class="nav-item">
+                    <a class="text-white" href="javascript:void(0)">Branch ▼</a>
+                    <div class="dropdown">
+                        <a asp-controller="Branches" asp-action="Index">Branches</a>
+                        <a asp-controller="Vehicles" asp-action="Index">Vehicles</a>
+                        <a asp-controller="VehicleChecks" asp-action="Index">Vehicle Checks</a>
+                        <a asp-controller="ToolsTables" asp-action="Index">Tool Checks</a>
+                        <a asp-controller="LaddersTables" asp-action="Index">Ladder Checks</a>
+                    </div>
                 </div>
-            </div>
 
-            <div class="nav-item">
-                <a href="javascript:void(0)">People ▼</a>
-                <div class="dropdown">
-                    <a asp-controller="Customers" asp-action="Index">Customers</a>
-                    <a asp-controller="Agents" asp-action="Index">Agents</a>
-                    <a asp-controller="MileageSheet" asp-action="Index">Mileage</a>
-                    <a asp-controller="Accident_Sheet" asp-action="Index">Accidents</a>
+                <div class="nav-item">
+                    <a class="text-white" href="javascript:void(0)">People ▼</a>
+                    <div class="dropdown">
+                        <a asp-controller="Customers" asp-action="Index">Customers</a>
+                        <a asp-controller="Agents" asp-action="Index">Agents</a>
+                        <a asp-controller="MileageSheet" asp-action="Index">Mileage</a>
+                        <a asp-controller="Accident_Sheet" asp-action="Index">Accidents</a>
+                    </div>
                 </div>
-            </div>
+            }
         </div>
 
         <!-- RIGHT -->

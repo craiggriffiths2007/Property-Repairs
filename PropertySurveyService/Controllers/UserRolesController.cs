@@ -7,6 +7,7 @@ using PropertySurveyService.Models;
 
 namespace PropertySurveyService.Controllers
 {
+    [Authorize]
     public class UserRolesController : Controller
     {
         private readonly UserManager<AppUser> _userManager;

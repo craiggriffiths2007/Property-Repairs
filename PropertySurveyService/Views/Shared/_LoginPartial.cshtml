@@ -9,36 +9,29 @@
         @if (User.IsInRole("Admin") || User.IsInRole("SuperAdmin"))
         {
             <div class="nav-item">
-                            <a href="javascript:void(0)">Users ▼</a>
-                            <div class="dropdown">
-                                <a asp-area="" asp-controller="Users" asp-action="Index">Users</a>
-                                @if (User.IsInRole("SuperAdmin"))
-                                {
+                <a href="javascript:void(0)">Users ▼</a>
+                <div class="dropdown">
+                    <a asp-area="" asp-controller="Users" asp-action="Index">Users</a>
+                    @if (User.IsInRole("SuperAdmin"))
+                    {
                         
-                                    <a asp-area="" asp-controller="UserRoles" asp-action="Index">User Roles</a>
+                        <a asp-area="" asp-controller="UserRoles" asp-action="Index">User Roles</a>
                  
-                                }
-                            </div>
+                    }
+                </div>
 
             </div>
-            <div class="nav-item">
-                <a asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hello @UserManager.GetUserAsync(User).Result.FirstName!</a>
-            </div>
-            <div class="nav-item">
-                <form id="logoutForm" class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+            <a class="nav-item" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">User: @UserManager.GetUserAsync(User).Result.FirstName</a>
+            <form class="nav-item" id="logoutForm" class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
                     <button id="logout" type="submit" class="btn btn-link">Logout</button>
-                </form>
-            </div>
+            </form>
         }
     }
     else
     {
-        <div class="nav-item">
-            <a asp-area="Identity" asp-page="/Account/Register">Register</a>
-        </div>
-        <div class="nav-item">
-            <a id="login" asp-area="Identity" asp-page="/Account/Login">Login</a>
-        </div>
+        <a class="nav-item" asp-area="Identity" asp-page="/Account/Register">Register</a>
+
+        <a class="nav-item" id="login" asp-area="Identity" asp-page="/Account/Login">Login</a>
     }
 
 

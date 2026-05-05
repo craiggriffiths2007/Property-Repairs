@@ -6,6 +6,7 @@ using PropertySurveyService.Data;
 
 namespace PropertySurveyService.Controllers
 {
+    [Authorize]
     public class RoleManagerController : Controller
     {
         private readonly RoleManager<IdentityRole> _roleManager;

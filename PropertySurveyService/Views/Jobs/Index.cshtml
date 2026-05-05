@@ -1,7 +1,7 @@
 ﻿@model PropertySurveyService.ViewModels.JobIndexViewModel;
 
 @{
-    ViewData["Title"] = "Jobs";
+    ViewData["Title"] = "Diary";
 
     var currentDate = new DateTime(Model.Year, Model.Month, 1);
     var prevMonth = currentDate.AddMonths(-1);
@@ -41,7 +41,7 @@
     }
 }
 
-<h1>Jobs</h1>
+<h1>Diary</h1>
 
 <!-- View mode toggle -->
 <div class="btn-group mb-3" role="group">
