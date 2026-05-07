@@ -1,4 +1,4 @@
-﻿@model PropertySurveyService.Models.DeliveryHGV
+﻿@model PropertySurveyService.ViewModels.VehicleCheckDetailsViewModel
 
 @{
     ViewData["Title"] = "Details";
@@ -11,566 +11,584 @@
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.national_tyres_card)
+            @Html.DisplayNameFor(model => model.DeliveryHGV.national_tyres_card)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.national_tyres_card)
+            @Html.DisplayFor(model => model.DeliveryHGV.national_tyres_card)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.fmg_support_sticker)
+            @Html.DisplayNameFor(model => model.DeliveryHGV.fmg_support_sticker)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.fmg_support_sticker)
+            @Html.DisplayFor(model => model.DeliveryHGV.fmg_support_sticker)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.fuel_card)
+            @Html.DisplayNameFor(model => model.DeliveryHGV.fuel_card)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.fuel_card)
+            @Html.DisplayFor(model => model.DeliveryHGV.fuel_card)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.clean_external)
+            @Html.DisplayNameFor(model => model.DeliveryHGV.clean_external)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.clean_external)
+            @Html.DisplayFor(model => model.DeliveryHGV.clean_external)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.clean_internal)
+            @Html.DisplayNameFor(model => model.DeliveryHGV.clean_internal)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.clean_internal)
+            @Html.DisplayFor(model => model.DeliveryHGV.clean_internal)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.fan_belt)
+            @Html.DisplayNameFor(model => model.DeliveryHGV.fan_belt)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.fan_belt)
+            @Html.DisplayFor(model => model.DeliveryHGV.fan_belt)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.fire_extinguisher)
+            @Html.DisplayNameFor(model => model.DeliveryHGV.fire_extinguisher)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.fire_extinguisher)
+            @Html.DisplayFor(model => model.DeliveryHGV.fire_extinguisher)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.first_aid_box)
+            @Html.DisplayNameFor(model => model.DeliveryHGV.first_aid_box)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.first_aid_box)
+            @Html.DisplayFor(model => model.DeliveryHGV.first_aid_box)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.horn)
+            @Html.DisplayNameFor(model => model.DeliveryHGV.horn)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.horn)
+            @Html.DisplayFor(model => model.DeliveryHGV.horn)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.oil_and_water_checked)
+            @Html.DisplayNameFor(model => model.DeliveryHGV.oil_and_water_checked)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.oil_and_water_checked)
+            @Html.DisplayFor(model => model.DeliveryHGV.oil_and_water_checked)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.accident_pack)
+            @Html.DisplayNameFor(model => model.DeliveryHGV.accident_pack)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.accident_pack)
+            @Html.DisplayFor(model => model.DeliveryHGV.accident_pack)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.portable_lighting)
+            @Html.DisplayNameFor(model => model.DeliveryHGV.portable_lighting)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.portable_lighting)
+            @Html.DisplayFor(model => model.DeliveryHGV.portable_lighting)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ad_blue_level_check)
+            @Html.DisplayNameFor(model => model.DeliveryHGV.ad_blue_level_check)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ad_blue_level_check)
+            @Html.DisplayFor(model => model.DeliveryHGV.ad_blue_level_check)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.racks_and_poles)
+            @Html.DisplayNameFor(model => model.DeliveryHGV.racks_and_poles)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.racks_and_poles)
+            @Html.DisplayFor(model => model.DeliveryHGV.racks_and_poles)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ratchet_straps)
+            @Html.DisplayNameFor(model => model.DeliveryHGV.ratchet_straps)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ratchet_straps)
+            @Html.DisplayFor(model => model.DeliveryHGV.ratchet_straps)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.service_due_sticker)
+            @Html.DisplayNameFor(model => model.DeliveryHGV.service_due_sticker)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.service_due_sticker)
+            @Html.DisplayFor(model => model.DeliveryHGV.service_due_sticker)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.no_smoking_sticker)
+            @Html.DisplayNameFor(model => model.DeliveryHGV.no_smoking_sticker)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.no_smoking_sticker)
+            @Html.DisplayFor(model => model.DeliveryHGV.no_smoking_sticker)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.spare_oil)
+            @Html.DisplayNameFor(model => model.DeliveryHGV.spare_oil)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.spare_oil)
+            @Html.DisplayFor(model => model.DeliveryHGV.spare_oil)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.coolant_anti_freez)
+            @Html.DisplayNameFor(model => model.DeliveryHGV.coolant_anti_freez)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.coolant_anti_freez)
+            @Html.DisplayFor(model => model.DeliveryHGV.coolant_anti_freez)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.tyre_pressure)
+            @Html.DisplayNameFor(model => model.DeliveryHGV.tyre_pressure)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.tyre_pressure)
+            @Html.DisplayFor(model => model.DeliveryHGV.tyre_pressure)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.van_height_sticker)
+            @Html.DisplayNameFor(model => model.DeliveryHGV.van_height_sticker)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.van_height_sticker)
+            @Html.DisplayFor(model => model.DeliveryHGV.van_height_sticker)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.van_locks)
+            @Html.DisplayNameFor(model => model.DeliveryHGV.van_locks)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.van_locks)
+            @Html.DisplayFor(model => model.DeliveryHGV.van_locks)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.wheel_nut_check_sticker)
+            @Html.DisplayNameFor(model => model.DeliveryHGV.wheel_nut_check_sticker)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.wheel_nut_check_sticker)
+            @Html.DisplayFor(model => model.DeliveryHGV.wheel_nut_check_sticker)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.windscreen_washer)
+            @Html.DisplayNameFor(model => model.DeliveryHGV.windscreen_washer)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.windscreen_washer)
+            @Html.DisplayFor(model => model.DeliveryHGV.windscreen_washer)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.fuel_oil_leaks)
+            @Html.DisplayNameFor(model => model.DeliveryHGV.fuel_oil_leaks)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.fuel_oil_leaks)
+            @Html.DisplayFor(model => model.DeliveryHGV.fuel_oil_leaks)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.battery_security_condition)
+            @Html.DisplayNameFor(model => model.DeliveryHGV.battery_security_condition)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.battery_security_condition)
+            @Html.DisplayFor(model => model.DeliveryHGV.battery_security_condition)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.tyres_and_wheel_fixing)
+            @Html.DisplayNameFor(model => model.DeliveryHGV.tyres_and_wheel_fixing)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.tyres_and_wheel_fixing)
+            @Html.DisplayFor(model => model.DeliveryHGV.tyres_and_wheel_fixing)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.spray_suppression)
+            @Html.DisplayNameFor(model => model.DeliveryHGV.spray_suppression)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.spray_suppression)
+            @Html.DisplayFor(model => model.DeliveryHGV.spray_suppression)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.steering)
+            @Html.DisplayNameFor(model => model.DeliveryHGV.steering)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.steering)
+            @Html.DisplayFor(model => model.DeliveryHGV.steering)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.security_of_load)
+            @Html.DisplayNameFor(model => model.DeliveryHGV.security_of_load)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.security_of_load)
+            @Html.DisplayFor(model => model.DeliveryHGV.security_of_load)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.mirrors)
+            @Html.DisplayNameFor(model => model.DeliveryHGV.mirrors)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.mirrors)
+            @Html.DisplayFor(model => model.DeliveryHGV.mirrors)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.lights)
+            @Html.DisplayNameFor(model => model.DeliveryHGV.lights)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.lights)
+            @Html.DisplayFor(model => model.DeliveryHGV.lights)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.reflectors)
+            @Html.DisplayNameFor(model => model.DeliveryHGV.reflectors)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.reflectors)
+            @Html.DisplayFor(model => model.DeliveryHGV.reflectors)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.inducators)
+            @Html.DisplayNameFor(model => model.DeliveryHGV.inducators)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.inducators)
+            @Html.DisplayFor(model => model.DeliveryHGV.inducators)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.wipers)
+            @Html.DisplayNameFor(model => model.DeliveryHGV.wipers)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.wipers)
+            @Html.DisplayFor(model => model.DeliveryHGV.wipers)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.washers)
+            @Html.DisplayNameFor(model => model.DeliveryHGV.washers)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.washers)
+            @Html.DisplayFor(model => model.DeliveryHGV.washers)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.horn_comp)
+            @Html.DisplayNameFor(model => model.DeliveryHGV.horn_comp)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.horn_comp)
+            @Html.DisplayFor(model => model.DeliveryHGV.horn_comp)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.excessive_exhaust_smoke)
+            @Html.DisplayNameFor(model => model.DeliveryHGV.excessive_exhaust_smoke)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.excessive_exhaust_smoke)
+            @Html.DisplayFor(model => model.DeliveryHGV.excessive_exhaust_smoke)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.brakes)
+            @Html.DisplayNameFor(model => model.DeliveryHGV.brakes)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.brakes)
+            @Html.DisplayFor(model => model.DeliveryHGV.brakes)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.security_of_body)
+            @Html.DisplayNameFor(model => model.DeliveryHGV.security_of_body)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.security_of_body)
+            @Html.DisplayFor(model => model.DeliveryHGV.security_of_body)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.markers)
+            @Html.DisplayNameFor(model => model.DeliveryHGV.markers)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.markers)
+            @Html.DisplayFor(model => model.DeliveryHGV.markers)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.glass_windscreen)
+            @Html.DisplayNameFor(model => model.DeliveryHGV.glass_windscreen)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.glass_windscreen)
+            @Html.DisplayFor(model => model.DeliveryHGV.glass_windscreen)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.receipt_book)
+            @Html.DisplayNameFor(model => model.DeliveryHGV.receipt_book)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.receipt_book)
+            @Html.DisplayFor(model => model.DeliveryHGV.receipt_book)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.keys_for_branches_sat)
+            @Html.DisplayNameFor(model => model.DeliveryHGV.keys_for_branches_sat)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.keys_for_branches_sat)
+            @Html.DisplayFor(model => model.DeliveryHGV.keys_for_branches_sat)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.pda_phone_accident_pack)
+            @Html.DisplayNameFor(model => model.DeliveryHGV.pda_phone_accident_pack)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.pda_phone_accident_pack)
+            @Html.DisplayFor(model => model.DeliveryHGV.pda_phone_accident_pack)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.trade_invoices)
+            @Html.DisplayNameFor(model => model.DeliveryHGV.trade_invoices)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.trade_invoices)
+            @Html.DisplayFor(model => model.DeliveryHGV.trade_invoices)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.blue_bags)
+            @Html.DisplayNameFor(model => model.DeliveryHGV.blue_bags)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.blue_bags)
+            @Html.DisplayFor(model => model.DeliveryHGV.blue_bags)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.delivery_lists)
+            @Html.DisplayNameFor(model => model.DeliveryHGV.delivery_lists)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.delivery_lists)
+            @Html.DisplayFor(model => model.DeliveryHGV.delivery_lists)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.collection_lists)
+            @Html.DisplayNameFor(model => model.DeliveryHGV.collection_lists)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.collection_lists)
+            @Html.DisplayFor(model => model.DeliveryHGV.collection_lists)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.trade_delivery_notes)
+            @Html.DisplayNameFor(model => model.DeliveryHGV.trade_delivery_notes)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.trade_delivery_notes)
+            @Html.DisplayFor(model => model.DeliveryHGV.trade_delivery_notes)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.report_defects)
+            @Html.DisplayNameFor(model => model.DeliveryHGV.report_defects)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.report_defects)
+            @Html.DisplayFor(model => model.DeliveryHGV.report_defects)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.date_signed)
+            @Html.DisplayNameFor(model => model.DeliveryHGV.date_signed)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.date_signed)
+            @Html.DisplayFor(model => model.DeliveryHGV.date_signed)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.loading_area_good_condition)
+            @Html.DisplayNameFor(model => model.DeliveryHGV.loading_area_good_condition)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.loading_area_good_condition)
+            @Html.DisplayFor(model => model.DeliveryHGV.loading_area_good_condition)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.reason_loading_area_not_good_condition)
+            @Html.DisplayNameFor(model => model.DeliveryHGV.reason_loading_area_not_good_condition)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.reason_loading_area_not_good_condition)
+            @Html.DisplayFor(model => model.DeliveryHGV.reason_loading_area_not_good_condition)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.shell_fuel_card)
+            @Html.DisplayNameFor(model => model.DeliveryHGV.shell_fuel_card)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.shell_fuel_card)
+            @Html.DisplayFor(model => model.DeliveryHGV.shell_fuel_card)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.VehicleCheckHeaderId)
+            @Html.DisplayNameFor(model => model.DeliveryHGV.VehicleCheckHeaderId)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.VehicleCheckHeaderId)
+            @Html.DisplayFor(model => model.DeliveryHGV.VehicleCheckHeaderId)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.CheckID)
+            @Html.DisplayNameFor(model => model.DeliveryHGV.CheckID)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.CheckID)
+            @Html.DisplayFor(model => model.DeliveryHGV.CheckID)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Destination)
+            @Html.DisplayNameFor(model => model.DeliveryHGV.Destination)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Destination)
+            @Html.DisplayFor(model => model.DeliveryHGV.Destination)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.CheckDoneDate)
+            @Html.DisplayNameFor(model => model.DeliveryHGV.CheckDoneDate)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.CheckDoneDate)
+            @Html.DisplayFor(model => model.DeliveryHGV.CheckDoneDate)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Registration)
+            @Html.DisplayNameFor(model => model.DeliveryHGV.Registration)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Registration)
+            @Html.DisplayFor(model => model.DeliveryHGV.Registration)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Mileage)
+            @Html.DisplayNameFor(model => model.DeliveryHGV.Mileage)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Mileage)
+            @Html.DisplayFor(model => model.DeliveryHGV.Mileage)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.BranchCode)
+            @Html.DisplayNameFor(model => model.DeliveryHGV.BranchCode)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.BranchCode)
+            @Html.DisplayFor(model => model.DeliveryHGV.BranchCode)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.PDAVersionDate)
+            @Html.DisplayNameFor(model => model.DeliveryHGV.PDAVersionDate)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.PDAVersionDate)
+            @Html.DisplayFor(model => model.DeliveryHGV.PDAVersionDate)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.is_complete)
+            @Html.DisplayNameFor(model => model.DeliveryHGV.is_complete)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.is_complete)
+            @Html.DisplayFor(model => model.DeliveryHGV.is_complete)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ReasonNotCompleted)
+            @Html.DisplayNameFor(model => model.DeliveryHGV.ReasonNotCompleted)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ReasonNotCompleted)
+            @Html.DisplayFor(model => model.DeliveryHGV.ReasonNotCompleted)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.bComplete)
+            @Html.DisplayNameFor(model => model.DeliveryHGV.bComplete)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.bComplete)
+            @Html.DisplayFor(model => model.DeliveryHGV.bComplete)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.bSent)
+            @Html.DisplayNameFor(model => model.DeliveryHGV.bSent)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.bSent)
+            @Html.DisplayFor(model => model.DeliveryHGV.bSent)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.pressure_passenger_front)
+            @Html.DisplayNameFor(model => model.DeliveryHGV.pressure_passenger_front)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.pressure_passenger_front)
+            @Html.DisplayFor(model => model.DeliveryHGV.pressure_passenger_front)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.pressure_passenger_rear)
+            @Html.DisplayNameFor(model => model.DeliveryHGV.pressure_passenger_rear)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.pressure_passenger_rear)
+            @Html.DisplayFor(model => model.DeliveryHGV.pressure_passenger_rear)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.pressure_driver_front)
+            @Html.DisplayNameFor(model => model.DeliveryHGV.pressure_driver_front)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.pressure_driver_front)
+            @Html.DisplayFor(model => model.DeliveryHGV.pressure_driver_front)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.pressure_driver_rear)
+            @Html.DisplayNameFor(model => model.DeliveryHGV.pressure_driver_rear)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.pressure_driver_rear)
+            @Html.DisplayFor(model => model.DeliveryHGV.pressure_driver_rear)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.pressure_spare)
+            @Html.DisplayNameFor(model => model.DeliveryHGV.pressure_spare)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.pressure_spare)
+            @Html.DisplayFor(model => model.DeliveryHGV.pressure_spare)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.pressure_passenger_front_s)
+            @Html.DisplayNameFor(model => model.DeliveryHGV.pressure_passenger_front_s)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.pressure_passenger_front_s)
+            @Html.DisplayFor(model => model.DeliveryHGV.pressure_passenger_front_s)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.pressure_passenger_rear_s)
+            @Html.DisplayNameFor(model => model.DeliveryHGV.pressure_passenger_rear_s)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.pressure_passenger_rear_s)
+            @Html.DisplayFor(model => model.DeliveryHGV.pressure_passenger_rear_s)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.pressure_driver_front_s)
+            @Html.DisplayNameFor(model => model.DeliveryHGV.pressure_driver_front_s)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.pressure_driver_front_s)
+            @Html.DisplayFor(model => model.DeliveryHGV.pressure_driver_front_s)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.pressure_driver_rear_s)
+            @Html.DisplayNameFor(model => model.DeliveryHGV.pressure_driver_rear_s)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.pressure_driver_rear_s)
+            @Html.DisplayFor(model => model.DeliveryHGV.pressure_driver_rear_s)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.pressure_spare_s)
+            @Html.DisplayNameFor(model => model.DeliveryHGV.pressure_spare_s)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.pressure_spare_s)
+            @Html.DisplayFor(model => model.DeliveryHGV.pressure_spare_s)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.bPhotosOutsideComplete)
+            @Html.DisplayNameFor(model => model.DeliveryHGV.bPhotosOutsideComplete)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.bPhotosOutsideComplete)
+            @Html.DisplayFor(model => model.DeliveryHGV.bPhotosOutsideComplete)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.bPhotosInsideComplete)
+            @Html.DisplayNameFor(model => model.DeliveryHGV.bPhotosInsideComplete)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.bPhotosInsideComplete)
+            @Html.DisplayFor(model => model.DeliveryHGV.bPhotosInsideComplete)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.bDiagramsComplete)
+            @Html.DisplayNameFor(model => model.DeliveryHGV.bDiagramsComplete)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.bDiagramsComplete)
+            @Html.DisplayFor(model => model.DeliveryHGV.bDiagramsComplete)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.bSignaturesComplete)
+            @Html.DisplayNameFor(model => model.DeliveryHGV.bSignaturesComplete)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.bSignaturesComplete)
+            @Html.DisplayFor(model => model.DeliveryHGV.bSignaturesComplete)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.damage_pass)
+            @Html.DisplayNameFor(model => model.DeliveryHGV.damage_pass)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.damage_pass)
+            @Html.DisplayFor(model => model.DeliveryHGV.damage_pass)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.damage_driver)
+            @Html.DisplayNameFor(model => model.DeliveryHGV.damage_driver)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.damage_driver)
+            @Html.DisplayFor(model => model.DeliveryHGV.damage_driver)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.damage_front)
+            @Html.DisplayNameFor(model => model.DeliveryHGV.damage_front)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.damage_front)
+            @Html.DisplayFor(model => model.DeliveryHGV.damage_front)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.damage_back)
+            @Html.DisplayNameFor(model => model.DeliveryHGV.damage_back)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.damage_back)
+            @Html.DisplayFor(model => model.DeliveryHGV.damage_back)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.photos_front)
+            @Html.DisplayNameFor(model => model.DeliveryHGV.photos_front)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.photos_front)
+            @Html.DisplayFor(model => model.DeliveryHGV.photos_front)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.photos_rear)
+            @Html.DisplayNameFor(model => model.DeliveryHGV.photos_rear)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.photos_rear)
+            @Html.DisplayFor(model => model.DeliveryHGV.photos_rear)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.photos_left)
+            @Html.DisplayNameFor(model => model.DeliveryHGV.photos_left)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.photos_left)
+            @Html.DisplayFor(model => model.DeliveryHGV.photos_left)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.photos_right)
+            @Html.DisplayNameFor(model => model.DeliveryHGV.photos_right)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.photos_right)
+            @Html.DisplayFor(model => model.DeliveryHGV.photos_right)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.bDriverSigned)
+            @Html.DisplayNameFor(model => model.DeliveryHGV.bDriverSigned)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.bDriverSigned)
+            @Html.DisplayFor(model => model.DeliveryHGV.bDriverSigned)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.bCheckedBySigned)
+            @Html.DisplayNameFor(model => model.DeliveryHGV.bCheckedBySigned)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.bCheckedBySigned)
+            @Html.DisplayFor(model => model.DeliveryHGV.bCheckedBySigned)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.driver_printed)
+            @Html.DisplayNameFor(model => model.DeliveryHGV.driver_printed)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.driver_printed)
+            @Html.DisplayFor(model => model.DeliveryHGV.driver_printed)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.checked_printed)
+            @Html.DisplayNameFor(model => model.DeliveryHGV.checked_printed)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.checked_printed)
+            @Html.DisplayFor(model => model.DeliveryHGV.checked_printed)
         </dd>
     </dl>
 </div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
-    <a asp-action="Index">Back to List</a>
-</div>
+
+@if (Model.Images != null && Model.Images.Any())
+{
+    <hr />
+    <h4>Photos & Videos</h4>
+    <div class="row">
+        @foreach (var item in Model.Images)
+        {
+            <div class="col-md-4 mb-3">
+                @if (item.Filename != null && item.Filename.EndsWith(".mp4", StringComparison.OrdinalIgnoreCase))
+                {
+                    <video src="data:video/mp4;base64,@item.Data" class="img-fluid rounded" controls></video>
+                    <a href="data:video/mp4;base64,@item.Data" download="@item.Filename" class="btn btn-sm btn-outline-primary mt-1"><i class="bi bi-download"></i> Download</a>
+                }
+                else
+                {
+                    <img src="data:image/png;base64,@item.Data" class="img-fluid rounded" />
+                }
+            </div>
+        }
+    </div>
+}

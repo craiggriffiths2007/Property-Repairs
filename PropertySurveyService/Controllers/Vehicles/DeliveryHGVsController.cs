@@ -1,12 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using PropertySurveyService.Data;
 using PropertySurveyService.Models;
+using PropertySurveyService.ViewModels;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace PropertySurveyService.Controllers
 {
@@ -28,19 +29,24 @@ namespace PropertySurveyService.Controllers
         // GET: DeliveryHGVs/Details/5
         public async Task<IActionResult> Details(int? id)
         {
+            var viewModel = new VehicleCheckDetailsViewModel();
             if (id == null)
             {
                 return NotFound();
             }
 
-            var deliveryHGV = await _context.DeliveryHGVs
+            viewModel.DeliveryHGV = await _context.DeliveryHGVs
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (deliveryHGV == null)
+            if (viewModel.DeliveryHGV == null)
             {
                 return NotFound();
             }
 
-            return View(deliveryHGV);
+            List<PhotoImage> photoimages = _context.Images.Where(x => x.Filename.Substring(0, viewModel.DeliveryHGV.CheckID.Length) == viewModel.DeliveryHGV.CheckID).ToList();
+
+            viewModel.Images = photoimages;
+
+            return View(viewModel);
         }
 
         // GET: DeliveryHGVs/Create

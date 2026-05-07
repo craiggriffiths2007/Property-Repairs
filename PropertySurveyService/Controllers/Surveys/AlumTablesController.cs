@@ -31,7 +31,7 @@ namespace PropertySurveyService.Controllers
         // GET: AlumTables/Details/5
         public async Task<IActionResult> Details(int? id)
         {
-            var viewModel = new ItemIndexViewModel();
+            var viewModel = new ItemDetailsViewModel();
 
             if (id == null || _context.AlumTable == null)
             {

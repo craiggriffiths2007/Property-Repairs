@@ -3,8 +3,9 @@ using PropertySurveyService.Models;
 
 namespace PropertySurveyService.ViewModels
 {
-    public class ItemIndexViewModel
+    public class ItemDetailsViewModel
     {
+        public FrameTable? Frame { get; set; }
         public AluminiumTable? Alum { get; set; }
         public BifoldTable? Bifold { get; set; }
         public CompositeTable? Comp { get; set; }

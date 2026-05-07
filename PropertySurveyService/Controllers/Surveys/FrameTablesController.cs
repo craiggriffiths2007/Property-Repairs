@@ -1,12 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using PropertySurveyService.Data;
 using PropertySurveyService.Models;
+using PropertySurveyService.ViewModels;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace PropertySurveyService.Controllers
 {
@@ -28,19 +29,28 @@ namespace PropertySurveyService.Controllers
         // GET: FrameTables/Details/5
         public async Task<IActionResult> Details(int? id)
         {
-            if (id == null)
+            var viewModel = new ItemDetailsViewModel();
+
+
+            if (id == null || _context.FrameTable == null)
             {
                 return NotFound();
             }
 
-            var frameTable = await _context.FrameTable
+            viewModel.Frame = await _context.FrameTable
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (frameTable == null)
+            if (viewModel.Frame == null)
             {
                 return NotFound();
             }
 
-            return View(frameTable);
+            List<PhotoImage> photoimages = _context.Images.Where(x => x.Filename.Substring(0, 8) == viewModel.Frame.udi_cont &&
+            x.Filename.Substring(12, 3) == viewModel.Frame.item_number.ToString("000")).ToList();
+
+
+            viewModel.Images = photoimages;
+
+            return View(viewModel);
         }
 
         // GET: FrameTables/Create
