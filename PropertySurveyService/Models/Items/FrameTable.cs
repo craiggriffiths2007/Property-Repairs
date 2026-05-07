@@ -352,5 +352,6 @@ namespace PropertySurveyService.Models
 
         [DisplayName("Doc L Compliant")]
         public int doc_l_compliant { get; set; }
+        public SurveyItem AsSurveyItem() { return new SurveyItem(Id, enum_item_type.frame); }
     }
 }

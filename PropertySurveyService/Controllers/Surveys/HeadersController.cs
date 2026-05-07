@@ -70,6 +70,8 @@ namespace PropertySurveyService.Controllers
                             foreach (var p in _context.LockingTable.Where(x => x.HeaderId == viewModel.Header.Id)) items.Add(p.AsSurveyItem()); break;
                         case enum_item_type.green:
                             foreach (var p in _context.GreenTable.Where(x => x.HeaderId == viewModel.Header.Id)) items.Add(p.AsSurveyItem()); break;
+                        case enum_item_type.frame:
+                            foreach (var p in _context.FrameTable.Where(x => x.HeaderId == viewModel.Header.Id)) items.Add(p.AsSurveyItem()); break;
                     }
                 }
                 viewModel.SurveyItems = items;

@@ -23,7 +23,7 @@ namespace PropertySurveyService.Models
     public enum enum_item_type
     {
         upvc, panel, glass, alum, garage, timber,
-        bifold, cons, lockin, comp, green
+        bifold, cons, lockin, comp, green, frame
     }
 
     public class VehicleCheckVehicle
@@ -93,6 +93,7 @@ namespace PropertySurveyService.Models
                 case enum_item_type.bifold: return "Bifold";
                 case enum_item_type.lockin: return "Lock-mech";
                 case enum_item_type.green: return "Greenhouse";
+                case enum_item_type.frame: return "Frame";
             }
             return "";
         }
@@ -110,6 +111,7 @@ namespace PropertySurveyService.Models
                 case enum_item_type.bifold: return "BifoldTables";
                 case enum_item_type.lockin: return "LockingTables";
                 case enum_item_type.green: return "GreenTables";
+                case enum_item_type.frame: return "FrameTables";
             }
             return "";
         }
