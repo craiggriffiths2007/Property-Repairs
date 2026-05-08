@@ -34,7 +34,7 @@ namespace PropertySurveyService.Data
         public DbSet<PropertySurveyService.Models.PanelTable> PanelTable { get; set; } = default!;
         public DbSet<PropertySurveyService.Models.TimberTable> TimberTable { get; set; } = default!;
         public DbSet<PropertySurveyService.Models.UPVCTable> UPVCTable { get; set; } = default!;
-        public DbSet<PropertySurveyService.Models.FrameTable> FrameTable { get; set; } = default!;
+        public DbSet<PropertySurveyService.Models.ItemTable> ItemTable { get; set; } = default!;
         public DbSet<PropertySurveyService.Models.PhotoImage> Images { get; set; } = default!;
 
         public DbSet<PropertySurveyService.Models.Branch> Branches { get; set; } = default!;
@@ -46,9 +46,9 @@ namespace PropertySurveyService.Data
         public DbSet<PropertySurveyService.Models.DeliveryHGV> DeliveryHGVs { get; set; } = default!;
         public DbSet<PropertySurveyService.Models.FitterVan> FitterVans { get; set; } = default!;
         public DbSet<PropertySurveyService.Models.SalesCar> SalesCars { get; set; } = default!;
-        public DbSet<PropertySurveyService.Models.Accident_sheet> Accident_sheets { get; set; } = default!;
+        public DbSet<PropertySurveyService.Models.VAccidentTable> VAccidents { get; set; } = default!;
         public DbSet<PropertySurveyService.Models.Whitness> Whitnesses { get; set; } = default!;
-        public DbSet<PropertySurveyService.Models.FAccidents> FAccidents { get; set; } = default!;
+        public DbSet<PropertySurveyService.Models.FAccidentTable> FAccidents { get; set; } = default!;
         public DbSet<PropertySurveyService.Models.ToolsTable> ToolsTable { get; set; } = default!;
         public DbSet<PropertySurveyService.Models.MileageSheet> MileageSheets { get; set; } = default!;
         public DbSet<PropertySurveyService.Models.LaddersTable> LaddersTable { get; set; } = default!;

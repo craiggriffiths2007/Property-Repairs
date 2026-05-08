@@ -60,7 +60,7 @@ namespace PropertySurveyService
                 return Results.Ok(new { status = "success" });
             });
 
-            app.MapPost("/SendWorkAccidents", async (List<FAccidents> accs, AppDBContext db) =>
+            app.MapPost("/SendWorkAccidents", async (List<FAccidentTable> accs, AppDBContext db) =>
             {
                 foreach (var acc in accs)
                 {
@@ -82,8 +82,8 @@ namespace PropertySurveyService
                     if (check.Accident != null)
                     {
                         check.Accident.Id = 0;
-                        db.Accident_sheets.Where(l => l.Guid == check.Accident.Guid).ExecuteDelete(); 
-                        db.Accident_sheets.Add(check.Accident);
+                        db.VAccidents.Where(l => l.Guid == check.Accident.Guid).ExecuteDelete(); 
+                        db.VAccidents.Add(check.Accident);
                         await db.SaveChangesAsync();
                         int headerId = check.Accident.Id;
                         void SaveItems<T>(IEnumerable<T> items) where T : class
@@ -282,7 +282,7 @@ namespace PropertySurveyService
                     {
                         Job = new JobDTO(job, customer),
                         Head = header,
-                        Frames = db.FrameTable.Where(f => f.HeaderId == header.Id).ToList(),
+                        Items = db.ItemTable.Where(f => f.HeaderId == header.Id).ToList(),
                         Panels = db.PanelTable.Where(p => p.HeaderId == header.Id).ToList(),
                         Aluminia = db.AlumTable.Where(a => a.HeaderId == header.Id).ToList(),
                         Bifolds = db.BifoldTable.Where(b => b.HeaderId == header.Id).ToList(),
@@ -327,7 +327,7 @@ namespace PropertySurveyService
                             }
                         }
 
-                        job.Frames.ForEach(o => o.Id = 0);
+                        job.Items.ForEach(o => o.Id = 0);
                         job.Panels.ForEach(o => o.Id = 0);
                         job.Aluminia.ForEach(o => o.Id = 0);
                         job.Bifolds.ForEach(o => o.Id = 0);
@@ -340,7 +340,7 @@ namespace PropertySurveyService
                         job.Timbers.ForEach(o => o.Id = 0);
                         job.UPVCs.ForEach(o => o.Id = 0);
 
-                        foreach (var item in job.Frames) { db.FrameTable.Where(l => l.Guid == item.Guid).ExecuteDelete(); }
+                        foreach (var item in job.Items) { db.ItemTable.Where(l => l.Guid == item.Guid).ExecuteDelete(); }
                         foreach (var item in job.Panels) { db.PanelTable.Where(l => l.Guid == item.Guid).ExecuteDelete(); }
                         foreach (var item in job.Aluminia) { db.AlumTable.Where(l => l.Guid == item.Guid).ExecuteDelete(); }
                         foreach (var item in job.Bifolds) { db.BifoldTable.Where(l => l.Guid == item.Guid).ExecuteDelete(); }
@@ -353,7 +353,7 @@ namespace PropertySurveyService
                         foreach (var item in job.Timbers) { db.TimberTable.Where(l => l.Guid == item.Guid).ExecuteDelete(); }
                         foreach (var item in job.UPVCs) { db.UPVCTable.Where(l => l.Guid == item.Guid).ExecuteDelete(); }
 
-                        SaveItems(job.Frames);
+                        SaveItems(job.Items);
                         SaveItems(job.Panels);
                         SaveItems(job.Aluminia);
                         SaveItems(job.Bifolds);

@@ -12,7 +12,7 @@ namespace PropertySurveyService.Models
         Timber,
     }
 
-    public class FrameTable
+    public class ItemTable
     {
         // ===== Core / Shared =====
         [Key]

@@ -24,7 +24,7 @@ namespace PropertySurveyService.Controllers
         // GET: Accident_sheet
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Accident_sheets.ToListAsync());
+            return View(await _context.VAccidents.ToListAsync());
         }
 
         // GET: Accident_sheet/Details/5
@@ -35,7 +35,7 @@ namespace PropertySurveyService.Controllers
                 return NotFound();
             }
 
-            var accident_sheet = await _context.Accident_sheets
+            var accident_sheet = await _context.VAccidents
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (accident_sheet == null)
             {
@@ -56,7 +56,7 @@ namespace PropertySurveyService.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,date_time,bSent,bComplete,brief,c_instructions,c_details,c_you,c_them,c_police,c_witness,c_photographs,c_drawings,d_bPolice,d_officers_name,d_officers_number,d_station,d_place,d_speed,d_weather,d_description,d_sign_date,y_make,y_model,y_reg,y_used_for,y_driver_full_name,y_driver_dob,y_address1,y_address2,y_address3,y_pcode,y_occupation,y_years_employed,y_months_employed,y_any_other_accidents,y_infirmity,y_prosecution,y_vehicle_damage,y_driveable,y_damage_to_property,y_injuries_sustained,y_signed,t_name,t_add1,t_add2,t_add3,t_pcode,t_make,t_reg,t_model,t_insurer,t_policy_no,t_telnum,no_of_other_people,p_name,p_add1,p_add2,p_add3,p_pcode,p_wittel,v_reg,v_model,acc_date,acc_time")] Accident_sheet accident_sheet)
+        public async Task<IActionResult> Create([Bind("Id,date_time,bSent,bComplete,brief,c_instructions,c_details,c_you,c_them,c_police,c_witness,c_photographs,c_drawings,d_bPolice,d_officers_name,d_officers_number,d_station,d_place,d_speed,d_weather,d_description,d_sign_date,y_make,y_model,y_reg,y_used_for,y_driver_full_name,y_driver_dob,y_address1,y_address2,y_address3,y_pcode,y_occupation,y_years_employed,y_months_employed,y_any_other_accidents,y_infirmity,y_prosecution,y_vehicle_damage,y_driveable,y_damage_to_property,y_injuries_sustained,y_signed,t_name,t_add1,t_add2,t_add3,t_pcode,t_make,t_reg,t_model,t_insurer,t_policy_no,t_telnum,no_of_other_people,p_name,p_add1,p_add2,p_add3,p_pcode,p_wittel,v_reg,v_model,acc_date,acc_time")] VAccidentTable accident_sheet)
         {
             if (ModelState.IsValid)
             {
@@ -75,7 +75,7 @@ namespace PropertySurveyService.Controllers
                 return NotFound();
             }
 
-            var accident_sheet = await _context.Accident_sheets.FindAsync(id);
+            var accident_sheet = await _context.VAccidents.FindAsync(id);
             if (accident_sheet == null)
             {
                 return NotFound();
@@ -88,7 +88,7 @@ namespace PropertySurveyService.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,date_time,bSent,bComplete,brief,c_instructions,c_details,c_you,c_them,c_police,c_witness,c_photographs,c_drawings,d_bPolice,d_officers_name,d_officers_number,d_station,d_place,d_speed,d_weather,d_description,d_sign_date,y_make,y_model,y_reg,y_used_for,y_driver_full_name,y_driver_dob,y_address1,y_address2,y_address3,y_pcode,y_occupation,y_years_employed,y_months_employed,y_any_other_accidents,y_infirmity,y_prosecution,y_vehicle_damage,y_driveable,y_damage_to_property,y_injuries_sustained,y_signed,t_name,t_add1,t_add2,t_add3,t_pcode,t_make,t_reg,t_model,t_insurer,t_policy_no,t_telnum,no_of_other_people,p_name,p_add1,p_add2,p_add3,p_pcode,p_wittel,v_reg,v_model,acc_date,acc_time")] Accident_sheet accident_sheet)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,date_time,bSent,bComplete,brief,c_instructions,c_details,c_you,c_them,c_police,c_witness,c_photographs,c_drawings,d_bPolice,d_officers_name,d_officers_number,d_station,d_place,d_speed,d_weather,d_description,d_sign_date,y_make,y_model,y_reg,y_used_for,y_driver_full_name,y_driver_dob,y_address1,y_address2,y_address3,y_pcode,y_occupation,y_years_employed,y_months_employed,y_any_other_accidents,y_infirmity,y_prosecution,y_vehicle_damage,y_driveable,y_damage_to_property,y_injuries_sustained,y_signed,t_name,t_add1,t_add2,t_add3,t_pcode,t_make,t_reg,t_model,t_insurer,t_policy_no,t_telnum,no_of_other_people,p_name,p_add1,p_add2,p_add3,p_pcode,p_wittel,v_reg,v_model,acc_date,acc_time")] VAccidentTable accident_sheet)
         {
             if (id != accident_sheet.Id)
             {
@@ -126,7 +126,7 @@ namespace PropertySurveyService.Controllers
                 return NotFound();
             }
 
-            var accident_sheet = await _context.Accident_sheets
+            var accident_sheet = await _context.VAccidents
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (accident_sheet == null)
             {
@@ -141,10 +141,10 @@ namespace PropertySurveyService.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var accident_sheet = await _context.Accident_sheets.FindAsync(id);
+            var accident_sheet = await _context.VAccidents.FindAsync(id);
             if (accident_sheet != null)
             {
-                _context.Accident_sheets.Remove(accident_sheet);
+                _context.VAccidents.Remove(accident_sheet);
             }
 
             await _context.SaveChangesAsync();
@@ -153,7 +153,7 @@ namespace PropertySurveyService.Controllers
 
         private bool Accident_sheetExists(int id)
         {
-            return _context.Accident_sheets.Any(e => e.Id == id);
+            return _context.VAccidents.Any(e => e.Id == id);
         }
     }
 }

@@ -4,7 +4,7 @@ namespace PropertySurveyService.Models
 {
     public class AccidentsVehicleDTO
     {
-        public Accident_sheet Accident { get; set; }
+        public VAccidentTable Accident { get; set; }
         public List<Whitness>? Whitnesses { get; set; }
 
     }
@@ -25,7 +25,7 @@ namespace PropertySurveyService.Models
 
 
 
-    public class Accident_sheet
+    public class VAccidentTable
     {
  
         public int Id { get; set; }
@@ -105,7 +105,7 @@ namespace PropertySurveyService.Models
 
     }
 
-    public class FAccidents
+    public class FAccidentTable
     {
         public int Id { get; set; } = 0;
 
