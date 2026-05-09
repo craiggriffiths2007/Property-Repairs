@@ -211,7 +211,7 @@ namespace PropertySurveyService
                 foreach (var j in db.Job.Where<Job>(x => x.Agent.Code == gs.AgentCode &&
                                                         x.JobType == 0 && x.Date >= DateTime.Today).ToList<Job>())
                 {
-                    Customer? c = db.Customer.FirstOrDefault<Customer>(x => x.CustomerId == j.CustomerId);
+                    Customer? c = db.Customer.FirstOrDefault<Customer>(x => x.Id == j.CustomerId);
                     
                     if (c == null)
                         c = new Customer();
@@ -257,7 +257,7 @@ namespace PropertySurveyService
 
                 foreach (var job in fittingJobs)
                 {
-                    var customer = db.Customer.FirstOrDefault(x => x.CustomerId == job.CustomerId) ?? new Customer();
+                    var customer = db.Customer.FirstOrDefault(x => x.Id == job.CustomerId) ?? new Customer();
 
                     var header = db.Header
                         .Where(h => h.udi_cont == job.ContractCode)

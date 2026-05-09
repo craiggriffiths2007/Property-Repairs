@@ -38,7 +38,7 @@ namespace PropertySurveyService.Controllers
             }
 
             var customer = await _context.Customer
-                .FirstOrDefaultAsync(m => m.CustomerId == id);
+                .FirstOrDefaultAsync(m => m.Id == id);
             if (customer == null)
             {
                 return NotFound();
@@ -92,7 +92,7 @@ namespace PropertySurveyService.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("CustomerId,Name,Add1,Add2,Add3,Postcode,Phone1,Phone2,Phone3")] Customer customer)
         {
-            if (id != customer.CustomerId)
+            if (id != customer.Id)
             {
                 return NotFound();
             }
@@ -106,7 +106,7 @@ namespace PropertySurveyService.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!CustomerExists(customer.CustomerId))
+                    if (!CustomerExists(customer.Id))
                     {
                         return NotFound();
                     }
@@ -129,7 +129,7 @@ namespace PropertySurveyService.Controllers
             }
 
             var customer = await _context.Customer
-                .FirstOrDefaultAsync(m => m.CustomerId == id);
+                .FirstOrDefaultAsync(m => m.Id == id);
             if (customer == null)
             {
                 return NotFound();
@@ -159,7 +159,7 @@ namespace PropertySurveyService.Controllers
 
         private bool CustomerExists(int id)
         {
-          return (_context.Customer?.Any(e => e.CustomerId == id)).GetValueOrDefault();
+          return (_context.Customer?.Any(e => e.Id == id)).GetValueOrDefault();
         }
     }
 }

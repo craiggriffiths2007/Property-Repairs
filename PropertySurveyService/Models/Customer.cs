@@ -5,7 +5,7 @@ namespace PropertySurveyService.Models
     public class Customer
     {
         [Key]
-        public int CustomerId { get; set; }
+        public int Id { get; set; }
 
         [Display(Name = "Fullname")]
         public string? Name { get; set; }

@@ -13,6 +13,6 @@ namespace PropertySurveyService.Models
         [Display(Name = "Name")]
         public string? Name { get; set; }
         [Display(Name = "Agent Type")]
-        public int Type { get; set; }
+        public agent_type Type { get; set; }
     }
 }

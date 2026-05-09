@@ -7,13 +7,7 @@ namespace PropertySurveyService.Models
     {
         public string json { get; set; } = "";
     }
-    public enum VehicleType
-    {
-        DeliveryHGV,
-        DeliveryVan,
-        FitterVan,
-        SalesCar
-    }
+
     public class Vehicle
     {
         public int Id { get; set; }
@@ -21,7 +15,7 @@ namespace PropertySurveyService.Models
         public string? Name { get; set; } = null;
         public string? Registration { get; set; } = null;
         public string? Description { get; set; } = null;
-        public VehicleType Type { get; set; }
+        public enum_vehicle_type Type { get; set; }
 
         public Branch? Branch { get; set; }
     }
@@ -33,7 +27,7 @@ namespace PropertySurveyService.Models
         public string? Name { get; set; } = null;
         public string? Registration { get; set; } = null;
         public string? Description { get; set; } = null;
-        public VehicleType Type { get; set; }
+        public enum_vehicle_type Type { get; set; }
 
         public VehicleDTO(Vehicle vehicle)
         {

@@ -170,7 +170,7 @@ namespace PropertySurveyService.Controllers
         private void PopulateCustomersDropDownList(object? selectedCustomer = null)
         {
             var customers = _context.Customer.OrderBy(c => c.Name)
-                .Select(c => new { c.CustomerId, c.Name });
+                .Select(c => new { c.Id, c.Name });
             ViewBag.Customers = new SelectList(customers, "CustomerId", "Name", selectedCustomer);
         }
     }

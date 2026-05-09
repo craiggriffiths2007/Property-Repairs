@@ -1427,11 +1427,11 @@ namespace PropertySurveyService.Migrations
 
             modelBuilder.Entity("PropertySurveyService.Models.Customer", b =>
                 {
-                    b.Property<int>("CustomerId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CustomerId"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Add1")
                         .HasColumnType("nvarchar(max)");
@@ -1457,7 +1457,7 @@ namespace PropertySurveyService.Migrations
                     b.Property<string>("Postcode")
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("CustomerId");
+                    b.HasKey("Id");
 
                     b.ToTable("Customer");
                 });
