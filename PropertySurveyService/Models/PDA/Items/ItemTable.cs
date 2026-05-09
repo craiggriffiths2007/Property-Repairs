@@ -5,12 +5,6 @@ namespace PropertySurveyService.Models
 
 {
 
-    public enum enum_frame_type
-    {
-        UPVC,
-        Aluminium,
-        Timber,
-    }
 
     public class ItemTable
     {
@@ -22,7 +16,7 @@ namespace PropertySurveyService.Models
         [DisplayName("Header Id")]
         public int HeaderId { get; set; }
 
-        public Guid Guid { get; set; }
+        public Guid Guid { get; set; } = Guid.NewGuid();
 
         [DisplayName("Contract Number")]
         public string udi_cont { get; set; } = "";
@@ -36,7 +30,7 @@ namespace PropertySurveyService.Models
         [DisplayName("Repair Item")]
         public bool bRepair { get; set; }
 
-        // ===== Discriminator =====
+        // ===== MATERIAL =====
         [DisplayName("Material")]
         public string material { get; set; } = "UPVC";
 
@@ -122,7 +116,7 @@ namespace PropertySurveyService.Models
         public string special_glass { get; set; } = "";
 
         [DisplayName("New Locking Mechanism")]
-        public int bNewLockingMech { get; set; }
+        public int new_locking_mech { get; set; }
 
         [DisplayName("Lock Complete")]
         public bool bLockComplete { get; set; }
@@ -344,14 +338,77 @@ namespace PropertySurveyService.Models
         [DisplayName("Item Summary")]
         public string item_summary { get; set; } = "";
 
-        [DisplayName("Fencer")]
-        public bool bFencer { get; set; }
+        [DisplayName("Fenca")]
+        public bool bFenca { get; set; }
 
         [DisplayName("Doc L Compliant Reason")]
         public string doc_l_compliant_reason { get; set; } = "";
 
         [DisplayName("Doc L Compliant")]
         public int doc_l_compliant { get; set; }
-        public SurveyItem AsSurveyItem() { return new SurveyItem(Id, enum_item_type.frame); }
+
+        [DisplayName("Frame Depth")]
+        public string frame_depth { get; set; } = "";
+
+        [DisplayName("Outer Section Size")]
+        public string outer_section_size { get; set; } = "";
+
+        [DisplayName("Frame Colour")]
+        public string frame_colour { get; set; } = "";
+
+        [DisplayName("Addons")]
+        public int addons { get; set; }
+
+        [DisplayName("Addon Width")]
+        public string addon_width { get; set; } = "";
+        [DisplayName("Addon Height")]
+        public string addon_height { get; set; } = "";
+
+        [DisplayName("Midrail")]
+        public int midrail { get; set; }
+        [DisplayName("Midrail Height")]
+        public string midrail_height { get; set; } = "";
+
+        [DisplayName("Slide Position")]
+        public int slide_position { get; set; }
+
+        [DisplayName("Profile Type")]
+        public int profile_type { get; set; }
+
+        [DisplayName("Spacer Colour")]
+        public string spacer_colour { get; set; } = "";
+
+        [DisplayName("Frame Width")]
+        public string frame_width { get; set; } = "";
+        [DisplayName("Frame Height")]
+        public string frame_height { get; set; } = "";
+
+
+        [DisplayName("Door Color")]
+        public string door_color_in { get; set; } = "";
+
+        [DisplayName("Frame Color")]
+        public string frame_color_in { get; set; } = "";
+
+        [DisplayName("Door Color Out")]
+        public string door_color_out { get; set; } = "";
+
+        [DisplayName("Frame Color Out")]
+        public string frame_color_out { get; set; } = "";
+
+        [DisplayName("Door Color Code")]
+        public string door_color_in_code { get; set; } = "";
+
+        [DisplayName("Frame Color Code")]
+        public string frame_color_in_code { get; set; } = "";
+
+        [DisplayName("Door Color Code Out")]
+        public string door_color_out_code { get; set; } = "";
+
+        [DisplayName("Frame Color Code Out")]
+        public string frame_color_out_code { get; set; } = "";
+
+        public SurveyItem AsSurveyItem() { return new SurveyItem(Id, enum_item_type.lockin); }
+
     }
 }

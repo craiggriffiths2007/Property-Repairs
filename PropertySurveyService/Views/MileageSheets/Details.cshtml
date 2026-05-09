@@ -1,20 +1,32 @@
 ﻿@model PropertySurveyService.Models.MileageSheet
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "View";
 }
 
-<h1>Details</h1>
+<h1>View</h1>
 
 <div>
     <h4>MileageSheet</h4>
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Guid)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Guid)
+        </dd>
+        <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.sheet_date)
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.sheet_date)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.registration)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.registration)
         </dd>
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.start_postcode)
@@ -95,42 +107,6 @@
             @Html.DisplayFor(model => model.pcode3)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.registration)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.registration)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.bSigned)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.bSigned)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.signature_filename)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.signature_filename)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.bComplete)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.bComplete)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.bSent)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.bSent)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.comments)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.comments)
-        </dd>
-        <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.OtehrPlaceNo)
         </dt>
         <dd class = "col-sm-10">
@@ -173,150 +149,6 @@
             @Html.DisplayFor(model => model.op_postcode3)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.op_time4)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.op_time4)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.op_postcode4)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.op_postcode4)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.op_time5)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.op_time5)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.op_postcode5)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.op_postcode5)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.op_time6)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.op_time6)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.op_postcode6)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.op_postcode6)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.op_time7)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.op_time7)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.op_postcode7)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.op_postcode7)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.op_time8)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.op_time8)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.op_postcode8)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.op_postcode8)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.op_time9)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.op_time9)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.op_postcode9)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.op_postcode9)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.op_time10)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.op_time10)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.op_postcode10)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.op_postcode10)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.op_time11)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.op_time11)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.op_postcode11)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.op_postcode11)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.op_time12)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.op_time12)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.op_postcode12)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.op_postcode12)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.op_time13)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.op_time13)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.op_postcode13)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.op_postcode13)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.op_time14)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.op_time14)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.op_postcode14)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.op_postcode14)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.op_time15)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.op_time15)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.op_postcode15)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.op_postcode15)
-        </dd>
-        <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.toll_charges)
         </dt>
         <dd class = "col-sm-10">
@@ -345,6 +177,36 @@
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.photo_pm)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.bSigned)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.bSigned)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.signature_filename)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.signature_filename)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.bComplete)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.bComplete)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.bSent)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.bSent)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.comments)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.comments)
         </dd>
     </dl>
 </div>

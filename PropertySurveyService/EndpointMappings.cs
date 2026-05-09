@@ -399,12 +399,29 @@ namespace PropertySurveyService
                 image.DateTime = DateTime.Now;
                 image.ContractCode = imageDTO.Filename.Substring(0, 8);
 
-                //if (db.Images.Where<PhotoImage>(x => x.Filename == image.Filename).Count<PhotoImage>()==0)
-                    db.Add<PhotoImage>(image);
-
+                // Save to database
+                db.Add<PhotoImage>(image);
                 db.SaveChanges();
-                return_record.comments = "Success";
 
+                // Save to file system
+                try
+                {
+                    string directoryPath = @"c:\PropertyImages";
+                    if (!Directory.Exists(directoryPath))
+                    {
+                        Directory.CreateDirectory(directoryPath);
+                    }
+                    string filePath = Path.Combine(directoryPath, imageDTO.Filename);
+                    byte[] fileBytes = Convert.FromBase64String(imageDTO.Data); 
+                    File.WriteAllBytes(filePath, fileBytes);
+                }
+                catch (Exception ex)
+                {
+                    return_record.comments = $"Database Success, File Save Failed: {ex.Message}";
+                    return Task.FromResult<IResult>(Results.Ok(return_record));
+                }
+
+                return_record.comments = "Success";
                 return Task.FromResult<IResult>(Results.Ok(return_record));
             });
         }
