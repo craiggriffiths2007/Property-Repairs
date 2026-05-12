@@ -113,7 +113,7 @@ namespace PropertySurveyService.Models
         // --- Check Status & Workflow ---
 
         [DisplayName("Is Complete Status (Value)")]
-        public int is_complete { get; set; } // relates to reason not complete question
+        public bool is_complete { get; set; } // relates to reason not complete question
 
         [DisplayName("Reason Not Completed")]
         public string ReasonNotCompleted { get; set; } = "";
