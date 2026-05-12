@@ -1,4 +1,4 @@
-﻿@model PropertySurveyService.Models.FitterVan
+﻿@model PropertySurveyService.ViewModels.VehicleCheckDetailsViewModel
 
 @{
     ViewData["Title"] = "Details";
@@ -9,1324 +9,1371 @@
 <div>
     <h4>FitterVan</h4>
     <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.loading_storage)
+    <div class="row mb-3">
+        <div class="col-md-4">
+
+            <dl class="row">
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.loading_storage)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.loading_storage)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.loading_storage)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.loading_storage_s)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.loading_storage_s)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.loading_storage_s)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.loading_storage_s)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.circuit_breaker)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.circuit_breaker)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.circuit_breaker)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.circuit_breaker)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.power_breaker)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.power_breaker)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.power_breaker)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.power_breaker)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.hammer_drill)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.hammer_drill)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.hammer_drill)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.hammer_drill)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ordinary_drill)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.ordinary_drill)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ordinary_drill)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.ordinary_drill)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.cordless_drill)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.cordless_drill)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.cordless_drill)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.cordless_drill)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.spare_battery_and_charger)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.spare_battery_and_charger)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.spare_battery_and_charger)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.spare_battery_and_charger)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.circular_saw)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.circular_saw)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.circular_saw)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.circular_saw)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.jig_saw)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.jig_saw)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.jig_saw)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.jig_saw)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.planer_check_blade)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.planer_check_blade)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.planer_check_blade)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.planer_check_blade)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.heat_gun)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.heat_gun)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.heat_gun)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.heat_gun)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.sander)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.sander)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.sander)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.sander)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.grinder)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.grinder)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.grinder)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.grinder)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.hoover)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.hoover)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.hoover)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.hoover)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.halogen_lamp)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.halogen_lamp)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.halogen_lamp)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.halogen_lamp)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.extension_lead)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.extension_lead)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.extension_lead)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.extension_lead)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.router)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.router)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.router)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.router)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.industrial_ladders)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.industrial_ladders)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.industrial_ladders)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.industrial_ladders)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ladder_clamps)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.ladder_clamps)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ladder_clamps)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.ladder_clamps)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.step_ladders)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.step_ladders)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.step_ladders)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.step_ladders)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ladder_stopper)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.ladder_stopper)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ladder_stopper)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.ladder_stopper)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.philips_bit)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.philips_bit)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.philips_bit)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.philips_bit)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.screw_box)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.screw_box)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.screw_box)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.screw_box)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.tresles_x2)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.tresles_x2)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.tresles_x2)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.tresles_x2)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.torch_working)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.torch_working)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.torch_working)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.torch_working)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ratchett_straps_x4)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.ratchett_straps_x4)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ratchett_straps_x4)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.ratchett_straps_x4)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.blue_external_dust_sheet)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.blue_external_dust_sheet)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.blue_external_dust_sheet)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.blue_external_dust_sheet)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Internal_dust_sheets_x3)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.Internal_dust_sheets_x3)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Internal_dust_sheets_x3)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.Internal_dust_sheets_x3)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.brush_and_shovel)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.brush_and_shovel)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.brush_and_shovel)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.brush_and_shovel)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.cleaner_bottle)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.cleaner_bottle)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.cleaner_bottle)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.cleaner_bottle)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ecloth)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.ecloth)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ecloth)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.ecloth)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.mastic_guns)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.mastic_guns)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.mastic_guns)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.mastic_guns)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.glass_suckers)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.glass_suckers)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.glass_suckers)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.glass_suckers)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.safety_helmets)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.safety_helmets)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.safety_helmets)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.safety_helmets)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.helmet_manufacture_date)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.helmet_manufacture_date)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.helmet_manufacture_date)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.helmet_manufacture_date)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.gloves)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.gloves)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.gloves)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.gloves)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.wrist_guards)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.wrist_guards)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.wrist_guards)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.wrist_guards)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.goggles)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.goggles)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.goggles)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.goggles)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ear_defenders)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.ear_defenders)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ear_defenders)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.ear_defenders)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.dust_masks)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.dust_masks)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.dust_masks)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.dust_masks)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.hi_vis_vests)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.hi_vis_vests)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.hi_vis_vests)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.hi_vis_vests)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.customer_care_cards)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.customer_care_cards)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.customer_care_cards)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.customer_care_cards)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.completion_forms)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.completion_forms)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.completion_forms)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.completion_forms)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.freepost_envelopes)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.freepost_envelopes)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.freepost_envelopes)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.freepost_envelopes)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.mandate_forms)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.mandate_forms)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.mandate_forms)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.mandate_forms)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.quality_manuals)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.quality_manuals)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.quality_manuals)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.quality_manuals)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.stapler)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.stapler)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.stapler)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.stapler)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.worksheets)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.worksheets)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.worksheets)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.worksheets)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.plasters)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.plasters)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.plasters)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.plasters)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.dressing)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.dressing)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.dressing)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.dressing)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.eyewashers)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.eyewashers)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.eyewashers)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.eyewashers)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.steri_wipes)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.steri_wipes)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.steri_wipes)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.steri_wipes)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.bag)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.bag)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.bag)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.bag)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.flexi_meter)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.flexi_meter)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.flexi_meter)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.flexi_meter)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.merlin_low_e_detector)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.merlin_low_e_detector)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.merlin_low_e_detector)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.merlin_low_e_detector)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.cabin_condition)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.cabin_condition)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.cabin_condition)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.cabin_condition)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.national_tyres_card)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.national_tyres_card)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.national_tyres_card)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.national_tyres_card)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.breakdown_card)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.breakdown_card)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.breakdown_card)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.breakdown_card)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.fuel_card)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.fuel_card)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.fuel_card)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.fuel_card)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.shell_points_card)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.shell_points_card)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.shell_points_card)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.shell_points_card)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.fire_extinguisher)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.fire_extinguisher)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.fire_extinguisher)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.fire_extinguisher)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.jack)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.jack)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.jack)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.jack)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.wheelbrace)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.wheelbrace)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.wheelbrace)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.wheelbrace)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.spare_wheel)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.spare_wheel)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.spare_wheel)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.spare_wheel)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.jump_leads)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.jump_leads)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.jump_leads)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.jump_leads)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.fan_belt)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.fan_belt)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.fan_belt)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.fan_belt)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.tow_ropes)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.tow_ropes)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.tow_ropes)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.tow_ropes)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.spare_oil)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.spare_oil)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.spare_oil)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.spare_oil)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.coolant_anti_freeze)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.coolant_anti_freeze)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.coolant_anti_freeze)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.coolant_anti_freeze)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.van_height_sticker)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.van_height_sticker)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.van_height_sticker)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.van_height_sticker)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.wheel_nut_check_sticker)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.wheel_nut_check_sticker)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.wheel_nut_check_sticker)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.wheel_nut_check_sticker)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.no_smoking_sticker)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.no_smoking_sticker)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.no_smoking_sticker)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.racks_and_poles)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.no_smoking_sticker)
+                </dd>
+
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.racks_and_poles)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.racks_and_poles)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.racks_and_poles)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.tyre_conditions)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.tyre_conditions)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.tyre_conditions)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.tyre_conditions)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.van_locks)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.van_locks)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.van_locks)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.van_locks)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.oil_and_water_checked)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.oil_and_water_checked)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.oil_and_water_checked)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.oil_and_water_checked)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.hows_my_driving_sticker)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.hows_my_driving_sticker)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.hows_my_driving_sticker)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.hows_my_driving_sticker)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.pda_setup_date)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.pda_setup_date)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.pda_setup_date)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.pda_setup_date)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.accident_pack_on_pda)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.accident_pack_on_pda)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.accident_pack_on_pda)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.accident_pack_on_pda)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.windscreen_good_contidion)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.windscreen_good_contidion)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.windscreen_good_contidion)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.windscreen_good_contidion)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.circuit_breaker_s)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.circuit_breaker_s)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.circuit_breaker_s)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.circuit_breaker_s)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.power_breaker_s)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.power_breaker_s)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.power_breaker_s)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.power_breaker_s)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.hammer_drill_s)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.hammer_drill_s)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.hammer_drill_s)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.hammer_drill_s)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ordinary_drill_s)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.ordinary_drill_s)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ordinary_drill_s)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.ordinary_drill_s)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.cordless_drill_s)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.cordless_drill_s)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.cordless_drill_s)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.spare_battery_and_charger_s)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.cordless_drill_s)
+                </dd>
+            </dl>
+        </div>
+        <div class="col-md-4">
+            <dl class="row">
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.spare_battery_and_charger_s)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.spare_battery_and_charger_s)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.spare_battery_and_charger_s)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.circular_saw_s)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.circular_saw_s)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.circular_saw_s)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.circular_saw_s)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.jig_saw_s)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.jig_saw_s)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.jig_saw_s)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.jig_saw_s)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.planer_check_blade_s)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.planer_check_blade_s)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.planer_check_blade_s)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.planer_check_blade_s)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.heat_gun_s)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.heat_gun_s)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.heat_gun_s)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.heat_gun_s)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.sander_s)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.sander_s)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.sander_s)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.sander_s)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.hoover_s)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.hoover_s)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.hoover_s)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.hoover_s)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.halogen_lamp_s)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.halogen_lamp_s)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.halogen_lamp_s)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.halogen_lamp_s)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.extension_lead_s)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.extension_lead_s)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.extension_lead_s)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.extension_lead_s)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.router_s)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.router_s)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.router_s)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.router_s)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.industrial_ladders_s)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.industrial_ladders_s)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.industrial_ladders_s)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.industrial_ladders_s)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ladder_clamps_s)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.ladder_clamps_s)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ladder_clamps_s)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.ladder_clamps_s)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.step_ladders_s)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.step_ladders_s)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.step_ladders_s)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.step_ladders_s)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ladder_stopper_s)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.ladder_stopper_s)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ladder_stopper_s)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.ladder_stopper_s)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.philips_bit_s)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.philips_bit_s)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.philips_bit_s)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.philips_bit_s)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.screw_box_s)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.screw_box_s)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.screw_box_s)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.screw_box_s)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.tresles_x2_s)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.tresles_x2_s)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.tresles_x2_s)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.tresles_x2_s)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.torch_working_s)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.torch_working_s)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.torch_working_s)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.torch_working_s)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ratchett_straps_x4_s)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.ratchett_straps_x4_s)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ratchett_straps_x4_s)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.ratchett_straps_x4_s)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.spare_wheel_s)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.spare_wheel_s)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.spare_wheel_s)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.spare_wheel_s)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.blue_external_dust_sheet_s)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.blue_external_dust_sheet_s)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.blue_external_dust_sheet_s)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.blue_external_dust_sheet_s)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.internal_dust_sheets_x3_s)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.internal_dust_sheets_x3_s)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.internal_dust_sheets_x3_s)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.internal_dust_sheets_x3_s)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.brush_and_shovel_s)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.brush_and_shovel_s)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.brush_and_shovel_s)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.brush_and_shovel_s)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.cleaner_bottle_s)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.cleaner_bottle_s)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.cleaner_bottle_s)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.cleaner_bottle_s)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ecloth_s)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.ecloth_s)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ecloth_s)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.ecloth_s)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.mastic_guns_s)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.mastic_guns_s)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.mastic_guns_s)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.mastic_guns_s)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.glass_suckers_s)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.glass_suckers_s)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.glass_suckers_s)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.glass_suckers_s)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.safety_helmets_s)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.safety_helmets_s)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.safety_helmets_s)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.safety_helmets_s)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.helmet_manufacture_date_s)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.helmet_manufacture_date_s)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.helmet_manufacture_date_s)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.helmet_manufacture_date_s)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.gloves_s)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.gloves_s)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.gloves_s)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.gloves_s)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.wrist_guards_s)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.wrist_guards_s)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.wrist_guards_s)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.wrist_guards_s)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.goggles_s)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.goggles_s)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.goggles_s)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.goggles_s)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ear_defenders_s)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.ear_defenders_s)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ear_defenders_s)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.ear_defenders_s)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.dust_masks_s)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.dust_masks_s)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.dust_masks_s)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.dust_masks_s)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.customer_care_cards_s)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.customer_care_cards_s)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.customer_care_cards_s)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.customer_care_cards_s)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.completion_forms_s)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.completion_forms_s)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.completion_forms_s)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.completion_forms_s)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.freepost_envelopes_s)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.freepost_envelopes_s)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.freepost_envelopes_s)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.freepost_envelopes_s)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.mandate_forms_s)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.mandate_forms_s)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.mandate_forms_s)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.mandate_forms_s)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.quality_manuals_s)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.quality_manuals_s)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.quality_manuals_s)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.quality_manuals_s)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.stapler_s)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.stapler_s)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.stapler_s)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.stapler_s)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.worksheets_s)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.worksheets_s)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.worksheets_s)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.worksheets_s)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.plasters_s)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.plasters_s)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.plasters_s)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.plasters_s)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.dressing_s)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.dressing_s)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.dressing_s)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.dressing_s)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.eyewashers_s)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.eyewashers_s)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.eyewashers_s)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.eyewashers_s)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.steri_wipes_s)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.steri_wipes_s)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.steri_wipes_s)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.steri_wipes_s)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.bag_s)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.bag_s)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.bag_s)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.bag_s)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.flexi_meter_s)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.flexi_meter_s)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.flexi_meter_s)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.flexi_meter_s)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.merlin_low_e_detector_s)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.merlin_low_e_detector_s)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.merlin_low_e_detector_s)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.merlin_low_e_detector_s)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.cabin_condition_s)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.cabin_condition_s)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.cabin_condition_s)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.cabin_condition_s)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.national_tyres_card_s)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.national_tyres_card_s)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.national_tyres_card_s)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.national_tyres_card_s)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.breakdown_card_s)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.breakdown_card_s)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.breakdown_card_s)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.breakdown_card_s)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.fuel_card_s)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.fuel_card_s)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.fuel_card_s)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.fuel_card_s)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.shell_points_card_s)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.shell_points_card_s)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.shell_points_card_s)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.shell_points_card_s)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.fire_extinguisher_s)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.fire_extinguisher_s)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.fire_extinguisher_s)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.fire_extinguisher_s)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.jack_s)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.jack_s)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.jack_s)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.jack_s)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.wheelbrace_s)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.wheelbrace_s)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.wheelbrace_s)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.wheelbrace_s)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.jump_leads_s)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.jump_leads_s)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.jump_leads_s)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.jump_leads_s)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.fan_belt_s)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.fan_belt_s)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.fan_belt_s)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.fan_belt_s)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.tow_ropes_s)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.tow_ropes_s)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.tow_ropes_s)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.tow_ropes_s)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.spare_oil_s)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.spare_oil_s)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.spare_oil_s)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.spare_oil_s)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.coolant_anti_freeze_s)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.coolant_anti_freeze_s)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.coolant_anti_freeze_s)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.coolant_anti_freeze_s)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.van_height_sticker_s)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.van_height_sticker_s)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.van_height_sticker_s)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.van_height_sticker_s)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.wheel_nut_check_sticker_s)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.wheel_nut_check_sticker_s)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.wheel_nut_check_sticker_s)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.wheel_nut_check_sticker_s)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.no_smoking_sticker_s)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.no_smoking_sticker_s)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.no_smoking_sticker_s)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.no_smoking_sticker_s)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.racks_and_poles_s)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.racks_and_poles_s)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.racks_and_poles_s)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.racks_and_poles_s)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.tyre_conditions_s)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.tyre_conditions_s)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.tyre_conditions_s)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.tyre_conditions_s)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.van_locks_s)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.van_locks_s)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.van_locks_s)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.oil_and_water_checked_s)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.van_locks_s)
+                </dd>
+            </dl>
+        </div>
+        <div class="col-md-4">
+            <dl class="row">
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.oil_and_water_checked_s)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.oil_and_water_checked_s)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.oil_and_water_checked_s)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.hows_my_driving_sticker_s)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.hows_my_driving_sticker_s)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.hows_my_driving_sticker_s)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.hows_my_driving_sticker_s)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.pda_setup_date_s)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.pda_setup_date_s)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.pda_setup_date_s)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.pda_setup_date_s)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.accident_pack_on_pda_s)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.accident_pack_on_pda_s)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.accident_pack_on_pda_s)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.hi_vis_vests_s)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.accident_pack_on_pda_s)
+                </dd>
+
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.hi_vis_vests_s)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.hi_vis_vests_s)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.hi_vis_vests_s)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.grinder_s)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.grinder_s)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.grinder_s)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.grinder_s)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.windscreen_good_contidion_s)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.windscreen_good_contidion_s)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.windscreen_good_contidion_s)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.windscreen_good_contidion_s)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.fitters_own_power_tools_ladders_on_van)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.fitters_own_power_tools_ladders_on_van)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.fitters_own_power_tools_ladders_on_van)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.fitters_own_power_tools_ladders_on_van)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.marks_out_of_10)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.marks_out_of_10)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.marks_out_of_10)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.marks_out_of_10)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.vehicle_reg)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.vehicle_reg)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.vehicle_reg)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.vehicle_reg)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.shell_fuel_card_s)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.shell_fuel_card_s)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.shell_fuel_card_s)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.shell_fuel_card_s)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.spare_s_3)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.spare_s_3)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.spare_s_3)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.spare_s_3)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.spare_s_4)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.spare_s_4)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.spare_s_4)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.spare_s_4)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.shell_fuel_card)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.shell_fuel_card)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.shell_fuel_card)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.shell_fuel_card)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ManufactureDateOnHelmet)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.ManufactureDateOnHelmet)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ManufactureDateOnHelmet)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.ManufactureDateOnHelmet)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ManufactureDateOnHelmet2)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.ManufactureDateOnHelmet2)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ManufactureDateOnHelmet2)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.ManufactureDateOnHelmet2)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ManufactureDateOnHelmet3)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.ManufactureDateOnHelmet3)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ManufactureDateOnHelmet3)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.ManufactureDateOnHelmet3)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ManufactureDateOnHelmet4)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.ManufactureDateOnHelmet4)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ManufactureDateOnHelmet4)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.ManufactureDateOnHelmet4)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ManufactureDateOnHelmet5)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.ManufactureDateOnHelmet5)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ManufactureDateOnHelmet5)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.ManufactureDateOnHelmet5)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ManufactureDateOnHelmet6)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.ManufactureDateOnHelmet6)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ManufactureDateOnHelmet6)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.ManufactureDateOnHelmet6)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ManufactureDateOnHelmet7)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.ManufactureDateOnHelmet7)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ManufactureDateOnHelmet7)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.ManufactureDateOnHelmet7)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ManufactureDateOnHelmet8)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.ManufactureDateOnHelmet8)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ManufactureDateOnHelmet8)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.ManufactureDateOnHelmet8)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ManufactureDateOnHelmet9)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.ManufactureDateOnHelmet9)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ManufactureDateOnHelmet9)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.ManufactureDateOnHelmet9)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ManufactureDateOnHelmet10)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.ManufactureDateOnHelmet10)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ManufactureDateOnHelmet10)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.ManufactureDateOnHelmet10)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.letterbox_jig)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.letterbox_jig)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.letterbox_jig)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.letterbox_jig)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.letterbox_jig_s)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.letterbox_jig_s)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.letterbox_jig_s)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.letterbox_jig_s)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Guid)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.Guid)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Guid)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.Guid)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.VehicleCheckHeaderId)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.VehicleCheckHeaderId)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.VehicleCheckHeaderId)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.VehicleCheckHeaderId)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.CheckID)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.CheckID)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.CheckID)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.CheckID)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.item_number)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.item_number)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.item_number)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.item_number)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Destination)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.Destination)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Destination)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.Destination)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.CheckDoneDate)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.CheckDoneDate)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.CheckDoneDate)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.CheckDoneDate)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Registration)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.Registration)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Registration)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.Registration)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Mileage)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.Mileage)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Mileage)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.Mileage)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.BranchCode)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.BranchCode)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.BranchCode)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.BranchCode)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.PDAVersionDate)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.PDAVersionDate)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.PDAVersionDate)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.PDAVersionDate)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.is_complete)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.is_complete)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.is_complete)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.is_complete)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ReasonNotCompleted)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.ReasonNotCompleted)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ReasonNotCompleted)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.ReasonNotCompleted)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.bComplete)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.bComplete)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.bComplete)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.bComplete)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.bSent)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.bSent)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.bSent)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.bSent)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.bPhotosOutsideComplete)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.bPhotosOutsideComplete)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.bPhotosOutsideComplete)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.bPhotosOutsideComplete)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.bPhotosInsideComplete)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.bPhotosInsideComplete)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.bPhotosInsideComplete)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.bPhotosInsideComplete)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.bDiagramsComplete)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.bDiagramsComplete)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.bDiagramsComplete)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.bDiagramsComplete)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.bSignaturesComplete)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.bSignaturesComplete)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.bSignaturesComplete)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.bSignaturesComplete)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.pressure_passenger_front)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.pressure_passenger_front)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.pressure_passenger_front)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.pressure_passenger_front)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.pressure_passenger_rear)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.pressure_passenger_rear)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.pressure_passenger_rear)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.pressure_passenger_rear)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.pressure_driver_front)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.pressure_driver_front)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.pressure_driver_front)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.pressure_driver_front)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.pressure_driver_rear)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.pressure_driver_rear)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.pressure_driver_rear)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.pressure_driver_rear)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.pressure_spare)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.pressure_spare)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.pressure_spare)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.pressure_spare)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.pressure_passenger_front_s)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.pressure_passenger_front_s)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.pressure_passenger_front_s)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.pressure_passenger_front_s)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.pressure_passenger_rear_s)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.pressure_passenger_rear_s)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.pressure_passenger_rear_s)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.pressure_passenger_rear_s)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.pressure_driver_front_s)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.pressure_driver_front_s)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.pressure_driver_front_s)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.pressure_driver_front_s)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.pressure_driver_rear_s)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.pressure_driver_rear_s)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.pressure_driver_rear_s)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.pressure_driver_rear_s)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.pressure_spare_s)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.pressure_spare_s)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.pressure_spare_s)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.pressure_spare_s)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.damage_pass)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.damage_pass)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.damage_pass)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.damage_pass)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.damage_driver)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.damage_driver)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.damage_driver)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.damage_driver)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.damage_front)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.damage_front)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.damage_front)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.damage_front)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.damage_back)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.damage_back)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.damage_back)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.damage_back)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.photos_front)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.photos_front)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.photos_front)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.photos_front)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.photos_rear)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.photos_rear)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.photos_rear)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.photos_rear)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.photos_left)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.photos_left)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.photos_left)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.photos_left)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.photos_right)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.photos_right)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.photos_right)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.photos_right)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.bDriverSigned)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.bDriverSigned)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.bDriverSigned)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.bDriverSigned)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.bCheckedBySigned)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.bCheckedBySigned)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.bCheckedBySigned)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.bCheckedBySigned)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.driver_printed)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.driver_printed)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.driver_printed)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.driver_printed)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.checked_printed)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.FitterVan.checked_printed)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.checked_printed)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.FitterVan.checked_printed)
         </dd>
-    </dl>
+            </dl>
+        </div>
+    </div>
 </div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+
+<h4>Images</h4>
+<div class="container">
+    <div class="row">
+        <!-- Row 1 -->
+        <div class="col-6 p-3 border">Passenger<img src="data:image/png;base64,@Model.Images.Where(i => i.Filename.Substring(40, 3) == "pas").FirstOrDefault().Data" class="img-fluid rounded" /></div>
+        <div class="col-6 p-3 border">Driver<img src="data:image/png;base64,@Model.Images.Where(i => i.Filename.Substring(40, 3) == "drv").FirstOrDefault().Data" class="img-fluid rounded" /></div>
+    </div>
+    <div class="row">
+        <!-- Row 2 -->
+        <div class="col-6 p-3 border">Front<img src="data:image/png;base64,@Model.Images.Where(i => i.Filename.Substring(40, 3) == "fro").FirstOrDefault().Data" class="img-fluid rounded" /></div>
+        <div class="col-6 p-3 border">Rear<img src="data:image/png;base64,@Model.Images.Where(i => i.Filename.Substring(40, 3) == "rea").FirstOrDefault().Data" class="img-fluid rounded" /></div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <!-- Row 1 -->
+        <div class="col-6 p-3 border">Passenger<img src="data:image/png;base64,@Model.Images.Where(i => i.Filename.Substring(40, 3) == "pad").FirstOrDefault().Data" class="img-fluid rounded" /></div>
+        <div class="col-6 p-3 border">Driver<img src="data:image/png;base64,@Model.Images.Where(i => i.Filename.Substring(40, 3) == "drd").FirstOrDefault().Data" class="img-fluid rounded" /></div>
+    </div>
+    <div class="row">
+        <!-- Row 2 -->
+        <div class="col-6 p-3 border">Front<img src="data:image/png;base64,@Model.Images.Where(i => i.Filename.Substring(40, 3) == "frd").FirstOrDefault().Data" class="img-fluid rounded" /></div>
+        <div class="col-6 p-3 border">Rear<img src="data:image/png;base64,@Model.Images.Where(i => i.Filename.Substring(40, 3) == "red").FirstOrDefault().Data" class="img-fluid rounded" /></div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <!-- Row 1 -->
+
+        <div class="col-6 p-3 border">Driver Signature<img src="data:image/png;base64,@Model.Images.Where(i => i.Filename.Substring(40, 3) == "dsi").FirstOrDefault().Data" class="img-fluid rounded" /></div>
+        <div class="col-6 p-3 border">Checker/Auditor Signature<img src="data:image/png;base64,@Model.Images.Where(i => i.Filename.Substring(40, 3) == "csi").FirstOrDefault().Data" class="img-fluid rounded" /></div>
+    </div>
 </div>

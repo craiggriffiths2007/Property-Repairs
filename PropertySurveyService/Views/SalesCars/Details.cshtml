@@ -1,4 +1,4 @@
-﻿@model PropertySurveyService.Models.SalesCar
+﻿@model PropertySurveyService.ViewModels.VehicleCheckDetailsViewModel
 
 @{
     ViewData["Title"] = "Details";
@@ -9,394 +9,440 @@
 <div>
     <h4>SalesCar</h4>
     <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.fuel_card)
+    <div class="row mb-3">
+        <div class="col-md-4">
+
+            <dl class="row">
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.SalesCar.fuel_card)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.fuel_card)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.SalesCar.fuel_card)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.shell_points_card)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.SalesCar.shell_points_card)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.shell_points_card)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.SalesCar.shell_points_card)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.shell_fuel_card)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.SalesCar.shell_fuel_card)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.shell_fuel_card)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.SalesCar.shell_fuel_card)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.interior_clean)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.SalesCar.interior_clean)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.interior_clean)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.SalesCar.interior_clean)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.oil_level)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.SalesCar.oil_level)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.oil_level)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.SalesCar.oil_level)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.water_level)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.SalesCar.water_level)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.water_level)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.SalesCar.water_level)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.windscreen_wash)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.SalesCar.windscreen_wash)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.windscreen_wash)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.SalesCar.windscreen_wash)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.spare_wheel)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.SalesCar.spare_wheel)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.spare_wheel)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.SalesCar.spare_wheel)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.jack)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.SalesCar.jack)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.jack)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.SalesCar.jack)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.wheel_brace)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.SalesCar.wheel_brace)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.wheel_brace)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.SalesCar.wheel_brace)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.tools)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.SalesCar.tools)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.tools)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.SalesCar.tools)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.tyre_condition)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.SalesCar.tyre_condition)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.tyre_condition)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.SalesCar.tyre_condition)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.fuel_card_s)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.SalesCar.fuel_card_s)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.fuel_card_s)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.SalesCar.fuel_card_s)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.shell_points_card_s)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.SalesCar.shell_points_card_s)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.shell_points_card_s)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.SalesCar.shell_points_card_s)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.shell_fuel_card_s)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.SalesCar.shell_fuel_card_s)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.shell_fuel_card_s)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.SalesCar.shell_fuel_card_s)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.interior_clean_s)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.SalesCar.interior_clean_s)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.interior_clean_s)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.SalesCar.interior_clean_s)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.oil_level_s)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.SalesCar.oil_level_s)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.oil_level_s)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.SalesCar.oil_level_s)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.water_level_s)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.SalesCar.water_level_s)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.water_level_s)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.SalesCar.water_level_s)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.windscreen_wash_s)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.SalesCar.windscreen_wash_s)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.windscreen_wash_s)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.SalesCar.windscreen_wash_s)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.spare_wheel_s)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.SalesCar.spare_wheel_s)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.spare_wheel_s)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.SalesCar.spare_wheel_s)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.jack_s)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.SalesCar.jack_s)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.jack_s)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.SalesCar.jack_s)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.wheel_brace_s)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.SalesCar.wheel_brace_s)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.wheel_brace_s)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.SalesCar.wheel_brace_s)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.tools_s)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.SalesCar.tools_s)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.tools_s)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.SalesCar.tools_s)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.tyre_condition_s)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.SalesCar.tyre_condition_s)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.tyre_condition_s)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Guid)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.SalesCar.tyre_condition_s)
+                </dd>
+            </dl>
+        </div>
+        <div class="col-md-4">
+            <dl class="row">
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.SalesCar.Guid)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Guid)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.SalesCar.Guid)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.VehicleCheckHeaderId)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.SalesCar.VehicleCheckHeaderId)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.VehicleCheckHeaderId)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.SalesCar.VehicleCheckHeaderId)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.CheckID)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.SalesCar.CheckID)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.CheckID)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.SalesCar.CheckID)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.item_number)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.SalesCar.item_number)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.item_number)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.SalesCar.item_number)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Destination)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.SalesCar.Destination)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Destination)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.SalesCar.Destination)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.CheckDoneDate)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.SalesCar.CheckDoneDate)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.CheckDoneDate)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.SalesCar.CheckDoneDate)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Registration)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.SalesCar.Registration)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Registration)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.SalesCar.Registration)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Mileage)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.SalesCar.Mileage)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Mileage)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.SalesCar.Mileage)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.BranchCode)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.SalesCar.BranchCode)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.BranchCode)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.SalesCar.BranchCode)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.PDAVersionDate)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.SalesCar.PDAVersionDate)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.PDAVersionDate)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.SalesCar.PDAVersionDate)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.is_complete)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.SalesCar.is_complete)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.is_complete)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.SalesCar.is_complete)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ReasonNotCompleted)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.SalesCar.ReasonNotCompleted)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ReasonNotCompleted)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.SalesCar.ReasonNotCompleted)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.bComplete)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.SalesCar.bComplete)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.bComplete)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.SalesCar.bComplete)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.bSent)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.SalesCar.bSent)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.bSent)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.SalesCar.bSent)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.bPhotosOutsideComplete)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.SalesCar.bPhotosOutsideComplete)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.bPhotosOutsideComplete)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.SalesCar.bPhotosOutsideComplete)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.bPhotosInsideComplete)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.SalesCar.bPhotosInsideComplete)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.bPhotosInsideComplete)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.SalesCar.bPhotosInsideComplete)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.bDiagramsComplete)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.SalesCar.bDiagramsComplete)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.bDiagramsComplete)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.SalesCar.bDiagramsComplete)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.bSignaturesComplete)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.SalesCar.bSignaturesComplete)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.bSignaturesComplete)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.SalesCar.bSignaturesComplete)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.pressure_passenger_front)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.SalesCar.pressure_passenger_front)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.pressure_passenger_front)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.SalesCar.pressure_passenger_front)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.pressure_passenger_rear)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.SalesCar.pressure_passenger_rear)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.pressure_passenger_rear)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.SalesCar.pressure_passenger_rear)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.pressure_driver_front)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.SalesCar.pressure_driver_front)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.pressure_driver_front)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.SalesCar.pressure_driver_front)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.pressure_driver_rear)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.pressure_driver_rear)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.SalesCar.pressure_driver_rear)
+                </dt>
+            </dl>
+        </div>
+        <div class="col-md-4">
+            <dl class="row">
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.SalesCar.pressure_driver_rear)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.pressure_spare)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.SalesCar.pressure_spare)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.pressure_spare)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.SalesCar.pressure_spare)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.pressure_passenger_front_s)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.SalesCar.pressure_passenger_front_s)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.pressure_passenger_front_s)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.SalesCar.pressure_passenger_front_s)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.pressure_passenger_rear_s)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.SalesCar.pressure_passenger_rear_s)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.pressure_passenger_rear_s)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.SalesCar.pressure_passenger_rear_s)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.pressure_driver_front_s)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.SalesCar.pressure_driver_front_s)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.pressure_driver_front_s)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.pressure_driver_rear_s)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.SalesCar.pressure_driver_front_s)
+                </dd>
+
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.SalesCar.pressure_driver_rear_s)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.pressure_driver_rear_s)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.SalesCar.pressure_driver_rear_s)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.pressure_spare_s)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.SalesCar.pressure_spare_s)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.pressure_spare_s)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.SalesCar.pressure_spare_s)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.damage_pass)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.SalesCar.damage_pass)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.damage_pass)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.SalesCar.damage_pass)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.damage_driver)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.SalesCar.damage_driver)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.damage_driver)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.SalesCar.damage_driver)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.damage_front)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.SalesCar.damage_front)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.damage_front)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.SalesCar.damage_front)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.damage_back)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.SalesCar.damage_back)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.damage_back)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.SalesCar.damage_back)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.photos_front)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.SalesCar.photos_front)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.photos_front)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.SalesCar.photos_front)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.photos_rear)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.SalesCar.photos_rear)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.photos_rear)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.SalesCar.photos_rear)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.photos_left)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.SalesCar.photos_left)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.photos_left)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.SalesCar.photos_left)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.photos_right)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.SalesCar.photos_right)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.photos_right)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.SalesCar.photos_right)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.bDriverSigned)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.SalesCar.bDriverSigned)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.bDriverSigned)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.SalesCar.bDriverSigned)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.bCheckedBySigned)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.SalesCar.bCheckedBySigned)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.bCheckedBySigned)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.SalesCar.bCheckedBySigned)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.driver_printed)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.SalesCar.driver_printed)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.driver_printed)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.SalesCar.driver_printed)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.checked_printed)
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.SalesCar.checked_printed)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.checked_printed)
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.SalesCar.checked_printed)
         </dd>
-    </dl>
+            </dl>
+        </div>
+    </div>
 </div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+
+<h4>Images</h4>
+<div class="container">
+    <div class="row">
+        <!-- Row 1 -->
+        <div class="col-6 p-3 border">Passenger<img src="data:image/png;base64,@Model.Images.Where(i => i.Filename.Substring(40, 3) == "pas").FirstOrDefault().Data" class="img-fluid rounded" /></div>
+        <div class="col-6 p-3 border">Driver<img src="data:image/png;base64,@Model.Images.Where(i => i.Filename.Substring(40, 3) == "drv").FirstOrDefault().Data" class="img-fluid rounded" /></div>
+    </div>
+    <div class="row">
+        <!-- Row 2 -->
+        <div class="col-6 p-3 border">Front<img src="data:image/png;base64,@Model.Images.Where(i => i.Filename.Substring(40, 3) == "fro").FirstOrDefault().Data" class="img-fluid rounded" /></div>
+        <div class="col-6 p-3 border">Rear<img src="data:image/png;base64,@Model.Images.Where(i => i.Filename.Substring(40, 3) == "rea").FirstOrDefault().Data" class="img-fluid rounded" /></div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <!-- Row 1 -->
+        <div class="col-6 p-3 border">Passenger<img src="data:image/png;base64,@Model.Images.Where(i => i.Filename.Substring(40, 3) == "pad").FirstOrDefault().Data" class="img-fluid rounded" /></div>
+        <div class="col-6 p-3 border">Driver<img src="data:image/png;base64,@Model.Images.Where(i => i.Filename.Substring(40, 3) == "drd").FirstOrDefault().Data" class="img-fluid rounded" /></div>
+    </div>
+    <div class="row">
+        <!-- Row 2 -->
+        <div class="col-6 p-3 border">Front<img src="data:image/png;base64,@Model.Images.Where(i => i.Filename.Substring(40, 3) == "frd").FirstOrDefault().Data" class="img-fluid rounded" /></div>
+        <div class="col-6 p-3 border">Rear<img src="data:image/png;base64,@Model.Images.Where(i => i.Filename.Substring(40, 3) == "red").FirstOrDefault().Data" class="img-fluid rounded" /></div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <!-- Row 1 -->
+
+        <div class="col-6 p-3 border">Driver Signature<img src="data:image/png;base64,@Model.Images.Where(i => i.Filename.Substring(40, 3) == "dsi").FirstOrDefault().Data" class="img-fluid rounded" /></div>
+        <div class="col-6 p-3 border">Checker/Auditor Signature<img src="data:image/png;base64,@Model.Images.Where(i => i.Filename.Substring(40, 3) == "csi").FirstOrDefault().Data" class="img-fluid rounded" /></div>
+    </div>
 </div>
