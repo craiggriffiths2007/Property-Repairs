@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using PropertySurveyService.Data;
 using PropertySurveyService.Models;
+using PropertySurveyService.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -30,19 +31,25 @@ namespace PropertySurveyService.Controllers
         // GET: DeliveryVans/Details/5
         public async Task<IActionResult> Details(int? id)
         {
+            var viewModel = new VehicleCheckDetailsViewModel();
             if (id == null)
             {
                 return NotFound();
             }
 
-            var deliveryVan = await _context.DeliveryVans
+            viewModel.DeliveryVan = await _context.DeliveryVans
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (deliveryVan == null)
+            if (viewModel.DeliveryVan == null)
             {
                 return NotFound();
             }
 
-            return View(deliveryVan);
+            List<PhotoImage> photoimages = _context.Images.Where(x => x.Filename.StartsWith(viewModel.DeliveryVan.CheckID))
+            .Where(x => Convert.ToInt32(x.Filename.Substring(26, 8)) == viewModel.DeliveryVan.item_number).ToList();
+
+            viewModel.Images = photoimages;
+
+            return View(viewModel);
         }
 
         // GET: DeliveryVans/Create

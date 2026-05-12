@@ -23,6 +23,12 @@
             @Html.DisplayFor(model => model.shell_points_card)
         </dd>
         <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.shell_fuel_card)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.shell_fuel_card)
+        </dd>
+        <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.interior_clean)
         </dt>
         <dd class = "col-sm-10">
@@ -89,6 +95,12 @@
             @Html.DisplayFor(model => model.shell_points_card_s)
         </dd>
         <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.shell_fuel_card_s)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.shell_fuel_card_s)
+        </dd>
+        <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.interior_clean_s)
         </dt>
         <dd class = "col-sm-10">
@@ -143,16 +155,10 @@
             @Html.DisplayFor(model => model.tyre_condition_s)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.shell_fuel_card_s)
+            @Html.DisplayNameFor(model => model.Guid)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.shell_fuel_card_s)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.shell_fuel_card)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.shell_fuel_card)
+            @Html.DisplayFor(model => model.Guid)
         </dd>
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.VehicleCheckHeaderId)
@@ -165,6 +171,12 @@
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.CheckID)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.item_number)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.item_number)
         </dd>
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Destination)
@@ -227,6 +239,30 @@
             @Html.DisplayFor(model => model.bSent)
         </dd>
         <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.bPhotosOutsideComplete)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.bPhotosOutsideComplete)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.bPhotosInsideComplete)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.bPhotosInsideComplete)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.bDiagramsComplete)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.bDiagramsComplete)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.bSignaturesComplete)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.bSignaturesComplete)
+        </dd>
+        <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.pressure_passenger_front)
         </dt>
         <dd class = "col-sm-10">
@@ -285,30 +321,6 @@
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.pressure_spare_s)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.bPhotosOutsideComplete)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.bPhotosOutsideComplete)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.bPhotosInsideComplete)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.bPhotosInsideComplete)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.bDiagramsComplete)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.bDiagramsComplete)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.bSignaturesComplete)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.bSignaturesComplete)
         </dd>
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.damage_pass)

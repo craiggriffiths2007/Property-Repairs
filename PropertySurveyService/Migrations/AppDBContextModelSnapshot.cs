@@ -1508,11 +1508,11 @@ namespace PropertySurveyService.Migrations
                     b.Property<int>("VehicleCheckHeaderId")
                         .HasColumnType("int");
 
-                    b.Property<int>("accident_pack")
-                        .HasColumnType("int");
+                    b.Property<bool?>("accident_pack")
+                        .HasColumnType("bit");
 
-                    b.Property<int>("ad_blue_level_check")
-                        .HasColumnType("int");
+                    b.Property<bool?>("ad_blue_level_check")
+                        .HasColumnType("bit");
 
                     b.Property<bool>("bCheckedBySigned")
                         .HasColumnType("bit");
@@ -1538,30 +1538,30 @@ namespace PropertySurveyService.Migrations
                     b.Property<bool>("bSignaturesComplete")
                         .HasColumnType("bit");
 
-                    b.Property<int>("battery_security_condition")
-                        .HasColumnType("int");
+                    b.Property<bool?>("battery_security_condition")
+                        .HasColumnType("bit");
 
-                    b.Property<int>("blue_bags")
-                        .HasColumnType("int");
+                    b.Property<bool?>("blue_bags")
+                        .HasColumnType("bit");
 
-                    b.Property<int>("brakes")
-                        .HasColumnType("int");
+                    b.Property<bool?>("brakes")
+                        .HasColumnType("bit");
 
                     b.Property<string>("checked_printed")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("clean_external")
-                        .HasColumnType("int");
+                    b.Property<bool?>("clean_external")
+                        .HasColumnType("bit");
 
-                    b.Property<int>("clean_internal")
-                        .HasColumnType("int");
+                    b.Property<bool?>("clean_internal")
+                        .HasColumnType("bit");
 
-                    b.Property<int>("collection_lists")
-                        .HasColumnType("int");
+                    b.Property<bool?>("collection_lists")
+                        .HasColumnType("bit");
 
-                    b.Property<int>("coolant_anti_freez")
-                        .HasColumnType("int");
+                    b.Property<bool?>("coolant_anti_freez")
+                        .HasColumnType("bit");
 
                     b.Property<string>("damage_back")
                         .IsRequired()
@@ -1583,75 +1583,82 @@ namespace PropertySurveyService.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("delivery_lists")
-                        .HasColumnType("int");
+                    b.Property<bool?>("delivery_lists")
+                        .HasColumnType("bit");
 
                     b.Property<string>("driver_printed")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("excessive_exhaust_smoke")
-                        .HasColumnType("int");
+                    b.Property<bool?>("excessive_exhaust_smoke")
+                        .HasColumnType("bit");
 
-                    b.Property<int>("fan_belt")
-                        .HasColumnType("int");
+                    b.Property<bool?>("fan_belt")
+                        .HasColumnType("bit");
 
-                    b.Property<int>("fire_extinguisher")
-                        .HasColumnType("int");
+                    b.Property<bool?>("fire_extinguisher")
+                        .HasColumnType("bit");
 
-                    b.Property<int>("first_aid_box")
-                        .HasColumnType("int");
+                    b.Property<bool?>("first_aid_box")
+                        .HasColumnType("bit");
 
-                    b.Property<int>("fmg_support_sticker")
-                        .HasColumnType("int");
+                    b.Property<bool?>("fmg_support_sticker")
+                        .HasColumnType("bit");
 
-                    b.Property<int>("fuel_card")
-                        .HasColumnType("int");
+                    b.Property<bool?>("fuel_card")
+                        .HasColumnType("bit");
 
-                    b.Property<int>("fuel_oil_leaks")
-                        .HasColumnType("int");
+                    b.Property<bool?>("fuel_oil_leaks")
+                        .HasColumnType("bit");
 
-                    b.Property<int>("glass_windscreen")
-                        .HasColumnType("int");
+                    b.Property<bool?>("glass_windscreen")
+                        .HasColumnType("bit");
 
-                    b.Property<int>("horn")
-                        .HasColumnType("int");
+                    b.Property<bool?>("horn")
+                        .HasColumnType("bit");
 
-                    b.Property<int>("horn_comp")
-                        .HasColumnType("int");
+                    b.Property<bool?>("horn_comp")
+                        .HasColumnType("bit");
 
-                    b.Property<int>("inducators")
-                        .HasColumnType("int");
+                    b.Property<bool?>("inducators")
+                        .HasColumnType("bit");
 
                     b.Property<int>("is_complete")
                         .HasColumnType("int");
 
-                    b.Property<int>("keys_for_branches_sat")
+                    b.Property<int>("item_number")
                         .HasColumnType("int");
 
-                    b.Property<int>("lights")
-                        .HasColumnType("int");
+                    b.Property<bool?>("keys_for_branches_sat")
+                        .HasColumnType("bit");
 
-                    b.Property<int>("loading_area_good_condition")
-                        .HasColumnType("int");
+                    b.Property<bool?>("lights")
+                        .HasColumnType("bit");
 
-                    b.Property<int>("markers")
-                        .HasColumnType("int");
+                    b.Property<bool?>("loading_storage")
+                        .HasColumnType("bit");
 
-                    b.Property<int>("mirrors")
-                        .HasColumnType("int");
+                    b.Property<string>("loading_storage_s")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("national_tyres_card")
-                        .HasColumnType("int");
+                    b.Property<bool?>("markers")
+                        .HasColumnType("bit");
 
-                    b.Property<int>("no_smoking_sticker")
-                        .HasColumnType("int");
+                    b.Property<bool?>("mirrors")
+                        .HasColumnType("bit");
 
-                    b.Property<int>("oil_and_water_checked")
-                        .HasColumnType("int");
+                    b.Property<bool?>("national_tyres_card")
+                        .HasColumnType("bit");
 
-                    b.Property<int>("pda_phone_accident_pack")
-                        .HasColumnType("int");
+                    b.Property<bool?>("no_smoking_sticker")
+                        .HasColumnType("bit");
+
+                    b.Property<bool?>("oil_and_water_checked")
+                        .HasColumnType("bit");
+
+                    b.Property<bool?>("pda_phone_accident_pack")
+                        .HasColumnType("bit");
 
                     b.Property<int>("photos_front")
                         .HasColumnType("int");
@@ -1665,8 +1672,8 @@ namespace PropertySurveyService.Migrations
                     b.Property<int>("photos_right")
                         .HasColumnType("int");
 
-                    b.Property<int>("portable_lighting")
-                        .HasColumnType("int");
+                    b.Property<bool?>("portable_lighting")
+                        .HasColumnType("bit");
 
                     b.Property<int>("pressure_driver_front")
                         .HasColumnType("int");
@@ -1703,76 +1710,72 @@ namespace PropertySurveyService.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("racks_and_poles")
-                        .HasColumnType("int");
+                    b.Property<bool?>("racks_and_poles")
+                        .HasColumnType("bit");
 
-                    b.Property<int>("ratchet_straps")
-                        .HasColumnType("int");
+                    b.Property<bool?>("ratchet_straps")
+                        .HasColumnType("bit");
 
-                    b.Property<string>("reason_loading_area_not_good_condition")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<bool?>("receipt_book")
+                        .HasColumnType("bit");
 
-                    b.Property<int>("receipt_book")
-                        .HasColumnType("int");
-
-                    b.Property<int>("reflectors")
-                        .HasColumnType("int");
+                    b.Property<bool?>("reflectors")
+                        .HasColumnType("bit");
 
                     b.Property<string>("report_defects")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("security_of_body")
-                        .HasColumnType("int");
+                    b.Property<bool?>("security_of_body")
+                        .HasColumnType("bit");
 
-                    b.Property<int>("security_of_load")
-                        .HasColumnType("int");
+                    b.Property<bool?>("security_of_load")
+                        .HasColumnType("bit");
 
-                    b.Property<int>("service_due_sticker")
-                        .HasColumnType("int");
+                    b.Property<bool?>("service_due_sticker")
+                        .HasColumnType("bit");
 
-                    b.Property<int>("shell_fuel_card")
-                        .HasColumnType("int");
+                    b.Property<bool?>("shell_fuel_card")
+                        .HasColumnType("bit");
 
-                    b.Property<int>("spare_oil")
-                        .HasColumnType("int");
+                    b.Property<bool?>("spare_oil")
+                        .HasColumnType("bit");
 
-                    b.Property<int>("spray_suppression")
-                        .HasColumnType("int");
+                    b.Property<bool?>("spray_suppression")
+                        .HasColumnType("bit");
 
-                    b.Property<int>("steering")
-                        .HasColumnType("int");
+                    b.Property<bool?>("steering")
+                        .HasColumnType("bit");
 
-                    b.Property<int>("trade_delivery_notes")
-                        .HasColumnType("int");
+                    b.Property<bool?>("trade_delivery_notes")
+                        .HasColumnType("bit");
 
-                    b.Property<int>("trade_invoices")
-                        .HasColumnType("int");
+                    b.Property<bool?>("trade_invoices")
+                        .HasColumnType("bit");
 
-                    b.Property<int>("tyre_pressure")
-                        .HasColumnType("int");
+                    b.Property<bool?>("tyre_pressure")
+                        .HasColumnType("bit");
 
-                    b.Property<int>("tyres_and_wheel_fixing")
-                        .HasColumnType("int");
+                    b.Property<bool?>("tyres_and_wheel_fixing")
+                        .HasColumnType("bit");
 
-                    b.Property<int>("van_height_sticker")
-                        .HasColumnType("int");
+                    b.Property<bool?>("van_height_sticker")
+                        .HasColumnType("bit");
 
-                    b.Property<int>("van_locks")
-                        .HasColumnType("int");
+                    b.Property<bool?>("van_locks")
+                        .HasColumnType("bit");
 
-                    b.Property<int>("washers")
-                        .HasColumnType("int");
+                    b.Property<bool?>("washers")
+                        .HasColumnType("bit");
 
-                    b.Property<int>("wheel_nut_check_sticker")
-                        .HasColumnType("int");
+                    b.Property<bool?>("wheel_nut_check_sticker")
+                        .HasColumnType("bit");
 
-                    b.Property<int>("windscreen_washer")
-                        .HasColumnType("int");
+                    b.Property<bool?>("windscreen_washer")
+                        .HasColumnType("bit");
 
-                    b.Property<int>("wipers")
-                        .HasColumnType("int");
+                    b.Property<bool?>("wipers")
+                        .HasColumnType("bit");
 
                     b.HasKey("Id");
 
@@ -1825,8 +1828,8 @@ namespace PropertySurveyService.Migrations
                     b.Property<int>("VehicleCheckHeaderId")
                         .HasColumnType("int");
 
-                    b.Property<int>("ats_card")
-                        .HasColumnType("int");
+                    b.Property<bool?>("ats_card")
+                        .HasColumnType("bit");
 
                     b.Property<string>("ats_card_s")
                         .IsRequired()
@@ -1856,29 +1859,29 @@ namespace PropertySurveyService.Migrations
                     b.Property<bool>("bSignaturesComplete")
                         .HasColumnType("bit");
 
-                    b.Property<int>("bodywork_check")
-                        .HasColumnType("int");
+                    b.Property<bool?>("bodywork_check")
+                        .HasColumnType("bit");
 
                     b.Property<string>("bodywork_check_s")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("branch_keys")
-                        .HasColumnType("int");
+                    b.Property<bool?>("branch_keys")
+                        .HasColumnType("bit");
 
                     b.Property<string>("branch_keys_s")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("breakdown_card")
-                        .HasColumnType("int");
+                    b.Property<bool?>("breakdown_card")
+                        .HasColumnType("bit");
 
                     b.Property<string>("breakdown_card_s")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("bump_hats")
-                        .HasColumnType("int");
+                    b.Property<bool?>("bump_hats")
+                        .HasColumnType("bit");
 
                     b.Property<string>("bump_hats_s")
                         .IsRequired()
@@ -1888,22 +1891,22 @@ namespace PropertySurveyService.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("clean_external")
-                        .HasColumnType("int");
+                    b.Property<bool?>("clean_external")
+                        .HasColumnType("bit");
 
                     b.Property<string>("clean_external_s")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("clean_internal")
-                        .HasColumnType("int");
+                    b.Property<bool?>("clean_internal")
+                        .HasColumnType("bit");
 
                     b.Property<string>("clean_internal_s")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("coolant_anti_freeze_mix")
-                        .HasColumnType("int");
+                    b.Property<bool?>("coolant_anti_freeze_mix")
+                        .HasColumnType("bit");
 
                     b.Property<string>("coolant_anti_freeze_mix_s")
                         .IsRequired()
@@ -1929,36 +1932,36 @@ namespace PropertySurveyService.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("fan_belt")
-                        .HasColumnType("int");
+                    b.Property<bool?>("fan_belt")
+                        .HasColumnType("bit");
 
                     b.Property<string>("fan_belt_s")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("fire_extinguisher")
-                        .HasColumnType("int");
+                    b.Property<bool?>("fire_extinguisher")
+                        .HasColumnType("bit");
 
                     b.Property<string>("fire_extinguisher_s")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("first_aid_box")
-                        .HasColumnType("int");
+                    b.Property<bool?>("first_aid_box")
+                        .HasColumnType("bit");
 
                     b.Property<string>("first_aid_box_s")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("fuel_card")
-                        .HasColumnType("int");
+                    b.Property<bool?>("fuel_card")
+                        .HasColumnType("bit");
 
                     b.Property<string>("fuel_card_s")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("horn")
-                        .HasColumnType("int");
+                    b.Property<bool?>("horn")
+                        .HasColumnType("bit");
 
                     b.Property<string>("horn_s")
                         .IsRequired()
@@ -1967,46 +1970,53 @@ namespace PropertySurveyService.Migrations
                     b.Property<int>("is_complete")
                         .HasColumnType("int");
 
-                    b.Property<int>("jack")
+                    b.Property<int>("item_number")
                         .HasColumnType("int");
+
+                    b.Property<bool?>("jack")
+                        .HasColumnType("bit");
 
                     b.Property<string>("jack_s")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("jump_leads")
-                        .HasColumnType("int");
+                    b.Property<bool?>("jump_leads")
+                        .HasColumnType("bit");
 
                     b.Property<string>("jump_leads_s")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("keys_for_branches")
-                        .HasColumnType("int");
+                    b.Property<bool?>("keys_for_branches")
+                        .HasColumnType("bit");
 
                     b.Property<string>("keys_for_branches_s")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("lights_inducators")
-                        .HasColumnType("int");
+                    b.Property<bool?>("lights_inducators")
+                        .HasColumnType("bit");
 
                     b.Property<string>("lights_inducators_s")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("loading_area_good_condition")
-                        .HasColumnType("int");
+                    b.Property<bool?>("loading_storage")
+                        .HasColumnType("bit");
 
-                    b.Property<int>("oil_water_checked")
-                        .HasColumnType("int");
+                    b.Property<string>("loading_storage_s")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool?>("oil_water_checked")
+                        .HasColumnType("bit");
 
                     b.Property<string>("oil_water_checked_s")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("pda_phone_accident_pack")
-                        .HasColumnType("int");
+                    b.Property<bool?>("pda_phone_accident_pack")
+                        .HasColumnType("bit");
 
                     b.Property<string>("pda_phone_accident_pack_s")
                         .IsRequired()
@@ -2059,107 +2069,106 @@ namespace PropertySurveyService.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("racks_poles")
-                        .HasColumnType("int");
+                    b.Property<bool?>("racks_poles")
+                        .HasColumnType("bit");
 
                     b.Property<string>("racks_poles_s")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("ratchet_straps")
-                        .HasColumnType("int");
+                    b.Property<bool?>("ratchet_straps")
+                        .HasColumnType("bit");
 
                     b.Property<string>("ratchet_straps_s")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("reason_loading_area_not_good_condition")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("receipt_book")
-                        .HasColumnType("int");
+                    b.Property<bool?>("receipt_book")
+                        .HasColumnType("bit");
 
                     b.Property<string>("receipt_book_s")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("service_due_sticker")
-                        .HasColumnType("int");
+                    b.Property<bool?>("service_due_sticker")
+                        .HasColumnType("bit");
 
                     b.Property<string>("service_due_sticker_s")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("spanners_for_rack_removal")
-                        .HasColumnType("int");
+                    b.Property<bool?>("shell_fuel_card")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("shell_fuel_card_s")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool?>("spanners_for_rack_removal")
+                        .HasColumnType("bit");
 
                     b.Property<string>("spanners_for_rack_removal_s")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("spare_oil")
-                        .HasColumnType("int");
+                    b.Property<bool?>("spare_oil")
+                        .HasColumnType("bit");
 
                     b.Property<string>("spare_oil_s")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("spare_s_1")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("spare_wheel")
-                        .HasColumnType("int");
+                    b.Property<bool?>("spare_wheel")
+                        .HasColumnType("bit");
 
                     b.Property<string>("spare_wheel_s")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("tow_ropes")
-                        .HasColumnType("int");
+                    b.Property<bool?>("tow_ropes")
+                        .HasColumnType("bit");
 
                     b.Property<string>("tow_ropes_s")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("tyre_pressure")
-                        .HasColumnType("int");
+                    b.Property<bool?>("tyre_pressure")
+                        .HasColumnType("bit");
 
                     b.Property<string>("tyre_pressure_s")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("van_height_sticker")
-                        .HasColumnType("int");
+                    b.Property<bool?>("van_height_sticker")
+                        .HasColumnType("bit");
 
                     b.Property<string>("van_height_sticker_s")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("van_locks")
-                        .HasColumnType("int");
+                    b.Property<bool?>("van_locks")
+                        .HasColumnType("bit");
 
                     b.Property<string>("van_locks_s")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("wheel_nut_check_sticker")
-                        .HasColumnType("int");
+                    b.Property<bool?>("wheel_nut_check_sticker")
+                        .HasColumnType("bit");
 
                     b.Property<string>("wheel_nut_check_sticker_s")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("wheelbrace")
-                        .HasColumnType("int");
+                    b.Property<bool?>("wheelbrace")
+                        .HasColumnType("bit");
 
                     b.Property<string>("wheelbrace_s")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("windscreen_washer")
-                        .HasColumnType("int");
+                    b.Property<bool?>("windscreen_washer")
+                        .HasColumnType("bit");
 
                     b.Property<string>("windscreen_washer_s")
                         .IsRequired()
@@ -2336,6 +2345,9 @@ namespace PropertySurveyService.Migrations
                     b.Property<Guid>("Guid")
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<bool?>("Internal_dust_sheets_x3")
+                        .HasColumnType("bit");
+
                     b.Property<string>("ManufactureDateOnHelmet")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -2395,8 +2407,8 @@ namespace PropertySurveyService.Migrations
                     b.Property<int>("VehicleCheckHeaderId")
                         .HasColumnType("int");
 
-                    b.Property<int>("accident_pack_on_pda")
-                        .HasColumnType("int");
+                    b.Property<bool?>("accident_pack_on_pda")
+                        .HasColumnType("bit");
 
                     b.Property<string>("accident_pack_on_pda_s")
                         .IsRequired()
@@ -2426,36 +2438,36 @@ namespace PropertySurveyService.Migrations
                     b.Property<bool>("bSignaturesComplete")
                         .HasColumnType("bit");
 
-                    b.Property<int>("bag")
-                        .HasColumnType("int");
+                    b.Property<bool?>("bag")
+                        .HasColumnType("bit");
 
                     b.Property<string>("bag_s")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("blue_external_dust_sheet")
-                        .HasColumnType("int");
+                    b.Property<bool?>("blue_external_dust_sheet")
+                        .HasColumnType("bit");
 
                     b.Property<string>("blue_external_dust_sheet_s")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("breakdown_card")
-                        .HasColumnType("int");
+                    b.Property<bool?>("breakdown_card")
+                        .HasColumnType("bit");
 
                     b.Property<string>("breakdown_card_s")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("brush_and_shovel")
-                        .HasColumnType("int");
+                    b.Property<bool?>("brush_and_shovel")
+                        .HasColumnType("bit");
 
                     b.Property<string>("brush_and_shovel_s")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("cabin_condition")
-                        .HasColumnType("int");
+                    b.Property<bool?>("cabin_condition")
+                        .HasColumnType("bit");
 
                     b.Property<string>("cabin_condition_s")
                         .IsRequired()
@@ -2465,50 +2477,50 @@ namespace PropertySurveyService.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("circuit_breaker")
-                        .HasColumnType("int");
+                    b.Property<bool?>("circuit_breaker")
+                        .HasColumnType("bit");
 
                     b.Property<string>("circuit_breaker_s")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("circular_saw")
-                        .HasColumnType("int");
+                    b.Property<bool?>("circular_saw")
+                        .HasColumnType("bit");
 
                     b.Property<string>("circular_saw_s")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("cleaner_bottle")
-                        .HasColumnType("int");
+                    b.Property<bool?>("cleaner_bottle")
+                        .HasColumnType("bit");
 
                     b.Property<string>("cleaner_bottle_s")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("completion_forms")
-                        .HasColumnType("int");
+                    b.Property<bool?>("completion_forms")
+                        .HasColumnType("bit");
 
                     b.Property<string>("completion_forms_s")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("coolant_anti_freeze")
-                        .HasColumnType("int");
+                    b.Property<bool?>("coolant_anti_freeze")
+                        .HasColumnType("bit");
 
                     b.Property<string>("coolant_anti_freeze_s")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("cordless_drill")
-                        .HasColumnType("int");
+                    b.Property<bool?>("cordless_drill")
+                        .HasColumnType("bit");
 
                     b.Property<string>("cordless_drill_s")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("customer_care_cards")
-                        .HasColumnType("int");
+                    b.Property<bool?>("customer_care_cards")
+                        .HasColumnType("bit");
 
                     b.Property<string>("customer_care_cards_s")
                         .IsRequired()
@@ -2530,8 +2542,8 @@ namespace PropertySurveyService.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("dressing")
-                        .HasColumnType("int");
+                    b.Property<bool?>("dressing")
+                        .HasColumnType("bit");
 
                     b.Property<string>("dressing_s")
                         .IsRequired()
@@ -2555,36 +2567,36 @@ namespace PropertySurveyService.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("ecloth")
-                        .HasColumnType("int");
+                    b.Property<bool?>("ecloth")
+                        .HasColumnType("bit");
 
                     b.Property<string>("ecloth_s")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("extension_lead")
-                        .HasColumnType("int");
+                    b.Property<bool?>("extension_lead")
+                        .HasColumnType("bit");
 
                     b.Property<string>("extension_lead_s")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("eyewashers")
-                        .HasColumnType("int");
+                    b.Property<bool?>("eyewashers")
+                        .HasColumnType("bit");
 
                     b.Property<string>("eyewashers_s")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("fan_belt")
-                        .HasColumnType("int");
+                    b.Property<bool?>("fan_belt")
+                        .HasColumnType("bit");
 
                     b.Property<string>("fan_belt_s")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("fire_extinguisher")
-                        .HasColumnType("int");
+                    b.Property<bool?>("fire_extinguisher")
+                        .HasColumnType("bit");
 
                     b.Property<string>("fire_extinguisher_s")
                         .IsRequired()
@@ -2593,29 +2605,29 @@ namespace PropertySurveyService.Migrations
                     b.Property<int>("fitters_own_power_tools_ladders_on_van")
                         .HasColumnType("int");
 
-                    b.Property<int>("flexi_meter")
-                        .HasColumnType("int");
+                    b.Property<bool?>("flexi_meter")
+                        .HasColumnType("bit");
 
                     b.Property<string>("flexi_meter_s")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("freepost_envelopes")
-                        .HasColumnType("int");
+                    b.Property<bool?>("freepost_envelopes")
+                        .HasColumnType("bit");
 
                     b.Property<string>("freepost_envelopes_s")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("fuel_card")
-                        .HasColumnType("int");
+                    b.Property<bool?>("fuel_card")
+                        .HasColumnType("bit");
 
                     b.Property<string>("fuel_card_s")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("glass_suckers")
-                        .HasColumnType("int");
+                    b.Property<bool?>("glass_suckers")
+                        .HasColumnType("bit");
 
                     b.Property<string>("glass_suckers_s")
                         .IsRequired()
@@ -2635,71 +2647,68 @@ namespace PropertySurveyService.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("grinder")
-                        .HasColumnType("int");
+                    b.Property<bool?>("grinder")
+                        .HasColumnType("bit");
 
                     b.Property<string>("grinder_s")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("halogen_lamp")
-                        .HasColumnType("int");
+                    b.Property<bool?>("halogen_lamp")
+                        .HasColumnType("bit");
 
                     b.Property<string>("halogen_lamp_s")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("hammer_drill")
-                        .HasColumnType("int");
+                    b.Property<bool?>("hammer_drill")
+                        .HasColumnType("bit");
 
                     b.Property<string>("hammer_drill_s")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("heat_gun")
-                        .HasColumnType("int");
+                    b.Property<bool?>("heat_gun")
+                        .HasColumnType("bit");
 
                     b.Property<string>("heat_gun_s")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("helmet_manufacture_date")
-                        .HasColumnType("int");
+                    b.Property<bool?>("helmet_manufacture_date")
+                        .HasColumnType("bit");
 
                     b.Property<string>("helmet_manufacture_date_s")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("hi_vis_vests")
-                        .HasColumnType("int");
+                    b.Property<bool?>("hi_vis_vests")
+                        .HasColumnType("bit");
 
                     b.Property<string>("hi_vis_vests_s")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("hoover")
-                        .HasColumnType("int");
+                    b.Property<bool?>("hoover")
+                        .HasColumnType("bit");
 
                     b.Property<string>("hoover_s")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("hows_my_driving_sticker")
-                        .HasColumnType("int");
+                    b.Property<bool?>("hows_my_driving_sticker")
+                        .HasColumnType("bit");
 
                     b.Property<string>("hows_my_driving_sticker_s")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("industrial_ladders")
-                        .HasColumnType("int");
+                    b.Property<bool?>("industrial_ladders")
+                        .HasColumnType("bit");
 
                     b.Property<string>("industrial_ladders_s")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("internal_dust_sheets_x3")
-                        .HasColumnType("int");
 
                     b.Property<string>("internal_dust_sheets_x3_s")
                         .IsRequired()
@@ -2708,47 +2717,60 @@ namespace PropertySurveyService.Migrations
                     b.Property<int>("is_complete")
                         .HasColumnType("int");
 
-                    b.Property<int>("jack")
+                    b.Property<int>("item_number")
                         .HasColumnType("int");
+
+                    b.Property<bool?>("jack")
+                        .HasColumnType("bit");
 
                     b.Property<string>("jack_s")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("jig_saw")
-                        .HasColumnType("int");
+                    b.Property<bool?>("jig_saw")
+                        .HasColumnType("bit");
 
                     b.Property<string>("jig_saw_s")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("jump_leads")
-                        .HasColumnType("int");
+                    b.Property<bool?>("jump_leads")
+                        .HasColumnType("bit");
 
                     b.Property<string>("jump_leads_s")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("ladder_clamps")
-                        .HasColumnType("int");
+                    b.Property<bool?>("ladder_clamps")
+                        .HasColumnType("bit");
 
                     b.Property<string>("ladder_clamps_s")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("ladder_stopper")
-                        .HasColumnType("int");
+                    b.Property<bool?>("ladder_stopper")
+                        .HasColumnType("bit");
 
                     b.Property<string>("ladder_stopper_s")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("letterbox_jig")
+                    b.Property<bool?>("letterbox_jig")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("letterbox_jig_s")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("mandate_forms")
-                        .HasColumnType("int");
+                    b.Property<bool?>("loading_storage")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("loading_storage_s")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool?>("mandate_forms")
+                        .HasColumnType("bit");
 
                     b.Property<string>("mandate_forms_s")
                         .IsRequired()
@@ -2758,57 +2780,57 @@ namespace PropertySurveyService.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("mastic_guns")
-                        .HasColumnType("int");
+                    b.Property<bool?>("mastic_guns")
+                        .HasColumnType("bit");
 
                     b.Property<string>("mastic_guns_s")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("merlin_low_e_detector")
-                        .HasColumnType("int");
+                    b.Property<bool?>("merlin_low_e_detector")
+                        .HasColumnType("bit");
 
                     b.Property<string>("merlin_low_e_detector_s")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("national_tyres_card")
-                        .HasColumnType("int");
+                    b.Property<bool?>("national_tyres_card")
+                        .HasColumnType("bit");
 
                     b.Property<string>("national_tyres_card_s")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("no_smoking_sticker")
-                        .HasColumnType("int");
+                    b.Property<bool?>("no_smoking_sticker")
+                        .HasColumnType("bit");
 
                     b.Property<string>("no_smoking_sticker_s")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("oil_and_water_checked")
-                        .HasColumnType("int");
+                    b.Property<bool?>("oil_and_water_checked")
+                        .HasColumnType("bit");
 
                     b.Property<string>("oil_and_water_checked_s")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("ordinary_drill")
-                        .HasColumnType("int");
+                    b.Property<bool?>("ordinary_drill")
+                        .HasColumnType("bit");
 
                     b.Property<string>("ordinary_drill_s")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("pda_setup_date")
-                        .HasColumnType("int");
+                    b.Property<bool?>("pda_setup_date")
+                        .HasColumnType("bit");
 
                     b.Property<string>("pda_setup_date_s")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("philips_bit")
-                        .HasColumnType("int");
+                    b.Property<bool?>("philips_bit")
+                        .HasColumnType("bit");
 
                     b.Property<string>("philips_bit_s")
                         .IsRequired()
@@ -2826,22 +2848,22 @@ namespace PropertySurveyService.Migrations
                     b.Property<int>("photos_right")
                         .HasColumnType("int");
 
-                    b.Property<int>("planer_check_blade")
-                        .HasColumnType("int");
+                    b.Property<bool?>("planer_check_blade")
+                        .HasColumnType("bit");
 
                     b.Property<string>("planer_check_blade_s")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("plasters")
-                        .HasColumnType("int");
+                    b.Property<bool?>("plasters")
+                        .HasColumnType("bit");
 
                     b.Property<string>("plasters_s")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("power_breaker")
-                        .HasColumnType("int");
+                    b.Property<bool?>("power_breaker")
+                        .HasColumnType("bit");
 
                     b.Property<string>("power_breaker_s")
                         .IsRequired()
@@ -2882,29 +2904,29 @@ namespace PropertySurveyService.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("quality_manuals")
-                        .HasColumnType("int");
+                    b.Property<bool?>("quality_manuals")
+                        .HasColumnType("bit");
 
                     b.Property<string>("quality_manuals_s")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("racks_and_poles")
-                        .HasColumnType("int");
+                    b.Property<bool?>("racks_and_poles")
+                        .HasColumnType("bit");
 
                     b.Property<string>("racks_and_poles_s")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("ratchett_straps_x4")
-                        .HasColumnType("int");
+                    b.Property<bool?>("ratchett_straps_x4")
+                        .HasColumnType("bit");
 
                     b.Property<string>("ratchett_straps_x4_s")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("router")
-                        .HasColumnType("int");
+                    b.Property<bool?>("router")
+                        .HasColumnType("bit");
 
                     b.Property<string>("router_s")
                         .IsRequired()
@@ -2917,58 +2939,45 @@ namespace PropertySurveyService.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("sander")
-                        .HasColumnType("int");
+                    b.Property<bool?>("sander")
+                        .HasColumnType("bit");
 
                     b.Property<string>("sander_s")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("screw_box")
-                        .HasColumnType("int");
+                    b.Property<bool?>("screw_box")
+                        .HasColumnType("bit");
 
                     b.Property<string>("screw_box_s")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("shell_points_card")
-                        .HasColumnType("int");
+                    b.Property<bool?>("shell_fuel_card")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("shell_fuel_card_s")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool?>("shell_points_card")
+                        .HasColumnType("bit");
 
                     b.Property<string>("shell_points_card_s")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("spare_battery_and_charger")
-                        .HasColumnType("int");
+                    b.Property<bool?>("spare_battery_and_charger")
+                        .HasColumnType("bit");
 
                     b.Property<string>("spare_battery_and_charger_s")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("spare_i_1")
-                        .HasColumnType("int");
-
-                    b.Property<int>("spare_i_2")
-                        .HasColumnType("int");
-
-                    b.Property<int>("spare_i_3")
-                        .HasColumnType("int");
-
-                    b.Property<int>("spare_i_4")
-                        .HasColumnType("int");
-
-                    b.Property<int>("spare_oil")
-                        .HasColumnType("int");
+                    b.Property<bool?>("spare_oil")
+                        .HasColumnType("bit");
 
                     b.Property<string>("spare_oil_s")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("spare_s_1")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("spare_s_2")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -2980,71 +2989,71 @@ namespace PropertySurveyService.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("spare_wheel")
-                        .HasColumnType("int");
+                    b.Property<bool?>("spare_wheel")
+                        .HasColumnType("bit");
 
                     b.Property<string>("spare_wheel_s")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("stapler")
-                        .HasColumnType("int");
+                    b.Property<bool?>("stapler")
+                        .HasColumnType("bit");
 
                     b.Property<string>("stapler_s")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("step_ladders")
-                        .HasColumnType("int");
+                    b.Property<bool?>("step_ladders")
+                        .HasColumnType("bit");
 
                     b.Property<string>("step_ladders_s")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("steri_wipes")
-                        .HasColumnType("int");
+                    b.Property<bool?>("steri_wipes")
+                        .HasColumnType("bit");
 
                     b.Property<string>("steri_wipes_s")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("torch_working")
-                        .HasColumnType("int");
+                    b.Property<bool?>("torch_working")
+                        .HasColumnType("bit");
 
                     b.Property<string>("torch_working_s")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("tow_ropes")
-                        .HasColumnType("int");
+                    b.Property<bool?>("tow_ropes")
+                        .HasColumnType("bit");
 
                     b.Property<string>("tow_ropes_s")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("tresles_x2")
-                        .HasColumnType("int");
+                    b.Property<bool?>("tresles_x2")
+                        .HasColumnType("bit");
 
                     b.Property<string>("tresles_x2_s")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("tyre_conditions")
-                        .HasColumnType("int");
+                    b.Property<bool?>("tyre_conditions")
+                        .HasColumnType("bit");
 
                     b.Property<string>("tyre_conditions_s")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("van_height_sticker")
-                        .HasColumnType("int");
+                    b.Property<bool?>("van_height_sticker")
+                        .HasColumnType("bit");
 
                     b.Property<string>("van_height_sticker_s")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("van_locks")
-                        .HasColumnType("int");
+                    b.Property<bool?>("van_locks")
+                        .HasColumnType("bit");
 
                     b.Property<string>("van_locks_s")
                         .IsRequired()
@@ -3054,29 +3063,29 @@ namespace PropertySurveyService.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("wheel_nut_check_sticker")
-                        .HasColumnType("int");
+                    b.Property<bool?>("wheel_nut_check_sticker")
+                        .HasColumnType("bit");
 
                     b.Property<string>("wheel_nut_check_sticker_s")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("wheelbrace")
-                        .HasColumnType("int");
+                    b.Property<bool?>("wheelbrace")
+                        .HasColumnType("bit");
 
                     b.Property<string>("wheelbrace_s")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("windscreen_good_contidion")
-                        .HasColumnType("int");
+                    b.Property<bool?>("windscreen_good_contidion")
+                        .HasColumnType("bit");
 
                     b.Property<string>("windscreen_good_contidion_s")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("worksheets")
-                        .HasColumnType("int");
+                    b.Property<bool?>("worksheets")
+                        .HasColumnType("bit");
 
                     b.Property<string>("worksheets_s")
                         .IsRequired()
@@ -6063,15 +6072,15 @@ namespace PropertySurveyService.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("fuel_card")
-                        .HasColumnType("int");
+                    b.Property<bool?>("fuel_card")
+                        .HasColumnType("bit");
 
                     b.Property<string>("fuel_card_s")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("interior_clean")
-                        .HasColumnType("int");
+                    b.Property<bool?>("interior_clean")
+                        .HasColumnType("bit");
 
                     b.Property<string>("interior_clean_s")
                         .IsRequired()
@@ -6080,15 +6089,18 @@ namespace PropertySurveyService.Migrations
                     b.Property<int>("is_complete")
                         .HasColumnType("int");
 
-                    b.Property<int>("jack")
+                    b.Property<int>("item_number")
                         .HasColumnType("int");
+
+                    b.Property<bool?>("jack")
+                        .HasColumnType("bit");
 
                     b.Property<string>("jack_s")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("oil_level")
-                        .HasColumnType("int");
+                    b.Property<bool?>("oil_level")
+                        .HasColumnType("bit");
 
                     b.Property<string>("oil_level_s")
                         .IsRequired()
@@ -6141,57 +6153,57 @@ namespace PropertySurveyService.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("shell_fuel_card")
-                        .HasColumnType("int");
+                    b.Property<bool?>("shell_fuel_card")
+                        .HasColumnType("bit");
 
                     b.Property<string>("shell_fuel_card_s")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("shell_points_card")
-                        .HasColumnType("int");
+                    b.Property<bool?>("shell_points_card")
+                        .HasColumnType("bit");
 
                     b.Property<string>("shell_points_card_s")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("spare_wheel")
-                        .HasColumnType("int");
+                    b.Property<bool?>("spare_wheel")
+                        .HasColumnType("bit");
 
                     b.Property<string>("spare_wheel_s")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("tools")
-                        .HasColumnType("int");
+                    b.Property<bool?>("tools")
+                        .HasColumnType("bit");
 
                     b.Property<string>("tools_s")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("tyre_condition")
-                        .HasColumnType("int");
+                    b.Property<bool?>("tyre_condition")
+                        .HasColumnType("bit");
 
                     b.Property<string>("tyre_condition_s")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("water_level")
-                        .HasColumnType("int");
+                    b.Property<bool?>("water_level")
+                        .HasColumnType("bit");
 
                     b.Property<string>("water_level_s")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("wheel_brace")
-                        .HasColumnType("int");
+                    b.Property<bool?>("wheel_brace")
+                        .HasColumnType("bit");
 
                     b.Property<string>("wheel_brace_s")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("windscreen_wash")
-                        .HasColumnType("int");
+                    b.Property<bool?>("windscreen_wash")
+                        .HasColumnType("bit");
 
                     b.Property<string>("windscreen_wash_s")
                         .IsRequired()

@@ -42,7 +42,8 @@ namespace PropertySurveyService.Controllers
                 return NotFound();
             }
 
-            List<PhotoImage> photoimages = _context.Images.Where(x => x.Filename.Substring(0, viewModel.DeliveryHGV.CheckID.Length) == viewModel.DeliveryHGV.CheckID).ToList();
+            List<PhotoImage> photoimages = _context.Images.Where(x => x.Filename.StartsWith(viewModel.DeliveryHGV.CheckID))
+            .Where(x => Convert.ToInt32(x.Filename.Substring(26, 8))==viewModel.DeliveryHGV.item_number).ToList();
 
             viewModel.Images = photoimages;
 
