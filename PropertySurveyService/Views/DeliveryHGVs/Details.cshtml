@@ -564,7 +564,7 @@
     </div>
     </div>
 
-<h4>Images</h4>
+<h4>Outside Photos</h4>
 <div class="container">
     <div class="row">
         <!-- Row 1 -->
@@ -577,7 +577,7 @@
         <div class="col-6 p-3 border">Rear<img src="data:image/png;base64,@Model.Images.Where(i => i.Filename.Substring(40, 3) == "rea").FirstOrDefault().Data" class="img-fluid rounded" /></div>
     </div>
 </div>
-
+<h4>Damage</h4>
 <div class="container">
     <div class="row">
         <!-- Row 1 -->
@@ -590,7 +590,14 @@
         <div class="col-6 p-3 border">Rear<img src="data:image/png;base64,@Model.Images.Where(i => i.Filename.Substring(40, 3) == "red").FirstOrDefault().Data" class="img-fluid rounded" /></div>
     </div>
 </div>
-
+<h4>inside Photo</h4>
+<div class="container">
+    <div class="row">
+        <!-- Row 1 -->
+        <div class="col-6 p-3 border"><img src="data:image/png;base64,@Model.Images.Where(i => i.Filename.Substring(40, 3) == "i01").FirstOrDefault().Data" class="img-fluid rounded" /></div>
+    </div>
+</div>
+<h4>Signatures</h4>
 <div class="container">
     <div class="row">
         <!-- Row 1 -->
