@@ -1,0 +1,836 @@
+@model PropertySurveyService.Models.SpotCheck
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>SpotCheck</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Guid)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Guid)
+        </dd>
+    </dl>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.date_done)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.date_done)
+        </dd>
+    </dl>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.bComplete)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.bComplete)
+        </dd>
+    </dl>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.bSent)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.bSent)
+        </dd>
+    </dl>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.bCorrectContract)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.bCorrectContract)
+        </dd>
+    </dl>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.udi_cont)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.udi_cont)
+        </dd>
+    </dl>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.branch)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.branch)
+        </dd>
+    </dl>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Date)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Date)
+        </dd>
+    </dl>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Time)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Time)
+        </dd>
+    </dl>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+    </dl>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Add1)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Add1)
+        </dd>
+    </dl>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Add2)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Add2)
+        </dd>
+    </dl>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Add3)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Add3)
+        </dd>
+    </dl>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Postcode)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Postcode)
+        </dd>
+    </dl>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Phone1)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Phone1)
+        </dd>
+    </dl>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Phone2)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Phone2)
+        </dd>
+    </dl>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Phone3)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Phone3)
+        </dd>
+    </dl>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.DamageDesc)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DamageDesc)
+        </dd>
+    </dl>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Instructions)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Instructions)
+        </dd>
+    </dl>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.uspot_qualityofworks)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.uspot_qualityofworks)
+        </dd>
+    </dl>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.uspot_appearence_improvements)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.uspot_appearence_improvements)
+        </dd>
+    </dl>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.uspot_qualityofworks_improvements)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.uspot_qualityofworks_improvements)
+        </dd>
+    </dl>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.uspot_customersatisfaction_improvements)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.uspot_customersatisfaction_improvements)
+        </dd>
+    </dl>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.uspot_otherobservations)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.uspot_otherobservations)
+        </dd>
+    </dl>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.uspot_fitter)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.uspot_fitter)
+        </dd>
+    </dl>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.uspot_trainee)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.uspot_trainee)
+        </dd>
+    </dl>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.uspot_date)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.uspot_date)
+        </dd>
+    </dl>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.uspot_customer)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.uspot_customer)
+        </dd>
+    </dl>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.uspot_postcode)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.uspot_postcode)
+        </dd>
+    </dl>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.uspot_insuranceco)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.uspot_insuranceco)
+        </dd>
+    </dl>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.uspot_branch)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.uspot_branch)
+        </dd>
+    </dl>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.uspot_customersatisfaction)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.uspot_customersatisfaction)
+        </dd>
+    </dl>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.uspot_customersatisfaction_improvementsOld)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.uspot_customersatisfaction_improvementsOld)
+        </dd>
+    </dl>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.uspot_otherobservationsOld)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.uspot_otherobservationsOld)
+        </dd>
+    </dl>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.uspot_signed)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.uspot_signed)
+        </dd>
+    </dl>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.uspot_signeddate)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.uspot_signeddate)
+        </dd>
+    </dl>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.uspot_replace_fit)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.uspot_replace_fit)
+        </dd>
+    </dl>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.uspot_p1)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.uspot_p1)
+        </dd>
+    </dl>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.uspot_p2)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.uspot_p2)
+        </dd>
+    </dl>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.uspot_p3)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.uspot_p3)
+        </dd>
+    </dl>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.uspot_p4)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.uspot_p4)
+        </dd>
+    </dl>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.uspot_repair)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.uspot_repair)
+        </dd>
+    </dl>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.uspot_repair_arrived)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.uspot_repair_arrived)
+        </dd>
+    </dl>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.uspot_repair_setup)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.uspot_repair_setup)
+        </dd>
+    </dl>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.uspot_repair_ongoing)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.uspot_repair_ongoing)
+        </dd>
+    </dl>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.uspot_repair_completed)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.uspot_repair_completed)
+        </dd>
+    </dl>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.uspot_replace)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.uspot_replace)
+        </dd>
+    </dl>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.uspot_replace_arrived)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.uspot_replace_arrived)
+        </dd>
+    </dl>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.uspot_replace_setup)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.uspot_replace_setup)
+        </dd>
+    </dl>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.uspot_replace_unitmoved)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.uspot_replace_unitmoved)
+        </dd>
+    </dl>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.uspot_replace_completed)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.uspot_replace_completed)
+        </dd>
+    </dl>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.uspot_rev_door)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.uspot_rev_door)
+        </dd>
+    </dl>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.uspot_rev_window)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.uspot_rev_window)
+        </dd>
+    </dl>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.uspot_rev_garagedoor)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.uspot_rev_garagedoor)
+        </dd>
+    </dl>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.uspot_rev_glass)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.uspot_rev_glass)
+        </dd>
+    </dl>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.uspot_rev_locks)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.uspot_rev_locks)
+        </dd>
+    </dl>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.uspot_rev_other)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.uspot_rev_other)
+        </dd>
+    </dl>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.uspot_revb_upvc)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.uspot_revb_upvc)
+        </dd>
+    </dl>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.uspot_revb_ali)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.uspot_revb_ali)
+        </dd>
+    </dl>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.uspot_revb_timber)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.uspot_revb_timber)
+        </dd>
+    </dl>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.uspot_revb_other)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.uspot_revb_other)
+        </dd>
+    </dl>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.uspot_appearence)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.uspot_appearence)
+        </dd>
+    </dl>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.name1)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.name1)
+        </dd>
+    </dl>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.name2)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.name2)
+        </dd>
+    </dl>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.safety_boots_worn1)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.safety_boots_worn1)
+        </dd>
+    </dl>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.safety_gloves_worn1)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.safety_gloves_worn1)
+        </dd>
+    </dl>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.safety_googles_worn1)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.safety_googles_worn1)
+        </dd>
+    </dl>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.safety_helmet_worn1)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.safety_helmet_worn1)
+        </dd>
+    </dl>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.wristguards_worn1)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.wristguards_worn1)
+        </dd>
+    </dl>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.uniform_worn_complete1)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.uniform_worn_complete1)
+        </dd>
+    </dl>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.id_card_available1)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.id_card_available1)
+        </dd>
+    </dl>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.safety_boots_worn2)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.safety_boots_worn2)
+        </dd>
+    </dl>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.safety_gloves_worn2)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.safety_gloves_worn2)
+        </dd>
+    </dl>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.safety_googles_worn2)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.safety_googles_worn2)
+        </dd>
+    </dl>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.safety_helmet_worn2)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.safety_helmet_worn2)
+        </dd>
+    </dl>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.wristguards_worn2)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.wristguards_worn2)
+        </dd>
+    </dl>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.uniform_worn_complete2)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.uniform_worn_complete2)
+        </dd>
+    </dl>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.id_card_available2)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.id_card_available2)
+        </dd>
+    </dl>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.chemicals_stored_correctly)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.chemicals_stored_correctly)
+        </dd>
+    </dl>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.are_sheets_available)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.are_sheets_available)
+        </dd>
+    </dl>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.area_above_been_checked)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.area_above_been_checked)
+        </dd>
+    </dl>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.obstructions_checked)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.obstructions_checked)
+        </dd>
+    </dl>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.lintel_ok)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.lintel_ok)
+        </dd>
+    </dl>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ladders_secure)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ladders_secure)
+        </dd>
+    </dl>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.safe_work_at_height)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.safe_work_at_height)
+        </dd>
+    </dl>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.condition_of_ladders)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.condition_of_ladders)
+        </dd>
+    </dl>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.tools_set_out_safely)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.tools_set_out_safely)
+        </dd>
+    </dl>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.fire_extinguisher_on_van)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.fire_extinguisher_on_van)
+        </dd>
+    </dl>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.first_aid_kit_on_van)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.first_aid_kit_on_van)
+        </dd>
+    </dl>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.electrical_equipment_tested)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.electrical_equipment_tested)
+        </dd>
+    </dl>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.safety_boots_worn1_s)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.safety_boots_worn1_s)
+        </dd>
+    </dl>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.safety_gloves_worn1_s)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.safety_gloves_worn1_s)
+        </dd>
+    </dl>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.safety_googles_worn1_s)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.safety_googles_worn1_s)
+        </dd>
+    </dl>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.safety_helmet_worn1_s)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.safety_helmet_worn1_s)
+        </dd>
+    </dl>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.wristguards_worn1_s)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.wristguards_worn1_s)
+        </dd>
+    </dl>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.uniform_worn_complete1_s)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.uniform_worn_complete1_s)
+        </dd>
+    </dl>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.id_card_available1_s)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.id_card_available1_s)
+        </dd>
+    </dl>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.safety_boots_worn2_s)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.safety_boots_worn2_s)
+        </dd>
+    </dl>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.safety_gloves_worn2_s)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.safety_gloves_worn2_s)
+        </dd>
+    </dl>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.safety_googles_worn2_s)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.safety_googles_worn2_s)
+        </dd>
+    </dl>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.safety_helmet_worn2_s)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.safety_helmet_worn2_s)
+        </dd>
+    </dl>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.wristguards_worn2_s)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.wristguards_worn2_s)
+        </dd>
+    </dl>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.uniform_worn_complete2_s)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.uniform_worn_complete2_s)
+        </dd>
+    </dl>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.id_card_available2_s)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.id_card_available2_s)
+        </dd>
+    </dl>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.chemicals_stored_correctly_s)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.chemicals_stored_correctly_s)
+        </dd>
+    </dl>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.are_sheets_available_s)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.are_sheets_available_s)
+        </dd>
+    </dl>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.area_above_been_checked_s)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.area_above_been_checked_s)
+        </dd>
+    </dl>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.obstructions_checked_s)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.obstructions_checked_s)
+        </dd>
+    </dl>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.lintel_ok_s)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.lintel_ok_s)
+        </dd>
+    </dl>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ladders_secure_s)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ladders_secure_s)
+        </dd>
+    </dl>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.safe_work_at_height_s)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.safe_work_at_height_s)
+        </dd>
+    </dl>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.condition_of_ladders_s)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.condition_of_ladders_s)
+        </dd>
+    </dl>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.tools_set_out_safely_s)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.tools_set_out_safely_s)
+        </dd>
+    </dl>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.fire_extinguisher_on_van_s)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.fire_extinguisher_on_van_s)
+        </dd>
+    </dl>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.first_aid_kit_on_van_s)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.first_aid_kit_on_van_s)
+        </dd>
+    </dl>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.electrical_equipment_tested_s)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.electrical_equipment_tested_s)
+        </dd>
+    </dl>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.comments)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.comments)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

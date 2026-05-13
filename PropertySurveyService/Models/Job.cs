@@ -53,6 +53,8 @@ namespace PropertySurveyService.Models
         public string? Filename { get; set; } // for images
 
         public string? BranchCode { get; set; } // for vehicle checks
+
+        public string contract_number { get; set; } = ""; // for spot checks
     }
 
     public class JobDTO
@@ -81,7 +83,7 @@ namespace PropertySurveyService.Models
 
             (Id, ContractId, ContractCode, Date, Time, Name, Add1, Add2, Add3, Postcode, Phone1, Phone2, Phone3, DamageDesc, Instructions) =
 
-            (jobItem.Id, jobItem.ContractId, jobItem.ContractCode, jobItem.Date.ToShortDateString(), jobItem.Time.ToString(), custItem.Name,
+            (jobItem.Id, jobItem.ContractId, jobItem.ContractCode, jobItem.Date.ToShortDateString(), jobItem.Time.ToShortTimeString(), custItem.Name,
                 custItem.Add1, custItem.Add2, custItem.Add3, custItem.Postcode, custItem.Phone1,
                 custItem.Phone2, custItem.Phone3, jobItem.DamageDesc, jobItem.Instructions);
 

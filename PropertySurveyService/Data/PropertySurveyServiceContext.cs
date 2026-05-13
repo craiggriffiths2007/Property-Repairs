@@ -52,8 +52,7 @@ namespace PropertySurveyService.Data
         public DbSet<PropertySurveyService.Models.ToolsTable> ToolsTable { get; set; } = default!;
         public DbSet<PropertySurveyService.Models.MileageSheet> MileageSheets { get; set; } = default!;
         public DbSet<PropertySurveyService.Models.LaddersTable> LaddersTable { get; set; } = default!;
-
-        
+        public DbSet<PropertySurveyService.Models.SpotCheck> SpotCheckTable { get; set; } = default;
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);

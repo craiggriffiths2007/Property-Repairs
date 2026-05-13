@@ -47,7 +47,7 @@ namespace PropertySurveyService.Controllers
             List<PhotoImage> photoimages = _context.Images.Where(x => x.Filename.StartsWith(viewModel.DeliveryVan.CheckID))
             .Where(x => Convert.ToInt32(x.Filename.Substring(26, 8)) == viewModel.DeliveryVan.item_number).ToList();
 
-            viewModel.Images = photoimages;
+            viewModel.Images = photoimages ?? new List<PhotoImage>();
 
             return View(viewModel);
         }

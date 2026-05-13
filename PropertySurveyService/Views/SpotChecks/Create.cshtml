@@ -1,0 +1,726 @@
+@model PropertySurveyService.Models.SpotCheck
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>SpotCheck</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group">
+                <label asp-for="Guid" class="control-label"></label>
+                <input asp-for="Guid" class="form-control" />
+                <span asp-validation-for="Guid" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="date_done" class="control-label"></label>
+                <input asp-for="date_done" class="form-control" />
+                <span asp-validation-for="date_done" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="bComplete" class="control-label"></label>
+                <input asp-for="bComplete" class="form-check-input" />
+                <span asp-validation-for="bComplete" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="bSent" class="control-label"></label>
+                <input asp-for="bSent" class="form-check-input" />
+                <span asp-validation-for="bSent" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="bCorrectContract" class="control-label"></label>
+                <input asp-for="bCorrectContract" class="form-check-input" />
+                <span asp-validation-for="bCorrectContract" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="udi_cont" class="control-label"></label>
+                <input asp-for="udi_cont" class="form-control" />
+                <span asp-validation-for="udi_cont" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="branch" class="control-label"></label>
+                <input asp-for="branch" class="form-control" />
+                <span asp-validation-for="branch" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Date" class="control-label"></label>
+                <input asp-for="Date" class="form-control" />
+                <span asp-validation-for="Date" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Time" class="control-label"></label>
+                <input asp-for="Time" class="form-control" />
+                <span asp-validation-for="Time" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Add1" class="control-label"></label>
+                <input asp-for="Add1" class="form-control" />
+                <span asp-validation-for="Add1" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Add2" class="control-label"></label>
+                <input asp-for="Add2" class="form-control" />
+                <span asp-validation-for="Add2" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Add3" class="control-label"></label>
+                <input asp-for="Add3" class="form-control" />
+                <span asp-validation-for="Add3" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Postcode" class="control-label"></label>
+                <input asp-for="Postcode" class="form-control" />
+                <span asp-validation-for="Postcode" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Phone1" class="control-label"></label>
+                <input asp-for="Phone1" class="form-control" />
+                <span asp-validation-for="Phone1" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Phone2" class="control-label"></label>
+                <input asp-for="Phone2" class="form-control" />
+                <span asp-validation-for="Phone2" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Phone3" class="control-label"></label>
+                <input asp-for="Phone3" class="form-control" />
+                <span asp-validation-for="Phone3" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="DamageDesc" class="control-label"></label>
+                <input asp-for="DamageDesc" class="form-control" />
+                <span asp-validation-for="DamageDesc" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Instructions" class="control-label"></label>
+                <input asp-for="Instructions" class="form-control" />
+                <span asp-validation-for="Instructions" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="uspot_qualityofworks" class="control-label"></label>
+                <input asp-for="uspot_qualityofworks" class="form-control" />
+                <span asp-validation-for="uspot_qualityofworks" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="uspot_appearence_improvements" class="control-label"></label>
+                <input asp-for="uspot_appearence_improvements" class="form-control" />
+                <span asp-validation-for="uspot_appearence_improvements" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="uspot_qualityofworks_improvements" class="control-label"></label>
+                <input asp-for="uspot_qualityofworks_improvements" class="form-control" />
+                <span asp-validation-for="uspot_qualityofworks_improvements" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="uspot_customersatisfaction_improvements" class="control-label"></label>
+                <input asp-for="uspot_customersatisfaction_improvements" class="form-control" />
+                <span asp-validation-for="uspot_customersatisfaction_improvements" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="uspot_otherobservations" class="control-label"></label>
+                <input asp-for="uspot_otherobservations" class="form-control" />
+                <span asp-validation-for="uspot_otherobservations" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="uspot_fitter" class="control-label"></label>
+                <input asp-for="uspot_fitter" class="form-control" />
+                <span asp-validation-for="uspot_fitter" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="uspot_trainee" class="control-label"></label>
+                <input asp-for="uspot_trainee" class="form-control" />
+                <span asp-validation-for="uspot_trainee" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="uspot_date" class="control-label"></label>
+                <input asp-for="uspot_date" class="form-control" />
+                <span asp-validation-for="uspot_date" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="uspot_customer" class="control-label"></label>
+                <input asp-for="uspot_customer" class="form-control" />
+                <span asp-validation-for="uspot_customer" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="uspot_postcode" class="control-label"></label>
+                <input asp-for="uspot_postcode" class="form-control" />
+                <span asp-validation-for="uspot_postcode" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="uspot_insuranceco" class="control-label"></label>
+                <input asp-for="uspot_insuranceco" class="form-control" />
+                <span asp-validation-for="uspot_insuranceco" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="uspot_branch" class="control-label"></label>
+                <input asp-for="uspot_branch" class="form-control" />
+                <span asp-validation-for="uspot_branch" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="uspot_customersatisfaction" class="control-label"></label>
+                <input asp-for="uspot_customersatisfaction" class="form-control" />
+                <span asp-validation-for="uspot_customersatisfaction" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="uspot_customersatisfaction_improvementsOld" class="control-label"></label>
+                <input asp-for="uspot_customersatisfaction_improvementsOld" class="form-control" />
+                <span asp-validation-for="uspot_customersatisfaction_improvementsOld" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="uspot_otherobservationsOld" class="control-label"></label>
+                <input asp-for="uspot_otherobservationsOld" class="form-control" />
+                <span asp-validation-for="uspot_otherobservationsOld" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="uspot_signed" class="control-label"></label>
+                <input asp-for="uspot_signed" class="form-check-input" />
+                <span asp-validation-for="uspot_signed" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="uspot_signeddate" class="control-label"></label>
+                <input asp-for="uspot_signeddate" class="form-control" />
+                <span asp-validation-for="uspot_signeddate" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="uspot_replace_fit" class="control-label"></label>
+                <input asp-for="uspot_replace_fit" class="form-check-input" />
+                <span asp-validation-for="uspot_replace_fit" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="uspot_p1" class="control-label"></label>
+                <input asp-for="uspot_p1" class="form-control" />
+                <span asp-validation-for="uspot_p1" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="uspot_p2" class="control-label"></label>
+                <input asp-for="uspot_p2" class="form-control" />
+                <span asp-validation-for="uspot_p2" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="uspot_p3" class="control-label"></label>
+                <input asp-for="uspot_p3" class="form-control" />
+                <span asp-validation-for="uspot_p3" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="uspot_p4" class="control-label"></label>
+                <input asp-for="uspot_p4" class="form-control" />
+                <span asp-validation-for="uspot_p4" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="uspot_repair" class="control-label"></label>
+                <input asp-for="uspot_repair" class="form-check-input" />
+                <span asp-validation-for="uspot_repair" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="uspot_repair_arrived" class="control-label"></label>
+                <input asp-for="uspot_repair_arrived" class="form-check-input" />
+                <span asp-validation-for="uspot_repair_arrived" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="uspot_repair_setup" class="control-label"></label>
+                <input asp-for="uspot_repair_setup" class="form-check-input" />
+                <span asp-validation-for="uspot_repair_setup" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="uspot_repair_ongoing" class="control-label"></label>
+                <input asp-for="uspot_repair_ongoing" class="form-check-input" />
+                <span asp-validation-for="uspot_repair_ongoing" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="uspot_repair_completed" class="control-label"></label>
+                <input asp-for="uspot_repair_completed" class="form-check-input" />
+                <span asp-validation-for="uspot_repair_completed" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="uspot_replace" class="control-label"></label>
+                <input asp-for="uspot_replace" class="form-check-input" />
+                <span asp-validation-for="uspot_replace" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="uspot_replace_arrived" class="control-label"></label>
+                <input asp-for="uspot_replace_arrived" class="form-check-input" />
+                <span asp-validation-for="uspot_replace_arrived" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="uspot_replace_setup" class="control-label"></label>
+                <input asp-for="uspot_replace_setup" class="form-check-input" />
+                <span asp-validation-for="uspot_replace_setup" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="uspot_replace_unitmoved" class="control-label"></label>
+                <input asp-for="uspot_replace_unitmoved" class="form-check-input" />
+                <span asp-validation-for="uspot_replace_unitmoved" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="uspot_replace_completed" class="control-label"></label>
+                <input asp-for="uspot_replace_completed" class="form-check-input" />
+                <span asp-validation-for="uspot_replace_completed" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="uspot_rev_door" class="control-label"></label>
+                <input asp-for="uspot_rev_door" class="form-check-input" />
+                <span asp-validation-for="uspot_rev_door" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="uspot_rev_window" class="control-label"></label>
+                <input asp-for="uspot_rev_window" class="form-check-input" />
+                <span asp-validation-for="uspot_rev_window" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="uspot_rev_garagedoor" class="control-label"></label>
+                <input asp-for="uspot_rev_garagedoor" class="form-check-input" />
+                <span asp-validation-for="uspot_rev_garagedoor" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="uspot_rev_glass" class="control-label"></label>
+                <input asp-for="uspot_rev_glass" class="form-check-input" />
+                <span asp-validation-for="uspot_rev_glass" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="uspot_rev_locks" class="control-label"></label>
+                <input asp-for="uspot_rev_locks" class="form-check-input" />
+                <span asp-validation-for="uspot_rev_locks" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="uspot_rev_other" class="control-label"></label>
+                <input asp-for="uspot_rev_other" class="form-check-input" />
+                <span asp-validation-for="uspot_rev_other" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="uspot_revb_upvc" class="control-label"></label>
+                <input asp-for="uspot_revb_upvc" class="form-check-input" />
+                <span asp-validation-for="uspot_revb_upvc" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="uspot_revb_ali" class="control-label"></label>
+                <input asp-for="uspot_revb_ali" class="form-check-input" />
+                <span asp-validation-for="uspot_revb_ali" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="uspot_revb_timber" class="control-label"></label>
+                <input asp-for="uspot_revb_timber" class="form-check-input" />
+                <span asp-validation-for="uspot_revb_timber" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="uspot_revb_other" class="control-label"></label>
+                <input asp-for="uspot_revb_other" class="form-check-input" />
+                <span asp-validation-for="uspot_revb_other" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="uspot_appearence" class="control-label"></label>
+                <input asp-for="uspot_appearence" class="form-control" />
+                <span asp-validation-for="uspot_appearence" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="name1" class="control-label"></label>
+                <input asp-for="name1" class="form-control" />
+                <span asp-validation-for="name1" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="name2" class="control-label"></label>
+                <input asp-for="name2" class="form-control" />
+                <span asp-validation-for="name2" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="safety_boots_worn1" class="control-label"></label>
+                <input asp-for="safety_boots_worn1" class="form-check-input" />
+                <span asp-validation-for="safety_boots_worn1" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="safety_gloves_worn1" class="control-label"></label>
+                <input asp-for="safety_gloves_worn1" class="form-check-input" />
+                <span asp-validation-for="safety_gloves_worn1" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="safety_googles_worn1" class="control-label"></label>
+                <input asp-for="safety_googles_worn1" class="form-check-input" />
+                <span asp-validation-for="safety_googles_worn1" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="safety_helmet_worn1" class="control-label"></label>
+                <input asp-for="safety_helmet_worn1" class="form-check-input" />
+                <span asp-validation-for="safety_helmet_worn1" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="wristguards_worn1" class="control-label"></label>
+                <input asp-for="wristguards_worn1" class="form-check-input" />
+                <span asp-validation-for="wristguards_worn1" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="uniform_worn_complete1" class="control-label"></label>
+                <input asp-for="uniform_worn_complete1" class="form-check-input" />
+                <span asp-validation-for="uniform_worn_complete1" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="id_card_available1" class="control-label"></label>
+                <input asp-for="id_card_available1" class="form-check-input" />
+                <span asp-validation-for="id_card_available1" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="safety_boots_worn2" class="control-label"></label>
+                <input asp-for="safety_boots_worn2" class="form-check-input" />
+                <span asp-validation-for="safety_boots_worn2" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="safety_gloves_worn2" class="control-label"></label>
+                <input asp-for="safety_gloves_worn2" class="form-check-input" />
+                <span asp-validation-for="safety_gloves_worn2" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="safety_googles_worn2" class="control-label"></label>
+                <input asp-for="safety_googles_worn2" class="form-check-input" />
+                <span asp-validation-for="safety_googles_worn2" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="safety_helmet_worn2" class="control-label"></label>
+                <input asp-for="safety_helmet_worn2" class="form-check-input" />
+                <span asp-validation-for="safety_helmet_worn2" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="wristguards_worn2" class="control-label"></label>
+                <input asp-for="wristguards_worn2" class="form-check-input" />
+                <span asp-validation-for="wristguards_worn2" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="uniform_worn_complete2" class="control-label"></label>
+                <input asp-for="uniform_worn_complete2" class="form-check-input" />
+                <span asp-validation-for="uniform_worn_complete2" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="id_card_available2" class="control-label"></label>
+                <input asp-for="id_card_available2" class="form-check-input" />
+                <span asp-validation-for="id_card_available2" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="chemicals_stored_correctly" class="control-label"></label>
+                <input asp-for="chemicals_stored_correctly" class="form-check-input" />
+                <span asp-validation-for="chemicals_stored_correctly" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="are_sheets_available" class="control-label"></label>
+                <input asp-for="are_sheets_available" class="form-check-input" />
+                <span asp-validation-for="are_sheets_available" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="area_above_been_checked" class="control-label"></label>
+                <input asp-for="area_above_been_checked" class="form-check-input" />
+                <span asp-validation-for="area_above_been_checked" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="obstructions_checked" class="control-label"></label>
+                <input asp-for="obstructions_checked" class="form-check-input" />
+                <span asp-validation-for="obstructions_checked" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="lintel_ok" class="control-label"></label>
+                <input asp-for="lintel_ok" class="form-check-input" />
+                <span asp-validation-for="lintel_ok" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="ladders_secure" class="control-label"></label>
+                <input asp-for="ladders_secure" class="form-check-input" />
+                <span asp-validation-for="ladders_secure" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="safe_work_at_height" class="control-label"></label>
+                <input asp-for="safe_work_at_height" class="form-check-input" />
+                <span asp-validation-for="safe_work_at_height" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="condition_of_ladders" class="control-label"></label>
+                <input asp-for="condition_of_ladders" class="form-check-input" />
+                <span asp-validation-for="condition_of_ladders" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="tools_set_out_safely" class="control-label"></label>
+                <input asp-for="tools_set_out_safely" class="form-check-input" />
+                <span asp-validation-for="tools_set_out_safely" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="fire_extinguisher_on_van" class="control-label"></label>
+                <input asp-for="fire_extinguisher_on_van" class="form-check-input" />
+                <span asp-validation-for="fire_extinguisher_on_van" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="first_aid_kit_on_van" class="control-label"></label>
+                <input asp-for="first_aid_kit_on_van" class="form-check-input" />
+                <span asp-validation-for="first_aid_kit_on_van" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="electrical_equipment_tested" class="control-label"></label>
+                <input asp-for="electrical_equipment_tested" class="form-check-input" />
+                <span asp-validation-for="electrical_equipment_tested" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="safety_boots_worn1_s" class="control-label"></label>
+                <input asp-for="safety_boots_worn1_s" class="form-control" />
+                <span asp-validation-for="safety_boots_worn1_s" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="safety_gloves_worn1_s" class="control-label"></label>
+                <input asp-for="safety_gloves_worn1_s" class="form-control" />
+                <span asp-validation-for="safety_gloves_worn1_s" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="safety_googles_worn1_s" class="control-label"></label>
+                <input asp-for="safety_googles_worn1_s" class="form-control" />
+                <span asp-validation-for="safety_googles_worn1_s" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="safety_helmet_worn1_s" class="control-label"></label>
+                <input asp-for="safety_helmet_worn1_s" class="form-control" />
+                <span asp-validation-for="safety_helmet_worn1_s" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="wristguards_worn1_s" class="control-label"></label>
+                <input asp-for="wristguards_worn1_s" class="form-control" />
+                <span asp-validation-for="wristguards_worn1_s" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="uniform_worn_complete1_s" class="control-label"></label>
+                <input asp-for="uniform_worn_complete1_s" class="form-control" />
+                <span asp-validation-for="uniform_worn_complete1_s" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="id_card_available1_s" class="control-label"></label>
+                <input asp-for="id_card_available1_s" class="form-control" />
+                <span asp-validation-for="id_card_available1_s" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="safety_boots_worn2_s" class="control-label"></label>
+                <input asp-for="safety_boots_worn2_s" class="form-control" />
+                <span asp-validation-for="safety_boots_worn2_s" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="safety_gloves_worn2_s" class="control-label"></label>
+                <input asp-for="safety_gloves_worn2_s" class="form-control" />
+                <span asp-validation-for="safety_gloves_worn2_s" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="safety_googles_worn2_s" class="control-label"></label>
+                <input asp-for="safety_googles_worn2_s" class="form-control" />
+                <span asp-validation-for="safety_googles_worn2_s" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="safety_helmet_worn2_s" class="control-label"></label>
+                <input asp-for="safety_helmet_worn2_s" class="form-control" />
+                <span asp-validation-for="safety_helmet_worn2_s" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="wristguards_worn2_s" class="control-label"></label>
+                <input asp-for="wristguards_worn2_s" class="form-control" />
+                <span asp-validation-for="wristguards_worn2_s" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="uniform_worn_complete2_s" class="control-label"></label>
+                <input asp-for="uniform_worn_complete2_s" class="form-control" />
+                <span asp-validation-for="uniform_worn_complete2_s" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="id_card_available2_s" class="control-label"></label>
+                <input asp-for="id_card_available2_s" class="form-control" />
+                <span asp-validation-for="id_card_available2_s" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="chemicals_stored_correctly_s" class="control-label"></label>
+                <input asp-for="chemicals_stored_correctly_s" class="form-control" />
+                <span asp-validation-for="chemicals_stored_correctly_s" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="are_sheets_available_s" class="control-label"></label>
+                <input asp-for="are_sheets_available_s" class="form-control" />
+                <span asp-validation-for="are_sheets_available_s" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="area_above_been_checked_s" class="control-label"></label>
+                <input asp-for="area_above_been_checked_s" class="form-control" />
+                <span asp-validation-for="area_above_been_checked_s" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="obstructions_checked_s" class="control-label"></label>
+                <input asp-for="obstructions_checked_s" class="form-control" />
+                <span asp-validation-for="obstructions_checked_s" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="lintel_ok_s" class="control-label"></label>
+                <input asp-for="lintel_ok_s" class="form-control" />
+                <span asp-validation-for="lintel_ok_s" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="ladders_secure_s" class="control-label"></label>
+                <input asp-for="ladders_secure_s" class="form-control" />
+                <span asp-validation-for="ladders_secure_s" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="safe_work_at_height_s" class="control-label"></label>
+                <input asp-for="safe_work_at_height_s" class="form-control" />
+                <span asp-validation-for="safe_work_at_height_s" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="condition_of_ladders_s" class="control-label"></label>
+                <input asp-for="condition_of_ladders_s" class="form-control" />
+                <span asp-validation-for="condition_of_ladders_s" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="tools_set_out_safely_s" class="control-label"></label>
+                <input asp-for="tools_set_out_safely_s" class="form-control" />
+                <span asp-validation-for="tools_set_out_safely_s" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="fire_extinguisher_on_van_s" class="control-label"></label>
+                <input asp-for="fire_extinguisher_on_van_s" class="form-control" />
+                <span asp-validation-for="fire_extinguisher_on_van_s" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="first_aid_kit_on_van_s" class="control-label"></label>
+                <input asp-for="first_aid_kit_on_van_s" class="form-control" />
+                <span asp-validation-for="first_aid_kit_on_van_s" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="electrical_equipment_tested_s" class="control-label"></label>
+                <input asp-for="electrical_equipment_tested_s" class="form-control" />
+                <span asp-validation-for="electrical_equipment_tested_s" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="comments" class="control-label"></label>
+                <input asp-for="comments" class="form-control" />
+                <span asp-validation-for="comments" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
