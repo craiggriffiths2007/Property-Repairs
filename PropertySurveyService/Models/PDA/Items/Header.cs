@@ -1102,7 +1102,8 @@ namespace PropertySurveyService.Models
         [DisplayName("Globaldoor Link")]
         public string global_door_link { get; set; } = "";
 
-
+        [DisplayName("Tower Scaffold")]
+        public bool? isTowerScaff { get; set; }
     }
 
 }
