@@ -34,11 +34,21 @@ namespace PropertySurveyService.Models
         public string Instructions { get; set; } = "";
 
 
+        public int no_of_photos { get; set; }
+        public int uspot_appearence { get; set; }
+
+        public string uspot_appearence_improvements { get; set; } = string.Empty;
 
         public int uspot_qualityofworks { get; set; }
-        public string uspot_appearence_improvements { get; set; } = string.Empty;
+
         public string uspot_qualityofworks_improvements { get; set; } = string.Empty;
+
+        public int uspot_customersatisfaction { get; set; }
+
         public string uspot_customersatisfaction_improvements { get; set; } = string.Empty;
+
+
+
         public string uspot_otherobservations { get; set; } = string.Empty;
         public string uspot_fitter { get; set; } = string.Empty;
         public string uspot_trainee { get; set; } = string.Empty;
@@ -49,7 +59,7 @@ namespace PropertySurveyService.Models
         public string uspot_insuranceco { get; set; } = string.Empty;
         public string uspot_branch { get; set; } = string.Empty;
 
-        public int uspot_customersatisfaction { get; set; }
+
         public string uspot_customersatisfaction_improvementsOld { get; set; } = string.Empty;
         public string uspot_otherobservationsOld { get; set; } = string.Empty;
         public bool uspot_signed { get; set; }
@@ -61,27 +71,29 @@ namespace PropertySurveyService.Models
         public int uspot_p3 { get; set; }
         public int uspot_p4 { get; set; }
 
-        public bool uspot_repair { get; set; }
-        public bool uspot_repair_arrived { get; set; }
-        public bool uspot_repair_setup { get; set; }
-        public bool uspot_repair_ongoing { get; set; }
-        public bool uspot_repair_completed { get; set; }
-        public bool uspot_replace { get; set; }
-        public bool uspot_replace_arrived { get; set; }
-        public bool uspot_replace_setup { get; set; }
-        public bool uspot_replace_unitmoved { get; set; }
-        public bool uspot_replace_completed { get; set; }
-        public bool uspot_rev_door { get; set; }
-        public bool uspot_rev_window { get; set; }
-        public bool uspot_rev_garagedoor { get; set; }
-        public bool uspot_rev_glass { get; set; }
-        public bool uspot_rev_locks { get; set; }
-        public bool uspot_rev_other { get; set; }
-        public bool uspot_revb_upvc { get; set; }
-        public bool uspot_revb_ali { get; set; }
-        public bool uspot_revb_timber { get; set; }
-        public bool uspot_revb_other { get; set; }
-        public int uspot_appearence { get; set; }
+        public bool? still_on_site { get; set; }
+
+        public bool? uspot_repair { get; set; }
+        public bool? uspot_repair_arrived { get; set; }
+        public bool? uspot_repair_setup { get; set; }
+        public bool? uspot_repair_ongoing { get; set; }
+        public bool? uspot_repair_completed { get; set; }
+        public bool? uspot_replace { get; set; }
+        public bool? uspot_replace_arrived { get; set; }
+        public bool? uspot_replace_setup { get; set; }
+        public bool? uspot_replace_unitmoved { get; set; }
+        public bool? uspot_replace_completed { get; set; }
+        public bool? uspot_rev_door { get; set; }
+        public bool? uspot_rev_window { get; set; }
+        public bool? uspot_rev_garagedoor { get; set; }
+        public bool? uspot_rev_glass { get; set; }
+        public bool? uspot_rev_locks { get; set; }
+        public bool? uspot_rev_other { get; set; }
+        public bool? uspot_revb_upvc { get; set; }
+        public bool? uspot_revb_ali { get; set; }
+        public bool? uspot_revb_timber { get; set; }
+        public bool? uspot_revb_other { get; set; }
+
 
 
 

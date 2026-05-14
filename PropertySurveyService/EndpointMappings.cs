@@ -60,6 +60,22 @@ namespace PropertySurveyService
                 return Results.Ok(new { status = "success" });
             });
 
+            app.MapPost("/GetSpotCheckJobInfo", (GetDataDTO gs, AppDBContext db) =>
+            {
+                var agent = db.Agent.FirstOrDefault(x => x.Code == gs.AgentCode);
+
+                if (agent == null)
+                    return Task.FromResult<IResult>(Results.BadRequest(new { ReasonPhrase = "Agent Code Not Found : " + gs.AgentCode }));
+
+                var job = db.Job
+                    .Where(x => x.AgentId == agent.Id && x.ContractCode == gs.contract_number && x.Date >= DateTime.Today)
+                    .FirstOrDefault();
+
+                JobDTO send_data = new JobDTO(job ?? new Job(), db.Customer.FirstOrDefault<Customer>(x => x.Id == job.CustomerId) ?? new Customer());
+
+                return Task.FromResult<IResult>(Results.Ok(send_data));
+            });
+
             app.MapPost("/SendMileageSheets", async (List<MileageSheet> milageSheets, AppDBContext db) =>
             {
                 foreach (var sheet in milageSheets)
@@ -237,21 +253,7 @@ namespace PropertySurveyService
                 return Task.FromResult<IResult>(Results.Ok(send_jobs));
             });
 
-            app.MapPost("/GetSpotCheckJobInfo", (GetDataDTO gs, AppDBContext db) =>
-            {
-                var agent = db.Agent.FirstOrDefault(x => x.Code == gs.AgentCode);
 
-                if (agent == null)
-                    return Task.FromResult<IResult>(Results.BadRequest(new { ReasonPhrase = "Agent Code Not Found : " + gs.AgentCode }));
-
-                var job = db.Job
-                    .Where(x => x.AgentId == agent.Id && x.ContractCode == gs.contract_number && x.Date >= DateTime.Today)
-                    .FirstOrDefault();
-
-                JobDTO send_data = new JobDTO(job?? new Job(), db.Customer.FirstOrDefault<Customer>(x => x.Id == job.CustomerId) ?? new Customer());
-
-                return Task.FromResult<IResult>(Results.Ok(send_data));
-            });
 
 
             app.MapPost("/GetImage", (GetDataDTO gs, AppDBContext db) =>
