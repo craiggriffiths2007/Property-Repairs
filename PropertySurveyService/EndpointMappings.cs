@@ -69,7 +69,7 @@ namespace PropertySurveyService
 
                 var job = db.Job
                     .Where(x => x.AgentId == agent.Id && x.ContractCode == gs.contract_number && x.Date >= DateTime.Today)
-                    .FirstOrDefault();
+                    .FirstOrDefault()?? new Job();
 
                 JobDTO send_data = new JobDTO(job ?? new Job(), db.Customer.FirstOrDefault<Customer>(x => x.Id == job.CustomerId) ?? new Customer());
 

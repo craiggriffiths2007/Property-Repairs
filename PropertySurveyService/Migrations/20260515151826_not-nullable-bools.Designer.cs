@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PropertySurveyService.Data;
 
@@ -11,9 +12,11 @@ using PropertySurveyService.Data;
 namespace PropertySurveyService.Migrations
 {
     [DbContext(typeof(AppDBContext))]
-    partial class AppDBContextModelSnapshot : ModelSnapshot
+    [Migration("20260515151826_not-nullable-bools")]
+    partial class notnullablebools
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -6139,14 +6142,14 @@ namespace PropertySurveyService.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool>("are_sheets_available")
+                    b.Property<bool?>("are_sheets_available")
                         .HasColumnType("bit");
 
                     b.Property<string>("are_sheets_available_s")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool>("area_above_been_checked")
+                    b.Property<bool?>("area_above_been_checked")
                         .HasColumnType("bit");
 
                     b.Property<string>("area_above_been_checked_s")
@@ -6166,7 +6169,7 @@ namespace PropertySurveyService.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool>("chemicals_stored_correctly")
+                    b.Property<bool?>("chemicals_stored_correctly")
                         .HasColumnType("bit");
 
                     b.Property<string>("chemicals_stored_correctly_s")
@@ -6177,7 +6180,7 @@ namespace PropertySurveyService.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool>("condition_of_ladders")
+                    b.Property<bool?>("condition_of_ladders")
                         .HasColumnType("bit");
 
                     b.Property<string>("condition_of_ladders_s")
@@ -6188,49 +6191,49 @@ namespace PropertySurveyService.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool>("electrical_equipment_tested")
+                    b.Property<bool?>("electrical_equipment_tested")
                         .HasColumnType("bit");
 
                     b.Property<string>("electrical_equipment_tested_s")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool>("fire_extinguisher_on_van")
+                    b.Property<bool?>("fire_extinguisher_on_van")
                         .HasColumnType("bit");
 
                     b.Property<string>("fire_extinguisher_on_van_s")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool>("first_aid_kit_on_van")
+                    b.Property<bool?>("first_aid_kit_on_van")
                         .HasColumnType("bit");
 
                     b.Property<string>("first_aid_kit_on_van_s")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool>("id_card_available1")
+                    b.Property<bool?>("id_card_available1")
                         .HasColumnType("bit");
 
                     b.Property<string>("id_card_available1_s")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool>("id_card_available2")
+                    b.Property<bool?>("id_card_available2")
                         .HasColumnType("bit");
 
                     b.Property<string>("id_card_available2_s")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool>("ladders_secure")
+                    b.Property<bool?>("ladders_secure")
                         .HasColumnType("bit");
 
                     b.Property<string>("ladders_secure_s")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool>("lintel_ok")
+                    b.Property<bool?>("lintel_ok")
                         .HasColumnType("bit");
 
                     b.Property<string>("lintel_ok_s")
@@ -6248,80 +6251,80 @@ namespace PropertySurveyService.Migrations
                     b.Property<int>("no_of_photos")
                         .HasColumnType("int");
 
-                    b.Property<bool>("obstructions_checked")
+                    b.Property<bool?>("obstructions_checked")
                         .HasColumnType("bit");
 
                     b.Property<string>("obstructions_checked_s")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool>("safe_work_at_height")
+                    b.Property<bool?>("safe_work_at_height")
                         .HasColumnType("bit");
 
                     b.Property<string>("safe_work_at_height_s")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool>("safety_boots_worn1")
+                    b.Property<bool?>("safety_boots_worn1")
                         .HasColumnType("bit");
 
                     b.Property<string>("safety_boots_worn1_s")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool>("safety_boots_worn2")
+                    b.Property<bool?>("safety_boots_worn2")
                         .HasColumnType("bit");
 
                     b.Property<string>("safety_boots_worn2_s")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool>("safety_gloves_worn1")
+                    b.Property<bool?>("safety_gloves_worn1")
                         .HasColumnType("bit");
 
                     b.Property<string>("safety_gloves_worn1_s")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool>("safety_gloves_worn2")
+                    b.Property<bool?>("safety_gloves_worn2")
                         .HasColumnType("bit");
 
                     b.Property<string>("safety_gloves_worn2_s")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool>("safety_googles_worn1")
+                    b.Property<bool?>("safety_googles_worn1")
                         .HasColumnType("bit");
 
                     b.Property<string>("safety_googles_worn1_s")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool>("safety_googles_worn2")
+                    b.Property<bool?>("safety_googles_worn2")
                         .HasColumnType("bit");
 
                     b.Property<string>("safety_googles_worn2_s")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool>("safety_helmet_worn1")
+                    b.Property<bool?>("safety_helmet_worn1")
                         .HasColumnType("bit");
 
                     b.Property<string>("safety_helmet_worn1_s")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool>("safety_helmet_worn2")
+                    b.Property<bool?>("safety_helmet_worn2")
                         .HasColumnType("bit");
 
                     b.Property<string>("safety_helmet_worn2_s")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool>("still_on_site")
+                    b.Property<bool?>("still_on_site")
                         .HasColumnType("bit");
 
-                    b.Property<bool>("tools_set_out_safely")
+                    b.Property<bool?>("tools_set_out_safely")
                         .HasColumnType("bit");
 
                     b.Property<string>("tools_set_out_safely_s")
@@ -6332,14 +6335,14 @@ namespace PropertySurveyService.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool>("uniform_worn_complete1")
+                    b.Property<bool?>("uniform_worn_complete1")
                         .HasColumnType("bit");
 
                     b.Property<string>("uniform_worn_complete1_s")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool>("uniform_worn_complete2")
+                    b.Property<bool?>("uniform_worn_complete2")
                         .HasColumnType("bit");
 
                     b.Property<string>("uniform_worn_complete2_s")
@@ -6415,67 +6418,67 @@ namespace PropertySurveyService.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool>("uspot_repair")
+                    b.Property<bool?>("uspot_repair")
                         .HasColumnType("bit");
 
-                    b.Property<bool>("uspot_repair_arrived")
+                    b.Property<bool?>("uspot_repair_arrived")
                         .HasColumnType("bit");
 
-                    b.Property<bool>("uspot_repair_completed")
+                    b.Property<bool?>("uspot_repair_completed")
                         .HasColumnType("bit");
 
-                    b.Property<bool>("uspot_repair_ongoing")
+                    b.Property<bool?>("uspot_repair_ongoing")
                         .HasColumnType("bit");
 
-                    b.Property<bool>("uspot_repair_setup")
+                    b.Property<bool?>("uspot_repair_setup")
                         .HasColumnType("bit");
 
-                    b.Property<bool>("uspot_replace")
+                    b.Property<bool?>("uspot_replace")
                         .HasColumnType("bit");
 
-                    b.Property<bool>("uspot_replace_arrived")
+                    b.Property<bool?>("uspot_replace_arrived")
                         .HasColumnType("bit");
 
-                    b.Property<bool>("uspot_replace_completed")
+                    b.Property<bool?>("uspot_replace_completed")
                         .HasColumnType("bit");
 
                     b.Property<bool>("uspot_replace_fit")
                         .HasColumnType("bit");
 
-                    b.Property<bool>("uspot_replace_setup")
+                    b.Property<bool?>("uspot_replace_setup")
                         .HasColumnType("bit");
 
-                    b.Property<bool>("uspot_replace_unitmoved")
+                    b.Property<bool?>("uspot_replace_unitmoved")
                         .HasColumnType("bit");
 
-                    b.Property<bool>("uspot_rev_door")
+                    b.Property<bool?>("uspot_rev_door")
                         .HasColumnType("bit");
 
-                    b.Property<bool>("uspot_rev_garagedoor")
+                    b.Property<bool?>("uspot_rev_garagedoor")
                         .HasColumnType("bit");
 
-                    b.Property<bool>("uspot_rev_glass")
+                    b.Property<bool?>("uspot_rev_glass")
                         .HasColumnType("bit");
 
-                    b.Property<bool>("uspot_rev_locks")
+                    b.Property<bool?>("uspot_rev_locks")
                         .HasColumnType("bit");
 
-                    b.Property<bool>("uspot_rev_other")
+                    b.Property<bool?>("uspot_rev_other")
                         .HasColumnType("bit");
 
-                    b.Property<bool>("uspot_rev_window")
+                    b.Property<bool?>("uspot_rev_window")
                         .HasColumnType("bit");
 
-                    b.Property<bool>("uspot_revb_ali")
+                    b.Property<bool?>("uspot_revb_ali")
                         .HasColumnType("bit");
 
-                    b.Property<bool>("uspot_revb_other")
+                    b.Property<bool?>("uspot_revb_other")
                         .HasColumnType("bit");
 
-                    b.Property<bool>("uspot_revb_timber")
+                    b.Property<bool?>("uspot_revb_timber")
                         .HasColumnType("bit");
 
-                    b.Property<bool>("uspot_revb_upvc")
+                    b.Property<bool?>("uspot_revb_upvc")
                         .HasColumnType("bit");
 
                     b.Property<bool>("uspot_signed")
@@ -6489,14 +6492,14 @@ namespace PropertySurveyService.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool>("wristguards_worn1")
+                    b.Property<bool?>("wristguards_worn1")
                         .HasColumnType("bit");
 
                     b.Property<string>("wristguards_worn1_s")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool>("wristguards_worn2")
+                    b.Property<bool?>("wristguards_worn2")
                         .HasColumnType("bit");
 
                     b.Property<string>("wristguards_worn2_s")

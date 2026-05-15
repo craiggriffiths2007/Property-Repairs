@@ -140,19 +140,19 @@ namespace PropertySurveyService.Models
         // --- Tyre Pressures ---
 
         [DisplayName("Tyre Pressure - Passenger Front")]
-        public bool? pressure_passenger_front { get; set; }
+        public bool pressure_passenger_front { get; set; }
 
         [DisplayName("Tyre Pressure - Passenger Rear")]
-        public bool? pressure_passenger_rear { get; set; }
+        public bool pressure_passenger_rear { get; set; }
 
         [DisplayName("Tyre Pressure - Driver Front")]
-        public bool? pressure_driver_front { get; set; }
+        public bool pressure_driver_front { get; set; }
 
         [DisplayName("Tyre Pressure - Driver Rear")]
-        public bool? pressure_driver_rear { get; set; }
+        public bool pressure_driver_rear { get; set; }
 
         [DisplayName("Tyre Pressure - Spare")]
-        public bool? pressure_spare { get; set; }
+        public bool pressure_spare { get; set; }
 
 
         // --- Tyre Pressure Notes / Serial Numbers ---
@@ -225,154 +225,154 @@ namespace PropertySurveyService.Models
         public int Id { get; set; }
 
         [DisplayName("National Tyres Card")]
-        public bool? national_tyres_card { get; set; }
+        public bool national_tyres_card { get; set; }
 
         [DisplayName("FMG Support Sticker")]
-        public bool? fmg_support_sticker { get; set; }
+        public bool fmg_support_sticker { get; set; }
 
         [DisplayName("Fuel Card")]
-        public bool? fuel_card { get; set; }
+        public bool fuel_card { get; set; }
 
         [DisplayName("Clean External")]
-        public bool? clean_external { get; set; }
+        public bool clean_external { get; set; }
 
         [DisplayName("Clean Internal")]
-        public bool? clean_internal { get; set; }
+        public bool clean_internal { get; set; }
 
         [DisplayName("Fan Belt")]
-        public bool? fan_belt { get; set; }
+        public bool fan_belt { get; set; }
 
         [DisplayName("Fire Extinguisher")]
-        public bool? fire_extinguisher { get; set; }
+        public bool fire_extinguisher { get; set; }
 
         [DisplayName("First Aid Box")]
-        public bool? first_aid_box { get; set; }
+        public bool first_aid_box { get; set; }
 
         [DisplayName("Horn (Cab)")]
-        public bool? horn { get; set; }
+        public bool horn { get; set; }
 
         [DisplayName("Oil & Water Checked")]
-        public bool? oil_and_water_checked { get; set; }
+        public bool oil_and_water_checked { get; set; }
 
         [DisplayName("Accident Pack")]
-        public bool? accident_pack { get; set; }
+        public bool accident_pack { get; set; }
 
         [DisplayName("Portable Lighting")]
-        public bool? portable_lighting { get; set; }
+        public bool portable_lighting { get; set; }
 
         [DisplayName("AdBlue Level Checked")]
-        public bool? ad_blue_level_check { get; set; }
+        public bool ad_blue_level_check { get; set; }
 
         [DisplayName("Racks & Poles")]
-        public bool? racks_and_poles { get; set; }
+        public bool racks_and_poles { get; set; }
 
         [DisplayName("Ratchet Straps")]
-        public bool? ratchet_straps { get; set; }
+        public bool ratchet_straps { get; set; }
 
         [DisplayName("Service Due Sticker")]
-        public bool? service_due_sticker { get; set; }
+        public bool service_due_sticker { get; set; }
 
         [DisplayName("No Smoking Sticker")]
-        public bool? no_smoking_sticker { get; set; }
+        public bool no_smoking_sticker { get; set; }
 
         [DisplayName("Spare Oil")]
-        public bool? spare_oil { get; set; }
+        public bool spare_oil { get; set; }
 
         [DisplayName("Coolant & Anti-freeze")]
-        public bool? coolant_anti_freez { get; set; }
+        public bool coolant_anti_freez { get; set; }
 
         [DisplayName("Tyre Pressure")]
-        public bool? tyre_pressure { get; set; }
+        public bool tyre_pressure { get; set; }
 
         [DisplayName("Van Height Sticker")]
-        public bool? van_height_sticker { get; set; }
+        public bool van_height_sticker { get; set; }
 
         [DisplayName("Van Locks")]
-        public bool? van_locks { get; set; }
+        public bool van_locks { get; set; }
 
         [DisplayName("Wheel Nut Check Sticker")]
-        public bool? wheel_nut_check_sticker { get; set; }
+        public bool wheel_nut_check_sticker { get; set; }
 
         [DisplayName("Windscreen Washer")]
-        public bool? windscreen_washer { get; set; }
+        public bool windscreen_washer { get; set; }
 
         [DisplayName("Fuel & Oil Leaks")]
-        public bool? fuel_oil_leaks { get; set; }
+        public bool fuel_oil_leaks { get; set; }
 
         [DisplayName("Battery Security & Condition")]
-        public bool? battery_security_condition { get; set; }
+        public bool battery_security_condition { get; set; }
 
         [DisplayName("Tyres & Wheel Fixing")]
-        public bool? tyres_and_wheel_fixing { get; set; }
+        public bool tyres_and_wheel_fixing { get; set; }
 
         [DisplayName("Spray Suppression")]
-        public bool? spray_suppression { get; set; }
+        public bool spray_suppression { get; set; }
 
         [DisplayName("Steering")]
-        public bool? steering { get; set; }
+        public bool steering { get; set; }
 
         [DisplayName("Security of Load")]
-        public bool? security_of_load { get; set; }
+        public bool security_of_load { get; set; }
 
         [DisplayName("Mirrors")]
-        public bool? mirrors { get; set; }
+        public bool mirrors { get; set; }
 
         [DisplayName("Lights")]
-        public bool? lights { get; set; }
+        public bool lights { get; set; }
 
         [DisplayName("Reflectors")]
-        public bool? reflectors { get; set; }
+        public bool reflectors { get; set; }
 
         [DisplayName("Indicators")]
-        public bool? inducators { get; set; }
+        public bool inducators { get; set; }
 
         [DisplayName("Wipers")]
-        public bool? wipers { get; set; }
+        public bool wipers { get; set; }
 
         [DisplayName("Washers")]
-        public bool? washers { get; set; }
+        public bool washers { get; set; }
 
         [DisplayName("Horn (Compliance)")]
-        public bool? horn_comp { get; set; }
+        public bool horn_comp { get; set; }
 
         [DisplayName("Excessive Exhaust Smoke")]
-        public bool? excessive_exhaust_smoke { get; set; }
+        public bool excessive_exhaust_smoke { get; set; }
 
         [DisplayName("Brakes")]
-        public bool? brakes { get; set; }
+        public bool brakes { get; set; }
 
         [DisplayName("Security of Body")]
-        public bool? security_of_body { get; set; }
+        public bool security_of_body { get; set; }
 
         [DisplayName("Markers")]
-        public bool? markers { get; set; }
+        public bool markers { get; set; }
 
         [DisplayName("Glass & Windscreen")]
-        public bool? glass_windscreen { get; set; }
+        public bool glass_windscreen { get; set; }
 
         [DisplayName("Receipt Book")]
-        public bool? receipt_book { get; set; }
+        public bool receipt_book { get; set; }
 
         [DisplayName("Keys for Branches (Sat)")]
-        public bool? keys_for_branches_sat { get; set; }
+        public bool keys_for_branches_sat { get; set; }
 
         [DisplayName("PDA, Phone & Accident Pack")]
-        public bool? pda_phone_accident_pack { get; set; }
+        public bool pda_phone_accident_pack { get; set; }
 
         [DisplayName("Trade Invoices")]
-        public bool? trade_invoices { get; set; }
+        public bool trade_invoices { get; set; }
 
         [DisplayName("Blue Bags")]
-        public bool? blue_bags { get; set; }
+        public bool blue_bags { get; set; }
 
         [DisplayName("Delivery Lists")]
-        public bool? delivery_lists { get; set; }
+        public bool delivery_lists { get; set; }
 
         [DisplayName("Collection Lists")]
-        public bool? collection_lists { get; set; }
+        public bool collection_lists { get; set; }
 
         [DisplayName("Trade Delivery Notes")]
-        public bool? trade_delivery_notes { get; set; }
+        public bool trade_delivery_notes { get; set; }
 
         [DisplayName("Reported Defects")]
         public string report_defects { get; set; } = "";
@@ -381,12 +381,12 @@ namespace PropertySurveyService.Models
         public string date_signed { get; set; } = "";
 
         [DisplayName("Loading Area Good Condition")]
-        public bool? loading_storage { get; set; }// No of additional photos
+        public bool loading_storage { get; set; }// No of additional photos
         [DisplayName("Reason Loading Area Not Good Condition")]
         public string loading_storage_s { get; set; } = "";
 
         [DisplayName("Shell Fuel Card")]
-        public bool? shell_fuel_card { get; set; }
+        public bool shell_fuel_card { get; set; }
 
         public VehicleCheckVehicle AsVehicleCheckVehicle() { return new VehicleCheckVehicle(Id, enum_vehicle_type.delivery_hgv); }
     }
@@ -395,71 +395,71 @@ namespace PropertySurveyService.Models
         [DisplayName("Id")]
         public int Id { get; set; }
         [DisplayName("ATS Card")]
-        public bool? ats_card { get; set; }
+        public bool ats_card { get; set; }
         [DisplayName("Bodywork Check")]
-        public bool? bodywork_check { get; set; }
+        public bool bodywork_check { get; set; }
         [DisplayName("Breakdown Card")]
-        public bool? breakdown_card { get; set; }
+        public bool breakdown_card { get; set; }
         [DisplayName("Clean External")]
-        public bool? clean_external { get; set; }
+        public bool clean_external { get; set; }
         [DisplayName("Clean Internal")]
-        public bool? clean_internal { get; set; }
+        public bool clean_internal { get; set; }
         [DisplayName("Fan Belt")]
-        public bool? fan_belt { get; set; }
+        public bool fan_belt { get; set; }
         [DisplayName("Fire Extinguisher")]
-        public bool? fire_extinguisher { get; set; }
+        public bool fire_extinguisher { get; set; }
         [DisplayName("First Aid Box")]
-        public bool? first_aid_box { get; set; }
+        public bool first_aid_box { get; set; }
         [DisplayName("Fuel Card")]
-        public bool? fuel_card { get; set; }
+        public bool fuel_card { get; set; }
         [DisplayName("Horn")]
-        public bool? horn { get; set; }
+        public bool horn { get; set; }
         [DisplayName("Jack")]
-        public bool? jack { get; set; }
+        public bool jack { get; set; }
         [DisplayName("Jump Leads")]
-        public bool? jump_leads { get; set; }
+        public bool jump_leads { get; set; }
         [DisplayName("Keys for Branches")]
-        public bool? keys_for_branches { get; set; }
+        public bool keys_for_branches { get; set; }
         [DisplayName("Lights/Indicators")]
-        public bool? lights_inducators { get; set; }
+        public bool lights_inducators { get; set; }
         [DisplayName("Oil/Water Checked")]
-        public bool? oil_water_checked { get; set; }
+        public bool oil_water_checked { get; set; }
         [DisplayName("Racks/Poles")]
-        public bool? racks_poles { get; set; }
+        public bool racks_poles { get; set; }
         [DisplayName("Ratchet Straps")]
-        public bool? ratchet_straps { get; set; }
+        public bool ratchet_straps { get; set; }
         [DisplayName("Receipt Book")]
-        public bool? receipt_book { get; set; }
+        public bool receipt_book { get; set; }
         [DisplayName("Bump Hats")]
-        public bool? bump_hats { get; set; }
+        public bool bump_hats { get; set; }
         [DisplayName("Service Due Sticker")]
-        public bool? service_due_sticker { get; set; }
+        public bool service_due_sticker { get; set; }
         [DisplayName("Spanners for Rack Removal")]
-        public bool? spanners_for_rack_removal { get; set; }
+        public bool spanners_for_rack_removal { get; set; }
         [DisplayName("Spare Oil")]
-        public bool? spare_oil { get; set; }
+        public bool spare_oil { get; set; }
         [DisplayName("Coolant/Antifreeze Mix")]
-        public bool? coolant_anti_freeze_mix { get; set; }
+        public bool coolant_anti_freeze_mix { get; set; }
         [DisplayName("Spare Wheel")]
-        public bool? spare_wheel { get; set; }
+        public bool spare_wheel { get; set; }
         [DisplayName("Tow Ropes")]
-        public bool? tow_ropes { get; set; }
+        public bool tow_ropes { get; set; }
         [DisplayName("Tyre Pressure")]
-        public bool? tyre_pressure { get; set; }
+        public bool tyre_pressure { get; set; }
         [DisplayName("Van Height Sticker")]
-        public bool? van_height_sticker { get; set; }
+        public bool van_height_sticker { get; set; }
         [DisplayName("Van Locks")]
-        public bool? van_locks { get; set; }
+        public bool van_locks { get; set; }
         [DisplayName("Wheel Nut Check Sticker")]
-        public bool? wheel_nut_check_sticker { get; set; }
+        public bool wheel_nut_check_sticker { get; set; }
         [DisplayName("Wheelbrace")]
-        public bool? wheelbrace { get; set; }
+        public bool wheelbrace { get; set; }
         [DisplayName("Windscreen Washer")]
-        public bool? windscreen_washer { get; set; }
+        public bool windscreen_washer { get; set; }
         [DisplayName("PDA/Phone/Accident Pack")]
-        public bool? pda_phone_accident_pack { get; set; }
+        public bool pda_phone_accident_pack { get; set; }
         [DisplayName("Branch Keys")]
-        public bool? branch_keys { get; set; }
+        public bool branch_keys { get; set; }
         [DisplayName("ATS Card (String)")]
         public string ats_card_s { get; set; } = "";
         [DisplayName("Bodywork Check (String)")]
@@ -527,11 +527,11 @@ namespace PropertySurveyService.Models
         [DisplayName("Branch Keys (String)")]
         public string branch_keys_s { get; set; } = "";
         [DisplayName("Loading Area Good Condition")]
-        public bool? loading_storage { get; set; }// No of additional photos
+        public bool loading_storage { get; set; }// No of additional photos
         [DisplayName("Reason Loading Area Not Good Condition")]
         public string loading_storage_s { get; set; } = "";
         [DisplayName("Shell Fuel Card")]
-        public bool? shell_fuel_card { get; set; }
+        public bool shell_fuel_card { get; set; }
         [DisplayName("Shell Fuel Card (string)")]
         public string shell_fuel_card_s { get; set; } = ""; // Shell Fuel Card
 
@@ -544,111 +544,111 @@ namespace PropertySurveyService.Models
         // --- Core Tools & Equipment ---
 
         [DisplayName("Loading Area Good Condition")]
-        public bool? loading_storage { get; set; }// No of additional photos
+        public bool loading_storage { get; set; }// No of additional photos
         [DisplayName("Reason Loading Area Not Good Condition")]
         public string loading_storage_s { get; set; } = "";
 
         [DisplayName("Circuit Breaker")]
-        public bool? circuit_breaker { get; set; }
+        public bool circuit_breaker { get; set; }
 
         [DisplayName("Power Breaker")]
-        public bool? power_breaker { get; set; }
+        public bool power_breaker { get; set; }
 
         [DisplayName("Hammer Drill")]
-        public bool? hammer_drill { get; set; }
+        public bool hammer_drill { get; set; }
 
         [DisplayName("Ordinary Drill")]
-        public bool? ordinary_drill { get; set; }
+        public bool ordinary_drill { get; set; }
 
         [DisplayName("Cordless Drill")]
-        public bool? cordless_drill { get; set; }
+        public bool cordless_drill { get; set; }
 
         [DisplayName("Spare Battery & Charger")]
-        public bool? spare_battery_and_charger { get; set; }
+        public bool spare_battery_and_charger { get; set; }
 
         [DisplayName("Circular Saw")]
-        public bool? circular_saw { get; set; }
+        public bool circular_saw { get; set; }
 
         [DisplayName("Jig Saw")]
-        public bool? jig_saw { get; set; }
+        public bool jig_saw { get; set; }
 
         [DisplayName("Planer (Check Blade)")]
-        public bool? planer_check_blade { get; set; }
+        public bool planer_check_blade { get; set; }
 
         [DisplayName("Heat Gun")]
-        public bool? heat_gun { get; set; }
+        public bool heat_gun { get; set; }
 
         [DisplayName("Sander")]
-        public bool? sander { get; set; }
+        public bool sander { get; set; }
 
         [DisplayName("Grinder")]
-        public bool? grinder { get; set; }
+        public bool grinder { get; set; }
 
         [DisplayName("Hoover")]
-        public bool? hoover { get; set; }
+        public bool hoover { get; set; }
 
         [DisplayName("Halogen Lamp")]
-        public bool? halogen_lamp { get; set; }
+        public bool halogen_lamp { get; set; }
 
         [DisplayName("Extension Lead")]
-        public bool? extension_lead { get; set; }
+        public bool extension_lead { get; set; }
 
         [DisplayName("Router")]
-        public bool? router { get; set; }
+        public bool router { get; set; }
 
         // --- Ladders & Securing ---
 
         [DisplayName("Industrial Ladders")]
-        public bool? industrial_ladders { get; set; }
+        public bool industrial_ladders { get; set; }
 
         [DisplayName("Ladder Clamps")]
-        public bool? ladder_clamps { get; set; }
+        public bool ladder_clamps { get; set; }
 
         [DisplayName("Step Ladders")]
-        public bool? step_ladders { get; set; }
+        public bool step_ladders { get; set; }
 
         [DisplayName("Ladder Stopper")]
-        public bool? ladder_stopper { get; set; }
+        public bool ladder_stopper { get; set; }
 
         // --- Hand Tools & Accessories ---
 
         [DisplayName("Philips Bit")]
-        public bool? philips_bit { get; set; }
+        public bool philips_bit { get; set; }
 
         [DisplayName("Screw Box")]
-        public bool? screw_box { get; set; }
+        public bool screw_box { get; set; }
 
         [DisplayName("Trestles (x2)")]
-        public bool? tresles_x2 { get; set; }
+        public bool tresles_x2 { get; set; }
 
         [DisplayName("Working Torch")]
-        public bool? torch_working { get; set; }
+        public bool torch_working { get; set; }
 
         [DisplayName("Ratchet Straps (x4)")]
-        public bool? ratchett_straps_x4 { get; set; }
+        public bool ratchett_straps_x4 { get; set; }
 
         // --- Housekeeping & Protection ---
 
         [DisplayName("Blue External Dust Sheet")]
-        public bool? blue_external_dust_sheet { get; set; }
+        public bool blue_external_dust_sheet { get; set; }
 
         [DisplayName("Internal Dust Sheets (x3)")]
-        public bool? Internal_dust_sheets_x3 { get; set; }
+        public bool Internal_dust_sheets_x3 { get; set; }
 
         [DisplayName("Brush & Shovel")]
-        public bool? brush_and_shovel { get; set; }
+        public bool brush_and_shovel { get; set; }
 
         [DisplayName("Cleaner Bottle")]
-        public bool? cleaner_bottle { get; set; }
+        public bool cleaner_bottle { get; set; }
 
         [DisplayName("E-Cloth")]
-        public bool? ecloth { get; set; }
+        public bool ecloth { get; set; }
 
         [DisplayName("Mastic Guns")]
-        public bool? mastic_guns { get; set; }
+        public bool mastic_guns { get; set; }
 
         [DisplayName("Glass Suckers")]
-        public bool? glass_suckers { get; set; }
+        public bool glass_suckers { get; set; }
 
         // --- Safety Wear (PPE) ---
 
@@ -656,7 +656,7 @@ namespace PropertySurveyService.Models
         public int safety_helmets { get; set; }
 
         [DisplayName("Helmet Manufacture Date Check")]
-        public bool? helmet_manufacture_date { get; set; }
+        public bool helmet_manufacture_date { get; set; }
 
         [DisplayName("Gloves")]
         public int gloves { get; set; }
@@ -674,132 +674,132 @@ namespace PropertySurveyService.Models
         public int dust_masks { get; set; }
 
         [DisplayName("Hi-Vis Vests")]
-        public bool? hi_vis_vests { get; set; }
+        public bool hi_vis_vests { get; set; }
 
         // --- Forms & Documentation ---
 
         [DisplayName("Customer Care Cards")]
-        public bool? customer_care_cards { get; set; }
+        public bool customer_care_cards { get; set; }
 
         [DisplayName("Completion Forms")]
-        public bool? completion_forms { get; set; }
+        public bool completion_forms { get; set; }
 
         [DisplayName("Freepost Envelopes")]
-        public bool? freepost_envelopes { get; set; }
+        public bool freepost_envelopes { get; set; }
 
         [DisplayName("Mandate Forms")]
-        public bool? mandate_forms { get; set; }
+        public bool mandate_forms { get; set; }
 
         [DisplayName("Quality Manuals")]
-        public bool? quality_manuals { get; set; }
+        public bool quality_manuals { get; set; }
 
         [DisplayName("Stapler")]
-        public bool? stapler { get; set; }
+        public bool stapler { get; set; }
 
         [DisplayName("Worksheets")]
-        public bool? worksheets { get; set; }
+        public bool worksheets { get; set; }
 
         // --- First Aid Kit ---
 
         [DisplayName("Plasters")]
-        public bool? plasters { get; set; }
+        public bool plasters { get; set; }
 
         [DisplayName("Dressing")]
-        public bool? dressing { get; set; }
+        public bool dressing { get; set; }
 
         [DisplayName("Eyewashers")]
-        public bool? eyewashers { get; set; }
+        public bool eyewashers { get; set; }
 
         [DisplayName("Steri-wipes")]
-        public bool? steri_wipes { get; set; }
+        public bool steri_wipes { get; set; }
 
         [DisplayName("First Aid Bag")]
-        public bool? bag { get; set; }
+        public bool bag { get; set; }
 
         // --- Specialist Meters ---
 
         [DisplayName("Flexi-Meter")]
-        public bool? flexi_meter { get; set; }
+        public bool flexi_meter { get; set; }
 
         [DisplayName("Merlin Low-E Detector")]
-        public bool? merlin_low_e_detector { get; set; }
+        public bool merlin_low_e_detector { get; set; }
 
         // --- Vehicle Cards, Safety & Essentials ---
 
         [DisplayName("Cabin Condition")]
-        public bool? cabin_condition { get; set; }
+        public bool cabin_condition { get; set; }
 
         [DisplayName("National Tyres Card")]
-        public bool? national_tyres_card { get; set; }
+        public bool national_tyres_card { get; set; }
 
         [DisplayName("Breakdown Card")]
-        public bool? breakdown_card { get; set; }
+        public bool breakdown_card { get; set; }
 
         [DisplayName("Fuel Card")]
-        public bool? fuel_card { get; set; }
+        public bool fuel_card { get; set; }
 
         [DisplayName("Shell Points Card")]
-        public bool? shell_points_card { get; set; }
+        public bool shell_points_card { get; set; }
 
         [DisplayName("Fire Extinguisher")]
-        public bool? fire_extinguisher { get; set; }
+        public bool fire_extinguisher { get; set; }
 
         [DisplayName("Jack")]
-        public bool? jack { get; set; }
+        public bool jack { get; set; }
 
         [DisplayName("Wheelbrace")]
-        public bool? wheelbrace { get; set; }
+        public bool wheelbrace { get; set; }
 
         [DisplayName("Spare Wheel")]
-        public bool? spare_wheel { get; set; }
+        public bool spare_wheel { get; set; }
 
         [DisplayName("Jump Leads")]
-        public bool? jump_leads { get; set; }
+        public bool jump_leads { get; set; }
 
         [DisplayName("Fan Belt")]
-        public bool? fan_belt { get; set; }
+        public bool fan_belt { get; set; }
 
         [DisplayName("Tow Ropes")]
-        public bool? tow_ropes { get; set; }
+        public bool tow_ropes { get; set; }
 
         [DisplayName("Spare Oil")]
-        public bool? spare_oil { get; set; }
+        public bool spare_oil { get; set; }
 
         [DisplayName("Coolant & Anti-freeze")]
-        public bool? coolant_anti_freeze { get; set; }
+        public bool coolant_anti_freeze { get; set; }
 
         [DisplayName("Van Height Sticker")]
-        public bool? van_height_sticker { get; set; }
+        public bool van_height_sticker { get; set; }
 
         [DisplayName("Wheel Nut Check Sticker")]
-        public bool? wheel_nut_check_sticker { get; set; }
+        public bool wheel_nut_check_sticker { get; set; }
 
         [DisplayName("No Smoking Sticker")]
-        public bool? no_smoking_sticker { get; set; }
+        public bool no_smoking_sticker { get; set; }
 
         [DisplayName("Racks & Poles")]
-        public bool? racks_and_poles { get; set; }
+        public bool racks_and_poles { get; set; }
 
         [DisplayName("Tyre Conditions")]
-        public bool? tyre_conditions { get; set; }
+        public bool tyre_conditions { get; set; }
 
         [DisplayName("Van Locks")]
-        public bool? van_locks { get; set; }
+        public bool van_locks { get; set; }
 
         [DisplayName("Oil & Water Checked")]
-        public bool? oil_and_water_checked { get; set; }
+        public bool oil_and_water_checked { get; set; }
 
         [DisplayName("How's My Driving Sticker")]
-        public bool? hows_my_driving_sticker { get; set; }
+        public bool hows_my_driving_sticker { get; set; }
 
         [DisplayName("PDA Setup Date")]
-        public bool? pda_setup_date { get; set; }
+        public bool pda_setup_date { get; set; }
 
         [DisplayName("Accident Pack on PDA")]
-        public bool? accident_pack_on_pda { get; set; }
+        public bool accident_pack_on_pda { get; set; }
 
         [DisplayName("Windscreen Condition")]
-        public bool? windscreen_good_contidion { get; set; }
+        public bool windscreen_good_contidion { get; set; }
 
 
         // ==========================================
@@ -1067,7 +1067,7 @@ namespace PropertySurveyService.Models
         public string spare_s_4 { get; set; } = "";
 
         [DisplayName("Shell Fuel Card")]
-        public bool? shell_fuel_card { get; set; }
+        public bool shell_fuel_card { get; set; }
 
 
 
@@ -1102,7 +1102,7 @@ namespace PropertySurveyService.Models
         public string ManufactureDateOnHelmet10 { get; set; } = "";
 
         [DisplayName("Letterbox Jig Checked")]
-        public bool? letterbox_jig { get; set; }
+        public bool letterbox_jig { get; set; }
 
         [DisplayName("Letterbox Jig Checked (string)")]
         public string letterbox_jig_s { get; set; } = "";
@@ -1116,40 +1116,40 @@ namespace PropertySurveyService.Models
         // --- Core Vehicle Checks ---
 
         [DisplayName("Fuel Card")]
-        public bool? fuel_card { get; set; }
+        public bool fuel_card { get; set; }
 
         [DisplayName("Shell Points Card")]
-        public bool? shell_points_card { get; set; }
+        public bool shell_points_card { get; set; }
 
         [DisplayName("Shell Fuel Card")]
-        public bool? shell_fuel_card { get; set; }
+        public bool shell_fuel_card { get; set; }
 
-        [DisplayName("bool?erior Cleanliness")]
-        public bool? interior_clean { get; set; }
+        [DisplayName("boolerior Cleanliness")]
+        public bool interior_clean { get; set; }
 
         [DisplayName("Oil Level")]
-        public bool? oil_level { get; set; }
+        public bool oil_level { get; set; }
 
         [DisplayName("Water Level")]
-        public bool? water_level { get; set; }
+        public bool water_level { get; set; }
 
         [DisplayName("Windscreen Wash")]
-        public bool? windscreen_wash { get; set; }
+        public bool windscreen_wash { get; set; }
 
         [DisplayName("Spare Wheel")]
-        public bool? spare_wheel { get; set; }
+        public bool spare_wheel { get; set; }
 
         [DisplayName("Jack")]
-        public bool? jack { get; set; }
+        public bool jack { get; set; }
 
         [DisplayName("Wheel Brace")]
-        public bool? wheel_brace { get; set; }
+        public bool wheel_brace { get; set; }
 
         [DisplayName("Tools")]
-        public bool? tools { get; set; }
+        public bool tools { get; set; }
 
         [DisplayName("Tyre Condition")]
-        public bool? tyre_condition { get; set; }
+        public bool tyre_condition { get; set; }
 
 
         // ==========================================
