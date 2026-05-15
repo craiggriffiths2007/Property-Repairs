@@ -633,134 +633,6 @@ namespace PropertySurveyService.Models
 
         #region Quality Assurance & Spot Checks
 
-        [DisplayName("Spot Check")]
-        public bool bSpotCheck { get; set; }
-
-        [DisplayName("Spot Check Fitter")]
-        public string uspot_fitter { get; set; } = "";
-
-        [DisplayName("Spot Check Trainee")]
-        public string uspot_trainee { get; set; } = "";
-
-        [DisplayName("Spot Check Date")]
-        public string uspot_date { get; set; } = "";
-
-        [DisplayName("Spot Check Customer")]
-        public string uspot_customer { get; set; } = "";
-
-        [DisplayName("Spot Check Postcode")]
-        public string uspot_postcode { get; set; } = "";
-
-        [DisplayName("Spot Check Insurance Company")]
-        public string uspot_insuranceco { get; set; } = "";
-
-        [DisplayName("Spot Check Branch")]
-        public string uspot_branch { get; set; } = "";
-
-        [DisplayName("Spot Check Repair")]
-        public bool uspot_repair { get; set; }
-
-        [DisplayName("Spot Check Repair Arrived")]
-        public bool uspot_repair_arrived { get; set; }
-
-        [DisplayName("Spot Check Repair Setup")]
-        public bool uspot_repair_setup { get; set; }
-
-        [DisplayName("Spot Check Repair Ongoing")]
-        public bool uspot_repair_ongoing { get; set; }
-
-        [DisplayName("Spot Check Repair Completed")]
-        public bool uspot_repair_completed { get; set; }
-
-        [DisplayName("Spot Check Replace")]
-        public bool uspot_replace { get; set; }
-
-        [DisplayName("Spot Check Replace Arrived")]
-        public bool uspot_replace_arrived { get; set; }
-
-        [DisplayName("Spot Check Replace Setup")]
-        public bool uspot_replace_setup { get; set; }
-
-        [DisplayName("Spot Check Replace Unit Moved")]
-        public bool uspot_replace_unitmoved { get; set; }
-
-        [DisplayName("Spot Check Replace Completed")]
-        public bool uspot_replace_completed { get; set; }
-
-        [DisplayName("Spot Check Review Door")]
-        public bool uspot_rev_door { get; set; }
-
-        [DisplayName("Spot Check Review Window")]
-        public bool uspot_rev_window { get; set; }
-
-        [DisplayName("Spot Check Review Garage Door")]
-        public bool uspot_rev_garagedoor { get; set; }
-
-        [DisplayName("Spot Check Review Glass")]
-        public bool uspot_rev_glass { get; set; }
-
-        [DisplayName("Spot Check Review Locks")]
-        public bool uspot_rev_locks { get; set; }
-
-        [DisplayName("Spot Check Review Other")]
-        public bool uspot_rev_other { get; set; }
-
-        [DisplayName("Spot Check Review UPVC")]
-        public bool uspot_revb_upvc { get; set; }
-
-        [DisplayName("Spot Check Review Aluminium")]
-        public bool uspot_revb_ali { get; set; }
-
-        [DisplayName("Spot Check Review Timber")]
-        public bool uspot_revb_timber { get; set; }
-
-        [DisplayName("Spot Check Review Other (Alt)")]
-        public bool uspot_revb_other { get; set; }
-
-        [DisplayName("Spot Check Appearance")]
-        public int uspot_appearence { get; set; }
-
-        [DisplayName("Spot Check Customer Satisfaction")]
-        public int uspot_customersatisfaction { get; set; }
-
-        [DisplayName("Spot Check Customer Satisfaction Improvements (Old)")]
-        public string uspot_customersatisfaction_improvementsOld { get; set; } = "";
-
-        [DisplayName("Spot Check Other Observations (Old)")]
-        public string uspot_otherobservationsOld { get; set; } = "";
-
-        [DisplayName("Spot Check Signed")]
-        public bool uspot_signed { get; set; }
-
-        [DisplayName("Spot Check Signed Date")]
-        public string uspot_signeddate { get; set; } = "";
-
-        [DisplayName("Spot Check Replace Fit")]
-        public bool uspot_replace_fit { get; set; }
-
-        [DisplayName("Spot Check P1")]
-        public int uspot_p1 { get; set; }
-
-        [DisplayName("Spot Check P2")]
-        public int uspot_p2 { get; set; }
-
-        [DisplayName("Spot Check P3")]
-        public int uspot_p3 { get; set; }
-
-        [DisplayName("Spot Check P4")]
-        public int uspot_p4 { get; set; }
-
-        [DisplayName("Spot Check Appearance Improvements")]
-        public string uspot_appearence_improvements { get; set; } = "";
-
-        [DisplayName("Spot Check Quality of Works Improvements")]
-        public string uspot_qualityofworks_improvements { get; set; } = "";
-
-        [DisplayName("Spot Check Customer Satisfaction Improvements")]
-        public string uspot_customersatisfaction_improvements { get; set; } = "";
-
-        [DisplayName("Spot Check Other Observations")]
-        public string uspot_otherobservations { get; set; } = "";
 
         #endregion
 
@@ -1107,6 +979,9 @@ namespace PropertySurveyService.Models
 
         [DisplayName("Tower Scaffold")]
         public bool? isTowerScaff { get; set; }
+
+        [DisplayName("Lintel Signed")]
+        public bool lintel_signed { get; set; }
     }
 
 }
