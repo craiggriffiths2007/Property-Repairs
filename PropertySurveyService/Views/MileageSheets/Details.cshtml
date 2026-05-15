@@ -9,207 +9,187 @@
 <div>
     <h4>MileageSheet</h4>
     <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Guid)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Guid)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.sheet_date)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.sheet_date)
-        </dd>
-        <dt class = "col-sm-2">
+    <div class="row mb-3">
+        <div class="col-md-4">
+
+            <dl class="row">
+        <dt class="col-6 text-start">
             @Html.DisplayNameFor(model => model.registration)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-6 end-start">
             @Html.DisplayFor(model => model.registration)
         </dd>
-        <dt class = "col-sm-2">
+        <dt class = "col-6 text-start">
+            @Html.DisplayNameFor(model => model.sheet_date)
+        </dt>
+        <dd class = "col-6 end-start">
+            @Html.DisplayFor(model => model.sheet_date)
+        </dd>
+        <dt class = "col-6 text-start">
             @Html.DisplayNameFor(model => model.start_postcode)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class = "col-6 end-start">
             @Html.DisplayFor(model => model.start_postcode)
         </dd>
-        <dt class = "col-sm-2">
+        <dt class = "col-6 text-start">
             @Html.DisplayNameFor(model => model.finish_postcode)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class = "col-6 end-start">
             @Html.DisplayFor(model => model.finish_postcode)
         </dd>
-        <dt class = "col-sm-2">
+        <dt class = "col-6 text-start">
             @Html.DisplayNameFor(model => model.start_mileage)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class = "col-6 end-start">
             @Html.DisplayFor(model => model.start_mileage)
         </dd>
-        <dt class = "col-sm-2">
+        <dt class = "col-6 text-start">
             @Html.DisplayNameFor(model => model.end_mileage)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class = "col-6 end-start">
             @Html.DisplayFor(model => model.end_mileage)
         </dd>
-        <dt class = "col-sm-2">
+        <dt class = "col-6 text-start">
             @Html.DisplayNameFor(model => model.start_time)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class = "col-6 end-start">
             @Html.DisplayFor(model => model.start_time)
         </dd>
-        <dt class = "col-sm-2">
+        <dt class = "col-6 text-start">
             @Html.DisplayNameFor(model => model.end_time)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class = "col-6 end-start">
             @Html.DisplayFor(model => model.end_time)
         </dd>
-        <dt class = "col-sm-2">
+        <dt class = "col-6 text-start">
             @Html.DisplayNameFor(model => model.no_of_other_places)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class = "col-6 end-start">
             @Html.DisplayFor(model => model.no_of_other_places)
         </dd>
-        <dt class = "col-sm-2">
+        <dt class = "col-6 text-start">
             @Html.DisplayNameFor(model => model.time1)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class = "col-6 end-start">
             @Html.DisplayFor(model => model.time1)
         </dd>
-        <dt class = "col-sm-2">
+        <dt class = "col-6 text-start">
             @Html.DisplayNameFor(model => model.pcode1)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class = "col-6 end-start">
             @Html.DisplayFor(model => model.pcode1)
         </dd>
-        <dt class = "col-sm-2">
+        <dt class = "col-6 text-start">
             @Html.DisplayNameFor(model => model.time2)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class = "col-6 end-start">
             @Html.DisplayFor(model => model.time2)
         </dd>
-        <dt class = "col-sm-2">
+        <dt class = "col-6 text-start">
             @Html.DisplayNameFor(model => model.pcode2)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class = "col-6 end-start">
             @Html.DisplayFor(model => model.pcode2)
         </dd>
-        <dt class = "col-sm-2">
+        <dt class = "col-6 text-start">
             @Html.DisplayNameFor(model => model.time3)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class = "col-6 end-start">
             @Html.DisplayFor(model => model.time3)
-        </dd>
-        <dt class = "col-sm-2">
+                </dd>
+            </dl>
+        </div>
+        <div class="col-md-4">
+            <dl class="row">
+        <dt class = "col-6 text-start">
             @Html.DisplayNameFor(model => model.pcode3)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class = "col-6 end-start">
             @Html.DisplayFor(model => model.pcode3)
         </dd>
-        <dt class = "col-sm-2">
+        <dt class = "col-6 text-start">
             @Html.DisplayNameFor(model => model.OtehrPlaceNo)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class = "col-6 end-start">
             @Html.DisplayFor(model => model.OtehrPlaceNo)
         </dd>
-        <dt class = "col-sm-2">
+        <dt class = "col-6 text-start">
             @Html.DisplayNameFor(model => model.op_time1)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class = "col-6 end-start">
             @Html.DisplayFor(model => model.op_time1)
         </dd>
-        <dt class = "col-sm-2">
+        <dt class = "col-6 text-start">
             @Html.DisplayNameFor(model => model.op_postcode1)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class = "col-6 end-start">
             @Html.DisplayFor(model => model.op_postcode1)
         </dd>
-        <dt class = "col-sm-2">
+        <dt class = "col-6 text-start">
             @Html.DisplayNameFor(model => model.op_time2)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class = "col-6 end-start">
             @Html.DisplayFor(model => model.op_time2)
         </dd>
-        <dt class = "col-sm-2">
+        <dt class = "col-6 text-start">
             @Html.DisplayNameFor(model => model.op_postcode2)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class = "col-6 end-start">
             @Html.DisplayFor(model => model.op_postcode2)
         </dd>
-        <dt class = "col-sm-2">
+        <dt class = "col-6 text-start">
             @Html.DisplayNameFor(model => model.op_time3)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class = "col-6 end-start">
             @Html.DisplayFor(model => model.op_time3)
         </dd>
-        <dt class = "col-sm-2">
+        <dt class = "col-6 text-start">
             @Html.DisplayNameFor(model => model.op_postcode3)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class = "col-6 end-start">
             @Html.DisplayFor(model => model.op_postcode3)
         </dd>
-        <dt class = "col-sm-2">
+        <dt class = "col-6 text-start">
             @Html.DisplayNameFor(model => model.toll_charges)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class = "col-6 end-start">
             @Html.DisplayFor(model => model.toll_charges)
         </dd>
-        <dt class = "col-sm-2">
+        <dt class = "col-6 text-start">
             @Html.DisplayNameFor(model => model.toll_charge_for)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class = "col-6 end-start">
             @Html.DisplayFor(model => model.toll_charge_for)
         </dd>
-        <dt class = "col-sm-2">
+        <dt class = "col-6 text-start">
             @Html.DisplayNameFor(model => model.toll_charge_ammount)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class = "col-6 end-start">
             @Html.DisplayFor(model => model.toll_charge_ammount)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.photo_am)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.photo_am)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.photo_pm)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.photo_pm)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.bSigned)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.bSigned)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.signature_filename)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.signature_filename)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.bComplete)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.bComplete)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.bSent)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.bSent)
-        </dd>
-        <dt class = "col-sm-2">
+        <dt class = "col-6 text-start">
             @Html.DisplayNameFor(model => model.comments)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class = "col-6 end-start">
             @Html.DisplayFor(model => model.comments)
         </dd>
     </dl>
 </div>
+
+ <h4>Outside Photos</h4>
+    <div class="container">
+        <div class="row">
+            <!-- Row 1 -->
+            <div class="col-6 p-3 border">Start<img src="data:image/png;base64,@ViewData["StartImage"]" class="img-fluid rounded" /></div>
+            <div class="col-6 p-3 border">End<img src="data:image/png;base64,@ViewData["EndImage"]" class="img-fluid rounded" /></div>
+        </div>
+        <div class="row">
+            <!-- Row 2 -->
+            <div class="col-6 p-3 border">Signature<img src="data:image/png;base64,@ViewData["SignatureImage"]" class="img-fluid rounded" /></div>
+            
+        </div>
+    </div>
+
 <div>
     <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
     <a asp-action="Index">Back to List</a>
