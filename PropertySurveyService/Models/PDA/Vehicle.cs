@@ -140,19 +140,19 @@ namespace PropertySurveyService.Models
         // --- Tyre Pressures ---
 
         [DisplayName("Tyre Pressure - Passenger Front")]
-        public int pressure_passenger_front { get; set; }
+        public bool? pressure_passenger_front { get; set; }
 
         [DisplayName("Tyre Pressure - Passenger Rear")]
-        public int pressure_passenger_rear { get; set; }
+        public bool? pressure_passenger_rear { get; set; }
 
         [DisplayName("Tyre Pressure - Driver Front")]
-        public int pressure_driver_front { get; set; }
+        public bool? pressure_driver_front { get; set; }
 
         [DisplayName("Tyre Pressure - Driver Rear")]
-        public int pressure_driver_rear { get; set; }
+        public bool? pressure_driver_rear { get; set; }
 
         [DisplayName("Tyre Pressure - Spare")]
-        public int pressure_spare { get; set; }
+        public bool? pressure_spare { get; set; }
 
 
         // --- Tyre Pressure Notes / Serial Numbers ---
