@@ -73,8 +73,9 @@ namespace PropertySurveyService.Areas.Identity.Pages.Account.Manage
             var userName = await _userManager.GetUserNameAsync(user);
             var phoneNumber = await _userManager.GetPhoneNumberAsync(user);
 
+
             Username = userName;
-            //ProfilePicture = user.ProfilePicture;
+            ProfilePicture = user.ProfilePicture;
 
             Input = new InputModel
             {
@@ -119,11 +120,12 @@ namespace PropertySurveyService.Areas.Identity.Pages.Account.Manage
                 }
             }
 
+
             if (Input.Photo != null && Input.Photo.Length > 0)
             {
                 using var ms = new MemoryStream();
                 await Input.Photo.CopyToAsync(ms);
-                //user.ProfilePicture = ms.ToArray();
+                user.ProfilePicture = ms.ToArray();
                 await _userManager.UpdateAsync(user);
             }
 

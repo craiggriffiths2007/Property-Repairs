@@ -34,7 +34,7 @@ namespace PropertySurveyService.Controllers
                     FirstName = user.FirstName,
                     LastName = user.LastName,
                     Roles = await _userManager.GetRolesAsync(user),
-                    //ProfilePicture = user.ProfilePicture
+                    ProfilePicture = user.ProfilePicture
                 });
             }
             return View(userList);
