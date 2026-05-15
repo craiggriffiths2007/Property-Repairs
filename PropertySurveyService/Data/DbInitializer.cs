@@ -131,11 +131,11 @@ namespace PropertySurveyService.Data
 
             var agents = new Agent[]
             {
-                new Agent{Name="James Dean", Code="H1",Type=agent_type.surveyor },
-                new Agent{Name="Steven Smith", Code="H2",Type=agent_type.surveyor },
-                new Agent{Name="Paul Moore", Code="H01",Type=agent_type.fitter },
-                new Agent{Name="Andy Mason", Code="H02",Type=agent_type.fitter },
-                new Agent{Name="Alex Polowski", Code="HH08",Type=agent_type.satellite },
+                new Agent{Name="James Dean", Code="H1",Type=agent_type.Surveyor },
+                new Agent{Name="Steven Smith", Code="H2",Type=agent_type.Surveyor },
+                new Agent{Name="Paul Moore", Code="H01",Type=agent_type.Fitter },
+                new Agent{Name="Andy Mason", Code="H02",Type=agent_type.Fitter },
+                new Agent{Name="Alex Polowski", Code="HH08",Type=agent_type.Satellite },
             };
             foreach (Agent s in agents)
             {

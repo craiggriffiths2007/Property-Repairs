@@ -234,13 +234,13 @@ namespace PropertySurveyService
                     return Task.FromResult<IResult>(Results.BadRequest(new { ReasonPhrase = "Agent Code Not Found : " + gs.AgentCode }));
 
                 var surveyJobs = db.Job
-                    .Where(x => x.AgentId == agent.Id && x.JobType == 1)
+                    .Where(x => x.AgentId == agent.Id && x.JobType == enum_job_type.Survey)
                     .ToList();
 
                 List<JobDTO> send_jobs = new List<JobDTO>();
 
                 foreach (var j in db.Job.Where<Job>(x => x.Agent.Code == gs.AgentCode &&
-                                                        x.JobType == 0 && x.Date >= DateTime.Today).ToList<Job>())
+                                                        x.JobType == enum_job_type.Survey && x.Date >= DateTime.Today).ToList<Job>())
                 {
                     Customer? c = db.Customer.FirstOrDefault<Customer>(x => x.Id == j.CustomerId);
                     
@@ -284,7 +284,7 @@ namespace PropertySurveyService
                     return Task.FromResult<IResult>(Results.BadRequest(new { ReasonPhrase = "Agent Code Not Found : " + gs.AgentCode }));
 
                 var fittingJobs = db.Job
-                    .Where(x => x.AgentId == agent.Id && x.JobType == 1)
+                    .Where(x => x.AgentId == agent.Id && x.JobType > 0)
                     .ToList();
 
                 var results = new List<PDAJobDTO>();
@@ -300,17 +300,18 @@ namespace PropertySurveyService
 
                     if (header == null)
                         continue;
-                    header.iRecordType = 1;
+                    header.JobType = job.JobType;
                     header.udi_date = job.Date.ToShortDateString();
                     header.fit_diary = job.Date.ToShortDateString();
                     header.bSurvey = true;
 
                     // Get all images for this header
-                    var images = db.Images
-                        .Where(img => img.ContractCode == header.udi_cont)
-                        .Select(img => img.Filename)
-                        .Where(fn => fn != null)
-                        .ToList();
+                    var images = new List<string>();
+                    //var headerImages = db.Images
+                    //    .Where(img => img.ContractCode == header.udi_cont)
+                    //    .Select(img => img.Filename)
+                    //    .Where(fn => fn != null)
+                    //    .ToList();
 
                     results.Add(new PDAJobDTO
                     {

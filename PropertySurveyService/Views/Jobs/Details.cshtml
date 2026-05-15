@@ -10,6 +10,12 @@
     <h4>Job</h4>
     <hr />
     <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ContractCode)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ContractCode)
+        </dd>
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Date)
         </dt>
@@ -56,11 +62,11 @@
 @if (ViewBag.Headers is IEnumerable<PropertySurveyService.Models.Header> headers && headers.Any())
 {
     <hr />
-    <h4>Survey Records</h4>
+    <h4>PDA Records</h4>
     <table class="table table-sm table-bordered">
         <thead class="table-light">
             <tr>
-                <th>Contract</th>
+                <th>Type</th>
                 <th>Agent</th>
                 <th>Date</th>
                 <th>Status</th>
@@ -71,11 +77,11 @@
             @foreach (var header in headers)
             {
                 <tr>
-                    <td>@header.udi_cont</td>
-                    <td>@header.nsn</td>
+                    <td>@header.JobType</td>
+                    <td>@header.AgentCode</td>
                     <td>@header.udi_date</td>
                     <td>
-                        @if (header.bDone)
+                        @if (header.bComplete)
                         {
                             <span class="badge bg-success">Complete</span>
                         }

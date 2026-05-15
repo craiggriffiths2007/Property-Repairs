@@ -149,9 +149,15 @@ body {
 }
 
 .calendar-event.job-type-fitting {
+    background-color: #ffd800;
+    color: #000;
+}
+
+.calendar-event.job-type-remedial {
     background-color: #fa8072;
     color: #000;
 }
+
 
 .calendar-event.has-header {
     border: 1px solid purple;

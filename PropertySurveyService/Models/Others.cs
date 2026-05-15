@@ -4,15 +4,16 @@ namespace PropertySurveyService.Models
 {
     public enum enum_job_type
     {
-        survey,
-        fitting
+        Survey,
+        Fitting,
+        Remedial
     }
 
     public enum agent_type
     {
-        surveyor,
-        fitter,
-        satellite
+        Surveyor,
+        Fitter,
+        Satellite
     }
 
     public enum enum_vehicle_type

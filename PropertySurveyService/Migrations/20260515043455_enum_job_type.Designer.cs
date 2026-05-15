@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PropertySurveyService.Data;
 
@@ -11,9 +12,11 @@ using PropertySurveyService.Data;
 namespace PropertySurveyService.Migrations
 {
     [DbContext(typeof(AppDBContext))]
-    partial class AppDBContextModelSnapshot : ModelSnapshot
+    [Migration("20260515043455_enum_job_type")]
+    partial class enum_job_type
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -3690,10 +3693,6 @@ namespace PropertySurveyService.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("AgentCode")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("COD_Code")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -3770,10 +3769,10 @@ namespace PropertySurveyService.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool>("bComplete")
+                    b.Property<bool>("bDamTicked")
                         .HasColumnType("bit");
 
-                    b.Property<bool>("bDamTicked")
+                    b.Property<bool>("bDone")
                         .HasColumnType("bit");
 
                     b.Property<int>("bExcessCollected")
@@ -4282,6 +4281,10 @@ namespace PropertySurveyService.Migrations
 
                     b.Property<int>("no_of_photos")
                         .HasColumnType("int");
+
+                    b.Property<string>("nsn")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("obs_wires")
                         .HasColumnType("int");

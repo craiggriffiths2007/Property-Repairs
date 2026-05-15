@@ -19,23 +19,31 @@ namespace PropertySurveyService.Models
 
         public Guid Guid { get; set; } = Guid.NewGuid();
 
+        [DisplayName("Staff Member Name")]
+        public string udi_staff { get; set; } = "";
+
+        [DisplayName("Surveyor Name")]
+        public string AgentCode { get; set; } = "";
+
+        [DisplayName("Complete")]
+        public bool bComplete { get; set; }
+
+        [DisplayName("Sent")]
+        public bool bSent { get; set; }
+
         [DisplayName("Index")]
         public int ind { get; set; }
 
         [DisplayName("Group")]
         public string Group { get; set; } = "";
 
-        [DisplayName("Done")]
-        public bool bDone { get; set; }
 
-        [DisplayName("Sent")]
-        public bool bSent { get; set; }
 
         [DisplayName("Processed")]
         public string bProcessed { get; set; } = "";
 
         [DisplayName("Record Type")]
-        public int iRecordType { get; set; }
+        public enum_job_type JobType { get; set; }
 
         [DisplayName("Type A")]
         public string typeA { get; set; } = "";
@@ -181,11 +189,6 @@ namespace PropertySurveyService.Models
         [DisplayName("Job Size")]
         public string njs { get; set; } = "";
 
-        [DisplayName("Staff Member Name")]
-        public string udi_staff { get; set; } = "";
-
-        [DisplayName("Surveyor Name")]
-        public string nsn { get; set; } = "";
 
         [DisplayName("Brief Description")]
         public string uc_desc { get; set; } = "";

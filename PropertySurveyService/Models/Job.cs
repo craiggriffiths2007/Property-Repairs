@@ -11,7 +11,7 @@ namespace PropertySurveyService.Models
         [Display(Name = "Contract Code")]
         public string? ContractCode { get; set; }
 
-        public int JobType { get; set; } // 0 - Survey 1 - Fitting
+        public enum_job_type JobType { get; set; } // 0 - Survey 1 - Fitting
 
         [Display(Name = "Job Date")]
         [DataType(DataType.Date)]

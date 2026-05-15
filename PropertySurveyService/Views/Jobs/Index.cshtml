@@ -108,14 +108,7 @@
                                         var hasRelevantHeader = false;
                                         if (!string.IsNullOrEmpty(job.ContractCode) && Model.Headers != null)
                                         {
-                                            if (job.JobType == 0)
-                                            {
-                                                hasRelevantHeader = Model.Headers.Any(h => h.udi_cont == job.ContractCode && h.iRecordType == 0);
-                                            }
-                                            else if (job.JobType == 1)
-                                            {
-                                                hasRelevantHeader = Model.Headers.Any(h => h.udi_cont == job.ContractCode && h.iRecordType == 1);
-                                            }
+                                            hasRelevantHeader = Model.Headers.Any(h => h.udi_cont == job.ContractCode && h.JobType == job.JobType);
                                         }
                                         <div class="calendar-event @(job.JobType == 0 ? "job-type-survey" : "job-type-fitting") @(hasRelevantHeader ? "has-header" : "")">
                                             <a asp-action="Details" asp-route-id="@job.Id" class="calendar-event-link">
@@ -187,16 +180,9 @@ else if (Model.ViewMode == "week")
                                         var hasRelevantHeader = false;
                                         if (!string.IsNullOrEmpty(job.ContractCode) && Model.Headers != null)
                                         {
-                                            if (job.JobType == 0)
-                                            {
-                                                hasRelevantHeader = Model.Headers.Any(h => h.udi_cont == job.ContractCode && h.iRecordType == 0);
-                                            }
-                                            else if (job.JobType == 1)
-                                            {
-                                                hasRelevantHeader = Model.Headers.Any(h => h.udi_cont == job.ContractCode && h.iRecordType == 1);
-                                            }
+                                            hasRelevantHeader = Model.Headers.Any(h => h.udi_cont == job.ContractCode && h.JobType == job.JobType);
                                         }
-                                        <div class="calendar-event @(job.JobType == 0 ? "job-type-survey" : "job-type-fitting") @(hasRelevantHeader ? "has-header" : "")">
+                                        <div class="calendar-event @(job.JobType == enum_job_type.Survey ? "job-type-survey" : job.JobType == enum_job_type.Fitting ? "job-type-fitting" : "job-type-remedial") @(hasRelevantHeader ? "has-header" : "")">
                                             <a asp-action="Details" asp-route-id="@job.Id" class="calendar-event-link">
                                                 <strong>@job.Time.ToString("HH:mm")</strong>
                                                 @if (job.Customer != null)
