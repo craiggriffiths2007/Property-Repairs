@@ -92,11 +92,6 @@ namespace PropertySurveyService.Models
         [DisplayName("Comments")]
         public string? long_sptext { get; set; }
 
-        [DisplayName("UPVC Item Number")]
-        public int upvc_item_number { get; set; }
-
-        [DisplayName("Alum Item Number")]
-        public int alum_item_number { get; set; }
 
         [DisplayName("Parts to Order")]
         public string? parts_to_order { get; set; }

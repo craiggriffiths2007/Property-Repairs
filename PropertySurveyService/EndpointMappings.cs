@@ -234,13 +234,14 @@ namespace PropertySurveyService
                     return Task.FromResult<IResult>(Results.BadRequest(new { ReasonPhrase = "Agent Code Not Found : " + gs.AgentCode }));
 
                 var surveyJobs = db.Job
-                    .Where(x => x.AgentId == agent.Id && x.JobType == enum_job_type.Survey)
+                    .Where(x => x.AgentId == agent.Id 
+                    && x.JobType == enum_job_type.Survey
+                    && x.Date >= DateTime.Today)
                     .ToList();
 
                 List<JobDTO> send_jobs = new List<JobDTO>();
 
-                foreach (var j in db.Job.Where<Job>(x => x.Agent.Code == gs.AgentCode &&
-                                                        x.JobType == enum_job_type.Survey && x.Date >= DateTime.Today).ToList<Job>())
+                foreach (var j in surveyJobs)
                 {
                     Customer? c = db.Customer.FirstOrDefault<Customer>(x => x.Id == j.CustomerId);
                     

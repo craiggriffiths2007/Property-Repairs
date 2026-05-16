@@ -257,6 +257,29 @@ namespace PropertySurveyService.Models
 
         [DisplayName("Overall Length of Sheet")]
         public string? overall_length_of_sheet { get; set; }
+
+        [DisplayName("Lead Diamond Complete")]
+        public bool lead_bDiamondComplete { get; set; }
+
+        [DisplayName("Lead Georgian Complete")]
+        public bool lead_bGeorgianComplete { get; set; }
+
+        [DisplayName("Lead Bar Complete")]
+        public bool lead_bBarComplete { get; set; }
+
+        [DisplayName("Lead C Width (float)")]
+        public float lead_CWidthf { get; set; }
+
+        [DisplayName("Lead C Height (float)")]
+        public float lead_CHeightf { get; set; }
+
+        [DisplayName("Lead C Widths")]
+        public string lead_CWidths { get; set; } = "";
+
+        [DisplayName("Lead C Heights")]
+        public string lead_CHeights { get; set; } = "";
+
+
         public SurveyItem AsSurveyItem() { return new SurveyItem(Id, enum_item_type.cons); }
     }
 
