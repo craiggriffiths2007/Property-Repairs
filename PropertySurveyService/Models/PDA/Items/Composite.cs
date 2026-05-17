@@ -255,7 +255,7 @@ namespace PropertySurveyService.Models
         [DisplayName("Handles Text")]
         public string? handles_text { get; set; }
 
-        public SurveyItem AsSurveyItem() { return new SurveyItem(Id, enum_item_type.comp); }
+        public SurveyItem AsSurveyItem() { return new SurveyItem(Id, enum_item_type.comp, item_number); }
     }
 
 }

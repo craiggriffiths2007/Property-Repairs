@@ -408,7 +408,7 @@ namespace PropertySurveyService.Models
         [DisplayName("Frame Color Code Out")]
         public string frame_color_out_code { get; set; } = "";
 
-        public SurveyItem AsSurveyItem() { return new SurveyItem(Id, enum_item_type.lockin); }
+        public SurveyItem AsSurveyItem() { return new SurveyItem(Id, enum_item_type.lockin, item_number); }
 
     }
 }

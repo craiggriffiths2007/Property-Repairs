@@ -75,7 +75,7 @@ namespace PropertySurveyService.Models
         public int Id { get; set; }
         public enum_item_type ItemType { get; set; }
         public string? ItemName { get; set; }
-
+        public int item_number { get; set; }
         public string? ControllerName { get; set; }
         public string NameFromEnumType()
         {
@@ -94,6 +94,8 @@ namespace PropertySurveyService.Models
                 case enum_item_type.bifold: return "Bifold";
                 case enum_item_type.lockin: return "Lock-mech";
                 case enum_item_type.green: return "Greenhouse";
+                case enum_item_type.cons: return "Conservatory";
+                case enum_item_type.comp: return "Composite";
                 case enum_item_type.frame: return "Frame";
             }
             return "";
@@ -112,18 +114,21 @@ namespace PropertySurveyService.Models
                 case enum_item_type.bifold: return "BifoldTables";
                 case enum_item_type.lockin: return "LockingTables";
                 case enum_item_type.green: return "GreenTables";
+                case enum_item_type.cons: return "ConsTables";
+                case enum_item_type.comp: return "CompositeTables";
                 case enum_item_type.frame: return "FrameTables";
             }
             return "";
         }
 
 
-        public SurveyItem(int id, enum_item_type type)
+        public SurveyItem(int id, enum_item_type type, int item_number)
         {
             Id = id;
             ItemType = type;
             ItemName = NameFromEnumType(type);
             ControllerName = ControllerNameFromEnumType(type);
+            this.item_number = item_number;
         }
     }
 }

@@ -172,7 +172,7 @@ namespace PropertySurveyService.Models
 
         [DisplayName("Long Comments")]
         public string? long_comments { get; set; }
-        public SurveyItem AsSurveyItem() { return new SurveyItem(Id, enum_item_type.lockin); }
+        public SurveyItem AsSurveyItem() { return new SurveyItem(Id, enum_item_type.lockin, item_number); }
 
 
     }

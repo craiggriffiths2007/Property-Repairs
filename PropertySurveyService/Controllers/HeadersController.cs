@@ -70,15 +70,19 @@ namespace PropertySurveyService.Controllers
                             foreach (var p in _context.LockingTable.Where(x => x.HeaderId == viewModel.Header.Id)) items.Add(p.AsSurveyItem()); break;
                         case enum_item_type.green:
                             foreach (var p in _context.GreenTable.Where(x => x.HeaderId == viewModel.Header.Id)) items.Add(p.AsSurveyItem()); break;
+                        case enum_item_type.comp:
+                            foreach (var p in _context.CompositeTable.Where(x => x.HeaderId == viewModel.Header.Id)) items.Add(p.AsSurveyItem()); break;
+                        case enum_item_type.cons:
+                            foreach (var p in _context.ConsTable.Where(x => x.HeaderId == viewModel.Header.Id)) items.Add(p.AsSurveyItem()); break;
                         case enum_item_type.frame:
                             foreach (var p in _context.FrameTable.Where(x => x.HeaderId == viewModel.Header.Id)) items.Add(p.AsSurveyItem()); break;
                     }
                 }
                 viewModel.SurveyItems = items;
 
-                List<PhotoImage> photoimages = _context.Images.Where(x => x.Filename.Substring(0, 12) == viewModel.Header.udi_cont+"_cAH").ToList();
+                //List<PhotoImage> photoimages = _context.Images.Where(x => x.Filename.Substring(0, 12) == viewModel.Header.udi_cont+"_cAH").ToList();
 
-                viewModel.Images = photoimages;
+                viewModel.Images = new List<PhotoImage>();
             }
 
             var parentJob = await _context.Job
