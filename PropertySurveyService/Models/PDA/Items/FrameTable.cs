@@ -6,7 +6,7 @@ namespace PropertySurveyService.Models
 {
 
 
-    public class ItemTable
+    public class FrameTable
     {
         // ===== Core / Shared =====
         [Key]

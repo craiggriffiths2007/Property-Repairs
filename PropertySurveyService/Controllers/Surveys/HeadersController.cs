@@ -71,7 +71,7 @@ namespace PropertySurveyService.Controllers
                         case enum_item_type.green:
                             foreach (var p in _context.GreenTable.Where(x => x.HeaderId == viewModel.Header.Id)) items.Add(p.AsSurveyItem()); break;
                         case enum_item_type.frame:
-                            foreach (var p in _context.ItemTable.Where(x => x.HeaderId == viewModel.Header.Id)) items.Add(p.AsSurveyItem()); break;
+                            foreach (var p in _context.FrameTable.Where(x => x.HeaderId == viewModel.Header.Id)) items.Add(p.AsSurveyItem()); break;
                     }
                 }
                 viewModel.SurveyItems = items;
