@@ -52,6 +52,7 @@ namespace PropertySurveyService.Data
             }
 
             // Elevate all existing users to SuperAdmin (and all roles)
+            /*
             var allUsers = userManager.Users.ToList();
             foreach (var u in allUsers)
             {
@@ -62,7 +63,7 @@ namespace PropertySurveyService.Data
                         await userManager.AddToRoleAsync(u, role.ToString());
                     }
                 }
-            }
+            }*/
         }
         public static void Initialize(AppDBContext context)
         {

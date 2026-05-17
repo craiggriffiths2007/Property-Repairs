@@ -6,13 +6,13 @@
 
     @if (SignInManager.IsSignedIn(User))
     {
-        @if (User.IsInRole("Admin") || User.IsInRole("SuperAdmin"))
+        @if (false)//(User.IsInRole("Admin") || User.IsInRole("SuperAdmin"))
         {
             <div class="nav-item">
                 <a href="javascript:void(0)">Users ▼</a>
                 <div class="dropdown">
                     <a asp-area="" asp-controller="Users" asp-action="Index">Users</a>
-                    @if (User.IsInRole("SuperAdmin"))
+                    @if (false)// (User.IsInRole("SuperAdmin"))
                     {
                         
                         <a asp-area="" asp-controller="UserRoles" asp-action="Index">User Roles</a>
