@@ -62,32 +62,34 @@ namespace PropertySurveyService.Models
         public int Id { get; set; }
         public int ContractId { get; set; }
         public int iRecordType { get; set; }
-        public string? ContractCode { get; set; }
-        public string? udi_cont { get; set; }
-        public string? Date { get; set; }
-        public string? Time { get; set; }
-        public string? Name { get; set; }
-        public string? Add1 { get; set; }
-        public string? Add2 { get; set; }
-        public string? Add3 { get; set; }
-        public string? Postcode { get; set; }
-        public string? Phone1 { get; set; }
-        public string? Phone2 { get; set; }
-        public string? Phone3 { get; set; }
-        public string? DamageDesc { get; set; }
-        public string? Instructions { get; set; }
+        public string? ContractCode { get; set; } = "";
+        public string? udi_cont { get; set; } = "";
+        public string? Date { get; set; } = "";
+        public string? Time { get; set; } = "";
+        public string? EndTime { get; set; } = "";
+        public string? Name { get; set; } = "";
+        public string? Add1 { get; set; } = "";
+        public string? Add2 { get; set; } = "";
+        public string? Add3 { get; set; } = "";
+        public string? Postcode { get; set; } = "";
+        public string? Phone1 { get; set; } = "";
+        public string? Phone2 { get; set; } = "";
+        public string? Phone3 { get; set; } = "";
+        public string? DamageDesc { get; set; } = "";
+        public string? Instructions { get; set; } = "";
         public JobDTO() { }
         public JobDTO(Job jobItem,Customer custItem)
         { 
             
 
-            (Id, ContractId, ContractCode, Date, Time, Name, Add1, Add2, Add3, Postcode, Phone1, Phone2, Phone3, DamageDesc, Instructions) =
+            (Id, ContractId, ContractCode, Date, Time, EndTime, Name, Add1, Add2, Add3, Postcode, Phone1, Phone2, Phone3, DamageDesc, Instructions) =
 
-            (jobItem.Id, jobItem.ContractId, jobItem.ContractCode, jobItem.Date.ToShortDateString(), jobItem.Time.ToShortTimeString(), custItem.Name,
+            (jobItem.Id, jobItem.ContractId, jobItem.ContractCode, jobItem.Date.ToShortDateString(), jobItem.Time.ToShortTimeString(), jobItem.Time.AddHours(1).ToShortTimeString(), custItem.Name,
                 custItem.Add1, custItem.Add2, custItem.Add3, custItem.Postcode, custItem.Phone1,
                 custItem.Phone2, custItem.Phone3, jobItem.DamageDesc, jobItem.Instructions);
 
             udi_cont = ContractCode;
+
         }
     }
 

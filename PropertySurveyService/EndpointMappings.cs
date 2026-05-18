@@ -302,8 +302,10 @@ namespace PropertySurveyService
                     if (header == null)
                         continue;
                     header.JobType = job.JobType;
-                    header.udi_date = job.Date.ToShortDateString();
+                    //header.udi_date = job.Date.ToShortDateString();
                     header.fit_diary = job.Date.ToShortDateString();
+                    header.fit_start = job.Time.ToString(@"hh\:mm");
+                    header.udi_fin = job.Time.Add(TimeSpan.FromHours(1)).ToString(@"hh\:mm");
                     header.bSurvey = true;
 
                     // Get all images for this header
