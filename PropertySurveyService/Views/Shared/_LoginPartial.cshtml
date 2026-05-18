@@ -6,13 +6,13 @@
 
     @if (SignInManager.IsSignedIn(User))
     {
-        @if (false)//(User.IsInRole("Admin") || User.IsInRole("SuperAdmin"))
+        @if (User.IsInRole("Admin") || User.IsInRole("SuperAdmin"))
         {
             <div class="nav-item">
                 <a href="javascript:void(0)">Users ▼</a>
                 <div class="dropdown">
                     <a asp-area="" asp-controller="Users" asp-action="Index">Users</a>
-                    @if (false)// (User.IsInRole("SuperAdmin"))
+                    @if (User.IsInRole("SuperAdmin"))
                     {
                         
                         <a asp-area="" asp-controller="UserRoles" asp-action="Index">User Roles</a>
@@ -34,7 +34,9 @@
 
         <a class="nav-item" id="login" asp-area="Identity" asp-page="/Account/Login">Login</a>
     }
-
+<form class="nav-item" id="logoutForm" class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+    <button id="logout" type="submit" class="btn btn-link">Logout</button>
+</form>
 
     
 
