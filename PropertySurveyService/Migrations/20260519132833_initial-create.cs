@@ -2731,7 +2731,8 @@ namespace PropertySurveyService.Migrations
                     ContractCode = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     CustomerId = table.Column<int>(type: "int", nullable: true),
                     IncidentAdded = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    DamageDescription = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    DamageDescription = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    CauseOfDamage = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -2754,6 +2755,7 @@ namespace PropertySurveyService.Migrations
                     JobType = table.Column<int>(type: "int", nullable: false),
                     Date = table.Column<DateTime>(type: "datetime2", nullable: false),
                     Time = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    CauseOfDamage = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     DamageDesc = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Instructions = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     CustomerId = table.Column<int>(type: "int", nullable: true),

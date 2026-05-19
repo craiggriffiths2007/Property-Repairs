@@ -215,6 +215,7 @@ namespace PropertySurveyService.Controllers
                 {
                     job.ContractCode = contract.ContractCode;
                     job.CustomerId = contract.CustomerId;
+                    job.CauseOfDamage = contract.CauseOfDamage;
                 }
                 _context.Add(job);
                 await _context.SaveChangesAsync();

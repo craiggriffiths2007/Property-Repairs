@@ -7,6 +7,7 @@ using System.Linq;
 
 namespace PropertySurveyService.Data
 {
+    
     public enum Roles
     {
         SuperAdmin,
@@ -143,23 +144,26 @@ namespace PropertySurveyService.Data
                 context.Add(c);
             }
             
+            List<string> cod_list = new List<string>() { "Accidental Damage", "Bad Workmanship", "Claim inconsistency", "Domestic", "Fire", "Flood",
+                "Ground Movement", "Impact", "Loss of keys", "Malicious", "Storm Damage", "Theft", "Wear + Tear" };
+
             var contracts = new Contract[]
             {
-                new Contract{ ContractCode="00000321" , CustomerId= customers[0].Id, DamageDescription ="Vehicle damage to upstairs window", IncidentAdded = DateTime.Now },
-                new Contract{ ContractCode="00000505" , CustomerId= customers[1].Id, DamageDescription ="Gas explosion next door", IncidentAdded = DateTime.Now.AddMonths(-1) },
-                new Contract{ ContractCode="00000678" , CustomerId= customers[2].Id, DamageDescription ="Fire damage to garage", IncidentAdded = DateTime.Now.AddMonths(-2) },
-                new Contract{ ContractCode="00000890" , CustomerId= customers[3].Id, DamageDescription ="Water damage to kitchen", IncidentAdded = DateTime.Now.AddMonths(-3) },
-                new Contract{ ContractCode="00000987" , CustomerId= customers[4].Id, DamageDescription ="Storm damage to roof", IncidentAdded = DateTime.Now.AddMonths(-4) },
-                new Contract{ ContractCode="00001012" , CustomerId= customers[5].Id, DamageDescription ="Flooded basement", IncidentAdded = DateTime.Now.AddMonths(-5) },
-                new Contract{ ContractCode="00001123" , CustomerId= customers[6].Id, DamageDescription ="Broken front door", IncidentAdded = DateTime.Now.AddMonths(-6) },
-                new Contract{ ContractCode="00001234" , CustomerId= customers[7].Id, DamageDescription ="Subsidence in living room", IncidentAdded = DateTime.Now.AddMonths(-7) },
-                new Contract{ ContractCode="00001345" , CustomerId= customers[8].Id, DamageDescription ="Vandalism to garden fence", IncidentAdded = DateTime.Now.AddMonths(-8) },
-                new Contract{ ContractCode="00001456" , CustomerId= customers[9].Id, DamageDescription ="Electrical fire in attic", IncidentAdded = DateTime.Now.AddMonths(-9) },
-                new Contract{ ContractCode="00001567" , CustomerId= customers[0].Id, DamageDescription ="Leaking roof", IncidentAdded = DateTime.Now.AddMonths(-10) },
-                new Contract{ ContractCode="00001678" , CustomerId= customers[1].Id, DamageDescription ="Collapsed ceiling", IncidentAdded = DateTime.Now.AddMonths(-11) },
-                new Contract{ ContractCode="00001789" , CustomerId= customers[2].Id, DamageDescription ="Burst water pipe", IncidentAdded = DateTime.Now.AddMonths(-12) },
-                new Contract{ ContractCode="00001890" , CustomerId= customers[3].Id, DamageDescription ="Mold in bathroom", IncidentAdded = DateTime.Now.AddMonths(-13) },
-                new Contract{ ContractCode="00001901" , CustomerId= customers[4].Id, DamageDescription ="Damaged driveway", IncidentAdded = DateTime.Now.AddMonths(-14) },
+                new Contract{ ContractCode="00000321" , CustomerId= customers[0].Id, DamageDescription ="Vehicle damage to upstairs window", IncidentAdded = DateTime.Now, CauseOfDamage = cod_list[0] } ,
+                new Contract{ ContractCode="00000505" , CustomerId= customers[1].Id, DamageDescription ="Gas explosion next door", IncidentAdded = DateTime.Now.AddMonths(-1), CauseOfDamage = cod_list[1] },
+                new Contract{ ContractCode="00000678" , CustomerId= customers[2].Id, DamageDescription ="Fire damage to garage", IncidentAdded = DateTime.Now.AddMonths(-2), CauseOfDamage = cod_list[2] },
+                new Contract{ ContractCode="00000890" , CustomerId= customers[3].Id, DamageDescription ="Water damage to kitchen", IncidentAdded = DateTime.Now.AddMonths(-3), CauseOfDamage = cod_list[3] },
+                new Contract{ ContractCode="00000987" , CustomerId= customers[4].Id, DamageDescription ="Storm damage to roof", IncidentAdded = DateTime.Now.AddMonths(-4), CauseOfDamage = cod_list[4] },
+                new Contract{ ContractCode="00001012" , CustomerId= customers[5].Id, DamageDescription ="Flooded basement", IncidentAdded = DateTime.Now.AddMonths(-5), CauseOfDamage = cod_list[5] },
+                new Contract{ ContractCode="00001123" , CustomerId= customers[6].Id, DamageDescription ="Broken front door", IncidentAdded = DateTime.Now.AddMonths(-6), CauseOfDamage = cod_list[6] },
+                new Contract{ ContractCode="00001234" , CustomerId= customers[7].Id, DamageDescription ="Subsidence in living room", IncidentAdded = DateTime.Now.AddMonths(-7), CauseOfDamage = cod_list[7] },
+                new Contract{ ContractCode="00001345" , CustomerId= customers[8].Id, DamageDescription ="Vandalism to garden fence", IncidentAdded = DateTime.Now.AddMonths(-8), CauseOfDamage = cod_list[8] },
+                new Contract{ ContractCode="00001456" , CustomerId= customers[9].Id, DamageDescription ="Electrical fire in attic", IncidentAdded = DateTime.Now.AddMonths(-9), CauseOfDamage = cod_list[9] },
+                new Contract{ ContractCode="00001567" , CustomerId= customers[0].Id, DamageDescription ="Leaking roof", IncidentAdded = DateTime.Now.AddMonths(-10), CauseOfDamage = cod_list[10] },
+                new Contract{ ContractCode="00001678" , CustomerId= customers[1].Id, DamageDescription ="Collapsed ceiling", IncidentAdded = DateTime.Now.AddMonths(-11), CauseOfDamage = cod_list[11] },
+                new Contract{ ContractCode="00001789" , CustomerId= customers[2].Id, DamageDescription ="Burst water pipe", IncidentAdded = DateTime.Now.AddMonths(-12), CauseOfDamage = cod_list[12] },
+                new Contract{ ContractCode="00001890" , CustomerId= customers[3].Id, DamageDescription ="Mold in bathroom", IncidentAdded = DateTime.Now.AddMonths(-13), CauseOfDamage = cod_list[0] },
+                new Contract{ ContractCode="00001901" , CustomerId= customers[4].Id, DamageDescription ="Damaged driveway", IncidentAdded = DateTime.Now.AddMonths(-14), CauseOfDamage = cod_list[1] },
             };
             foreach (Contract c in contracts)
             {

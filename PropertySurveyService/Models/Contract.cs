@@ -17,6 +17,6 @@ namespace PropertySurveyService.Models
 
         public string DamageDescription { get; set; }
 
-
+        public string CauseOfDamage { get; set; }
     }
 }

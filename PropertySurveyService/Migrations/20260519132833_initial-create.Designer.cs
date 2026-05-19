@@ -12,7 +12,7 @@ using PropertySurveyService.Data;
 namespace PropertySurveyService.Migrations
 {
     [DbContext(typeof(AppDBContext))]
-    [Migration("20260519102705_initial-create")]
+    [Migration("20260519132833_initial-create")]
     partial class initialcreate
     {
         /// <inheritdoc />
@@ -1433,6 +1433,10 @@ namespace PropertySurveyService.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("CauseOfDamage")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ContractCode")
                         .HasColumnType("nvarchar(max)");
@@ -5115,6 +5119,9 @@ namespace PropertySurveyService.Migrations
 
                     b.Property<int?>("AgentId")
                         .HasColumnType("int");
+
+                    b.Property<string>("CauseOfDamage")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ContractCode")
                         .HasColumnType("nvarchar(max)");

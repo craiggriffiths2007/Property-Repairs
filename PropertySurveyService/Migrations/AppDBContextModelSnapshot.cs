@@ -1431,6 +1431,10 @@ namespace PropertySurveyService.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<string>("CauseOfDamage")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("ContractCode")
                         .HasColumnType("nvarchar(max)");
 
@@ -5112,6 +5116,9 @@ namespace PropertySurveyService.Migrations
 
                     b.Property<int?>("AgentId")
                         .HasColumnType("int");
+
+                    b.Property<string>("CauseOfDamage")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ContractCode")
                         .HasColumnType("nvarchar(max)");
