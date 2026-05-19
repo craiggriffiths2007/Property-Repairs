@@ -22,6 +22,9 @@ namespace PropertySurveyService.Models
         [DataType(DataType.Time)]
         public DateTime Time { get; set; }
 
+        [Display(Name = "Incident Date")]
+        public DateTime IncidentDate { get; set; } = DateTime.Today;
+
         [Display(Name = "Cause of damage")]
         public string? CauseOfDamage { get; set; } = "";
 
@@ -78,6 +81,7 @@ namespace PropertySurveyService.Models
         public string? Phone2 { get; set; } = "";
         public string? Phone3 { get; set; } = "";
 
+        public string? IncidentDate { get; set; } = "";
         public string? CauseOfDamage { get; set; } = "";
         public string? DamageDesc { get; set; } = "";
         public string? Instructions { get; set; } = "";
@@ -86,11 +90,11 @@ namespace PropertySurveyService.Models
         { 
             
 
-            (Id, ContractId, ContractCode, Date, Time, EndTime, Name, Add1, Add2, Add3, Postcode, Phone1, Phone2, Phone3, DamageDesc, Instructions, CauseOfDamage) =
+            (Id, ContractId, ContractCode, Date, Time, EndTime, Name, Add1, Add2, Add3, Postcode, Phone1, Phone2, Phone3, DamageDesc, Instructions, CauseOfDamage, IncidentDate ) =
 
             (jobItem.Id, jobItem.ContractId, jobItem.ContractCode, jobItem.Date.ToShortDateString(), jobItem.Time.ToShortTimeString(), jobItem.Time.AddHours(1).ToShortTimeString(), custItem.Name,
                 custItem.Add1, custItem.Add2, custItem.Add3, custItem.Postcode, custItem.Phone1,
-                custItem.Phone2, custItem.Phone3, jobItem.DamageDesc, jobItem.Instructions, jobItem.CauseOfDamage);
+                custItem.Phone2, custItem.Phone3, jobItem.DamageDesc, jobItem.Instructions, jobItem.CauseOfDamage, jobItem.IncidentDate.ToShortDateString());
 
             ContractCode = ContractCode;
 

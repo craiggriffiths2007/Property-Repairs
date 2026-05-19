@@ -19,21 +19,29 @@
                 <span asp-validation-for="ContractCode" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="CustomerId" class="control-label">Customer</label>
-                <select asp-for="CustomerId" asp-items="@((SelectList)ViewBag.Customers)" class="form-control">
-                    <option value="">-- Select Customer --</option>
-                </select>
+                <label asp-for="CustomerId" class="control-label"></label>
+                <input asp-for="CustomerId" class="form-control" />
                 <span asp-validation-for="CustomerId" class="text-danger"></span>
             </div>
             <div class="form-group">
+                <label asp-for="Customer" class="control-label"></label>
+                <input asp-for="Customer" class="form-control" />
+                <span asp-validation-for="Customer" class="text-danger"></span>
+            </div>
+            <div class="form-group">
                 <label asp-for="IncidentDate" class="control-label"></label>
-                <input asp-for="IncidentDate" class="form-control" type="datetime-local" />
+                <input asp-for="IncidentDate" class="form-control" />
                 <span asp-validation-for="IncidentDate" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="DamageDescription" class="control-label"></label>
                 <input asp-for="DamageDescription" class="form-control" />
                 <span asp-validation-for="DamageDescription" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CauseOfDamage" class="control-label"></label>
+                <input asp-for="CauseOfDamage" class="form-control" />
+                <span asp-validation-for="CauseOfDamage" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />

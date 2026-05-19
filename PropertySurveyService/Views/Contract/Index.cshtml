@@ -1,10 +1,10 @@
 @model IEnumerable<PropertySurveyService.Models.Contract>
 
 @{
-    ViewData["Title"] = "Contracts";
+    ViewData["Title"] = "Index";
 }
 
-<h1>Contracts</h1>
+<h1>Index</h1>
 
 <p>
     <a asp-action="Create">Create New</a>
@@ -16,13 +16,19 @@
                 @Html.DisplayNameFor(model => model.ContractCode)
             </th>
             <th>
-                Customer
+                @Html.DisplayNameFor(model => model.CustomerId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Customer)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.IncidentDate)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.DamageDescription)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CauseOfDamage)
             </th>
             <th></th>
         </tr>
@@ -31,16 +37,22 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.ContractCode)
+                @Html.DisplayFor(model => item.ContractCode)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Customer.Name)
+                @Html.DisplayFor(model => item.CustomerId)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.IncidentDate)
+                @Html.DisplayFor(model => item.Customer)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.DamageDescription)
+                @Html.DisplayFor(model => item.IncidentDate)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.DamageDescription)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.CauseOfDamage)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |

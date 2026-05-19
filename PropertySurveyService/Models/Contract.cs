@@ -13,7 +13,7 @@ namespace PropertySurveyService.Models
 
         public Customer? Customer { get; set; }
 
-        public DateTime IncidentAdded { get; set; }
+        public DateTime IncidentDate { get; set; }
 
         public string DamageDescription { get; set; }
 
