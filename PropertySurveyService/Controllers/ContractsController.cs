@@ -1,8 +1,9 @@
 
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using PropertySurveyService.Models;
 using PropertySurveyService.Data;
+using PropertySurveyService.Models;
 
 public class ContractsController : Controller
 {
@@ -72,6 +73,7 @@ public class ContractsController : Controller
         {
             return NotFound();
         }
+        //PopulateCustomersDropDownList(contract.CustomerId);
         return View(contract);
     }
 
@@ -107,6 +109,7 @@ public class ContractsController : Controller
             }
             return RedirectToAction(nameof(Index));
         }
+       // PopulateCustomersDropDownList(contract.CustomerId);
         return View(contract);
     }
 
@@ -146,5 +149,11 @@ public class ContractsController : Controller
     private bool ContractExists(int? id)
     {
         return _context.Contract.Any(e => e.Id == id);
+    }
+    private void PopulateCustomersDropDownList(object? selectedCustomer = null)
+    {
+        var customers = _context.Customer.OrderBy(c => c.Name)
+            .Select(c => new { c.Id, c.Name });
+        ViewBag.Customers = new SelectList(customers, "CustomerId", "Name", selectedCustomer);
     }
 }
