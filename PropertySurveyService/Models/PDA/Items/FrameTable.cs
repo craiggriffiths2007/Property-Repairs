@@ -19,7 +19,7 @@ namespace PropertySurveyService.Models
         public Guid Guid { get; set; } = Guid.NewGuid();
 
         [DisplayName("Contract Number")]
-        public string udi_cont { get; set; } = "";
+        public string ContractCode { get; set; } = "";
 
         [DisplayName("Item Number")]
         public int item_number { get; set; }
@@ -44,7 +44,7 @@ namespace PropertySurveyService.Models
         public string additional_locks { get; set; } = "";
 
         [DisplayName("Gaskets")]
-        public int gaskets { get; set; }
+        public string gaskets { get; set; } = "...";
 
         [DisplayName("Gaskets Text")]
         public string gaskets_text { get; set; } = "";
@@ -80,7 +80,7 @@ namespace PropertySurveyService.Models
         public string brick_height { get; set; } = "";
 
         [DisplayName("Opens")]
-        public int opens { get; set; }
+        public string opens { get; set; } = "...";
 
         [DisplayName("Locking Type")]
         public string locking_type { get; set; } = "";
@@ -197,13 +197,13 @@ namespace PropertySurveyService.Models
         public bool glass_complete { get; set; }
 
         [DisplayName("Replace Glass")]
-        public int replace_glass { get; set; }
+        public bool? replace_glass { get; set; }
 
         [DisplayName("Glass Panel")]
         public bool panel_complete { get; set; }
 
         [DisplayName("Replace Panel")]
-        public int replace_panel { get; set; }
+        public bool? replace_panel { get; set; }
 
         // ===== Locking Mechanism =====
         [DisplayName("Lock Size 1")]
@@ -304,6 +304,8 @@ namespace PropertySurveyService.Models
 
         [DisplayName("Lead Type")]
         public string lead_type { get; set; } = "";
+        [DisplayName("Back to Back Complete")]
+        public bool lead_bBackToBackComplete { get; set; }
 
         [DisplayName("Lead Diamond Complete")]
         public bool lead_bDiamondComplete { get; set; }
@@ -370,10 +372,10 @@ namespace PropertySurveyService.Models
         public string midrail_height { get; set; } = "";
 
         [DisplayName("Slide Position")]
-        public int slide_position { get; set; }
+        public string slide_position { get; set; } = "...";
 
         [DisplayName("Profile Type")]
-        public int profile_type { get; set; }
+        public string profile_type { get; set; } = "...";
 
         [DisplayName("Spacer Colour")]
         public string spacer_colour { get; set; } = "";
@@ -407,6 +409,17 @@ namespace PropertySurveyService.Models
 
         [DisplayName("Frame Color Code Out")]
         public string frame_color_out_code { get; set; } = "";
+        [DisplayName("New Locking Mechanism")]
+        public bool? bNewLockingMech { get; set; }
+        [DisplayName("Double or Triple")]
+        public string double_tripple { get; set; } = "...";
+
+        [DisplayName("Glaze")]
+        public string glaze { get; set; } = "...";
+        [DisplayName("Trickle vents")]
+        public string trickle_vents { get; set; } = "...";
+
+        public string internal_lock { get; set; } = "...";
 
         public SurveyItem AsSurveyItem() { return new SurveyItem(Id, enum_item_type.lockin, item_number); }
 

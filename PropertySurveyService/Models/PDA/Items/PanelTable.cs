@@ -10,7 +10,7 @@ namespace PropertySurveyService.Models
         public int HeaderId { get; set; }
         public Guid Guid { get; set; }
         [DisplayName("Contract Number")]
-        public string? udi_cont { get; set; } // Key field contract number
+        public string? ContractCode { get; set; } // Key field contract number
 
         [DisplayName("Item Number")]
         public int item_number { get; set; }

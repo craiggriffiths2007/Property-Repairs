@@ -295,7 +295,7 @@ namespace PropertySurveyService
                     var customer = db.Customer.FirstOrDefault(x => x.Id == job.CustomerId) ?? new Customer();
 
                     var header = db.Header
-                        .Where(h => h.udi_cont == job.ContractCode)
+                        .Where(h => h.ContractCode == job.ContractCode)
                         .OrderByDescending(h => h.Id)
                         .FirstOrDefault();
 
@@ -303,15 +303,15 @@ namespace PropertySurveyService
                         continue;
                     header.JobType = job.JobType;
                     //header.udi_date = job.Date.ToShortDateString();
-                    header.fit_diary = job.Date.ToShortDateString();
-                    header.fit_start = job.Time.ToString(@"hh\:mm");
-                    header.udi_fin = job.Time.Add(TimeSpan.FromHours(1)).ToString(@"hh\:mm");
+                    header.FitDate = job.Date.ToShortDateString();
+                    header.FitStartTime = job.Time.ToString(@"hh\:mm");
+                    header.FitFinishTime = job.Time.Add(TimeSpan.FromHours(1)).ToString(@"hh\:mm");
                     header.bSurvey = true;
 
                     // Get all images for this header
                     var images = new List<string>();
                     //var headerImages = db.Images
-                    //    .Where(img => img.ContractCode == header.udi_cont)
+                    //    .Where(img => img.ContractCode == header.ContractCode)
                     //    .Select(img => img.Filename)
                     //    .Where(fn => fn != null)
                     //    .ToList();

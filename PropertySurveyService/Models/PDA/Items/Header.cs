@@ -12,17 +12,17 @@ namespace PropertySurveyService.Models
     }
     public class Header
     {
-        #region Core Database & System Fields
 
         [DisplayName("Record ID")]
         public int Id { get; set; }
 
         public Guid Guid { get; set; } = Guid.NewGuid();
 
-        [DisplayName("Staff Member Name")]
-        public string udi_staff { get; set; } = "";
 
-        [DisplayName("Surveyor Name")]
+        [DisplayName("Job Type")]
+        public enum_job_type JobType { get; set; }
+
+        [DisplayName("Agent Code")]
         public string AgentCode { get; set; } = "";
 
         [DisplayName("Complete")]
@@ -31,19 +31,82 @@ namespace PropertySurveyService.Models
         [DisplayName("Sent")]
         public bool bSent { get; set; }
 
-        [DisplayName("Index")]
-        public int ind { get; set; }
+        #region Client & Contract Information
 
-        [DisplayName("Group")]
-        public string Group { get; set; } = "";
+        [DisplayName("Contract Code")]
+        public string ContractCode { get; set; } = "";
+
+        [DisplayName("Policy Number")]
+        public string PolicyNumber { get; set; } = "";
+
+        [DisplayName("Invoice Number")]
+        public string InvoiceNumber { get; set; } = "";
+
+        [DisplayName("Insurance Company Name")]
+        public string InsuranceCompanyName { get; set; } = "";
+
+        [DisplayName("Loss Adjuster Name")]
+        public string LossAdjusterName { get; set; } = "";
 
 
 
-        [DisplayName("Processed")]
-        public string bProcessed { get; set; } = "";
+        [DisplayName("Incident Date")]
+        public string IncidentDate { get; set; } = "";
 
-        [DisplayName("Record Type")]
-        public enum_job_type JobType { get; set; }
+        [DisplayName("COD String")]
+        public string CauseOfDamage { get; set; } = "";
+
+        [DisplayName("Damage Description")]
+        public string DamageDescription { get; set; } = "";
+
+
+
+
+
+        [DisplayName("Client Name")]
+        public string ClientName { get; set; } = "";
+
+        [DisplayName("Client Address 1")]
+        public string ClientAddressLine1 { get; set; } = "";
+
+        [DisplayName("Client Address 2")]
+        public string ClientAddressLine2 { get; set; } = "";
+
+        [DisplayName("Client Address 3")]
+        public string ClientAddressLine3 { get; set; } = "";
+
+        [DisplayName("Client Address 4")]
+        public string ClientAddressLine4 { get; set; } = "";
+
+        [DisplayName("Client Postcode")]
+        public string ClientPostcode { get; set; } = "";
+
+        [DisplayName("Client Phone Number")]
+        public string ClientPhoneNumber { get; set; } = "";
+
+        [DisplayName("Client Phone Number 2")]
+        public string ClientPhoneNumber2 { get; set; } = "";
+
+        [DisplayName("Client Phone Number 3")]
+        public string ClientPhoneNumber3 { get; set; } = "";
+
+        [DisplayName("Additional Phone 1")]
+        public string ClientAddPhoneNumber1 { get; set; } = "";
+
+        [DisplayName("Additional Phone 2")]
+        public string ClientAddPhoneNumber2 { get; set; } = "";
+
+
+
+        [DisplayName("Customer Number")]
+        public string CustomerNumber { get; set; } = "";
+
+
+
+
+
+
+
 
         [DisplayName("Type A")]
         public string typeA { get; set; } = "";
@@ -51,137 +114,68 @@ namespace PropertySurveyService.Models
         [DisplayName("Type B")]
         public string typeB { get; set; } = "";
 
-        [DisplayName("Job Type")]
-        public string type { get; set; } = "";
-
-        [DisplayName("Sub Type")]
-        public string sub_type { get; set; } = "";
-
         [DisplayName("Traffic Light")]
         public int udi_tlight { get; set; }
 
         [DisplayName("Info Seen")]
         public bool bInfoSeen { get; set; }
 
-        #endregion
-
-        #region Client & Contract Information
-
-        [DisplayName("Contract Number")]
-        public string udi_cont { get; set; } = "";
-
-        [DisplayName("Policy Number")]
-        public string policy_number { get; set; } = "";
-
-        [DisplayName("Claim Reference")]
-        public string claim_ref { get; set; } = "";
-
-        [DisplayName("Insurance Company Name")]
-        public string sn_name { get; set; } = "";
-
-        [DisplayName("Loss Adjuster Name")]
-        public string uc_laname { get; set; } = "";
-
-        [DisplayName("Client Name")]
-        public string uc_name { get; set; } = "";
-
-        [DisplayName("Client Address 1")]
-        public string uc_add1 { get; set; } = "";
-
-        [DisplayName("Client Address 2")]
-        public string uc_add2 { get; set; } = "";
-
-        [DisplayName("Client Address 3")]
-        public string uc_add3 { get; set; } = "";
-
-        [DisplayName("Client Address 4")]
-        public string uc_add4 { get; set; } = "";
-
-        [DisplayName("Client Postcode")]
-        public string uc_postcode { get; set; } = "";
-
-        [DisplayName("Client Phone Number")]
-        public string uc_h_phone { get; set; } = "";
-
-        [DisplayName("Client Phone Number 2")]
-        public string uc_h_phone2 { get; set; } = "";
-
-        [DisplayName("Client Phone Number 3")]
-        public string uc_h_phone3 { get; set; } = "";
-
-        [DisplayName("Additional Phone 1")]
-        public string add_phone_1 { get; set; } = "";
-
-        [DisplayName("Additional Phone 2")]
-        public string add_phone_2 { get; set; } = "";
-
-        [DisplayName("Additional Address Info")]
-        public string add_long { get; set; } = "";
-
-        [DisplayName("Birthday 1")]
-        public string si_bday1 { get; set; } = "";
-
-        [DisplayName("Customer Number")]
-        public string si_cnum { get; set; } = "";
-
-        [DisplayName("Invoice Number")]
-        public string si_inum { get; set; } = "";
 
         #endregion
+
+
 
         #region Scheduling & Diary Details
 
-        [DisplayName("Diary Date of Job")]
-        public string udi_date { get; set; } = "";
+        [DisplayName("Surveyor Diary Date")]
+        public string Date { get; set; } = "";
 
-        [DisplayName("Start Time")]
-        public string udi_start { get; set; } = "";
+        [DisplayName("Surveyor Start Time")]
+        public string StartTime { get; set; } = "";
 
-        [DisplayName("Finish Time")]
-        public string udi_fin { get; set; } = "";
+        [DisplayName("Surveyor Finish Time")]
+        public string FinishTime { get; set; } = "";
 
-        [DisplayName("Old Date")]
-        public string old_date { get; set; } = "";
+        [DisplayName("Surveyor Time Arrived")]
+        public string TimeArrived { get; set; } = "";
 
-        [DisplayName("Old Start Time")]
-        public string old_start { get; set; } = "";
 
-        [DisplayName("Old Finish Time")]
-        public string old_finish { get; set; } = "";
 
-        [DisplayName("Incident Date")]
-        public string uc_inceden { get; set; } = "";
+        [DisplayName("Fit Diary Date")]
+        public string FitDate { get; set; } = "";
 
-        [DisplayName("Booked on Day 1")]
-        public int booked { get; set; }
+        [DisplayName("Fit Start Time")]
+        public string FitStartTime { get; set; } = "";
 
-        [DisplayName("Reason Not Booked In")]
-        public string reason_not_booked_in { get; set; } = "";
+        [DisplayName("Fit Finish Time")]
+        public string FitFinishTime { get; set; } = "";
+
+
 
         #endregion
 
+
+
         #region Job, Instructions & Progress
 
-        [DisplayName("Go Ahead for Repair")]
-        public bool uc_goahead { get; set; }
 
-        [DisplayName("Go Ahead String")]
-        public string goaheadstr { get; set; } = "";
+
 
         [DisplayName("Instructions")]
-        public string udi_inst { get; set; } = "";
-
-        [DisplayName("Cover Instructions")]
-        public string cover_instructions { get; set; } = "";
-
-        [DisplayName("Old Cover Instructions")]
-        public string old_cover_instructions { get; set; } = "";
+        public string Instructions { get; set; } = "";
 
         [DisplayName("Job Instructions")]
-        public string udi_jobtext { get; set; } = "";
+        public string JobInstructions { get; set; } = "";
+
+        [DisplayName("Booked on Day 1")]
+        public bool? BookedOnDay1 { get; set; }
+
+        [DisplayName("Reason Not Booked In")]
+        public string ReasonNotBookedOnDay1 { get; set; } = "";
+
 
         [DisplayName("Number of Items")]
-        public int si_numitem { get; set; }
+        public int NumberOfItems { get; set; }
 
         [DisplayName("Job Grade")]
         public string job_grade { get; set; } = "";
@@ -190,33 +184,45 @@ namespace PropertySurveyService.Models
         public string njs { get; set; } = "";
 
 
-        [DisplayName("Brief Description")]
-        public string uc_desc { get; set; } = "";
+
 
         [DisplayName("Report Text")]
-        public string rep_text { get; set; } = "";
+        public string Report { get; set; } = "";
 
         [DisplayName("Summary Text")]
-        public string summ_text { get; set; } = "";
+        public string Summary { get; set; } = "";
 
-        [DisplayName("Code Text")]
-        public string code_text { get; set; } = "";
-
-        [DisplayName("Additional Comments")]
-        public string add_comm { get; set; } = "";
-
-        [DisplayName("Complaint Type Job")]
-        public bool b_mrk { get; set; }
-
-        [DisplayName("MSF Job")]
-        public bool bMSFJob { get; set; }
 
         #endregion
 
         #region Site Logistics, Risks & Health & Safety
 
+        [DisplayName("Door Bell")]
+        public bool? doorbell { get; set; }
+
         [DisplayName("Alarm Contacts")]
-        public int alarm_cont { get; set; }
+        public bool? alarm_cont { get; set; }
+
+        [DisplayName("Acro Prop Required")]
+        public bool? acroreq { get; set; }
+
+        [DisplayName("Acro Prop Boy")]
+        public bool? acrosboy { get; set; }
+
+        [DisplayName("Sand and Cement Required")]
+        public bool? sand_cemen { get; set; }
+
+        [DisplayName("Plaster Required")]
+        public bool? plaster { get; set; }
+
+        [DisplayName("Generator Required")]
+        public bool? genreq { get; set; }
+
+        [DisplayName("Architraves Required")]
+        public bool? architreq { get; set; }
+
+        [DisplayName("Access Requirements Comments")]
+        public string acc_text { get; set; } = "";
 
         [DisplayName("Ladders Required")]
         public int ladder_req { get; set; }
@@ -226,30 +232,6 @@ namespace PropertySurveyService.Models
 
         [DisplayName("Height Restriction")]
         public int height_res { get; set; }
-
-        [DisplayName("Sand and Cement Required")]
-        public int sand_cemen { get; set; }
-
-        [DisplayName("Plaster Required")]
-        public int plaster { get; set; }
-
-        [DisplayName("Door Bell")]
-        public int doorbell { get; set; }
-
-        [DisplayName("Generator Required")]
-        public int genreq { get; set; }
-
-        [DisplayName("Architraves Required")]
-        public int architreq { get; set; }
-
-        [DisplayName("Acro Prop Required")]
-        public int acroreq { get; set; }
-
-        [DisplayName("Acro Prop Boy")]
-        public int acrosboy { get; set; }
-
-        [DisplayName("Access Requirements Comments")]
-        public string acc_text { get; set; } = "";
 
         [DisplayName("Obstructive Wires")]
         public int obs_wires { get; set; }
@@ -277,9 +259,6 @@ namespace PropertySurveyService.Models
 
         [DisplayName("Installation Height")]
         public string inst_height { get; set; } = "";
-
-        [DisplayName("Both Hands (Tower Scaffold)")]
-        public int bBothHands { get; set; }
 
         [DisplayName("Ground Surface")]
         public string ground_surface { get; set; } = "";
@@ -311,11 +290,11 @@ namespace PropertySurveyService.Models
         [DisplayName("Lintel Present Text")]
         public string lintel_present_text { get; set; } = "";
 
-        [DisplayName("Inevitable Damage")]
-        public string inevitable_damage { get; set; } = "";
+        [DisplayName("InevitableDamage")]
+        public bool? InevitableDamage { get; set; }
 
-        [DisplayName("Requiring Load Bearing Jacks")]
-        public bool requiring_load_bearing_jacks { get; set; }
+        [DisplayName("Inevitable Damage")]
+        public string InevitableDamageExplain { get; set; } = "";
 
         #endregion
 
@@ -354,41 +333,31 @@ namespace PropertySurveyService.Models
         [DisplayName("Fitter Name 2 (Alt)")]
         public string ffitter_name2 { get; set; } = "";
 
-        [DisplayName("Fit Diary Date")]
-        public string fit_diary { get; set; } = "";
+
 
         [DisplayName("Fitters Instructions")]
-        public string fitters_instructions { get; set; } = "";
+        public string FitInstructions { get; set; } = "";
 
-        [DisplayName("Fit Start Time")]
-        public string fit_start { get; set; } = "";
 
-        [DisplayName("Fit Finish Time")]
-        public string fit_fin { get; set; } = "";
 
         [DisplayName("Fitter Work")]
-        public string fitter_work { get; set; } = "";
+        public string FitWorkCarriedOut { get; set; } = "";
+
+        [DisplayName("Parts Used")]
+        public string FitPartsUsed { get; set; } = "";
 
         [DisplayName("Fitter Comments")]
-        public string fitter_comments { get; set; } = "";
+        public string FitComments { get; set; } = "";
 
         [DisplayName("Time Arrived")]
-        public string ftimearr { get; set; } = "";
+        public string FitTimeArrived { get; set; } = "";
 
         [DisplayName("Time Left")]
-        public string ftimeleft { get; set; } = "";
+        public string FitTimeLeft { get; set; } = "";
 
-        [DisplayName("Fitter Time Arrived")]
-        public string ftime_arrived { get; set; } = "";
 
-        [DisplayName("Fitter Time Left")]
-        public string ftime_left { get; set; } = "";
 
-        [DisplayName("Work Carried Out")]
-        public string wkcartxt { get; set; } = "";
 
-        [DisplayName("Job Comments")]
-        public string commtxt { get; set; } = "";
 
         [DisplayName("Super Fitter Done")]
         public bool si_done { get; set; }
@@ -402,8 +371,7 @@ namespace PropertySurveyService.Models
         [DisplayName("Fitter Signature Date")]
         public string f_sign_date { get; set; } = "";
 
-        [DisplayName("Surveyor Time Arrived")]
-        public string stimea { get; set; } = "";
+
 
         [DisplayName("Fitter/Surveyor")]
         public string f1_or_s2 { get; set; } = "";
@@ -457,12 +425,8 @@ namespace PropertySurveyService.Models
         [DisplayName("Completion Signed")]
         public bool bcompletion_signed { get; set; }
 
-        #endregion
 
-        #region Inventory, Locks & Stock Management
 
-        [DisplayName("Parts Used")]
-        public string parts_used { get; set; } = "";
 
         [DisplayName("Parts Used (Text)")]
         public string parttxt { get; set; } = "";
@@ -476,26 +440,6 @@ namespace PropertySurveyService.Models
         [DisplayName("Fitter Stock Usage Complete")]
         public bool fbstockusagecomplete { get; set; }
 
-        [DisplayName("Securing")]
-        public bool bSecuring { get; set; }
-
-        [DisplayName("Insurance Board")]
-        public int ins_board { get; set; }
-
-        [DisplayName("Insurance Lock")]
-        public int ins_lock { get; set; }
-
-        [DisplayName("Insurance Temp")]
-        public int ins_temp { get; set; }
-
-        [DisplayName("Insurance Perm")]
-        public int ins_perm { get; set; }
-
-        [DisplayName("Number of Locks")]
-        public int int_num_of_locks { get; set; }
-
-        [DisplayName("Type of Lock")]
-        public string int_type_of_lock { get; set; } = "";
 
         #endregion
 
@@ -523,7 +467,7 @@ namespace PropertySurveyService.Models
         public double uc_excess { get; set; }
 
         [DisplayName("Excess Collected")]
-        public int bExcessCollected { get; set; }
+        public bool? bExcessCollected { get; set; }
 
         [DisplayName("Reason Excess Not Collected")]
         public string reason_excess_not_collected { get; set; } = "";
@@ -552,35 +496,20 @@ namespace PropertySurveyService.Models
         [DisplayName("How Much Additional Paid (Fitter)")]
         public string fhow_mutch_additional_paid { get; set; } = "";
 
-        #endregion
 
-        #region Surveys & Measurements
 
         [DisplayName("Survey")]
         public bool bSurvey { get; set; }
 
         [DisplayName("Survey Complete")]
-        public int survey_complete { get; set; }
+        public bool? survey_complete { get; set; }
 
         [DisplayName("Reason Not Complete")]
         public string reason_not_complete { get; set; } = "";
 
-        [DisplayName("Survey on Fit")]
-        public int survey_on_fit { get; set; }
 
-        [DisplayName("Securing Surveyor Required")]
-        public int securing_surveyor_required { get; set; }
 
-        [DisplayName("Survey Required on Securing")]
-        public bool bSurveyRequiredOnSecuring { get; set; }
 
-        [DisplayName("Items Matching Up")]
-        public int imchup { get; set; }
-
-        [DisplayName("Own Quote")]
-        public int ownquote { get; set; }
-
-        #endregion
 
         #region Remedial Action Details
 
@@ -631,10 +560,6 @@ namespace PropertySurveyService.Models
 
         #endregion
 
-        #region Quality Assurance & Spot Checks
-
-
-        #endregion
 
         #region Security Surveys
 
@@ -708,9 +633,6 @@ namespace PropertySurveyService.Models
 
         #region Photos, Videos & Digital Media
 
-        [DisplayName("Photos Taken")]
-        public int photo { get; set; }
-
         [DisplayName("Number of Photos")]
         public int no_of_photos { get; set; }
 
@@ -738,34 +660,14 @@ namespace PropertySurveyService.Models
         [DisplayName("Number of Fitter Videos")]
         public int fit_no_of_videos { get; set; }
 
-        [DisplayName("All Pictures")]
-        public bool bAllPictures { get; set; }
 
         #endregion
 
-        #region Tracking & GPS Data
 
-        [DisplayName("GPS Distance")]
-        public long distance { get; set; }
-
-        [DisplayName("Journey Duration (Seconds)")]
-        public long duration { get; set; }
-
-        [DisplayName("Closest")]
-        public string bClosest { get; set; } = "";
-
-        #endregion
 
         #region Framework Integrations, Insurers & External APIs
 
-        [DisplayName("IDAM Password Entered")]
-        public bool idampassword_entered { get; set; }
 
-        [DisplayName("Doc L Compliant")]
-        public int doc_l_compliant { get; set; }
-
-        [DisplayName("Doc L Compliant Reason")]
-        public string doc_l_compliant_reason { get; set; } = "";
 
         [DisplayName("Shop Front Work")]
         public int shop_front_work { get; set; }
@@ -782,8 +684,7 @@ namespace PropertySurveyService.Models
         [DisplayName("COD Code")]
         public string COD_Code { get; set; } = "";
 
-        [DisplayName("COD String")]
-        public string COD_String { get; set; } = "";
+
 
         [DisplayName("RCOD Changed")]
         public string rcodchanged { get; set; } = "";
@@ -795,7 +696,7 @@ namespace PropertySurveyService.Models
         public string refmessage { get; set; } = "";
 
         [DisplayName("Subcontract")]
-        public int b_subcontract { get; set; }
+        public bool? b_subcontract { get; set; }
 
         [DisplayName("Subcontract Text")]
         public string subcontracttext { get; set; } = "";
@@ -890,6 +791,10 @@ namespace PropertySurveyService.Models
 
         #endregion
 
+
+
+
+
         #region Workflow Checkpoints & UI Flags
 
         [DisplayName("Damage Ticked")]
@@ -933,28 +838,39 @@ namespace PropertySurveyService.Models
 
         #endregion
 
-        #region Spares & Custom Fields
 
-        [DisplayName("Spare 2")]
-        public string spare2 { get; set; } = "";
 
-        [DisplayName("Spare 1")]
-        public int i_spare1 { get; set; }
 
-        [DisplayName("Spare 2")]
-        public int i_spare2 { get; set; }
 
-        [DisplayName("Spare 3")]
-        public int i_spare3 { get; set; }
+        [DisplayName("Repudiation completed")]
+        public bool repudiation_completed { get; set; }
 
-        [DisplayName("Spare S1")]
-        public string s_spare1 { get; set; } = "";
+        [DisplayName("Have you repudiated?")]
+        public bool? have_you_repudiated { get; set; }
 
-        [DisplayName("Spare S2")]
-        public string s_spare2 { get; set; } = "";
+        [DisplayName("Reason not repudiated")]
+        public string reason_not_repudiated { get; set; } = "";
 
-        [DisplayName("Spare S3")]
-        public string s_spare3 { get; set; } = "";
+        [DisplayName("Repudiation reason different")]
+        public string repudiation_reason_different { get; set; } = "";
+
+
+        [DisplayName("Repudiation reason different")]
+        public string repudiation_other_information { get; set; } = "";
+
+
+
+
+
+        [DisplayName("Hire equipment used")]
+        public string hire_equipment_used { get; set; } = "...";
+
+        [DisplayName("Hire equipment used text")]
+        public string hire_equipment_used_text { get; set; } = "";
+
+
+
+
 
         [DisplayName("Cill on Subframe")]
         public int new_ispare1 { get; set; }
@@ -963,20 +879,18 @@ namespace PropertySurveyService.Models
         public int new_ispare2 { get; set; }
 
         [DisplayName("New Spare 9")]
-        public int new_ispare9 { get; set; }
+        public bool? additional_summary_info { get; set; }
 
         [DisplayName("New SSpare 9")]
         public string new_sspare9 { get; set; } = "";
 
-        [DisplayName("New SSpare 10")]
-        public string new_sspare10 { get; set; } = "";
 
         #endregion
+
         [DisplayName("Garage Door Motor")]
         public int garage_door_motor { get; set; }
         [DisplayName("Globaldoor Link")]
         public string global_door_link { get; set; } = "";
-
         [DisplayName("Tower Scaffold")]
         public bool? isTowerScaff { get; set; }
 

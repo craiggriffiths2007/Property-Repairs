@@ -17,7 +17,7 @@ namespace PropertySurveyService.Models
 
         public bool bCorrectContract { get; set; }
 
-        public string udi_cont { get; set; } = string.Empty;
+        public string ContractCode { get; set; } = string.Empty;
         public string branch { get; set; } = string.Empty;
 
         public string Date { get; set; } = "";

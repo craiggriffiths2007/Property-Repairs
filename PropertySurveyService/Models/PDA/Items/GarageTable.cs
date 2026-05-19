@@ -11,7 +11,7 @@ namespace PropertySurveyService.Models
 
         public Guid Guid { get; set; }
         [DisplayName("Contract Number")]
-        public string? udi_cont { get; set; }            // Key fieled contract number			CONTRACT NUMBER
+        public string? ContractCode { get; set; }            // Key fieled contract number			CONTRACT NUMBER
 
         [DisplayName("Item Number")]
         public int item_number { get; set; }

@@ -98,11 +98,11 @@ namespace PropertySurveyService.Controllers
                     .Distinct()
                     .ToList();
                 viewModel.Headers = await _context.Header
-                    .Where(h => h.udi_cont != null && codes.Contains(h.udi_cont))
+                    .Where(h => h.ContractCode != null && codes.Contains(h.ContractCode))
                     .ToListAsync();
 
                 var codesWithHeaders = viewModel.Headers
-                    .Select(h => h.udi_cont!)
+                    .Select(h => h.ContractCode!)
                     .Distinct()
                     .ToList();
                 viewModel.ContractCodesWithHeaders = new HashSet<string>(codesWithHeaders);
@@ -118,7 +118,7 @@ namespace PropertySurveyService.Controllers
                     switch (n)
                     {
                         //case enum_item_type.upvc:
-                        //    viewModel.SurveyItems += _context.Header.Where(x => x.udi_cont == _context.Header.FirstOrDefault(j => j.Id == headerId.Value).udi_cont).ToEnumeral();
+                        //    viewModel.SurveyItems += _context.Header.Where(x => x.ContractCode == _context.Header.FirstOrDefault(j => j.Id == headerId.Value).ContractCode).ToEnumeral();
                         case enum_item_type.panel: foreach (var p in _context.PanelTable.Where(x => x.HeaderId == headerId.Value))
                                                         viewModel.SurveyItems.Append(p.AsSurveyItem());
                                                         break;     
@@ -182,7 +182,7 @@ namespace PropertySurveyService.Controllers
             if (!string.IsNullOrEmpty(job.ContractCode))
             {
                 ViewBag.Headers = await _context.Header
-                    .Where(h => h.udi_cont == job.ContractCode)
+                    .Where(h => h.ContractCode == job.ContractCode)
                     .ToListAsync();
             }
 

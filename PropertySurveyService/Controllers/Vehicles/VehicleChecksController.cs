@@ -65,13 +65,13 @@ namespace PropertySurveyService.Controllers
 
                 viewModel.VehicleCheckVehicles = items;
 
-                //List<PhotoImage> photoimages = _context.Images.Where(x => x.Filename.Substring(0, 12) == viewModel.Header.udi_cont + "_cAH").ToList();
+                //List<PhotoImage> photoimages = _context.Images.Where(x => x.Filename.Substring(0, 12) == viewModel.Header.ContractCode + "_cAH").ToList();
 
                 //viewModel.VehicleCheckVehicles = photoimages;
             }
             /*
             var parentVehicleCheck = await _context.VehicleCheckHeaders
-                    .FirstOrDefaultAsync(j => j.Id == viewModel.VehicleCheckHeader.udi_cont);
+                    .FirstOrDefaultAsync(j => j.Id == viewModel.VehicleCheckHeader.ContractCode);
             if (parentJob != null)
             {
                 ViewBag.ParentJobId = parentJob.Id;

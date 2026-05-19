@@ -11,7 +11,7 @@ namespace PropertySurveyService.Models
 
         public Guid Guid { get; set; }
         [DisplayName("Contract Number")]
-        public string? udi_cont { get; set; }
+        public string? ContractCode { get; set; }
 
         [DisplayName("Item Number")]
         public int item_number { get; set; }

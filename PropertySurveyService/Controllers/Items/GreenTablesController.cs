@@ -45,7 +45,7 @@ namespace PropertySurveyService.Controllers
                 return NotFound();
             }
 
-            List<PhotoImage> photoimages = _context.Images.Where(x => x.Filename.Substring(0, 8) == viewModel.Green.udi_cont &&
+            List<PhotoImage> photoimages = _context.Images.Where(x => x.Filename.Substring(0, 8) == viewModel.Green.ContractCode &&
             x.Filename.Substring(12, 3) == viewModel.Green.item_number.ToString("000")).ToList();
 
             viewModel.Images = photoimages;
@@ -64,7 +64,7 @@ namespace PropertySurveyService.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,HeaderId,udi_cont,item_number,bComplete,bDifferentFromOriginal,cause_of_damage,cause_of_damage_reason_different,rep_reason,material_type,colour,glaze_type,base_size,base_size_x,base_size_y,type_of_glass,door_opening_type,window_opening_type,roof_opening_lights,auto_or_manual,overall_height,summary,no_of_pics,no_of_photos,no_of_vids,parts_to_order,point_of_entry,type_of_lockng_system_required,was_it_locked,ChangeItemTo,print_name,glass_complete,replace_glass,repair_or_replace")] GreenTable greenTable)
+        public async Task<IActionResult> Create([Bind("Id,HeaderId,ContractCode,item_number,bComplete,bDifferentFromOriginal,cause_of_damage,cause_of_damage_reason_different,rep_reason,material_type,colour,glaze_type,base_size,base_size_x,base_size_y,type_of_glass,door_opening_type,window_opening_type,roof_opening_lights,auto_or_manual,overall_height,summary,no_of_pics,no_of_photos,no_of_vids,parts_to_order,point_of_entry,type_of_lockng_system_required,was_it_locked,ChangeItemTo,print_name,glass_complete,replace_glass,repair_or_replace")] GreenTable greenTable)
         {
             if (ModelState.IsValid)
             {
@@ -96,7 +96,7 @@ namespace PropertySurveyService.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,HeaderId,udi_cont,item_number,bComplete,bDifferentFromOriginal,cause_of_damage,cause_of_damage_reason_different,rep_reason,material_type,colour,glaze_type,base_size,base_size_x,base_size_y,type_of_glass,door_opening_type,window_opening_type,roof_opening_lights,auto_or_manual,overall_height,summary,no_of_pics,no_of_photos,no_of_vids,parts_to_order,point_of_entry,type_of_lockng_system_required,was_it_locked,ChangeItemTo,print_name,glass_complete,replace_glass,repair_or_replace")] GreenTable greenTable)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,HeaderId,ContractCode,item_number,bComplete,bDifferentFromOriginal,cause_of_damage,cause_of_damage_reason_different,rep_reason,material_type,colour,glaze_type,base_size,base_size_x,base_size_y,type_of_glass,door_opening_type,window_opening_type,roof_opening_lights,auto_or_manual,overall_height,summary,no_of_pics,no_of_photos,no_of_vids,parts_to_order,point_of_entry,type_of_lockng_system_required,was_it_locked,ChangeItemTo,print_name,glass_complete,replace_glass,repair_or_replace")] GreenTable greenTable)
         {
             if (id != greenTable.Id)
             {

@@ -269,6 +269,9 @@ namespace PropertySurveyService.Migrations
                     b.Property<string>("ChangeItemTo")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("ContractCode")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("FecerRating")
                         .HasColumnType("nvarchar(max)");
 
@@ -662,9 +665,6 @@ namespace PropertySurveyService.Migrations
                     b.Property<string>("type_of_lockng_system_required")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("udi_cont")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<int>("was_it_locked")
                         .HasColumnType("int");
 
@@ -682,6 +682,9 @@ namespace PropertySurveyService.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("ChangeItemTo")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ContractCode")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<Guid>("Guid")
@@ -834,9 +837,6 @@ namespace PropertySurveyService.Migrations
                     b.Property<string>("type_of_lockng_system_required")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("udi_cont")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<int>("was_it_locked")
                         .HasColumnType("int");
 
@@ -876,6 +876,9 @@ namespace PropertySurveyService.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("ChangeItemTo")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ContractCode")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<Guid>("Guid")
@@ -1121,9 +1124,6 @@ namespace PropertySurveyService.Migrations
                     b.Property<string>("type_of_lockng_system_required")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("udi_cont")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<int>("was_it_locked")
                         .HasColumnType("int");
 
@@ -1141,6 +1141,9 @@ namespace PropertySurveyService.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("ChangeItemTo")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ContractCode")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<Guid>("Guid")
@@ -1407,9 +1410,6 @@ namespace PropertySurveyService.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("type_of_lockng_system_required")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("udi_cont")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("wall_pos")
@@ -3137,6 +3137,10 @@ namespace PropertySurveyService.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<string>("ContractCode")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("GearBox")
                         .HasColumnType("int");
 
@@ -3174,6 +3178,9 @@ namespace PropertySurveyService.Migrations
                         .HasColumnType("bit");
 
                     b.Property<bool>("bLockComplete")
+                        .HasColumnType("bit");
+
+                    b.Property<bool?>("bNewLockingMech")
                         .HasColumnType("bit");
 
                     b.Property<bool>("bRepair")
@@ -3239,6 +3246,10 @@ namespace PropertySurveyService.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("double_tripple")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("frame_color_in")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -3271,8 +3282,9 @@ namespace PropertySurveyService.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("gaskets")
-                        .HasColumnType("int");
+                    b.Property<string>("gaskets")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("gaskets_text")
                         .IsRequired()
@@ -3289,6 +3301,10 @@ namespace PropertySurveyService.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("glaze")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("handles_req")
                         .HasColumnType("int");
 
@@ -3297,6 +3313,10 @@ namespace PropertySurveyService.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("internal_height")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("internal_lock")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -3418,6 +3438,9 @@ namespace PropertySurveyService.Migrations
                     b.Property<int>("lead_anti_rattle")
                         .HasColumnType("int");
 
+                    b.Property<bool>("lead_bBackToBackComplete")
+                        .HasColumnType("bit");
+
                     b.Property<bool>("lead_bBarComplete")
                         .HasColumnType("bit");
 
@@ -3504,8 +3527,9 @@ namespace PropertySurveyService.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("opens")
-                        .HasColumnType("int");
+                    b.Property<string>("opens")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("outer_section_size")
                         .IsRequired()
@@ -3533,18 +3557,19 @@ namespace PropertySurveyService.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("profile_type")
-                        .HasColumnType("int");
+                    b.Property<string>("profile_type")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("replace_explain")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("replace_glass")
-                        .HasColumnType("int");
+                    b.Property<bool?>("replace_glass")
+                        .HasColumnType("bit");
 
-                    b.Property<int>("replace_panel")
-                        .HasColumnType("int");
+                    b.Property<bool?>("replace_panel")
+                        .HasColumnType("bit");
 
                     b.Property<string>("replace_reason")
                         .IsRequired()
@@ -3557,8 +3582,9 @@ namespace PropertySurveyService.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("slide_position")
-                        .HasColumnType("int");
+                    b.Property<string>("slide_position")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("spacer_color")
                         .IsRequired()
@@ -3587,11 +3613,11 @@ namespace PropertySurveyService.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("type_of_lockng_system_required")
+                    b.Property<string>("trickle_vents")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("udi_cont")
+                    b.Property<string>("type_of_lockng_system_required")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -3612,6 +3638,9 @@ namespace PropertySurveyService.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("ChangeItemTo")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ContractCode")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<Guid>("Guid")
@@ -3794,9 +3823,6 @@ namespace PropertySurveyService.Migrations
                     b.Property<string>("type_of_lockng_system_required")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("udi_cont")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<int>("was_it_locked")
                         .HasColumnType("int");
 
@@ -3820,6 +3846,9 @@ namespace PropertySurveyService.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("ChangeItemTo")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ContractCode")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<Guid>("Guid")
@@ -4053,9 +4082,6 @@ namespace PropertySurveyService.Migrations
                     b.Property<string>("type_of_lockng_system_required")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("udi_cont")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<int>("units_required")
                         .HasColumnType("int");
 
@@ -4076,6 +4102,9 @@ namespace PropertySurveyService.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("ChangeItemTo")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ContractCode")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<Guid>("Guid")
@@ -4168,9 +4197,6 @@ namespace PropertySurveyService.Migrations
                     b.Property<string>("type_of_lockng_system_required")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("udi_cont")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<int>("was_it_locked")
                         .HasColumnType("int");
 
@@ -4194,26 +4220,183 @@ namespace PropertySurveyService.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<bool?>("BookedOnDay1")
+                        .HasColumnType("bit");
+
                     b.Property<string>("COD_Code")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("COD_String")
+                    b.Property<string>("CauseOfDamage")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Group")
+                    b.Property<string>("ClientAddPhoneNumber1")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ClientAddPhoneNumber2")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ClientAddressLine1")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ClientAddressLine2")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ClientAddressLine3")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ClientAddressLine4")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ClientName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ClientPhoneNumber")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ClientPhoneNumber2")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ClientPhoneNumber3")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ClientPostcode")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ContractCode")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CustomerNumber")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("DamageDescription")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Date")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("FinishTime")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("FitComments")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("FitDate")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("FitFinishTime")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("FitInstructions")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("FitPartsUsed")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("FitStartTime")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("FitTimeArrived")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("FitTimeLeft")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("FitWorkCarriedOut")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<Guid>("Guid")
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<string>("IncidentDate")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool?>("InevitableDamage")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("InevitableDamageExplain")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Instructions")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("InsuranceCompanyName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("InvoiceNumber")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("JobInstructions")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("JobType")
                         .HasColumnType("int");
 
+                    b.Property<string>("LossAdjusterName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("NumberOfItems")
+                        .HasColumnType("int");
+
+                    b.Property<string>("PolicyNumber")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ReasonNotBookedOnDay1")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Report")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("SSRequired")
                         .HasColumnType("int");
+
+                    b.Property<string>("StartTime")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Summary")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("TimeArrived")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("acc_text")
                         .IsRequired()
@@ -4222,51 +4405,28 @@ namespace PropertySurveyService.Migrations
                     b.Property<int>("access_rear")
                         .HasColumnType("int");
 
-                    b.Property<int>("acroreq")
-                        .HasColumnType("int");
+                    b.Property<bool?>("acroreq")
+                        .HasColumnType("bit");
 
-                    b.Property<int>("acrosboy")
-                        .HasColumnType("int");
-
-                    b.Property<string>("add_comm")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("add_long")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("add_phone_1")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("add_phone_2")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<bool?>("acrosboy")
+                        .HasColumnType("bit");
 
                     b.Property<bool>("added_to_otherrisks")
                         .HasColumnType("bit");
 
-                    b.Property<int>("alarm_cont")
-                        .HasColumnType("int");
+                    b.Property<bool?>("additional_summary_info")
+                        .HasColumnType("bit");
 
-                    b.Property<int>("architreq")
-                        .HasColumnType("int");
+                    b.Property<bool?>("alarm_cont")
+                        .HasColumnType("bit");
+
+                    b.Property<bool?>("architreq")
+                        .HasColumnType("bit");
 
                     b.Property<int>("asbestos_visible")
                         .HasColumnType("int");
 
                     b.Property<string>("asvizex")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("bAllPictures")
-                        .HasColumnType("bit");
-
-                    b.Property<int>("bBothHands")
-                        .HasColumnType("int");
-
-                    b.Property<string>("bClosest")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -4276,8 +4436,8 @@ namespace PropertySurveyService.Migrations
                     b.Property<bool>("bDamTicked")
                         .HasColumnType("bit");
 
-                    b.Property<int>("bExcessCollected")
-                        .HasColumnType("int");
+                    b.Property<bool?>("bExcessCollected")
+                        .HasColumnType("bit");
 
                     b.Property<bool>("bHazFin")
                         .HasColumnType("bit");
@@ -4288,13 +4448,6 @@ namespace PropertySurveyService.Migrations
                     b.Property<bool>("bMOPFin")
                         .HasColumnType("bit");
 
-                    b.Property<bool>("bMSFJob")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("bProcessed")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<bool>("bRepFin")
                         .HasColumnType("bit");
 
@@ -4302,9 +4455,6 @@ namespace PropertySurveyService.Migrations
                         .HasColumnType("bit");
 
                     b.Property<bool>("bSSTicked")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("bSecuring")
                         .HasColumnType("bit");
 
                     b.Property<bool>("bSent")
@@ -4319,17 +4469,11 @@ namespace PropertySurveyService.Migrations
                     b.Property<bool>("bSurvey")
                         .HasColumnType("bit");
 
-                    b.Property<bool>("bSurveyRequiredOnSecuring")
-                        .HasColumnType("bit");
-
                     b.Property<int>("bWorkInside")
                         .HasColumnType("int");
 
-                    b.Property<bool>("b_mrk")
+                    b.Property<bool?>("b_subcontract")
                         .HasColumnType("bit");
-
-                    b.Property<int>("b_subcontract")
-                        .HasColumnType("int");
 
                     b.Property<bool>("bad_image_complete")
                         .HasColumnType("bit");
@@ -4343,26 +4487,7 @@ namespace PropertySurveyService.Migrations
                     b.Property<int>("bfitter_complete")
                         .HasColumnType("int");
 
-                    b.Property<int>("booked")
-                        .HasColumnType("int");
-
                     b.Property<string>("card_cheq")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("claim_ref")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("code_text")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("commtxt")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("cover_instructions")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -4375,21 +4500,8 @@ namespace PropertySurveyService.Migrations
                     b.Property<int>("directive_complete")
                         .HasColumnType("int");
 
-                    b.Property<long>("distance")
-                        .HasColumnType("bigint");
-
-                    b.Property<int>("doc_l_compliant")
-                        .HasColumnType("int");
-
-                    b.Property<string>("doc_l_compliant_reason")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("doorbell")
-                        .HasColumnType("int");
-
-                    b.Property<long>("duration")
-                        .HasColumnType("bigint");
+                    b.Property<bool?>("doorbell")
+                        .HasColumnType("bit");
 
                     b.Property<int>("easy_park")
                         .HasColumnType("int");
@@ -4454,38 +4566,14 @@ namespace PropertySurveyService.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("fit_diary")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("fit_fin")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<int>("fit_no_of_videos")
                         .HasColumnType("int");
-
-                    b.Property<string>("fit_start")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("fitter_comments")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("fitter_info_done")
                         .HasColumnType("int");
 
                     b.Property<int>("fitter_videos")
                         .HasColumnType("int");
-
-                    b.Property<string>("fitter_work")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("fitters_instructions")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("fjobfin")
                         .HasColumnType("bit");
@@ -4570,22 +4658,6 @@ namespace PropertySurveyService.Migrations
                     b.Property<bool>("fsigimage")
                         .HasColumnType("bit");
 
-                    b.Property<string>("ftime_arrived")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ftime_left")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ftimearr")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ftimeleft")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("funfincode")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -4601,14 +4673,10 @@ namespace PropertySurveyService.Migrations
                     b.Property<int>("garage_door_motor")
                         .HasColumnType("int");
 
-                    b.Property<int>("genreq")
-                        .HasColumnType("int");
+                    b.Property<bool?>("genreq")
+                        .HasColumnType("bit");
 
                     b.Property<string>("global_door_link")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("goaheadstr")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -4616,28 +4684,24 @@ namespace PropertySurveyService.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<bool?>("have_you_repudiated")
+                        .HasColumnType("bit");
+
                     b.Property<int>("height_res")
                         .HasColumnType("int");
+
+                    b.Property<string>("hire_equipment_used")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("hire_equipment_used_text")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("i_signed")
                         .HasColumnType("int");
 
                     b.Property<int>("i_signed_cust")
-                        .HasColumnType("int");
-
-                    b.Property<int>("i_spare1")
-                        .HasColumnType("int");
-
-                    b.Property<int>("i_spare2")
-                        .HasColumnType("int");
-
-                    b.Property<int>("i_spare3")
-                        .HasColumnType("int");
-
-                    b.Property<bool>("idampassword_entered")
-                        .HasColumnType("bit");
-
-                    b.Property<int>("imchup")
                         .HasColumnType("int");
 
                     b.Property<int>("incomplete_alum")
@@ -4676,33 +4740,7 @@ namespace PropertySurveyService.Migrations
                     b.Property<int>("incomplete_upvc")
                         .HasColumnType("int");
 
-                    b.Property<int>("ind")
-                        .HasColumnType("int");
-
-                    b.Property<string>("inevitable_damage")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("ins_board")
-                        .HasColumnType("int");
-
-                    b.Property<int>("ins_lock")
-                        .HasColumnType("int");
-
-                    b.Property<int>("ins_perm")
-                        .HasColumnType("int");
-
-                    b.Property<int>("ins_temp")
-                        .HasColumnType("int");
-
                     b.Property<string>("inst_height")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("int_num_of_locks")
-                        .HasColumnType("int");
-
-                    b.Property<string>("int_type_of_lock")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -4759,13 +4797,6 @@ namespace PropertySurveyService.Migrations
                     b.Property<int>("new_ispare2")
                         .HasColumnType("int");
 
-                    b.Property<int>("new_ispare9")
-                        .HasColumnType("int");
-
-                    b.Property<string>("new_sspare10")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("new_sspare9")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -4790,31 +4821,8 @@ namespace PropertySurveyService.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("old_cover_instructions")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("old_date")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("old_finish")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("old_start")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("ownquote")
-                        .HasColumnType("int");
-
                     b.Property<int>("parking_at_rear")
                         .HasColumnType("int");
-
-                    b.Property<string>("parts_used")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("parttxt")
                         .IsRequired()
@@ -4824,18 +4832,11 @@ namespace PropertySurveyService.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("photo")
-                        .HasColumnType("int");
-
                     b.Property<bool>("photo_front_of_house")
                         .HasColumnType("bit");
 
-                    b.Property<int>("plaster")
-                        .HasColumnType("int");
-
-                    b.Property<string>("policy_number")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<bool?>("plaster")
+                        .HasColumnType("bit");
 
                     b.Property<string>("r_bcomp")
                         .IsRequired()
@@ -4880,11 +4881,11 @@ namespace PropertySurveyService.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("reason_not_booked_in")
+                    b.Property<string>("reason_not_complete")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("reason_not_complete")
+                    b.Property<string>("reason_not_repudiated")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -4896,12 +4897,16 @@ namespace PropertySurveyService.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("rep_text")
+                    b.Property<bool>("repudiation_completed")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("repudiation_other_information")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool>("requiring_load_bearing_jacks")
-                        .HasColumnType("bit");
+                    b.Property<string>("repudiation_reason_different")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("rexcedit")
                         .IsRequired()
@@ -4915,54 +4920,16 @@ namespace PropertySurveyService.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("s_spare1")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("s_spare2")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("s_spare3")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("sand_cemen")
-                        .HasColumnType("int");
-
-                    b.Property<int>("securing_surveyor_required")
-                        .HasColumnType("int");
+                    b.Property<bool?>("sand_cemen")
+                        .HasColumnType("bit");
 
                     b.Property<int>("shop_front_work")
                         .HasColumnType("int");
 
-                    b.Property<string>("si_bday1")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("si_cnum")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<bool>("si_done")
                         .HasColumnType("bit");
 
-                    b.Property<string>("si_inum")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("si_mpay")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("si_numitem")
-                        .HasColumnType("int");
-
-                    b.Property<string>("sn_name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("spare2")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -5049,27 +5016,12 @@ namespace PropertySurveyService.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("stimea")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("sub_type")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("subcontracttext")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("summ_text")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("survey_complete")
-                        .HasColumnType("int");
-
-                    b.Property<int>("survey_on_fit")
-                        .HasColumnType("int");
+                    b.Property<bool?>("survey_complete")
+                        .HasColumnType("bit");
 
                     b.Property<string>("time_to_complete")
                         .IsRequired()
@@ -5117,10 +5069,6 @@ namespace PropertySurveyService.Migrations
                     b.Property<bool>("truecommconf")
                         .HasColumnType("bit");
 
-                    b.Property<string>("type")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("typeA")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -5133,98 +5081,15 @@ namespace PropertySurveyService.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("uc_add1")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("uc_add2")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("uc_add3")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("uc_add4")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("uc_desc")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<double>("uc_excess")
                         .HasColumnType("float");
-
-                    b.Property<bool>("uc_goahead")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("uc_h_phone")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("uc_h_phone2")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("uc_h_phone3")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("uc_inceden")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("uc_laname")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("uc_name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("uc_postcode")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("udi_cont")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("udi_date")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("udi_estrem")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("udi_fin")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("udi_inst")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("udi_jobtext")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("udi_staff")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("udi_start")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<int>("udi_tlight")
                         .HasColumnType("int");
-
-                    b.Property<string>("wkcartxt")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("work_at_height")
                         .HasColumnType("int");
@@ -5408,6 +5273,9 @@ namespace PropertySurveyService.Migrations
                     b.Property<string>("ChangeItemTo")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("ContractCode")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("GearBox")
                         .HasColumnType("int");
 
@@ -5567,9 +5435,6 @@ namespace PropertySurveyService.Migrations
                     b.Property<string>("type_of_lockng_system_required")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("udi_cont")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<int>("was_it_locked")
                         .HasColumnType("int");
 
@@ -5727,6 +5592,9 @@ namespace PropertySurveyService.Migrations
                     b.Property<string>("ChangeItemTo")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("ContractCode")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<Guid>("Guid")
                         .HasColumnType("uniqueidentifier");
 
@@ -5815,9 +5683,6 @@ namespace PropertySurveyService.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("typeedit")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("udi_cont")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("was_it_locked")
@@ -6117,6 +5982,10 @@ namespace PropertySurveyService.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("ContractCode")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("DamageDesc")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -6345,10 +6214,6 @@ namespace PropertySurveyService.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("udi_cont")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<bool>("uniform_worn_complete1")
                         .HasColumnType("bit");
 
@@ -6534,6 +6399,9 @@ namespace PropertySurveyService.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("ChangeItemTo")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ContractCode")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("Fensa")
@@ -6962,9 +6830,6 @@ namespace PropertySurveyService.Migrations
                     b.Property<string>("type_of_lockng_system_required")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("udi_cont")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<int>("was_it_locked")
                         .HasColumnType("int");
 
@@ -7253,6 +7118,9 @@ namespace PropertySurveyService.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("ChangeItemTo")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ContractCode")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("GearBox")
@@ -7637,9 +7505,6 @@ namespace PropertySurveyService.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("type_of_lockng_system_required")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("udi_cont")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("upvc_item")

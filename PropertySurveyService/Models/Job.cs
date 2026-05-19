@@ -63,7 +63,6 @@ namespace PropertySurveyService.Models
         public int ContractId { get; set; }
         public int iRecordType { get; set; }
         public string? ContractCode { get; set; } = "";
-        public string? udi_cont { get; set; } = "";
         public string? Date { get; set; } = "";
         public string? Time { get; set; } = "";
         public string? EndTime { get; set; } = "";
@@ -88,7 +87,7 @@ namespace PropertySurveyService.Models
                 custItem.Add1, custItem.Add2, custItem.Add3, custItem.Postcode, custItem.Phone1,
                 custItem.Phone2, custItem.Phone3, jobItem.DamageDesc, jobItem.Instructions);
 
-            udi_cont = ContractCode;
+            ContractCode = ContractCode;
 
         }
     }
