@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace PropertySurveyService.Models
 {
-    public class CompositeTable
+    public class Composite
     {
         [Key]
         public int Id { get; set; }

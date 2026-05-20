@@ -16,7 +16,7 @@ public class SpotChecksController : Controller
     // GET: SPOTCHECKS
     public async Task<IActionResult> Index()    
     {
-        return View(await _context.SpotCheckTable.ToListAsync());
+        return View(await _context.SpotChecks.ToListAsync());
     }
 
     // GET: SPOTCHECKS/Details/5
@@ -27,7 +27,7 @@ public class SpotChecksController : Controller
             return NotFound();
         }
 
-        var spotcheck = await _context.SpotCheckTable
+        var spotcheck = await _context.SpotChecks
             .FirstOrDefaultAsync(m => m.Id == id);
         if (spotcheck == null)
         {
@@ -67,7 +67,7 @@ public class SpotChecksController : Controller
             return NotFound();
         }
 
-        var spotcheck = await _context.SpotCheckTable.FindAsync(id);
+        var spotcheck = await _context.SpotChecks.FindAsync(id);
         if (spotcheck == null)
         {
             return NotFound();
@@ -118,7 +118,7 @@ public class SpotChecksController : Controller
             return NotFound();
         }
 
-        var spotcheck = await _context.SpotCheckTable
+        var spotcheck = await _context.SpotChecks
             .FirstOrDefaultAsync(m => m.Id == id);
         if (spotcheck == null)
         {
@@ -133,10 +133,10 @@ public class SpotChecksController : Controller
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> DeleteConfirmed(int? id)
     {
-        var spotcheck = await _context.SpotCheckTable.FindAsync(id);
+        var spotcheck = await _context.SpotChecks.FindAsync(id);
         if (spotcheck != null)
         {
-            _context.SpotCheckTable.Remove(spotcheck);
+            _context.SpotChecks.Remove(spotcheck);
         }
 
         await _context.SaveChangesAsync();
@@ -145,6 +145,6 @@ public class SpotChecksController : Controller
 
     private bool SpotCheckExists(int? id)
     {
-        return _context.SpotCheckTable.Any(e => e.Id == id);
+        return _context.SpotChecks.Any(e => e.Id == id);
     }
 }

@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace PropertySurveyService.Models
 {
-    public class LockingTable
+    public class Lockmech
     {
         [Key]
         public int Id { get; set; }

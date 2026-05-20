@@ -56,7 +56,7 @@ namespace PropertySurveyService.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,date_time,bSent,bComplete,full_name,add1,add2,add3,pcode,occupation,filer_full_name,filer_add1,filer_add2,filer_add3,filer_pcode,filer_occupation,sign_date,filer_sign_date,date_happened,time_happened,how_did_accident_happen,materials_used_in_treatment,person_signed,supervisor_signed,num_of_photographs,sig_fname1,sig_fname2,GUID,injuries,where_happ_acc,Type,what_happened,where_abouts,anon_or_name")] FAccidentTable fAccidents)
+        public async Task<IActionResult> Create([Bind("Id,date_time,bSent,bComplete,full_name,add1,add2,add3,pcode,occupation,filer_full_name,filer_add1,filer_add2,filer_add3,filer_pcode,filer_occupation,sign_date,filer_sign_date,date_happened,time_happened,how_did_accident_happen,materials_used_in_treatment,person_signed,supervisor_signed,num_of_photographs,sig_fname1,sig_fname2,GUID,injuries,where_happ_acc,Type,what_happened,where_abouts,anon_or_name")] FAccident fAccidents)
         {
             if (ModelState.IsValid)
             {
@@ -88,7 +88,7 @@ namespace PropertySurveyService.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,date_time,bSent,bComplete,full_name,add1,add2,add3,pcode,occupation,filer_full_name,filer_add1,filer_add2,filer_add3,filer_pcode,filer_occupation,sign_date,filer_sign_date,date_happened,time_happened,how_did_accident_happen,materials_used_in_treatment,person_signed,supervisor_signed,num_of_photographs,sig_fname1,sig_fname2,GUID,injuries,where_happ_acc,Type,what_happened,where_abouts,anon_or_name")] FAccidentTable fAccidents)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,date_time,bSent,bComplete,full_name,add1,add2,add3,pcode,occupation,filer_full_name,filer_add1,filer_add2,filer_add3,filer_pcode,filer_occupation,sign_date,filer_sign_date,date_happened,time_happened,how_did_accident_happen,materials_used_in_treatment,person_signed,supervisor_signed,num_of_photographs,sig_fname1,sig_fname2,GUID,injuries,where_happ_acc,Type,what_happened,where_abouts,anon_or_name")] FAccident fAccidents)
         {
             if (id != fAccidents.Id)
             {

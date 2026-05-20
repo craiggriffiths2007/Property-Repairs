@@ -38,11 +38,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Controllers\Items\" />
     <Folder Include="Migrations\" />
     <Folder Include="Views\FrameTables\" />
-    <Folder Include="Views\Headers\" />
-    <Folder Include="Views\SpotCheck\" />
-    <Folder Include="Views\Surveyors\" />
   </ItemGroup>
 
 </Project>

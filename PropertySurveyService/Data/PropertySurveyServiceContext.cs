@@ -23,18 +23,18 @@ namespace PropertySurveyService.Data
         public DbSet<PropertySurveyService.Models.Contract> Contract { get; set; } = default!;
         public DbSet<PropertySurveyService.Models.Agent> Agent { get; set; } = default!;
         public DbSet<PropertySurveyService.Models.JobHeader> JobHeader { get; set; } = default!;
-        public DbSet<PropertySurveyService.Models.AluminiumTable> AlumTable { get; set; } = default!;
-        public DbSet<PropertySurveyService.Models.BifoldTable> BifoldTable { get; set; } = default!;
-        public DbSet<PropertySurveyService.Models.CompositeTable> CompositeTable { get; set; } = default!;
-        public DbSet<PropertySurveyService.Models.ConsTable> ConsTable { get; set; } = default!;
-        public DbSet<PropertySurveyService.Models.GarageTable> GarageTable { get; set; } = default!;
-        public DbSet<PropertySurveyService.Models.GlassTable> GlassTable { get; set; } = default!;
-        public DbSet<PropertySurveyService.Models.GreenTable> GreenTable { get; set; } = default!;
-        public DbSet<PropertySurveyService.Models.LockingTable> LockingTable { get; set; } = default!;
-        public DbSet<PropertySurveyService.Models.PanelTable> PanelTable { get; set; } = default!;
-        public DbSet<PropertySurveyService.Models.TimberTable> TimberTable { get; set; } = default!;
-        public DbSet<PropertySurveyService.Models.UPVCTable> UPVCTable { get; set; } = default!;
-        public DbSet<PropertySurveyService.Models.FrameTable> FrameTable { get; set; } = default!;
+        public DbSet<PropertySurveyService.Models.Aluminium> Aluminium { get; set; } = default!;
+        public DbSet<PropertySurveyService.Models.Bifolding> Bifolding { get; set; } = default!;
+        public DbSet<PropertySurveyService.Models.Composite> Composite { get; set; } = default!;
+        public DbSet<PropertySurveyService.Models.Conservatory> Conservatory { get; set; } = default!;
+        public DbSet<PropertySurveyService.Models.Garage> Garage { get; set; } = default!;
+        public DbSet<PropertySurveyService.Models.Glass> Glass { get; set; } = default!;
+        public DbSet<PropertySurveyService.Models.Greenhouse> Greenhouse { get; set; } = default!;
+        public DbSet<PropertySurveyService.Models.Lockmech> Lockmech { get; set; } = default!;
+        public DbSet<PropertySurveyService.Models.Panel> Panel { get; set; } = default!;
+        public DbSet<PropertySurveyService.Models.Timber> Timber { get; set; } = default!;
+        public DbSet<PropertySurveyService.Models.UPVC> UPVC { get; set; } = default!;
+        public DbSet<PropertySurveyService.Models.Frame> Frame { get; set; } = default!;
         public DbSet<PropertySurveyService.Models.PhotoImage> Images { get; set; } = default!;
 
         public DbSet<PropertySurveyService.Models.Branch> Branches { get; set; } = default!;
@@ -46,13 +46,13 @@ namespace PropertySurveyService.Data
         public DbSet<PropertySurveyService.Models.DeliveryHGV> DeliveryHGVs { get; set; } = default!;
         public DbSet<PropertySurveyService.Models.FitterVan> FitterVans { get; set; } = default!;
         public DbSet<PropertySurveyService.Models.SalesCar> SalesCars { get; set; } = default!;
-        public DbSet<PropertySurveyService.Models.VAccidentTable> VAccidents { get; set; } = default!;
+        public DbSet<PropertySurveyService.Models.VAccident> VAccidents { get; set; } = default!;
         public DbSet<PropertySurveyService.Models.Whitness> Whitnesses { get; set; } = default!;
-        public DbSet<PropertySurveyService.Models.FAccidentTable> FAccidents { get; set; } = default!;
-        public DbSet<PropertySurveyService.Models.ToolsTable> ToolsTable { get; set; } = default!;
+        public DbSet<PropertySurveyService.Models.FAccident> FAccidents { get; set; } = default!;
+        public DbSet<PropertySurveyService.Models.ToolCheck> ToolChecks { get; set; } = default!;
         public DbSet<PropertySurveyService.Models.MileageSheet> MileageSheets { get; set; } = default!;
-        public DbSet<PropertySurveyService.Models.LaddersTable> LaddersTable { get; set; } = default!;
-        public DbSet<PropertySurveyService.Models.SpotCheck> SpotCheckTable { get; set; } = default;
+        public DbSet<PropertySurveyService.Models.LadderCheck> LadderChecks { get; set; } = default!;
+        public DbSet<PropertySurveyService.Models.SpotCheck> SpotChecks { get; set; } = default;
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);

@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace PropertySurveyService.Models
 {
-    public class BifoldTable
+    public class Bifolding
     {
         [Key]
         public int Id { get; set; }
