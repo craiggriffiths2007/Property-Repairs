@@ -97,7 +97,7 @@ namespace PropertySurveyService.Controllers
                     .Select(j => j.ContractCode!)
                     .Distinct()
                     .ToList();
-                viewModel.Headers = await _context.Header
+                viewModel.Headers = await _context.JobHeader
                     .Where(h => h.ContractCode != null && codes.Contains(h.ContractCode))
                     .ToListAsync();
 
@@ -181,7 +181,7 @@ namespace PropertySurveyService.Controllers
 
             if (!string.IsNullOrEmpty(job.ContractCode))
             {
-                ViewBag.Headers = await _context.Header
+                ViewBag.Headers = await _context.JobHeader
                     .Where(h => h.ContractCode == job.ContractCode)
                     .ToListAsync();
             }

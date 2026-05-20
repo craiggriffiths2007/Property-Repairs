@@ -294,7 +294,7 @@ namespace PropertySurveyService
                 {
                     var customer = db.Customer.FirstOrDefault(x => x.Id == job.CustomerId) ?? new Customer();
 
-                    var header = db.Header
+                    var header = db.JobHeader
                         .Where(h => h.ContractCode == job.ContractCode)
                         .OrderByDescending(h => h.Id)
                         .FirstOrDefault();
@@ -346,8 +346,8 @@ namespace PropertySurveyService
                     if (job.Head != null)
                     {
                         job.Head.Id = 0; // Ensure a new record is created
-                        db.Header.Where(l => l.Guid == job.Head.Guid).ExecuteDelete();
-                        db.Header.Add(job.Head);
+                        db.JobHeader.Where(l => l.Guid == job.Head.Guid).ExecuteDelete();
+                        db.JobHeader.Add(job.Head);
                         await db.SaveChangesAsync();
                         int headerId = job.Head.Id;
 
@@ -417,7 +417,7 @@ namespace PropertySurveyService
                     if (job.Head != null)
                     {
                         job.Head.Id = 0; // Ensure a new record is created
-                        db.Header.Add(job.Head);
+                        db.JobHeader.Add(job.Head);
                         await db.SaveChangesAsync();
                         int headerId = job.Head.Id;
 

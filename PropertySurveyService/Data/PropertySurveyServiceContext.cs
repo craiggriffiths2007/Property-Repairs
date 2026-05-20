@@ -22,7 +22,7 @@ namespace PropertySurveyService.Data
         public DbSet<PropertySurveyService.Models.Customer> Customer { get; set; } = default!;
         public DbSet<PropertySurveyService.Models.Contract> Contract { get; set; } = default!;
         public DbSet<PropertySurveyService.Models.Agent> Agent { get; set; } = default!;
-        public DbSet<PropertySurveyService.Models.Header> Header { get; set; } = default!;
+        public DbSet<PropertySurveyService.Models.JobHeader> JobHeader { get; set; } = default!;
         public DbSet<PropertySurveyService.Models.AluminiumTable> AlumTable { get; set; } = default!;
         public DbSet<PropertySurveyService.Models.BifoldTable> BifoldTable { get; set; } = default!;
         public DbSet<PropertySurveyService.Models.CompositeTable> CompositeTable { get; set; } = default!;

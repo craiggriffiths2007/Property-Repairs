@@ -4,7 +4,7 @@ internal class PDAJobDTO
 {
     public JobDTO Job { get; set; }
 
-    public Header Head { get; set; }
+    public JobHeader Head { get; set; }
     public List<FrameTable> Items { get; set; }
     public List<PanelTable> Panels { get; set; }
     public List<AluminiumTable> Aluminia { get; set; }

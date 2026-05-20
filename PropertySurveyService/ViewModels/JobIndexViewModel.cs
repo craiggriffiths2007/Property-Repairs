@@ -5,7 +5,7 @@ namespace PropertySurveyService.ViewModels
     public class JobIndexViewModel
     {
         public IEnumerable<Job>? Jobs { get; set; }
-        public List<Header> Headers { get; set; } = new();
+        public List<JobHeader> Headers { get; set; } = new();
         public HashSet<string> ContractCodesWithHeaders { get; set; } = new();
         public int Year { get; set; }
         public int Month { get; set; }
