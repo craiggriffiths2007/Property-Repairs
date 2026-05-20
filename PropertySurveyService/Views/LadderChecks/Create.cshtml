@@ -1,0 +1,198 @@
+@model PropertySurveyService.Models.LadderCheck
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>LadderCheck</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group">
+                <label asp-for="Guid" class="control-label"></label>
+                <input asp-for="Guid" class="form-control" />
+                <span asp-validation-for="Guid" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="date_done" class="control-label"></label>
+                <input asp-for="date_done" class="form-control" />
+                <span asp-validation-for="date_done" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="branch" class="control-label"></label>
+                <input asp-for="branch" class="form-control" />
+                <span asp-validation-for="branch" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="ladder_number" class="control-label"></label>
+                <input asp-for="ladder_number" class="form-control" />
+                <span asp-validation-for="ladder_number" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="ladder_type" class="control-label"></label>
+                <input asp-for="ladder_type" class="form-control" />
+                <span asp-validation-for="ladder_type" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="registration" class="control-label"></label>
+                <input asp-for="registration" class="form-control" />
+                <span asp-validation-for="registration" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="fitter_surveyor_name" class="control-label"></label>
+                <input asp-for="fitter_surveyor_name" class="form-control" />
+                <span asp-validation-for="fitter_surveyor_name" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="managers_name" class="control-label"></label>
+                <input asp-for="managers_name" class="form-control" />
+                <span asp-validation-for="managers_name" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="CheckID" class="control-label"></label>
+                <input asp-for="CheckID" class="form-control" />
+                <span asp-validation-for="CheckID" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="in_reasonable_condition" class="control-label"></label>
+                <input asp-for="in_reasonable_condition" class="form-control" />
+                <span asp-validation-for="in_reasonable_condition" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="rungs_missing_or_loose" class="control-label"></label>
+                <input asp-for="rungs_missing_or_loose" class="form-control" />
+                <span asp-validation-for="rungs_missing_or_loose" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="stiles_damaged_or_bent" class="control-label"></label>
+                <input asp-for="stiles_damaged_or_bent" class="form-control" />
+                <span asp-validation-for="stiles_damaged_or_bent" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="any_cracks" class="control-label"></label>
+                <input asp-for="any_cracks" class="form-control" />
+                <span asp-validation-for="any_cracks" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="any_corrosion" class="control-label"></label>
+                <input asp-for="any_corrosion" class="form-control" />
+                <span asp-validation-for="any_corrosion" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="rubber_plastic_feet" class="control-label"></label>
+                <input asp-for="rubber_plastic_feet" class="form-control" />
+                <span asp-validation-for="rubber_plastic_feet" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="sharp_or_metal_splinters" class="control-label"></label>
+                <input asp-for="sharp_or_metal_splinters" class="form-control" />
+                <span asp-validation-for="sharp_or_metal_splinters" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="rungs_dented" class="control-label"></label>
+                <input asp-for="rungs_dented" class="form-control" />
+                <span asp-validation-for="rungs_dented" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="painted_or_decorated" class="control-label"></label>
+                <input asp-for="painted_or_decorated" class="form-control" />
+                <span asp-validation-for="painted_or_decorated" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="hooks_sit_properly" class="control-label"></label>
+                <input asp-for="hooks_sit_properly" class="form-control" />
+                <span asp-validation-for="hooks_sit_properly" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="ladders_been_repaired" class="control-label"></label>
+                <input asp-for="ladders_been_repaired" class="form-control" />
+                <span asp-validation-for="ladders_been_repaired" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="any_damage" class="control-label"></label>
+                <input asp-for="any_damage" class="form-control" />
+                <span asp-validation-for="any_damage" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="comments" class="control-label"></label>
+                <input asp-for="comments" class="form-control" />
+                <span asp-validation-for="comments" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="no_of_photos" class="control-label"></label>
+                <input asp-for="no_of_photos" class="form-control" />
+                <span asp-validation-for="no_of_photos" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="bSent" class="control-label"></label>
+                <input asp-for="bSent" class="form-check-input" />
+                <span asp-validation-for="bSent" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="bComplete" class="control-label"></label>
+                <input asp-for="bComplete" class="form-check-input" />
+                <span asp-validation-for="bComplete" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="bSigned" class="control-label"></label>
+                <input asp-for="bSigned" class="form-check-input" />
+                <span asp-validation-for="bSigned" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="bSigned2" class="control-label"></label>
+                <input asp-for="bSigned2" class="form-check-input" />
+                <span asp-validation-for="bSigned2" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="signature_filename" class="control-label"></label>
+                <input asp-for="signature_filename" class="form-control" />
+                <span asp-validation-for="signature_filename" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="signature_filename_2" class="control-label"></label>
+                <input asp-for="signature_filename_2" class="form-control" />
+                <span asp-validation-for="signature_filename_2" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>

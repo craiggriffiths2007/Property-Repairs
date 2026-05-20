@@ -41,40 +41,40 @@ namespace PropertySurveyService.Models
         // --- Ladder Condition Checklist ---
 
         [DisplayName("In Reasonable Overall Condition")]
-        public int in_reasonable_condition { get; set; }
+        public string in_reasonable_condition { get; set; } = "";
 
         [DisplayName("Any Rungs Missing or Loose?")]
-        public int rungs_missing_or_loose { get; set; }
+        public string rungs_missing_or_loose { get; set; } = "";
 
         [DisplayName("Any Stiles Damaged or Bent?")]
-        public int stiles_damaged_or_bent { get; set; }
+        public string stiles_damaged_or_bent { get; set; } = "";
 
         [DisplayName("Any Cracks Found?")]
-        public int any_cracks { get; set; }
+        public string any_cracks { get; set; } = "";
 
         [DisplayName("Any Corrosion Found?")]
-        public int any_corrosion { get; set; }
+        public string any_corrosion { get; set; } = "";
 
         [DisplayName("Rubber/Plastic Feet Intact & Secure?")]
-        public int rubber_plastic_feet { get; set; }
+        public string rubber_plastic_feet { get; set; } = "";
 
         [DisplayName("Any Sharp Edges or Metal Splinters?")]
-        public int sharp_or_metal_splinters { get; set; }
+        public string sharp_or_metal_splinters { get; set; } = "";
 
         [DisplayName("Any Rungs Dented?")]
-        public int rungs_dented { get; set; }
+        public string rungs_dented { get; set; } = "";
 
         [DisplayName("Has Ladder Been Painted or Decorated?")]
-        public int painted_or_decorated { get; set; }
+        public string painted_or_decorated { get; set; } = "";
 
         [DisplayName("Do Hooks Sit & Secure Properly?")]
-        public int hooks_sit_properly { get; set; }
+        public string hooks_sit_properly { get; set; } = "";
 
         [DisplayName("Has the Ladder Ever Been Repaired?")]
-        public int ladders_been_repaired { get; set; }
+        public string ladders_been_repaired { get; set; } = "";
 
         [DisplayName("Any General Damage Detected?")]
-        public int any_damage { get; set; }
+        public string any_damage { get; set; } = "";
 
 
         // --- Comments, Photos, & Workflow ---
@@ -83,7 +83,7 @@ namespace PropertySurveyService.Models
         public string comments { get; set; } = "";
 
         [DisplayName("Total Photos Taken")]
-        public int total_photos { get; set; }
+        public int no_of_photos { get; set; }
 
         [DisplayName("Sent to Server")]
         public bool bSent { get; set; }
