@@ -37,7 +37,9 @@ namespace PropertySurveyService.Data
                 FirstName = "Super",
                 LastName = "Admin",
                 EmailConfirmed = true,
-                PhoneNumberConfirmed = true
+                PhoneNumberConfirmed = true,
+                ProfilePicture = "<ProfilePicture>".ToString().Select(c => (byte)c).ToArray(),
+
             };
             var craig = await userManager.FindByEmailAsync(craigUser.Email);
             if (craig == null)
@@ -77,16 +79,16 @@ namespace PropertySurveyService.Data
 
             var customers = new Customer[]
             {
-                new Customer{Name="Craig Griffiths",Add1="56 Sunny Road",Add2="Bolton",Add3="Lancashire",Postcode="BL14NN",Phone1="07376559088",Phone2="",Phone3=""},
-                new Customer{Name="Jeffey Jones",Add1="100 Grass Road",Add2="",Add3="Leeds",Postcode="LE11ER",Phone1="07376475632",Phone2="",Phone3=""},
-                new Customer{Name="Billy Bob",Add1="45 Low Road",Add2="",Add3="Salford",Postcode="SA11ER",Phone1="07376478888",Phone2="",Phone3=""},
-                new Customer{Name="Sarah Williams",Add1="12 Oak Avenue",Add2="Prestwich",Add3="Manchester",Postcode="M251AB",Phone1="07400112233",Phone2="",Phone3=""},
-                new Customer{Name="Emily Carter",Add1="78 Maple Street",Add2="",Add3="Liverpool",Postcode="L181XY",Phone1="07555444333",Phone2="",Phone3=""},
-                new Customer{Name="Michael Brown",Add1="23 Pine Crescent",Add2="Heaton",Add3="Bolton",Postcode="BL23CD",Phone1="07788990011",Phone2="",Phone3=""},
-                new Customer{Name="Jessica Smith",Add1="9 Willow Lane",Add2="",Add3="Stockport",Postcode="SK41ZZ",Phone1="07333334444",Phone2="",Phone3=""},
-                new Customer{Name="David Johnson",Add1="34 Cedar Road",Add2="Eccles",Add3="Manchester",Postcode="M309GH",Phone1="07987654321",Phone2="",Phone3=""},
-                new Customer{Name="Linda Green",Add1="67 Birch Close",Add2="",Add3="Wigan",Postcode="WN12EF",Phone1="07812345678",Phone2="",Phone3=""},
-                new Customer{Name="Robert White",Add1="88 Elm Drive",Add2="Swinton",Add3="Salford",Postcode="M275JK",Phone1="07654321987",Phone2="",Phone3=""}
+                new Customer{Name="Craig Griffiths",Add1="56 Sunny Road",Add2="Bolton",Add3="Lancashire",Postcode="BL14NN",Phone1="077777777777",Phone2="",Phone3=""},
+                new Customer{Name="Jeffey Jones",Add1="100 Grass Road",Add2="",Add3="Leeds",Postcode="LE11ER",Phone1="077777777777",Phone2="",Phone3=""},
+                new Customer{Name="Billy Bob",Add1="45 Low Road",Add2="",Add3="Salford",Postcode="SA11ER",Phone1="077777777777",Phone2="",Phone3=""},
+                new Customer{Name="Sarah Williams",Add1="12 Oak Avenue",Add2="Prestwich",Add3="Manchester",Postcode="M251AB",Phone1="077777777777",Phone2="",Phone3=""},
+                new Customer{Name="Emily Carter",Add1="78 Maple Street",Add2="",Add3="Liverpool",Postcode="L181XY",Phone1="077777777777",Phone2="",Phone3=""},
+                new Customer{Name="Michael Brown",Add1="23 Pine Crescent",Add2="Heaton",Add3="Bolton",Postcode="BL23CD",Phone1="077777777777",Phone2="",Phone3=""},
+                new Customer{Name="Jessica Smith",Add1="9 Willow Lane",Add2="",Add3="Stockport",Postcode="SK41ZZ",Phone1="077777777777",Phone2="",Phone3=""},
+                new Customer{Name="David Johnson",Add1="34 Cedar Road",Add2="Eccles",Add3="Manchester",Postcode="M309GH",Phone1="077777777777",Phone2="",Phone3=""},
+                new Customer{Name="Linda Green",Add1="67 Birch Close",Add2="",Add3="Wigan",Postcode="WN12EF",Phone1="077777777777",Phone2="",Phone3=""},
+                new Customer{Name="Robert White",Add1="88 Elm Drive",Add2="Swinton",Add3="Salford",Postcode="M275JK",Phone1="077777777777",Phone2="",Phone3=""}
             };
             foreach (Customer c in customers)
             {
