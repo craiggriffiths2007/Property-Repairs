@@ -145,7 +145,7 @@ namespace PropertySurveyService.Data
             {
                 context.Add(c);
             }
-            
+
             List<string> cod_list = new List<string>() { "Accidental Damage", "Bad Workmanship", "Claim inconsistency", "Domestic", "Fire", "Flood",
                 "Ground Movement", "Impact", "Loss of keys", "Malicious", "Storm Damage", "Theft", "Wear + Tear" };
 
@@ -194,7 +194,17 @@ namespace PropertySurveyService.Data
             {
                 context.Add(s);
             }
-            
+
+            var jobs = new Job[]
+            {
+                new Job{ContractId=13,ContractCode="00001789",JobType=0,Date=DateTime.Today,Time=DateTime.Today,IncidentDate=DateTime.Today,CauseOfDamage="Wear + Tear",DamageDesc="Burst water pipe", Instructions="Check for damage",CustomerId=3,AgentId=1},
+                new Job{ContractId=8,ContractCode="00001234",JobType=0,Date=DateTime.Today,Time=DateTime.Today,IncidentDate=DateTime.Today,CauseOfDamage="Impact",DamageDesc="Subsidence in living room",Instructions="Check window frame",CustomerId=8,AgentId=1},
+            };
+            foreach (Job j in jobs)
+            {
+                context.Add(j);
+            }
+
             context.SaveChanges();
 
         }

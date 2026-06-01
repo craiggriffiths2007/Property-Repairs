@@ -4339,9 +4339,8 @@ namespace PropertySurveyService.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Date")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<DateTime>("DiaryDate")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("FinishTime")
                         .IsRequired()
@@ -4530,10 +4529,6 @@ namespace PropertySurveyService.Migrations
                     b.Property<int>("bfitter_complete")
                         .HasColumnType("int");
 
-                    b.Property<string>("card_cheq")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<int>("current_item_number")
                         .HasColumnType("int");
 
@@ -4550,10 +4545,6 @@ namespace PropertySurveyService.Migrations
                         .HasColumnType("bit");
 
                     b.Property<string>("excess_ammount_str")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("expiry")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -4784,10 +4775,6 @@ namespace PropertySurveyService.Migrations
 
                     b.Property<bool?>("parking_at_rear")
                         .HasColumnType("bit");
-
-                    b.Property<string>("paych")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("photo_front_of_house")
                         .HasColumnType("bit");

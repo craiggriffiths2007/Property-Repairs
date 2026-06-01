@@ -31,8 +31,36 @@ namespace PropertySurveyService.Models
         [DisplayName("Sent")]
         public bool bSent { get; set; }
 
-        #region Client & Contract Information
+        #region Scheduling & Diary Details
 
+        [DisplayName("Diary Date")]
+        public DateTime DiaryDate { get; set; } = DateTime.Today;
+
+        [DisplayName("Surveyor Start Time")]
+        public string StartTime { get; set; } = "";
+
+        [DisplayName("Surveyor Finish Time")]
+        public string FinishTime { get; set; } = "";
+
+        [DisplayName("Surveyor Time Arrived")]
+        public string TimeArrived { get; set; } = "";
+
+
+        [DisplayName("Fit Diary Date")]
+        public string FitDate { get; set; } = "";
+
+        [DisplayName("Fit Start Time")]
+        public string FitStartTime { get; set; } = "";
+
+        [DisplayName("Fit Finish Time")]
+        public string FitFinishTime { get; set; } = "";
+
+
+
+        #endregion
+
+
+        #region Client & Contract Information
 
         [DisplayName("Contract Code")]
         public string ContractCode { get; set; } = "";
@@ -48,6 +76,8 @@ namespace PropertySurveyService.Models
 
         [DisplayName("Loss Adjuster Name")]
         public string LossAdjusterName { get; set; } = "";
+
+
 
 
 
@@ -103,12 +133,6 @@ namespace PropertySurveyService.Models
         public string CustomerNumber { get; set; } = "";
 
 
-
-
-
-
-
-
         [DisplayName("Type A")]
         public string typeA { get; set; } = "";
 
@@ -118,47 +142,9 @@ namespace PropertySurveyService.Models
         [DisplayName("Traffic Light")]
         public int udi_tlight { get; set; }
 
-
-
         #endregion
-
-
-
-        #region Scheduling & Diary Details
-
-        [DisplayName("Surveyor Diary Date")]
-        public string Date { get; set; } = "";
-
-        [DisplayName("Surveyor Start Time")]
-        public string StartTime { get; set; } = "";
-
-        [DisplayName("Surveyor Finish Time")]
-        public string FinishTime { get; set; } = "";
-
-        [DisplayName("Surveyor Time Arrived")]
-        public string TimeArrived { get; set; } = "";
-
-
-
-        [DisplayName("Fit Diary Date")]
-        public string FitDate { get; set; } = "";
-
-        [DisplayName("Fit Start Time")]
-        public string FitStartTime { get; set; } = "";
-
-        [DisplayName("Fit Finish Time")]
-        public string FitFinishTime { get; set; } = "";
-
-
-
-        #endregion
-
-
 
         #region Job, Instructions & Progress
-
-
-
 
         [DisplayName("Instructions")]
         public string Instructions { get; set; } = "";
@@ -172,7 +158,6 @@ namespace PropertySurveyService.Models
         [DisplayName("Reason Not Booked In")]
         public string ReasonNotBookedOnDay1 { get; set; } = "";
 
-
         [DisplayName("Number of Items")]
         public int NumberOfItems { get; set; }
 
@@ -182,15 +167,11 @@ namespace PropertySurveyService.Models
         [DisplayName("Job Size")]
         public string njs { get; set; } = "";
 
-
-
-
         [DisplayName("Report Text")]
         public string Report { get; set; } = "";
 
         [DisplayName("Summary Text")]
         public string Summary { get; set; } = "";
-
 
         #endregion
 
@@ -335,12 +316,8 @@ namespace PropertySurveyService.Models
         [DisplayName("Fitter Name 2 (Alt)")]
         public string ffitter_name2 { get; set; } = "";
 
-
-
         [DisplayName("Fitters Instructions")]
         public string FitInstructions { get; set; } = "";
-
-
 
         [DisplayName("Fitter Work")]
         public string FitWorkCarriedOut { get; set; } = "";
@@ -358,9 +335,6 @@ namespace PropertySurveyService.Models
         public string FitTimeLeft { get; set; } = "";
 
 
-
-
-
         [DisplayName("Super Fitter Done")]
         public bool si_done { get; set; }
 
@@ -369,8 +343,6 @@ namespace PropertySurveyService.Models
 
         [DisplayName("Fitter Signature Date")]
         public string f_sign_date { get; set; } = "";
-
-
 
         [DisplayName("Directive Complete")]
         public int directive_complete { get; set; }
@@ -424,14 +396,6 @@ namespace PropertySurveyService.Models
         [DisplayName("Method of Payment")]
         public string mop { get; set; } = "";
 
-        [DisplayName("Payment Method")]
-        public string paych { get; set; } = "";
-
-        [DisplayName("Card/Cheque Number")]
-        public string card_cheq { get; set; } = "";
-
-        [DisplayName("Expiry Date")]
-        public string expiry { get; set; } = "";
 
         [DisplayName("Excess Amount")]
         public double uc_excess { get; set; }
@@ -458,7 +422,6 @@ namespace PropertySurveyService.Models
 
         [DisplayName("How Much Additional Paid (Fitter)")]
         public string fhow_mutch_additional_paid { get; set; } = "";
-
 
 
         [DisplayName("Survey")]
