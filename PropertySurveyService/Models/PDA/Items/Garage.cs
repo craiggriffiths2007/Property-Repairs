@@ -197,7 +197,7 @@ namespace PropertySurveyService.Models
 
         [DisplayName("Where is Garage")]
         public string? where_is_garage { get; set; }
-        public SurveyItem AsSurveyItem() { return new SurveyItem(Id, enum_item_type.garage, item_number); }
+        public SurveyItem AsSurveyItem() { return new SurveyItem(Id, enum_item_type.garage, item_number, ContractCode); }
 
     }
 

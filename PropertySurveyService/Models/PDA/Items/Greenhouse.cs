@@ -105,7 +105,7 @@ namespace PropertySurveyService.Models
         [DisplayName("Repair or Replace")]
         public int repair_or_replace { get; set; }
 
-        public SurveyItem AsSurveyItem() { return new SurveyItem(Id, enum_item_type.green, item_number); }
+        public SurveyItem AsSurveyItem() { return new SurveyItem(Id, enum_item_type.green, item_number, ContractCode); }
     }
 
 

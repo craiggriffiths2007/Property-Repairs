@@ -162,7 +162,7 @@ namespace PropertySurveyService.Models
         [DisplayName("Addon Height")]
         public string? addon_height { get; set; }
 
-        public SurveyItem AsSurveyItem() { return new SurveyItem(Id, enum_item_type.bifold, item_number); }
+        public SurveyItem AsSurveyItem() { return new SurveyItem(Id, enum_item_type.bifold, item_number, ContractCode); }
 
     }
 }

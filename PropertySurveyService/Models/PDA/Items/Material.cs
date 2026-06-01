@@ -422,7 +422,7 @@ namespace PropertySurveyService.Models
         public string internal_lock { get; set; } = "...";
 
 
-        public SurveyItem AsSurveyItem() { return new SurveyItem(Id, enum_item_type.lockin, item_number); }
+        public SurveyItem AsSurveyItem() { return new SurveyItem(Id, enum_item_type.lockin, item_number, ContractCode); }
 
     }
 }

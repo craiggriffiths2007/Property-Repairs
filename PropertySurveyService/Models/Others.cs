@@ -77,6 +77,7 @@ namespace PropertySurveyService.Models
         public string? ItemName { get; set; }
         public int item_number { get; set; }
         public string? ControllerName { get; set; }
+        public string ContractCode { get; set; } = "";
         public string NameFromEnumType()
         {
             return NameFromEnumType(ItemType);
@@ -122,13 +123,14 @@ namespace PropertySurveyService.Models
         }
 
 
-        public SurveyItem(int id, enum_item_type type, int item_number)
+        public SurveyItem(int id, enum_item_type type, int itemNumber, string contractCode)
         {
             Id = id;
             ItemType = type;
             ItemName = NameFromEnumType(type);
             ControllerName = ControllerNameFromEnumType(type);
-            this.item_number = item_number;
+            item_number = itemNumber;
+            ContractCode = contractCode;
         }
     }
 }

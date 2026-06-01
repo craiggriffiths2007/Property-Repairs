@@ -246,7 +246,7 @@ namespace PropertySurveyService.Models
         [DisplayName("Parent Item")]
         public int parent_item { get; set; }
 
-        public SurveyItem AsSurveyItem() { return new SurveyItem(Id, enum_item_type.glass, item_number); }
+        public SurveyItem AsSurveyItem() { return new SurveyItem(Id, enum_item_type.glass, item_number, ContractCode); }
     }
 
 }

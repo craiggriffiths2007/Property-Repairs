@@ -1,10 +1,11 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
-using PropertySurveyService.Data;
-using PropertySurveyService.Models;
+using Microsoft.EntityFrameworkCore;
 //using System.Text.Json;
 using Newtonsoft.Json;
-using Microsoft.EntityFrameworkCore;
+using PropertySurveyService.Data;
+using PropertySurveyService.Models;
+using System.Timers;
 namespace PropertySurveyService
 {
 
@@ -307,14 +308,65 @@ namespace PropertySurveyService
                     header.FitStartTime = job.Time.ToString(@"hh\:mm");
                     header.FitFinishTime = job.Time.Add(TimeSpan.FromHours(1)).ToString(@"hh\:mm");
                     header.bSurvey = true;
-
+                    header.bComplete = false;
+                    header.bSent = false;
                     // Get all images for this header
                     var images = new List<string>();
-                    //var headerImages = db.Images
-                    //    .Where(img => img.ContractCode == header.ContractCode)
-                    //    .Select(img => img.Filename)
-                    //    .Where(fn => fn != null)
-                    //    .ToList();
+
+
+                    List<SurveyItem> items = new List<SurveyItem>();
+
+                    foreach (var n in Enum.GetValues(typeof(enum_item_type)))
+                    {
+                        switch (n)
+                        {
+                            case enum_item_type.upvc:
+                                foreach (var p in db.UPVC.Where(x => x.HeaderId == header.Id)) items.Add(p.AsSurveyItem()); break;
+                            case enum_item_type.panel:
+                                foreach (var p in db.Panel.Where(x => x.HeaderId == header.Id)) items.Add(p.AsSurveyItem()); break;
+                            case enum_item_type.glass:
+                                foreach (var p in db.Glass.Where(x => x.HeaderId == header.Id)) items.Add(p.AsSurveyItem()); break;
+                            case enum_item_type.alum:
+                                foreach (var p in db.Aluminium.Where(x => x.HeaderId == header.Id)) items.Add(p.AsSurveyItem()); break;
+                            case enum_item_type.garage:
+                                foreach (var p in db.Garage.Where(x => x.HeaderId == header.Id)) items.Add(p.AsSurveyItem()); break;
+                            case enum_item_type.timber:
+                                foreach (var p in db.Timber.Where(x => x.HeaderId == header.Id)) items.Add(p.AsSurveyItem()); break;
+                            case enum_item_type.bifold:
+                                foreach (var p in db.Bifolding.Where(x => x.HeaderId == header.Id)) items.Add(p.AsSurveyItem()); break;
+                            case enum_item_type.lockin:
+                                foreach (var p in db.Lockmech.Where(x => x.HeaderId == header.Id)) items.Add(p.AsSurveyItem()); break;
+                            case enum_item_type.green:
+                                foreach (var p in db.Greenhouse.Where(x => x.HeaderId == header.Id)) items.Add(p.AsSurveyItem()); break;
+                            case enum_item_type.comp:
+                                foreach (var p in db.Composite.Where(x => x.HeaderId == header.Id)) items.Add(p.AsSurveyItem()); break;
+                            case enum_item_type.cons:
+                                foreach (var p in db.Conservatory.Where(x => x.HeaderId == header.Id)) items.Add(p.AsSurveyItem()); break;
+                            case enum_item_type.frame:
+                                foreach (var p in db.Frame.Where(x => x.HeaderId == header.Id)) items.Add(p.AsSurveyItem()); break;
+                        }
+                    }
+
+                    var photoimages = new List<string>();
+
+                    foreach(var surveyItem in items)
+                    {
+                        string pattern = $"{surveyItem.ContractCode:00000000}____{surveyItem.item_number:000}%"; // using _ as a wildcard ( would have been cAZ and dAZ )
+
+                        List<string?> imagesRange = db.Images
+                            .Where(x => EF.Functions.Like(x.Filename, pattern)).Select(f => f.Filename)
+                            .ToList();
+
+                        foreach(var im in imagesRange)
+                        {
+                            if(im != null)
+                            {
+                                images.Add(im);
+                            }
+                        }
+                    }
+
+
 
                     results.Add(new PDAJobDTO
                     {
@@ -334,6 +386,8 @@ namespace PropertySurveyService
                         UPVCs = db.UPVC.Where(u => u.HeaderId == header.Id).ToList(),
                         Images = images
                     });
+
+                    
                 }
 
                 return Task.FromResult<IResult>(Results.Ok(results));

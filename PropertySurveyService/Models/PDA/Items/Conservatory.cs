@@ -280,7 +280,7 @@ namespace PropertySurveyService.Models
         public string lead_CHeights { get; set; } = "";
 
 
-        public SurveyItem AsSurveyItem() { return new SurveyItem(Id, enum_item_type.cons, item_number); }
+        public SurveyItem AsSurveyItem() { return new SurveyItem(Id, enum_item_type.cons, item_number, ContractCode); }
     }
 
 }

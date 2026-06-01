@@ -398,7 +398,7 @@ namespace PropertySurveyService.Models
 
         [DisplayName("Replace Glass")]
         public int replace_glass { get; set; }
-        public SurveyItem AsSurveyItem() { return new SurveyItem(Id, enum_item_type.upvc, item_number); }
+        public SurveyItem AsSurveyItem() { return new SurveyItem(Id, enum_item_type.upvc, item_number, ContractCode); }
     }
 
 }
