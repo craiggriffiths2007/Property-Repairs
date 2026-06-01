@@ -105,7 +105,7 @@ namespace PropertySurveyService.Models
         {
             switch (type)
             {
-                case enum_item_type.upvc: return "UPVCTables";
+                case enum_item_type.upvc: return "UPVC";
                 case enum_item_type.panel: return "PanelTables";
                 case enum_item_type.glass: return "GlassTables";
                 case enum_item_type.alum: return "AlumTables";

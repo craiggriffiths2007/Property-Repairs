@@ -7,6 +7,7 @@ using PropertySurveyService.Data;
 using PropertySurveyService;
 
 using Newtonsoft.Json;
+using Microsoft.AspNetCore.Mvc.Razor;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -47,6 +48,12 @@ builder.Services.AddControllers()
             options.SerializerSettings.NullValueHandling = NullValueHandling.Ignore;
         });
 */
+
+builder.Services.Configure<RazorViewEngineOptions>(options =>
+{
+    options.ViewLocationExpanders.Add(new CustomViewLocationExpander());
+});
+
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
@@ -103,3 +110,4 @@ using (var scope = app.Services.CreateScope())
 app.UseSwaggerUI();
 
 app.Run();
+

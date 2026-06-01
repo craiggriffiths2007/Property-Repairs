@@ -38,7 +38,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\Items\" />
     <Folder Include="Migrations\" />
     <Folder Include="Views\FrameTables\" />
   </ItemGroup>
