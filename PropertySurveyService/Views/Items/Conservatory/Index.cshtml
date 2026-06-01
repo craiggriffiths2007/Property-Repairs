@@ -1,0 +1,581 @@
+@model IEnumerable<PropertySurveyService.Models.Conservatory>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.HeaderId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Guid)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ContractCode)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.item_number)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.bComplete)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.type)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.cause_of_damage)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.cause_of_damage_reason_different)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.material_type)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.sizeA)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.sizeB)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.sizeC)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.sizeD)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.sizeE)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.sizeF)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.sizeG)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.angle1)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.angle2)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.angle3)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.angle4)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.pitch_height)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.profile_section_size)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.sheet_width_1)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.sheet_height_1)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.sheet_width_2)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.sheet_height_2)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.sheet_width_3)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.sheet_height_3)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.sheet_width_4)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.sheet_height_4)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.sheet_width_5)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.sheet_height_5)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.sheet_width_6)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.sheet_height_6)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.sheet_width_7)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.sheet_height_7)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.sheet_width_8)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.sheet_height_8)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.sheet_width_9)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.sheet_height_9)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.sheet_width_10)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.sheet_height_10)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.flute_size)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.color)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.roof_color)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.new_firrings_req)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.new_gutters_req)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.roof_glazing_thickness)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.no_of_pics)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.no_of_photos)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.room_location)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.no_of_vids)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.bDifferentFromOriginal)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ChangeItemTo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.print_name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.wall_pos)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.pitch_degree)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.long_comments)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.bDrawingsOnly)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.cons_roof_under_drawn)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.does_roof_fit_under)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.spars_line_up)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.roof_sheets_quantity_1)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.roof_sheets_quantity_2)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.roof_sheets_quantity_3)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.roof_sheets_quantity_4)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.roof_sheets_quantity_5)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.roof_sheets_quantity_6)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.roof_sheets_quantity_7)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.roof_sheets_quantity_8)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.roof_sheets_quantity_9)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.roof_sheets_quantity_10)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.good_conditions)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ridge_length)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.parts_to_order)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.point_of_entry)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.type_of_lockng_system_required)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.was_it_locked)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.glass_complete)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.replace_glass)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.reason_not_repaired)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.bRepair)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.fensa)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.WER_rating)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.overall_length_of_sheet)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.lead_bDiamondComplete)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.lead_bGeorgianComplete)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.lead_bBarComplete)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.lead_CWidthf)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.lead_CHeightf)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.lead_CWidths)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.lead_CHeights)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(model => item.HeaderId)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.Guid)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.ContractCode)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.item_number)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.bComplete)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.type)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.cause_of_damage)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.cause_of_damage_reason_different)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.material_type)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.sizeA)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.sizeB)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.sizeC)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.sizeD)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.sizeE)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.sizeF)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.sizeG)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.angle1)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.angle2)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.angle3)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.angle4)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.pitch_height)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.profile_section_size)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.sheet_width_1)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.sheet_height_1)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.sheet_width_2)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.sheet_height_2)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.sheet_width_3)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.sheet_height_3)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.sheet_width_4)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.sheet_height_4)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.sheet_width_5)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.sheet_height_5)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.sheet_width_6)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.sheet_height_6)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.sheet_width_7)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.sheet_height_7)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.sheet_width_8)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.sheet_height_8)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.sheet_width_9)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.sheet_height_9)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.sheet_width_10)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.sheet_height_10)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.flute_size)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.color)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.roof_color)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.new_firrings_req)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.new_gutters_req)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.roof_glazing_thickness)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.no_of_pics)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.no_of_photos)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.room_location)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.no_of_vids)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.bDifferentFromOriginal)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.ChangeItemTo)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.print_name)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.wall_pos)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.pitch_degree)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.long_comments)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.bDrawingsOnly)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.cons_roof_under_drawn)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.does_roof_fit_under)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.spars_line_up)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.roof_sheets_quantity_1)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.roof_sheets_quantity_2)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.roof_sheets_quantity_3)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.roof_sheets_quantity_4)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.roof_sheets_quantity_5)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.roof_sheets_quantity_6)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.roof_sheets_quantity_7)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.roof_sheets_quantity_8)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.roof_sheets_quantity_9)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.roof_sheets_quantity_10)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.good_conditions)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.ridge_length)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.parts_to_order)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.point_of_entry)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.type_of_lockng_system_required)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.was_it_locked)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.glass_complete)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.replace_glass)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.reason_not_repaired)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.bRepair)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.fensa)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.WER_rating)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.overall_length_of_sheet)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.lead_bDiamondComplete)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.lead_bGeorgianComplete)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.lead_bBarComplete)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.lead_CWidthf)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.lead_CHeightf)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.lead_CWidths)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.lead_CHeights)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
