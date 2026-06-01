@@ -1,0 +1,32 @@
+@model PropertySurveyService.ViewModels.ItemDetailsViewModel
+@using System.ComponentModel
+@using System.Reflection
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+
+<div class="grid-container">
+    @foreach (var prop in Model.Composite.GetType().GetProperties())
+    {
+        // Try to grab the DisplayNameAttribute from the property
+        var displayNameAttr = prop.GetCustomAttribute<DisplayNameAttribute>();
+
+        // Use the DisplayName if it exists, otherwise fall back to the property name
+        var labelText = displayNameAttr != null ? displayNameAttr.DisplayName : prop.Name;
+
+        <div>
+            <strong>@labelText:</strong>
+            @prop.GetValue(Model.Composite)
+        </div>
+    }
+</div>
+
+
+
+@foreach (var image in Model.Images)
+{
+    <img src="data:image/png;base64,@image.Data" class="img-fluid rounded" />
+}

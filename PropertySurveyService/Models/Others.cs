@@ -96,7 +96,7 @@ namespace PropertySurveyService.Models
                 case enum_item_type.green: return "Greenhouse";
                 case enum_item_type.cons: return "Conservatory";
                 case enum_item_type.comp: return "Composite";
-                case enum_item_type.frame: return "Frame";
+                case enum_item_type.frame: return "Material";
             }
             return "";
         }
@@ -106,17 +106,17 @@ namespace PropertySurveyService.Models
             switch (type)
             {
                 case enum_item_type.upvc: return "UPVC";
-                case enum_item_type.panel: return "PanelTables";
-                case enum_item_type.glass: return "GlassTables";
+                case enum_item_type.panel: return "Panel";
+                case enum_item_type.glass: return "Glass";
                 case enum_item_type.alum: return "Aluminium";
-                case enum_item_type.garage: return "GarageTables";
-                case enum_item_type.timber: return "TimberTables";
+                case enum_item_type.garage: return "Garage";
+                case enum_item_type.timber: return "Timber";
                 case enum_item_type.bifold: return "Bifolding";
-                case enum_item_type.lockin: return "LockingTables";
-                case enum_item_type.green: return "GreenTables";
-                case enum_item_type.cons: return "ConsTables";
-                case enum_item_type.comp: return "CompositeTables";
-                case enum_item_type.frame: return "FrameTables";
+                case enum_item_type.lockin: return "Lockmech";
+                case enum_item_type.green: return "Greenhouse";
+                case enum_item_type.cons: return "Conservatory";
+                case enum_item_type.comp: return "Composite";
+                case enum_item_type.frame: return "Material";
             }
             return "";
         }
