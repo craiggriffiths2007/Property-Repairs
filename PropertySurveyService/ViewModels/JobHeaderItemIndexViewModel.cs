@@ -2,9 +2,9 @@
 
 namespace PropertySurveyService.ViewModels
 {
-    public class HeaderIndexViewModel
+    public class JobHeaderItemIndexViewModel
     {
-        public JobHeader? Header { get; set; }
+        public JobHeader? JobHeader { get; set; }
         public IEnumerable<SurveyItem>? SurveyItems { get; set; }
 
         public IEnumerable<PhotoImage>? Images { get; set; }

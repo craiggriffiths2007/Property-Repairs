@@ -31,16 +31,16 @@ namespace PropertySurveyService.Controllers
         // GET: Headers/Details/5
         public async Task<IActionResult> Details(int? id)
         {
-            var viewModel = new HeaderIndexViewModel();
+            var viewModel = new JobHeaderItemIndexViewModel();
 
             if (id == null || _context.JobHeader == null)
             {
                 return NotFound();
             }
 
-            viewModel.Header = await _context.JobHeader
+            viewModel.JobHeader = await _context.JobHeader
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (viewModel.Header == null)
+            if (viewModel.JobHeader == null)
             {
                 return NotFound();
             }
@@ -53,29 +53,29 @@ namespace PropertySurveyService.Controllers
                     switch (n)
                     {
                         case enum_item_type.upvc:
-                            foreach (var p in _context.UPVC.Where(x => x.HeaderId == viewModel.Header.Id)) items.Add(p.AsSurveyItem()); break;
+                            foreach (var p in _context.UPVC.Where(x => x.HeaderId == viewModel.JobHeader.Id)) items.Add(p.AsSurveyItem()); break;
                         case enum_item_type.panel:
-                            foreach (var p in _context.Panel.Where(x => x.HeaderId == viewModel.Header.Id)) items.Add(p.AsSurveyItem()); break;
+                            foreach (var p in _context.Panel.Where(x => x.HeaderId == viewModel.JobHeader.Id)) items.Add(p.AsSurveyItem()); break;
                         case enum_item_type.glass:
-                            foreach (var p in _context.Glass.Where(x => x.HeaderId == viewModel.Header.Id)) items.Add(p.AsSurveyItem()); break;
+                            foreach (var p in _context.Glass.Where(x => x.HeaderId == viewModel.JobHeader.Id)) items.Add(p.AsSurveyItem()); break;
                         case enum_item_type.alum:
-                            foreach (var p in _context.Aluminium.Where(x => x.HeaderId == viewModel.Header.Id)) items.Add(p.AsSurveyItem()); break;
+                            foreach (var p in _context.Aluminium.Where(x => x.HeaderId == viewModel.JobHeader.Id)) items.Add(p.AsSurveyItem()); break;
                         case enum_item_type.garage:
-                            foreach (var p in _context.Garage.Where(x => x.HeaderId == viewModel.Header.Id)) items.Add(p.AsSurveyItem()); break;
+                            foreach (var p in _context.Garage.Where(x => x.HeaderId == viewModel.JobHeader.Id)) items.Add(p.AsSurveyItem()); break;
                         case enum_item_type.timber:
-                            foreach (var p in _context.Timber.Where(x => x.HeaderId == viewModel.Header.Id)) items.Add(p.AsSurveyItem()); break;
+                            foreach (var p in _context.Timber.Where(x => x.HeaderId == viewModel.JobHeader.Id)) items.Add(p.AsSurveyItem()); break;
                         case enum_item_type.bifold:
-                            foreach (var p in _context.Bifolding.Where(x => x.HeaderId == viewModel.Header.Id)) items.Add(p.AsSurveyItem()); break;
+                            foreach (var p in _context.Bifolding.Where(x => x.HeaderId == viewModel.JobHeader.Id)) items.Add(p.AsSurveyItem()); break;
                         case enum_item_type.lockin:
-                            foreach (var p in _context.Lockmech.Where(x => x.HeaderId == viewModel.Header.Id)) items.Add(p.AsSurveyItem()); break;
+                            foreach (var p in _context.Lockmech.Where(x => x.HeaderId == viewModel.JobHeader.Id)) items.Add(p.AsSurveyItem()); break;
                         case enum_item_type.green:
-                            foreach (var p in _context.Greenhouse.Where(x => x.HeaderId == viewModel.Header.Id)) items.Add(p.AsSurveyItem()); break;
+                            foreach (var p in _context.Greenhouse.Where(x => x.HeaderId == viewModel.JobHeader.Id)) items.Add(p.AsSurveyItem()); break;
                         case enum_item_type.comp:
-                            foreach (var p in _context.Composite.Where(x => x.HeaderId == viewModel.Header.Id)) items.Add(p.AsSurveyItem()); break;
+                            foreach (var p in _context.Composite.Where(x => x.HeaderId == viewModel.JobHeader.Id)) items.Add(p.AsSurveyItem()); break;
                         case enum_item_type.cons:
-                            foreach (var p in _context.Conservatory.Where(x => x.HeaderId == viewModel.Header.Id)) items.Add(p.AsSurveyItem()); break;
+                            foreach (var p in _context.Conservatory.Where(x => x.HeaderId == viewModel.JobHeader.Id)) items.Add(p.AsSurveyItem()); break;
                         case enum_item_type.frame:
-                            foreach (var p in _context.Frame.Where(x => x.HeaderId == viewModel.Header.Id)) items.Add(p.AsSurveyItem()); break;
+                            foreach (var p in _context.Frame.Where(x => x.HeaderId == viewModel.JobHeader.Id)) items.Add(p.AsSurveyItem()); break;
                     }
                 }
                 viewModel.SurveyItems = items;
@@ -86,7 +86,7 @@ namespace PropertySurveyService.Controllers
             }
 
             var parentJob = await _context.Job
-                .FirstOrDefaultAsync(j => j.ContractCode == viewModel.Header.ContractCode);
+                .FirstOrDefaultAsync(j => j.ContractCode == viewModel.JobHeader.ContractCode);
             if (parentJob != null)
             {
                 ViewBag.ParentJobId = parentJob.Id;
