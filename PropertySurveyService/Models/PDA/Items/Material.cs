@@ -6,7 +6,7 @@ namespace PropertySurveyService.Models
 {
 
 
-    public class Frame
+    public class Material
     {
         // ===== Core / Shared =====
         [Key]
@@ -420,6 +420,7 @@ namespace PropertySurveyService.Models
         public string trickle_vents { get; set; } = "...";
 
         public string internal_lock { get; set; } = "...";
+
 
         public SurveyItem AsSurveyItem() { return new SurveyItem(Id, enum_item_type.lockin, item_number); }
 

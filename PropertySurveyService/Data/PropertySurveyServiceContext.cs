@@ -34,7 +34,7 @@ namespace PropertySurveyService.Data
         public DbSet<PropertySurveyService.Models.Panel> Panel { get; set; } = default!;
         public DbSet<PropertySurveyService.Models.Timber> Timber { get; set; } = default!;
         public DbSet<PropertySurveyService.Models.UPVC> UPVC { get; set; } = default!;
-        public DbSet<PropertySurveyService.Models.Frame> Frame { get; set; } = default!;
+        public DbSet<PropertySurveyService.Models.Material> Frame { get; set; } = default!;
         public DbSet<PropertySurveyService.Models.PhotoImage> Images { get; set; } = default!;
 
         public DbSet<PropertySurveyService.Models.Branch> Branches { get; set; } = default!;

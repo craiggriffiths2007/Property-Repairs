@@ -5,7 +5,7 @@ internal class PDAJobDTO
     public JobDTO Job { get; set; }
 
     public JobHeader Head { get; set; }
-    public List<Frame> Items { get; set; }
+    public List<Material> Items { get; set; }
     public List<Panel> Panels { get; set; }
     public List<Aluminium> Aluminia { get; set; }
     public List<Bifolding> Bifolds { get; set; }

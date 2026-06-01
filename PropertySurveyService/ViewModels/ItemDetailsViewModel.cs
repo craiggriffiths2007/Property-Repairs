@@ -5,15 +5,15 @@ namespace PropertySurveyService.ViewModels
 {
     public class ItemDetailsViewModel
     {
-        public Frame? Frame { get; set; }
-        public Aluminium? Alum { get; set; }
-        public Bifolding? Bifold { get; set; }
-        public Composite? Comp { get; set; }
-        public Conservatory? Cons { get; set; }
+        public Material? Material { get; set; }
+        public Aluminium? Aluminium { get; set; }
+        public Bifolding? Bifolding { get; set; }
+        public Composite? Composite { get; set; }
+        public Conservatory? Conservatory { get; set; }
         public Garage? Garage { get; set; }
         public Glass? Glass { get; set; }
-        public Greenhouse? Green { get; set; }
-        public Lockmech? Lockin { get; set; }
+        public Greenhouse? Greenhouse { get; set; }
+        public Lockmech? Lockmech { get; set; }
         public Panel? Panel { get; set; }
         public Timber? Timber { get; set; }
         public UPVC? UPVC { get; set; }

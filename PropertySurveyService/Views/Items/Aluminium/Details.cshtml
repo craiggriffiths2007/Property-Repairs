@@ -9,24 +9,24 @@
 
 
 <div class="grid-container">
-    @foreach (var prop in Model.UPVC.GetType().GetProperties())
+    @foreach (var prop in Model.Aluminium.GetType().GetProperties())
     {
         // Try to grab the DisplayNameAttribute from the property
         var displayNameAttr = prop.GetCustomAttribute<DisplayNameAttribute>();
 
         // Use the DisplayName if it exists, otherwise fall back to the property name
         var labelText = displayNameAttr != null ? displayNameAttr.DisplayName : prop.Name;
-        
+
         <div>
             <strong>@labelText:</strong>
-            @prop.GetValue(Model.UPVC)
+            @prop.GetValue(Model.Aluminium)
         </div>
     }
 </div>
 
 
 
-@foreach(var image in Model.Images)
+@foreach (var image in Model.Images)
 {
-    <img src="data:image/png;base64,@image.Data" class="img-fluid rounded" />   
+    <img src="data:image/png;base64,@image.Data" class="img-fluid rounded" />
 }

@@ -238,3 +238,13 @@ body {
     background-color: #f0f7ff;
 }
 
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+
+.grid-item {
+    border: 1px solid #ddd;
+    padding: 10px;
+}
