@@ -8,42 +8,15 @@
 <h1>Sales Car</h1>
 
 
-<div class="grid-container-vertical">
-    @{
-        var properties = Model.SalesCar.GetType()
-            .GetProperties().Where(p => p.GetCustomAttribute<BrowsableAttribute>()?.Browsable != false)
-            .Select(p => new
-            {
-                Property = p,
-                Label = p.GetCustomAttribute<DisplayNameAttribute>()?.DisplayName ?? p.Name
-            })
-            .OrderBy(x => x.Label);
-    }
-
-    @foreach (var item in properties)
-    {
-        var value = item.Property.GetValue(Model.SalesCar);
-
-        <div>
-            @item.Label:
-            <strong>
-            @if (value is bool b)
-            {
-                <span style="color: @(b ? "green" : "red"); font-weight: bold;">
-                    @(b ? "✔" : "✘")
-                </span>
-            }
-            else
-            {
-                @value
-                }
-            </strong>
-        </div>
-    }
-</div>
-
-@if (Model.SalesCar.is_complete)
+@if (!Model.SalesCar.is_complete)
 {
+    <strong>Not Complete : </strong>
+    @Html.DisplayFor(model => model.SalesCar.ReasonNotCompleted)
+}
+else
+{
+<partial name="_VehicleDetailsPartial" model="Model.SalesCar" />
+
     <h4>Outside Photos</h4>
     <div class="container">
         <div class="row">

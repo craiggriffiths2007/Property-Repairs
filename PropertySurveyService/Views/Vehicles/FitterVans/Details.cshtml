@@ -5,46 +5,18 @@
     ViewData["Title"] = "Details";
 }
 
-<h1>Delivery HGV</h1>
+<h1>Fitter Van</h1>
 
 
-<div class="grid-container-vertical">
-    @{
-        var properties = Model.DeliveryHGV.GetType()
-            .GetProperties().Where(p => p.GetCustomAttribute<BrowsableAttribute>()?.Browsable != false)
-            .Select(p => new
-            {
-                Property = p,
-                Label = p.GetCustomAttribute<DisplayNameAttribute>()?.DisplayName ?? p.Name
-            })
-            .OrderBy(x => x.Label);
-    }
-
-    @foreach (var item in properties)
-    {
-        var value = item.Property.GetValue(Model.DeliveryHGV);
-
-        <div>
-            @item.Label:
-            <strong>
-                @if (value is bool b)
-                {
-                    <span style="color: @(b ? "green" : "red"); font-weight: bold;">
-                        @(b ? "✔" : "✘")
-                    </span>
-                }
-                else
-                {
-                    @value
-                }
-            </strong>
-        </div>
-    }
-</div>
-
-
-@if (Model.DeliveryHGV.is_complete)
+@if (!Model.FitterVan.is_complete)
 {
+    <strong>Not Complete : </strong>
+    @Html.DisplayFor(model => model.FitterVan.ReasonNotCompleted)
+}
+else
+{
+<partial name="_VehicleDetailsPartial" model="Model.FitterVan" />
+
     <h4>Outside Photos</h4>
     <div class="container">
         <div class="row">

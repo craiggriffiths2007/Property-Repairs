@@ -5,46 +5,18 @@
     ViewData["Title"] = "Details";
 }
 
-<h1>Delivery Van</h1>
+<h1>Delivery HGV</h1>
 
 
-<div class="grid-container-vertical">
-    @{
-        var properties = Model.DeliveryVan.GetType()
-            .GetProperties().Where(p => p.GetCustomAttribute<BrowsableAttribute>()?.Browsable != false)
-            .Select(p => new
-            {
-                Property = p,
-                Label = p.GetCustomAttribute<DisplayNameAttribute>()?.DisplayName ?? p.Name
-            })
-            .OrderBy(x => x.Label);
-    }
-
-    @foreach (var item in properties)
-    {
-        var value = item.Property.GetValue(Model.DeliveryVan);
-
-        <div>
-            @item.Label:
-            <strong>
-                @if (value is bool b)
-                {
-                    <span style="color: @(b ? "green" : "red"); font-weight: bold;">
-                        @(b ? "✔" : "✘")
-                    </span>
-                }
-                else
-                {
-                    @value
-                }
-            </strong>
-        </div>
-    }
-</div>
-
-@if (Model.DeliveryVan.is_complete)
+@if (!Model.DeliveryHGV.is_complete)
 {
-    <h4>Images</h4>
+    <strong>Not Complete : </strong>@Html.DisplayFor(model => model.DeliveryHGV.ReasonNotCompleted)
+}
+else
+{
+<partial name="_VehicleDetailsPartial" model="Model.DeliveryHGV" />
+
+    <h4>Outside Photos</h4>
     <div class="container">
         <div class="row">
             <!-- Row 1 -->
@@ -57,7 +29,7 @@
             <div class="col-6 p-3 border">Rear<img src="data:image/png;base64,@Model.Images.Where(i => i.Filename.Substring(40, 3) == "rea").FirstOrDefault().Data" class="img-fluid rounded" /></div>
         </div>
     </div>
-
+    <h4>Damage</h4>
     <div class="container">
         <div class="row">
             <!-- Row 1 -->
@@ -70,7 +42,14 @@
             <div class="col-6 p-3 border">Rear<img src="data:image/png;base64,@Model.Images.Where(i => i.Filename.Substring(40, 3) == "red").FirstOrDefault().Data" class="img-fluid rounded" /></div>
         </div>
     </div>
-
+    <h4>inside Photo</h4>
+    <div class="container">
+        <div class="row">
+            <!-- Row 1 -->
+            <div class="col-6 p-3 border"><img src="data:image/png;base64,@Model.Images.Where(i => i.Filename.Substring(40, 3) == "i01").FirstOrDefault().Data" class="img-fluid rounded" /></div>
+        </div>
+    </div>
+    <h4>Signatures</h4>
     <div class="container">
         <div class="row">
             <!-- Row 1 -->

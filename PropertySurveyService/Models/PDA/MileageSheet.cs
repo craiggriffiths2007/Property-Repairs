@@ -6,7 +6,7 @@ namespace PropertySurveyService.Models
     public class MileageSheet
     {
         public int Id { get; set; }
-
+        [Browsable(false)]
         [DisplayName("Unique Record ID (GUID)")]
         public Guid Guid { get; set; } = Guid.NewGuid();
 
@@ -99,25 +99,25 @@ namespace PropertySurveyService.Models
 
 
         // --- Odometer / Verification Photos ---
-
+        [Browsable(false)]
         [DisplayName("Odometer Photo (AM/Start)")]
         public string photo_am { get; set; } = "";
-
+        [Browsable(false)]
         [DisplayName("Odometer Photo (PM/End)")]
         public string photo_pm { get; set; } = "";
 
 
         // --- Sign-off & Status ---
-
+        [Browsable(false)]
         [DisplayName("Driver Signed")]
         public bool bSigned { get; set; }
-
+        [Browsable(false)]
         [DisplayName("Signature Filename")]
         public string signature_filename { get; set; } = "";
-
+        [Browsable(false)]
         [DisplayName("Is Completed")]
         public bool bComplete { get; set; }
-
+        [Browsable(false)]
         [DisplayName("Sent to Server")]
         public bool bSent { get; set; }
 

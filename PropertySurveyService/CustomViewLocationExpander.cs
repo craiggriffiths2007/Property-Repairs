@@ -14,7 +14,9 @@ public class CustomViewLocationExpander : IViewLocationExpander
         var customLocations = new[]
         {
             "/Views/Items/{1}/{0}.cshtml",
-            "/Views/Items/Shared/{0}.cshtml"
+            "/Views/Items/Shared/{0}.cshtml",
+            "/Views/Vehicles/{1}/{0}.cshtml",
+            "/Views/Vehicles/Shared/{0}.cshtml"
         };
 
         // Combine our new locations with the default ones

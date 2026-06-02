@@ -1,11 +1,6 @@
-﻿@model PropertySurveyService.Models.MileageSheet
-@using System.ComponentModel
+﻿@using System.ComponentModel
 @using System.Reflection
-@{
-    ViewData["Title"] = "View";
-}
-
-<h1>Mileage Sheet</h1>
+@model object
 
 <div class="grid-container-vertical">
     @if (Model == null)
@@ -44,23 +39,4 @@
             </div>
         }
     }
-</div>
-
- <h4>Photos</h4>
-    <div class="container">
-        <div class="row">
-            <!-- Row 1 -->
-            <div class="col-6 p-3 border">Start<img src="data:image/png;base64,@ViewData["StartImage"]" class="img-fluid rounded" /></div>
-            <div class="col-6 p-3 border">End<img src="data:image/png;base64,@ViewData["EndImage"]" class="img-fluid rounded" /></div>
-        </div>
-        <div class="row">
-            <!-- Row 2 -->
-            <div class="col-6 p-3 border">Signature<img src="data:image/png;base64,@ViewData["SignatureImage"]" class="img-fluid rounded" /></div>
-            
-        </div>
-    </div>
-
-<div>
-    <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
-    <a asp-action="Index">Back to List</a>
 </div>

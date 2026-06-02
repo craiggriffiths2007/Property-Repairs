@@ -1,14 +1,18 @@
-@model PropertySurveyService.Models.ToolCheck
+@model PropertySurveyService.Models.VAccident
 @using System.ComponentModel
 @using System.Reflection
+
 @{
     ViewData["Title"] = "Details";
 }
 
 <div>
-    <h4>Tool Check</h4>
+    <h4>Vehicle Accident</h4>
     <hr />
 
+
+
+    
     <div class="grid-container-vertical">
         @if (Model == null)
         {
@@ -48,21 +52,7 @@
         }
     </div>
 
-
-<h4>Signatures</h4>
-<div class="container">
-    <div class="row">
-        <!-- Row 1 -->
-        <div class="col-6 p-3 border">@Html.DisplayFor(model => model.signature_printed)<img src="data:image/png;base64,@ViewData["AuditSign"]" class="img-fluid rounded" /></div>
-        <div class="col-6 p-3 border">@Html.DisplayFor(model => model.signature_printed2)<img src="data:image/png;base64,@ViewData["FitSign"]" class="img-fluid rounded" /></div>
-    </div>
-    <div class="row">
-        <!-- Row 2 -->
-        <div class="col-6 p-3 border">Photo<img src="data:image/png;base64,@ViewData["Photo"]" class="img-fluid rounded" /></div>
-
-    </div>
 </div>
-
 <div>
     <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
     <a asp-action="Index">Back to List</a>
