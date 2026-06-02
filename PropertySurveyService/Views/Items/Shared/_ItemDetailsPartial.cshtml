@@ -1,0 +1,42 @@
+﻿@using System.ComponentModel
+@using System.Reflection
+@model object
+
+<div class="grid-container-vertical">
+    @if (Model == null)
+    {
+        <div>No data</div>
+    }
+    else
+    {
+        var properties = Model.GetType()
+            .GetProperties()
+            .Where(p => p.GetCustomAttribute<BrowsableAttribute>()?.Browsable != false)
+            .Select(p => new
+            {
+                Property = p,
+                Label = p.GetCustomAttribute<DisplayNameAttribute>()?.DisplayName ?? p.Name
+            })
+            .OrderBy(x => x.Label);
+
+        foreach (var item in properties)
+        {
+            var value = item.Property.GetValue(Model);
+
+            <div>
+                @item.Label:
+                <strong>
+                    @if (value is bool b)
+                    {
+                        var color = b ? "green" : "red";
+                        <span style="color:@color; font-weight: bold;">@(b ? "✔" : "✘")</span>
+                    }
+                    else
+                    {
+                        @value
+                    }
+                </strong>
+            </div>
+        }
+    }
+</div>

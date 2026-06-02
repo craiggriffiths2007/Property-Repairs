@@ -12,18 +12,36 @@
 
 
 
-<div class="grid-container">
-    @foreach (var prop in Model.JobHeader.GetType().GetProperties())
-    {
-        // Try to grab the DisplayNameAttribute from the property
-        var displayNameAttr = prop.GetCustomAttribute<DisplayNameAttribute>();
+<div class="grid-container-vertical">
+    @{
+        var properties = Model.JobHeader.GetType()
+            .GetProperties().Where(p => p.GetCustomAttribute<BrowsableAttribute>()?.Browsable != false)
+            .Select(p => new
+            {
+                Property = p,
+                Label = p.GetCustomAttribute<DisplayNameAttribute>()?.DisplayName ?? p.Name
+            })
+            .OrderBy(x => x.Label);
+    }
 
-        // Use the DisplayName if it exists, otherwise fall back to the property name
-        var labelText = displayNameAttr != null ? displayNameAttr.DisplayName : prop.Name;
+    @foreach (var item in properties)
+    {
+        var value = item.Property.GetValue(Model.JobHeader);
 
         <div>
-            <strong>@labelText:</strong>
-            @prop.GetValue(Model.JobHeader)
+            @item.Label:
+            <strong>
+                @if (value is bool b)
+                {
+                    <span style="color: @(b ? "green" : "red"); font-weight: bold;">
+                        @(b ? "✔" : "✘")
+                    </span>
+                }
+                else
+                {
+                    @value
+                }
+            </strong>
         </div>
     }
 </div>

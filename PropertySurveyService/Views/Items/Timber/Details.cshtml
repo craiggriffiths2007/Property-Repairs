@@ -5,25 +5,10 @@
     ViewData["Title"] = "Details";
 }
 
-<h1>Details</h1>
+<h1>Timber</h1>
 
 
-<div class="grid-container">
-    @foreach (var prop in Model.Timber.GetType().GetProperties())
-    {
-        // Try to grab the DisplayNameAttribute from the property
-        var displayNameAttr = prop.GetCustomAttribute<DisplayNameAttribute>();
-
-        // Use the DisplayName if it exists, otherwise fall back to the property name
-        var labelText = displayNameAttr != null ? displayNameAttr.DisplayName : prop.Name;
-
-        <div>
-            <strong>@labelText:</strong>
-            @prop.GetValue(Model.Timber)
-        </div>
-    }
-</div>
-
+<partial name="_ItemDetailsPartial" model="Model.Timber" />
 
 
 @foreach (var image in Model.Images)
