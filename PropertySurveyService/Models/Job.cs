@@ -16,7 +16,7 @@ namespace PropertySurveyService.Models
         [Display(Name = "Job Date")]
         [DataType(DataType.Date)]
 
-        public DateTime Date { get; set; } 
+        public DateTime DiaryDate { get; set; } 
 
         [Display(Name = "Job Time")]
         [DataType(DataType.Time)]
@@ -92,7 +92,7 @@ namespace PropertySurveyService.Models
 
             (Id, ContractId, ContractCode, Date, Time, EndTime, Name, Add1, Add2, Add3, Postcode, Phone1, Phone2, Phone3, DamageDesc, Instructions, CauseOfDamage, IncidentDate ) =
 
-            (jobItem.Id, jobItem.ContractId, jobItem.ContractCode, jobItem.Date, jobItem.Time.ToShortTimeString(), jobItem.Time.AddHours(1).ToShortTimeString(), custItem.Name,
+            (jobItem.Id, jobItem.ContractId, jobItem.ContractCode, jobItem.DiaryDate, jobItem.Time.ToShortTimeString(), jobItem.Time.AddHours(1).ToShortTimeString(), custItem.Name,
                 custItem.Add1, custItem.Add2, custItem.Add3, custItem.Postcode, custItem.Phone1,
                 custItem.Phone2, custItem.Phone3, jobItem.DamageDesc, jobItem.Instructions, jobItem.CauseOfDamage, jobItem.IncidentDate.ToShortDateString());
 

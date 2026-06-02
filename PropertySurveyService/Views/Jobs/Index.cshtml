@@ -12,7 +12,7 @@
     startDayOfWeek = (startDayOfWeek == 0) ? 6 : startDayOfWeek - 1;
 
     var jobsByDay = Model.Jobs?
-        .GroupBy(j => j.Date.Day)
+        .GroupBy(j => j.DiaryDate.Day)
         .ToDictionary(g => g.Key, g => g.ToList())
         ?? new Dictionary<int, List<PropertySurveyService.Models.Job>>();
 
@@ -32,7 +32,7 @@
     {
         foreach (var job in Model.Jobs)
         {
-            int dayIdx = ((int)job.Date.DayOfWeek - 1 + 7) % 7;
+            int dayIdx = ((int)job.DiaryDate.DayOfWeek - 1 + 7) % 7;
             int hour = job.Time.Hour;
             if (!weekJobs[dayIdx].ContainsKey(hour))
                 weekJobs[dayIdx][hour] = new List<PropertySurveyService.Models.Job>();
@@ -235,7 +235,7 @@ else if (Model.ViewMode == "list")
                 {
                     <tr>
                         <td>@job.ContractCode</td>
-                        <td>@job.Date.ToString("dd/MM/yyyy")</td>
+                        <td>@job.DiaryDate.ToString("dd/MM/yyyy")</td>
                         <td>@job.Time.ToString("HH:mm")</td>
                         <td>@job.Customer?.Name</td>
                         <td>@job.Agent?.Code</td>

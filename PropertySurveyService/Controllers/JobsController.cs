@@ -65,8 +65,8 @@ namespace PropertySurveyService.Controllers
                 viewModel.Jobs = await _context.Job
                     .Include(j => j.Customer)
                     .Include(j => j.Agent)
-                    .Where(j => j.Date >= weekStartDate && j.Date < weekEndDate)
-                    .OrderBy(j => j.Date).ThenBy(j => j.Time)
+                    .Where(j => j.DiaryDate >= weekStartDate && j.DiaryDate < weekEndDate)
+                    .OrderBy(j => j.DiaryDate).ThenBy(j => j.Time)
                     .ToListAsync();
             }
             else if (viewMode == "list")
@@ -74,8 +74,8 @@ namespace PropertySurveyService.Controllers
                 viewModel.Jobs = await _context.Job
                     .Include(j => j.Customer)
                     .Include(j => j.Agent)
-                    .Where(j => j.Date.Year == displayYear && j.Date.Month == displayMonth)
-                    .OrderBy(j => j.Date).ThenBy(j => j.Time)
+                    .Where(j => j.DiaryDate.Year == displayYear && j.DiaryDate.Month == displayMonth)
+                    .OrderBy(j => j.DiaryDate).ThenBy(j => j.Time)
                     .ToListAsync();
             }
             else
@@ -83,8 +83,8 @@ namespace PropertySurveyService.Controllers
                 viewModel.Jobs = await _context.Job
                     .Include(j => j.Customer)
                     .Include(j => j.Agent)
-                    .Where(j => j.Date.Year == displayYear && j.Date.Month == displayMonth)
-                    .OrderBy(j => j.Date).ThenBy(j => j.Time)
+                    .Where(j => j.DiaryDate.Year == displayYear && j.DiaryDate.Month == displayMonth)
+                    .OrderBy(j => j.DiaryDate).ThenBy(j => j.Time)
                     .ToListAsync();
             }
 
@@ -193,7 +193,7 @@ namespace PropertySurveyService.Controllers
         public IActionResult Create()
         {
             Job job = new Job();
-            job.Date = DateTime.Now;
+            job.DiaryDate = DateTime.Now;
             job.Time = DateTime.Now;
             PopulateContractsDropDownList();
             PopulateAgentsDropDownList();

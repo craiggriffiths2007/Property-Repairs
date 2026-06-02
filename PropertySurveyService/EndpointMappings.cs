@@ -69,7 +69,7 @@ namespace PropertySurveyService
                     return Task.FromResult<IResult>(Results.BadRequest(new { ReasonPhrase = "Agent Code Not Found : " + gs.AgentCode }));
 
                 var job = db.Job
-                    .Where(x => x.AgentId == agent.Id && x.ContractCode == gs.contract_number && x.Date >= DateTime.Today)
+                    .Where(x => x.AgentId == agent.Id && x.ContractCode == gs.contract_number && x.DiaryDate >= DateTime.Today)
                     .FirstOrDefault()?? new Job();
 
                 JobDTO send_data = new JobDTO(job ?? new Job(), db.Customer.FirstOrDefault<Customer>(x => x.Id == job.CustomerId) ?? new Customer());
@@ -237,7 +237,7 @@ namespace PropertySurveyService
                 var surveyJobs = db.Job
                     .Where(x => x.AgentId == agent.Id 
                     && x.JobType == enum_job_type.Survey
-                    && x.Date >= DateTime.Today)
+                    && x.DiaryDate >= DateTime.Today)
                     .ToList();
 
                 List<JobDTO> send_jobs = new List<JobDTO>();
@@ -255,9 +255,38 @@ namespace PropertySurveyService
                 return Task.FromResult<IResult>(Results.Ok(send_jobs));
             });
 
+            
+            app.MapPost("/GetImage", (GetDataDTO gs, AppDBContext db) =>
+            {
+                var agent = db.Agent.FirstOrDefault(x => x.Code == gs.AgentCode);
+                if (agent == null)
+                    return Results.BadRequest(new { ReasonPhrase = "Agent Code Not Found : " + gs.AgentCode });
 
+                var image = db.Images.FirstOrDefault(img => img.Filename == gs.Filename);
+                if (image == null)
+                    return Results.NotFound();
 
+                // image.Data may already be byte[]; if it's stored as base64 string decode it
+                byte[] bytes;
+                //if (image.Data is byte[] b) bytes = b;
+                if (image.Data is string s) bytes = Convert.FromBase64String(s);
+                else bytes = Array.Empty<byte>();
 
+                var ext = Path.GetExtension(image.Filename)?.ToLowerInvariant();
+                var contentType = ext switch
+                {
+                    ".jpg" or ".jpeg" => "image/jpeg",
+                    ".png" => "image/png",
+                    ".gif" => "image/gif",
+                    ".bmp" => "image/bmp",
+                    ".webp" => "image/webp",
+                    ".mp4" => "video/mp4",
+                    _ => "application/octet-stream"
+                };
+
+                return Results.File(bytes, contentType, image.Filename);
+            });
+            /*
             app.MapPost("/GetImage", (GetDataDTO gs, AppDBContext db) =>
             {
                 // check password here
@@ -274,10 +303,10 @@ namespace PropertySurveyService
                 return Results.Ok(new ImageDTO
                 {
                     Filename = image.Filename,
-                    Data = image.Data
+                    Data = Convert.FromBase64String(image.Data)
                 });
             });
-
+            */
             app.MapPost("/GetFittingJobs", (GetDataDTO gs, AppDBContext db) =>
             {
                 var agent = db.Agent.FirstOrDefault(x => x.Code == gs.AgentCode);
@@ -303,8 +332,8 @@ namespace PropertySurveyService
                     if (header == null)
                         continue;
                     header.JobType = job.JobType;
-                    //header.udi_date = job.Date.ToShortDateString();
-                    header.FitDate = job.Date.ToShortDateString();
+                    header.DiaryDate = job.DiaryDate;
+                    header.FitDate = job.DiaryDate.ToShortDateString();
                     header.FitStartTime = job.Time.ToString(@"hh\:mm");
                     header.FitFinishTime = job.Time.Add(TimeSpan.FromHours(1)).ToString(@"hh\:mm");
                     header.bSurvey = true;
