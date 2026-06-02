@@ -481,21 +481,45 @@ namespace PropertySurveyService
                 return Results.Ok(new { status = "success" });
             });
 
-            app.MapPost("/SendImage", (ImageDTO imageDTO, AppDBContext db) =>
+            app.MapPost("/SendImage", async (ImageDTO imageDTO, AppDBContext db) =>
             {
                 OKRecordDTO return_record = new OKRecordDTO();
 
-                PhotoImage image = new PhotoImage();
-                image.Filename = imageDTO.Filename;
-                image.Data = imageDTO.Data;
-                image.DateTime = DateTime.Now;
-                image.ContractCode = imageDTO.Filename.Substring(0, 8);
+                // Prepare contract code safely
+                string contractCode = imageDTO.Filename.Length >= 8 ? imageDTO.Filename.Substring(0, 8) : string.Empty;
 
-                // Save to database
-                db.Add<PhotoImage>(image);
-                db.SaveChanges();
+                try
+                {
+                    // If an image with the same filename exists, overwrite it; otherwise add a new record
+                    var existing = db.Images.FirstOrDefault(i => i.Filename == imageDTO.Filename);
+                    if (existing != null)
+                    {
+                        existing.Data = imageDTO.Data;
+                        existing.DateTime = DateTime.Now;
+                        existing.ContractCode = contractCode;
+                        db.Update(existing);
+                    }
+                    else
+                    {
+                        PhotoImage image = new PhotoImage
+                        {
+                            Filename = imageDTO.Filename,
+                            Data = imageDTO.Data,
+                            DateTime = DateTime.Now,
+                            ContractCode = contractCode
+                        };
+                        db.Add(image);
+                    }
 
-                // Save to file system
+                    await db.SaveChangesAsync();
+                }
+                catch (Exception exDb)
+                {
+                    return_record.comments = $"Database Save Failed: {exDb.Message}";
+                    return Results.Ok(return_record);
+                }
+
+                // Save to file system (will overwrite existing file with same name)
                 try
                 {
                     string directoryPath = @"c:\PropertyImages";
@@ -504,17 +528,17 @@ namespace PropertySurveyService
                         Directory.CreateDirectory(directoryPath);
                     }
                     string filePath = Path.Combine(directoryPath, imageDTO.Filename);
-                    byte[] fileBytes = Convert.FromBase64String(imageDTO.Data); 
+                    byte[] fileBytes = Convert.FromBase64String(imageDTO.Data);
                     File.WriteAllBytes(filePath, fileBytes);
                 }
                 catch (Exception ex)
                 {
                     return_record.comments = $"Database Success, File Save Failed: {ex.Message}";
-                    return Task.FromResult<IResult>(Results.Ok(return_record));
+                    return Results.Ok(return_record);
                 }
 
                 return_record.comments = "Success";
-                return Task.FromResult<IResult>(Results.Ok(return_record));
+                return Results.Ok(return_record);
             });
         }
     }
