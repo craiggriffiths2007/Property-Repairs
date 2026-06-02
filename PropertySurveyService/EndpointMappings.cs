@@ -434,8 +434,10 @@ namespace PropertySurveyService
                         await db.SaveChangesAsync();
                         int headerId = job.Head.Id;
 
+                        /*
                         void SaveItems<T>(IEnumerable<T> items) where T : class
                         {
+
                             if (items != null)
                             {
                                 foreach (var item in items)
@@ -447,6 +449,34 @@ namespace PropertySurveyService
                                 }
                             }
                         }
+                        */
+                        // deletes ones with same guid first then adds new ones, this is to handle updates from the PDA where items may have been added, removed or changed
+                        void SaveItems<T>(IEnumerable<T> items) where T : class
+                        {
+                            if (items == null)
+                                return;
+
+                            foreach (var item in items)
+                            {
+                                var headerProp = item.GetType().GetProperty("HeaderId");
+                                if (headerProp != null)
+                                    headerProp.SetValue(item, headerId);
+
+                                var guidProp = item.GetType().GetProperty("Guid");
+                                if (guidProp != null)
+                                {
+                                    var guid = (Guid)guidProp.GetValue(item)!;
+
+                                    db.Set<T>()
+                                      .Where(e => EF.Property<Guid>(e, "Guid") == guid)
+                                      .ExecuteDelete();
+                                }
+
+                                db.Add(item);
+                            }
+                        }
+
+
 
                         job.Items.ForEach(o => o.Id = 0);
                         job.Panels.ForEach(o => o.Id = 0);

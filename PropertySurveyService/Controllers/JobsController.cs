@@ -206,7 +206,7 @@ namespace PropertySurveyService.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Date,Time,DamageDesc,Instructions,ContractId,AgentId,JobType")] Job job)
+        public async Task<IActionResult> Create([Bind("Id,DiaryDate,Time,DamageDesc,Instructions,ContractId,AgentId,JobType")] Job job)
         {
             if (ModelState.IsValid)
             {
@@ -255,7 +255,7 @@ namespace PropertySurveyService.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,ContractId,Date,Time,DamageDesc,Instructions,AgentId,JobType")] Job job)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,ContractId,DiaryDate,Time,DamageDesc,Instructions,AgentId,JobType")] Job job)
         {
             if (id != job.Id)
             {
