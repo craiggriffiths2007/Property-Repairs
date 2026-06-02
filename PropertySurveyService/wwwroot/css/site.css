@@ -248,3 +248,18 @@ body {
     border: 1px solid #ddd;
     padding: 10px;
 }
+
+.grid-container-vertical {
+    /* Creates 3 equal-width columns that automatically balance */
+    column-count: 3;
+    /* This is your gap, just like in grid */
+    column-gap: 15px;
+}
+
+.grid-item-vertical {
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin-bottom: 15px; /* Keeps items from sticking together vertically */
+    /* CRITICAL: Prevents an item from splitting awkwardly across two columns */
+    break-inside: avoid;
+}

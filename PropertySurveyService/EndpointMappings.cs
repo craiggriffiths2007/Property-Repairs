@@ -310,10 +310,10 @@ namespace PropertySurveyService
                     header.bSurvey = true;
                     header.bComplete = false;
                     header.bSent = false;
-                    // Get all images for this header
+
+
+                    // Get all the images for this header
                     var images = new List<string>();
-
-
                     List<SurveyItem> items = new List<SurveyItem>();
 
                     foreach (var n in Enum.GetValues(typeof(enum_item_type)))

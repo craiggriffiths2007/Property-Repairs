@@ -78,16 +78,16 @@ namespace PropertySurveyService.Models
     public class VehicleCheck
     {
         // --- System & Metadata Fields ---
-
+        [Browsable(false)]
         [DisplayName("Unique Record ID (GUID)")]
         public Guid Guid { get; set; } = Guid.NewGuid();
-
+        [Browsable(false)]
         [DisplayName("Vehicle Check Header ID")]
         public int VehicleCheckHeaderId { get; set; }
-
+        [Browsable(false)]
         [DisplayName("Check ID")]
         public string CheckID { get; set; }
-
+        [Browsable(false)]
         [DisplayName("Item Number")]
         public int item_number { get; set; } = 0;
 
@@ -117,22 +117,22 @@ namespace PropertySurveyService.Models
 
         [DisplayName("Reason Not Completed")]
         public string ReasonNotCompleted { get; set; } = "";
-
+        [Browsable(false)]
         [DisplayName("Is Completed")]
         public bool bComplete { get; set; }
-
+        [Browsable(false)]
         [DisplayName("Sent to Server")]
         public bool bSent { get; set; }
-
+        [Browsable(false)]
         [DisplayName("External Photos Taken")]
         public bool bPhotosOutsideComplete { get; set; }
-
+        [Browsable(false)]
         [DisplayName("Internal Photos Taken")]
         public bool bPhotosInsideComplete { get; set; }
-
+        [Browsable(false)]
         [DisplayName("Damage Diagrams Completed")]
         public bool bDiagramsComplete { get; set; }
-
+        [Browsable(false)]
         [DisplayName("Signatures Completed")]
         public bool bSignaturesComplete { get; set; }
 
@@ -204,16 +204,16 @@ namespace PropertySurveyService.Models
 
 
         // --- Signatures & Verification ---
-
+        [Browsable(false)]
         [DisplayName("Driver Signed")]
         public bool bDriverSigned { get; set; }
-
+        [Browsable(false)]
         [DisplayName("Checked By Signed")]
         public bool bCheckedBySigned { get; set; }
-
+        [Browsable(false)]
         [DisplayName("Driver Printed Name")]
         public string driver_printed { get; set; } = "";
-
+        [Browsable(false)]
         [DisplayName("Auditor/Checker Printed Name")]
         public string checked_printed { get; set; } = "";
     }
