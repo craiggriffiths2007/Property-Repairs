@@ -34,6 +34,19 @@ public class SpotChecksController : Controller
             return NotFound();
         }
 
+
+        string pattern = $"{spotcheck.ContractCode:00000000}_sSTChk__.jpg"; // using _ as a wildcard ( would have been cAZ and dAZ )
+        string signaturePattern = $"{spotcheck.ContractCode:00000000}_000SCSig.jpg";
+
+        var photoimages = _context.Images
+            .Where(x => EF.Functions.Like(x.Filename, pattern) || EF.Functions.Like(x.Filename, signaturePattern))
+            .ToList();
+
+
+        ViewBag.Images = photoimages ?? new List<PhotoImage>();
+
+        //ViewBag.images = new List<PhotoImage>();
+
         return View(spotcheck);
     }
 

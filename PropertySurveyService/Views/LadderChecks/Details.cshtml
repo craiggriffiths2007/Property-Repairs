@@ -49,6 +49,20 @@
             }
         }
     </div>
+
+<h4>Signatures</h4>
+<div class="container">
+    <div class="row">
+        <!-- Row 1 -->
+        <div class="col-6 p-3 border">@Html.DisplayFor(model => model.fitter_surveyor_name)<img src="data:image/png;base64,@ViewData["Sign1"]" class="img-fluid rounded" /></div>
+        <div class="col-6 p-3 border">@Html.DisplayFor(model => model.managers_name)<img src="data:image/png;base64,@ViewData["Sign2"]" class="img-fluid rounded" /></div>
+    </div>
+    @foreach (var image in ViewBag.Images)
+    {
+        <img src="data:image/png;base64,@image.Data" class="img-fluid rounded" />
+    }
+</div>
+
 <div>
     <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
     <a asp-action="Index">Back to List</a>

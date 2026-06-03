@@ -34,6 +34,20 @@ public class LadderChecksController : Controller
             return NotFound();
         }
 
+
+        ViewData["Sign1"] = _context.Images.Where(x => x.Filename == laddercheck.signature_filename).FirstOrDefault()?.Data;
+        ViewData["Sign2"] = _context.Images.Where(x => x.Filename == laddercheck.signature_filename_2).FirstOrDefault()?.Data;
+
+
+        string pattern = $"{laddercheck.CheckID}_LadPi___.jpg"; // using _ as a wildcard ( would have been cAZ and dAZ )
+
+        var photoimages = _context.Images
+            .Where(x => EF.Functions.Like(x.Filename, pattern))
+            .ToList();
+
+        ViewBag.Images = photoimages ?? new List<PhotoImage>();
+
+
         return View(laddercheck);
     }
 

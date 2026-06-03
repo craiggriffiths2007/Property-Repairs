@@ -192,9 +192,9 @@ namespace PropertySurveyService.Data
 
             var jobs = new Job[]
             {
-                new Job{ContractId=13,ContractCode="00001789",JobType=enum_job_type.Survey,DiaryDate=DateTime.Today,Time=DateTime.Now,IncidentDate=DateTime.Today,CauseOfDamage="Wear + Tear",DamageDesc="Burst water pipe", Instructions="Check for damage",CustomerId=3,AgentId=1},
-                new Job{ContractId=8,ContractCode="00001234",JobType=enum_job_type.Fitting,DiaryDate=DateTime.Today,Time=DateTime.Now,IncidentDate=DateTime.Today,CauseOfDamage="Impact",DamageDesc="Subsidence in living room",Instructions="Check window frame",CustomerId=8,AgentId=1},
-                new Job{ContractId=5,ContractCode="00000987",JobType=enum_job_type.Remedial,DiaryDate=DateTime.Today,Time=DateTime.Now,IncidentDate=DateTime.Today,CauseOfDamage="Loss of keys",DamageDesc="Door smashed in",Instructions="Check type of door",CustomerId=4,AgentId=1},
+                new Job{ContractId=13,ContractCode="00001012",JobType=enum_job_type.Survey,DiaryDate=DateTime.Today,Time=DateTime.Now,IncidentDate=DateTime.Today,CauseOfDamage="Wear + Tear",DamageDesc="Burst water pipe", Instructions="Check for damage",CustomerId=3,AgentId=1},
+                new Job{ContractId=8,ContractCode="00000505",JobType=enum_job_type.Fitting,DiaryDate=DateTime.Today,Time=DateTime.Now,IncidentDate=DateTime.Today,CauseOfDamage="Impact",DamageDesc="Subsidence in living room",Instructions="Check window frame",CustomerId=8,AgentId=1},
+                new Job{ContractId=5,ContractCode="00001345",JobType=enum_job_type.Remedial,DiaryDate=DateTime.Today,Time=DateTime.Now,IncidentDate=DateTime.Today,CauseOfDamage="Loss of keys",DamageDesc="Door smashed in",Instructions="Check type of door",CustomerId=4,AgentId=1},
             };
             foreach (Job j in jobs)
             {

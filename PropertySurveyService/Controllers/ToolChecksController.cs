@@ -36,7 +36,14 @@ public class ToolChecksController : Controller
 
         ViewData["AuditSign"] = _context.Images.Where(x => x.Filename == toolcheck.signature_filename).FirstOrDefault()?.Data;
         ViewData["FitSign"] = _context.Images.Where(x => x.Filename == toolcheck.signature_filename2).FirstOrDefault()?.Data;
-        ViewData["Photo"] = _context.Images.Where(x => x.Filename == toolcheck.photo_filename).FirstOrDefault()?.Data;
+
+        string pattern = $"{toolcheck.CheckID}_Tools___.jpg"; // using _ as a wildcard ( would have been cAZ and dAZ )
+
+        var photoimages = _context.Images
+            .Where(x => EF.Functions.Like(x.Filename, pattern))
+            .ToList();
+
+        ViewBag.Images = photoimages ?? new List<PhotoImage>();
 
         return View(toolcheck);
     }

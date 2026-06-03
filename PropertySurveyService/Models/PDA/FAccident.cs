@@ -11,7 +11,7 @@ namespace PropertySurveyService.Models
         [DisplayName("Unique Record ID (GUID)")]
         public Guid Guid { get; set; } = Guid.NewGuid();
 
-
+        public string CheckID { get; set; } = ""; // consists of date, pda code, and unique Van Check ID number. Kind of a guid for the van check
         // --- Injured Person Details ---
 
         [DisplayName("Injured Person: Full Name")]

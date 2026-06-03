@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace PropertySurveyService.Migrations
 {
     /// <inheritdoc />
-    public partial class initialcreate : Migration
+    public partial class initialcrate : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -751,6 +751,7 @@ namespace PropertySurveyService.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Guid = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    CheckID = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     full_name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     add1 = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     add2 = table.Column<string>(type: "nvarchar(max)", nullable: false),
@@ -1558,7 +1559,6 @@ namespace PropertySurveyService.Migrations
                     ss_time_required = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     ss_no_of_photos = table.Column<int>(type: "int", nullable: false),
                     no_of_photos = table.Column<int>(type: "int", nullable: false),
-                    photo_front_of_house = table.Column<bool>(type: "bit", nullable: false),
                     front_house_photos = table.Column<int>(type: "int", nullable: false),
                     faddimage = table.Column<bool>(type: "bit", nullable: false),
                     bad_image_complete = table.Column<bool>(type: "bit", nullable: false),
@@ -2433,6 +2433,7 @@ namespace PropertySurveyService.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Guid = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    CheckID = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     date_time = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     bSent = table.Column<bool>(type: "bit", nullable: false),
                     bComplete = table.Column<bool>(type: "bit", nullable: false),
@@ -2710,7 +2711,7 @@ namespace PropertySurveyService.Migrations
                     ContractId = table.Column<int>(type: "int", nullable: false),
                     ContractCode = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     JobType = table.Column<int>(type: "int", nullable: false),
-                    Date = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    DiaryDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     Time = table.Column<DateTime>(type: "datetime2", nullable: false),
                     IncidentDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     CauseOfDamage = table.Column<string>(type: "nvarchar(max)", nullable: true),
