@@ -538,13 +538,10 @@ namespace PropertySurveyService.Models
 
         #region Photos, Videos & Digital Media
 
-        [DisplayName("Number of Photos")]
+        [DisplayName("Fitting Job Photos")]
         public int no_of_photos { get; set; }
 
-        [DisplayName("Photo Front of House")]
-        public bool photo_front_of_house { get; set; }
-
-        [DisplayName("Front House Photos")]
+        [DisplayName("Front of House Photos")]
         public int front_house_photos { get; set; }
 
         [DisplayName("Additional Image")]

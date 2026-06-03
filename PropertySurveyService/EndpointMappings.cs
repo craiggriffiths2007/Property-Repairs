@@ -581,7 +581,7 @@ namespace PropertySurveyService
                 // Save to file system (will overwrite existing file with same name)
                 try
                 {
-                    string directoryPath = @"c:\PropertyImages";
+                    string directoryPath = @"D:\PropertySurveyImages";
                     if (!Directory.Exists(directoryPath))
                     {
                         Directory.CreateDirectory(directoryPath);
