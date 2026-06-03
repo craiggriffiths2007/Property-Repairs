@@ -49,6 +49,19 @@
         }
     </div>
 
+    <h4>Signature</h4>
+    <div class="container">
+        <div class="row">
+            <!-- Row 1 -->
+            <div class="col-6 p-3 border"><img src="data:image/png;base64,@ViewData["Sign"]" class="img-fluid rounded" /></div>
+
+        </div>
+        @foreach (var image in ViewBag.Images)
+        {
+            <img src="data:image/png;base64,@image.Data" class="img-fluid rounded" />
+        }
+    </div>
+
 </div>
 <div>
     <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
