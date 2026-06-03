@@ -13,5 +13,17 @@ namespace PropertySurveyService.ViewModels
 
         public IEnumerable<PhotoImage>? Images { get; set; }
 
+        public PhotoImage cleft { get; set; }
+        public PhotoImage cright { get; set; }
+        public PhotoImage cfront { get; set; }
+        public PhotoImage cback { get; set; }
+
+        public PhotoImage dleft { get; set; }
+        public PhotoImage dright { get; set; }
+        public PhotoImage dfront { get; set; }
+        public PhotoImage dback { get; set; }
+        public PhotoImage drv_signature { get; set; }
+        public PhotoImage chk_signature { get; set; }
+
     }
 }

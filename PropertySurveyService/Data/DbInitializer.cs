@@ -158,10 +158,7 @@ namespace PropertySurveyService.Data
                 new Contract{ ContractCode="00000987" , CustomerId= customers[4].Id, DamageDescription ="Storm damage to roof", IncidentDate = DateTime.Now.AddMonths(-4), CauseOfDamage = cod_list[4] },
                 new Contract{ ContractCode="00001012" , CustomerId= customers[5].Id, DamageDescription ="Flooded basement", IncidentDate = DateTime.Now.AddMonths(-5), CauseOfDamage = cod_list[5] },
                 new Contract{ ContractCode="00001123" , CustomerId= customers[6].Id, DamageDescription ="Broken front door", IncidentDate = DateTime.Now.AddMonths(-6), CauseOfDamage = cod_list[6] },
-                new Contract{ ContractCode="00001234" , CustomerId= customers[7].Id, DamageDescription ="Subsidence in living room", IncidentDate = DateTime.Now.AddMonths(-7), CauseOfDamage = cod_list[7] },
-                new Contract{ ContractCode="00001345" , CustomerId= customers[8].Id, DamageDescription ="Vandalism to garden fence", IncidentDate = DateTime.Now.AddMonths(-8), CauseOfDamage = cod_list[8] },
-                new Contract{ ContractCode="00001456" , CustomerId= customers[9].Id, DamageDescription ="Electrical fire in attic", IncidentDate = DateTime.Now.AddMonths(-9), CauseOfDamage = cod_list[9] },
-            };
+              };
             foreach (Contract c in contracts)
             {
                 context.Add(c);
@@ -169,16 +166,12 @@ namespace PropertySurveyService.Data
 
             var agents = new Agent[]
             {
-                new Agent{Name="James Dean", Code="H1",Type=agent_type.Surveyor },
-                new Agent{Name="Steven Smith", Code="H2",Type=agent_type.Surveyor },
-                new Agent{Name="Paul Moore", Code="H01",Type=agent_type.Fitter },
-                new Agent{Name="Andy Mason", Code="H02",Type=agent_type.Fitter },
-                new Agent{Name="Alex Polowski", Code="HH08",Type=agent_type.Satellite },
-                new Agent{Name="Samantha Carter", Code="H03",Type=agent_type.Surveyor },
-                new Agent{Name="Rachel Green", Code="H04",Type=agent_type.Surveyor },
+                new Agent{Name="Alex Polowski", Code="H1",Type=agent_type.Surveyor },
+                new Agent{Name="Samantha Carter", Code="H2",Type=agent_type.Surveyor },
+                new Agent{Name="Rachel Green", Code="H3",Type=agent_type.Surveyor },
                 new Agent{Name="Tommy Lee", Code="H05",Type=agent_type.Fitter },
                 new Agent{Name="Linda Evans", Code="H06",Type=agent_type.Fitter },
-                new Agent{Name="Chris Johnson", Code="HH09",Type=agent_type.Satellite },
+                new Agent{Name="Chris Johnson", Code="HH09",Type=agent_type.Fitter },
                 new Agent{Name="Patricia Brown", Code="HH10",Type=agent_type.Satellite },
                 new Agent{Name="Michael Scott", Code="H07",Type=agent_type.Surveyor },
                 new Agent{Name="Angela Martin", Code="H08",Type=agent_type.Fitter },
@@ -192,9 +185,9 @@ namespace PropertySurveyService.Data
 
             var jobs = new Job[]
             {
-                new Job{ContractId=13,ContractCode="00001012",JobType=enum_job_type.Survey,DiaryDate=DateTime.Today,Time=DateTime.Now,IncidentDate=DateTime.Today,CauseOfDamage="Wear + Tear",DamageDesc="Burst water pipe", Instructions="Check for damage",CustomerId=3,AgentId=1},
-                new Job{ContractId=8,ContractCode="00000505",JobType=enum_job_type.Fitting,DiaryDate=DateTime.Today,Time=DateTime.Now,IncidentDate=DateTime.Today,CauseOfDamage="Impact",DamageDesc="Subsidence in living room",Instructions="Check window frame",CustomerId=8,AgentId=1},
-                new Job{ContractId=5,ContractCode="00001345",JobType=enum_job_type.Remedial,DiaryDate=DateTime.Today,Time=DateTime.Now,IncidentDate=DateTime.Today,CauseOfDamage="Loss of keys",DamageDesc="Door smashed in",Instructions="Check type of door",CustomerId=4,AgentId=1},
+                new Job{ContractId=1,ContractCode="00000321",JobType=enum_job_type.Survey,DiaryDate=DateTime.Today,Time=DateTime.Now,IncidentDate=DateTime.Today,CauseOfDamage="Wear + Tear",DamageDesc="Burst water pipe", Instructions="Check for damage",CustomerId=3,AgentId=1},
+                new Job{ContractId=4,ContractCode="00000505",JobType=enum_job_type.Fitting,DiaryDate=DateTime.Today,Time=DateTime.Now,IncidentDate=DateTime.Today,CauseOfDamage="Impact",DamageDesc="Subsidence in living room",Instructions="Check window frame",CustomerId=8,AgentId=1},
+                new Job{ContractId=6,ContractCode="00000678",JobType=enum_job_type.Remedial,DiaryDate=DateTime.Today,Time=DateTime.Now,IncidentDate=DateTime.Today,CauseOfDamage="Loss of keys",DamageDesc="Door smashed in",Instructions="Check type of door",CustomerId=4,AgentId=1},
             };
             foreach (Job j in jobs)
             {

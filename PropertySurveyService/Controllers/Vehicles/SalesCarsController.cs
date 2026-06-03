@@ -42,10 +42,29 @@ namespace PropertySurveyService.Controllers
                 return NotFound();
             }
 
-            List<PhotoImage> photoimages = _context.Images.Where(x => x.Filename.StartsWith(viewModel.SalesCar.CheckID))
-            .Where(x => Convert.ToInt32(x.Filename.Substring(26, 8)) == viewModel.SalesCar.item_number).ToList();
+            var paddedItemNumber = viewModel.SalesCar.item_number.ToString("D8");
+            string pattern = $"{viewModel.SalesCar.CheckID}_{paddedItemNumber}_scar%";
 
-            viewModel.Images = photoimages ?? new List<PhotoImage>();
+            var photoimages = _context.Images
+                .Where(x => EF.Functions.Like(x.Filename, pattern))
+                .ToList();
+
+
+            viewModel.cleft = photoimages.Where(i => i.Filename.Substring(43, 3) == "pas").FirstOrDefault() ?? new PhotoImage();
+            viewModel.cright = photoimages.Where(i => i.Filename.Substring(43, 3) == "drv").FirstOrDefault() ?? new PhotoImage();
+            viewModel.cfront = photoimages.Where(i => i.Filename.Substring(43, 3) == "fro").FirstOrDefault() ?? new PhotoImage();
+            viewModel.cback = photoimages.Where(i => i.Filename.Substring(43, 3) == "rea").FirstOrDefault() ?? new PhotoImage();
+
+            viewModel.dleft = photoimages.Where(i => i.Filename.Substring(43, 3) == "pad").FirstOrDefault() ?? new PhotoImage();
+            viewModel.dright = photoimages.Where(i => i.Filename.Substring(43, 3) == "drd").FirstOrDefault() ?? new PhotoImage();
+            viewModel.dfront = photoimages.Where(i => i.Filename.Substring(43, 3) == "frd").FirstOrDefault() ?? new PhotoImage();
+            viewModel.dback = photoimages.Where(i => i.Filename.Substring(43, 3) == "red").FirstOrDefault() ?? new PhotoImage();
+
+
+            viewModel.drv_signature = photoimages.Where(i => i.Filename.Substring(43, 3) == "dsi").FirstOrDefault() ?? new PhotoImage();
+            viewModel.chk_signature = photoimages.Where(i => i.Filename.Substring(43, 3) == "csi").FirstOrDefault() ?? new PhotoImage();
+
+            viewModel.Images = photoimages.Where(i => i.Filename.Substring(43, 1) == "i").ToList() ?? new List<PhotoImage>();
 
             return View(viewModel);
         }

@@ -9,9 +9,9 @@ namespace PropertySurveyService.Models
     {
         [Key]
         public int Id { get; set; }
-        public string? Filename { get; set; }
+        public string Filename { get; set; } = "";
 
-        public string? Data { get; set; }
+        public string Data { get; set; } = "";
         public DateTime DateTime { get; set; }
         public string? ContractCode { get; set; }
         public int HeaderId { get; set; }

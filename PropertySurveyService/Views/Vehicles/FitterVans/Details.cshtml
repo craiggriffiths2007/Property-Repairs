@@ -21,33 +21,36 @@ else
     <div class="container">
         <div class="row">
             <!-- Row 1 -->
-            <div class="col-6 p-3 border">Passenger<img src="data:image/png;base64,@Model.Images.Where(i => i.Filename.Substring(40, 3) == "pas").FirstOrDefault().Data" class="img-fluid rounded" /></div>
-            <div class="col-6 p-3 border">Driver<img src="data:image/png;base64,@Model.Images.Where(i => i.Filename.Substring(40, 3) == "drv").FirstOrDefault().Data" class="img-fluid rounded" /></div>
+            <div class="col-6 p-3 border">Passenger<img src="data:image/png;base64,@Model.cleft.Data" class="img-fluid rounded" /></div>
+            <div class="col-6 p-3 border">Driver<img src="data:image/png;base64,@Model.cright.Data" class="img-fluid rounded" /></div>
         </div>
         <div class="row">
             <!-- Row 2 -->
-            <div class="col-6 p-3 border">Front<img src="data:image/png;base64,@Model.Images.Where(i => i.Filename.Substring(40, 3) == "fro").FirstOrDefault().Data" class="img-fluid rounded" /></div>
-            <div class="col-6 p-3 border">Rear<img src="data:image/png;base64,@Model.Images.Where(i => i.Filename.Substring(40, 3) == "rea").FirstOrDefault().Data" class="img-fluid rounded" /></div>
+            <div class="col-6 p-3 border">Front<img src="data:image/png;base64,@Model.cfront.Data" class="img-fluid rounded" /></div>
+            <div class="col-6 p-3 border">Rear<img src="data:image/png;base64,@Model.cback.Data" class="img-fluid rounded" /></div>
         </div>
     </div>
     <h4>Damage</h4>
     <div class="container">
         <div class="row">
             <!-- Row 1 -->
-            <div class="col-6 p-3 border">Passenger<img src="data:image/png;base64,@Model.Images.Where(i => i.Filename.Substring(40, 3) == "pad").FirstOrDefault().Data" class="img-fluid rounded" /></div>
-            <div class="col-6 p-3 border">Driver<img src="data:image/png;base64,@Model.Images.Where(i => i.Filename.Substring(40, 3) == "drd").FirstOrDefault().Data" class="img-fluid rounded" /></div>
+            <div class="col-6 p-3 border">Passenger<img src="data:image/png;base64,@Model.dleft.Data" class="img-fluid rounded" /></div>
+            <div class="col-6 p-3 border">Driver<img src="data:image/png;base64,@Model.dright.Data" class="img-fluid rounded" /></div>
         </div>
         <div class="row">
             <!-- Row 2 -->
-            <div class="col-6 p-3 border">Front<img src="data:image/png;base64,@Model.Images.Where(i => i.Filename.Substring(40, 3) == "frd").FirstOrDefault().Data" class="img-fluid rounded" /></div>
-            <div class="col-6 p-3 border">Rear<img src="data:image/png;base64,@Model.Images.Where(i => i.Filename.Substring(40, 3) == "red").FirstOrDefault().Data" class="img-fluid rounded" /></div>
+            <div class="col-6 p-3 border">Front<img src="data:image/png;base64,@Model.dfront.Data" class="img-fluid rounded" /></div>
+            <div class="col-6 p-3 border">Rear<img src="data:image/png;base64,@Model.dback.Data" class="img-fluid rounded" /></div>
         </div>
     </div>
-    <h4>inside Photo</h4>
+    <h4>Inside Photos</h4>
     <div class="container">
         <div class="row">
-            <!-- Row 1 -->
-            <div class="col-6 p-3 border"><img src="data:image/png;base64,@Model.Images.Where(i => i.Filename.Substring(40, 3) == "i01").FirstOrDefault().Data" class="img-fluid rounded" /></div>
+            @foreach (var image_data in @Model.Images)
+            {
+                <div class="col-6 p-3 border"><img src="data:image/png;base64,image_data.Data" class="img-fluid rounded" /></div>
+            }
+
         </div>
     </div>
     <h4>Signatures</h4>
@@ -55,8 +58,8 @@ else
         <div class="row">
             <!-- Row 1 -->
 
-            <div class="col-6 p-3 border">Driver Signature<img src="data:image/png;base64,@Model.Images.Where(i => i.Filename.Substring(40, 3) == "dsi").FirstOrDefault().Data" class="img-fluid rounded" /></div>
-            <div class="col-6 p-3 border">Checker/Auditor Signature<img src="data:image/png;base64,@Model.Images.Where(i => i.Filename.Substring(40, 3) == "csi").FirstOrDefault().Data" class="img-fluid rounded" /></div>
+            <div class="col-6 p-3 border">Driver Signature<img src="data:image/png;base64,@Model.drv_signature.Data" class="img-fluid rounded" /></div>
+            <div class="col-6 p-3 border">Checker/Auditor Signature<img src="data:image/png;base64,@Model.chk_signature.Data" class="img-fluid rounded" /></div>
         </div>
     </div>
 }
