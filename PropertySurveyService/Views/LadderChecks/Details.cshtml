@@ -1,15 +1,13 @@
 @model PropertySurveyService.Models.LadderCheck
 @using System.ComponentModel
+@using System.ComponentModel.DataAnnotations
 @using System.Reflection
 
 @{
     ViewData["Title"] = "Details";
 }
 
-<h1>Details</h1>
-
-
-    <h4>LadderCheck</h4>
+    <h4>Ladder Check</h4>
     <hr />
     <div class="grid-container-vertical">
         @if (Model == null)
@@ -18,15 +16,24 @@
         }
         else
         {
-            var properties = Model.GetType()
-                .GetProperties()
-                .Where(p => p.GetCustomAttribute<BrowsableAttribute>()?.Browsable != false)
-                .Select(p => new
+        var properties = Model.GetType()
+            .GetProperties()
+            .Where(p => p.GetCustomAttribute<BrowsableAttribute>()?.Browsable != false)
+            .Select(p =>
+            {
+                var display = p.GetCustomAttribute<DisplayAttribute>();
+                var label = display?.GetName() ?? p.GetCustomAttribute<DisplayNameAttribute>()?.DisplayName ?? p.Name;
+                // DisplayAttribute exposes GetOrder(); if not set we treat it as max so those appear after ordered ones
+                var order = display?.GetOrder() ?? int.MaxValue;
+                return new
                 {
                     Property = p,
-                    Label = p.GetCustomAttribute<DisplayNameAttribute>()?.DisplayName ?? p.Name
-                })
-                .OrderBy(x => x.Label);
+                    Label = label,
+                    Order = order
+                };
+            })
+            .OrderBy(x => x.Order)
+            .ThenBy(x => x.Label);
 
             foreach (var item in properties)
             {

@@ -4,7 +4,7 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Tool Checks</h1>
+<h4>Tool Checks</h4>
 
 
 <table class="table">
@@ -37,7 +37,6 @@
                     @Html.DisplayFor(model => item.branch)
                 </td>
                 <td>
-                    <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
                     <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
                 </td>
             </tr>

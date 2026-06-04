@@ -1,39 +1,40 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System.ComponentModel;
-
+using System.ComponentModel.DataAnnotations;
 namespace PropertySurveyService.Models
 {
     public class LadderCheck
     {
+        [Browsable(false)]
         public int Id { get; set; }
-
+        [Browsable(false)]
         [DisplayName("Unique Record ID (GUID)")]
         public Guid Guid { get; set; } = Guid.NewGuid();
 
 
         // --- Metadata & Inspection Details ---
-
+        [Display(Order = 0)]
         [DisplayName("Date Completed")]
         public string date_done { get; set; } = "";
-
+        [Display(Order = 1)]
         [DisplayName("Branch")]
         public string branch { get; set; } = "";
 
-        [DisplayName("Ladder Number / Asset ID")]
+        [DisplayName("Ladder Number")]
         public string ladder_number { get; set; } = "";
 
         [DisplayName("Ladder Type")]
         public string ladder_type { get; set; } = "";
-
+        [Display(Order = 2)]
         [DisplayName("Vehicle Registration")]
         public string registration { get; set; } = "";
-
+        [Browsable(false)]
         [DisplayName("Fitter / Surveyor Name")]
         public string fitter_surveyor_name { get; set; } = "";
-
+        [Browsable(false)]
         [DisplayName("Manager's Name")]
         public string managers_name { get; set; } = "";
-
+        [Browsable(false)]
         [DisplayName("Check ID")]
         public string CheckID { get; set; } = "";
 
@@ -81,28 +82,28 @@ namespace PropertySurveyService.Models
 
         [DisplayName("Inspector Comments")]
         public string comments { get; set; } = "";
-
+        [Browsable(false)]
         [DisplayName("Total Photos Taken")]
         public int no_of_photos { get; set; }
-
+        [Browsable(false)]
         [DisplayName("Sent to Server")]
         public bool bSent { get; set; }
-
+        [Browsable(false)]
         [DisplayName("Is Completed")]
         public bool bComplete { get; set; }
 
 
         // --- Signatures ---
-
+        [Browsable(false)]
         [DisplayName("Inspector Signed")]
         public bool bSigned { get; set; }
-
+        [Browsable(false)]
         [DisplayName("Manager Signed")]
         public bool bSigned2 { get; set; }
-
+        [Browsable(false)]
         [DisplayName("Inspector Signature Filename")]
         public string signature_filename { get; set; } = "";
-
+        [Browsable(false)]
         [DisplayName("Manager Signature Filename")]
         public string signature_filename_2 { get; set; } = "";
     }

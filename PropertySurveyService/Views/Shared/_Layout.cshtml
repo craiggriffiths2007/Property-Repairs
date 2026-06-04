@@ -35,11 +35,19 @@
                     <a class="text-white" href="javascript:void(0)">Branch ▼</a>
                     <div class="dropdown">
                         <a asp-controller="Branches" asp-action="Index">Branches</a>
-                        <a asp-controller="Vehicles" asp-action="Index">Vehicles</a>
-                        <a asp-controller="VehicleChecks" asp-action="Index">Vehicle Checks</a>
                         <a asp-controller="ToolChecks" asp-action="Index">Tool Checks</a>
                         <a asp-controller="LadderChecks" asp-action="Index">Ladder Checks</a>
                         <a asp-controller="SpotChecks" asp-action="Index">Spot Checks</a>
+                        <a asp-controller="FAccidents" asp-action="Index">Work Accidents</a>
+                    </div>
+                </div>
+
+                <div class="nav-item">
+                    <a class="text-white" href="javascript:void(0)">Vehicle ▼</a>
+                    <div class="dropdown">
+                        <a asp-controller="Vehicles" asp-action="Index">Vehicles</a>
+                        <a asp-controller="VehicleChecks" asp-action="Index">Vehicle Checks</a>
+                        <a asp-controller="VAccidents" asp-action="Index">Vehicle Accidents</a>
                     </div>
                 </div>
 
@@ -48,8 +56,8 @@
                     <div class="dropdown">
                         <a asp-controller="Agents" asp-action="Index">Agents</a>
                         <a asp-controller="MileageSheets" asp-action="Index">Mileage</a>
-                        <a asp-controller="FAccidents" asp-action="Index">Work Accidents</a>
-                        <a asp-controller="VAccidents" asp-action="Index">Vehicle Accidents</a>
+                        
+
                     </div>
                 </div>
             }
