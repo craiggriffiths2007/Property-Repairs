@@ -32,7 +32,7 @@ namespace PropertySurveyService.Models
         public int Id { get; set; }
         public enum_vehicle_type VehicleType { get; set; }
         public string? VehicleName { get; set; }
-
+        public string Registration { get; set; } = "";
         public string? ControllerName { get; set; }
         public string NameFromEnumType()
         {
@@ -61,12 +61,13 @@ namespace PropertySurveyService.Models
             return "";
         }
 
-        public VehicleCheckVehicle(int id, enum_vehicle_type type)
+        public VehicleCheckVehicle(int id, enum_vehicle_type type, string reg)
         {
             Id = id;
             VehicleType = type;
             VehicleName = NameFromEnumType(type);
             ControllerName = ControllerNameFromEnumType(type);
+            Registration = reg;
         }
     }
 

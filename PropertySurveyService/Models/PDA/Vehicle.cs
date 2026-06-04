@@ -59,7 +59,9 @@ namespace PropertySurveyService.Models
         public int Id { get; set; }
         public Guid Guid { get; set; } = new Guid();
 
+        [DisplayName("Check Week")]
         public string CheckWeekDate { get; set; } = "";
+        [DisplayName("Branch Code")]
         public string BranchCode { get; set; } = "";  // branch code
         public string CheckID { get; set; } = ""; // consists of date, pda code, and unique Van Check ID number. Kind of a guid for the van check
         public bool bComplete { get; set; }
@@ -94,7 +96,7 @@ namespace PropertySurveyService.Models
         [DisplayName("Destination")]
         public string Destination { get; set; } = "";
 
-        [DisplayName("Check Completed Date/Time")]
+        [DisplayName("Check Completed Date")]
         public string CheckDoneDate { get; set; } = "";
 
         [DisplayName("Vehicle Registration")]
@@ -388,7 +390,7 @@ namespace PropertySurveyService.Models
         [DisplayName("Shell Fuel Card")]
         public bool shell_fuel_card { get; set; }
 
-        public VehicleCheckVehicle AsVehicleCheckVehicle() { return new VehicleCheckVehicle(Id, enum_vehicle_type.delivery_hgv); }
+        public VehicleCheckVehicle AsVehicleCheckVehicle() { return new VehicleCheckVehicle(Id, enum_vehicle_type.delivery_hgv,Registration); }
     }
     public class DeliveryVan : VehicleCheck
     {
@@ -535,7 +537,7 @@ namespace PropertySurveyService.Models
         [DisplayName("Shell Fuel Card (string)")]
         public string shell_fuel_card_s { get; set; } = ""; // Shell Fuel Card
 
-        public VehicleCheckVehicle AsVehicleCheckVehicle() { return new VehicleCheckVehicle(Id, enum_vehicle_type.delivery_van); }
+        public VehicleCheckVehicle AsVehicleCheckVehicle() { return new VehicleCheckVehicle(Id, enum_vehicle_type.delivery_van, Registration); }
     }
     public class FitterVan : VehicleCheck
     {
@@ -1107,7 +1109,7 @@ namespace PropertySurveyService.Models
         [DisplayName("Letterbox Jig Checked (string)")]
         public string letterbox_jig_s { get; set; } = "";
 
-        public VehicleCheckVehicle AsVehicleCheckVehicle() { return new VehicleCheckVehicle(Id, enum_vehicle_type.fitter_van); }
+        public VehicleCheckVehicle AsVehicleCheckVehicle() { return new VehicleCheckVehicle(Id, enum_vehicle_type.fitter_van, Registration); }
     }
     public class SalesCar : VehicleCheck
     {
@@ -1192,6 +1194,6 @@ namespace PropertySurveyService.Models
         [DisplayName("Tyre Condition (Notes)")]
         public string tyre_condition_s { get; set; } = "";
 
-        public VehicleCheckVehicle AsVehicleCheckVehicle() { return new VehicleCheckVehicle(Id, enum_vehicle_type.sales_car); }
+        public VehicleCheckVehicle AsVehicleCheckVehicle() { return new VehicleCheckVehicle(Id, enum_vehicle_type.sales_car, Registration); }
     }
 }

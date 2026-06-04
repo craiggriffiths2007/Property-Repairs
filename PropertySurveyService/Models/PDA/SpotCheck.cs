@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Runtime.CompilerServices;
 
 namespace PropertySurveyService.Models
@@ -36,6 +37,8 @@ namespace PropertySurveyService.Models
         [DisplayName("Branch")]
         public string branch { get; set; } = string.Empty;
         [Display(Order = 0)]
+        [Column(TypeName = "date")]
+        [DataType(DataType.Date)]
         [DisplayName("Diary Date")]
         public DateTime DiaryDate { get; set; } = DateTime.Today;
         [Display(Order = 0)]

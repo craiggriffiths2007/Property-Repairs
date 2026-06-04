@@ -4,11 +4,8 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<h4>Vehicle Checks</h4>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
 <table class="table">
     <thead>
         <tr>
@@ -35,7 +32,7 @@
     </thead>
     <tbody>
 @foreach (var item in Model) {
-        <tr>
+            <tr class="clickable-row" data-href="@Url.Action("Details", new { id = item.Id })">
             <td>
                 @Html.DisplayFor(modelItem => item.CheckWeekDate)
             </td>
@@ -55,8 +52,7 @@
                 @Html.DisplayFor(modelItem => item.TotalSalesCars)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+
                 <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
             </td>
         </tr>
