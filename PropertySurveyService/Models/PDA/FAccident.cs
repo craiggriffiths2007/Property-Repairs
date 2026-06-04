@@ -6,11 +6,13 @@ namespace PropertySurveyService.Models
 
     public class FAccident
     {
+        [Browsable(false)]
         public int Id { get; set; }
 
         [DisplayName("Unique Record ID (GUID)")]
+        [Browsable(false)]
         public Guid Guid { get; set; } = Guid.NewGuid();
-
+        [Browsable(false)]
         public string CheckID { get; set; } = ""; // consists of date, pda code, and unique Van Check ID number. Kind of a guid for the van check
         // --- Injured Person Details ---
 
@@ -105,9 +107,11 @@ namespace PropertySurveyService.Models
         public string filer_sign_date { get; set; } = "";
 
         [DisplayName("Injured Person Signature Filename")]
+        [Browsable(false)]
         public string sig_fname1 { get; set; } = "";
 
         [DisplayName("Supervisor/Reporter Signature Filename")]
+        [Browsable(false)]
         public string sig_fname2 { get; set; } = "";
 
 

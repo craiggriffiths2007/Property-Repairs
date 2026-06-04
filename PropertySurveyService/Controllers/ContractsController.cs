@@ -29,7 +29,7 @@ public class ContractsController : Controller
             return NotFound();
         }
 
-        var contract = await _context.Contract
+        var contract = await _context.Contract.Include(c => c.Customer)
             .FirstOrDefaultAsync(m => m.Id == id);
         if (contract == null)
         {
@@ -42,6 +42,16 @@ public class ContractsController : Controller
     // GET: CONTRACTS/Create
     public IActionResult Create()
     {
+        // Populate customer dropdown for the Create view.
+        // The view is expected to use ViewData["CustomerId"] for the select list.
+        // Assumes _context and a Customers DbSet with Id and Name properties exist.
+        var customers = _context.Customer
+            .OrderBy(c => c.Name)
+            .Select(c => new { c.Id, c.Name })
+            .ToList();
+
+        ViewData["Customers"] = new SelectList(customers, "Id", "Name");
+
         return View();
     }
 

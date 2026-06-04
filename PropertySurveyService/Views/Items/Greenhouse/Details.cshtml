@@ -5,10 +5,11 @@
     ViewData["Title"] = "Details";
 }
 
-<h1>Greenhouse</h1>
-
+<h3>Greenhouse</h3>
+<hr />
 <partial name="_ItemDetailsPartial" model="Model.Greenhouse" />
 
+<hr />
 @foreach (var image in Model.Images)
 {
     <img src="data:image/png;base64,@image.Data" class="img-fluid rounded" />

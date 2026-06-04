@@ -7,7 +7,7 @@
 }
 
 <div>
-    <h4>Word Accident</h4>
+    <h4>Work Accident</h4>
     <hr />
 
 
@@ -22,6 +22,15 @@
             var properties = Model.GetType()
                 .GetProperties()
                 .Where(p => p.GetCustomAttribute<BrowsableAttribute>()?.Browsable != false)
+                .Where(p =>
+                {
+                    if (p.PropertyType == typeof(string))
+                    {
+                        var val = (string?)p.GetValue(Model);
+                        return !string.IsNullOrWhiteSpace(val);
+                    }
+                    return true;
+                })
                 .Select(p => new
                 {
                     Property = p,
@@ -50,9 +59,17 @@
             }
         }
     </div>
-
+    <hr/>
 </div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+<h4>Signatures</h4>
+<div class="container">
+    <div class="row">
+        <!-- Row 1 -->
+        <div class="col-6 p-3 border">@Html.DisplayFor(model => model.full_name)<img src="data:image/png;base64,@ViewData["sig_fname1"]" class="img-fluid rounded" /></div>
+        <div class="col-6 p-3 border">@Html.DisplayFor(model => model.filer_full_name)<img src="data:image/png;base64,@ViewData["sig_fname2"]" class="img-fluid rounded" /></div>
+    </div>
+    @foreach (var image in ViewBag.Images)
+    {
+        <img src="data:image/png;base64,@image.Data" class="img-fluid rounded" />
+    }
 </div>

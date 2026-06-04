@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using PropertySurveyService.Models;
 using PropertySurveyService.Data;
+using PropertySurveyService.ViewModels;
 
 public class GarageController : Controller
 {
@@ -22,6 +23,8 @@ public class GarageController : Controller
     // GET: GARAGES/Details/5
     public async Task<IActionResult> Details(int? id)
     {
+        ItemDetailsViewModel viewModel = new ItemDetailsViewModel();
+
         if (id == null)
         {
             return NotFound();
@@ -33,8 +36,17 @@ public class GarageController : Controller
         {
             return NotFound();
         }
+        viewModel.Garage = garage;
 
-        return View(garage);
+        string pattern = $"{garage.ContractCode:00000000}____{garage.item_number:000}%"; // using _ as a wildcard ( would have been cAZ and dAZ )
+
+        var photoimages = _context.Images
+            .Where(x => EF.Functions.Like(x.Filename, pattern))
+            .ToList();
+
+        viewModel.Images = photoimages ?? new List<PhotoImage>();
+
+        return View(viewModel);
     }
 
     // GET: GARAGES/Create

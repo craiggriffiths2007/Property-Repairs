@@ -42,6 +42,17 @@ namespace PropertySurveyService.Controllers
                 return NotFound();
             }
 
+            ViewData["sig_fname1"] = _context.Images.Where(x => x.Filename == fAccidents.sig_fname1).FirstOrDefault()?.Data;
+            ViewData["sig_fname2"] = _context.Images.Where(x => x.Filename == fAccidents.sig_fname2).FirstOrDefault()?.Data;
+
+            string pattern = $"{fAccidents.CheckID}_FAcci___.jpg"; 
+
+            var photoimages = _context.Images
+                .Where(x => EF.Functions.Like(x.Filename, pattern))
+                .ToList();
+
+            ViewBag.Images = photoimages ?? new List<PhotoImage>();
+
             return View(fAccidents);
         }
 
