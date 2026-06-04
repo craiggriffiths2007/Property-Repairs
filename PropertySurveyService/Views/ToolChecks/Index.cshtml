@@ -10,42 +10,38 @@
 <table class="table">
     <thead>
         <tr>
-
             <th>
                 @Html.DisplayNameFor(model => model.date_done)
             </th>
-
             <th>
                 @Html.DisplayNameFor(model => model.registration)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.branch)
             </th>
-
-            <th></th>
+            <th>Actions</th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
+        @foreach (var item in Model)
+        {
+            <tr class="clickable-row" data-href="@Url.Action("Details", new { id = item.Id })">
 
-            <td>
-                @Html.DisplayFor(model => item.date_done)
-            </td>
-
-            <td>
-                @Html.DisplayFor(model => item.registration)
-            </td>
-            <td>
-                @Html.DisplayFor(model => item.branch)
-            </td>
-
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
-}
+                <td>
+                    @Html.DisplayFor(model => item.date_done)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => item.registration)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => item.branch)
+                </td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>
+

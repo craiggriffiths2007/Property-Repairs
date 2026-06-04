@@ -7,10 +7,10 @@ namespace PropertySurveyService.Models
         [Key]
         public int Id { get; set; }
 
-        [Display(Name = "Fullname")]
+        [Display(Name = "Customer Name")]
         public string? Name { get; set; }
    
-        [Display(Name = "Address 1")]
+        [Display(Name = "Address")]
         public string? Add1 { get; set; }
         [Display(Name = "Address 2")]
         public string? Add2 { get; set; }

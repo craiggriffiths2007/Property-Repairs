@@ -1,12 +1,15 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 
 namespace PropertySurveyService.Models
 {
     public class ToolCheck
     {
+        [Browsable(false)]
         public int Id { get; set; }
 
+        [Browsable(false)]
         [DisplayName("Unique Record ID (GUID)")]
         public Guid Guid { get; set; } = Guid.NewGuid();
 
@@ -233,43 +236,44 @@ namespace PropertySurveyService.Models
         // ==========================================================
         // METADATA & WORKFLOW SIGN-OFF
         // ==========================================================
-
+        [Display(Order = -1)]
         [DisplayName("Date Completed")]
         public string date_done { get; set; } = "";
-
+        [Browsable(false)]
         [DisplayName("Is Completed")]
         public bool bComplete { get; set; }
-
+        [Browsable(false)]
         [DisplayName("Sent to Server")]
         public bool bSent { get; set; }
-
+        [Browsable(false)]
         [DisplayName("Fitter Signed")]
         public bool bSigned { get; set; }
-
+        [Browsable(false)]
         [DisplayName("Auditor Signed")]
         public bool bSigned2 { get; set; }
-
+        [Browsable(false)]
         [DisplayName("Fitter Signature Filename")]
         public string signature_filename { get; set; } = "";
-
+        [Browsable(false)]
         [DisplayName("Auditor Signature Filename")]
         public string signature_filename2 { get; set; } = "";
-
+        [Browsable(false)]
         [DisplayName("Fitter Printed Name")]
         public string signature_printed { get; set; } = "";
-
+        [Browsable(false)]
         [DisplayName("Auditor Printed Name")]
         public string signature_printed2 { get; set; } = "";
-
+        [Display(Order = 1)]
         [DisplayName("Vehicle Registration")]
         public string registration { get; set; } = "";
 
+        [Display(Order = 0)]
         [DisplayName("Branch")]
         public string branch { get; set; } = "";
-
+        [Browsable(false)]
         [DisplayName("Check ID")]
         public string CheckID { get; set; } = "";
-
+        [Browsable(false)]
         [DisplayName("Photo Filename")]
         public string photo_filename { get; set; } = "";
     }

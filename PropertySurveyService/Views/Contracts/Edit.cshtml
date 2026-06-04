@@ -4,9 +4,7 @@
     ViewData["Title"] = "Edit";
 }
 
-<h1>Edit</h1>
-
-<h4>Contract</h4>
+<h4>Edit Contract</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -20,7 +18,8 @@
             </div>
             <div class="form-group">
                 <label asp-for="CustomerId" class="control-label">Customer</label>
-                <select asp-for="CustomerId" asp-items="@((SelectList)ViewBag.Customers)" class="form-control">
+                @{ var customersSelect = ViewBag.Customers as SelectList ?? new SelectList(System.Linq.Enumerable.Empty<object>()); }
+                <select asp-for="CustomerId" asp-items="@(customersSelect)" class="form-control">
                     <option value="">-- Select Customer --</option>
                 </select>
                 <span asp-validation-for="CustomerId" class="text-danger"></span>
@@ -34,6 +33,11 @@
                 <label asp-for="DamageDescription" class="control-label"></label>
                 <input asp-for="DamageDescription" class="form-control" />
                 <span asp-validation-for="DamageDescription" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CauseOfDamage" class="control-label"></label>
+                <input asp-for="CauseOfDamage" class="form-control" />
+                <span asp-validation-for="CauseOfDamage" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />

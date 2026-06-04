@@ -21,7 +21,15 @@
             @if (User.IsInRole("User") || User.IsInRole("Manager") || User.IsInRole("Admin") || User.IsInRole("SuperAdmin"))
             {
                 <a class="nav-item" asp-controller="Jobs" asp-action="Index">Diary</a>
-                <a class="nav-item" asp-controller="Contracts" asp-action="Index">Contracts</a>
+
+                <div class="nav-item">
+                    <a class="text-white" href="javascript:void(0)">Contract ▼</a>
+                    <div class="dropdown">
+                        <a asp-controller="Contracts" asp-action="Index">Contracts</a>
+                        <a asp-controller="Customers" asp-action="Index">Customers</a>
+                       
+                    </div>
+                </div>
 
                 <div class="nav-item">
                     <a class="text-white" href="javascript:void(0)">Branch ▼</a>
@@ -36,9 +44,8 @@
                 </div>
 
                 <div class="nav-item">
-                    <a class="text-white" href="javascript:void(0)">People ▼</a>
+                    <a class="text-white" href="javascript:void(0)">Staff ▼</a>
                     <div class="dropdown">
-                        <a asp-controller="Customers" asp-action="Index">Customers</a>
                         <a asp-controller="Agents" asp-action="Index">Agents</a>
                         <a asp-controller="MileageSheets" asp-action="Index">Mileage</a>
                         <a asp-controller="FAccidents" asp-action="Index">Work Accidents</a>
@@ -73,5 +80,25 @@
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
+
+    <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        // Using a event delegation makes this incredibly efficient and 
+        // works even if tables are loaded dynamically via AJAX later.
+        document.body.addEventListener("click", function (e) {
+            // Find if the clicked element is inside a .clickable-row
+            const row = e.target.closest(".clickable-row");
+            
+            // If it's a clickable row, and they DIDN'T click a link or button inside it
+            if (row && e.target.tagName !== 'A' && e.target.tagName !== 'BUTTON') {
+                const url = row.getAttribute("data-href");
+                if (url) {
+                    window.location.href = url;
+                }
+            }
+        });
+    });
+</script>
+
 </body>
 </html>

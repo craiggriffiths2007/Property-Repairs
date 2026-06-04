@@ -263,3 +263,24 @@ body {
     /* CRITICAL: Prevents an item from splitting awkwardly across two columns */
     break-inside: avoid;
 }
+
+/* Makes the row look and behave like a link */
+.clickable-row {
+    cursor: pointer;
+    transition: background-color 0.15s ease-in-out;
+}
+
+/* 1. The slight grey hover effect (Your original code) */
+.clickable-row:hover {
+    background-color: rgba(0, 0, 1, 0.25); /* Slightly softer grey */
+}
+
+/* 2. The flash of highlight WHILE the user is actively clicking down */
+.clickable-row:active {
+    background-color: rgba(0, 0, 0, 0.1); /* A bit darker during the click */
+}
+
+/* 3. The persistent highlight AFTER it's clicked (Requires adding an 'active-row' class via JS) */
+.clickable-row.active-row {
+    background-color: rgba(0, 123, 255, 0.1); /* Soft Bootstrap blue highlight */
+}

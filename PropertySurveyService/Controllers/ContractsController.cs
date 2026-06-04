@@ -1,4 +1,3 @@
-
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -15,9 +14,11 @@ public class ContractsController : Controller
     }
 
     // GET: CONTRACTS
-    public async Task<IActionResult> Index()    
+    public async Task<IActionResult> Index()
     {
-        return View(await _context.Contract.ToListAsync());
+        return View(await _context.Contract
+            .Include(c => c.Customer)
+            .ToListAsync());
     }
 
     // GET: CONTRACTS/Details/5
@@ -49,7 +50,7 @@ public class ContractsController : Controller
     // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public async Task<IActionResult> Create([Bind("Id,ContractCode,CustomerId,Customer,IncidentAdded,DamageDescription,CauseOfDamage")] Contract contract)
+    public async Task<IActionResult> Create([Bind("Id,ContractCode,CustomerId,Customer,IncidentDate,DamageDescription,CauseOfDamage")] Contract contract)
     {
         if (ModelState.IsValid)
         {
@@ -73,7 +74,7 @@ public class ContractsController : Controller
         {
             return NotFound();
         }
-        //PopulateCustomersDropDownList(contract.CustomerId);
+        PopulateCustomersDropDownList(contract.CustomerId);
         return View(contract);
     }
 
@@ -82,7 +83,7 @@ public class ContractsController : Controller
     // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public async Task<IActionResult> Edit(int? id, [Bind("Id,ContractCode,CustomerId,Customer,IncidentAdded,DamageDescription,CauseOfDamage")] Contract contract)
+    public async Task<IActionResult> Edit(int? id, [Bind("Id,ContractCode,CustomerId,Customer,IncidentDate,DamageDescription,CauseOfDamage")] Contract contract)
     {
         if (id != contract.Id)
         {
@@ -109,7 +110,7 @@ public class ContractsController : Controller
             }
             return RedirectToAction(nameof(Index));
         }
-       // PopulateCustomersDropDownList(contract.CustomerId);
+        PopulateCustomersDropDownList(contract.CustomerId);
         return View(contract);
     }
 
@@ -154,6 +155,6 @@ public class ContractsController : Controller
     {
         var customers = _context.Customer.OrderBy(c => c.Name)
             .Select(c => new { c.Id, c.Name });
-        ViewBag.Customers = new SelectList(customers, "CustomerId", "Name", selectedCustomer);
+        ViewBag.Customers = new SelectList(customers, "Id", "Name", selectedCustomer);
     }
 }
