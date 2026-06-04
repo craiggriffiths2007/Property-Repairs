@@ -4,11 +4,8 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<h4>Vehicle Accidents</h4>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
 <table class="table">
     <thead>
         <tr>
@@ -19,17 +16,17 @@
                 @Html.DisplayNameFor(model => model.acc_time)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.v_reg)
+                @Html.DisplayNameFor(model => model.t_reg)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.v_model)
+                @Html.DisplayNameFor(model => model.t_model)
             </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
 @foreach (var item in Model) {
-        <tr>
+            <tr class="clickable-row" data-href="@Url.Action("Details", new { id = item.Id })">
             <td>
                 @Html.DisplayFor(model => item.acc_date)
             </td>
@@ -37,14 +34,12 @@
                 @Html.DisplayFor(model => item.acc_time)
             </td>
             <td>
-                @Html.DisplayFor(model => item.v_reg)
+                    @Html.DisplayFor(model => item.t_reg)
             </td>
             <td>
-                @Html.DisplayFor(model => item.v_model)
+                @Html.DisplayFor(model => item.t_model)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
                 <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
             </td>
         </tr>

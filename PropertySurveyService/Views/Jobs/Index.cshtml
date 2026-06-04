@@ -41,7 +41,7 @@
     }
 }
 
-<h1>Diary</h1>
+<h4>Diary</h4>
 
 <!-- View mode toggle -->
 <div class="btn-group mb-3" role="group">
@@ -258,34 +258,3 @@ else if (Model.ViewMode == "list")
     </table>
 }
 
-
-@if (Model.Headers != null)
-{
-    <h3>Surveys Completed</h3>
-
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Report</th>
-                <th></th>
-            </tr>
-        </thead>
-        <tbody>
-
-            @foreach (var item in Model.Headers)
-            {
-                <tr>
-                    <td>
-                        @item.AgentCode - @item.DiaryDate - @item.JobType
-                    </td>
-                    <td>
-                        <a asp-controller="Headers" asp-action="Details" asp-route-id="@item.Id">View</a>
-
-                    </td>
-                </tr>
-            }
-
-        </tbody>
-    </table>
-
-}

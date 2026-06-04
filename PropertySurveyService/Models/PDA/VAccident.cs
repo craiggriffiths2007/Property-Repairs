@@ -29,10 +29,10 @@ namespace PropertySurveyService.Models
     public class VAccident
     {
         public int Id { get; set; }
-
+        [Browsable(false)]
         [DisplayName("Unique Record ID (GUID)")]
         public Guid Guid { get; set; } = Guid.NewGuid();
-
+        [Browsable(false)]
         public string CheckID { get; set; } = ""; // consists of date, pda code, and unique Van Check ID number. Kind of a guid for the van check
         // ==========================================
         // Header & Metadata

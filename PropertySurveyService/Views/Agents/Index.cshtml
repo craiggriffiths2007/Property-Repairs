@@ -4,10 +4,10 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Agents</h1>
+<h4>Agents</h4>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create">Add Agent</a>
 </p>
 <table class="table">
     <thead>
@@ -26,7 +26,7 @@
     </thead>
     <tbody>
 @foreach (var item in Model) {
-        <tr>
+            <tr class="clickable-row" data-href="@Url.Action("Details", new { id = item.Id })">
             <td>
                 @Html.DisplayFor(modelItem => item.Code)
             </td>
@@ -37,8 +37,6 @@
                     @(((PropertySurveyService.Models.agent_type)item.Type).ToString())
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
                 <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
             </td>
         </tr>
