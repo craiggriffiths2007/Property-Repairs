@@ -1,5 +1,6 @@
 @model PropertySurveyService.Models.SpotCheck
 @using System.ComponentModel
+@using System.ComponentModel.DataAnnotations
 @using System.Reflection
 
 @{
@@ -22,12 +23,21 @@
             var properties = Model.GetType()
                 .GetProperties()
                 .Where(p => p.GetCustomAttribute<BrowsableAttribute>()?.Browsable != false)
-                .Select(p => new
+                .Select(p =>
                 {
-                    Property = p,
-                    Label = p.GetCustomAttribute<DisplayNameAttribute>()?.DisplayName ?? p.Name
+                    var display = p.GetCustomAttribute<DisplayAttribute>();
+                    var label = display?.GetName() ?? p.GetCustomAttribute<DisplayNameAttribute>()?.DisplayName ?? p.Name;
+                    // DisplayAttribute exposes GetOrder(); if not set we treat it as max so those appear after ordered ones
+                    var order = display?.GetOrder() ?? int.MaxValue;
+                    return new
+                    {
+                        Property = p,
+                        Label = label,
+                        Order = order
+                    };
                 })
-                .OrderBy(x => x.Label);
+                .OrderBy(x => x.Order)
+                .ThenBy(x => x.Label);
 
             foreach (var item in properties)
             {
