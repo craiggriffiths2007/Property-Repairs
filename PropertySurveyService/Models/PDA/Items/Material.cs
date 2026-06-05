@@ -11,20 +11,26 @@ namespace PropertySurveyService.Models
         // ===== Core / Shared =====
         [Key]
         [DisplayName("Record Id")]
+        [Browsable(false)]
         public int Id { get; set; }
 
         [DisplayName("Header Id")]
+        [Browsable(false)]
         public int HeaderId { get; set; }
 
+        [Browsable(false)]
         public Guid Guid { get; set; } = Guid.NewGuid();
 
         [DisplayName("Contract Number")]
+        [Browsable(false)]
         public string ContractCode { get; set; } = "";
 
         [DisplayName("Item Number")]
+        [Browsable(false)]
         public int item_number { get; set; }
 
         [DisplayName("Is Complete")]
+        [Browsable(false)]
         public bool bComplete { get; set; }
 
         [DisplayName("Repair Item")]
@@ -420,7 +426,6 @@ namespace PropertySurveyService.Models
         public string trickle_vents { get; set; } = "...";
 
         public string internal_lock { get; set; } = "...";
-
 
         public SurveyItem AsSurveyItem() { return new SurveyItem(Id, enum_item_type.lockin, item_number, ContractCode); }
 

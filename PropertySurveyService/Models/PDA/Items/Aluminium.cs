@@ -9,58 +9,64 @@ namespace PropertySurveyService.Models
     public class Aluminium
     {
         [Key]
+        [DisplayName("Record Id")]
+        [Browsable(false)]
         public int Id { get; set; }
+        [DisplayName("Header Id")]
+        [Browsable(false)]
         public int HeaderId { get; set; }
-
-        public Guid Guid { get; set; }
+        [Browsable(false)]
+        public Guid Guid { get; set; } = Guid.NewGuid();
         [DisplayName("Contract Number")]
-        public string? ContractCode { get; set; }                    // Key fieled contract number			CONTRACT NUMBER
+        [Browsable(false)]
+        public string ContractCode { get; set; } = "";
         [DisplayName("Item Number")]
+        [Browsable(false)]
         public int item_number { get; set; }
         [DisplayName("Repair Item")]
         public bool bRepair { get; set; }
         [DisplayName("Cosmetic Damage")]
-        public int cosmetic_damage { get; set; }                // Cosmetic damage	Yes/No/Not answered
+        public int cosmetic_damage { get; set; }
         [DisplayName("Additional Locks")]
-        public string? additional_locks { get; set; }            // multi choice + text entry
+        public string additional_locks { get; set; } = "";
         [DisplayName("Gaskets")]
-        public int gaskets { get; set; }                        // Multi choice spinner + text box
+        public int gaskets { get; set; }
         [DisplayName("Gaskets Text")]
-        public string? gaskets_text { get; set; }
+        public string gaskets_text { get; set; } = "";
         [DisplayName("Handles Required")]
         public int handles_req { get; set; }
         [DisplayName("Handles Text")]
-        public string? handles_text { get; set; }			    // Handles text
+        public string handles_text { get; set; } = "";
         [DisplayName("Replace Panel")]
         public int replace_panel { get; set; }
         [DisplayName("Replace Reason")]
-        public string? replace_reason { get; set; }
+        public string replace_reason { get; set; } = "";
         [DisplayName("Replace Explain")]
-        public string? replace_explain { get; set; }
+        public string replace_explain { get; set; } = "";
         [DisplayName("Type")]
-        public string? type { get; set; }
+        public string type { get; set; } = "";
         [DisplayName("Cause of Damage")]
-        public string? cause_of_damage { get; set; }
+        public string cause_of_damage { get; set; } = "";
         [DisplayName("Reason Damage Different")]
-        public string? cause_of_damage_reason_different { get; set; }
+        public string cause_of_damage_reason_different { get; set; } = "";
         [DisplayName("Section Type")]
         public int section_type { get; set; }
         [DisplayName("New Timber Sub Frame")]
         public int new_timber_sub_frame { get; set; }
         [DisplayName("Sub Frame Depth")]
-        public string? sub_frame_depth { get; set; }
+        public string sub_frame_depth { get; set; } = "";
         [DisplayName("Item Frame Width")]
-        public string? item_frame_width { get; set; }
+        public string item_frame_width { get; set; } = "";
         [DisplayName("Item Frame Height")]
-        public string? item_frame_height { get; set; }
+        public string item_frame_height { get; set; } = "";
         [DisplayName("Brick Width")]
-        public string? brick_width { get; set; }
+        public string brick_width { get; set; } = "";
         [DisplayName("Brick Height")]
-        public string? brick_height { get; set; }
+        public string brick_height { get; set; } = "";
         [DisplayName("Internal Width")]
-        public string? internal_width { get; set; }
+        public string internal_width { get; set; } = "";
         [DisplayName("Internal Height")]
-        public string? internal_height { get; set; }
+        public string internal_height { get; set; } = "";
         [DisplayName("Frame Type")]
         public int frame_type { get; set; }
         [DisplayName("Cill")]
@@ -70,74 +76,77 @@ namespace PropertySurveyService.Models
         [DisplayName("Night Vent")]
         public int night_vent { get; set; }
         [DisplayName("Midrail Type")]
-        public string? midrail_type { get; set; }
+        public string midrail_type { get; set; } = "";
         [DisplayName("Item Color")]
-        public string? item_color { get; set; }
+        public string item_color { get; set; } = "";
         [DisplayName("Locking Type")]
-        public string? locking_type { get; set; }
+        public string locking_type { get; set; } = "";
         [DisplayName("Letter Box")]
-        public string? letter_box { get; set; }
+        public string letter_box { get; set; } = "";
         [DisplayName("Letter Box Position")]
-        public string? letter_box_pos { get; set; }
+        public string letter_box_pos { get; set; } = "";
         [DisplayName("Pet Flap")]
-        public string? pet_flap { get; set; }
+        public string pet_flap { get; set; } = "";
         [DisplayName("Pet Type")]
-        public string? pet_type { get; set; }
+        public string pet_type { get; set; } = "";
         [DisplayName("Pet Magnetic")]
         public int pet_magnetic { get; set; }
         [DisplayName("Opens")]
         public int opens { get; set; }
         [DisplayName("Handle Color")]
-        public string? handle_color { get; set; }
+        public string handle_color { get; set; } = "";
         [DisplayName("Spacer Thickness")]
-        public string? spacer_thickness { get; set; }
+        public string spacer_thickness { get; set; } = "";
         [DisplayName("Spacer Color")]
-        public string? spacer_color { get; set; }
+        public string spacer_color { get; set; } = "";
         [DisplayName("Glass Type")]
-        public string? glass_type { get; set; }
+        public string glass_type { get; set; } = "";
         [DisplayName("Glass Pattern")]
-        public string? glass_pattern { get; set; }
+        public string glass_pattern { get; set; } = "";
         [DisplayName("Special Glass")]
-        public string? special_glass { get; set; }
+        public string special_glass { get; set; } = "";
         [DisplayName("Sub Frame Color")]
-        public string? sub_frame_color { get; set; }
+        public string sub_frame_color { get; set; } = "";
         [DisplayName("New Locking Mechanism")]
         public int bNewLockingMech { get; set; }			// 0-not selected 1-Yes 2-No
         [DisplayName("Lock Complete")]
         public int bLockComplete { get; set; }				// Is the locking mechanism complete ????????????
         [DisplayName("Handle Drawing Complete")]
+        [Browsable(false)]
         public bool bHandleDrawingComplete { get; set; }
         [DisplayName("Number of Pictures")]
         public int no_of_pics { get; set; }	// Number of pictures
         [DisplayName("Midrail Height")]
-        public string? midrail_height { get; set; }
+        public string midrail_height { get; set; } = "";
         [DisplayName("Number of Photos")]
         public int no_of_photos { get; set; }	                // Number of pictures
         [DisplayName("DOCL")]
-        public string? docl { get; set; }
+        public string docl { get; set; } = "";
         [DisplayName("Room Location")]
-        public string? room_location { get; set; }
+        public string room_location { get; set; } = "";
         [DisplayName("Number of Videos")]
         public int no_of_vids { get; set; }
         [DisplayName("LP Handles")]
         public int LPHandles { get; set; }
         [DisplayName("Threshold Type")]
-        public string? threshold_type { get; set; }
+        public string threshold_type { get; set; } = "";
         [DisplayName("Different From Original")]
         public bool bDifferentFromOriginal { get; set; }
         [DisplayName("Change Item To")]
-        public string? ChangeItemTo { get; set; }
+        public string ChangeItemTo { get; set; } = "";
         [DisplayName("Print Name")]
-        public string? print_name { get; set; }
+        public string print_name { get; set; } = "";
         [DisplayName("Fencer")]
         public bool bFencer { get; set; }
         [DisplayName("Fencer Rating")]
-        public string? FecerRating { get; set; }
+        public string FecerRating { get; set; } = "";
         [DisplayName("Long Comments")]
-        public string? long_comments { get; set; }
+        public string long_comments { get; set; } = "";
         [DisplayName("Door Complete")]
+        [Browsable(false)]
         public bool bDoorComplete { get; set; }
         [DisplayName("Window Complete")]
+        [Browsable(false)]
         public bool bWindowComplete { get; set; }
         [DisplayName("Lead Size A")]
         public int lead_sizeA { get; set; }
@@ -154,11 +163,13 @@ namespace PropertySurveyService.Models
         [DisplayName("Lead Anti Rattle")]
         public int lead_anti_rattle { get; set; }
         [DisplayName("Lead Thickness")]
-        public string? lead_thickness { get; set; }
+        public string lead_thickness { get; set; } = "";
         [DisplayName("Lead SOD")]
-        public string? lead_sod { get; set; }
+        public string lead_sod { get; set; } = "";
         [DisplayName("Lead Type")]
-        public string? lead_type { get; set; }
+        public string lead_type { get; set; } = "";
+        [DisplayName("Back to Back Complete")]
+        public bool lead_bBackToBackComplete { get; set; }
         [DisplayName("Lead Diamond Complete")]
         public bool lead_bDiamondComplete { get; set; }
         [DisplayName("Lead Georgian Complete")]
@@ -168,10 +179,11 @@ namespace PropertySurveyService.Models
         [DisplayName("Lead SG Design Complete")]
         public bool lead_bSGDesignComplete { get; set; }
         [DisplayName("Lock Make")]
-        public string? lock_make { get; set; }
+        public string lock_make { get; set; } = "";
         [DisplayName("Lock Codes")]
-        public string? lock_codes { get; set; }
+        public string lock_codes { get; set; } = "";
         [DisplayName("Panel Complete")]
+        [Browsable(false)]
         public bool bPanelComplete { get; set; }
         [DisplayName("Gear Box")]
         public int GearBox { get; set; }
@@ -180,6 +192,7 @@ namespace PropertySurveyService.Models
         [DisplayName("Right Bolt")]
         public int right_bolt { get; set; }
         [DisplayName("Is Complete")]
+        [Browsable(false)]
         public bool bComplete { get; set; }
         [DisplayName("Cill on Subframe")]
         public int cill_on_subframe { get; set; }               // Renamed from i_spare1
@@ -196,43 +209,43 @@ namespace PropertySurveyService.Models
         [DisplayName("Bead Type")]
         public int bead_type { get; set; }                      // Renamed from new_ispare5 - 0=Unset, 1=Chamfered, 2=Sculpted, 3=Square
         [DisplayName("Outer Section Width")]
-        public string? outer_section_width { get; set; }         // Renamed from new_sspare1
+        public string outer_section_width { get; set; } = "";       // Renamed from new_sspare1
         [DisplayName("Outer Section Height")]
-        public string? outer_section_height { get; set; }        // Renamed from new_sspare2
+        public string outer_section_height { get; set; } = "";       // Renamed from new_sspare2
         [DisplayName("Parts to Order")]
-        public string? parts_to_order { get; set; }              // renamed from new_sspare4
+        public string parts_to_order { get; set; } = "";          // renamed from new_sspare4
         [DisplayName("Lead Comments")]
-        public string? lead_comments { get; set; }
+        public string lead_comments { get; set; } = "";
         [DisplayName("Is a Flat")]
         public int is_a_flat { get; set; }
         [DisplayName("Point of Entry")]
-        public string? point_of_entry { get; set; }
+        public string point_of_entry { get; set; } = "";
         [DisplayName("Type of Locking System Required")]
-        public string? type_of_lockng_system_required { get; set; }
+        public string type_of_lockng_system_required { get; set; } = "";
         [DisplayName("Was It Locked")]
         public int was_it_locked { get; set; }
         [DisplayName("Back to Back Spacer Width")]
-        public string? back_to_back_spacer_width { get; set; }   // Spacer Thickness - Renamed from ex_s_spare4
+        public string back_to_back_spacer_width { get; set; } = "";   // Spacer Thickness - Renamed from ex_s_spare4
         [DisplayName("Back to Back Spacer Height")]
-        public string? back_to_back_spacer_height { get; set; }  // Overall Spacer Width - Renamed from ex_s_spare5
+        public string back_to_back_spacer_height { get; set; } = "";  // Overall Spacer Width - Renamed from ex_s_spare5
         [DisplayName("Lock Size 1")]
-        public string? l_size1 { get; set; }                     // Lock Mech
+        public string l_size1 { get; set; } = "";                    // Lock Mech
         [DisplayName("Lock Size 2")]
-        public string? l_size2 { get; set; }
+        public string l_size2 { get; set; } = "";
         [DisplayName("Lock Size A")]
-        public string? l_sizeA { get; set; }
+        public string l_sizeA { get; set; } = "";
         [DisplayName("Lock Size B")]
-        public string? l_sizeB { get; set; }
+        public string l_sizeB { get; set; } = "";
         [DisplayName("Lock Size C")]
-        public string? l_sizeC { get; set; }
+        public string l_sizeC { get; set; } = "";
         [DisplayName("Lock Size D")]
-        public string? l_sizeD { get; set; }
+        public string l_sizeD { get; set; } = "";
         [DisplayName("Lock Size E")]
-        public string? l_sizeE { get; set; }
+        public string l_sizeE { get; set; } = "";
         [DisplayName("Lock Size F")]
-        public string? l_sizeF { get; set; }
+        public string l_sizeF { get; set; } = "";
         [DisplayName("Lock Size G")]
-        public string? l_sizeG { get; set; }
+        public string l_sizeG { get; set; } = "";
         [DisplayName("Lock Number")]
         public int l_num { get; set; }
         [DisplayName("Lock FPos1")]
@@ -270,9 +283,9 @@ namespace PropertySurveyService.Models
         [DisplayName("Lead C Height (float)")]
         public float lead_CHeightf { get; set; }
         [DisplayName("Lead C Widths")]
-        public string? lead_CWidths { get; set; }
+        public string lead_CWidths { get; set; } = "";
         [DisplayName("Lead C Heights")]
-        public string? lead_CHeights { get; set; }
+        public string lead_CHeights { get; set; } = "";
         [DisplayName("Glass Complete")]
         public bool glass_complete { get; set; }
         [DisplayName("Replace Glass")]

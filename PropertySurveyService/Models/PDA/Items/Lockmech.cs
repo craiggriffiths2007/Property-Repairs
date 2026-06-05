@@ -6,29 +6,39 @@ namespace PropertySurveyService.Models
     public class Lockmech
     {
         [Key]
+        [DisplayName("Record Id")]
+        [Browsable(false)]
         public int Id { get; set; }
+        [DisplayName("Header Id")]
+        [Browsable(false)]
         public int HeaderId { get; set; }
-        public Guid Guid { get; set; }
+        [Browsable(false)]
+        public Guid Guid { get; set; } = Guid.NewGuid();
+
         [DisplayName("Contract Number")]
-        public string? ContractCode { get; set; }
+        [Browsable(false)]
+        public string ContractCode { get; set; } = "";
 
         [DisplayName("Item Number")]
+        [Browsable(false)]
         public int item_number { get; set; }
 
         [DisplayName("Is Complete")]
+        [Browsable(false)]
         public bool bComplete { get; set; }
 
         [DisplayName("Comments")]
-        public string? comments { get; set; }
+        public string comments { get; set; } = "";
 
         [DisplayName("Point of Entry")]
-        public string? point_of_entry { get; set; }
+        public string point_of_entry { get; set; } = "";
 
         [DisplayName("Type of Locking System Required")]
-        public string? type_of_lockng_system_required { get; set; }
+        public string type_of_lockng_system_required { get; set; } = "";
 
         [DisplayName("Was It Locked")]
         public int was_it_locked { get; set; }
+
         [DisplayName("Number of Pictures")]
         public int no_of_pics { get; set; }
 
@@ -39,13 +49,13 @@ namespace PropertySurveyService.Models
         public bool bMulti { get; set; }
 
         [DisplayName("Lock Item")]
-        public string? item { get; set; }
+        public string item { get; set; } = "";
 
         [DisplayName("Locking Make")]
-        public string? locking_make { get; set; }
+        public string locking_make { get; set; } = "";
 
         [DisplayName("Locking Codes")]
-        public string? locking_codes { get; set; }
+        public string locking_codes { get; set; } = "";
 
         [DisplayName("Door Complete")]
         public bool bDoorComplete { get; set; }
@@ -54,28 +64,28 @@ namespace PropertySurveyService.Models
         public bool bWindowComplete { get; set; }
 
         [DisplayName("Lock Colour")]
-        public string? lock_colour { get; set; }
+        public string lock_colour { get; set; } = "";
 
         [DisplayName("Page Number")]
-        public string? pagenum { get; set; }
+        public string pagenum { get; set; } = "";
 
         [DisplayName("Different From Original")]
         public bool bDifferentFromOriginal { get; set; }
 
         [DisplayName("Change Item To")]
-        public string? ChangeItemTo { get; set; }
+        public string ChangeItemTo { get; set; } = "";
 
         [DisplayName("Print Name")]
-        public string? print_name { get; set; }
+        public string print_name { get; set; } = "";
 
         [DisplayName("COD Code")]
-        public string? COD_Code { get; set; }
+        public string COD_Code { get; set; } = "";
 
         [DisplayName("Cause of Damage")]
-        public string? cause_of_damage { get; set; }
+        public string cause_of_damage { get; set; } = "";
 
         [DisplayName("Reason Damage Different")]
-        public string? cause_of_damage_reason_different { get; set; }
+        public string cause_of_damage_reason_different { get; set; } = "";
 
         [DisplayName("Gear Box")]
         public int GearBox { get; set; }
@@ -90,37 +100,37 @@ namespace PropertySurveyService.Models
         public int right_bolt { get; set; }
 
         [DisplayName("Parts to Order")]
-        public string? parts_to_order { get; set; }
+        public string parts_to_order { get; set; } = "";
 
         [DisplayName("Lock Complete")]
         public bool bLockComplete { get; set; }
 
         [DisplayName("Lock Size 1")]
-        public string? l_size1 { get; set; }
+        public string l_size1 { get; set; } = "";
 
         [DisplayName("Lock Size 2")]
-        public string? l_size2 { get; set; }
+        public string l_size2 { get; set; } = "";
 
         [DisplayName("Lock Size A")]
-        public string? l_sizeA { get; set; }
+        public string l_sizeA { get; set; } = "";
 
         [DisplayName("Lock Size B")]
-        public string? l_sizeB { get; set; }
+        public string l_sizeB { get; set; } = "";
 
         [DisplayName("Lock Size C")]
-        public string? l_sizeC { get; set; }
+        public string l_sizeC { get; set; } = "";
 
         [DisplayName("Lock Size D")]
-        public string? l_sizeD { get; set; }
+        public string l_sizeD { get; set; } = "";
 
         [DisplayName("Lock Size E")]
-        public string? l_sizeE { get; set; }
+        public string l_sizeE { get; set; } = "";
 
         [DisplayName("Lock Size F")]
-        public string? l_sizeF { get; set; }
+        public string l_sizeF { get; set; } = "";
 
         [DisplayName("Lock Size G")]
-        public string? l_sizeG { get; set; }
+        public string l_sizeG { get; set; } = "";
 
         [DisplayName("Lock Number")]
         public int l_num { get; set; }
@@ -171,8 +181,7 @@ namespace PropertySurveyService.Models
         public int l_itype7 { get; set; }
 
         [DisplayName("Long Comments")]
-        public string? long_comments { get; set; }
-        public SurveyItem AsSurveyItem() { return new SurveyItem(Id, enum_item_type.lockin, item_number, ContractCode); }
+        public string long_comments { get; set; } = ""; public SurveyItem AsSurveyItem() { return new SurveyItem(Id, enum_item_type.lockin, item_number, ContractCode); }
 
 
     }

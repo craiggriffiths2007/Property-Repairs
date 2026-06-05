@@ -23,7 +23,7 @@ namespace PropertySurveyService.Models
 
     public enum enum_item_type
     {
-        upvc, panel, glass, alum, garage, timber,
+        none, upvc, panel, glass, alum, garage, timber,
         bifold, cons, lockin, comp, green, frame
     }
 
