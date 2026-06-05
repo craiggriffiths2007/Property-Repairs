@@ -753,6 +753,9 @@ namespace PropertySurveyService.Models
 
         [DisplayName("Lintel Signed")]
         public bool lintel_signed { get; set; }
+
+        [DisplayName("Number of Videos")]
+        public int no_of_videos { get; set; }
     }
 
 }
