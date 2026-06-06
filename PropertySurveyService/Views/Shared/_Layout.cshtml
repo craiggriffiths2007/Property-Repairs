@@ -9,6 +9,23 @@
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/PropertySurveyService.styles.css" asp-append-version="true" />
 
+    <style>
+        /* Print only the main RenderBody() content. Hide everything else. */
+        @@media print {
+            /* hide all elements by default */
+            body * { visibility: hidden !important; }
+
+            /* make printable area visible */
+            #printableArea, #printableArea * { visibility: visible !important; }
+
+            /* ensure printable area is at the top-left of the page */
+            #printableArea { position: absolute; left: 0; top: 0; width: 100%; }
+
+            /* also make sure any elements marked no-print are not shown */
+            .no-print { display: none !important; }
+        }
+    </style>
+
 </head>
 
 <body>
@@ -62,7 +79,7 @@
                 </div>
             }
         </div>
-        <button onclick="window.print()" class="btn btn-primary no-print">
+        <button onclick="printMain()" class="btn btn-primary no-print">
             <i class="fa fa-print"></i> Print &#128424;
         </button>
         <!-- RIGHT -->
@@ -74,7 +91,7 @@
     </div>
     <br/>
     <div class="container">
-        <main role="main" class="pb-3">
+        <main id="printableArea" role="main" class="pb-3">
             @RenderBody()
         </main>
     </div>
@@ -88,6 +105,12 @@
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
+    <script>
+        function printMain() {
+            // allow any pending UI updates to complete before printing
+            setTimeout(function () { window.print(); }, 50);
+        }
+    </script>
 
     <script>
     document.addEventListener("DOMContentLoaded", function () {
