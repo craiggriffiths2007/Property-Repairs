@@ -5,6 +5,7 @@ namespace PropertySurveyService.Models
 {
     public class MileageSheet
     {
+        [Browsable(false)]
         public int Id { get; set; }
         [Browsable(false)]
         [DisplayName("Unique Record ID (GUID)")]

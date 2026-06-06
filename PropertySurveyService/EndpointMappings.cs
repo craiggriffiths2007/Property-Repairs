@@ -395,6 +395,22 @@ namespace PropertySurveyService
                         }
                     }
 
+                    { // add videos of job
+                        string pattern = $"{header.ContractCode:00000000}_Videos%"; // using _ as a wildcard ( would have been cAZ and dAZ )
+
+                        List<string?> imagesRange = db.Images
+                            .Where(x => EF.Functions.Like(x.Filename, pattern)).Select(f => f.Filename)
+                            .ToList();
+
+                        foreach (var im in imagesRange)
+                        {
+                            if (im != null)
+                            {
+                                images.Add(im);
+                            }
+                        }
+                    }
+
 
 
                     results.Add(new PDAJobDTO

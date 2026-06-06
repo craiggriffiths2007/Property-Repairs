@@ -116,16 +116,16 @@ namespace PropertySurveyService.Models
 
 
         // --- Metadata & Photos ---
-
+        [Browsable(false)]
         [DisplayName("Number of Photographs")]
         public int num_of_photographs { get; set; }
 
         [DisplayName("Date/Time Record Created")]
         public string date_time { get; set; } = "";
-
+        [Browsable(false)]
         [DisplayName("Sent to Server")]
         public bool bSent { get; set; }
-
+        [Browsable(false)]
         [DisplayName("Is Completed")]
         public bool bComplete { get; set; }
     }
