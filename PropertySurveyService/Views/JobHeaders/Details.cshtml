@@ -1,6 +1,7 @@
 @model PropertySurveyService.ViewModels.JobHeaderItemIndexViewModel
 @using System.ComponentModel
 @using System.Reflection
+@using System.IO
 
 
 @{
@@ -9,42 +10,46 @@
 
 <h3>Job Header</h3>
 
-
-
-
-<div class="grid-container-vertical">
-    @{
-        var properties = Model.JobHeader.GetType()
-            .GetProperties().Where(p => p.GetCustomAttribute<BrowsableAttribute>()?.Browsable != false)
-            .Select(p => new
-            {
-                Property = p,
-                Label = p.GetCustomAttribute<DisplayNameAttribute>()?.DisplayName ?? p.Name
-            })
-            .OrderBy(x => x.Label);
-    }
-
-    @foreach (var item in properties)
-    {
-        var value = item.Property.GetValue(Model.JobHeader);
-
-        <div>
-            @item.Label:
-            <strong>
-                @if (value is bool b)
+@if (Model?.JobHeader == null)
+{
+    <div class="alert alert-warning">Job header not found.</div>
+}
+else
+{
+    <div class="grid-container-vertical">
+        @{
+            var properties = Model.JobHeader.GetType()
+                .GetProperties().Where(p => p.GetCustomAttribute<BrowsableAttribute>()?.Browsable != false)
+                .Select(p => new
                 {
-                    <span style="color: @(b ? "green" : "red"); font-weight: bold;">
-                        @(b ? "✔" : "✘")
-                    </span>
-                }
-                else
-                {
-                    @value
-                }
-            </strong>
-        </div>
-    }
-</div>
+                    Property = p,
+                    Label = p.GetCustomAttribute<DisplayNameAttribute>()?.DisplayName ?? p.Name
+                })
+                .OrderBy(x => x.Label);
+        }
+
+        @foreach (var item in properties)
+        {
+            var value = item.Property.GetValue(Model.JobHeader);
+
+            <div>
+                @item.Label:
+                <strong>
+                    @if (value is bool b)
+                    {
+                        <span style="color: @(b ? "green" : "red"); font-weight: bold;">
+                            @(b ? "✔" : "✘")
+                        </span>
+                    }
+                    else
+                    {
+                        @value
+                    }
+                </strong>
+            </div>
+        }
+    </div>
+}
 
 
 
@@ -88,3 +93,33 @@ else
     <a asp-action="Edit" asp-route-id="@Model?.JobHeader.Id">Edit</a> |
     <a asp-action="Index">Back to List</a>
 </div>
+
+@if (Model.Images != null && Model.Images.Any())
+{
+    <hr />
+    <h4>Videos of Job</h4>
+    <div class="row">
+        @foreach (var img in Model.Images)
+        {
+            var ext = img.Filename.Substring(img.Filename.Length - 4)?.ToLowerInvariant();
+            if (ext == ".mp4" || ext == ".webm" || ext == ".ogg")
+            {
+                <div class="col-12 mb-3">
+                    <video controls class="img-fluid" style="max-width:100%; height:auto;">
+                        <source src="data:video/@(ext.TrimStart('.'));base64,@img.Data" type="video/@(ext.TrimStart('.'))" />
+                        Your browser does not support the video tag.
+                    </video>
+                    <div class="small text-muted">@img.Filename (@img.DateTime)</div>
+                </div>
+            }
+            else
+            {
+@*                 <text>sdfsd</text>
+                <div class="col-4 mb-3">
+                    <img src="data:image/png;base64,@img.data" class="img-fluid rounded" />
+                    <div class="small text-muted">@img.filename (@img.datetime)</div>
+                </div> *@
+            }
+        }
+    </div>
+}

@@ -82,7 +82,11 @@ namespace PropertySurveyService.Controllers
 
                 //List<PhotoImage> photoimages = _context.Images.Where(x => x.Filename.Substring(0, 12) == viewModel.Header.ContractCode+"_cAH").ToList();
 
-                viewModel.Images = new List<PhotoImage>();
+                // Collect any images/videos for this contract. Image.ContractCode is the first 8 chars of the filename
+                viewModel.Images = _context.Images
+                    .Where(x => x.ContractCode == viewModel.JobHeader.ContractCode)
+                    .OrderByDescending(x => x.DateTime)
+                    .ToList();
             }
 
             var parentJob = await _context.Job
