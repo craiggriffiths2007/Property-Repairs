@@ -14,11 +14,13 @@ namespace PropertySurveyService.Models
         public int HeaderId { get; set; }
         [Browsable(false)]
         public Guid Guid { get; set; } = Guid.NewGuid();
-        [Browsable(false)]
-        [DisplayName("Contract Number")]
+
+        [DisplayName("Contract Code")]
+        [Display(Order = 0)]
         public string ContractCode { get; set; } = "";// Key field contract number
-        [Browsable(false)]
+
         [DisplayName("Item Number")]
+        [Display(Order = 1)]
         public int item_number { get; set; }
         [Browsable(false)]
         [DisplayName("Is Complete")]
