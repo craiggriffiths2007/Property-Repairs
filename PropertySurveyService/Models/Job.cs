@@ -27,15 +27,15 @@ namespace PropertySurveyService.Models
         public DateTime IncidentDate { get; set; } = DateTime.Today;
 
         [Display(Name = "Insurance Company Name")]
-        public string? InsuranceCompanyName { get; set; } = "";
+        public string InsuranceCompanyName { get; set; } = "";
 
         [Display(Name = "Cause of damage")]
-        public string? CauseOfDamage { get; set; } = "";
+        public string CauseOfDamage { get; set; } = "";
 
         [Display(Name = "Damage")]
-        public string? DamageDesc { get; set; }
+        public string DamageDesc { get; set; }
         [Display(Name = "Instructions")]
-        public string? Instructions { get; set; }
+        public string Instructions { get; set; }
 
         [Display(Name = "Request Repudiation")]
         public bool bRequestRepudiation { get; set; } = false;
@@ -103,7 +103,7 @@ namespace PropertySurveyService.Models
 
             (jobItem.Id, jobItem.ContractId, jobItem.ContractCode, jobItem.DiaryDate, jobItem.Time.ToShortTimeString(), jobItem.Time.AddHours(1).ToShortTimeString(), custItem.Name,
                 custItem.Add1, custItem.Add2, custItem.Add3, custItem.Postcode, custItem.Phone1,
-                custItem.Phone2, custItem.Phone3, jobItem.DamageDesc, jobItem.Instructions, jobItem.CauseOfDamage, jobItem.IncidentDate.ToShortDateString(),jobItem.bRequestRepudiation, InsuranceCompanyName);
+                custItem.Phone2, custItem.Phone3, jobItem.DamageDesc, jobItem.Instructions, jobItem.CauseOfDamage, jobItem.IncidentDate.ToShortDateString(),jobItem.bRequestRepudiation, jobItem.InsuranceCompanyName);
 
             ContractCode = ContractCode;
 
