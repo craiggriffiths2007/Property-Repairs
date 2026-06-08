@@ -19,8 +19,13 @@
             </div>
             <div class="form-group">
                 <label asp-for="IncidentDate" class="control-label"></label>
-                <input asp-for="IncidentDate" class="form-control" type="datetime-local" />
+                <input asp-for="IncidentDate" class="form-control" />
                 <span asp-validation-for="IncidentDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="InsuranceCompanyName" class="control-label"></label>
+                <input asp-for="InsuranceCompanyName" class="form-control" />
+                <span asp-validation-for="InsuranceCompanyName" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="DamageDescription" class="control-label"></label>

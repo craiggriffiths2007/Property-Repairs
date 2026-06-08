@@ -29,9 +29,19 @@
                 <span asp-validation-for="ContractId" class="text-danger"></span>
             </div>
             <div class="form-group">
+                <label asp-for="InsuranceCompanyName" class="control-label"></label>
+                <input asp-for="InsuranceCompanyName" class="form-control" />
+                <span asp-validation-for="InsuranceCompanyName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
                 <label asp-for="DamageDesc" class="control-label"></label>
                 <input asp-for="DamageDesc" class="form-control" />
                 <span asp-validation-for="DamageDesc" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CauseOfDamage" class="control-label"></label>
+                <input asp-for="CauseOfDamage" class="form-control" />
+                <span asp-validation-for="CauseOfDamage" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Instructions" class="control-label"></label>
@@ -71,13 +81,17 @@
         document.getElementById('ContractId').addEventListener('change', function () {
             var contractId = this.value;
             if (contractId) {
-                fetch('@Url.Action("GetContractDamageDescription", "Jobs")' + '?id=' + contractId)
+                fetch('@Url.Action("GetContractInformation", "Jobs")' + '?id=' + contractId)
                     .then(response => response.json())
                     .then(data => {
                         document.getElementById('DamageDesc').value = data.damageDescription;
+                        document.getElementById('InsuranceCompanyName').value = data.insuranceCompany;
+                        document.getElementById('CauseOfDamage').value = data.causeOfDamage;
                     });
             } else {
                 document.getElementById('DamageDesc').value = '';
+                document.getElementById('InsuranceCompanyName').value = "";
+                document.getElementById('CauseOfDamage').value = "";
             }
         });
     </script>

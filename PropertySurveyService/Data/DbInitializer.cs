@@ -149,16 +149,33 @@ namespace PropertySurveyService.Data
             List<string> cod_list = new List<string>() { "Accidental Damage", "Bad Workmanship", "Claim inconsistency", "Domestic", "Fire", "Flood",
                 "Ground Movement", "Impact", "Loss of keys", "Malicious", "Storm Damage", "Theft", "Wear + Tear" };
 
+            // Insurance company names to pick from randomly
+            var insurers = new List<string>
+            {
+                "Acme Insurance Co.",
+                "NorthStar Underwriters",
+                "Guardian Mutual",
+                "Pioneer Assurance",
+                "Evergreen Insurance",
+                "HarborView Insurers",
+                "Summit Risk Ltd.",
+                "Silverline Insurance",
+                "Crown Protect",
+                "Atlas Insurance Group"
+            };
+
+            var rnd = new Random();
+
             var contracts = new Contract[]
             {
-                new Contract{ ContractCode="00000321" , CustomerId= customers[0].Id, DamageDescription ="Vehicle damage to upstairs window", IncidentDate = DateTime.Now, CauseOfDamage = cod_list[0] } ,
-                new Contract{ ContractCode="00000505" , CustomerId= customers[1].Id, DamageDescription ="Gas explosion next door", IncidentDate = DateTime.Now.AddMonths(-1), CauseOfDamage = cod_list[1] },
-                new Contract{ ContractCode="00000678" , CustomerId= customers[2].Id, DamageDescription ="Fire damage to garage", IncidentDate = DateTime.Now.AddMonths(-2), CauseOfDamage = cod_list[2] },
-                new Contract{ ContractCode="00000890" , CustomerId= customers[3].Id, DamageDescription ="Water damage to kitchen", IncidentDate = DateTime.Now.AddMonths(-3), CauseOfDamage = cod_list[3] },
-                new Contract{ ContractCode="00000987" , CustomerId= customers[4].Id, DamageDescription ="Storm damage to roof", IncidentDate = DateTime.Now.AddMonths(-4), CauseOfDamage = cod_list[4] },
-                new Contract{ ContractCode="00001012" , CustomerId= customers[5].Id, DamageDescription ="Flooded basement", IncidentDate = DateTime.Now.AddMonths(-5), CauseOfDamage = cod_list[5] },
-                new Contract{ ContractCode="00001123" , CustomerId= customers[6].Id, DamageDescription ="Broken front door", IncidentDate = DateTime.Now.AddMonths(-6), CauseOfDamage = cod_list[6] },
-              };
+                new Contract{ ContractCode="00000321" , CustomerId= customers[0].Id, DamageDescription ="Vehicle damage to upstairs window", IncidentDate = DateTime.Now, CauseOfDamage = cod_list[0], InsuranceCompanyName = insurers[rnd.Next(insurers.Count)] } ,
+                new Contract{ ContractCode="00000505" , CustomerId= customers[1].Id, DamageDescription ="Gas explosion next door", IncidentDate = DateTime.Now.AddMonths(-1), CauseOfDamage = cod_list[1], InsuranceCompanyName = insurers[rnd.Next(insurers.Count)] },
+                new Contract{ ContractCode="00000678" , CustomerId= customers[2].Id, DamageDescription ="Fire damage to garage", IncidentDate = DateTime.Now.AddMonths(-2), CauseOfDamage = cod_list[2], InsuranceCompanyName = insurers[rnd.Next(insurers.Count)] },
+                new Contract{ ContractCode="00000890" , CustomerId= customers[3].Id, DamageDescription ="Water damage to kitchen", IncidentDate = DateTime.Now.AddMonths(-3), CauseOfDamage = cod_list[3], InsuranceCompanyName = insurers[rnd.Next(insurers.Count)] },
+                new Contract{ ContractCode="00000987" , CustomerId= customers[4].Id, DamageDescription ="Storm damage to roof", IncidentDate = DateTime.Now.AddMonths(-4), CauseOfDamage = cod_list[4], InsuranceCompanyName = insurers[rnd.Next(insurers.Count)] },
+                new Contract{ ContractCode="00001012" , CustomerId= customers[5].Id, DamageDescription ="Flooded basement", IncidentDate = DateTime.Now.AddMonths(-5), CauseOfDamage = cod_list[5], InsuranceCompanyName = insurers[rnd.Next(insurers.Count)] },
+                new Contract{ ContractCode="00001123" , CustomerId= customers[6].Id, DamageDescription ="Broken front door", IncidentDate = DateTime.Now.AddMonths(-6), CauseOfDamage = cod_list[6], InsuranceCompanyName = insurers[rnd.Next(insurers.Count)] },
+            };
             foreach (Contract c in contracts)
             {
                 context.Add(c);

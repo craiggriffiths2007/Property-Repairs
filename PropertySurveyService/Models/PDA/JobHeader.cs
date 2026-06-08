@@ -756,6 +756,10 @@ namespace PropertySurveyService.Models
 
         [DisplayName("Number of Videos")]
         public int no_of_videos { get; set; }
+
+        [DisplayName("Additional Summary Information")]
+        public bool? bAddSummaryInfo { get; set; }
+
     }
 
 }

@@ -26,5 +26,8 @@ namespace PropertySurveyService.Models
         public string DamageDescription { get; set; }
         [DisplayName("Cause of Damage")]
         public string CauseOfDamage { get; set; }
+
+        [DisplayName("Insurance Company")]
+        public string InsuranceCompanyName { get; set; } = "";
     }
 }

@@ -26,6 +26,9 @@ namespace PropertySurveyService.Models
         [Display(Name = "Incident Date")]
         public DateTime IncidentDate { get; set; } = DateTime.Today;
 
+        [Display(Name = "Insurance Company Name")]
+        public string? InsuranceCompanyName { get; set; } = "";
+
         [Display(Name = "Cause of damage")]
         public string? CauseOfDamage { get; set; } = "";
 
@@ -88,18 +91,19 @@ namespace PropertySurveyService.Models
         public string CauseOfDamage { get; set; } = "";
         public string DamageDesc { get; set; } = "";
         public string Instructions { get; set; } = "";
-
+        [DisplayName("Insurance Company")]
+        public string InsuranceCompanyName { get; set; } = "";
         public bool bRequestRepudiation { get; set; } = false;
         public JobDTO() { }
         public JobDTO(Job jobItem,Customer custItem)
         { 
             
 
-            (Id, ContractId, ContractCode, Date, Time, EndTime, Name, Add1, Add2, Add3, Postcode, Phone1, Phone2, Phone3, DamageDesc, Instructions, CauseOfDamage, IncidentDate, bRequestRepudiation) =
+            (Id, ContractId, ContractCode, Date, Time, EndTime, Name, Add1, Add2, Add3, Postcode, Phone1, Phone2, Phone3, DamageDesc, Instructions, CauseOfDamage, IncidentDate, bRequestRepudiation, InsuranceCompanyName) =
 
             (jobItem.Id, jobItem.ContractId, jobItem.ContractCode, jobItem.DiaryDate, jobItem.Time.ToShortTimeString(), jobItem.Time.AddHours(1).ToShortTimeString(), custItem.Name,
                 custItem.Add1, custItem.Add2, custItem.Add3, custItem.Postcode, custItem.Phone1,
-                custItem.Phone2, custItem.Phone3, jobItem.DamageDesc, jobItem.Instructions, jobItem.CauseOfDamage, jobItem.IncidentDate.ToShortDateString(),jobItem.bRequestRepudiation);
+                custItem.Phone2, custItem.Phone3, jobItem.DamageDesc, jobItem.Instructions, jobItem.CauseOfDamage, jobItem.IncidentDate.ToShortDateString(),jobItem.bRequestRepudiation, InsuranceCompanyName);
 
             ContractCode = ContractCode;
 

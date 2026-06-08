@@ -206,7 +206,7 @@ namespace PropertySurveyService.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,DiaryDate,Time,DamageDesc,Instructions,ContractId,AgentId,JobType,bRequestRepudiation")] Job job)
+        public async Task<IActionResult> Create([Bind("Id,DiaryDate,Time,DamageDesc,Instructions,ContractId,AgentId,JobType,bRequestRepudiation,InsuranceCompanyName,CauseOfDamage")] Job job)
         {
             if (ModelState.IsValid)
             {
@@ -255,7 +255,7 @@ namespace PropertySurveyService.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,ContractId,DiaryDate,Time,DamageDesc,Instructions,AgentId,JobType,bRequestRepudiation")] Job job)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,ContractId,DiaryDate,Time,DamageDesc,Instructions,AgentId,JobType,bRequestRepudiation,InsuranceCompanyName, CauseOfDamage")] Job job)
         {
             if (id != job.Id)
             {
@@ -340,14 +340,15 @@ namespace PropertySurveyService.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetContractDamageDescription(int id)
+        public async Task<IActionResult> GetContractInformation(int id)
         {
             var contract = await _context.Contract.FindAsync(id);
             if (contract == null)
             {
                 return Json(new { damageDescription = "" });
             }
-            return Json(new { damageDescription = contract.DamageDescription ?? "" });
+            return Json(new { damageDescription = contract.DamageDescription ?? "", causeOfDamage = contract.CauseOfDamage ?? "", insuranceCompany = contract.InsuranceCompanyName ?? "" });
         }
+      
     }
 }

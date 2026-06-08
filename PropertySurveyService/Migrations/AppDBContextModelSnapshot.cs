@@ -1627,6 +1627,10 @@ namespace PropertySurveyService.Migrations
                     b.Property<DateTime>("IncidentDate")
                         .HasColumnType("date");
 
+                    b.Property<string>("InsuranceCompanyName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("Id");
 
                     b.HasIndex("CustomerId");
@@ -4043,6 +4047,9 @@ namespace PropertySurveyService.Migrations
                     b.Property<string>("Instructions")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("InsuranceCompanyName")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("JobType")
                         .HasColumnType("int");
 
@@ -4276,6 +4283,9 @@ namespace PropertySurveyService.Migrations
                     b.Property<string>("asvizex")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool?>("bAddSummaryInfo")
+                        .HasColumnType("bit");
 
                     b.Property<bool>("bComplete")
                         .HasColumnType("bit");
