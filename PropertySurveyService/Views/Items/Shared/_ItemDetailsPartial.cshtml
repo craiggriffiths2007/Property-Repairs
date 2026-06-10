@@ -10,6 +10,35 @@
     }
     else
     {
+        var contractProp = Model.GetType().GetProperty(
+            "ContractCode",
+            System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.IgnoreCase);
+        var contractCode = contractProp?.GetValue(Model) ?? "(n/a)";
+
+        var itemProp = Model.GetType().GetProperty(
+            "item_number",
+            System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.IgnoreCase)
+            ?? Model.GetType().GetProperty(
+                "ItemNumber",
+                System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.IgnoreCase);
+        var itemNumber = itemProp?.GetValue(Model) ?? "(n/a)";
+
+        <div>
+            <strong style="color:dimgrey">Contract Code:</strong>
+            <strong>
+                @contractCode
+            </strong>
+        </div>
+        <div>
+            <strong style="color:dimgrey">Item Number:</strong>
+            <strong>
+                @itemNumber
+            </strong>
+        </div>
+        <div>&nbsp;</div>
+
+
+
         var properties = Model.GetType()
             .GetProperties()
                 .Where(p => p.GetCustomAttribute<BrowsableAttribute>()?.Browsable != false)
@@ -25,9 +54,9 @@
                         Label = label,
                         Order = order
                     };
-                })
-                .OrderBy(x => x.Order)
-                .ThenBy(x => x.Label);
+                });
+        //.OrderBy(x => x.Order)
+                //.ThenBy(x => x.Label);
 
         foreach (var item in properties)
         {

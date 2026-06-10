@@ -14,8 +14,10 @@ namespace PropertySurveyService.Models
     {
 
         [DisplayName("Record ID")]
+        [Browsable(false)]
         public int Id { get; set; }
 
+        [Browsable(false)]
         public Guid Guid { get; set; } = Guid.NewGuid();
 
 
@@ -26,9 +28,11 @@ namespace PropertySurveyService.Models
         public string AgentCode { get; set; } = "";
 
         [DisplayName("Complete")]
+        [Browsable(false)]
         public bool bComplete { get; set; }
 
         [DisplayName("Sent")]
+        [Browsable(false)]
         public bool bSent { get; set; }
 
         #region Scheduling & Diary Details
@@ -62,6 +66,8 @@ namespace PropertySurveyService.Models
 
         #region Client & Contract Information
 
+        //[Indexed]
+        [Browsable(false)]
         [DisplayName("Contract Code")]
         public string ContractCode { get; set; } = "";
 
@@ -400,8 +406,8 @@ namespace PropertySurveyService.Models
         [DisplayName("Excess Amount")]
         public double uc_excess { get; set; }
 
-        [DisplayName("Excess Amount")]
-        public string excess_ammount_str { get; set; } = "";
+        [DisplayName("Additional Amount")]
+        public string additional_ammount_str { get; set; } = "";
 
         [DisplayName("Excess Collected")]
         public bool? bExcessCollected { get; set; }
@@ -538,10 +544,13 @@ namespace PropertySurveyService.Models
 
         #region Photos, Videos & Digital Media
 
-        [DisplayName("Fitting Job Photos")]
+        [DisplayName("Number of Photos")]
         public int no_of_photos { get; set; }
 
-        [DisplayName("Front of House Photos")]
+        [DisplayName("Photo Front of House")]
+        public bool photo_front_of_house { get; set; }
+
+        [DisplayName("Front House Photos")]
         public int front_house_photos { get; set; }
 
         [DisplayName("Additional Image")]
@@ -622,39 +631,51 @@ namespace PropertySurveyService.Models
         public int total_frames { get; set; }
 
         [DisplayName("Incomplete Frames")]
+        [Browsable(false)]
         public int incomplete_frames { get; set; }
 
         [DisplayName("Incomplete UPVC")]
+        [Browsable(false)]
         public int incomplete_upvc { get; set; }
 
         [DisplayName("Incomplete Panels")]
+        [Browsable(false)]
         public int incomplete_panels { get; set; }
 
         [DisplayName("Incomplete Glass")]
+        [Browsable(false)]
         public int incomplete_glass { get; set; }
 
         [DisplayName("Incomplete Aluminium")]
+        [Browsable(false)]
         public int incomplete_alum { get; set; }
 
         [DisplayName("Incomplete Garage")]
+        [Browsable(false)]
         public int incomplete_garage { get; set; }
 
         [DisplayName("Incomplete Timber")]
+        [Browsable(false)]
         public int incomplete_timber { get; set; }
 
         [DisplayName("Incomplete Cons")]
+        [Browsable(false)]
         public int incomplete_cons { get; set; }
 
         [DisplayName("Incomplete Lock")]
+        [Browsable(false)]
         public int incomplete_lock { get; set; }
 
         [DisplayName("Incomplete Composite")]
+        [Browsable(false)]
         public int incomplete_comp { get; set; }
 
         [DisplayName("Incomplete Green")]
+        [Browsable(false)]
         public int incomplete_green { get; set; }
 
         [DisplayName("Incomplete Bifold")]
+        [Browsable(false)]
         public int incomplete_bifold { get; set; }
 
         #endregion
@@ -666,49 +687,61 @@ namespace PropertySurveyService.Models
         #region Workflow Checkpoints & UI Flags
 
         [DisplayName("Damage Ticked")]
+        [Browsable(false)]
         public bool bDamTicked { get; set; }
 
         [DisplayName("SS Ticked")]
+        [Browsable(false)]
         public bool bSSTicked { get; set; }
 
         [DisplayName("SR Finished")]
+        [Browsable(false)]
         public bool bSRFin { get; set; }
 
         [DisplayName("MOP Finished")]
+        [Browsable(false)]
         public bool bMOPFin { get; set; }
 
         [DisplayName("Rep Finished")]
+        [Browsable(false)]
         public bool bRepFin { get; set; }
 
         [DisplayName("Sum Finished")]
+        [Browsable(false)]
         public bool bSumFin { get; set; }
 
         [DisplayName("Haz Finished")]
+        [Browsable(false)]
         public bool bHazFin { get; set; }
 
         [DisplayName("Sub Finished")]
+        [Browsable(false)]
         public bool bSubFin { get; set; }
 
         [DisplayName("Time to Complete")]
         public string time_to_complete { get; set; } = "";
 
         [DisplayName("Current Item Number")]
+        [Browsable(false)]
         public int current_item_number { get; set; }
 
         [DisplayName("Items Above Roof")]
         public bool? items_above_roof { get; set; }
 
         [DisplayName("Current Summary Number")]
+        [Browsable(false)]
         public int current_summary_number { get; set; }
 
         #endregion
 
 
-
+        [DisplayName("Request Repudiation")]
+        public bool bRequestRepudiation { get; set; } = false;
 
 
         [DisplayName("Repudiation completed")]
-        public bool repudiation_completed { get; set; }
+        [Browsable(false)]
+        public bool bRepCom { get; set; }
 
         [DisplayName("Have you repudiated?")]
         public bool? have_you_repudiated { get; set; }
@@ -720,7 +753,7 @@ namespace PropertySurveyService.Models
         public string repudiation_reason_different { get; set; } = "";
 
 
-        [DisplayName("Repudiation reason different")]
+        [DisplayName("Repudiation other information")]
         public string repudiation_other_information { get; set; } = "";
 
 
@@ -758,6 +791,7 @@ namespace PropertySurveyService.Models
         public int no_of_videos { get; set; }
 
         [DisplayName("Additional Summary Information")]
+        [Browsable(false)]
         public bool? bAddSummaryInfo { get; set; }
 
     }

@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PropertySurveyService.Data;
 
@@ -11,9 +12,11 @@ using PropertySurveyService.Data;
 namespace PropertySurveyService.Migrations
 {
     [DbContext(typeof(AppDBContext))]
-    partial class AppDBContextModelSnapshot : ModelSnapshot
+    [Migration("20260609051920_header-coppied")]
+    partial class headercoppied
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -4272,10 +4275,6 @@ namespace PropertySurveyService.Migrations
                     b.Property<bool>("added_to_otherrisks")
                         .HasColumnType("bit");
 
-                    b.Property<string>("additional_ammount_str")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<bool?>("additional_summary_info")
                         .HasColumnType("bit");
 
@@ -4366,6 +4365,10 @@ namespace PropertySurveyService.Migrations
 
                     b.Property<bool?>("easy_park")
                         .HasColumnType("bit");
+
+                    b.Property<string>("excess_ammount_str")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("f_sign_date")
                         .IsRequired()

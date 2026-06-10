@@ -120,7 +120,6 @@
                 <th>Type</th>
                 <th>Agent</th>
                 <th>Date</th>
-                <th>Status</th>
                 <th></th>
             </tr>
         </thead>
@@ -130,17 +129,8 @@
                 <tr>
                     <td>@header.JobType</td>
                     <td>@header.AgentCode</td>
-                    <td>@header.DiaryDate</td>
-                    <td>
-                        @if (header.bComplete)
-                        {
-                            <span class="badge bg-success">Complete</span>
-                        }
-                        else
-                        {
-                            <span class="badge bg-warning text-dark">In Progress</span>
-                        }
-                    </td>
+                    <td>@header.DiaryDate.ToShortDateString()</td>
+                    
                     <td>
                         <a asp-controller="JobHeaders" asp-action="Details" asp-route-id="@header.Id"
                            class="btn btn-outline-primary btn-sm">View</a>

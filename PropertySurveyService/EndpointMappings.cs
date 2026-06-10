@@ -14,7 +14,7 @@ namespace PropertySurveyService
         public static void MapAPIEndpoints(this IEndpointRouteBuilder app)
         {
             ///////////////////////
-            // SENDING FROM PDA , RECEIVING TO PDA
+            // SENDING FROM PDA , Getting from database
             ////////////////////////////////////////
             app.MapPost("/SendLadderChecks", async (List<LadderCheck> laddersSheets, AppDBContext db) =>
             {

@@ -10,6 +10,7 @@
 
 <h3>Job Header</h3>
 
+<hr/>
 @if (Model?.JobHeader == null)
 {
     <div class="alert alert-warning">Job header not found.</div>
@@ -19,14 +20,30 @@ else
     <div class="grid-container-vertical">
         @{
             var properties = Model.JobHeader.GetType()
-                .GetProperties().Where(p => p.GetCustomAttribute<BrowsableAttribute>()?.Browsable != false)
-                .Select(p => new
-                {
-                    Property = p,
-                    Label = p.GetCustomAttribute<DisplayNameAttribute>()?.DisplayName ?? p.Name
-                })
-                .OrderBy(x => x.Label);
+                        .GetProperties().Where(p => p.GetCustomAttribute<BrowsableAttribute>()?.Browsable != false)
+                        .Select(p => new
+                        {
+                            Property = p,
+                            Label = p.GetCustomAttribute<DisplayNameAttribute>()?.DisplayName ?? p.Name
+                        });
+            //.OrderBy(x => x.Label);
         }
+
+        <div>
+            <strong style="color:dimgrey">Contract Code:</strong>
+            <strong>
+                @Model.JobHeader.ContractCode
+            </strong>
+        </div>
+        <div>
+            <strong style="color:dimgrey">Diary Date:</strong>
+            <strong>
+                @Model.JobHeader.DiaryDate.ToShortDateString()
+            </strong>
+        </div>
+        <div>&nbsp;</div>
+
+        
 
         @foreach (var item in properties)
         {
@@ -62,8 +79,6 @@ else
             <tr>
                 <th>Item Number</th>
                 <th>Name</th>
-                <th>Date</th>
-                <th>Status</th>
                 <th></th>
             </tr>
         </thead>

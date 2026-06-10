@@ -36,7 +36,7 @@ public class VAccidentsController : Controller
 
         ViewData["Sign"] = _context.Images.Where(x => x.Filename == vaccident.CheckID+"_sig.jpg").FirstOrDefault()?.Data;
 
-        string pattern = $"{vaccident.CheckID}_photo___.jpg"; // using _ as a wildcard ( would have been cAZ and dAZ )
+        string pattern = $"{vaccident.CheckID}_________.jpg"; // using _ as a wildcard ( would have been cAZ and dAZ )
 
         var photoimages = _context.Images
             .Where(x => EF.Functions.Like(x.Filename, pattern))
