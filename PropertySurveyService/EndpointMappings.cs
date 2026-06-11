@@ -325,8 +325,8 @@ namespace PropertySurveyService
                     var customer = db.Customer.FirstOrDefault(x => x.Id == job.CustomerId) ?? new Customer();
 
                     var header = db.JobHeader
-                        .Where(h => h.ContractCode == job.ContractCode)
-                        .OrderByDescending(h => h.Id)
+                        .Where(h => h.ContractCode == job.ContractCode && job.JobType == enum_job_type.Survey)
+                        .OrderByDescending(h => h.DiaryDate)
                         .FirstOrDefault();
 
                     if (header == null)
@@ -336,6 +336,7 @@ namespace PropertySurveyService
                     header.FitDate = job.DiaryDate.ToShortDateString();
                     header.FitStartTime = job.Time.ToString(@"hh\:mm");
                     header.FitFinishTime = job.Time.Add(TimeSpan.FromHours(1)).ToString(@"hh\:mm");
+                    header.FitInstructions = job.Instructions;
                     header.bSurvey = true;
                     header.bComplete = false;
                     header.bSent = false;
