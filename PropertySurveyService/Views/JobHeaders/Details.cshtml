@@ -8,7 +8,18 @@
     ViewData["Title"] = "Details";
 }
 
-<h3>Job Header</h3>
+@if(Model.JobHeader.JobType == enum_job_type.Survey)
+{
+    <h3>Survey Job Header</h3>
+}
+@if (Model.JobHeader.JobType == enum_job_type.Fitting)
+{
+    <h3>Fitting Job Header</h3>
+}
+@if (Model.JobHeader.JobType == enum_job_type.Remedial)
+{
+    <h3>Remedial Job Header</h3>
+}
 
 <hr/>
 @if (Model?.JobHeader == null)
@@ -101,7 +112,7 @@ else
 else
 {
     <hr />
-    <p class="text-muted">No survey records found for this job.</p>
+    <p class="text-muted">No survey items found for this job.</p>
 }
 
 <div>
@@ -112,7 +123,7 @@ else
 @if (Model.Images != null && Model.Images.Any())
 {
     <hr />
-    <h4>Videos of Job</h4>
+    <h4>Images and Videos</h4>
     <div class="row">
         @foreach (var img in Model.Images)
         {
@@ -129,11 +140,10 @@ else
             }
             else
             {
-@*                 <text>sdfsd</text>
                 <div class="col-4 mb-3">
-                    <img src="data:image/png;base64,@img.data" class="img-fluid rounded" />
-                    <div class="small text-muted">@img.filename (@img.datetime)</div>
-                </div> *@
+                    <img src="data:image/png;base64,@img.Data" class="img-fluid rounded" />
+                  
+                </div> 
             }
         }
     </div>

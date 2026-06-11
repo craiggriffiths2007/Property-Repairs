@@ -80,13 +80,28 @@ namespace PropertySurveyService.Controllers
                 }
                 viewModel.SurveyItems = items;
 
-                //List<PhotoImage> photoimages = _context.Images.Where(x => x.Filename.Substring(0, 12) == viewModel.Header.ContractCode+"_cAH").ToList();
+                string photoPattern = $"{viewModel.JobHeader.ContractCode:00000000}_cAZHou%";
+                string videoPattern = $"{viewModel.JobHeader.ContractCode:00000000}_Videos%";
+                switch (viewModel.JobHeader.JobType)
+                {
+                    case enum_job_type.Survey:
+                        photoPattern = $"{viewModel.JobHeader.ContractCode:00000000}_cAZHou%";
+                        break;
+                    case enum_job_type.Fitting:
+                        photoPattern = $"{viewModel.JobHeader.ContractCode:00000000}_f%";
+                        videoPattern = $"{viewModel.JobHeader.ContractCode:00000000}_Videof%";
+                        break;
+                    case enum_job_type.Remedial:
+                        photoPattern = $"{viewModel.JobHeader.ContractCode:00000000}_r%";
+                        videoPattern = $"{viewModel.JobHeader.ContractCode:00000000}_Videor%";
+                        break;
 
-                // Collect any images/videos for this contract. Image.ContractCode is the first 8 chars of the filename
+                }
+
                 viewModel.Images = _context.Images
-                    .Where(x => x.ContractCode == viewModel.JobHeader.ContractCode)
-                    .OrderByDescending(x => x.DateTime)
+                    .Where(x => EF.Functions.Like(x.Filename, photoPattern) || EF.Functions.Like(x.Filename, videoPattern))
                     .ToList();
+
             }
 
             var parentJob = await _context.Job
