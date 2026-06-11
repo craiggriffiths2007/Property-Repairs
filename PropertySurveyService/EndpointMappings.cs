@@ -318,7 +318,7 @@ namespace PropertySurveyService
                     .Where(x => x.AgentId == agent.Id && x.JobType > 0)
                     .ToList();
 
-                var results = new List<PDAJobDTO>();
+                var results = new List<FitJobDTO>();
 
                 foreach (var job in fittingJobs)
                 {
@@ -413,7 +413,7 @@ namespace PropertySurveyService
 
 
 
-                    results.Add(new PDAJobDTO
+                    results.Add(new FitJobDTO
                     {
                         Job = new JobDTO(job, customer),
                         Head = header,
@@ -438,7 +438,7 @@ namespace PropertySurveyService
                 return Task.FromResult<IResult>(Results.Ok(results));
             });
 
-            app.MapPost("/SendSurveys", async (List<PDAJobDTO> jobs, AppDBContext db) =>
+            app.MapPost("/SendSurveys", async (List<FitJobDTO> jobs, AppDBContext db) =>
             {
                 foreach (var job in jobs)
                 {
@@ -539,7 +539,7 @@ namespace PropertySurveyService
                 return Results.Ok(new { status = "success" });
             });
 
-            app.MapPost("/SendFittings", async (List<PDAJobDTO> jobs, AppDBContext db) =>
+            app.MapPost("/SendFittings", async (List<FitJobDTO> jobs, AppDBContext db) =>
             {
                 foreach (var job in jobs)
                 {

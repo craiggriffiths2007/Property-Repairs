@@ -12,7 +12,7 @@ using PropertySurveyService.Data;
 namespace PropertySurveyService.Migrations
 {
     [DbContext(typeof(AppDBContext))]
-    [Migration("20260608135438_initial-create")]
+    [Migration("20260611120823_initial-create")]
     partial class initialcreate
     {
         /// <inheritdoc />
@@ -4027,6 +4027,7 @@ namespace PropertySurveyService.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("CauseOfDamage")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ContractCode")
@@ -4039,6 +4040,7 @@ namespace PropertySurveyService.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("DamageDesc")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("DiaryDate")
@@ -4048,9 +4050,11 @@ namespace PropertySurveyService.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Instructions")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("InsuranceCompanyName")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("JobType")
@@ -4271,6 +4275,10 @@ namespace PropertySurveyService.Migrations
                     b.Property<bool>("added_to_otherrisks")
                         .HasColumnType("bit");
 
+                    b.Property<string>("additional_ammount_str")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<bool?>("additional_summary_info")
                         .HasColumnType("bit");
 
@@ -4305,7 +4313,13 @@ namespace PropertySurveyService.Migrations
                     b.Property<bool>("bMOPFin")
                         .HasColumnType("bit");
 
+                    b.Property<bool>("bRepCom")
+                        .HasColumnType("bit");
+
                     b.Property<bool>("bRepFin")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("bRequestRepudiation")
                         .HasColumnType("bit");
 
                     b.Property<bool>("bSRFin")
@@ -4355,10 +4369,6 @@ namespace PropertySurveyService.Migrations
 
                     b.Property<bool?>("easy_park")
                         .HasColumnType("bit");
-
-                    b.Property<string>("excess_ammount_str")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("f_sign_date")
                         .IsRequired()
@@ -4591,6 +4601,9 @@ namespace PropertySurveyService.Migrations
                     b.Property<bool?>("parking_at_rear")
                         .HasColumnType("bit");
 
+                    b.Property<bool>("photo_front_of_house")
+                        .HasColumnType("bit");
+
                     b.Property<bool?>("plaster")
                         .HasColumnType("bit");
 
@@ -4623,9 +4636,6 @@ namespace PropertySurveyService.Migrations
                     b.Property<string>("reason_not_repudiated")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("repudiation_completed")
-                        .HasColumnType("bit");
 
                     b.Property<string>("repudiation_other_information")
                         .IsRequired()
