@@ -779,6 +779,38 @@ namespace PropertySurveyService.Models
 
         [DisplayName("Garage Door Motor")]
         public int garage_door_motor { get; set; }
+
+
+
+        [DisplayName("GD Type")]
+        public string gdm_door_type { get; set; } = "";
+        [DisplayName("GD Model Type")]
+        public string gdm_model_type { get; set; } = "";
+        [DisplayName("GD Unique Serial Number")]
+        public string gdm_unique_serial { get; set; } = "";
+        [DisplayName("GD Size")]
+        public string gdm_door_size { get; set; } = "";
+        [DisplayName("GD Manufacturer")]
+        public string gdm_door_manufacturer { get; set; } = "";
+        [DisplayName("GD Powered Operator Type")]
+        public string gdm_powerered_operator_type { get; set; } = "";
+        [DisplayName("GD Operator Type")]
+        public string gdm_operator_type { get; set; } = "";
+        [DisplayName("GD Operator Manufactured By")]
+        public string gdm_operator_manufacturer { get; set; } = "";
+        [DisplayName("GD Site Address")]
+
+        public string gdm_site_address { get; set; } = "";
+        [DisplayName("GD Decleration made by")]
+        public string gdm_dec_made_by { get; set; } = "";
+        [DisplayName("GD Customer Name")]
+        public string gdm_cust_name { get; set; } = "";
+        [DisplayName("GD Sign Date")]
+        public string gdm_sign_date { get; set; } = "";
+
+
+
+
         [DisplayName("Globaldoor Link")]
         public string global_door_link { get; set; } = "";
         [DisplayName("Tower Scaffold")]

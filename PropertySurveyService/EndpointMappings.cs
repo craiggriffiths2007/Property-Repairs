@@ -325,7 +325,7 @@ namespace PropertySurveyService
                     var customer = db.Customer.FirstOrDefault(x => x.Id == job.CustomerId) ?? new Customer();
 
                     var header = db.JobHeader
-                        .Where(h => h.ContractCode == job.ContractCode && job.JobType == enum_job_type.Survey)
+                        .Where(h => h.ContractCode == job.ContractCode && h.JobType == enum_job_type.Survey)
                         .OrderByDescending(h => h.DiaryDate)
                         .FirstOrDefault();
 
