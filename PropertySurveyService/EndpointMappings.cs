@@ -62,7 +62,7 @@ namespace PropertySurveyService
                 return Results.Ok(new { status = "success" });
             });
 
-            app.MapPost("/GetContractInfo", (GetDataDTO gs, AppDBContext db) =>
+            app.MapPost("/GetUpdateContractNotes", (GetDataDTO gs, AppDBContext db) =>
             {
                 var agent = db.Agent.FirstOrDefault(x => x.Code == gs.AgentCode);
 
