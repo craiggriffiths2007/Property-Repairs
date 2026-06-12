@@ -5,6 +5,7 @@ using PropertySurveyService.Data;
 using PropertySurveyService.Models;
 using PropertySurveyService.ViewModels;
 
+
 public class ContractsController : Controller
 {
     private readonly AppDBContext _context;
@@ -20,6 +21,24 @@ public class ContractsController : Controller
         return View(await _context.Contract
             .Include(c => c.Customer)
             .ToListAsync());
+    }
+
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public async Task<IActionResult> AddNote([Bind("Id,ContractCode")] Contract contract, string note)
+    {
+
+        ContractNote contractNote = new ContractNote();
+
+        contractNote.ContractCode = contract.ContractCode;
+        contractNote.DateAdded = DateTime.Now;
+        contractNote.Note = note;
+        contractNote.AddedBy = "Web";
+
+        _context.Add(contractNote);
+        await _context.SaveChangesAsync();
+
+        return RedirectToAction(nameof(Details), new { id = contract.Id });
     }
 
     // GET: CONTRACTS/Details/5
@@ -39,7 +58,7 @@ public class ContractsController : Controller
             return NotFound();
         }
 
-        viewModel.ContractNotes = _context.ContractNotes.Where(n => n.ContractCode == contract.ContractCode).ToList();
+        viewModel.ContractNotes = _context.ContractNotes.Where(n => n.ContractCode == contract.ContractCode).OrderByDescending(n => n.DateAdded).ToList();
 
         viewModel.Contract = contract;
         return View(viewModel);
