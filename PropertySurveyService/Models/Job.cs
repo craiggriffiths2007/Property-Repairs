@@ -73,7 +73,7 @@ namespace PropertySurveyService.Models
     {
         public int Id { get; set; }
         public int ContractId { get; set; }
-        public int iRecordType { get; set; }
+        public enum_job_type JobType { get; set; } = enum_job_type.Survey;
         public string ContractCode { get; set; } = "";
         public DateTime Date { get; set; } = DateTime.Today;
         public string Time { get; set; } = "";
@@ -94,6 +94,8 @@ namespace PropertySurveyService.Models
         [DisplayName("Insurance Company")]
         public string InsuranceCompanyName { get; set; } = "";
         public bool bRequestRepudiation { get; set; } = false;
+        public List<ContractNote> ContractNotes { get; set; } = new List<ContractNote>();
+
         public JobDTO() { }
         public JobDTO(Job jobItem,Customer custItem)
         { 
@@ -105,7 +107,16 @@ namespace PropertySurveyService.Models
                 custItem.Add1, custItem.Add2, custItem.Add3, custItem.Postcode, custItem.Phone1,
                 custItem.Phone2, custItem.Phone3, jobItem.DamageDesc, jobItem.Instructions, jobItem.CauseOfDamage, jobItem.IncidentDate.ToShortDateString(),jobItem.bRequestRepudiation, jobItem.InsuranceCompanyName);
 
-            ContractCode = ContractCode;
+        }
+
+        public JobDTO(Contract contractItem, Customer custItem)
+        {
+
+            (Id, ContractId, ContractCode, Name, Add1, Add2, Add3, Postcode, Phone1, Phone2, Phone3, DamageDesc,CauseOfDamage, IncidentDate,  InsuranceCompanyName) =
+
+            (contractItem.Id, contractItem.Id, contractItem.ContractCode, custItem.Name,
+                custItem.Add1, custItem.Add2, custItem.Add3, custItem.Postcode, custItem.Phone1,
+                custItem.Phone2, custItem.Phone3, contractItem.DamageDescription, contractItem.CauseOfDamage, contractItem.IncidentDate.ToShortDateString(), contractItem.InsuranceCompanyName);
 
         }
     }

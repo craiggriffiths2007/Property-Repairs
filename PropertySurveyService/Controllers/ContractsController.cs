@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using PropertySurveyService.Data;
 using PropertySurveyService.Models;
+using PropertySurveyService.ViewModels;
 
 public class ContractsController : Controller
 {
@@ -24,6 +25,8 @@ public class ContractsController : Controller
     // GET: CONTRACTS/Details/5
     public async Task<IActionResult> Details(int? id)
     {
+        ContractDetailsViewModel viewModel = new ContractDetailsViewModel();
+
         if (id == null)
         {
             return NotFound();
@@ -36,7 +39,10 @@ public class ContractsController : Controller
             return NotFound();
         }
 
-        return View(contract);
+        viewModel.ContractNotes = _context.ContractNotes.Where(n => n.ContractCode == contract.ContractCode).ToList();
+
+        viewModel.Contract = contract;
+        return View(viewModel);
     }
 
     // GET: CONTRACTS/Create

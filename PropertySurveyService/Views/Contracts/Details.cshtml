@@ -1,4 +1,4 @@
-@model PropertySurveyService.Models.Contract
+@model PropertySurveyService.ViewModels.ContractDetailsViewModel
 
 @{
     ViewData["Title"] = "Details";
@@ -11,44 +11,86 @@
     
     <dl class="row">
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ContractCode)
+            @Html.DisplayNameFor(model => model.Contract.ContractCode)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ContractCode)
+            @Html.DisplayFor(model => model.Contract.ContractCode)
         </dd>
         <dt class = "col-sm-2">
             Customer
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Customer.Name)
+            @Html.DisplayFor(model => model.Contract.Customer.Name)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.IncidentDate)
+            @Html.DisplayNameFor(model => model.Contract.IncidentDate)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.IncidentDate)
+            @Html.DisplayFor(model => model.Contract.IncidentDate)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.InsuranceCompanyName)
+            @Html.DisplayNameFor(model => model.Contract.InsuranceCompanyName)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.InsuranceCompanyName)
+            @Html.DisplayFor(model => model.Contract.InsuranceCompanyName)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.DamageDescription)
+            @Html.DisplayNameFor(model => model.Contract.DamageDescription)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.DamageDescription)
+            @Html.DisplayFor(model => model.Contract.DamageDescription)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.CauseOfDamage)
+            @Html.DisplayNameFor(model => model.Contract.CauseOfDamage)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.CauseOfDamage)
+            @Html.DisplayFor(model => model.Contract.CauseOfDamage)
         </dd>
     </dl>
 </div>
+
+
 <div>
-    <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
+    <a asp-action="Edit" asp-route-id="@Model?.Contract.Id">Edit</a> |
     <a asp-action="Index">Back to List</a>
 </div>
+<hr />
+<h4>Contract Notes</h4>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Date Added
+            </th>
+            <th>
+                Added By
+            </th>
+            <th>
+                Note
+            </th>
+
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.ContractNotes) {
+            <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateAdded)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AddedBy)
+            </td>
+          
+            <td>
+                    @Html.DisplayFor(modelItem => item.Note)
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+
+
+
