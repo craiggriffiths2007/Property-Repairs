@@ -70,15 +70,30 @@ namespace PropertySurveyService
                     return Task.FromResult<IResult>(Results.BadRequest(new { ReasonPhrase = "Agent Code Not Found : " + gs.AgentCode }));
 
                 var contract = db.Contract
-                    .Where(x => x.ContractCode == gs.contract_number)
+                    .Where(x => x.ContractCode == gs.ContractCode)
                     .FirstOrDefault() ?? new Contract();
 
                 JobDTO send_data = new JobDTO(contract ?? new Contract(), db.Customer.FirstOrDefault<Customer>(x => x.Id == contract.CustomerId) ?? new Customer());
 
                 if(contract!=null)
                 {
+                    if(gs.Note.Length > 0)
+                    {
+                        // add the note
+                        ContractNote contractNote = new ContractNote();
+
+                        contractNote.ContractCode = contract.ContractCode;
+                        contractNote.DateAdded = DateTime.Now;
+                        contractNote.Note = gs.Note;
+                        contractNote.AddedBy = "PDA : " + gs.AgentCode;
+
+                        db.Add(contractNote);
+                        db.SaveChanges();
+                    }
+
                     send_data.ContractNotes = db.ContractNotes
-                    .Where(x => x.ContractCode == gs.contract_number)
+                    .Where(x => x.ContractCode == gs.ContractCode)
+                    .OrderByDescending(x => x.DateAdded)
                     .ToList() ?? new List<ContractNote>();
                 }
 
@@ -93,7 +108,7 @@ namespace PropertySurveyService
                     return Task.FromResult<IResult>(Results.BadRequest(new { ReasonPhrase = "Agent Code Not Found : " + gs.AgentCode }));
 
                 var job = db.Job
-                    .Where(x => x.ContractCode == gs.contract_number && x.DiaryDate == DateTime.Today)
+                    .Where(x => x.ContractCode == gs.ContractCode && x.DiaryDate == DateTime.Today)
                     .FirstOrDefault()?? new Job();
 
                 JobDTO send_data = new JobDTO(job ?? new Job(), db.Customer.FirstOrDefault<Customer>(x => x.Id == job.CustomerId) ?? new Customer());

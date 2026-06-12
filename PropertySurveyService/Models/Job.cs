@@ -66,7 +66,9 @@ namespace PropertySurveyService.Models
 
         public string? BranchCode { get; set; } // for vehicle checks
 
-        public string contract_number { get; set; } = ""; // for spot checks
+        public string ContractCode { get; set; } = ""; // for spot checks
+
+        public string Note { get; set; } = "";  // for contract notes
     }
 
     public class JobDTO
