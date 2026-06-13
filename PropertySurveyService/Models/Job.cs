@@ -75,9 +75,8 @@ namespace PropertySurveyService.Models
     {
         public int Id { get; set; }
         public int ContractId { get; set; }
-        public enum_job_type JobType { get; set; } = enum_job_type.Survey;
         public string ContractCode { get; set; } = "";
-        public DateTime Date { get; set; } = DateTime.Today;
+        public DateTime DiaryDate { get; set; } = DateTime.Today;
         public string Time { get; set; } = "";
         public string EndTime { get; set; } = "";
         public string Name { get; set; } = "";
@@ -103,7 +102,7 @@ namespace PropertySurveyService.Models
         { 
             
 
-            (Id, ContractId, ContractCode, Date, Time, EndTime, Name, Add1, Add2, Add3, Postcode, Phone1, Phone2, Phone3, DamageDesc, Instructions, CauseOfDamage, IncidentDate, bRequestRepudiation, InsuranceCompanyName) =
+            (Id, ContractId, ContractCode, DiaryDate, Time, EndTime, Name, Add1, Add2, Add3, Postcode, Phone1, Phone2, Phone3, DamageDesc, Instructions, CauseOfDamage, IncidentDate, bRequestRepudiation, InsuranceCompanyName) =
 
             (jobItem.Id, jobItem.ContractId, jobItem.ContractCode, jobItem.DiaryDate, jobItem.Time.ToShortTimeString(), jobItem.Time.AddHours(1).ToShortTimeString(), custItem.Name,
                 custItem.Add1, custItem.Add2, custItem.Add3, custItem.Postcode, custItem.Phone1,

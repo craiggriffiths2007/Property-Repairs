@@ -47,7 +47,7 @@ namespace PropertySurveyService.Models
         public string FinishTime { get; set; } = "";
 
         [DisplayName("Surveyor Time Arrived")]
-        public string TimeArrived { get; set; } = "";
+        public string TimeArrived { get; set; } = "00:00";
 
 
         [DisplayName("Fit Diary Date")]
@@ -184,28 +184,28 @@ namespace PropertySurveyService.Models
         #region Site Logistics, Risks & Health & Safety
 
         [DisplayName("Door Bell")]
-        public bool? doorbell { get; set; }
+        public bool? doorbell { get; set; } = false;
 
         [DisplayName("Alarm Contacts")]
-        public bool? alarm_cont { get; set; }
+        public bool? alarm_cont { get; set; } = false;
 
         [DisplayName("Acro Prop Required")]
-        public bool? acroreq { get; set; }
+        public bool? acroreq { get; set; } = false;
 
         [DisplayName("Acro Prop Boy")]
-        public bool? acrosboy { get; set; }
+        public bool? acrosboy { get; set; } = false;
 
         [DisplayName("Sand and Cement Required")]
-        public bool? sand_cemen { get; set; }
+        public bool? sand_cemen { get; set; } = false;
 
         [DisplayName("Plaster Required")]
-        public bool? plaster { get; set; }
+        public bool? plaster { get; set; } = false;
 
         [DisplayName("Generator Required")]
-        public bool? genreq { get; set; }
+        public bool? genreq { get; set; } = false;
 
         [DisplayName("Architraves Required")]
-        public bool? architreq { get; set; }
+        public bool? architreq { get; set; } = false;
 
         [DisplayName("Access Requirements Comments")]
         public string acc_text { get; set; } = "";

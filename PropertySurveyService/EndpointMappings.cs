@@ -266,33 +266,6 @@ namespace PropertySurveyService
                 return Task.FromResult<IResult>(Results.Ok(vehicleDTOs));
             });
 
-            app.MapPost("/GetSurveyJobs", (GetDataDTO gs, AppDBContext db) =>
-            {
-                var agent = db.Agent.FirstOrDefault(x => x.Code == gs.AgentCode);
-
-                if (agent == null)
-                    return Task.FromResult<IResult>(Results.BadRequest(new { ReasonPhrase = "Agent Code Not Found : " + gs.AgentCode }));
-
-                var surveyJobs = db.Job
-                    .Where(x => x.AgentId == agent.Id 
-                    && x.JobType == enum_job_type.Survey
-                    && x.DiaryDate >= DateTime.Today)
-                    .ToList();
-
-                List<JobDTO> send_jobs = new List<JobDTO>();
-
-                foreach (var j in surveyJobs)
-                {
-                    Customer? c = db.Customer.FirstOrDefault<Customer>(x => x.Id == j.CustomerId);
-                    
-                    if (c == null)
-                        c = new Customer();
-
-                    send_jobs.Add(new JobDTO(j, c));
-                }
-
-                return Task.FromResult<IResult>(Results.Ok(send_jobs));
-            });
 
             
             app.MapPost("/GetImage", (GetDataDTO gs, AppDBContext db) =>
@@ -325,160 +298,10 @@ namespace PropertySurveyService
 
                 return Results.File(bytes, contentType, image.Filename);
             });
-            /*
-            app.MapPost("/GetImage", (GetDataDTO gs, AppDBContext db) =>
-            {
-                // check password here
-                var agent = db.Agent.FirstOrDefault(x => x.Code == gs.AgentCode);
-
-                if (agent == null)
-                    return Results.BadRequest(new { ReasonPhrase = "Agent Code Not Found : " + gs.AgentCode });
-
-                var image = db.Images.FirstOrDefault(img => img.Filename == gs.Filename);
-                if (image == null)
-                {
-                    return Results.NotFound();
-                }
-                return Results.Ok(new ImageDTO
-                {
-                    Filename = image.Filename,
-                    Data = Convert.FromBase64String(image.Data)
-                });
-            });
-            */
-            app.MapPost("/GetFittingJobs", (GetDataDTO gs, AppDBContext db) =>
-            {
-                var agent = db.Agent.FirstOrDefault(x => x.Code == gs.AgentCode);
-
-                if (agent == null)
-                    return Task.FromResult<IResult>(Results.BadRequest(new { ReasonPhrase = "Agent Code Not Found : " + gs.AgentCode }));
-
-                var fittingJobs = db.Job
-                    .Where(x => x.AgentId == agent.Id && x.JobType > 0)
-                    .ToList();
-
-                var results = new List<FitJobDTO>();
-
-                foreach (var job in fittingJobs)
-                {
-                    var customer = db.Customer.FirstOrDefault(x => x.Id == job.CustomerId) ?? new Customer();
-
-                    var header = db.JobHeader
-                        .Where(h => h.ContractCode == job.ContractCode && h.JobType == enum_job_type.Survey)
-                        .OrderByDescending(h => h.DiaryDate)
-                        .FirstOrDefault();
-
-                    if (header == null)
-                        continue;
-                    header.JobType = job.JobType;
-                    header.DiaryDate = job.DiaryDate;
-                    header.FitDate = job.DiaryDate.ToShortDateString();
-                    header.FitStartTime = job.Time.ToString(@"hh\:mm");
-                    header.FitFinishTime = job.Time.Add(TimeSpan.FromHours(1)).ToString(@"hh\:mm");
-                    header.FitInstructions = job.Instructions;
-                    header.bSurvey = true;
-                    header.bComplete = false;
-                    header.bSent = false;
-
-
-                    // Get all the images for this header
-                    var images = new List<string>();
-                    List<SurveyItem> items = new List<SurveyItem>();
-
-                    foreach (var n in Enum.GetValues(typeof(enum_item_type)))
-                    {
-                        switch (n)
-                        {
-                            case enum_item_type.upvc:
-                                foreach (var p in db.UPVC.Where(x => x.HeaderId == header.Id)) items.Add(p.AsSurveyItem()); break;
-                            case enum_item_type.panel:
-                                foreach (var p in db.Panel.Where(x => x.HeaderId == header.Id)) items.Add(p.AsSurveyItem()); break;
-                            case enum_item_type.glass:
-                                foreach (var p in db.Glass.Where(x => x.HeaderId == header.Id)) items.Add(p.AsSurveyItem()); break;
-                            case enum_item_type.alum:
-                                foreach (var p in db.Aluminium.Where(x => x.HeaderId == header.Id)) items.Add(p.AsSurveyItem()); break;
-                            case enum_item_type.garage:
-                                foreach (var p in db.Garage.Where(x => x.HeaderId == header.Id)) items.Add(p.AsSurveyItem()); break;
-                            case enum_item_type.timber:
-                                foreach (var p in db.Timber.Where(x => x.HeaderId == header.Id)) items.Add(p.AsSurveyItem()); break;
-                            case enum_item_type.bifold:
-                                foreach (var p in db.Bifolding.Where(x => x.HeaderId == header.Id)) items.Add(p.AsSurveyItem()); break;
-                            case enum_item_type.lockin:
-                                foreach (var p in db.Lockmech.Where(x => x.HeaderId == header.Id)) items.Add(p.AsSurveyItem()); break;
-                            case enum_item_type.green:
-                                foreach (var p in db.Greenhouse.Where(x => x.HeaderId == header.Id)) items.Add(p.AsSurveyItem()); break;
-                            case enum_item_type.comp:
-                                foreach (var p in db.Composite.Where(x => x.HeaderId == header.Id)) items.Add(p.AsSurveyItem()); break;
-                            case enum_item_type.cons:
-                                foreach (var p in db.Conservatory.Where(x => x.HeaderId == header.Id)) items.Add(p.AsSurveyItem()); break;
-                            case enum_item_type.frame:
-                                foreach (var p in db.Frame.Where(x => x.HeaderId == header.Id)) items.Add(p.AsSurveyItem()); break;
-                        }
-                    }
-
-                    var photoimages = new List<string>();
-
-                    foreach(var surveyItem in items)
-                    {
-                        string pattern = $"{surveyItem.ContractCode:00000000}____{surveyItem.item_number:000}%"; // using _ as a wildcard ( would have been cAZ and dAZ )
-
-                        List<string?> imagesRange = db.Images
-                            .Where(x => EF.Functions.Like(x.Filename, pattern)).Select(f => f.Filename)
-                            .ToList();
-
-                        foreach(var im in imagesRange)
-                        {
-                            if(im != null)
-                            {
-                                images.Add(im);
-                            }
-                        }
-                    }
-
-                    { // add videos of job
-                        string pattern = $"{header.ContractCode:00000000}_Videos%"; // using _ as a wildcard ( would have been cAZ and dAZ )
-
-                        List<string?> imagesRange = db.Images
-                            .Where(x => EF.Functions.Like(x.Filename, pattern)).Select(f => f.Filename)
-                            .ToList();
-
-                        foreach (var im in imagesRange)
-                        {
-                            if (im != null)
-                            {
-                                images.Add(im);
-                            }
-                        }
-                    }
 
 
 
-                    results.Add(new FitJobDTO
-                    {
-                        Job = new JobDTO(job, customer),
-                        Head = header,
-                        Items = db.Frame.Where(f => f.HeaderId == header.Id).ToList(),
-                        Panels = db.Panel.Where(p => p.HeaderId == header.Id).ToList(),
-                        Aluminia = db.Aluminium.Where(a => a.HeaderId == header.Id).ToList(),
-                        Bifolds = db.Bifolding.Where(b => b.HeaderId == header.Id).ToList(),
-                        Composites = db.Composite.Where(c => c.HeaderId == header.Id).ToList(),
-                        Cons = db.Conservatory.Where(c => c.HeaderId == header.Id).ToList(),
-                        Garages = db.Garage.Where(g => g.HeaderId == header.Id).ToList(),
-                        Glass = db.Glass.Where(g => g.HeaderId == header.Id).ToList(),
-                        Greens = db.Greenhouse.Where(g => g.HeaderId == header.Id).ToList(),
-                        Locks = db.Lockmech.Where(l => l.HeaderId == header.Id).ToList(),
-                        Timbers = db.Timber.Where(t => t.HeaderId == header.Id).ToList(),
-                        UPVCs = db.UPVC.Where(u => u.HeaderId == header.Id).ToList(),
-                        Images = images
-                    });
-
-                    
-                }
-
-                return Task.FromResult<IResult>(Results.Ok(results));
-            });
-
-            app.MapPost("/SendSurveys", async (List<FitJobDTO> jobs, AppDBContext db) =>
+            app.MapPost("/SendJobs", async (List<JobHeaderDTO> jobs, AppDBContext db) =>
             {
                 foreach (var job in jobs)
                 {
@@ -490,24 +313,7 @@ namespace PropertySurveyService
                         await db.SaveChangesAsync();
                         int headerId = job.Head.Id;
 
-                        /*
-                        void SaveItems<T>(IEnumerable<T> items) where T : class
-                        {
-
-                            if (items != null)
-                            {
-                                foreach (var item in items)
-                                {
-                                    var prop = item.GetType().GetProperty("HeaderId");
-                                    if (prop != null)
-                                        prop.SetValue(item, headerId);
-                                    db.Add(item);
-                                }
-                            }
-                        }
-                        */
-                        // deletes ones with same guid first then adds new ones, this is to handle updates from the PDA where items may have been added, removed or changed
-                        void SaveItems<T>(IEnumerable<T> items) where T : class
+                         void SaveItems<T>(IEnumerable<T> items) where T : class
                         {
                             if (items == null)
                                 return;
@@ -531,8 +337,6 @@ namespace PropertySurveyService
                                 db.Add(item);
                             }
                         }
-
-
 
                         job.Items.ForEach(o => o.Id = 0);
                         job.Panels.ForEach(o => o.Id = 0);
@@ -579,22 +383,176 @@ namespace PropertySurveyService
                 return Results.Ok(new { status = "success" });
             });
 
-            app.MapPost("/SendFittings", async (List<FitJobDTO> jobs, AppDBContext db) =>
+            app.MapPost("/GetJobs", (GetDataDTO gs, AppDBContext db) =>
             {
+                var agent = db.Agent.FirstOrDefault(x => x.Code == gs.AgentCode);
+
+                if (agent == null)
+                    return Task.FromResult<IResult>(Results.BadRequest(new { ReasonPhrase = "Agent Code Not Found : " + gs.AgentCode }));
+
+                var jobs = db.Job
+                    .Where(x => x.AgentId == agent.Id && (x.DiaryDate == DateTime.Today ||
+                                                                            x.DiaryDate == DateTime.Today.AddDays(1)))
+                    .ToList();
+
+                var results = new List<JobHeaderDTO>();
+
                 foreach (var job in jobs)
                 {
-                    if (job.Head != null)
-                    {
-                        job.Head.Id = 0; // Ensure a new record is created
-                        db.JobHeader.Add(job.Head);
-                        await db.SaveChangesAsync();
-                        int headerId = job.Head.Id;
+                    var customer = db.Customer.FirstOrDefault(x => x.Id == job.CustomerId) ?? new Customer();
 
-                        await db.SaveChangesAsync();
+                    var header = db.JobHeader
+                        .Where(h => h.ContractCode == job.ContractCode && h.JobType == enum_job_type.Survey)
+                        .OrderByDescending(h => h.DiaryDate)
+                        .FirstOrDefault();
+
+                    Customer? c = db.Customer.FirstOrDefault<Customer>(x => x.Id == job.CustomerId);
+
+                    if (c == null)
+                        c = new Customer();
+
+                    var j = new JobDTO(job, c);
+
+                    if (header == null)
+                    {
+                        header = new JobHeader();
                     }
+                    else
+                    {
+                        header.bSurvey = true;
+                    }
+
+                    header.Guid = Guid.NewGuid();
+                    header.JobType = job.JobType;
+                    header.ContractCode = j.ContractCode;
+                    header.DiaryDate = j.DiaryDate;
+                    header.ClientName = j.Name;
+                    header.ClientAddressLine1 = j.Add1;
+                    header.ClientAddressLine2 = j.Add2;
+                    header.ClientAddressLine3 = j.Add3;
+                    header.ClientPostcode = j.Postcode;
+                    header.JobInstructions = "";
+                    header.StartTime = j.Time;
+                    header.FinishTime = j.EndTime;
+                    header.IncidentDate = j.IncidentDate;
+                    header.CauseOfDamage = j.CauseOfDamage;
+                    header.Instructions = j.Instructions;
+                    header.PolicyNumber = "001";
+                    header.ClientPhoneNumber = j.Phone1;
+                    header.ClientPhoneNumber2 = j.Phone2;
+                    header.ClientPhoneNumber3 = j.Phone3;
+                    header.IncidentDate = j.IncidentDate;
+                    header.DamageDescription = j.DamageDesc;
+                    header.bRequestRepudiation = j.bRequestRepudiation;
+                    header.InsuranceCompanyName = j.InsuranceCompanyName;
+                    header.bComplete = false;
+                    header.bSent = false;
+
+                    if (job.JobType > enum_job_type.Survey)
+                    {
+                        //header.FitDate = job.DiaryDate.ToShortDateString();
+                        //header.FitStartTime = job.Time.ToString(@"hh\:mm");
+                        //header.FitFinishTime = job.Time.Add(TimeSpan.FromHours(1)).ToString(@"hh\:mm");
+                        header.FitInstructions = job.Instructions;
+                        //header.bSurvey = true;
+                        //header.bComplete = false;
+                        //header.bSent = false;
+                    }
+
+                    // Get all the images for this header
+                    var images = new List<string>();
+                    List<SurveyItem> items = new List<SurveyItem>();
+
+                    foreach (var n in Enum.GetValues(typeof(enum_item_type)))
+                    {
+                        switch (n)
+                        {
+                            case enum_item_type.upvc:
+                                foreach (var p in db.UPVC.Where(x => x.HeaderId == header.Id)) items.Add(p.AsSurveyItem()); break;
+                            case enum_item_type.panel:
+                                foreach (var p in db.Panel.Where(x => x.HeaderId == header.Id)) items.Add(p.AsSurveyItem()); break;
+                            case enum_item_type.glass:
+                                foreach (var p in db.Glass.Where(x => x.HeaderId == header.Id)) items.Add(p.AsSurveyItem()); break;
+                            case enum_item_type.alum:
+                                foreach (var p in db.Aluminium.Where(x => x.HeaderId == header.Id)) items.Add(p.AsSurveyItem()); break;
+                            case enum_item_type.garage:
+                                foreach (var p in db.Garage.Where(x => x.HeaderId == header.Id)) items.Add(p.AsSurveyItem()); break;
+                            case enum_item_type.timber:
+                                foreach (var p in db.Timber.Where(x => x.HeaderId == header.Id)) items.Add(p.AsSurveyItem()); break;
+                            case enum_item_type.bifold:
+                                foreach (var p in db.Bifolding.Where(x => x.HeaderId == header.Id)) items.Add(p.AsSurveyItem()); break;
+                            case enum_item_type.lockin:
+                                foreach (var p in db.Lockmech.Where(x => x.HeaderId == header.Id)) items.Add(p.AsSurveyItem()); break;
+                            case enum_item_type.green:
+                                foreach (var p in db.Greenhouse.Where(x => x.HeaderId == header.Id)) items.Add(p.AsSurveyItem()); break;
+                            case enum_item_type.comp:
+                                foreach (var p in db.Composite.Where(x => x.HeaderId == header.Id)) items.Add(p.AsSurveyItem()); break;
+                            case enum_item_type.cons:
+                                foreach (var p in db.Conservatory.Where(x => x.HeaderId == header.Id)) items.Add(p.AsSurveyItem()); break;
+                            case enum_item_type.frame:
+                                foreach (var p in db.Frame.Where(x => x.HeaderId == header.Id)) items.Add(p.AsSurveyItem()); break;
+                        }
+                    }
+
+                    var photoimages = new List<string>();
+
+                    foreach (var surveyItem in items)
+                    {
+                        string pattern = $"{surveyItem.ContractCode:00000000}____{surveyItem.item_number:000}%"; // using _ as a wildcard ( would have been cAZ and dAZ )
+
+                        List<string?> imagesRange = db.Images
+                            .Where(x => EF.Functions.Like(x.Filename, pattern)).Select(f => f.Filename)
+                            .ToList();
+
+                        foreach (var im in imagesRange)
+                        {
+                            if (im != null)
+                            {
+                                images.Add(im);
+                            }
+                        }
+                    }
+
+                    if(false)
+                    { // add videos of job
+                        string pattern = $"{header.ContractCode:00000000}_Videos%"; // using _ as a wildcard ( would have been cAZ and dAZ )
+
+                        List<string?> imagesRange = db.Images
+                            .Where(x => EF.Functions.Like(x.Filename, pattern)).Select(f => f.Filename)
+                            .ToList();
+
+                        foreach (var im in imagesRange)
+                        {
+                            if (im != null)
+                            {
+                                images.Add(im);
+                            }
+                        }
+                    }
+
+                    results.Add(new JobHeaderDTO
+                    {
+                        Job = new JobDTO(job, customer),
+                        Head = header,
+                        Items = db.Frame.Where(f => f.HeaderId == header.Id).ToList(),
+                        Panels = db.Panel.Where(p => p.HeaderId == header.Id).ToList(),
+                        Aluminia = db.Aluminium.Where(a => a.HeaderId == header.Id).ToList(),
+                        Bifolds = db.Bifolding.Where(b => b.HeaderId == header.Id).ToList(),
+                        Composites = db.Composite.Where(c => c.HeaderId == header.Id).ToList(),
+                        Cons = db.Conservatory.Where(c => c.HeaderId == header.Id).ToList(),
+                        Garages = db.Garage.Where(g => g.HeaderId == header.Id).ToList(),
+                        Glass = db.Glass.Where(g => g.HeaderId == header.Id).ToList(),
+                        Greens = db.Greenhouse.Where(g => g.HeaderId == header.Id).ToList(),
+                        Locks = db.Lockmech.Where(l => l.HeaderId == header.Id).ToList(),
+                        Timbers = db.Timber.Where(t => t.HeaderId == header.Id).ToList(),
+                        UPVCs = db.UPVC.Where(u => u.HeaderId == header.Id).ToList(),
+                        Images = images
+                    });
                 }
-                return Results.Ok(new { status = "success" });
+
+                return Task.FromResult<IResult>(Results.Ok(results));
             });
+
 
             app.MapPost("/SendImage", async (ImageDTO imageDTO, AppDBContext db) =>
             {
