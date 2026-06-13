@@ -73,7 +73,7 @@ namespace PropertySurveyService
                     .Where(x => x.ContractCode == gs.ContractCode)
                     .FirstOrDefault() ?? new Contract();
 
-                JobDTO send_data = new JobDTO(contract ?? new Contract(), db.Customer.FirstOrDefault<Customer>(x => x.Id == contract.CustomerId) ?? new Customer());
+                JobContractDTO send_data = new JobContractDTO(contract ?? new Contract(), db.Customer.FirstOrDefault<Customer>(x => x.Id == contract.CustomerId) ?? new Customer());
 
                 if(contract!=null)
                 {
@@ -111,7 +111,7 @@ namespace PropertySurveyService
                     .Where(x => x.ContractCode == gs.ContractCode && x.DiaryDate == DateTime.Today)
                     .FirstOrDefault()?? new Job();
 
-                JobDTO send_data = new JobDTO(job ?? new Job(), db.Customer.FirstOrDefault<Customer>(x => x.Id == job.CustomerId) ?? new Customer());
+                JobContractDTO send_data = new JobContractDTO(job ?? new Job(), db.Customer.FirstOrDefault<Customer>(x => x.Id == job.CustomerId) ?? new Customer());
 
                 return Task.FromResult<IResult>(Results.Ok(send_data));
             });
@@ -411,7 +411,7 @@ namespace PropertySurveyService
                     if (c == null)
                         c = new Customer();
 
-                    var j = new JobDTO(job, c);
+                    var j = new JobContractDTO(job, c);
 
                     if (header == null)
                     {
@@ -532,7 +532,7 @@ namespace PropertySurveyService
 
                     results.Add(new JobHeaderDTO
                     {
-                        Job = new JobDTO(job, customer),
+                        //Job = new JobDTO(job, customer),
                         Head = header,
                         Items = db.Frame.Where(f => f.HeaderId == header.Id).ToList(),
                         Panels = db.Panel.Where(p => p.HeaderId == header.Id).ToList(),

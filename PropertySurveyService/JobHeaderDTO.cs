@@ -2,7 +2,7 @@
 
 internal class JobHeaderDTO
 {
-    public JobDTO Job { get; set; }
+    //public JobDTO Job { get; set; }
 
     public JobHeader Head { get; set; }
     public List<Material> Items { get; set; }

@@ -71,10 +71,11 @@ namespace PropertySurveyService.Models
         public string Note { get; set; } = "";  // for contract notes
     }
 
-    public class JobDTO
+    public class JobContractDTO
     {
         public int Id { get; set; }
         public int ContractId { get; set; }
+        public enum_job_type JobType { get; set; } = enum_job_type.Survey;
         public string ContractCode { get; set; } = "";
         public DateTime DiaryDate { get; set; } = DateTime.Today;
         public string Time { get; set; } = "";
@@ -97,20 +98,20 @@ namespace PropertySurveyService.Models
         public bool bRequestRepudiation { get; set; } = false;
         public List<ContractNote> ContractNotes { get; set; } = new List<ContractNote>();
 
-        public JobDTO() { }
-        public JobDTO(Job jobItem,Customer custItem)
+        public JobContractDTO() { }
+        public JobContractDTO(Job jobItem,Customer custItem)
         { 
             
 
-            (Id, ContractId, ContractCode, DiaryDate, Time, EndTime, Name, Add1, Add2, Add3, Postcode, Phone1, Phone2, Phone3, DamageDesc, Instructions, CauseOfDamage, IncidentDate, bRequestRepudiation, InsuranceCompanyName) =
+            (Id, ContractId, ContractCode, DiaryDate, Time, EndTime, Name, Add1, Add2, Add3, Postcode, Phone1, Phone2, Phone3, DamageDesc, Instructions, CauseOfDamage, IncidentDate, bRequestRepudiation, InsuranceCompanyName, JobType) =
 
             (jobItem.Id, jobItem.ContractId, jobItem.ContractCode, jobItem.DiaryDate, jobItem.Time.ToShortTimeString(), jobItem.Time.AddHours(1).ToShortTimeString(), custItem.Name,
                 custItem.Add1, custItem.Add2, custItem.Add3, custItem.Postcode, custItem.Phone1,
-                custItem.Phone2, custItem.Phone3, jobItem.DamageDesc, jobItem.Instructions, jobItem.CauseOfDamage, jobItem.IncidentDate.ToShortDateString(),jobItem.bRequestRepudiation, jobItem.InsuranceCompanyName);
+                custItem.Phone2, custItem.Phone3, jobItem.DamageDesc, jobItem.Instructions, jobItem.CauseOfDamage, jobItem.IncidentDate.ToShortDateString(),jobItem.bRequestRepudiation, jobItem.InsuranceCompanyName, jobItem.JobType);
 
         }
 
-        public JobDTO(Contract contractItem, Customer custItem)
+        public JobContractDTO(Contract contractItem, Customer custItem)
         {
 
             (Id, ContractId, ContractCode, Name, Add1, Add2, Add3, Postcode, Phone1, Phone2, Phone3, DamageDesc,CauseOfDamage, IncidentDate,  InsuranceCompanyName) =
