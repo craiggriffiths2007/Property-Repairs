@@ -17,8 +17,10 @@ namespace PropertySurveyService.Models
         [Display(Name = "Diary Date")]
         [DataType(DataType.Date)]
 
-        public DateTime DiaryDate { get; set; } 
+        public DateTime DiaryDate { get; set; }
 
+
+        [DisplayFormat(DataFormatString = "{0:HH:mm}", ApplyFormatInEditMode = true)]
         [Display(Name = "Job Time")]
         [DataType(DataType.Time)]
         public DateTime Time { get; set; }

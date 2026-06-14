@@ -175,6 +175,9 @@ namespace PropertySurveyService.Data
                 new Contract{ ContractCode="00000987" , CustomerId= customers[4].Id, DamageDescription ="Storm damage to roof", IncidentDate = DateTime.Now.AddMonths(-4), CauseOfDamage = cod_list[4], InsuranceCompanyName = insurers[rnd.Next(insurers.Count)] },
                 new Contract{ ContractCode="00001012" , CustomerId= customers[5].Id, DamageDescription ="Flooded basement", IncidentDate = DateTime.Now.AddMonths(-5), CauseOfDamage = cod_list[5], InsuranceCompanyName = insurers[rnd.Next(insurers.Count)] },
                 new Contract{ ContractCode="00001123" , CustomerId= customers[6].Id, DamageDescription ="Broken front door", IncidentDate = DateTime.Now.AddMonths(-6), CauseOfDamage = cod_list[6], InsuranceCompanyName = insurers[rnd.Next(insurers.Count)] },
+                new Contract{ ContractCode="00001133" , CustomerId= customers[7].Id, DamageDescription ="Front window damaged", IncidentDate = DateTime.Now.AddMonths(-6), CauseOfDamage = cod_list[7], InsuranceCompanyName = insurers[rnd.Next(insurers.Count)] },
+                new Contract{ ContractCode="00001223" , CustomerId= customers[8].Id, DamageDescription ="Glass Leading broken", IncidentDate = DateTime.Now.AddMonths(-6), CauseOfDamage = cod_list[8], InsuranceCompanyName = insurers[rnd.Next(insurers.Count)] },
+                new Contract{ ContractCode="00001823" , CustomerId= customers[9].Id, DamageDescription ="Broken back window", IncidentDate = DateTime.Now.AddMonths(-6), CauseOfDamage = cod_list[9], InsuranceCompanyName = insurers[rnd.Next(insurers.Count)] },
             };
             foreach (Contract c in contracts)
             {
@@ -186,12 +189,12 @@ namespace PropertySurveyService.Data
                 new Agent{Name="Alex Polowski", Code="H1",Type=agent_type.Surveyor },
                 new Agent{Name="Samantha Carter", Code="H2",Type=agent_type.Surveyor },
                 new Agent{Name="Rachel Green", Code="H3",Type=agent_type.Surveyor },
-                new Agent{Name="Tommy Lee", Code="H05",Type=agent_type.Fitter },
+                new Agent{Name="Tommy Lee", Code="H05",Type=agent_type.Satellite },
                 new Agent{Name="Linda Evans", Code="H06",Type=agent_type.Fitter },
                 new Agent{Name="Chris Johnson", Code="HH09",Type=agent_type.Fitter },
                 new Agent{Name="Patricia Brown", Code="HH10",Type=agent_type.Satellite },
                 new Agent{Name="Michael Scott", Code="H07",Type=agent_type.Surveyor },
-                new Agent{Name="Angela Martin", Code="H08",Type=agent_type.Fitter },
+                new Agent{Name="Angela Martin", Code="H08",Type=agent_type.Satellite },
                 new Agent{Name="Oscar Martinez", Code="H09",Type=agent_type.Fitter },
                 new Agent{Name="Kevin Malone", Code="HH11",Type=agent_type.Satellite }
             };

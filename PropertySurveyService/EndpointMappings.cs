@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 //using System.Text.Json;
 using Newtonsoft.Json;
 using PropertySurveyService.Data;
-using PropertySurveyService.Migrations;
+
 using PropertySurveyService.Models;
 using System.Timers;
 namespace PropertySurveyService
@@ -461,6 +461,8 @@ namespace PropertySurveyService
 
                     // Get all the images for this header
                     var images = new List<string>();
+                    
+                    /*
                     List<SurveyItem> items = new List<SurveyItem>();
 
                     foreach (var n in Enum.GetValues(typeof(enum_item_type)))
@@ -493,12 +495,13 @@ namespace PropertySurveyService
                                 foreach (var p in db.Frame.Where(x => x.HeaderId == header.Id)) items.Add(p.AsSurveyItem()); break;
                         }
                     }
+                    */ // get all the images
 
                     var photoimages = new List<string>();
 
-                    foreach (var surveyItem in items)
+                    //foreach (var surveyItem in items)
                     {
-                        string pattern = $"{surveyItem.ContractCode:00000000}____{surveyItem.item_number:000}%"; // using _ as a wildcard ( would have been cAZ and dAZ )
+                        string pattern = $"{header.ContractCode:00000000}_______%"; // using _ as a wildcard ( would have been cAZ and dAZ )
 
                         List<string?> imagesRange = db.Images
                             .Where(x => EF.Functions.Like(x.Filename, pattern)).Select(f => f.Filename)

@@ -33,7 +33,7 @@ public class ContractsController : Controller
         contractNote.ContractCode = contract.ContractCode;
         contractNote.DateAdded = DateTime.Now;
         contractNote.Note = note;
-        contractNote.AddedBy = "Web";
+        contractNote.AddedBy = User.Identity.Name;
 
         _context.Add(contractNote);
         await _context.SaveChangesAsync();
