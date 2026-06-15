@@ -349,6 +349,24 @@ namespace PropertySurveyService.Controllers
             }
             return Json(new { damageDescription = contract.DamageDescription ?? "", causeOfDamage = contract.CauseOfDamage ?? "", insuranceCompany = contract.InsuranceCompanyName ?? "" });
         }
-      
+
+        [HttpGet]
+        public async Task<IActionResult> GetAgentListForJobType(enum_job_type jobType)
+        {
+            // Filter your agents based on job type
+            var agents = (jobType == enum_job_type.Fitting || jobType == enum_job_type.Remedial)
+                ? _context.Agent.Where(a => a.Type == agent_type.Fitter || a.Type == agent_type.Satellite)
+                : _context.Agent.Where(a => a.Type == agent_type.Surveyor || a.Type == agent_type.Satellite);
+
+            foreach(var agent in agents)
+            {
+                agent.Name = agent.Code + " - " + agent.Name;
+            }
+            // Convert to a SelectList (assuming Agent has 'Id' and 'Name' properties)
+            var selectList = new SelectList(await agents.ToListAsync(), "Id", "Name");
+
+            return Json(selectList);
+        }
+
     }
 }
