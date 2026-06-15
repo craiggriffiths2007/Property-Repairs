@@ -41,6 +41,8 @@ namespace PropertySurveyService.Models
 
         [Display(Name = "Request Repudiation")]
         public bool bRequestRepudiation { get; set; } = false;
+        [Display(Name = "Include Survey")]
+        public bool bIncludeSurvey { get; set; } = true;
         public int? CustomerId { get; set; }
 
         public int? AgentId { get; set; }

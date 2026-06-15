@@ -72,6 +72,16 @@ app.UseRouting();
 
 app.UseSwagger();
 
+app.UseSwaggerUI(c => // should open variable type information automatically but dont think it does
+{
+    c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
+
+    // Shows the model schemas (data types) by default
+    c.DefaultModelRendering(Swashbuckle.AspNetCore.SwaggerUI.ModelRendering.Model);
+
+    // Pre-expands the nested fields inside the endpoints
+    c.DefaultModelExpandDepth(3);
+});
 
 // Register endpoints from the extension method
 app.MapAPIEndpoints();

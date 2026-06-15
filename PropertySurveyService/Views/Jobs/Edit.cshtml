@@ -61,6 +61,11 @@
             </div>
 
             <div class="form-group form-check">
+                <input asp-for="bIncludeSurvey" class="form-check-input" />
+                <label asp-for="bIncludeSurvey" class="form-check-label">Include Recent Survey</label>
+                <span asp-validation-for="bIncludeSurvey" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
                 <input asp-for="bRequestRepudiation" class="form-check-input" />
                 <label asp-for="bRequestRepudiation" class="form-check-label">Request Repudiation</label>
                 <span asp-validation-for="bRequestRepudiation" class="text-danger"></span>

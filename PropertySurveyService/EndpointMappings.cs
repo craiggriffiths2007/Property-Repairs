@@ -399,12 +399,17 @@ namespace PropertySurveyService
 
                 foreach (var job in jobs)
                 {
+                    JobHeader header = null;
+
                     var customer = db.Customer.FirstOrDefault(x => x.Id == job.CustomerId) ?? new Customer();
 
-                    var header = db.JobHeader
+                    if (job.bIncludeSurvey)
+                    {
+                        header = db.JobHeader
                         .Where(h => h.ContractCode == job.ContractCode && h.JobType == enum_job_type.Survey)
                         .OrderByDescending(h => h.DiaryDate)
                         .FirstOrDefault();
+                    }
 
                     Customer? c = db.Customer.FirstOrDefault<Customer>(x => x.Id == job.CustomerId);
 
@@ -499,7 +504,7 @@ namespace PropertySurveyService
 
                     var photoimages = new List<string>();
 
-                    //foreach (var surveyItem in items)
+                    if (job.bIncludeSurvey)
                     {
                         string pattern = $"{header.ContractCode:00000000}_______%"; // using _ as a wildcard ( would have been cAZ and dAZ )
 
@@ -532,25 +537,33 @@ namespace PropertySurveyService
                             }
                         }
                     }
-
-                    results.Add(new JobHeaderDTO
+                    if (job.bIncludeSurvey)
                     {
-                        //Job = new JobDTO(job, customer),
-                        Head = header,
-                        Items = db.Frame.Where(f => f.HeaderId == header.Id).ToList(),
-                        Panels = db.Panel.Where(p => p.HeaderId == header.Id).ToList(),
-                        Aluminia = db.Aluminium.Where(a => a.HeaderId == header.Id).ToList(),
-                        Bifolds = db.Bifolding.Where(b => b.HeaderId == header.Id).ToList(),
-                        Composites = db.Composite.Where(c => c.HeaderId == header.Id).ToList(),
-                        Cons = db.Conservatory.Where(c => c.HeaderId == header.Id).ToList(),
-                        Garages = db.Garage.Where(g => g.HeaderId == header.Id).ToList(),
-                        Glass = db.Glass.Where(g => g.HeaderId == header.Id).ToList(),
-                        Greens = db.Greenhouse.Where(g => g.HeaderId == header.Id).ToList(),
-                        Locks = db.Lockmech.Where(l => l.HeaderId == header.Id).ToList(),
-                        Timbers = db.Timber.Where(t => t.HeaderId == header.Id).ToList(),
-                        UPVCs = db.UPVC.Where(u => u.HeaderId == header.Id).ToList(),
-                        Images = images
-                    });
+                        results.Add(new JobHeaderDTO
+                        {
+                            Head = header,
+                            Items = db.Frame.Where(f => f.HeaderId == header.Id).ToList(),
+                            Panels = db.Panel.Where(p => p.HeaderId == header.Id).ToList(),
+                            Aluminia = db.Aluminium.Where(a => a.HeaderId == header.Id).ToList(),
+                            Bifolds = db.Bifolding.Where(b => b.HeaderId == header.Id).ToList(),
+                            Composites = db.Composite.Where(c => c.HeaderId == header.Id).ToList(),
+                            Cons = db.Conservatory.Where(c => c.HeaderId == header.Id).ToList(),
+                            Garages = db.Garage.Where(g => g.HeaderId == header.Id).ToList(),
+                            Glass = db.Glass.Where(g => g.HeaderId == header.Id).ToList(),
+                            Greens = db.Greenhouse.Where(g => g.HeaderId == header.Id).ToList(),
+                            Locks = db.Lockmech.Where(l => l.HeaderId == header.Id).ToList(),
+                            Timbers = db.Timber.Where(t => t.HeaderId == header.Id).ToList(),
+                            UPVCs = db.UPVC.Where(u => u.HeaderId == header.Id).ToList(),
+                            Images = images
+                        });
+                    }
+                    else
+                    {
+                        results.Add(new JobHeaderDTO
+                        {
+                            Head = header,
+                        });
+                    }
                 }
 
                 return Task.FromResult<IResult>(Results.Ok(results));
