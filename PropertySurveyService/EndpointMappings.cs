@@ -612,13 +612,12 @@ namespace PropertySurveyService
                 try
                 {
                     string directoryPath = @"D:\PropertySurveyImages";
-                    if (!Directory.Exists(directoryPath))
+                    if (Directory.Exists(directoryPath))
                     {
-                        Directory.CreateDirectory(directoryPath);
+                        string filePath = Path.Combine(directoryPath, imageDTO.Filename);
+                        byte[] fileBytes = Convert.FromBase64String(imageDTO.Data);
+                        File.WriteAllBytes(filePath, fileBytes);
                     }
-                    string filePath = Path.Combine(directoryPath, imageDTO.Filename);
-                    byte[] fileBytes = Convert.FromBase64String(imageDTO.Data);
-                    File.WriteAllBytes(filePath, fileBytes);
                 }
                 catch (Exception ex)
                 {
