@@ -7,17 +7,17 @@ using PropertySurveyService.ViewModels;
 
 public class AluminiumController : Controller
 {
-    private readonly AppDBContext _context;
+    private readonly IMainRepo data;
 
-    public AluminiumController(AppDBContext context)
+    public AluminiumController(IMainRepo _data)
     {
-        _context = context;
+        data = _data;
     }
 
     // GET: ALUMINIUMS
     public async Task<IActionResult> Index()    
     {
-        return View(await _context.Aluminium.ToListAsync());
+        return View(await data.db().Aluminium.ToListAsync());
     }
 
     // GET: ALUMINIUMS/Details/5
@@ -30,7 +30,7 @@ public class AluminiumController : Controller
             return NotFound();
         }
 
-        var aluminium = await _context.Aluminium
+        var aluminium = await data.db().Aluminium
             .FirstOrDefaultAsync(m => m.Id == id);
         if (aluminium == null)
         {
@@ -39,13 +39,7 @@ public class AluminiumController : Controller
 
         viewModel.Aluminium = aluminium;
 
-        string pattern = $"{aluminium.ContractCode:00000000}____{aluminium.item_number:000}%"; // using _ as a wildcard ( would have been cAZ and dAZ )
-
-        var photoimages = _context.Images
-            .Where(x => EF.Functions.Like(x.Filename, pattern))
-            .ToList();
-
-        viewModel.Images = photoimages ?? new List<PhotoImage>();
+        viewModel.Images = data.GetSurveyItemImages(aluminium.ContractCode, aluminium.item_number);
 
         return View(viewModel);
     }
@@ -65,8 +59,8 @@ public class AluminiumController : Controller
     {
         if (ModelState.IsValid)
         {
-            _context.Add(aluminium);
-            await _context.SaveChangesAsync();
+            data.db().Add(aluminium);
+            await data.db().SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
         return View(aluminium);
@@ -80,7 +74,7 @@ public class AluminiumController : Controller
             return NotFound();
         }
 
-        var aluminium = await _context.Aluminium.FindAsync(id);
+        var aluminium = await data.db().Aluminium.FindAsync(id);
         if (aluminium == null)
         {
             return NotFound();
@@ -104,8 +98,8 @@ public class AluminiumController : Controller
         {
             try
             {
-                _context.Update(aluminium);
-                await _context.SaveChangesAsync();
+                data.db().Update(aluminium);
+                await data.db().SaveChangesAsync();
             }
             catch (DbUpdateConcurrencyException)
             {
@@ -131,7 +125,7 @@ public class AluminiumController : Controller
             return NotFound();
         }
 
-        var aluminium = await _context.Aluminium
+        var aluminium = await data.db().Aluminium
             .FirstOrDefaultAsync(m => m.Id == id);
         if (aluminium == null)
         {
@@ -146,18 +140,18 @@ public class AluminiumController : Controller
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> DeleteConfirmed(int? id)
     {
-        var aluminium = await _context.Aluminium.FindAsync(id);
+        var aluminium = await data.db().Aluminium.FindAsync(id);
         if (aluminium != null)
         {
-            _context.Aluminium.Remove(aluminium);
+            data.db().Aluminium.Remove(aluminium);
         }
 
-        await _context.SaveChangesAsync();
+        await data.db().SaveChangesAsync();
         return RedirectToAction(nameof(Index));
     }
 
     private bool AluminiumExists(int? id)
     {
-        return _context.Aluminium.Any(e => e.Id == id);
+        return data.db().Aluminium.Any(e => e.Id == id);
     }
 }

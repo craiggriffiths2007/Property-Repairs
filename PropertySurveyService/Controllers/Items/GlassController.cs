@@ -7,17 +7,17 @@ using PropertySurveyService.ViewModels;
 
 public class GlassController : Controller
 {
-    private readonly AppDBContext _context;
+    private readonly IMainRepo data;
 
-    public GlassController(AppDBContext context)
+    public GlassController(IMainRepo _data)
     {
-        _context = context;
+        data = _data;
     }
 
     // GET: GLASSS
     public async Task<IActionResult> Index()    
     {
-        return View(await _context.Glass.ToListAsync());
+        return View(await data.db().Glass.ToListAsync());
     }
 
     // GET: GLASSS/Details/5
@@ -30,7 +30,7 @@ public class GlassController : Controller
             return NotFound();
         }
 
-        var glass = await _context.Glass
+        var glass = await data.db().Glass
             .FirstOrDefaultAsync(m => m.Id == id);
         if (glass == null)
         {
@@ -39,13 +39,7 @@ public class GlassController : Controller
 
         viewModel.Glass = glass;
 
-        string pattern = $"{glass.ContractCode:00000000}____{glass  .item_number:000}%"; // using _ as a wildcard ( would have been cAZ and dAZ )
-
-        var photoimages = _context.Images
-            .Where(x => EF.Functions.Like(x.Filename, pattern))
-            .ToList();
-
-        viewModel.Images = photoimages ?? new List<PhotoImage>();
+        viewModel.Images = data.GetSurveyItemImages(glass.ContractCode, glass.item_number);
 
         return View(viewModel);
     }
@@ -65,8 +59,8 @@ public class GlassController : Controller
     {
         if (ModelState.IsValid)
         {
-            _context.Add(glass);
-            await _context.SaveChangesAsync();
+            data.db().Add(glass);
+            await data.db().SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
         return View(glass);
@@ -80,7 +74,7 @@ public class GlassController : Controller
             return NotFound();
         }
 
-        var glass = await _context.Glass.FindAsync(id);
+        var glass = await data.db().Glass.FindAsync(id);
         if (glass == null)
         {
             return NotFound();
@@ -104,8 +98,8 @@ public class GlassController : Controller
         {
             try
             {
-                _context.Update(glass);
-                await _context.SaveChangesAsync();
+                data.db().Update(glass);
+                await data.db().SaveChangesAsync();
             }
             catch (DbUpdateConcurrencyException)
             {
@@ -131,7 +125,7 @@ public class GlassController : Controller
             return NotFound();
         }
 
-        var glass = await _context.Glass
+        var glass = await data.db().Glass
             .FirstOrDefaultAsync(m => m.Id == id);
         if (glass == null)
         {
@@ -146,18 +140,18 @@ public class GlassController : Controller
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> DeleteConfirmed(int? id)
     {
-        var glass = await _context.Glass.FindAsync(id);
+        var glass = await data.db().Glass.FindAsync(id);
         if (glass != null)
         {
-            _context.Glass.Remove(glass);
+            data.db().Glass.Remove(glass);
         }
 
-        await _context.SaveChangesAsync();
+        await data.db().SaveChangesAsync();
         return RedirectToAction(nameof(Index));
     }
 
     private bool GlassExists(int? id)
     {
-        return _context.Glass.Any(e => e.Id == id);
+        return data.db().Glass.Any(e => e.Id == id);
     }
 }

@@ -7,17 +7,17 @@ using PropertySurveyService.ViewModels;
 
 public class BifoldingController : Controller
 {
-    private readonly AppDBContext _context;
+    private readonly IMainRepo data;
 
-    public BifoldingController(AppDBContext context)
+    public BifoldingController(IMainRepo _data)
     {
-        _context = context;
+        data = _data;
     }
 
     // GET: BIFOLDINGS
     public async Task<IActionResult> Index()    
     {
-        return View(await _context.Bifolding.ToListAsync());
+        return View(await data.db().Bifolding.ToListAsync());
     }
 
     // GET: BIFOLDINGS/Details/5
@@ -30,7 +30,7 @@ public class BifoldingController : Controller
             return NotFound();
         }
 
-        var bifolding = await _context.Bifolding
+        var bifolding = await data.db().Bifolding
             .FirstOrDefaultAsync(m => m.Id == id);
         if (bifolding == null)
         {
@@ -39,13 +39,7 @@ public class BifoldingController : Controller
 
         viewModel.Bifolding = bifolding;
 
-        string pattern = $"{bifolding.ContractCode:00000000}____{bifolding.item_number:000}%"; // using _ as a wildcard ( would have been cAZ and dAZ )
-
-        var photoimages = _context.Images
-            .Where(x => EF.Functions.Like(x.Filename, pattern))
-            .ToList();
-
-        viewModel.Images = photoimages ?? new List<PhotoImage>();
+        viewModel.Images = data.GetSurveyItemImages(bifolding.ContractCode, bifolding.item_number);
 
         return View(viewModel);
     }
@@ -65,8 +59,8 @@ public class BifoldingController : Controller
     {
         if (ModelState.IsValid)
         {
-            _context.Add(bifolding);
-            await _context.SaveChangesAsync();
+            data.db().Add(bifolding);
+            await data.db().SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
         return View(bifolding);
@@ -80,7 +74,7 @@ public class BifoldingController : Controller
             return NotFound();
         }
 
-        var bifolding = await _context.Bifolding.FindAsync(id);
+        var bifolding = await data.db().Bifolding.FindAsync(id);
         if (bifolding == null)
         {
             return NotFound();
@@ -104,8 +98,8 @@ public class BifoldingController : Controller
         {
             try
             {
-                _context.Update(bifolding);
-                await _context.SaveChangesAsync();
+                data.db().Update(bifolding);
+                await data.db().SaveChangesAsync();
             }
             catch (DbUpdateConcurrencyException)
             {
@@ -131,7 +125,7 @@ public class BifoldingController : Controller
             return NotFound();
         }
 
-        var bifolding = await _context.Bifolding
+        var bifolding = await data.db().Bifolding
             .FirstOrDefaultAsync(m => m.Id == id);
         if (bifolding == null)
         {
@@ -146,18 +140,18 @@ public class BifoldingController : Controller
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> DeleteConfirmed(int? id)
     {
-        var bifolding = await _context.Bifolding.FindAsync(id);
+        var bifolding = await data.db().Bifolding.FindAsync(id);
         if (bifolding != null)
         {
-            _context.Bifolding.Remove(bifolding);
+            data.db().Bifolding.Remove(bifolding);
         }
 
-        await _context.SaveChangesAsync();
+        await data.db().SaveChangesAsync();
         return RedirectToAction(nameof(Index));
     }
 
     private bool BifoldingExists(int? id)
     {
-        return _context.Bifolding.Any(e => e.Id == id);
+        return data.db().Bifolding.Any(e => e.Id == id);
     }
 }

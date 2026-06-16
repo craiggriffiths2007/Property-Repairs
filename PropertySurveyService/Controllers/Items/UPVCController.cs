@@ -7,17 +7,17 @@ using PropertySurveyService.ViewModels;
 
 public class UPVCController : Controller
 {
-    private readonly AppDBContext _context;
+    private readonly IMainRepo data;
 
-    public UPVCController(AppDBContext context)
+    public UPVCController(IMainRepo _db)
     {
-        _context = context;
+        data = _db;
     }
 
     // GET: UPVCS
     public async Task<IActionResult> Index()    
     {
-        return View(await _context.UPVC.ToListAsync());
+        return View(await data.db().UPVC.ToListAsync());
     }
 
     // GET: UPVCS/Details/5
@@ -29,7 +29,7 @@ public class UPVCController : Controller
             return NotFound();
         }
 
-        var upvc = await _context.UPVC
+        var upvc = await data.db().UPVC
             .FirstOrDefaultAsync(m => m.Id == id);
         if (upvc == null)
         {
@@ -38,13 +38,7 @@ public class UPVCController : Controller
 
         viewModel.UPVC = upvc;
 
-        string pattern = $"{upvc.ContractCode:00000000}____{upvc.item_number:000}%"; // using _ as a wildcard ( would have been cAZ and dAZ )
-
-        var photoimages = _context.Images
-            .Where(x => EF.Functions.Like(x.Filename, pattern))
-            .ToList();
-
-        viewModel.Images = photoimages ?? new List<PhotoImage>();
+        viewModel.Images = data.GetSurveyItemImages(upvc.ContractCode, upvc.item_number);
 
         return View(viewModel);
     }
@@ -64,8 +58,8 @@ public class UPVCController : Controller
     {
         if (ModelState.IsValid)
         {
-            _context.Add(upvc);
-            await _context.SaveChangesAsync();
+            data.db().Add(upvc);
+            await data.db().SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
         return View(upvc);
@@ -79,7 +73,7 @@ public class UPVCController : Controller
             return NotFound();
         }
 
-        var upvc = await _context.UPVC.FindAsync(id);
+        var upvc = await data.db().UPVC.FindAsync(id);
         if (upvc == null)
         {
             return NotFound();
@@ -103,8 +97,8 @@ public class UPVCController : Controller
         {
             try
             {
-                _context.Update(upvc);
-                await _context.SaveChangesAsync();
+                data.db().Update(upvc);
+                await data.db().SaveChangesAsync();
             }
             catch (DbUpdateConcurrencyException)
             {
@@ -130,7 +124,7 @@ public class UPVCController : Controller
             return NotFound();
         }
 
-        var upvc = await _context.UPVC
+        var upvc = await data.db().UPVC
             .FirstOrDefaultAsync(m => m.Id == id);
         if (upvc == null)
         {
@@ -145,18 +139,18 @@ public class UPVCController : Controller
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> DeleteConfirmed(int? id)
     {
-        var upvc = await _context.UPVC.FindAsync(id);
+        var upvc = await data.db().UPVC.FindAsync(id);
         if (upvc != null)
         {
-            _context.UPVC.Remove(upvc);
+            data.db().UPVC.Remove(upvc);
         }
 
-        await _context.SaveChangesAsync();
+        await data.db().SaveChangesAsync();
         return RedirectToAction(nameof(Index));
     }
 
     private bool UPVCExists(int? id)
     {
-        return _context.UPVC.Any(e => e.Id == id);
+        return data.db().UPVC.Any(e => e.Id == id);
     }
 }

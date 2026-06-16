@@ -7,17 +7,17 @@ using PropertySurveyService.ViewModels;
 
 public class GarageController : Controller
 {
-    private readonly AppDBContext _context;
+    private readonly IMainRepo data;
 
-    public GarageController(AppDBContext context)
+    public GarageController(IMainRepo _data)
     {
-        _context = context;
+        data = _data;
     }
 
     // GET: GARAGES
     public async Task<IActionResult> Index()    
     {
-        return View(await _context.Garage.ToListAsync());
+        return View(await data.db().Garage.ToListAsync());
     }
 
     // GET: GARAGES/Details/5
@@ -30,7 +30,7 @@ public class GarageController : Controller
             return NotFound();
         }
 
-        var garage = await _context.Garage
+        var garage = await data.db().Garage
             .FirstOrDefaultAsync(m => m.Id == id);
         if (garage == null)
         {
@@ -38,13 +38,7 @@ public class GarageController : Controller
         }
         viewModel.Garage = garage;
 
-        string pattern = $"{garage.ContractCode:00000000}____{garage.item_number:000}%"; // using _ as a wildcard ( would have been cAZ and dAZ )
-
-        var photoimages = _context.Images
-            .Where(x => EF.Functions.Like(x.Filename, pattern))
-            .ToList();
-
-        viewModel.Images = photoimages ?? new List<PhotoImage>();
+        viewModel.Images = data.GetSurveyItemImages(garage.ContractCode, garage.item_number);
 
         return View(viewModel);
     }
@@ -64,8 +58,8 @@ public class GarageController : Controller
     {
         if (ModelState.IsValid)
         {
-            _context.Add(garage);
-            await _context.SaveChangesAsync();
+            data.db().Add(garage);
+            await data.db().SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
         return View(garage);
@@ -79,7 +73,7 @@ public class GarageController : Controller
             return NotFound();
         }
 
-        var garage = await _context.Garage.FindAsync(id);
+        var garage = await data.db().Garage.FindAsync(id);
         if (garage == null)
         {
             return NotFound();
@@ -103,8 +97,8 @@ public class GarageController : Controller
         {
             try
             {
-                _context.Update(garage);
-                await _context.SaveChangesAsync();
+                data.db().Update(garage);
+                await data.db().SaveChangesAsync();
             }
             catch (DbUpdateConcurrencyException)
             {
@@ -130,7 +124,7 @@ public class GarageController : Controller
             return NotFound();
         }
 
-        var garage = await _context.Garage
+        var garage = await data.db().Garage
             .FirstOrDefaultAsync(m => m.Id == id);
         if (garage == null)
         {
@@ -145,18 +139,18 @@ public class GarageController : Controller
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> DeleteConfirmed(int? id)
     {
-        var garage = await _context.Garage.FindAsync(id);
+        var garage = await data.db().Garage.FindAsync(id);
         if (garage != null)
         {
-            _context.Garage.Remove(garage);
+            data.db().Garage.Remove(garage);
         }
 
-        await _context.SaveChangesAsync();
+        await data.db().SaveChangesAsync();
         return RedirectToAction(nameof(Index));
     }
 
     private bool GarageExists(int? id)
     {
-        return _context.Garage.Any(e => e.Id == id);
+        return data.db().Garage.Any(e => e.Id == id);
     }
 }

@@ -7,17 +7,17 @@ using PropertySurveyService.ViewModels;
 
 public class CompositeController : Controller
 {
-    private readonly AppDBContext _context;
+    private readonly IMainRepo data;
 
-    public CompositeController(AppDBContext context)
+    public CompositeController(IMainRepo _data)
     {
-        _context = context;
+        data = _data;
     }
 
     // GET: COMPOSITES
     public async Task<IActionResult> Index()    
     {
-        return View(await _context.Composite.ToListAsync());
+        return View(await data.db().Composite.ToListAsync());
     }
 
     // GET: COMPOSITES/Details/5
@@ -29,7 +29,7 @@ public class CompositeController : Controller
             return NotFound();
         }
 
-        var composite = await _context.Composite
+        var composite = await data.db().Composite
             .FirstOrDefaultAsync(m => m.Id == id);
         if (composite == null)
         {
@@ -38,13 +38,7 @@ public class CompositeController : Controller
 
         viewModel.Composite = composite;
 
-        string pattern = $"{composite.ContractCode:00000000}____{composite.item_number:000}%"; // using _ as a wildcard ( would have been cAZ and dAZ )
-
-        var photoimages = _context.Images
-            .Where(x => EF.Functions.Like(x.Filename, pattern))
-            .ToList();
-
-        viewModel.Images = photoimages ?? new List<PhotoImage>();
+        viewModel.Images = data.GetSurveyItemImages(composite.ContractCode, composite.item_number);
 
         return View(viewModel);
     }
@@ -64,8 +58,8 @@ public class CompositeController : Controller
     {
         if (ModelState.IsValid)
         {
-            _context.Add(composite);
-            await _context.SaveChangesAsync();
+            data.db().Add(composite);
+            await data.db().SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
         return View(composite);
@@ -79,7 +73,7 @@ public class CompositeController : Controller
             return NotFound();
         }
 
-        var composite = await _context.Composite.FindAsync(id);
+        var composite = await data.db().Composite.FindAsync(id);
         if (composite == null)
         {
             return NotFound();
@@ -103,8 +97,8 @@ public class CompositeController : Controller
         {
             try
             {
-                _context.Update(composite);
-                await _context.SaveChangesAsync();
+                data.db().Update(composite);
+                await data.db().SaveChangesAsync();
             }
             catch (DbUpdateConcurrencyException)
             {
@@ -130,7 +124,7 @@ public class CompositeController : Controller
             return NotFound();
         }
 
-        var composite = await _context.Composite
+        var composite = await data.db().Composite
             .FirstOrDefaultAsync(m => m.Id == id);
         if (composite == null)
         {
@@ -145,18 +139,18 @@ public class CompositeController : Controller
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> DeleteConfirmed(int? id)
     {
-        var composite = await _context.Composite.FindAsync(id);
+        var composite = await data.db().Composite.FindAsync(id);
         if (composite != null)
         {
-            _context.Composite.Remove(composite);
+            data.db().Composite.Remove(composite);
         }
 
-        await _context.SaveChangesAsync();
+        await data.db().SaveChangesAsync();
         return RedirectToAction(nameof(Index));
     }
 
     private bool CompositeExists(int? id)
     {
-        return _context.Composite.Any(e => e.Id == id);
+        return data.db().Composite.Any(e => e.Id == id);
     }
 }

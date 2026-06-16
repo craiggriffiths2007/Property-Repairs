@@ -7,17 +7,17 @@ using PropertySurveyService.ViewModels;
 
 public class ConservatoryController : Controller
 {
-    private readonly AppDBContext _context;
+    private readonly IMainRepo data;
 
-    public ConservatoryController(AppDBContext context)
+    public ConservatoryController(IMainRepo _data)
     {
-        _context = context;
+        data = _data;
     }
 
     // GET: CONSERVATORYS
     public async Task<IActionResult> Index()    
     {
-        return View(await _context.Conservatory.ToListAsync());
+        return View(await data.db().Conservatory.ToListAsync());
     }
 
     // GET: CONSERVATORYS/Details/5
@@ -30,7 +30,7 @@ public class ConservatoryController : Controller
             return NotFound();
         }
 
-        var conservatory = await _context.Conservatory
+        var conservatory = await data.db().Conservatory
             .FirstOrDefaultAsync(m => m.Id == id);
         if (conservatory == null)
         {
@@ -39,13 +39,7 @@ public class ConservatoryController : Controller
 
         viewModel.Conservatory = conservatory;
 
-        string pattern = $"{conservatory.ContractCode:00000000}____{conservatory.item_number:000}%"; // using _ as a wildcard ( would have been cAZ and dAZ )
-
-        var photoimages = _context.Images
-            .Where(x => EF.Functions.Like(x.Filename, pattern))
-            .ToList();
-
-        viewModel.Images = photoimages ?? new List<PhotoImage>();
+        viewModel.Images = data.GetSurveyItemImages(conservatory.ContractCode, conservatory.item_number);
 
         return View(viewModel);
     }
@@ -65,8 +59,8 @@ public class ConservatoryController : Controller
     {
         if (ModelState.IsValid)
         {
-            _context.Add(conservatory);
-            await _context.SaveChangesAsync();
+            data.db().Add(conservatory);
+            await data.db().SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
         return View(conservatory);
@@ -80,7 +74,7 @@ public class ConservatoryController : Controller
             return NotFound();
         }
 
-        var conservatory = await _context.Conservatory.FindAsync(id);
+        var conservatory = await data.db().Conservatory.FindAsync(id);
         if (conservatory == null)
         {
             return NotFound();
@@ -104,8 +98,8 @@ public class ConservatoryController : Controller
         {
             try
             {
-                _context.Update(conservatory);
-                await _context.SaveChangesAsync();
+                data.db().Update(conservatory);
+                await data.db().SaveChangesAsync();
             }
             catch (DbUpdateConcurrencyException)
             {
@@ -131,7 +125,7 @@ public class ConservatoryController : Controller
             return NotFound();
         }
 
-        var conservatory = await _context.Conservatory
+        var conservatory = await data.db().Conservatory
             .FirstOrDefaultAsync(m => m.Id == id);
         if (conservatory == null)
         {
@@ -146,18 +140,18 @@ public class ConservatoryController : Controller
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> DeleteConfirmed(int? id)
     {
-        var conservatory = await _context.Conservatory.FindAsync(id);
+        var conservatory = await data.db().Conservatory.FindAsync(id);
         if (conservatory != null)
         {
-            _context.Conservatory.Remove(conservatory);
+            data.db().Conservatory.Remove(conservatory);
         }
 
-        await _context.SaveChangesAsync();
+        await data.db().SaveChangesAsync();
         return RedirectToAction(nameof(Index));
     }
 
     private bool ConservatoryExists(int? id)
     {
-        return _context.Conservatory.Any(e => e.Id == id);
+        return data.db().Conservatory.Any(e => e.Id == id);
     }
 }

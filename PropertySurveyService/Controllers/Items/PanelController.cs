@@ -6,17 +6,17 @@ using PropertySurveyService.Data;
 using PropertySurveyService.ViewModels;
 public class PanelController : Controller
 {
-    private readonly AppDBContext _context;
+    private readonly IMainRepo data;
 
-    public PanelController(AppDBContext context)
+    public PanelController(IMainRepo _data)
     {
-        _context = context;
+        data = _data;
     }
 
     // GET: PANELS
     public async Task<IActionResult> Index()    
     {
-        return View(await _context.Panel.ToListAsync());
+        return View(await data.db().Panel.ToListAsync());
     }
 
     // GET: PANELS/Details/5
@@ -29,7 +29,7 @@ public class PanelController : Controller
             return NotFound();
         }
 
-        var panel = await _context.Panel
+        var panel = await data.db().Panel
             .FirstOrDefaultAsync(m => m.Id == id);
         if (panel == null)
         {
@@ -38,13 +38,7 @@ public class PanelController : Controller
 
         viewModel.Panel = panel;
 
-        string pattern = $"{panel.ContractCode:00000000}____{panel.item_number:000}%"; // using _ as a wildcard ( would have been cAZ and dAZ )
-
-        var photoimages = _context.Images
-            .Where(x => EF.Functions.Like(x.Filename, pattern))
-            .ToList();
-
-        viewModel.Images = photoimages ?? new List<PhotoImage>();
+        viewModel.Images = data.GetSurveyItemImages(panel.ContractCode, panel.item_number);
 
         return View(viewModel);
     }
@@ -64,8 +58,8 @@ public class PanelController : Controller
     {
         if (ModelState.IsValid)
         {
-            _context.Add(panel);
-            await _context.SaveChangesAsync();
+            data.db().Add(panel);
+            await data.db().SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
         return View(panel);
@@ -79,7 +73,7 @@ public class PanelController : Controller
             return NotFound();
         }
 
-        var panel = await _context.Panel.FindAsync(id);
+        var panel = await data.db().Panel.FindAsync(id);
         if (panel == null)
         {
             return NotFound();
@@ -103,8 +97,8 @@ public class PanelController : Controller
         {
             try
             {
-                _context.Update(panel);
-                await _context.SaveChangesAsync();
+                data.db().Update(panel);
+                await data.db().SaveChangesAsync();
             }
             catch (DbUpdateConcurrencyException)
             {
@@ -130,7 +124,7 @@ public class PanelController : Controller
             return NotFound();
         }
 
-        var panel = await _context.Panel
+        var panel = await data.db().Panel
             .FirstOrDefaultAsync(m => m.Id == id);
         if (panel == null)
         {
@@ -145,18 +139,18 @@ public class PanelController : Controller
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> DeleteConfirmed(int? id)
     {
-        var panel = await _context.Panel.FindAsync(id);
+        var panel = await data.db().Panel.FindAsync(id);
         if (panel != null)
         {
-            _context.Panel.Remove(panel);
+            data.db().Panel.Remove(panel);
         }
 
-        await _context.SaveChangesAsync();
+        await data.db().SaveChangesAsync();
         return RedirectToAction(nameof(Index));
     }
 
     private bool PanelExists(int? id)
     {
-        return _context.Panel.Any(e => e.Id == id);
+        return data.db().Panel.Any(e => e.Id == id);
     }
 }
