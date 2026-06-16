@@ -404,7 +404,7 @@ namespace PropertySurveyService.Models
 
 
         [DisplayName("Excess Amount")]
-        public double uc_excess { get; set; }
+        public string Excess { get; set; } = "";
 
         [DisplayName("Additional Amount")]
         public string additional_ammount_str { get; set; } = "";

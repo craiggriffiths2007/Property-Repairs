@@ -412,7 +412,7 @@ namespace PropertySurveyService
                     }
 
                     Customer? c = db.Customer.FirstOrDefault<Customer>(x => x.Id == job.CustomerId);
-
+                    
                     if (c == null)
                         c = new Customer();
 
@@ -442,7 +442,8 @@ namespace PropertySurveyService
                     header.IncidentDate = j.IncidentDate;
                     header.CauseOfDamage = j.CauseOfDamage;
                     header.Instructions = j.Instructions;
-                    header.PolicyNumber = "001";
+                    header.PolicyNumber = j.PolicyNumber;
+                    header.Excess = j.Excess;
                     header.ClientPhoneNumber = j.Phone1;
                     header.ClientPhoneNumber2 = j.Phone2;
                     header.ClientPhoneNumber3 = j.Phone3;

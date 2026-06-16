@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using PropertySurveyService.Migrations;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -30,6 +31,11 @@ namespace PropertySurveyService.Models
 
         [Display(Name = "Insurance Company Name")]
         public string InsuranceCompanyName { get; set; } = "";
+        [Display(Name = "Excess")]
+        public string Excess { get; set; } = "";
+
+        [Display(Name = "Policy Number")]
+        public string PolicyNumber { get; set; } = "";
 
         [Display(Name = "Cause of damage")]
         public string CauseOfDamage { get; set; } = "";
@@ -97,6 +103,10 @@ namespace PropertySurveyService.Models
         public string CauseOfDamage { get; set; } = "";
         public string DamageDesc { get; set; } = "";
         public string Instructions { get; set; } = "";
+
+        public string Excess { get; set; } = "";
+        public string PolicyNumber { get; set; } = "";
+
         [DisplayName("Insurance Company")]
         public string InsuranceCompanyName { get; set; } = "";
         public bool bRequestRepudiation { get; set; } = false;
@@ -107,22 +117,22 @@ namespace PropertySurveyService.Models
         { 
             
 
-            (Id, ContractId, ContractCode, DiaryDate, Time, EndTime, Name, Add1, Add2, Add3, Postcode, Phone1, Phone2, Phone3, DamageDesc, Instructions, CauseOfDamage, IncidentDate, bRequestRepudiation, InsuranceCompanyName, JobType) =
+            (Id, ContractId, ContractCode, DiaryDate, Time, EndTime, Name, Add1, Add2, Add3, Postcode, Phone1, Phone2, Phone3, DamageDesc, Instructions, CauseOfDamage, IncidentDate, bRequestRepudiation, InsuranceCompanyName, JobType, Excess, PolicyNumber) =
 
             (jobItem.Id, jobItem.ContractId, jobItem.ContractCode, jobItem.DiaryDate, jobItem.Time.ToShortTimeString(), jobItem.Time.AddHours(1).ToShortTimeString(), custItem.Name,
                 custItem.Add1, custItem.Add2, custItem.Add3, custItem.Postcode, custItem.Phone1,
-                custItem.Phone2, custItem.Phone3, jobItem.DamageDesc, jobItem.Instructions, jobItem.CauseOfDamage, jobItem.IncidentDate.ToShortDateString(),jobItem.bRequestRepudiation, jobItem.InsuranceCompanyName, jobItem.JobType);
+                custItem.Phone2, custItem.Phone3, jobItem.DamageDesc, jobItem.Instructions, jobItem.CauseOfDamage, jobItem.IncidentDate.ToShortDateString(),jobItem.bRequestRepudiation, jobItem.InsuranceCompanyName, jobItem.JobType, jobItem.Excess, jobItem.PolicyNumber);
 
         }
 
         public JobContractDTO(Contract contractItem, Customer custItem)
         {
 
-            (Id, ContractId, ContractCode, Name, Add1, Add2, Add3, Postcode, Phone1, Phone2, Phone3, DamageDesc,CauseOfDamage, IncidentDate,  InsuranceCompanyName) =
+            (Id, ContractId, ContractCode, Name, Add1, Add2, Add3, Postcode, Phone1, Phone2, Phone3, DamageDesc,CauseOfDamage, IncidentDate,  InsuranceCompanyName, Excess, PolicyNumber) =
 
             (contractItem.Id, contractItem.Id, contractItem.ContractCode, custItem.Name,
                 custItem.Add1, custItem.Add2, custItem.Add3, custItem.Postcode, custItem.Phone1,
-                custItem.Phone2, custItem.Phone3, contractItem.DamageDescription, contractItem.CauseOfDamage, contractItem.IncidentDate.ToShortDateString(), contractItem.InsuranceCompanyName);
+                custItem.Phone2, custItem.Phone3, contractItem.DamageDescription, contractItem.CauseOfDamage, contractItem.IncidentDate.ToShortDateString(), contractItem.InsuranceCompanyName, contractItem.Excess, contractItem.PolicyNumber);
 
         }
     }

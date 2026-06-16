@@ -29,5 +29,11 @@ namespace PropertySurveyService.Models
 
         [DisplayName("Insurance Company")]
         public string InsuranceCompanyName { get; set; } = "";
+
+        [DisplayName("Excess")]
+        public string Excess { get; set; } = "";
+
+        [DisplayName("Policy Number")]
+        public string PolicyNumber { get; set; } = "";
     }
 }
