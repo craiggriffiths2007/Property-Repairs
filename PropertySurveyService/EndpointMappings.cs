@@ -451,56 +451,12 @@ namespace PropertySurveyService
 
                     if (job.JobType > enum_job_type.Survey)
                     {
-                        //header.FitDate = job.DiaryDate.ToShortDateString();
-                        //header.FitStartTime = job.Time.ToString(@"hh\:mm");
-                        //header.FitFinishTime = job.Time.Add(TimeSpan.FromHours(1)).ToString(@"hh\:mm");
                         header.FitInstructions = job.Instructions;
-                        //header.bSurvey = true;
-                        //header.bComplete = false;
-                        //header.bSent = false;
                     }
 
-                    // Get all the images for this header
                     var images = new List<string>();
-                    
-                    /*
-                    List<SurveyItem> items = new List<SurveyItem>();
 
-                    foreach (var n in Enum.GetValues(typeof(enum_item_type)))
-                    {
-                        switch (n)
-                        {
-                            case enum_item_type.upvc:
-                                foreach (var p in db.UPVC.Where(x => x.HeaderId == header.Id)) items.Add(p.AsSurveyItem()); break;
-                            case enum_item_type.panel:
-                                foreach (var p in db.Panel.Where(x => x.HeaderId == header.Id)) items.Add(p.AsSurveyItem()); break;
-                            case enum_item_type.glass:
-                                foreach (var p in db.Glass.Where(x => x.HeaderId == header.Id)) items.Add(p.AsSurveyItem()); break;
-                            case enum_item_type.alum:
-                                foreach (var p in db.Aluminium.Where(x => x.HeaderId == header.Id)) items.Add(p.AsSurveyItem()); break;
-                            case enum_item_type.garage:
-                                foreach (var p in db.Garage.Where(x => x.HeaderId == header.Id)) items.Add(p.AsSurveyItem()); break;
-                            case enum_item_type.timber:
-                                foreach (var p in db.Timber.Where(x => x.HeaderId == header.Id)) items.Add(p.AsSurveyItem()); break;
-                            case enum_item_type.bifold:
-                                foreach (var p in db.Bifolding.Where(x => x.HeaderId == header.Id)) items.Add(p.AsSurveyItem()); break;
-                            case enum_item_type.lockin:
-                                foreach (var p in db.Lockmech.Where(x => x.HeaderId == header.Id)) items.Add(p.AsSurveyItem()); break;
-                            case enum_item_type.green:
-                                foreach (var p in db.Greenhouse.Where(x => x.HeaderId == header.Id)) items.Add(p.AsSurveyItem()); break;
-                            case enum_item_type.comp:
-                                foreach (var p in db.Composite.Where(x => x.HeaderId == header.Id)) items.Add(p.AsSurveyItem()); break;
-                            case enum_item_type.cons:
-                                foreach (var p in db.Conservatory.Where(x => x.HeaderId == header.Id)) items.Add(p.AsSurveyItem()); break;
-                            case enum_item_type.frame:
-                                foreach (var p in db.Frame.Where(x => x.HeaderId == header.Id)) items.Add(p.AsSurveyItem()); break;
-                        }
-                    }
-                    */ // get all the images
-
-                    var photoimages = new List<string>();
-
-                    if (job.bIncludeSurvey)
+                    if (header.bSurvey == true)
                     {
                         string pattern = $"{header.ContractCode:00000000}_______%"; // using _ as a wildcard ( would have been cAZ and dAZ )
 
