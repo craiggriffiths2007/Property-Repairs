@@ -778,7 +778,7 @@ namespace PropertySurveyService.Models
         #endregion
 
         [DisplayName("Garage Door Motor")]
-        public int garage_door_motor { get; set; }
+        public bool? garage_door_motor { get; set; }
 
 
 

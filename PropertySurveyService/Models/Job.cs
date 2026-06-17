@@ -10,21 +10,21 @@ namespace PropertySurveyService.Models
         public int Id { get; set; }
         public int ContractId { get; set; }
         [Display(Name = "Contract Code")]
-        public string? ContractCode { get; set; }
+        public string? ContractCode { get; set; } = "";
 
         [Display(Name = "Job Type")]
-        public enum_job_type JobType { get; set; } // 0 - Survey 1 - Fitting
+        public enum_job_type JobType { get; set; } = enum_job_type.Survey;
 
         [Display(Name = "Diary Date")]
         [DataType(DataType.Date)]
 
-        public DateTime DiaryDate { get; set; }
+        public DateTime DiaryDate { get; set; } = DateTime.Today;
 
 
         [DisplayFormat(DataFormatString = "{0:HH:mm}", ApplyFormatInEditMode = true)]
         [Display(Name = "Job Time")]
         [DataType(DataType.Time)]
-        public DateTime Time { get; set; }
+        public DateTime Time { get; set; } = DateTime.Now;
 
         [Display(Name = "Incident Date")]
         public DateTime IncidentDate { get; set; } = DateTime.Today;

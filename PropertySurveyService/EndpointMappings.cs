@@ -313,7 +313,7 @@ namespace PropertySurveyService
                         await db.SaveChangesAsync();
                         int headerId = job.Head.Id;
 
-                         void SaveItems<T>(IEnumerable<T> items) where T : class
+                        void SaveItems<T>(IEnumerable<T> items) where T : class
                         {
                             if (items == null)
                                 return;
@@ -393,6 +393,8 @@ namespace PropertySurveyService
                 var jobs = db.Job
                     .Where(x => x.AgentId == agent.Id && (x.DiaryDate == DateTime.Today ||
                                                                             x.DiaryDate == DateTime.Today.AddDays(1)))
+                    .Include(x => x.Customer)
+                    .Include(x => x.Contract)
                     .ToList();
 
                 var results = new List<JobHeaderDTO>();
@@ -401,8 +403,6 @@ namespace PropertySurveyService
                 {
                     JobHeader header = null;
 
-                    var customer = db.Customer.FirstOrDefault(x => x.Id == job.CustomerId) ?? new Customer();
-
                     if (job.bIncludeSurvey)
                     {
                         header = db.JobHeader
@@ -410,13 +410,6 @@ namespace PropertySurveyService
                         .OrderByDescending(h => h.DiaryDate)
                         .FirstOrDefault();
                     }
-
-                    Customer? c = db.Customer.FirstOrDefault<Customer>(x => x.Id == job.CustomerId);
-                    
-                    if (c == null)
-                        c = new Customer();
-
-                    var j = new JobContractDTO(job, c);
 
                     if (header == null)
                     {
@@ -429,28 +422,30 @@ namespace PropertySurveyService
 
                     header.Guid = Guid.NewGuid();
                     header.JobType = job.JobType;
-                    header.ContractCode = j.ContractCode;
-                    header.DiaryDate = j.DiaryDate;
-                    header.ClientName = j.Name;
-                    header.ClientAddressLine1 = j.Add1;
-                    header.ClientAddressLine2 = j.Add2;
-                    header.ClientAddressLine3 = j.Add3;
-                    header.ClientPostcode = j.Postcode;
+                    header.ContractCode = job.ContractCode;
+                    header.bRequestRepudiation = job.bRequestRepudiation;
+                    header.Instructions = job.Instructions;
                     header.JobInstructions = "";
-                    header.StartTime = j.Time;
-                    header.FinishTime = j.EndTime;
-                    header.IncidentDate = j.IncidentDate;
-                    header.CauseOfDamage = j.CauseOfDamage;
-                    header.Instructions = j.Instructions;
-                    header.PolicyNumber = j.PolicyNumber;
-                    header.Excess = j.Excess;
-                    header.ClientPhoneNumber = j.Phone1;
-                    header.ClientPhoneNumber2 = j.Phone2;
-                    header.ClientPhoneNumber3 = j.Phone3;
-                    header.IncidentDate = j.IncidentDate;
-                    header.DamageDescription = j.DamageDesc;
-                    header.bRequestRepudiation = j.bRequestRepudiation;
-                    header.InsuranceCompanyName = j.InsuranceCompanyName;
+                    header.StartTime = job.Time.ToShortTimeString();
+                    header.FinishTime = job.Time.AddHours(1).ToShortTimeString(); // doesnt have a finish time yet
+                    header.DiaryDate = job.DiaryDate;
+
+                    header.ClientName = job.Customer.Name;
+                    header.ClientAddressLine1 = job.Customer.Add1;
+                    header.ClientAddressLine2 = job.Customer.Add2;
+                    header.ClientAddressLine3 = job.Customer.Add3;
+                    header.ClientPostcode = job.Customer.Postcode;
+                    header.ClientPhoneNumber = job.Customer.Phone1;
+                    header.ClientPhoneNumber2 = job.Customer.Phone2;
+                    header.ClientPhoneNumber3 = job.Customer.Phone3;
+
+                    header.InsuranceCompanyName = job.Contract.InsuranceCompanyName;
+                    header.IncidentDate = job.Contract.IncidentDate.ToShortDateString();
+                    header.CauseOfDamage = job.Contract.CauseOfDamage;
+                    header.PolicyNumber = job.Contract.PolicyNumber;
+                    header.Excess = job.Contract.Excess;
+                    header.DamageDescription = job.Contract.DamageDescription;
+
                     header.bComplete = false;
                     header.bSent = false;
 

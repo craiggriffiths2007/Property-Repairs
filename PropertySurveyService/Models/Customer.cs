@@ -8,23 +8,23 @@ namespace PropertySurveyService.Models
         public int Id { get; set; }
 
         [Display(Name = "Customer Name")]
-        public string? Name { get; set; }
-   
+        public string? Name { get; set; } = "";
+
         [Display(Name = "Address")]
-        public string? Add1 { get; set; }
+        public string? Add1 { get; set; } = "";
         [Display(Name = "Address 2")]
-        public string? Add2 { get; set; }
+        public string? Add2 { get; set; } = "";
         [Display(Name = "Address 3")]
-        public string? Add3 { get; set; }
- 
+        public string? Add3 { get; set; } = "";
+
         [Display(Name = "Postcode")]
-        public string? Postcode { get; set; }
-   
+        public string? Postcode { get; set; } = "";
+
         [Display(Name = "Mobile Phone")]
-        public string? Phone1 { get; set; }
+        public string? Phone1 { get; set; } = "";
         [Display(Name = "Home Phone")]
-        public string? Phone2 { get; set; }
+        public string? Phone2 { get; set; } = "";
         [Display(Name = "Work Phone")]
-        public string? Phone3 { get; set; }
+        public string? Phone3 { get; set; } = "";
     }
 }
