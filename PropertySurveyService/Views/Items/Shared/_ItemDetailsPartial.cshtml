@@ -63,6 +63,21 @@
             var value = item.Property.GetValue(Model);
 
             <div>
+            @switch(item.Label)
+            {
+                    case "Plan Size A":
+                        <img src="@(Url.Content("~/img/garageplan.png"))" class="img-fluid rounded" />
+                        break;
+                    case "Side Size A":
+                        <img src="@(Url.Content("~/img/garageside.png"))" class="img-fluid rounded" />
+                        break;
+                }
+            </div>
+          
+
+
+            <div>
+
                 @item.Label:
                 <strong>
                     @if (value is bool b)
