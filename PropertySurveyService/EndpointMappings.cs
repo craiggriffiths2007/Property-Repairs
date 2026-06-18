@@ -350,7 +350,7 @@ namespace PropertySurveyService
                         job.Locks.ForEach(o => o.Id = 0);
                         job.Timbers.ForEach(o => o.Id = 0);
                         job.UPVCs.ForEach(o => o.Id = 0);
-
+                        /*
                         foreach (var item in job.Items) { db.Frame.Where(l => l.Guid == item.Guid).ExecuteDelete(); }
                         foreach (var item in job.Panels) { db.Panel.Where(l => l.Guid == item.Guid).ExecuteDelete(); }
                         foreach (var item in job.Aluminia) { db.Aluminium.Where(l => l.Guid == item.Guid).ExecuteDelete(); }
@@ -363,7 +363,7 @@ namespace PropertySurveyService
                         foreach (var item in job.Locks) { db.Lockmech.Where(l => l.Guid == item.Guid).ExecuteDelete(); }
                         foreach (var item in job.Timbers) { db.Timber.Where(l => l.Guid == item.Guid).ExecuteDelete(); }
                         foreach (var item in job.UPVCs) { db.UPVC.Where(l => l.Guid == item.Guid).ExecuteDelete(); }
-
+                        */
                         SaveItems(job.Items);
                         SaveItems(job.Panels);
                         SaveItems(job.Aluminia);
@@ -410,6 +410,8 @@ namespace PropertySurveyService
                         .Where(h => h.ContractCode == job.ContractCode &&
                                     h.JobType == enum_job_type.Survey)
                         .OrderByDescending(h => h.DiaryDate)
+                        .OrderByDescending(h => h.Id)
+
                         .FirstOrDefault() ?? new JobHeader();
 
                         if (jobHeader.Id > 0) // 
