@@ -781,30 +781,41 @@ namespace PropertySurveyService.Models
         public bool? garage_door_motor { get; set; }
 
 
-
+        [Browsable(false)]
         [DisplayName("GD Type")]
         public string gdm_door_type { get; set; } = "";
+        [Browsable(false)]
         [DisplayName("GD Model Type")]
         public string gdm_model_type { get; set; } = "";
+        [Browsable(false)]
         [DisplayName("GD Unique Serial Number")]
         public string gdm_unique_serial { get; set; } = "";
+        [Browsable(false)]
         [DisplayName("GD Size")]
         public string gdm_door_size { get; set; } = "";
+        [Browsable(false)]
         [DisplayName("GD Manufacturer")]
         public string gdm_door_manufacturer { get; set; } = "";
+        [Browsable(false)]
         [DisplayName("GD Powered Operator Type")]
         public string gdm_powerered_operator_type { get; set; } = "";
+        [Browsable(false)]
         [DisplayName("GD Operator Type")]
         public string gdm_operator_type { get; set; } = "";
+        [Browsable(false)]
         [DisplayName("GD Operator Manufactured By")]
         public string gdm_operator_manufacturer { get; set; } = "";
+        [Browsable(false)]
         [DisplayName("GD Site Address")]
 
         public string gdm_site_address { get; set; } = "";
+        [Browsable(false)]
         [DisplayName("GD Decleration made by")]
         public string gdm_dec_made_by { get; set; } = "";
+        [Browsable(false)]
         [DisplayName("GD Customer Name")]
         public string gdm_cust_name { get; set; } = "";
+        [Browsable(false)]
         [DisplayName("GD Sign Date")]
         public string gdm_sign_date { get; set; } = "";
 

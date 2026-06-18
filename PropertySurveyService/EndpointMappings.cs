@@ -391,8 +391,9 @@ namespace PropertySurveyService
                     return Task.FromResult<IResult>(Results.BadRequest(new { ReasonPhrase = "Agent Code Not Found : " + gs.AgentCode }));
 
                 var jobs = db.Job
-                    .Where(x => x.AgentId == agent.Id && (x.DiaryDate == DateTime.Today ||
-                                                                            x.DiaryDate == DateTime.Today.AddDays(1)))
+                    .Where(x => x.AgentId == agent.Id && 
+                    (x.DiaryDate == DateTime.Today ||
+                      x.DiaryDate == DateTime.Today.AddDays(1)))
                     .Include(x => x.Customer)
                     .Include(x => x.Contract)
                     .ToList();
@@ -401,64 +402,61 @@ namespace PropertySurveyService
 
                 foreach (var job in jobs)
                 {
-                    JobHeader header = null;
+                    JobHeader jobHeader = new JobHeader();
 
                     if (job.bIncludeSurvey)
                     {
-                        header = db.JobHeader
-                        .Where(h => h.ContractCode == job.ContractCode && h.JobType == enum_job_type.Survey)
+                        jobHeader = db.JobHeader
+                        .Where(h => h.ContractCode == job.ContractCode &&
+                                    h.JobType == enum_job_type.Survey)
                         .OrderByDescending(h => h.DiaryDate)
-                        .FirstOrDefault();
+                        .FirstOrDefault() ?? new JobHeader();
+
+                        if (jobHeader.Id > 0) // 
+                        {
+                            jobHeader.bSurvey = true;
+                        }
                     }
 
-                    if (header == null)
-                    {
-                        header = new JobHeader();
-                    }
-                    else
-                    {
-                        header.bSurvey = true;
-                    }
+                    jobHeader.Guid = Guid.NewGuid();
+                    jobHeader.JobType = job.JobType;
+                    jobHeader.ContractCode = job.ContractCode;
+                    jobHeader.bRequestRepudiation = job.bRequestRepudiation;
+                    jobHeader.Instructions = job.Instructions;
+                    jobHeader.JobInstructions = "";
+                    jobHeader.StartTime = job.Time.ToShortTimeString();
+                    jobHeader.FinishTime = job.Time.AddHours(1).ToShortTimeString(); // doesnt have a finish time yet
+                    jobHeader.DiaryDate = job.DiaryDate;
 
-                    header.Guid = Guid.NewGuid();
-                    header.JobType = job.JobType;
-                    header.ContractCode = job.ContractCode;
-                    header.bRequestRepudiation = job.bRequestRepudiation;
-                    header.Instructions = job.Instructions;
-                    header.JobInstructions = "";
-                    header.StartTime = job.Time.ToShortTimeString();
-                    header.FinishTime = job.Time.AddHours(1).ToShortTimeString(); // doesnt have a finish time yet
-                    header.DiaryDate = job.DiaryDate;
+                    jobHeader.ClientName = job.Customer.Name;
+                    jobHeader.ClientAddressLine1 = job.Customer.Add1;
+                    jobHeader.ClientAddressLine2 = job.Customer.Add2;
+                    jobHeader.ClientAddressLine3 = job.Customer.Add3;
+                    jobHeader.ClientPostcode = job.Customer.Postcode;
+                    jobHeader.ClientPhoneNumber = job.Customer.Phone1;
+                    jobHeader.ClientPhoneNumber2 = job.Customer.Phone2;
+                    jobHeader.ClientPhoneNumber3 = job.Customer.Phone3;
 
-                    header.ClientName = job.Customer.Name;
-                    header.ClientAddressLine1 = job.Customer.Add1;
-                    header.ClientAddressLine2 = job.Customer.Add2;
-                    header.ClientAddressLine3 = job.Customer.Add3;
-                    header.ClientPostcode = job.Customer.Postcode;
-                    header.ClientPhoneNumber = job.Customer.Phone1;
-                    header.ClientPhoneNumber2 = job.Customer.Phone2;
-                    header.ClientPhoneNumber3 = job.Customer.Phone3;
+                    jobHeader.InsuranceCompanyName = job.Contract.InsuranceCompanyName;
+                    jobHeader.IncidentDate = job.Contract.IncidentDate.ToShortDateString();
+                    jobHeader.CauseOfDamage = job.Contract.CauseOfDamage;
+                    jobHeader.PolicyNumber = job.Contract.PolicyNumber;
+                    jobHeader.Excess = job.Contract.Excess;
+                    jobHeader.DamageDescription = job.Contract.DamageDescription;
 
-                    header.InsuranceCompanyName = job.Contract.InsuranceCompanyName;
-                    header.IncidentDate = job.Contract.IncidentDate.ToShortDateString();
-                    header.CauseOfDamage = job.Contract.CauseOfDamage;
-                    header.PolicyNumber = job.Contract.PolicyNumber;
-                    header.Excess = job.Contract.Excess;
-                    header.DamageDescription = job.Contract.DamageDescription;
-
-                    header.bComplete = false;
-                    header.bSent = false;
+                    jobHeader.bComplete = false;
+                    jobHeader.bSent = false;
 
                     if (job.JobType > enum_job_type.Survey)
                     {
-                        header.FitInstructions = job.Instructions;
+                        jobHeader.FitInstructions = job.Instructions;
                     }
 
                     var images = new List<string>();
 
-                    if (header.bSurvey == true)
+                    if (jobHeader.bSurvey == true)
                     {
-                        string pattern = $"{header.ContractCode:00000000}_______%"; // using _ as a wildcard ( would have been cAZ and dAZ )
+                        string pattern = $"{jobHeader.ContractCode:00000000}_______%"; // using _ as a wildcard ( would have been cAZ and dAZ )
 
                         List<string?> imagesRange = db.Images
                             .Where(x => EF.Functions.Like(x.Filename, pattern)).Select(f => f.Filename)
@@ -475,7 +473,7 @@ namespace PropertySurveyService
 
                     if(false)
                     { // add videos of job
-                        string pattern = $"{header.ContractCode:00000000}_Videos%"; // using _ as a wildcard ( would have been cAZ and dAZ )
+                        string pattern = $"{jobHeader.ContractCode:00000000}_Videos%"; 
 
                         List<string?> imagesRange = db.Images
                             .Where(x => EF.Functions.Like(x.Filename, pattern)).Select(f => f.Filename)
@@ -493,19 +491,19 @@ namespace PropertySurveyService
                     {
                         results.Add(new JobHeaderDTO
                         {
-                            Head = header,
-                            Items = db.Frame.Where(f => f.HeaderId == header.Id).ToList(),
-                            Panels = db.Panel.Where(p => p.HeaderId == header.Id).ToList(),
-                            Aluminia = db.Aluminium.Where(a => a.HeaderId == header.Id).ToList(),
-                            Bifolds = db.Bifolding.Where(b => b.HeaderId == header.Id).ToList(),
-                            Composites = db.Composite.Where(c => c.HeaderId == header.Id).ToList(),
-                            Cons = db.Conservatory.Where(c => c.HeaderId == header.Id).ToList(),
-                            Garages = db.Garage.Where(g => g.HeaderId == header.Id).ToList(),
-                            Glass = db.Glass.Where(g => g.HeaderId == header.Id).ToList(),
-                            Greens = db.Greenhouse.Where(g => g.HeaderId == header.Id).ToList(),
-                            Locks = db.Lockmech.Where(l => l.HeaderId == header.Id).ToList(),
-                            Timbers = db.Timber.Where(t => t.HeaderId == header.Id).ToList(),
-                            UPVCs = db.UPVC.Where(u => u.HeaderId == header.Id).ToList(),
+                            Head = jobHeader,
+                            Items = db.Frame.Where(f => f.HeaderId == jobHeader.Id).ToList(),
+                            Panels = db.Panel.Where(p => p.HeaderId == jobHeader.Id).ToList(),
+                            Aluminia = db.Aluminium.Where(a => a.HeaderId == jobHeader.Id).ToList(),
+                            Bifolds = db.Bifolding.Where(b => b.HeaderId == jobHeader.Id).ToList(),
+                            Composites = db.Composite.Where(c => c.HeaderId == jobHeader.Id).ToList(),
+                            Cons = db.Conservatory.Where(c => c.HeaderId == jobHeader.Id).ToList(),
+                            Garages = db.Garage.Where(g => g.HeaderId == jobHeader.Id).ToList(),
+                            Glass = db.Glass.Where(g => g.HeaderId == jobHeader.Id).ToList(),
+                            Greens = db.Greenhouse.Where(g => g.HeaderId == jobHeader.Id).ToList(),
+                            Locks = db.Lockmech.Where(l => l.HeaderId == jobHeader.Id).ToList(),
+                            Timbers = db.Timber.Where(t => t.HeaderId == jobHeader.Id).ToList(),
+                            UPVCs = db.UPVC.Where(u => u.HeaderId == jobHeader.Id).ToList(),
                             Images = images
                         });
                     }
@@ -513,7 +511,7 @@ namespace PropertySurveyService
                     {
                         results.Add(new JobHeaderDTO
                         {
-                            Head = header,
+                            Head = jobHeader,
                         });
                     }
                 }

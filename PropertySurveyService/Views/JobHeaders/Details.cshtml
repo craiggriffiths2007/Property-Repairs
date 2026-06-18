@@ -79,6 +79,13 @@ else
     </div>
 }
 
+@if(Model.JobHeader.garage_door_motor==true)
+{
+    <button type="button" onclick="openPrintWindow()">
+        Garage Door Motor Descleration
+    </button>
+}
+
 
 
 @if (Model.SurveyItems != null && Model.SurveyItems.Any())
@@ -148,3 +155,14 @@ else
         }
     </div>
 }
+
+
+<script>
+    function openPrintWindow() {
+        window.open(
+            '@Url.Action("GarageMotor", "Jobs")',
+            '_blank',
+            'width=900,height=700'
+        );
+    }
+</script>
