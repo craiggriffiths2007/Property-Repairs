@@ -450,7 +450,10 @@ namespace PropertySurveyService.Models
         public string rno_hours { get; set; } = "";
 
         [DisplayName("Remedial Work Carried Out")]
-        public string r_work_txt { get; set; } = "";
+        public string RemedialWork { get; set; } = "";
+
+        [DisplayName("Reason Remedial Work Carried Out")]
+        public string RemedialWorkReason { get; set; } = "";
 
         [DisplayName("Remedial Signed")]
         public bool r_bsigned { get; set; }
