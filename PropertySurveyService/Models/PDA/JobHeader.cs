@@ -94,43 +94,41 @@ namespace PropertySurveyService.Models
 
 
 
-        [DisplayName("Client Name")]
-        public string ClientName { get; set; } = "";
+        [DisplayName("Name")]
+        public string CustomerName { get; set; } = "";
 
-        [DisplayName("Client Address 1")]
-        public string ClientAddressLine1 { get; set; } = "";
+        [DisplayName("Address 1")]
+        public string CustomerAddressLine1 { get; set; } = "";
 
-        [DisplayName("Client Address 2")]
-        public string ClientAddressLine2 { get; set; } = "";
+        [DisplayName("Address 2")]
+        public string CustomerAddressLine2 { get; set; } = "";
 
-        [DisplayName("Client Address 3")]
-        public string ClientAddressLine3 { get; set; } = "";
+        [DisplayName("Address 3")]
+        public string CustomerAddressLine3 { get; set; } = "";
 
-        [DisplayName("Client Address 4")]
-        public string ClientAddressLine4 { get; set; } = "";
+        [DisplayName("Address 4")]
+        public string CustomerAddressLine4 { get; set; } = "";
 
-        [DisplayName("Client Postcode")]
-        public string ClientPostcode { get; set; } = "";
+        [DisplayName("Postcode")]
+        public string CustomerPostcode { get; set; } = "";
 
-        [DisplayName("Client Phone Number")]
-        public string ClientPhoneNumber { get; set; } = "";
+        [DisplayName("Phone Number")]
+        public string CustomerPhoneNumber { get; set; } = "";
 
-        [DisplayName("Client Phone Number 2")]
-        public string ClientPhoneNumber2 { get; set; } = "";
+        [DisplayName("Phone Number 2")]
+        public string CustomerPhoneNumber2 { get; set; } = "";
 
-        [DisplayName("Client Phone Number 3")]
-        public string ClientPhoneNumber3 { get; set; } = "";
+        [DisplayName("Phone Number 3")]
+        public string CustomerPhoneNumber3 { get; set; } = "";
 
         [DisplayName("Additional Phone 1")]
-        public string ClientAddPhoneNumber1 { get; set; } = "";
+        public string CustomerAddPhoneNumber1 { get; set; } = "";
 
         [DisplayName("Additional Phone 2")]
-        public string ClientAddPhoneNumber2 { get; set; } = "";
+
+        public string CustomerAddPhoneNumber2 { get; set; } = "";
 
 
-
-        [DisplayName("Customer Number")]
-        public string CustomerNumber { get; set; } = "";
 
 
         [DisplayName("Type A")]

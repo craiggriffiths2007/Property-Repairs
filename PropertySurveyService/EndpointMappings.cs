@@ -429,14 +429,14 @@ namespace PropertySurveyService
                     jobHeader.FinishTime = job.Time.AddHours(1).ToShortTimeString(); // doesnt have a finish time yet
                     jobHeader.DiaryDate = job.DiaryDate;
 
-                    jobHeader.ClientName = job.Customer.Name;
-                    jobHeader.ClientAddressLine1 = job.Customer.Add1;
-                    jobHeader.ClientAddressLine2 = job.Customer.Add2;
-                    jobHeader.ClientAddressLine3 = job.Customer.Add3;
-                    jobHeader.ClientPostcode = job.Customer.Postcode;
-                    jobHeader.ClientPhoneNumber = job.Customer.Phone1;
-                    jobHeader.ClientPhoneNumber2 = job.Customer.Phone2;
-                    jobHeader.ClientPhoneNumber3 = job.Customer.Phone3;
+                    jobHeader.CustomerName = job.Customer.Name;
+                    jobHeader.CustomerAddressLine1 = job.Customer.Add1;
+                    jobHeader.CustomerAddressLine2 = job.Customer.Add2;
+                    jobHeader.CustomerAddressLine3 = job.Customer.Add3;
+                    jobHeader.CustomerPostcode = job.Customer.Postcode;
+                    jobHeader.CustomerPhoneNumber = job.Customer.Phone1;
+                    jobHeader.CustomerPhoneNumber2 = job.Customer.Phone2;
+                    jobHeader.CustomerPhoneNumber3 = job.Customer.Phone3;
 
                     jobHeader.InsuranceCompanyName = job.Contract.InsuranceCompanyName;
                     jobHeader.IncidentDate = job.Contract.IncidentDate.ToShortDateString();
