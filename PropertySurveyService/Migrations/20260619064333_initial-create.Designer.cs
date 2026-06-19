@@ -12,8 +12,8 @@ using PropertySurveyService.Data;
 namespace PropertySurveyService.Migrations
 {
     [DbContext(typeof(AppDBContext))]
-    [Migration("20260616145508_policy-number-on-job")]
-    partial class policynumberonjob
+    [Migration("20260619064333_initial-create")]
+    partial class initialcreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -4522,8 +4522,8 @@ namespace PropertySurveyService.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("garage_door_motor")
-                        .HasColumnType("int");
+                    b.Property<bool?>("garage_door_motor")
+                        .HasColumnType("bit");
 
                     b.Property<string>("gdm_cust_name")
                         .IsRequired()

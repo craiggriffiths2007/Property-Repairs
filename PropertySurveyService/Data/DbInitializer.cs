@@ -28,6 +28,11 @@ namespace PropertySurveyService.Data
 
         public static async Task SeedSuperAdminAsync(UserManager<AppUser> userManager, RoleManager<IdentityRole> roleManager)
         {
+            var imagePath = Path.Combine(Directory.GetCurrentDirectory(),
+                                    "wwwroot", "img", "house.jpg");
+
+            var imageBytes = await File.ReadAllBytesAsync(imagePath);
+           // var imageBase64 = Convert.ToBase64String(imageBytes);
 
             // Seed Craig Griffiths user
             var craigUser = new AppUser
@@ -38,7 +43,7 @@ namespace PropertySurveyService.Data
                 LastName = "Admin",
                 EmailConfirmed = true,
                 PhoneNumberConfirmed = true,
-                ProfilePicture = "<ProfilePicture>".ToString().Select(c => (byte)c).ToArray(),
+                ProfilePicture = imageBytes
 
             };
             var craig = await userManager.FindByEmailAsync(craigUser.Email);

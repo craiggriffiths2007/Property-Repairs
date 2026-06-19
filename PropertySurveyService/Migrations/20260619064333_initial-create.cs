@@ -1531,7 +1531,7 @@ namespace PropertySurveyService.Migrations
                     fbstockusagecomplete = table.Column<bool>(type: "bit", nullable: false),
                     si_mpay = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     mop = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    uc_excess = table.Column<double>(type: "float", nullable: false),
+                    Excess = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     additional_ammount_str = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     bExcessCollected = table.Column<bool>(type: "bit", nullable: true),
                     reason_excess_not_collected = table.Column<string>(type: "nvarchar(max)", nullable: false),
@@ -1626,7 +1626,7 @@ namespace PropertySurveyService.Migrations
                     hire_equipment_used = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     hire_equipment_used_text = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     additional_summary_info = table.Column<bool>(type: "bit", nullable: true),
-                    garage_door_motor = table.Column<int>(type: "int", nullable: false),
+                    garage_door_motor = table.Column<bool>(type: "bit", nullable: true),
                     gdm_door_type = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     gdm_model_type = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     gdm_unique_serial = table.Column<string>(type: "nvarchar(max)", nullable: false),
@@ -2723,7 +2723,9 @@ namespace PropertySurveyService.Migrations
                     IncidentDate = table.Column<DateTime>(type: "date", nullable: false),
                     DamageDescription = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     CauseOfDamage = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    InsuranceCompanyName = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    InsuranceCompanyName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Excess = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    PolicyNumber = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -2748,10 +2750,13 @@ namespace PropertySurveyService.Migrations
                     Time = table.Column<DateTime>(type: "datetime2", nullable: false),
                     IncidentDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     InsuranceCompanyName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Excess = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    PolicyNumber = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     CauseOfDamage = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     DamageDesc = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Instructions = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     bRequestRepudiation = table.Column<bool>(type: "bit", nullable: false),
+                    bIncludeSurvey = table.Column<bool>(type: "bit", nullable: false),
                     CustomerId = table.Column<int>(type: "int", nullable: true),
                     AgentId = table.Column<int>(type: "int", nullable: true)
                 },

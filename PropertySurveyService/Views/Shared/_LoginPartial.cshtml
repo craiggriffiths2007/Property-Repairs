@@ -4,7 +4,14 @@
 @inject SignInManager<AppUser> SignInManager
 @inject UserManager<AppUser> UserManager
 
-    @if (SignInManager.IsSignedIn(User) && UserManager.GetUserAsync(User).Result.ProfilePicture != null)
+    @{
+        var currentUser = await UserManager.GetUserAsync(User);
+    }
+    @if (SignInManager.IsSignedIn(User) && currentUser == null)
+    {
+        await SignInManager.SignOutAsync();
+    }
+    @if (SignInManager.IsSignedIn(User) && currentUser != null)
     {
         @if(User.IsInRole("Admin") || User.IsInRole("SuperAdmin"))
         {
@@ -21,10 +28,9 @@
                 </div>
 
             </div>
-        @if (UserManager.GetUserAsync(User).Result.ProfilePicture != null) // this might still not work
-        {
-            <img style="width:40px;height:40px; object-fit:cover; border-radius:30px" src="data:image/*;base64,@(Convert.ToBase64String(UserManager.GetUserAsync(User).Result.ProfilePicture))" />
-        }
+
+        <img style="width:40px;height:40px; object-fit:cover; border-radius:30px" src="data:image/*;base64,@(Convert.ToBase64String(UserManager.GetUserAsync(User).Result.ProfilePicture))" />
+
         <a class="nav-item" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">User: @UserManager.GetUserAsync(User).Result.FirstName</a>
             <form class="nav-item" id="logoutForm" class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
                     <button id="logout" type="submit" class="btn btn-link">Logout</button>
