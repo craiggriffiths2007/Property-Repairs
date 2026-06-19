@@ -120,6 +120,7 @@
                 <th>Type</th>
                 <th>Agent</th>
                 <th>Diary Date</th>
+                <th>DateTime Completed</th>
                 <th></th>
             </tr>
         </thead>
@@ -130,7 +131,7 @@
                     <td>@header.JobType</td>
                     <td>@header.AgentCode</td>
                     <td>@header.DiaryDate.ToShortDateString()</td>
-                    
+                    <td>@header.DateTimeCompleted</td>
                     <td>
                         <a asp-controller="JobHeaders" asp-action="Details" asp-route-id="@header.Id"
                            class="btn btn-outline-primary btn-sm">View</a>

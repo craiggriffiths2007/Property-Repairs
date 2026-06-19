@@ -409,8 +409,7 @@ namespace PropertySurveyService
                         jobHeader = db.JobHeader
                         .Where(h => h.ContractCode == job.ContractCode &&
                                     h.JobType == enum_job_type.Survey)
-                        .OrderByDescending(h => h.DiaryDate)
-                        .OrderByDescending(h => h.Id)
+                         .OrderByDescending(h => h.DateTimeCompleted)
 
                         .FirstOrDefault() ?? new JobHeader();
 

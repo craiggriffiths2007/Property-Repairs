@@ -50,14 +50,8 @@ namespace PropertySurveyService.Models
         public string TimeArrived { get; set; } = "00:00";
 
 
-        [DisplayName("Fit Diary Date")]
-        public string FitDate { get; set; } = "";
-
-        [DisplayName("Fit Start Time")]
-        public string FitStartTime { get; set; } = "";
-
-        [DisplayName("Fit Finish Time")]
-        public string FitFinishTime { get; set; } = "";
+        [DisplayName("Completed DateTime")]
+        public DateTime DateTimeCompleted { get; set; } = DateTime.Today;
 
 
 
