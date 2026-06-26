@@ -18,7 +18,7 @@ namespace PropertySurveyService
             {
                 var agent = db.Agent.FirstOrDefault(x => x.Code == gs.AgentCode);
 
-                if (agent == null)
+                if (agent == null) 
                     return Task.FromResult<IResult>(Results.BadRequest(new { ReasonPhrase = "Agent Code Not Found : " + gs.AgentCode }));
                 else
                     if(agent.Password != gs.Password)
@@ -34,7 +34,7 @@ namespace PropertySurveyService
                 return Task.FromResult<IResult>(Results.Ok(send_data));
             });
             ///////////////////////
-            // SENDING FROM PDA , Getting from database
+            // Sending From Agents PDA , Getting From Database
             ////////////////////////////////////////
             app.MapPost("/SendLadderChecks", async (List<LadderCheck> laddersSheets, AppDBContext db) =>
             {
