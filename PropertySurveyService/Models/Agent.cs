@@ -21,5 +21,8 @@ namespace PropertySurveyService.Models
 
         [Display(Name = "Authentication String")]
         public string AuthenticationString { get; set; } = string.Empty;
+        [Display(Name = "Logged in Date & Time")]
+        public DateTime LoggedInDateTime { get; set; } = DateTime.Now;
+
     }
 }

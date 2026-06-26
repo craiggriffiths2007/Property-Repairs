@@ -26,6 +26,7 @@ namespace PropertySurveyService
 
                 AgentLoginDTO send_data = new AgentLoginDTO();
                 agent.AuthenticationString = send_data.AuthenticationString;
+                agent.LoggedInDateTime = DateTime.Now;
 
                 db.Update(agent);
                 db.SaveChanges();
