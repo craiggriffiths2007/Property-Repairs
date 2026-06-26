@@ -112,7 +112,7 @@
                                         }
                                         <div class="calendar-event @(job.JobType == enum_job_type.Survey ? "job-type-survey" : job.JobType == enum_job_type.Fitting ? "job-type-fitting" : "job-type-remedial") @(hasRelevantHeader ? "has-header" : "")">
                                             <a asp-action="Details" asp-route-id="@job.Id" class="calendar-event-link">
-                                                @job.ContractCode - @job.Time.ToString("HH:mm")
+                                                @job.ContractCode - @job.Time.ToString("HH:mm") - @job.Agent.Code
                                                 <br/>
                                                 @if (job.Customer != null)
                                                 {
@@ -185,10 +185,11 @@ else if (Model.ViewMode == "week")
                                         }
                                         <div class="calendar-event @(job.JobType == enum_job_type.Survey ? "job-type-survey" : job.JobType == enum_job_type.Fitting ? "job-type-fitting" : "job-type-remedial") @(hasRelevantHeader ? "has-header" : "")">
                                             <a asp-action="Details" asp-route-id="@job.Id" class="calendar-event-link">
-                                                <strong>@job.Time.ToString("HH:mm")</strong>
+                                                @job.ContractCode - @job.Time.ToString("HH:mm") - @job.Agent.Code
+                                                <br />
                                                 @if (job.Customer != null)
                                                 {
-                                                    <span> - @job.Customer.Name</span>
+                                                    <span>@job.Customer.Name</span>
                                                 }
                                             </a>
                                         </div>

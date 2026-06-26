@@ -106,8 +106,10 @@
     </div>
 </div>
 <div>
-    <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Edit" asp-route-id="@Model?.Id" >Edit</a> |
+    <a href="javascript:history.go(-1);" >
+        Back to Diary
+    </a>
 </div>
 
 @if (ViewBag.Headers is IEnumerable<PropertySurveyService.Models.JobHeader> headers && headers.Any())
@@ -133,7 +135,7 @@
                     <td>@header.DiaryDate.ToShortDateString()</td>
                     <td>@header.DateTimeCompleted</td>
                     <td>
-                        <a asp-controller="JobHeaders" asp-action="Details" asp-route-id="@header.Id"
+                        <a asp-controller="JobHeaders" asp-action="Details" asp-route-id="@header.Id" asp-route-jobid="@Model.Id"
                            class="btn btn-outline-primary btn-sm">View</a>
                     </td>
                 </tr>

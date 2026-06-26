@@ -31,7 +31,7 @@ namespace PropertySurveyService.Data
             await roleManager.CreateAsync(new IdentityRole(Roles.Contract.ToString()));
             await roleManager.CreateAsync(new IdentityRole(Roles.Branch.ToString()));
             await roleManager.CreateAsync(new IdentityRole(Roles.Vehicle.ToString()));
-            await roleManager.CreateAsync(new IdentityRole(Roles.Staff.ToString()));
+            await roleManager.CreateAsync(new IdentityRole(Roles.Staff .ToString()));
         }
 
         public static async Task SeedSuperAdminAsync(UserManager<AppUser> userManager, RoleManager<IdentityRole> roleManager)
@@ -40,7 +40,6 @@ namespace PropertySurveyService.Data
                                     "wwwroot", "img", "house.jpg");
 
             var imageBytes = await File.ReadAllBytesAsync(imagePath);
-           // var imageBase64 = Convert.ToBase64String(imageBytes);
 
             // Seed Craig Griffiths user
             var craigUser = new AppUser
@@ -66,20 +65,6 @@ namespace PropertySurveyService.Data
                     await userManager.AddToRoleAsync(craigUser, Roles.SuperAdmin.ToString());
                 }
             }
-
-            // Elevate all existing users to SuperAdmin (and all roles)
-            /*
-            var allUsers = userManager.Users.ToList();
-            foreach (var u in allUsers)
-            {
-                foreach (var role in Enum.GetValues<Roles>())
-                {
-                    if (!await userManager.IsInRoleAsync(u, role.ToString()))
-                    {
-                        await userManager.AddToRoleAsync(u, role.ToString());
-                    }
-                }
-            }*/
         }
         public static void Initialize(AppDBContext context)
         {
