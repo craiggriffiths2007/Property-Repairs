@@ -48,7 +48,7 @@ else
         <div class="row">
             @foreach (var image_data in @Model.Images)
             {
-                <div class="col-6 p-3 border"><img src="data:image/png;base64,image_data.Data" class="img-fluid rounded" /></div>
+                <div class="col-6 p-3 border"><img src="data:image/png;base64,@image_data.Data" class="img-fluid rounded" /></div>
             }
 
         </div>
