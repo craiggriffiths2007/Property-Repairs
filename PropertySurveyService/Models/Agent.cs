@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿
+using System.ComponentModel.DataAnnotations;
 
 namespace PropertySurveyService.Models
 {
@@ -14,5 +15,11 @@ namespace PropertySurveyService.Models
         public string? Name { get; set; }
         [Display(Name = "Agent Type")]
         public agent_type Type { get; set; }
+
+        [Display(Name = "Password")]
+        public string Password { get; set; } = string.Empty;
+
+        [Display(Name = "Authentication String")]
+        public string AuthenticationString { get; set; } = string.Empty;
     }
 }

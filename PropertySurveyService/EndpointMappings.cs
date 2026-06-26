@@ -14,6 +14,24 @@ namespace PropertySurveyService
     {
         public static void MapAPIEndpoints(this IEndpointRouteBuilder app)
         {
+            app.MapPost("/AgentLogin", (AgentLoginDTO gs, AppDBContext db) =>
+            {
+                var agent = db.Agent.FirstOrDefault(x => x.Code == gs.AgentCode);
+
+                if (agent == null)
+                    return Task.FromResult<IResult>(Results.BadRequest(new { ReasonPhrase = "Agent Code Not Found : " + gs.AgentCode }));
+                else
+                    if(agent.Password != gs.Password)
+                        return Task.FromResult<IResult>(Results.BadRequest(new { ReasonPhrase = "Password Incorrect" + gs.AgentCode }));
+
+                AgentLoginDTO send_data = new AgentLoginDTO();
+                agent.AuthenticationString = send_data.AuthenticationString;
+
+                db.Update(agent);
+                db.SaveChanges();
+
+                return Task.FromResult<IResult>(Results.Ok(send_data));
+            });
             ///////////////////////
             // SENDING FROM PDA , Getting from database
             ////////////////////////////////////////

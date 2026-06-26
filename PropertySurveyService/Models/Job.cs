@@ -81,6 +81,14 @@ namespace PropertySurveyService.Models
         public string Note { get; set; } = "";  // for contract notes
     }
 
+    public class AgentLoginDTO
+    {
+        public string AgentCode { get; set; } = "";
+        public string Password { get; set; } = "";
+        public string AuthenticationString { get; set; } = Guid.NewGuid().ToString();
+    }
+
+
     public class JobContractDTO
     {
         public int Id { get; set; }

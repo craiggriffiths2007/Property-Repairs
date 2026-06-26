@@ -101,7 +101,7 @@ namespace PropertySurveyService.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Code,Name,AgentType")] Agent agent)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Code,Name,Password,AgentType")] Agent agent)
         {
             if (id != agent.Id)
             {

@@ -83,11 +83,16 @@ else
 
 @if(Model.JobHeader.garage_door_motor==true)
 {
-    <button type="button" onclick="openPrintWindow()">
+    <button type="button" onclick="openPrintWindow(1)">
         Garage Door Motor Decleration
     </button>
 }
-
+@if (Model.JobHeader.JobType > enum_job_type.Survey)
+{
+    <button type="button" onclick="openPrintWindow(2)">
+        Signed Mandate
+    </button>
+}
 <a href="javascript:history.go(-1);" >
     Back to Diary Job
 </a>
@@ -159,11 +164,22 @@ else
 
 
 <script>
-    function openPrintWindow() {
-        window.open(
-            '@Url.Action("GarageMotor", "Jobs")',
-            '_blank',
-            'width=900,height=700'
-        );
+    function openPrintWindow(type) {
+        if(type==1)
+        {
+            window.open(
+                '@Url.Action("GarageMotor", "Jobs")',
+                '_blank',
+                'width=900,height=700'
+            );
+        }
+        if(type==2)
+        {
+            window.open(
+                '@Url.Action("SignedMandate", "Jobs")',
+                '_blank',
+                'width=900,height=700'
+            );
+        }
     }
 </script>

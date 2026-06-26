@@ -197,6 +197,13 @@ namespace PropertySurveyService.Controllers
             return View(job);
         }
 
+        public async Task<ActionResult> SignedMandate(int? id)
+        {
+            var job = await _context.Job.FirstOrDefaultAsync(m => m.Id == id);
+
+            return View(job);
+        }
+
 
         // GET: Jobs/Create
         public IActionResult Create()
