@@ -13,7 +13,7 @@ namespace PropertySurveyService.Models
         [Required]
         [Display(Name = "Name")]
         public string? Name { get; set; }
-        [Display(Name = "Agent Type")]
+        [Display(Name = "Type")]
         public agent_type Type { get; set; }
 
         [Display(Name = "Password")]
@@ -21,7 +21,7 @@ namespace PropertySurveyService.Models
 
         [Display(Name = "Authentication String")]
         public string AuthenticationString { get; set; } = string.Empty;
-        [Display(Name = "Logged in Date & Time")]
+        [Display(Name = "Last logged in")]
         public DateTime LoggedInDateTime { get; set; } = DateTime.Now;
 
     }

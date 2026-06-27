@@ -33,7 +33,7 @@ namespace PropertySurveyService.Controllers
         public async Task<IActionResult> Index()
         {
               return _context.Agent != null ? 
-                          View(await _context.Agent.ToListAsync()) :
+                          View(await _context.Agent.OrderBy(a => a.Type).ToListAsync()) :
                           Problem("Entity set 'PropertySurveyServiceContext.Agent'  is null.");
         }
 
