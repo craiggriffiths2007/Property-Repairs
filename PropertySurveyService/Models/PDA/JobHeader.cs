@@ -366,7 +366,9 @@ namespace PropertySurveyService.Models
         [DisplayName("Reason Mandate Not Signed")]
         public string freason_mandate_not_signed { get; set; } = "";
 
-
+        [Browsable(false)]
+        [DisplayName("Mandate Sentence")]
+        public string MandateSentence { get; set; } = "";
 
 
         [DisplayName("Fitters Mandate Other")]

@@ -116,7 +116,7 @@
                                                 <br/>
                                                 @if (job.Customer != null)
                                                 {
-                                                    <span>@job.Customer.Name</span>
+                                                    <span>@job.Customer.Name - @job.Customer.Postcode</span>
                                                 }
                                             </a>
                                         </div>
@@ -189,7 +189,7 @@ else if (Model.ViewMode == "week")
                                                 <br />
                                                 @if (job.Customer != null)
                                                 {
-                                                    <span>@job.Customer.Name</span>
+                                                    <span>@job.Customer.Name - @job.Customer.Postcode</span>
                                                 }
                                             </a>
                                         </div>

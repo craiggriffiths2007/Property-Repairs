@@ -10,6 +10,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace PropertySurveyService.Controllers
 {
@@ -199,9 +200,13 @@ namespace PropertySurveyService.Controllers
 
         public async Task<ActionResult> SignedMandate(int? id)
         {
-            var job = await _context.Job.FirstOrDefaultAsync(m => m.Id == id);
+            var jobHeader = await _context.JobHeader.FirstOrDefaultAsync(m => m.Id == id);
 
-            return View(job);
+            string fname = string.Format("{0:00000000}_fandates.jpg", jobHeader.ContractCode);
+            
+            ViewData["MandateSignature"] = _context.Images.Where(x => x.Filename == fname).FirstOrDefault()?.Data;
+
+            return View(jobHeader);
         }
 
 

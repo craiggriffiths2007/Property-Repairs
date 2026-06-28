@@ -176,7 +176,7 @@ else
         if(type==2)
         {
             window.open(
-                '@Url.Action("SignedMandate", "Jobs")',
+                '@Url.Action("SignedMandate", "Jobs", new { id = Model.JobHeader.Id })',
                 '_blank',
                 'width=900,height=700'
             );
