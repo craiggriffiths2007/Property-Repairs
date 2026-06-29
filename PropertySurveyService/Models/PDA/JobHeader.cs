@@ -592,39 +592,51 @@ namespace PropertySurveyService.Models
         #region Materials & Framework Performance Totals
 
         [DisplayName("Total UPVC")]
+        [Browsable(false)]
         public int total_upvc { get; set; }
 
         [DisplayName("Total Panels")]
+        [Browsable(false)]
         public int total_panels { get; set; }
 
         [DisplayName("Total Glass")]
+        [Browsable(false)]
         public int total_glass { get; set; }
 
         [DisplayName("Total Aluminium")]
+        [Browsable(false)]
         public int total_alum { get; set; }
 
         [DisplayName("Total Garage")]
+        [Browsable(false)]
         public int total_garage { get; set; }
 
         [DisplayName("Total Timber")]
+        [Browsable(false)]
         public int total_timber { get; set; }
 
         [DisplayName("Total Cons")]
+        [Browsable(false)]
         public int total_cons { get; set; }
 
         [DisplayName("Total Lock")]
+        [Browsable(false)]
         public int total_lock { get; set; }
 
         [DisplayName("Total Composite")]
+        [Browsable(false)]
         public int total_comp { get; set; }
 
         [DisplayName("Total Green")]
+        [Browsable(false)]
         public int total_green { get; set; }
 
         [DisplayName("Total Bifold")]
+        [Browsable(false)]
         public int total_bifold { get; set; }
 
         [DisplayName("Total Frames")]
+        [Browsable(false)]
         public int total_frames { get; set; }
 
         [DisplayName("Incomplete Frames")]

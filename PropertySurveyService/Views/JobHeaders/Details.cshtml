@@ -31,12 +31,14 @@ else
     <div class="grid-container-vertical">
         @{
             var properties = Model.JobHeader.GetType()
-                        .GetProperties().Where(p => p.GetCustomAttribute<BrowsableAttribute>()?.Browsable != false)
-                        .Select(p => new
-                        {
-                            Property = p,
-                            Label = p.GetCustomAttribute<DisplayNameAttribute>()?.DisplayName ?? p.Name
-                        });
+                .GetProperties().Where(p => p.GetCustomAttribute<BrowsableAttribute>()?.Browsable != false &&
+                                            !string.IsNullOrWhiteSpace(p.GetValue(Model.JobHeader)?.ToString())
+                )
+                .Select(p => new
+                {
+                    Property = p,
+                    Label = p.GetCustomAttribute<DisplayNameAttribute>()?.DisplayName ?? p.Name
+                });
             //.OrderBy(x => x.Label);
         }
 
