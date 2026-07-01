@@ -75,7 +75,7 @@ namespace PropertySurveyService.Models
         public string pet_type { get; set; } = "";
 
         [DisplayName("Pet Magnetic")]
-        public int pet_magnetic { get; set; }
+        public string pet_magnetic { get; set; } = "...";
 
         [DisplayName("Number of Pictures")]
         public int no_of_pics { get; set; }

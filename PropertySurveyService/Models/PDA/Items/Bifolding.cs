@@ -36,10 +36,10 @@ namespace PropertySurveyService.Models
         public string overall_height { get; set; } = "";
 
         [DisplayName("Opens (In/Out)")]
-        public int opens { get; set; }
+        public string opens { get; set; } = "...";
 
         [DisplayName("Trickle Vents (Yes/No)")]
-        public int trickle_vents { get; set; }
+        public bool? trickle_vents { get; set; }
 
         [DisplayName("Hardware")]
         public string hardware { get; set; } = "";
@@ -133,7 +133,7 @@ namespace PropertySurveyService.Models
         public bool glass_complete { get; set; }
 
         [DisplayName("Replace Glass")]
-        public int replace_glass { get; set; }
+        public bool? replace_glass { get; set; }
 
         [DisplayName("Reason Not Repaired")]
         public string reason_not_repaired { get; set; } = "";
@@ -148,13 +148,13 @@ namespace PropertySurveyService.Models
         public string WER_rating { get; set; } = "";
 
         [DisplayName("Gaskets")]
-        public int gaskets { get; set; }
+        public string gaskets { get; set; } = "...";
 
         [DisplayName("Gaskets Text")]
         public string gaskets_text { get; set; } = "";
 
         [DisplayName("Handles Required")]
-        public int handles_req { get; set; }
+        public bool? handles_req { get; set; }
 
         [DisplayName("Handle Drawing Complete")]
         public bool bHandleDrawingComplete { get; set; }
@@ -163,14 +163,13 @@ namespace PropertySurveyService.Models
         public string handles_text { get; set; } = "";
 
         [DisplayName("Addons")]
-        public int addons { get; set; }
+        public bool? addons { get; set; }
 
         [DisplayName("Addon Width")]
         public string addon_width { get; set; } = "";
 
         [DisplayName("Addon Height")]
         public string addon_height { get; set; } = "";
-
         public SurveyItem AsSurveyItem() { return new SurveyItem(Id, enum_item_type.bifold, item_number, ContractCode); }
 
     }

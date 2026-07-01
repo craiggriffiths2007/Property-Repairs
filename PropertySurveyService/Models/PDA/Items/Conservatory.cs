@@ -37,7 +37,7 @@ namespace PropertySurveyService.Models
         public string cause_of_damage_reason_different { get; set; } = "";
 
         [DisplayName("Material Type")]
-        public int material_type { get; set; }
+        public string material_type { get; set; } = "...";
 
         [DisplayName("Size A")]
         public string sizeA { get; set; } = "";
@@ -148,10 +148,10 @@ namespace PropertySurveyService.Models
         public string roof_color { get; set; } = "";
 
         [DisplayName("New Firrings Required")]
-        public int new_firrings_req { get; set; }
+        public bool? new_firrings_req { get; set; }
 
         [DisplayName("New Gutters Required")]
-        public int new_gutters_req { get; set; }
+        public bool? new_gutters_req { get; set; }
 
         [DisplayName("Roof Glazing Thickness")]
         public string roof_glazing_thickness { get; set; } = "";
@@ -187,16 +187,16 @@ namespace PropertySurveyService.Models
         public string long_comments { get; set; } = "";
 
         [DisplayName("Drawings Only")]
-        public int bDrawingsOnly { get; set; }
+        public bool? bDrawingsOnly { get; set; }
 
         [DisplayName("Roof Under Drawn")]
         public bool cons_roof_under_drawn { get; set; }
 
         [DisplayName("Does Roof Fit Under")]
-        public int does_roof_fit_under { get; set; }
+        public bool? does_roof_fit_under { get; set; }
 
         [DisplayName("Spars Line Up")]
-        public int spars_line_up { get; set; }
+        public bool? spars_line_up { get; set; }
 
         [DisplayName("Roof Sheets Quantity 1")]
         public int roof_sheets_quantity_1 { get; set; }
@@ -229,7 +229,7 @@ namespace PropertySurveyService.Models
         public int roof_sheets_quantity_10 { get; set; }
 
         [DisplayName("Good Conditions")]
-        public int good_conditions { get; set; }
+        public bool? good_conditions { get; set; }
 
         [DisplayName("Ridge Length")]
         public string ridge_length { get; set; } = "";
@@ -250,7 +250,7 @@ namespace PropertySurveyService.Models
         public bool glass_complete { get; set; }
 
         [DisplayName("Replace Glass")]
-        public int replace_glass { get; set; }
+        public bool? replace_glass { get; set; }
 
         [DisplayName("Reason Not Repaired")]
         public string reason_not_repaired { get; set; } = "";
@@ -266,7 +266,6 @@ namespace PropertySurveyService.Models
 
         [DisplayName("Overall Length of Sheet")]
         public string overall_length_of_sheet { get; set; } = "";
-
 
         public SurveyItem AsSurveyItem() { return new SurveyItem(Id, enum_item_type.cons, item_number, ContractCode); }
     }

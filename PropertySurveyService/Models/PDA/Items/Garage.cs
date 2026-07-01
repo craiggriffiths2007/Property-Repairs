@@ -24,7 +24,7 @@ namespace PropertySurveyService.Models
         public int item_number { get; set; }
 
         [DisplayName("Opening Direction")]
-        public int opening_direction { get; set; }      // Renamed from item_attached_to
+        public string opening_direction { get; set; } = "...";     // Renamed from item_attached_to
 
         [DisplayName("Cause of Damage")]
         public string cause_of_damage { get; set; } = "";
@@ -33,19 +33,19 @@ namespace PropertySurveyService.Models
         public string cause_of_damage_reason_different { get; set; } = "";
 
         [DisplayName("Door Fits Into")]
-        public int door_fits_into { get; set; }
+        public string door_fits_into { get; set; } = "...";
 
         [DisplayName("New Subframe Required")]
-        public int new_subframe_req { get; set; }
+        public string new_subframe_req { get; set; } = "...";
 
         [DisplayName("Obstruction Outside (Bool)")]
-        public int obstruction_outside_b { get; set; }
+        public bool? obstruction_outside_b { get; set; }
 
         [DisplayName("Obstruction Outside")]
         public string obstruction_outside { get; set; } = "";
 
         [DisplayName("Obstruction Inside (Bool)")]
-        public int obstruction_inside_b { get; set; }
+        public bool? obstruction_inside_b { get; set; }
 
         [DisplayName("Obstruction Inside")]
         public string obstruction_inside { get; set; } = "";
@@ -57,7 +57,7 @@ namespace PropertySurveyService.Models
         public string actual_door_height { get; set; } = "";
 
         [DisplayName("Frame Fix Type")]
-        public int frame_fix_type { get; set; }
+        public string frame_fix_type { get; set; } = "...";
 
         [DisplayName("Type of Garage")]
         public string type_of_garage { get; set; } = "";
@@ -123,19 +123,19 @@ namespace PropertySurveyService.Models
         public string finish { get; set; } = "";
 
         [DisplayName("Power Points")]
-        public int power_points { get; set; }
+        public bool? power_points { get; set; }
 
         [DisplayName("Electric Door")]
-        public int electric_door { get; set; }
+        public bool? electric_door { get; set; }
 
         [DisplayName("Handle Outside")]
-        public int handle_outside { get; set; }
+        public bool? handle_outside { get; set; }
 
         [DisplayName("Other Access")]
-        public int other_access { get; set; }
+        public bool? other_access { get; set; }
 
         [DisplayName("Need Safety Release")]
-        public int need_safety_release { get; set; }
+        public bool? need_safety_release { get; set; }
 
         [DisplayName("Number of Pictures")]
         public int no_of_pics { get; set; }
@@ -144,13 +144,13 @@ namespace PropertySurveyService.Models
         public int no_of_photos { get; set; }	// Number of pictures
 
         [DisplayName("Insulated")]
-        public int insulated { get; set; }
+        public bool? insulated { get; set; }
 
         [DisplayName("Door Stuck Shut")]
-        public int door_stuck_shut { get; set; }
+        public bool? door_stuck_shut { get; set; }
 
         [DisplayName("Motor Position")]
-        public int motor_position { get; set; }
+        public string motor_position { get; set; } = "...";
 
         [DisplayName("Number of Videos")]
         public int no_of_vids { get; set; }
@@ -172,10 +172,10 @@ namespace PropertySurveyService.Models
         public bool bComplete { get; set; }
 
         [DisplayName("Door Within Perimeter")]
-        public int door_within_perimeter { get; set; }      // Is the garage door in the customers house perimeter? Renamed from i_spare1
+        public bool? door_within_perimeter { get; set; }      // Is the garage door in the customers house perimeter? Renamed from i_spare1
 
         [DisplayName("Socket Within 1m")]
-        public int socket_within_1m { get; set; }           // Renamed from i_spare2
+        public bool? socket_within_1m { get; set; }           // Renamed from i_spare2
 
         [DisplayName("Wire Type")]
         public string wire_type { get; set; } = "";               // wire type - Renamed from s_spare3

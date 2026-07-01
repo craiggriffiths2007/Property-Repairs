@@ -94,7 +94,7 @@ namespace PropertySurveyService.Models
         public string int_height { get; set; } = "";
 
         [DisplayName("Single or Double")]
-        public int single_or_double { get; set; }
+        public string single_or_double { get; set; } = "...";
 
         [DisplayName("Glass Type")]
         public string glass_type { get; set; } = "";
@@ -201,16 +201,16 @@ namespace PropertySurveyService.Models
         public string TapeorGasket { get; set; } = "";
 
         [DisplayName("Glaze")]
-        public int glaze { get; set; }
+        public string glaze { get; set; } = "...";
 
         [DisplayName("Lead Comments")]
         public string lead_comments { get; set; } = "";
 
         [DisplayName("Collect and Copy")]
-        public int collect_and_copy { get; set; }
+        public bool? collect_and_copy { get; set; }
 
         [DisplayName("Temporary")]
-        public int temporary { get; set; }
+        public string temporary { get; set; } = "...";
 
         [DisplayName("Parts to Order")]
         public string parts_to_order { get; set; } = "";

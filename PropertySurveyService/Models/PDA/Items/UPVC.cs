@@ -31,25 +31,25 @@ namespace PropertySurveyService.Models
         public bool bRepair { get; set; }
 
         [DisplayName("Cosmetic Damage")]
-        public int cosmetic_damage { get; set; }
+        public bool? cosmetic_damage { get; set; }
 
         [DisplayName("Additional Locks")]
         public string additional_locks { get; set; } = "";
 
         [DisplayName("Gaskets")]
-        public int gaskets { get; set; }
+        public string gaskets { get; set; } = "...";
 
         [DisplayName("Gaskets Text")]
         public string gaskets_text { get; set; } = "";
 
         [DisplayName("Handles Required")]
-        public int handles_req { get; set; }
+        public bool? handles_req { get; set; }
 
         [DisplayName("Handles Text")]
         public string handles_text { get; set; } = "";
 
         [DisplayName("Replace Panel")]
-        public int replace_panel { get; set; }
+        public bool? replace_panel { get; set; }
 
         [DisplayName("Replace Reason")]
         public string replace_reason { get; set; } = "";
@@ -88,10 +88,10 @@ namespace PropertySurveyService.Models
         public string brick_height { get; set; } = "";
 
         [DisplayName("Midrail")]
-        public int midrail { get; set; }
+        public bool? midrail { get; set; }
 
         [DisplayName("Addons")]
-        public int addons { get; set; }
+        public bool? addons { get; set; }
 
         [DisplayName("Addon Width")]
         public string addon_width { get; set; } = "";
@@ -100,7 +100,7 @@ namespace PropertySurveyService.Models
         public string addon_height { get; set; } = "";
 
         [DisplayName("Head Drip")]
-        public int head_drip { get; set; }
+        public bool? head_drip { get; set; }
 
         [DisplayName("Handle Colour")]
         public string handle_colour { get; set; } = "";
@@ -121,19 +121,19 @@ namespace PropertySurveyService.Models
         public string pet_type { get; set; } = "";
 
         [DisplayName("Pet Magnetic")]
-        public int pet_magnetic { get; set; }
+        public string pet_magnetic { get; set; } = "...";
 
         [DisplayName("Bead Type")]
         public string bead_type { get; set; } = "";
 
         [DisplayName("Opens (In/Out)")]
-        public int opens { get; set; }
+        public string opens { get; set; } = "...";
 
         [DisplayName("Glaze (Internal/External)")]
-        public int glaze { get; set; }
+        public string glaze { get; set; } = "...";
 
         [DisplayName("Trickle Vents (Yes/No)")]
-        public int trickle_vents { get; set; }
+        public string trickle_vents { get; set; } = "...";
 
         [DisplayName("Spacer Thickness")]
         public string spacer_thickness { get; set; } = "";
@@ -151,13 +151,13 @@ namespace PropertySurveyService.Models
         public string special_glass { get; set; } = "";
 
         [DisplayName("Double/Tripple")]
-        public int double_tripple { get; set; }
+        public string double_tripple { get; set; } = "...";
 
         [DisplayName("Internal Lock")]
         public int internal_lock { get; set; }
 
         [DisplayName("New Locking Mechanism")]
-        public int bNewLockingMech { get; set; }
+        public bool? bNewLockingMech { get; set; }
 
         [DisplayName("Lock Complete")]
         public bool bLockComplete { get; set; }
@@ -181,7 +181,7 @@ namespace PropertySurveyService.Models
         public string docl { get; set; } = "";
 
         [DisplayName("Profile Type")]
-        public int profile_type { get; set; }
+        public string profile_type { get; set; } = "...";
 
         [DisplayName("Room Location")]
         public string room_location { get; set; } = "";
@@ -291,16 +291,16 @@ namespace PropertySurveyService.Models
         public string lead_comments { get; set; } = "";
 
         [DisplayName("Collect and Copy")]
-        public int collect_and_copy { get; set; }
+        public bool? collect_and_copy { get; set; }
 
         [DisplayName("Temporary")]
-        public int temporary { get; set; }
+        public string temporary { get; set; } = "...";
 
         [DisplayName("Parts to Order")]
         public string parts_to_order { get; set; } = "";
 
         [DisplayName("Is a Flat")]
-        public int is_a_flat { get; set; }
+        public bool? is_a_flat { get; set; }
 
         [DisplayName("Point of Entry")]
         public string point_of_entry { get; set; } = "";
@@ -408,7 +408,7 @@ namespace PropertySurveyService.Models
         public bool glass_complete { get; set; }
 
         [DisplayName("Replace Glass")]
-        public int replace_glass { get; set; }
+        public bool? replace_glass { get; set; }
         public SurveyItem AsSurveyItem() { return new SurveyItem(Id, enum_item_type.upvc, item_number, ContractCode); }
     }
 

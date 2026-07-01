@@ -37,10 +37,10 @@ namespace PropertySurveyService.Models
         public string door_make { get; set; } = "";
 
         [DisplayName("Opens")]
-        public int opens { get; set; }
+        public string opens { get; set; } = "...";
 
         [DisplayName("Is Lock")]
-        public int is_lock { get; set; }
+        public string is_lock { get; set; } = "...";
 
         [DisplayName("Frame Colour Inside")]
         public string frame_colour_inside { get; set; } = "";
@@ -76,7 +76,7 @@ namespace PropertySurveyService.Models
         public string trickle_vents { get; set; } = "";
 
         [DisplayName("Addons")]
-        public int addons { get; set; }
+        public bool? addons { get; set; }
 
         [DisplayName("Addons Height")]
         public string addons_height { get; set; } = "";
@@ -91,7 +91,7 @@ namespace PropertySurveyService.Models
         public string threshold_type { get; set; } = "";
 
         [DisplayName("Lever Pad Handles")]
-        public int lever_pad_handles { get; set; }
+        public string lever_pad_handles { get; set; } = "...";
 
         [DisplayName("Glass Pattern")]
         public string glass_pattern { get; set; } = "";
@@ -106,7 +106,7 @@ namespace PropertySurveyService.Models
         public string spacer_colour { get; set; } = "";
 
         [DisplayName("Profile Type")]
-        public int profile_type { get; set; }
+        public string profile_type { get; set; } = "...";
 
         [DisplayName("Room Location")]
         public string room_location { get; set; } = "";
@@ -151,10 +151,10 @@ namespace PropertySurveyService.Models
         public string pet_type { get; set; } = "";
 
         [DisplayName("Pet Magnetic")]
-        public int pet_magnetic { get; set; }
+        public string pet_magnetic { get; set; } = "...";
 
         [DisplayName("Glaze")]
-        public int glaze { get; set; }
+        public string glaze { get; set; } = "...";
 
         [DisplayName("Print Name")]
         public string print_name { get; set; } = "";
@@ -186,7 +186,7 @@ namespace PropertySurveyService.Models
         public string lock_other_text { get; set; } = "";
 
         [DisplayName("Head Drip")]
-        public int head_drip { get; set; }
+        public bool? head_drip { get; set; }
 
         [DisplayName("Change Item To")]
         public string ChangeItemTo { get; set; } = "";
@@ -198,7 +198,7 @@ namespace PropertySurveyService.Models
         public string door_wood { get; set; } = "";
 
         [DisplayName("Hinged On")]
-        public int hinged_on { get; set; }
+        public string hinged_on { get; set; } = "...";
 
         [DisplayName("Reason Not Repaired")]
         public string reason_not_repaired { get; set; } = "";
@@ -210,7 +210,7 @@ namespace PropertySurveyService.Models
         public string parts_to_order { get; set; } = "";
 
         [DisplayName("Is a Flat")]
-        public int is_a_flat { get; set; }
+        public bool? is_a_flat { get; set; }
 
         [DisplayName("Point of Entry")]
         public string point_of_entry { get; set; } = "";
@@ -222,7 +222,7 @@ namespace PropertySurveyService.Models
         public int was_it_locked { get; set; }
 
         [DisplayName("Fire Door")]
-        public int fire_door { get; set; }
+        public bool? fire_door { get; set; }
 
         [DisplayName("Lead C Width (float)")]
         public float lead_CWidthf { get; set; }
@@ -240,7 +240,7 @@ namespace PropertySurveyService.Models
         public bool glass_complete { get; set; }
 
         [DisplayName("Replace Glass")]
-        public int replace_glass { get; set; }
+        public bool? replace_glass { get; set; }
 
         [DisplayName("Repair Item")]
         public bool bRepair { get; set; }
@@ -252,13 +252,13 @@ namespace PropertySurveyService.Models
         public string WER_rating { get; set; } = "";
 
         [DisplayName("Gaskets")]
-        public int gaskets { get; set; }
+        public string gaskets { get; set; } = "...";
 
         [DisplayName("Gaskets Text")]
         public string gaskets_text { get; set; } = "";
 
         [DisplayName("Handles Required")]
-        public int handles_req { get; set; }
+        public bool? handles_req { get; set; }
 
         [DisplayName("Handle Drawing Complete")]
         public bool bHandleDrawingComplete { get; set; }
