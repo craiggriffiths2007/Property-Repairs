@@ -9,9 +9,4 @@
 <hr />
 <partial name="_ItemDetailsPartial" model="Model.Timber" />
 
-<hr />
-
-@foreach (var image in Model.Images)
-{
-    <img src="data:image/png;base64,@image.Data" class="img-fluid rounded" />
-}
+<partial name="_ItemImagesPartial" model="Model.Images" />

@@ -1,0 +1,24 @@
+﻿@using System.ComponentModel
+@using System.ComponentModel.DataAnnotations
+@using System.Reflection
+@model IEnumerable<PropertySurveyService.Models.PhotoImage>
+
+<hr />
+
+<div class="container">
+    <div class="row">
+        @foreach (var image in Model)
+        {
+            if (image.Filename.Substring(9, 1) == "d")
+            {
+                <div class="col-6 p-3 border">
+                    <img src="data:image/png;base64,@image.Data" class="img-fluid rounded" />
+                </div>
+            }
+            else
+            {
+                <img src="data:image/png;base64,@image.Data" class="img-fluid rounded" />
+            }
+        }
+    </div>
+</div>

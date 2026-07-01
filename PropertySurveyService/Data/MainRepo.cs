@@ -28,6 +28,7 @@ namespace PropertySurveyService.Data
 
             var photoimages = _context.Images
                 .Where(x => EF.Functions.Like(x.Filename, pattern))
+                .OrderByDescending(x => x.Filename.Substring(9, 1))
                 .ToList();
 
             return photoimages ?? new List<PhotoImage>();
