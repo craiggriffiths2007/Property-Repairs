@@ -7,17 +7,17 @@ using PropertySurveyService.ViewModels;
 
 public class GlassController : Controller
 {
-    private readonly IMainRepo data;
+    private readonly MainRepo repo;
 
-    public GlassController(IMainRepo _data)
+    public GlassController(MainRepo _data)
     {
-        data = _data;
+        repo = _data;
     }
 
     // GET: GLASSS
     public async Task<IActionResult> Index()    
     {
-        return View(await data.Db.Glass.ToListAsync());
+        return View(await repo.Db.Glass.ToListAsync());
     }
 
     // GET: GLASSS/Details/Db
@@ -30,7 +30,7 @@ public class GlassController : Controller
             return NotFound();
         }
 
-        var glass = await data.Db.Glass
+        var glass = await repo.Db.Glass
             .FirstOrDefaultAsync(m => m.Id == id);
         if (glass == null)
         {
@@ -39,7 +39,7 @@ public class GlassController : Controller
 
         viewModel.Glass = glass;
 
-        viewModel.Images = data.GetSurveyItemImages(glass.ContractCode, glass.item_number);
+        viewModel.Images = repo.GetSurveyItemImages(glass.ContractCode, glass.item_number);
 
         return View(viewModel);
     }
@@ -59,8 +59,8 @@ public class GlassController : Controller
     {
         if (ModelState.IsValid)
         {
-            data.Db.Add(glass);
-            await data.Db.SaveChangesAsync();
+            repo.Db.Add(glass);
+            await repo.Db.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
         return View(glass);
@@ -74,7 +74,7 @@ public class GlassController : Controller
             return NotFound();
         }
 
-        var glass = await data.Db.Glass.FindAsync(id);
+        var glass = await repo.Db.Glass.FindAsync(id);
         if (glass == null)
         {
             return NotFound();
@@ -98,8 +98,8 @@ public class GlassController : Controller
         {
             try
             {
-                data.Db.Update(glass);
-                await data.Db.SaveChangesAsync();
+                repo.Db.Update(glass);
+                await repo.Db.SaveChangesAsync();
             }
             catch (DbUpdateConcurrencyException)
             {
@@ -125,7 +125,7 @@ public class GlassController : Controller
             return NotFound();
         }
 
-        var glass = await data.Db.Glass
+        var glass = await repo.Db.Glass
             .FirstOrDefaultAsync(m => m.Id == id);
         if (glass == null)
         {
@@ -140,18 +140,18 @@ public class GlassController : Controller
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> DeleteConfirmed(int? id)
     {
-        var glass = await data.Db.Glass.FindAsync(id);
+        var glass = await repo.Db.Glass.FindAsync(id);
         if (glass != null)
         {
-            data.Db.Glass.Remove(glass);
+            repo.Db.Glass.Remove(glass);
         }
 
-        await data.Db.SaveChangesAsync();
+        await repo.Db.SaveChangesAsync();
         return RedirectToAction(nameof(Index));
     }
 
     private bool GlassExists(int? id)
     {
-        return data.Db.Glass.Any(e => e.Id == id);
+        return repo.Db.Glass.Any(e => e.Id == id);
     }
 }

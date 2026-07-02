@@ -11,17 +11,17 @@ namespace PropertySurveyService.ViewModels
         public FitterVan? FitterVan { get; set; }
         public SalesCar? SalesCar { get; set; }
 
-        public IEnumerable<PhotoImage>? Images { get; set; }
+        public IEnumerable<PhotoImage>? insidePhotos { get; set; }
 
-        public PhotoImage cleft { get; set; }
-        public PhotoImage cright { get; set; }
-        public PhotoImage cfront { get; set; }
-        public PhotoImage cback { get; set; }
+        public PhotoImage photoLeft { get; set; }
+        public PhotoImage photoRight { get; set; }
+        public PhotoImage photoFront { get; set; }
+        public PhotoImage photoBack { get; set; }
 
-        public PhotoImage dleft { get; set; }
-        public PhotoImage dright { get; set; }
-        public PhotoImage dfront { get; set; }
-        public PhotoImage dback { get; set; }
+        public PhotoImage diagramLeft { get; set; }
+        public PhotoImage diagramRight { get; set; }
+        public PhotoImage diagramFront { get; set; }
+        public PhotoImage diagramBack { get; set; }
         public PhotoImage drv_signature { get; set; }
         public PhotoImage chk_signature { get; set; }
 

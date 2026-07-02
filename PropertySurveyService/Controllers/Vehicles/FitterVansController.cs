@@ -13,58 +13,33 @@ namespace PropertySurveyService.Controllers
 {
     public class FitterVansController : Controller
     {
-        private readonly AppDBContext _context;
+        private readonly MainRepo repo;
 
-        public FitterVansController(AppDBContext context)
+        public FitterVansController(MainRepo _db)
         {
-            _context = context;
+            repo = _db;
         }
 
         // GET: FitterVans
         public async Task<IActionResult> Index()
         {
-            return View(await _context.FitterVans.ToListAsync());
+            return View(await repo.Db.FitterVans.ToListAsync());
         }
 
         // GET: FitterVans/Details/5
         public async Task<IActionResult> Details(int? id)
         {
-            var viewModel = new VehicleCheckDetailsViewModel();
             if (id == null)
             {
                 return NotFound();
             }
 
-            viewModel.FitterVan = await _context.FitterVans
-                .FirstOrDefaultAsync(m => m.Id == id);
+            var viewModel = repo.GetVehicleCheckDetailsViewModel(id.Value, enum_vehicle_type.fitter_van);
+
             if (viewModel.FitterVan == null)
             {
                 return NotFound();
             }
-
-            var paddedItemNumber = viewModel.FitterVan.item_number.ToString("D8");
-            string pattern = $"{viewModel.FitterVan.CheckID}_{paddedItemNumber}_fvan%";
-
-            var photoimages = _context.Images
-                .Where(x => EF.Functions.Like(x.Filename, pattern))
-                .ToList();
-
-
-            viewModel.cleft = photoimages.Where(i => i.Filename.Substring(43, 3) == "pas").FirstOrDefault() ?? new PhotoImage();
-            viewModel.cright = photoimages.Where(i => i.Filename.Substring(43, 3) == "drv").FirstOrDefault() ?? new PhotoImage();
-            viewModel.cfront = photoimages.Where(i => i.Filename.Substring(43, 3) == "fro").FirstOrDefault() ?? new PhotoImage();
-            viewModel.cback = photoimages.Where(i => i.Filename.Substring(43, 3) == "rea").FirstOrDefault() ?? new PhotoImage();
-
-            viewModel.dleft = photoimages.Where(i => i.Filename.Substring(43, 3) == "pad").FirstOrDefault() ?? new PhotoImage();
-            viewModel.dright = photoimages.Where(i => i.Filename.Substring(43, 3) == "drd").FirstOrDefault() ?? new PhotoImage();
-            viewModel.dfront = photoimages.Where(i => i.Filename.Substring(43, 3) == "frd").FirstOrDefault() ?? new PhotoImage();
-            viewModel.dback = photoimages.Where(i => i.Filename.Substring(43, 3) == "red").FirstOrDefault() ?? new PhotoImage();
-
-
-            viewModel.drv_signature = photoimages.Where(i => i.Filename.Substring(43, 3) == "dsi").FirstOrDefault() ?? new PhotoImage();
-            viewModel.chk_signature = photoimages.Where(i => i.Filename.Substring(43, 3) == "csi").FirstOrDefault() ?? new PhotoImage();
-
-            viewModel.Images = photoimages.Where(i => i.Filename.Substring(43, 1) == "i").ToList() ?? new List<PhotoImage>();
 
             return View(viewModel);
         }
@@ -84,8 +59,8 @@ namespace PropertySurveyService.Controllers
         {
             if (ModelState.IsValid)
             {
-                _context.Add(fitterVan);
-                await _context.SaveChangesAsync();
+                repo.Db.Add(fitterVan);
+                await repo.Db.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
             return View(fitterVan);
@@ -99,7 +74,7 @@ namespace PropertySurveyService.Controllers
                 return NotFound();
             }
 
-            var fitterVan = await _context.FitterVans.FindAsync(id);
+            var fitterVan = await repo.Db.FitterVans.FindAsync(id);
             if (fitterVan == null)
             {
                 return NotFound();
@@ -123,8 +98,8 @@ namespace PropertySurveyService.Controllers
             {
                 try
                 {
-                    _context.Update(fitterVan);
-                    await _context.SaveChangesAsync();
+                    repo.Db.Update(fitterVan);
+                    await repo.Db.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -150,7 +125,7 @@ namespace PropertySurveyService.Controllers
                 return NotFound();
             }
 
-            var fitterVan = await _context.FitterVans
+            var fitterVan = await repo.Db.FitterVans
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (fitterVan == null)
             {
@@ -165,19 +140,19 @@ namespace PropertySurveyService.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var fitterVan = await _context.FitterVans.FindAsync(id);
+            var fitterVan = await repo.Db.FitterVans.FindAsync(id);
             if (fitterVan != null)
             {
-                _context.FitterVans.Remove(fitterVan);
+                repo.Db.FitterVans.Remove(fitterVan);
             }
 
-            await _context.SaveChangesAsync();
+            await repo.Db.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool FitterVanExists(int id)
         {
-            return _context.FitterVans.Any(e => e.Id == id);
+            return repo.Db.FitterVans.Any(e => e.Id == id);
         }
     }
 }

@@ -7,17 +7,17 @@ using PropertySurveyService.ViewModels;
 
 public class BifoldingController : Controller
 {
-    private readonly IMainRepo data;
+    private readonly MainRepo repo;
 
-    public BifoldingController(IMainRepo _data)
+    public BifoldingController(MainRepo _data)
     {
-        data = _data;
+        repo = _data;
     }
 
     // GET: BIFOLDINGS
     public async Task<IActionResult> Index()    
     {
-        return View(await data.Db.Bifolding.ToListAsync());
+        return View(await repo.Db.Bifolding.ToListAsync());
     }
 
     // GET: BIFOLDINGS/Details/Db
@@ -30,7 +30,7 @@ public class BifoldingController : Controller
             return NotFound();
         }
 
-        var bifolding = await data.Db.Bifolding
+        var bifolding = await repo.Db.Bifolding
             .FirstOrDefaultAsync(m => m.Id == id);
         if (bifolding == null)
         {
@@ -39,7 +39,7 @@ public class BifoldingController : Controller
 
         viewModel.Bifolding = bifolding;
 
-        viewModel.Images = data.GetSurveyItemImages(bifolding.ContractCode, bifolding.item_number);
+        viewModel.Images = repo.GetSurveyItemImages(bifolding.ContractCode, bifolding.item_number);
 
         return View(viewModel);
     }
@@ -59,8 +59,8 @@ public class BifoldingController : Controller
     {
         if (ModelState.IsValid)
         {
-            data.Db.Add(bifolding);
-            await data.Db.SaveChangesAsync();
+            repo.Db.Add(bifolding);
+            await repo.Db.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
         return View(bifolding);
@@ -74,7 +74,7 @@ public class BifoldingController : Controller
             return NotFound();
         }
 
-        var bifolding = await data.Db.Bifolding.FindAsync(id);
+        var bifolding = await repo.Db.Bifolding.FindAsync(id);
         if (bifolding == null)
         {
             return NotFound();
@@ -98,8 +98,8 @@ public class BifoldingController : Controller
         {
             try
             {
-                data.Db.Update(bifolding);
-                await data.Db.SaveChangesAsync();
+                repo.Db.Update(bifolding);
+                await repo.Db.SaveChangesAsync();
             }
             catch (DbUpdateConcurrencyException)
             {
@@ -125,7 +125,7 @@ public class BifoldingController : Controller
             return NotFound();
         }
 
-        var bifolding = await data.Db.Bifolding
+        var bifolding = await repo.Db.Bifolding
             .FirstOrDefaultAsync(m => m.Id == id);
         if (bifolding == null)
         {
@@ -140,18 +140,18 @@ public class BifoldingController : Controller
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> DeleteConfirmed(int? id)
     {
-        var bifolding = await data.Db.Bifolding.FindAsync(id);
+        var bifolding = await repo.Db.Bifolding.FindAsync(id);
         if (bifolding != null)
         {
-            data.Db.Bifolding.Remove(bifolding);
+            repo.Db.Bifolding.Remove(bifolding);
         }
 
-        await data.Db.SaveChangesAsync();
+        await repo.Db.SaveChangesAsync();
         return RedirectToAction(nameof(Index));
     }
 
     private bool BifoldingExists(int? id)
     {
-        return data.Db.Bifolding.Any(e => e.Id == id);
+        return repo.Db.Bifolding.Any(e => e.Id == id);
     }
 }

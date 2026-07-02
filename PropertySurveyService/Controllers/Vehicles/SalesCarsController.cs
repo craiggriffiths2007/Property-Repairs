@@ -13,58 +13,33 @@ namespace PropertySurveyService.Controllers
 {
     public class SalesCarsController : Controller
     {
-        private readonly AppDBContext _context;
+        private readonly MainRepo repo;
 
-        public SalesCarsController(AppDBContext context)
+        public SalesCarsController(MainRepo _db)
         {
-            _context = context;
+            repo = _db;
         }
 
         // GET: SalesCars
         public async Task<IActionResult> Index()
         {
-            return View(await _context.SalesCars.ToListAsync());
+            return View(await repo.Db.SalesCars.ToListAsync());
         }
 
         // GET: SalesCars/Details/5
         public async Task<IActionResult> Details(int? id)
         {
-            var viewModel = new VehicleCheckDetailsViewModel();
             if (id == null)
             {
                 return NotFound();
             }
 
-            viewModel.SalesCar = await _context.SalesCars
-                .FirstOrDefaultAsync(m => m.Id == id);
+            var viewModel = repo.GetVehicleCheckDetailsViewModel(id.Value, enum_vehicle_type.sales_car);
+
             if (viewModel.SalesCar == null)
             {
                 return NotFound();
             }
-
-            var paddedItemNumber = viewModel.SalesCar.item_number.ToString("D8");
-            string pattern = $"{viewModel.SalesCar.CheckID}_{paddedItemNumber}_scar%";
-
-            var photoimages = _context.Images
-                .Where(x => EF.Functions.Like(x.Filename, pattern))
-                .ToList();
-
-
-            viewModel.cleft = photoimages.Where(i => i.Filename.Substring(43, 3) == "pas").FirstOrDefault() ?? new PhotoImage();
-            viewModel.cright = photoimages.Where(i => i.Filename.Substring(43, 3) == "drv").FirstOrDefault() ?? new PhotoImage();
-            viewModel.cfront = photoimages.Where(i => i.Filename.Substring(43, 3) == "fro").FirstOrDefault() ?? new PhotoImage();
-            viewModel.cback = photoimages.Where(i => i.Filename.Substring(43, 3) == "rea").FirstOrDefault() ?? new PhotoImage();
-
-            viewModel.dleft = photoimages.Where(i => i.Filename.Substring(43, 3) == "pad").FirstOrDefault() ?? new PhotoImage();
-            viewModel.dright = photoimages.Where(i => i.Filename.Substring(43, 3) == "drd").FirstOrDefault() ?? new PhotoImage();
-            viewModel.dfront = photoimages.Where(i => i.Filename.Substring(43, 3) == "frd").FirstOrDefault() ?? new PhotoImage();
-            viewModel.dback = photoimages.Where(i => i.Filename.Substring(43, 3) == "red").FirstOrDefault() ?? new PhotoImage();
-
-
-            viewModel.drv_signature = photoimages.Where(i => i.Filename.Substring(43, 3) == "dsi").FirstOrDefault() ?? new PhotoImage();
-            viewModel.chk_signature = photoimages.Where(i => i.Filename.Substring(43, 3) == "csi").FirstOrDefault() ?? new PhotoImage();
-
-            viewModel.Images = photoimages.Where(i => i.Filename.Substring(43, 1) == "i").ToList() ?? new List<PhotoImage>();
 
             return View(viewModel);
         }
@@ -84,8 +59,8 @@ namespace PropertySurveyService.Controllers
         {
             if (ModelState.IsValid)
             {
-                _context.Add(salesCar);
-                await _context.SaveChangesAsync();
+                repo.Db.Add(salesCar);
+                await repo.Db.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
             return View(salesCar);
@@ -99,7 +74,7 @@ namespace PropertySurveyService.Controllers
                 return NotFound();
             }
 
-            var salesCar = await _context.SalesCars.FindAsync(id);
+            var salesCar = await repo.Db.SalesCars.FindAsync(id);
             if (salesCar == null)
             {
                 return NotFound();
@@ -123,8 +98,8 @@ namespace PropertySurveyService.Controllers
             {
                 try
                 {
-                    _context.Update(salesCar);
-                    await _context.SaveChangesAsync();
+                    repo.Db.Update(salesCar);
+                    await repo.Db.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -150,7 +125,7 @@ namespace PropertySurveyService.Controllers
                 return NotFound();
             }
 
-            var salesCar = await _context.SalesCars
+            var salesCar = await repo.Db.SalesCars
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (salesCar == null)
             {
@@ -165,19 +140,19 @@ namespace PropertySurveyService.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var salesCar = await _context.SalesCars.FindAsync(id);
+            var salesCar = await repo.Db.SalesCars.FindAsync(id);
             if (salesCar != null)
             {
-                _context.SalesCars.Remove(salesCar);
+                repo.Db.SalesCars.Remove(salesCar);
             }
 
-            await _context.SaveChangesAsync();
+            await repo.Db.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool SalesCarExists(int id)
         {
-            return _context.SalesCars.Any(e => e.Id == id);
+            return repo.Db.SalesCars.Any(e => e.Id == id);
         }
     }
 }

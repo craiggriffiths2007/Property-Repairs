@@ -7,17 +7,17 @@ using PropertySurveyService.ViewModels;
 
 public class TimberController : Controller
 {
-    private readonly IMainRepo data;
+    private readonly MainRepo repo;
 
-    public TimberController(IMainRepo _data)
+    public TimberController(MainRepo _data)
     {
-        data = _data;
+        repo = _data;
     }
 
     // GET: TIMBERS
     public async Task<IActionResult> Index()    
     {
-        return View(await data.Db.Timber.ToListAsync());
+        return View(await repo.Db.Timber.ToListAsync());
     }
 
     // GET: TIMBERS/Details/5
@@ -30,7 +30,7 @@ public class TimberController : Controller
             return NotFound();
         }
 
-        var timber = await data.Db.Timber
+        var timber = await repo.Db.Timber
             .FirstOrDefaultAsync(m => m.Id == id);
         if (timber == null)
         {
@@ -39,7 +39,7 @@ public class TimberController : Controller
 
         viewModel.Timber = timber;
 
-        viewModel.Images = data.GetSurveyItemImages(timber.ContractCode, timber.item_number);
+        viewModel.Images = repo.GetSurveyItemImages(timber.ContractCode, timber.item_number);
 
         return View(viewModel);
     }
@@ -59,8 +59,8 @@ public class TimberController : Controller
     {
         if (ModelState.IsValid)
         {
-            data.Db.Add(timber);
-            await data.Db.SaveChangesAsync();
+            repo.Db.Add(timber);
+            await repo.Db.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
         return View(timber);
@@ -74,7 +74,7 @@ public class TimberController : Controller
             return NotFound();
         }
 
-        var timber = await data.Db.Timber.FindAsync(id);
+        var timber = await repo.Db.Timber.FindAsync(id);
         if (timber == null)
         {
             return NotFound();
@@ -98,8 +98,8 @@ public class TimberController : Controller
         {
             try
             {
-                data.Db.Update(timber);
-                await data.Db.SaveChangesAsync();
+                repo.Db.Update(timber);
+                await repo.Db.SaveChangesAsync();
             }
             catch (DbUpdateConcurrencyException)
             {
@@ -125,7 +125,7 @@ public class TimberController : Controller
             return NotFound();
         }
 
-        var timber = await data.Db.Timber
+        var timber = await repo.Db.Timber
             .FirstOrDefaultAsync(m => m.Id == id);
         if (timber == null)
         {
@@ -140,18 +140,18 @@ public class TimberController : Controller
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> DeleteConfirmed(int? id)
     {
-        var timber = await data.Db.Timber.FindAsync(id);
+        var timber = await repo.Db.Timber.FindAsync(id);
         if (timber != null)
         {
-            data.Db.Timber.Remove(timber);
+            repo.Db.Timber.Remove(timber);
         }
 
-        await data.Db.SaveChangesAsync();
+        await repo.Db.SaveChangesAsync();
         return RedirectToAction(nameof(Index));
     }
 
     private bool TimberExists(int? id)
     {
-        return data.Db.Timber.Any(e => e.Id == id);
+        return repo.Db.Timber.Any(e => e.Id == id);
     }
 }

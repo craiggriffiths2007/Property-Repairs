@@ -18,32 +18,32 @@
 <div class="container">
     <div class="row">
         <!-- Row 1 -->
-        <div class="col-6 p-3 border">Passenger<img src="data:image/png;base64,@Model.cleft.Data" class="img-fluid rounded" /></div>
-        <div class="col-6 p-3 border">Driver<img src="data:image/png;base64,@Model.cright.Data" class="img-fluid rounded" /></div>
+        <div class="col-6 p-3 border">Passenger<img src="data:image/png;base64,@Model.photoLeft.Data" class="img-fluid rounded" /></div>
+        <div class="col-6 p-3 border">Driver<img src="data:image/png;base64,@Model.photoRight.Data" class="img-fluid rounded" /></div>
     </div>
     <div class="row">
         <!-- Row 2 -->
-        <div class="col-6 p-3 border">Front<img src="data:image/png;base64,@Model.cfront.Data" class="img-fluid rounded" /></div>
-        <div class="col-6 p-3 border">Rear<img src="data:image/png;base64,@Model.cback.Data" class="img-fluid rounded" /></div>
+        <div class="col-6 p-3 border">Front<img src="data:image/png;base64,@Model.photoFront.Data" class="img-fluid rounded" /></div>
+        <div class="col-6 p-3 border">Rear<img src="data:image/png;base64,@Model.photoBack.Data" class="img-fluid rounded" /></div>
     </div>
 </div>
 <h4>Damage</h4>
 <div class="container">
     <div class="row">
         <!-- Row 1 -->
-        <div class="col-6 p-3 border">Passenger<img src="data:image/png;base64,@Model.dleft.Data" class="img-fluid rounded" /></div>
-        <div class="col-6 p-3 border">Driver<img src="data:image/png;base64,@Model.dright.Data" class="img-fluid rounded" /></div>
+        <div class="col-6 p-3 border">Passenger<img src="data:image/png;base64,@Model.diagramLeft.Data" class="img-fluid rounded" /></div>
+        <div class="col-6 p-3 border">Driver<img src="data:image/png;base64,@Model.diagramRight.Data" class="img-fluid rounded" /></div>
     </div>
     <div class="row">
         <!-- Row 2 -->
-        <div class="col-6 p-3 border">Front<img src="data:image/png;base64,@Model.dfront.Data" class="img-fluid rounded" /></div>
-        <div class="col-6 p-3 border">Rear<img src="data:image/png;base64,@Model.dback.Data" class="img-fluid rounded" /></div>
+        <div class="col-6 p-3 border">Front<img src="data:image/png;base64,@Model.diagramFront.Data" class="img-fluid rounded" /></div>
+        <div class="col-6 p-3 border">Rear<img src="data:image/png;base64,@Model.diagramBack.Data" class="img-fluid rounded" /></div>
     </div>
 </div>
 <h4>Inside Photos</h4>
 <div class="container">
     <div class="row">
-        @foreach (var image_data in @Model.Images)
+        @foreach (var image_data in @Model.insidePhotos)
         {
             <div class="col-6 p-3 border"><img src="data:image/png;base64,@image_data.Data" class="img-fluid rounded" /></div>
         }

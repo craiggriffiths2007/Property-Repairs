@@ -7,17 +7,17 @@ using PropertySurveyService.ViewModels;
 
 public class GreenhouseController : Controller
 {
-    private readonly IMainRepo data;
+    private readonly MainRepo repo;
 
-    public GreenhouseController(IMainRepo _data)
+    public GreenhouseController(MainRepo _data)
     {
-        data = _data;
+        repo = _data;
     }
 
     // GET: GREENHOUSES
     public async Task<IActionResult> Index()    
     {
-        return View(await data.Db.Greenhouse.ToListAsync());
+        return View(await repo.Db.Greenhouse.ToListAsync());
     }
 
     // GET: GREENHOUSES/Details/5
@@ -30,7 +30,7 @@ public class GreenhouseController : Controller
             return NotFound();
         }
 
-        var greenhouse = await data.Db.Greenhouse
+        var greenhouse = await repo.Db.Greenhouse
             .FirstOrDefaultAsync(m => m.Id == id);
         if (greenhouse == null)
         {
@@ -39,7 +39,7 @@ public class GreenhouseController : Controller
 
         viewModel.Greenhouse = greenhouse;
 
-        viewModel.Images = data.GetSurveyItemImages(greenhouse.ContractCode, greenhouse.item_number);
+        viewModel.Images = repo.GetSurveyItemImages(greenhouse.ContractCode, greenhouse.item_number);
 
         return View(viewModel);
     }
@@ -59,8 +59,8 @@ public class GreenhouseController : Controller
     {
         if (ModelState.IsValid)
         {
-            data.Db.Add(greenhouse);
-            await data.Db.SaveChangesAsync();
+            repo.Db.Add(greenhouse);
+            await repo.Db.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
         return View(greenhouse);
@@ -74,7 +74,7 @@ public class GreenhouseController : Controller
             return NotFound();
         }
 
-        var greenhouse = await data.Db.Greenhouse.FindAsync(id);
+        var greenhouse = await repo.Db.Greenhouse.FindAsync(id);
         if (greenhouse == null)
         {
             return NotFound();
@@ -98,8 +98,8 @@ public class GreenhouseController : Controller
         {
             try
             {
-                data.Db.Update(greenhouse);
-                await data.Db.SaveChangesAsync();
+                repo.Db.Update(greenhouse);
+                await repo.Db.SaveChangesAsync();
             }
             catch (DbUpdateConcurrencyException)
             {
@@ -125,7 +125,7 @@ public class GreenhouseController : Controller
             return NotFound();
         }
 
-        var greenhouse = await data.Db.Greenhouse
+        var greenhouse = await repo.Db.Greenhouse
             .FirstOrDefaultAsync(m => m.Id == id);
         if (greenhouse == null)
         {
@@ -140,18 +140,18 @@ public class GreenhouseController : Controller
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> DeleteConfirmed(int? id)
     {
-        var greenhouse = await data.Db.Greenhouse.FindAsync(id);
+        var greenhouse = await repo.Db.Greenhouse.FindAsync(id);
         if (greenhouse != null)
         {
-            data.Db.Greenhouse.Remove(greenhouse);
+            repo.Db.Greenhouse.Remove(greenhouse);
         }
 
-        await data.Db.SaveChangesAsync();
+        await repo.Db.SaveChangesAsync();
         return RedirectToAction(nameof(Index));
     }
 
     private bool GreenhouseExists(int? id)
     {
-        return data.Db.Greenhouse.Any(e => e.Id == id);
+        return repo.Db.Greenhouse.Any(e => e.Id == id);
     }
 }

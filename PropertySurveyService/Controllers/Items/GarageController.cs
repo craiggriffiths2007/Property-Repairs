@@ -7,17 +7,17 @@ using PropertySurveyService.ViewModels;
 
 public class GarageController : Controller
 {
-    private readonly IMainRepo data;
+    private readonly MainRepo repo;
 
-    public GarageController(IMainRepo _data)
+    public GarageController(MainRepo _data)
     {
-        data = _data;
+        repo = _data;
     }
 
     // GET: GARAGES
     public async Task<IActionResult> Index()    
     {
-        return View(await data.Db.Garage.ToListAsync());
+        return View(await repo.Db.Garage.ToListAsync());
     }
 
     // GET: GARAGES/Details/Db
@@ -30,7 +30,7 @@ public class GarageController : Controller
             return NotFound();
         }
 
-        var garage = await data.Db.Garage
+        var garage = await repo.Db.Garage
             .FirstOrDefaultAsync(m => m.Id == id);
         if (garage == null)
         {
@@ -38,7 +38,7 @@ public class GarageController : Controller
         }
         viewModel.Garage = garage;
 
-        viewModel.Images = data.GetSurveyItemImages(garage.ContractCode, garage.item_number);
+        viewModel.Images = repo.GetSurveyItemImages(garage.ContractCode, garage.item_number);
 
         return View(viewModel);
     }
@@ -58,8 +58,8 @@ public class GarageController : Controller
     {
         if (ModelState.IsValid)
         {
-            data.Db.Add(garage);
-            await data.Db.SaveChangesAsync();
+            repo.Db.Add(garage);
+            await repo.Db.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
         return View(garage);
@@ -73,7 +73,7 @@ public class GarageController : Controller
             return NotFound();
         }
 
-        var garage = await data.Db.Garage.FindAsync(id);
+        var garage = await repo.Db.Garage.FindAsync(id);
         if (garage == null)
         {
             return NotFound();
@@ -97,8 +97,8 @@ public class GarageController : Controller
         {
             try
             {
-                data.Db.Update(garage);
-                await data.Db.SaveChangesAsync();
+                repo.Db.Update(garage);
+                await repo.Db.SaveChangesAsync();
             }
             catch (DbUpdateConcurrencyException)
             {
@@ -124,7 +124,7 @@ public class GarageController : Controller
             return NotFound();
         }
 
-        var garage = await data.Db.Garage
+        var garage = await repo.Db.Garage
             .FirstOrDefaultAsync(m => m.Id == id);
         if (garage == null)
         {
@@ -139,18 +139,18 @@ public class GarageController : Controller
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> DeleteConfirmed(int? id)
     {
-        var garage = await data.Db.Garage.FindAsync(id);
+        var garage = await repo.Db.Garage.FindAsync(id);
         if (garage != null)
         {
-            data.Db.Garage.Remove(garage);
+            repo.Db.Garage.Remove(garage);
         }
 
-        await data.Db.SaveChangesAsync();
+        await repo.Db.SaveChangesAsync();
         return RedirectToAction(nameof(Index));
     }
 
     private bool GarageExists(int? id)
     {
-        return data.Db.Garage.Any(e => e.Id == id);
+        return repo.Db.Garage.Any(e => e.Id == id);
     }
 }

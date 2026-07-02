@@ -48,7 +48,7 @@ builder.Services.AddControllers()
             options.SerializerSettings.NullValueHandling = NullValueHandling.Ignore;
         });
 */
-builder.Services.AddScoped<IMainRepo,MainRepo>();
+builder.Services.AddScoped<MainRepo>();
 
 
 builder.Services.Configure<RazorViewEngineOptions>(options =>

@@ -6,17 +6,17 @@ using PropertySurveyService.Data;
 using PropertySurveyService.ViewModels;
 public class PanelController : Controller
 {
-    private readonly IMainRepo data;
+    private readonly MainRepo repo;
 
-    public PanelController(IMainRepo _data)
+    public PanelController(MainRepo _data)
     {
-        data = _data;
+        repo = _data;
     }
 
     // GET: PANELS
     public async Task<IActionResult> Index()    
     {
-        return View(await data.Db.Panel.ToListAsync());
+        return View(await repo.Db.Panel.ToListAsync());
     }
 
     // GET: PANELS/Details/5
@@ -29,7 +29,7 @@ public class PanelController : Controller
             return NotFound();
         }
 
-        var panel = await data.Db.Panel
+        var panel = await repo.Db.Panel
             .FirstOrDefaultAsync(m => m.Id == id);
         if (panel == null)
         {
@@ -38,7 +38,7 @@ public class PanelController : Controller
 
         viewModel.Panel = panel;
 
-        viewModel.Images = data.GetSurveyItemImages(panel.ContractCode, panel.item_number);
+        viewModel.Images = repo.GetSurveyItemImages(panel.ContractCode, panel.item_number);
 
         return View(viewModel);
     }
@@ -58,8 +58,8 @@ public class PanelController : Controller
     {
         if (ModelState.IsValid)
         {
-            data.Db.Add(panel);
-            await data.Db.SaveChangesAsync();
+            repo.Db.Add(panel);
+            await repo.Db.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
         return View(panel);
@@ -73,7 +73,7 @@ public class PanelController : Controller
             return NotFound();
         }
 
-        var panel = await data.Db.Panel.FindAsync(id);
+        var panel = await repo.Db.Panel.FindAsync(id);
         if (panel == null)
         {
             return NotFound();
@@ -97,8 +97,8 @@ public class PanelController : Controller
         {
             try
             {
-                data.Db.Update(panel);
-                await data.Db.SaveChangesAsync();
+                repo.Db.Update(panel);
+                await repo.Db.SaveChangesAsync();
             }
             catch (DbUpdateConcurrencyException)
             {
@@ -124,7 +124,7 @@ public class PanelController : Controller
             return NotFound();
         }
 
-        var panel = await data.Db.Panel
+        var panel = await repo.Db.Panel
             .FirstOrDefaultAsync(m => m.Id == id);
         if (panel == null)
         {
@@ -139,18 +139,18 @@ public class PanelController : Controller
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> DeleteConfirmed(int? id)
     {
-        var panel = await data.Db.Panel.FindAsync(id);
+        var panel = await repo.Db.Panel.FindAsync(id);
         if (panel != null)
         {
-            data.Db.Panel.Remove(panel);
+            repo.Db.Panel.Remove(panel);
         }
 
-        await data.Db.SaveChangesAsync();
+        await repo.Db.SaveChangesAsync();
         return RedirectToAction(nameof(Index));
     }
 
     private bool PanelExists(int? id)
     {
-        return data.Db.Panel.Any(e => e.Id == id);
+        return repo.Db.Panel.Any(e => e.Id == id);
     }
 }

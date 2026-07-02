@@ -7,17 +7,17 @@ using PropertySurveyService.ViewModels;
 
 public class LockmechController : Controller
 {
-    private readonly IMainRepo data;
+    private readonly MainRepo repo;
 
-    public LockmechController(IMainRepo _data)
+    public LockmechController(MainRepo _data)
     {
-        data = _data;
+        repo = _data;
     }
 
     // GET: LOCKMECHS
     public async Task<IActionResult> Index()    
     {
-        return View(await data.Db.Lockmech.ToListAsync());
+        return View(await repo.Db.Lockmech.ToListAsync());
     }
 
     // GET: LOCKMECHS/Details/5
@@ -30,7 +30,7 @@ public class LockmechController : Controller
             return NotFound();
         }
 
-        var lockmech = await data.Db.Lockmech
+        var lockmech = await repo.Db.Lockmech
             .FirstOrDefaultAsync(m => m.Id == id);
         if (lockmech == null)
         {
@@ -39,7 +39,7 @@ public class LockmechController : Controller
 
         viewModel.Lockmech = lockmech;
 
-        viewModel.Images = data.GetSurveyItemImages(lockmech.ContractCode, lockmech.item_number);
+        viewModel.Images = repo.GetSurveyItemImages(lockmech.ContractCode, lockmech.item_number);
 
         return View(viewModel);
     }
@@ -59,8 +59,8 @@ public class LockmechController : Controller
     {
         if (ModelState.IsValid)
         {
-            data.Db.Add(lockmech);
-            await data.Db.SaveChangesAsync();
+            repo.Db.Add(lockmech);
+            await repo.Db.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
         return View(lockmech);
@@ -74,7 +74,7 @@ public class LockmechController : Controller
             return NotFound();
         }
 
-        var lockmech = await data.Db.Lockmech.FindAsync(id);
+        var lockmech = await repo.Db.Lockmech.FindAsync(id);
         if (lockmech == null)
         {
             return NotFound();
@@ -98,8 +98,8 @@ public class LockmechController : Controller
         {
             try
             {
-                data.Db.Update(lockmech);
-                await data.Db.SaveChangesAsync();
+                repo.Db.Update(lockmech);
+                await repo.Db.SaveChangesAsync();
             }
             catch (DbUpdateConcurrencyException)
             {
@@ -125,7 +125,7 @@ public class LockmechController : Controller
             return NotFound();
         }
 
-        var lockmech = await data.Db.Lockmech
+        var lockmech = await repo.Db.Lockmech
             .FirstOrDefaultAsync(m => m.Id == id);
         if (lockmech == null)
         {
@@ -140,18 +140,18 @@ public class LockmechController : Controller
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> DeleteConfirmed(int? id)
     {
-        var lockmech = await data.Db.Lockmech.FindAsync(id);
+        var lockmech = await repo.Db.Lockmech.FindAsync(id);
         if (lockmech != null)
         {
-            data.Db.Lockmech.Remove(lockmech);
+            repo.Db.Lockmech.Remove(lockmech);
         }
 
-        await data.Db.SaveChangesAsync();
+        await repo.Db.SaveChangesAsync();
         return RedirectToAction(nameof(Index));
     }
 
     private bool LockmechExists(int? id)
     {
-        return data.Db.Lockmech.Any(e => e.Id == id);
+        return repo.Db.Lockmech.Any(e => e.Id == id);
     }
 }
