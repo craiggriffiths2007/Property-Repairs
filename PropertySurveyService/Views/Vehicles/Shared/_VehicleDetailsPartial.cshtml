@@ -11,7 +11,8 @@
     {
         var properties = Model.GetType()
             .GetProperties()
-            .Where(p => p.GetCustomAttribute<BrowsableAttribute>()?.Browsable != false)
+            .Where(p => p.GetCustomAttribute<BrowsableAttribute>()?.Browsable != false &&
+                    !string.IsNullOrWhiteSpace(p.GetValue(Model)?.ToString()))
             .Select(p => new
             {
                 Property = p,
