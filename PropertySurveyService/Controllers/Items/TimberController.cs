@@ -17,7 +17,7 @@ public class TimberController : Controller
     // GET: TIMBERS
     public async Task<IActionResult> Index()    
     {
-        return View(await data.db().Timber.ToListAsync());
+        return View(await data.Db.Timber.ToListAsync());
     }
 
     // GET: TIMBERS/Details/5
@@ -30,7 +30,7 @@ public class TimberController : Controller
             return NotFound();
         }
 
-        var timber = await data.db().Timber
+        var timber = await data.Db.Timber
             .FirstOrDefaultAsync(m => m.Id == id);
         if (timber == null)
         {
@@ -59,8 +59,8 @@ public class TimberController : Controller
     {
         if (ModelState.IsValid)
         {
-            data.db().Add(timber);
-            await data.db().SaveChangesAsync();
+            data.Db.Add(timber);
+            await data.Db.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
         return View(timber);
@@ -74,7 +74,7 @@ public class TimberController : Controller
             return NotFound();
         }
 
-        var timber = await data.db().Timber.FindAsync(id);
+        var timber = await data.Db.Timber.FindAsync(id);
         if (timber == null)
         {
             return NotFound();
@@ -98,8 +98,8 @@ public class TimberController : Controller
         {
             try
             {
-                data.db().Update(timber);
-                await data.db().SaveChangesAsync();
+                data.Db.Update(timber);
+                await data.Db.SaveChangesAsync();
             }
             catch (DbUpdateConcurrencyException)
             {
@@ -125,7 +125,7 @@ public class TimberController : Controller
             return NotFound();
         }
 
-        var timber = await data.db().Timber
+        var timber = await data.Db.Timber
             .FirstOrDefaultAsync(m => m.Id == id);
         if (timber == null)
         {
@@ -140,18 +140,18 @@ public class TimberController : Controller
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> DeleteConfirmed(int? id)
     {
-        var timber = await data.db().Timber.FindAsync(id);
+        var timber = await data.Db.Timber.FindAsync(id);
         if (timber != null)
         {
-            data.db().Timber.Remove(timber);
+            data.Db.Timber.Remove(timber);
         }
 
-        await data.db().SaveChangesAsync();
+        await data.Db.SaveChangesAsync();
         return RedirectToAction(nameof(Index));
     }
 
     private bool TimberExists(int? id)
     {
-        return data.db().Timber.Any(e => e.Id == id);
+        return data.Db.Timber.Any(e => e.Id == id);
     }
 }

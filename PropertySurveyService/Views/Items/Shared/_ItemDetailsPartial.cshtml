@@ -41,7 +41,8 @@
 
         var properties = Model.GetType()
             .GetProperties()
-                .Where(p => p.GetCustomAttribute<BrowsableAttribute>()?.Browsable != false)
+                .Where(p => p.GetCustomAttribute<BrowsableAttribute>()?.Browsable != false &&
+                    !string.IsNullOrWhiteSpace(p.GetValue(Model)?.ToString()))
                 .Select(p =>
                 {
                     var display = p.GetCustomAttribute<DisplayAttribute>();
@@ -55,8 +56,8 @@
                         Order = order
                     };
                 });
-        //.OrderBy(x => x.Order)
-                //.ThenBy(x => x.Label);
+        //.OrderBy(x => x.Order);
+        //.ThenBy(x => x.Label);
 
         foreach (var item in properties)
         {

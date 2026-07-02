@@ -10,21 +10,21 @@
 
 @if(Model.JobHeader.JobType == enum_job_type.Survey)
 {
-    <h3>Survey Job Header</h3>
+    <h3>Survey Header</h3>
 }
 @if (Model.JobHeader.JobType == enum_job_type.Fitting)
 {
-    <h3>Fitting Job Header</h3>
+    <h3>Fitting Header</h3>
 }
 @if (Model.JobHeader.JobType == enum_job_type.Remedial)
 {
-    <h3>Remedial Job Header</h3>
+    <h3>Remedial Header</h3>
 }
 
 <hr/>
 @if (Model?.JobHeader == null)
 {
-    <div class="alert alert-warning">Job header not found.</div>
+    <div class="alert alert-warning">Header not found.</div>
 }
 else
 {

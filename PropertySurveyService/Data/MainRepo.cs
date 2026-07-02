@@ -3,19 +3,21 @@
 using Microsoft.EntityFrameworkCore;
 using PropertySurveyService.Data;
 using PropertySurveyService.Models;
+using SQLitePCL;
 
 namespace PropertySurveyService.Data
 {
     public interface IMainRepo
     {
-        AppDBContext db();
+        AppDBContext Db { get; }
+
         IEnumerable<PhotoImage> GetSurveyItemImages(string contractCode, int itemNumber);
     }
     public class MainRepo : IMainRepo
     {
-        public readonly AppDBContext _context;
+        private readonly AppDBContext _context;
 
-        public AppDBContext db() { return _context; }
+        public AppDBContext Db => _context;
 
         public MainRepo(AppDBContext context)
         {

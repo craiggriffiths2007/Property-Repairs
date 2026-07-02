@@ -17,7 +17,7 @@ public class LockmechController : Controller
     // GET: LOCKMECHS
     public async Task<IActionResult> Index()    
     {
-        return View(await data.db().Lockmech.ToListAsync());
+        return View(await data.Db.Lockmech.ToListAsync());
     }
 
     // GET: LOCKMECHS/Details/5
@@ -30,7 +30,7 @@ public class LockmechController : Controller
             return NotFound();
         }
 
-        var lockmech = await data.db().Lockmech
+        var lockmech = await data.Db.Lockmech
             .FirstOrDefaultAsync(m => m.Id == id);
         if (lockmech == null)
         {
@@ -59,8 +59,8 @@ public class LockmechController : Controller
     {
         if (ModelState.IsValid)
         {
-            data.db().Add(lockmech);
-            await data.db().SaveChangesAsync();
+            data.Db.Add(lockmech);
+            await data.Db.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
         return View(lockmech);
@@ -74,7 +74,7 @@ public class LockmechController : Controller
             return NotFound();
         }
 
-        var lockmech = await data.db().Lockmech.FindAsync(id);
+        var lockmech = await data.Db.Lockmech.FindAsync(id);
         if (lockmech == null)
         {
             return NotFound();
@@ -98,8 +98,8 @@ public class LockmechController : Controller
         {
             try
             {
-                data.db().Update(lockmech);
-                await data.db().SaveChangesAsync();
+                data.Db.Update(lockmech);
+                await data.Db.SaveChangesAsync();
             }
             catch (DbUpdateConcurrencyException)
             {
@@ -125,7 +125,7 @@ public class LockmechController : Controller
             return NotFound();
         }
 
-        var lockmech = await data.db().Lockmech
+        var lockmech = await data.Db.Lockmech
             .FirstOrDefaultAsync(m => m.Id == id);
         if (lockmech == null)
         {
@@ -140,18 +140,18 @@ public class LockmechController : Controller
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> DeleteConfirmed(int? id)
     {
-        var lockmech = await data.db().Lockmech.FindAsync(id);
+        var lockmech = await data.Db.Lockmech.FindAsync(id);
         if (lockmech != null)
         {
-            data.db().Lockmech.Remove(lockmech);
+            data.Db.Lockmech.Remove(lockmech);
         }
 
-        await data.db().SaveChangesAsync();
+        await data.Db.SaveChangesAsync();
         return RedirectToAction(nameof(Index));
     }
 
     private bool LockmechExists(int? id)
     {
-        return data.db().Lockmech.Any(e => e.Id == id);
+        return data.Db.Lockmech.Any(e => e.Id == id);
     }
 }

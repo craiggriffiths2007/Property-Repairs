@@ -16,50 +16,6 @@
 else
 {
 <partial name="_VehicleDetailsPartial" model="Model.SalesCar" />
-    <hr />
-    <h4>Outside Photos</h4>
-    <div class="container">
-        <div class="row">
-            <!-- Row 1 -->
-            <div class="col-6 p-3 border">Passenger<img src="data:image/png;base64,@Model.cleft.Data" class="img-fluid rounded" /></div>
-            <div class="col-6 p-3 border">Driver<img src="data:image/png;base64,@Model.cright.Data" class="img-fluid rounded" /></div>
-        </div>
-        <div class="row">
-            <!-- Row 2 -->
-            <div class="col-6 p-3 border">Front<img src="data:image/png;base64,@Model.cfront.Data" class="img-fluid rounded" /></div>
-            <div class="col-6 p-3 border">Rear<img src="data:image/png;base64,@Model.cback.Data" class="img-fluid rounded" /></div>
-        </div>
-    </div>
-    <h4>Damage</h4>
-    <div class="container">
-        <div class="row">
-            <!-- Row 1 -->
-            <div class="col-6 p-3 border">Passenger<img src="data:image/png;base64,@Model.dleft.Data" class="img-fluid rounded" /></div>
-            <div class="col-6 p-3 border">Driver<img src="data:image/png;base64,@Model.dright.Data" class="img-fluid rounded" /></div>
-        </div>
-        <div class="row">
-            <!-- Row 2 -->
-            <div class="col-6 p-3 border">Front<img src="data:image/png;base64,@Model.dfront.Data" class="img-fluid rounded" /></div>
-            <div class="col-6 p-3 border">Rear<img src="data:image/png;base64,@Model.dback.Data" class="img-fluid rounded" /></div>
-        </div>
-    </div>
-    <h4>Inside Photos</h4>
-    <div class="container">
-        <div class="row">
-            @foreach (var image_data in @Model.Images)
-            {
-                <div class="col-6 p-3 border"><img src="data:image/png;base64,@image_data.Data" class="img-fluid rounded" /></div>
-            }
 
-        </div>
-    </div>
-    <h4>Signatures</h4>
-    <div class="container">
-        <div class="row">
-            <!-- Row 1 -->
-
-            <div class="col-6 p-3 border">Driver Signature<img src="data:image/png;base64,@Model.drv_signature.Data" class="img-fluid rounded" /></div>
-            <div class="col-6 p-3 border">Checker/Auditor Signature<img src="data:image/png;base64,@Model.chk_signature.Data" class="img-fluid rounded" /></div>
-        </div>
-    </div>
+<partial name="_VehicleimagesPartial" model="Model" />
 }

@@ -17,7 +17,7 @@ public class GreenhouseController : Controller
     // GET: GREENHOUSES
     public async Task<IActionResult> Index()    
     {
-        return View(await data.db().Greenhouse.ToListAsync());
+        return View(await data.Db.Greenhouse.ToListAsync());
     }
 
     // GET: GREENHOUSES/Details/5
@@ -30,7 +30,7 @@ public class GreenhouseController : Controller
             return NotFound();
         }
 
-        var greenhouse = await data.db().Greenhouse
+        var greenhouse = await data.Db.Greenhouse
             .FirstOrDefaultAsync(m => m.Id == id);
         if (greenhouse == null)
         {
@@ -59,8 +59,8 @@ public class GreenhouseController : Controller
     {
         if (ModelState.IsValid)
         {
-            data.db().Add(greenhouse);
-            await data.db().SaveChangesAsync();
+            data.Db.Add(greenhouse);
+            await data.Db.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
         return View(greenhouse);
@@ -74,7 +74,7 @@ public class GreenhouseController : Controller
             return NotFound();
         }
 
-        var greenhouse = await data.db().Greenhouse.FindAsync(id);
+        var greenhouse = await data.Db.Greenhouse.FindAsync(id);
         if (greenhouse == null)
         {
             return NotFound();
@@ -98,8 +98,8 @@ public class GreenhouseController : Controller
         {
             try
             {
-                data.db().Update(greenhouse);
-                await data.db().SaveChangesAsync();
+                data.Db.Update(greenhouse);
+                await data.Db.SaveChangesAsync();
             }
             catch (DbUpdateConcurrencyException)
             {
@@ -125,7 +125,7 @@ public class GreenhouseController : Controller
             return NotFound();
         }
 
-        var greenhouse = await data.db().Greenhouse
+        var greenhouse = await data.Db.Greenhouse
             .FirstOrDefaultAsync(m => m.Id == id);
         if (greenhouse == null)
         {
@@ -140,18 +140,18 @@ public class GreenhouseController : Controller
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> DeleteConfirmed(int? id)
     {
-        var greenhouse = await data.db().Greenhouse.FindAsync(id);
+        var greenhouse = await data.Db.Greenhouse.FindAsync(id);
         if (greenhouse != null)
         {
-            data.db().Greenhouse.Remove(greenhouse);
+            data.Db.Greenhouse.Remove(greenhouse);
         }
 
-        await data.db().SaveChangesAsync();
+        await data.Db.SaveChangesAsync();
         return RedirectToAction(nameof(Index));
     }
 
     private bool GreenhouseExists(int? id)
     {
-        return data.db().Greenhouse.Any(e => e.Id == id);
+        return data.Db.Greenhouse.Any(e => e.Id == id);
     }
 }

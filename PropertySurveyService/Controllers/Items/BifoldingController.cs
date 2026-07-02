@@ -17,10 +17,10 @@ public class BifoldingController : Controller
     // GET: BIFOLDINGS
     public async Task<IActionResult> Index()    
     {
-        return View(await data.db().Bifolding.ToListAsync());
+        return View(await data.Db.Bifolding.ToListAsync());
     }
 
-    // GET: BIFOLDINGS/Details/5
+    // GET: BIFOLDINGS/Details/Db
     public async Task<IActionResult> Details(int? id)
     {
         ItemDetailsViewModel viewModel = new ItemDetailsViewModel();
@@ -30,7 +30,7 @@ public class BifoldingController : Controller
             return NotFound();
         }
 
-        var bifolding = await data.db().Bifolding
+        var bifolding = await data.Db.Bifolding
             .FirstOrDefaultAsync(m => m.Id == id);
         if (bifolding == null)
         {
@@ -52,21 +52,21 @@ public class BifoldingController : Controller
 
     // POST: BIFOLDINGS/Create
     // To protect from overposting attacks, enable the specific properties you want to bind to.
-    // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+    // For more details, see http://go.microsoft.com/fwlink/?LinkId=317Db98.
     [HttpPost]
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> Create([Bind("Id,HeaderId,Guid,ContractCode,item_number,internal_width,internal_height,overall_width,overall_height,opens,trickle_vents,hardware,color_internal,color_external,threshold_type,no_of_pics,no_of_photos,no_of_vids,bComplete,comments,bifold_signed,number_of_doors,cause_of_damage,cause_of_damage_reason_different,door_type,glazing_options,number_of_doors_text,colour_of_doors,handle_colour,cill_type,knock_on,internal_door_colour,s_spare12,parts_to_order,type_of_lockng_system_required,was_it_locked,point_of_entry,ChangeItemTo,print_name,bDifferentFromOriginal,glass_complete,replace_glass,reason_not_repaired,bRepair,fensa,WER_rating,gaskets,gaskets_text,handles_req,bHandleDrawingComplete,handles_text,addons,addon_width,addon_height")] Bifolding bifolding)
     {
         if (ModelState.IsValid)
         {
-            data.db().Add(bifolding);
-            await data.db().SaveChangesAsync();
+            data.Db.Add(bifolding);
+            await data.Db.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
         return View(bifolding);
     }
 
-    // GET: BIFOLDINGS/Edit/5
+    // GET: BIFOLDINGS/Edit/Db
     public async Task<IActionResult> Edit(int? id)
     {
         if (id == null)
@@ -74,7 +74,7 @@ public class BifoldingController : Controller
             return NotFound();
         }
 
-        var bifolding = await data.db().Bifolding.FindAsync(id);
+        var bifolding = await data.Db.Bifolding.FindAsync(id);
         if (bifolding == null)
         {
             return NotFound();
@@ -82,9 +82,9 @@ public class BifoldingController : Controller
         return View(bifolding);
     }
 
-    // POST: BIFOLDINGS/Edit/5
+    // POST: BIFOLDINGS/Edit/Db
     // To protect from overposting attacks, enable the specific properties you want to bind to.
-    // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+    // For more details, see http://go.microsoft.com/fwlink/?LinkId=317Db98.
     [HttpPost]
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> Edit(int? id, [Bind("Id,HeaderId,Guid,ContractCode,item_number,internal_width,internal_height,overall_width,overall_height,opens,trickle_vents,hardware,color_internal,color_external,threshold_type,no_of_pics,no_of_photos,no_of_vids,bComplete,comments,bifold_signed,number_of_doors,cause_of_damage,cause_of_damage_reason_different,door_type,glazing_options,number_of_doors_text,colour_of_doors,handle_colour,cill_type,knock_on,internal_door_colour,s_spare12,parts_to_order,type_of_lockng_system_required,was_it_locked,point_of_entry,ChangeItemTo,print_name,bDifferentFromOriginal,glass_complete,replace_glass,reason_not_repaired,bRepair,fensa,WER_rating,gaskets,gaskets_text,handles_req,bHandleDrawingComplete,handles_text,addons,addon_width,addon_height")] Bifolding bifolding)
@@ -98,8 +98,8 @@ public class BifoldingController : Controller
         {
             try
             {
-                data.db().Update(bifolding);
-                await data.db().SaveChangesAsync();
+                data.Db.Update(bifolding);
+                await data.Db.SaveChangesAsync();
             }
             catch (DbUpdateConcurrencyException)
             {
@@ -117,7 +117,7 @@ public class BifoldingController : Controller
         return View(bifolding);
     }
 
-    // GET: BIFOLDINGS/Delete/5
+    // GET: BIFOLDINGS/Delete/Db
     public async Task<IActionResult> Delete(int? id)
     {
         if (id == null)
@@ -125,7 +125,7 @@ public class BifoldingController : Controller
             return NotFound();
         }
 
-        var bifolding = await data.db().Bifolding
+        var bifolding = await data.Db.Bifolding
             .FirstOrDefaultAsync(m => m.Id == id);
         if (bifolding == null)
         {
@@ -135,23 +135,23 @@ public class BifoldingController : Controller
         return View(bifolding);
     }
 
-    // POST: BIFOLDINGS/Delete/5
+    // POST: BIFOLDINGS/Delete/Db
     [HttpPost, ActionName("Delete")]
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> DeleteConfirmed(int? id)
     {
-        var bifolding = await data.db().Bifolding.FindAsync(id);
+        var bifolding = await data.Db.Bifolding.FindAsync(id);
         if (bifolding != null)
         {
-            data.db().Bifolding.Remove(bifolding);
+            data.Db.Bifolding.Remove(bifolding);
         }
 
-        await data.db().SaveChangesAsync();
+        await data.Db.SaveChangesAsync();
         return RedirectToAction(nameof(Index));
     }
 
     private bool BifoldingExists(int? id)
     {
-        return data.db().Bifolding.Any(e => e.Id == id);
+        return data.Db.Bifolding.Any(e => e.Id == id);
     }
 }

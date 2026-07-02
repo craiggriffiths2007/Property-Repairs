@@ -16,7 +16,7 @@ public class PanelController : Controller
     // GET: PANELS
     public async Task<IActionResult> Index()    
     {
-        return View(await data.db().Panel.ToListAsync());
+        return View(await data.Db.Panel.ToListAsync());
     }
 
     // GET: PANELS/Details/5
@@ -29,7 +29,7 @@ public class PanelController : Controller
             return NotFound();
         }
 
-        var panel = await data.db().Panel
+        var panel = await data.Db.Panel
             .FirstOrDefaultAsync(m => m.Id == id);
         if (panel == null)
         {
@@ -58,8 +58,8 @@ public class PanelController : Controller
     {
         if (ModelState.IsValid)
         {
-            data.db().Add(panel);
-            await data.db().SaveChangesAsync();
+            data.Db.Add(panel);
+            await data.Db.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
         return View(panel);
@@ -73,7 +73,7 @@ public class PanelController : Controller
             return NotFound();
         }
 
-        var panel = await data.db().Panel.FindAsync(id);
+        var panel = await data.Db.Panel.FindAsync(id);
         if (panel == null)
         {
             return NotFound();
@@ -97,8 +97,8 @@ public class PanelController : Controller
         {
             try
             {
-                data.db().Update(panel);
-                await data.db().SaveChangesAsync();
+                data.Db.Update(panel);
+                await data.Db.SaveChangesAsync();
             }
             catch (DbUpdateConcurrencyException)
             {
@@ -124,7 +124,7 @@ public class PanelController : Controller
             return NotFound();
         }
 
-        var panel = await data.db().Panel
+        var panel = await data.Db.Panel
             .FirstOrDefaultAsync(m => m.Id == id);
         if (panel == null)
         {
@@ -139,18 +139,18 @@ public class PanelController : Controller
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> DeleteConfirmed(int? id)
     {
-        var panel = await data.db().Panel.FindAsync(id);
+        var panel = await data.Db.Panel.FindAsync(id);
         if (panel != null)
         {
-            data.db().Panel.Remove(panel);
+            data.Db.Panel.Remove(panel);
         }
 
-        await data.db().SaveChangesAsync();
+        await data.Db.SaveChangesAsync();
         return RedirectToAction(nameof(Index));
     }
 
     private bool PanelExists(int? id)
     {
-        return data.db().Panel.Any(e => e.Id == id);
+        return data.Db.Panel.Any(e => e.Id == id);
     }
 }

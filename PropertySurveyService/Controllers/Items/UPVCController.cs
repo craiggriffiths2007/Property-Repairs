@@ -17,7 +17,7 @@ public class UPVCController : Controller
     // GET: UPVCS
     public async Task<IActionResult> Index()    
     {
-        return View(await data.db().UPVC.ToListAsync());
+        return View(await data.Db.UPVC.ToListAsync());
     }
 
     // GET: UPVCS/Details/5
@@ -29,7 +29,7 @@ public class UPVCController : Controller
             return NotFound();
         }
 
-        var upvc = await data.db().UPVC
+        var upvc = await data.Db.UPVC
             .FirstOrDefaultAsync(m => m.Id == id);
         if (upvc == null)
         {
@@ -58,8 +58,8 @@ public class UPVCController : Controller
     {
         if (ModelState.IsValid)
         {
-            data.db().Add(upvc);
-            await data.db().SaveChangesAsync();
+            data.Db.Add(upvc);
+            await data.Db.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
         return View(upvc);
@@ -73,7 +73,7 @@ public class UPVCController : Controller
             return NotFound();
         }
 
-        var upvc = await data.db().UPVC.FindAsync(id);
+        var upvc = await data.Db.UPVC.FindAsync(id);
         if (upvc == null)
         {
             return NotFound();
@@ -97,8 +97,8 @@ public class UPVCController : Controller
         {
             try
             {
-                data.db().Update(upvc);
-                await data.db().SaveChangesAsync();
+                data.Db.Update(upvc);
+                await data.Db.SaveChangesAsync();
             }
             catch (DbUpdateConcurrencyException)
             {
@@ -124,7 +124,7 @@ public class UPVCController : Controller
             return NotFound();
         }
 
-        var upvc = await data.db().UPVC
+        var upvc = await data.Db.UPVC
             .FirstOrDefaultAsync(m => m.Id == id);
         if (upvc == null)
         {
@@ -139,18 +139,18 @@ public class UPVCController : Controller
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> DeleteConfirmed(int? id)
     {
-        var upvc = await data.db().UPVC.FindAsync(id);
+        var upvc = await data.Db.UPVC.FindAsync(id);
         if (upvc != null)
         {
-            data.db().UPVC.Remove(upvc);
+            data.Db.UPVC.Remove(upvc);
         }
 
-        await data.db().SaveChangesAsync();
+        await data.Db.SaveChangesAsync();
         return RedirectToAction(nameof(Index));
     }
 
     private bool UPVCExists(int? id)
     {
-        return data.db().UPVC.Any(e => e.Id == id);
+        return data.Db.UPVC.Any(e => e.Id == id);
     }
 }
