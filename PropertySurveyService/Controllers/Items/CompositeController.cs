@@ -7,9 +7,9 @@ using PropertySurveyService.ViewModels;
 
 public class CompositeController : Controller
 {
-    private readonly MainRepo repo;
+    private readonly Repo repo;
 
-    public CompositeController(MainRepo _data)
+    public CompositeController(Repo _data)
     {
         repo = _data;
     }

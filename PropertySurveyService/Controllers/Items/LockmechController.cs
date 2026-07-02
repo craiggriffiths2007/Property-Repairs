@@ -7,9 +7,9 @@ using PropertySurveyService.ViewModels;
 
 public class LockmechController : Controller
 {
-    private readonly MainRepo repo;
+    private readonly Repo repo;
 
-    public LockmechController(MainRepo _data)
+    public LockmechController(Repo _data)
     {
         repo = _data;
     }

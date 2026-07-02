@@ -13,9 +13,9 @@ namespace PropertySurveyService.Controllers
 {
     public class SalesCarsController : Controller
     {
-        private readonly MainRepo repo;
+        private readonly Repo repo;
 
-        public SalesCarsController(MainRepo _db)
+        public SalesCarsController(Repo _db)
         {
             repo = _db;
         }

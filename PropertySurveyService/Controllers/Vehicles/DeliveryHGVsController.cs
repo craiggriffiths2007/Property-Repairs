@@ -14,9 +14,9 @@ namespace PropertySurveyService.Controllers
 {
     public class DeliveryHGVsController : Controller
     {
-        private readonly MainRepo repo;
+        private readonly Repo repo;
 
-        public DeliveryHGVsController(MainRepo _db)
+        public DeliveryHGVsController(Repo _db)
         {
             repo = _db;
         }

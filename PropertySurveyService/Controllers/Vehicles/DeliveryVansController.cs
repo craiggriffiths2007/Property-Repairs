@@ -15,9 +15,9 @@ namespace PropertySurveyService.Controllers
     [Authorize]
     public class DeliveryVansController : Controller
     {
-        private readonly MainRepo repo;
+        private readonly Repo repo;
 
-        public DeliveryVansController(MainRepo _db)
+        public DeliveryVansController(Repo _db)
         {
             repo = _db;
         }

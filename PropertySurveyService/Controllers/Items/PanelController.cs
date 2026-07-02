@@ -6,9 +6,9 @@ using PropertySurveyService.Data;
 using PropertySurveyService.ViewModels;
 public class PanelController : Controller
 {
-    private readonly MainRepo repo;
+    private readonly Repo repo;
 
-    public PanelController(MainRepo _data)
+    public PanelController(Repo _data)
     {
         repo = _data;
     }

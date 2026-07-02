@@ -13,17 +13,17 @@ namespace PropertySurveyService.Controllers
 {
     public class VehicleChecksController : Controller
     {
-        private readonly AppDBContext _context;
+        private readonly Repo repo;
 
-        public VehicleChecksController(AppDBContext context)
+        public VehicleChecksController(Repo context)
         {
-            _context = context;
+            repo = context;
         }
 
         // GET: VehicleChecks
         public async Task<IActionResult> Index()
         {
-            return View(await _context.VehicleCheckHeaders.ToListAsync());
+            return View(await repo.Db.VehicleCheckHeaders.ToListAsync());
         }
 
         // GET: VehicleChecks/Details/5
@@ -36,7 +36,7 @@ namespace PropertySurveyService.Controllers
                 return NotFound();
             }
 
-            viewModel.VehicleCheckHeader = await _context.VehicleCheckHeaders
+            viewModel.VehicleCheckHeader = await repo.Db.VehicleCheckHeaders
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (viewModel.VehicleCheckHeader == null)
             {
@@ -52,13 +52,13 @@ namespace PropertySurveyService.Controllers
                     switch (n)
                     {
                         case enum_vehicle_type.delivery_hgv:
-                            foreach (var p in _context.DeliveryHGVs.Where(x => x.VehicleCheckHeaderId == viewModel.VehicleCheckHeader.Id)) items.Add(p.AsVehicleCheckVehicle()); break;
+                            foreach (var p in repo.Db.DeliveryHGVs.Where(x => x.VehicleCheckHeaderId == viewModel.VehicleCheckHeader.Id)) items.Add(p.AsVehicleCheckVehicle()); break;
                         case enum_vehicle_type.delivery_van:
-                            foreach (var p in _context.DeliveryVans.Where(x => x.VehicleCheckHeaderId == viewModel.VehicleCheckHeader.Id)) items.Add(p.AsVehicleCheckVehicle()); break;
+                            foreach (var p in repo.Db.DeliveryVans.Where(x => x.VehicleCheckHeaderId == viewModel.VehicleCheckHeader.Id)) items.Add(p.AsVehicleCheckVehicle()); break;
                         case enum_vehicle_type.fitter_van:
-                            foreach (var p in _context.FitterVans.Where(x => x.VehicleCheckHeaderId == viewModel.VehicleCheckHeader.Id)) items.Add(p.AsVehicleCheckVehicle()); break;
+                            foreach (var p in repo.Db.FitterVans.Where(x => x.VehicleCheckHeaderId == viewModel.VehicleCheckHeader.Id)) items.Add(p.AsVehicleCheckVehicle()); break;
                         case enum_vehicle_type.sales_car:
-                            foreach (var p in _context.SalesCars.Where(x => x.VehicleCheckHeaderId == viewModel.VehicleCheckHeader.Id)) items.Add(p.AsVehicleCheckVehicle()); break;
+                            foreach (var p in repo.Db.SalesCars.Where(x => x.VehicleCheckHeaderId == viewModel.VehicleCheckHeader.Id)) items.Add(p.AsVehicleCheckVehicle()); break;
                     }
 
                 }
@@ -95,8 +95,8 @@ namespace PropertySurveyService.Controllers
         {
             if (ModelState.IsValid)
             {
-                _context.Add(vehicleCheckHeader);
-                await _context.SaveChangesAsync();
+                repo.Db.Add(vehicleCheckHeader);
+                await repo.Db.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
             return View(vehicleCheckHeader);
@@ -110,7 +110,7 @@ namespace PropertySurveyService.Controllers
                 return NotFound();
             }
 
-            var vehicleCheckHeader = await _context.VehicleCheckHeaders.FindAsync(id);
+            var vehicleCheckHeader = await repo.Db.VehicleCheckHeaders.FindAsync(id);
             if (vehicleCheckHeader == null)
             {
                 return NotFound();
@@ -134,8 +134,8 @@ namespace PropertySurveyService.Controllers
             {
                 try
                 {
-                    _context.Update(vehicleCheckHeader);
-                    await _context.SaveChangesAsync();
+                    repo.Db.Update(vehicleCheckHeader);
+                    await repo.Db.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -161,7 +161,7 @@ namespace PropertySurveyService.Controllers
                 return NotFound();
             }
 
-            var vehicleCheckHeader = await _context.VehicleCheckHeaders
+            var vehicleCheckHeader = await repo.Db.VehicleCheckHeaders
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (vehicleCheckHeader == null)
             {
@@ -176,19 +176,19 @@ namespace PropertySurveyService.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var vehicleCheckHeader = await _context.VehicleCheckHeaders.FindAsync(id);
+            var vehicleCheckHeader = await repo.Db.VehicleCheckHeaders.FindAsync(id);
             if (vehicleCheckHeader != null)
             {
-                _context.VehicleCheckHeaders.Remove(vehicleCheckHeader);
+                repo.Db.VehicleCheckHeaders.Remove(vehicleCheckHeader);
             }
 
-            await _context.SaveChangesAsync();
+            await repo.Db.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool VehicleCheckHeaderExists(int id)
         {
-            return _context.VehicleCheckHeaders.Any(e => e.Id == id);
+            return repo.Db.VehicleCheckHeaders.Any(e => e.Id == id);
         }
     }
 }

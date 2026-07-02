@@ -7,9 +7,9 @@ using PropertySurveyService.ViewModels;
 
 public class ConservatoryController : Controller
 {
-    private readonly MainRepo repo;
+    private readonly Repo repo;
 
-    public ConservatoryController(MainRepo _data)
+    public ConservatoryController(Repo _data)
     {
         repo = _data;
     }

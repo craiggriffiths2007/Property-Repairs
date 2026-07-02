@@ -8,19 +8,19 @@ using SQLitePCL;
 
 namespace PropertySurveyService.Data
 {
-    public interface IMainRepo // no real need for this interface
+    public interface IRepo // no real need for this interface
     {
         AppDBContext Db { get; }
 
         IEnumerable<PhotoImage> GetSurveyItemImages(string contractCode, int itemNumber);
     }
-    public class MainRepo : IMainRepo
+    public class Repo : IRepo
     {
         private readonly AppDBContext _context;
 
         public AppDBContext Db => _context;
 
-        public MainRepo(AppDBContext context)
+        public Repo(AppDBContext context)
         {
             _context = context;
         }

@@ -7,9 +7,9 @@ using PropertySurveyService.ViewModels;
 
 public class TimberController : Controller
 {
-    private readonly MainRepo repo;
+    private readonly Repo repo;
 
-    public TimberController(MainRepo _data)
+    public TimberController(Repo _data)
     {
         repo = _data;
     }

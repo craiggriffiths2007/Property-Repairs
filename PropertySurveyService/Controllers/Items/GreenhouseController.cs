@@ -7,9 +7,9 @@ using PropertySurveyService.ViewModels;
 
 public class GreenhouseController : Controller
 {
-    private readonly MainRepo repo;
+    private readonly Repo repo;
 
-    public GreenhouseController(MainRepo _data)
+    public GreenhouseController(Repo _data)
     {
         repo = _data;
     }

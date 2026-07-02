@@ -7,9 +7,9 @@ using PropertySurveyService.ViewModels;
 
 public class GlassController : Controller
 {
-    private readonly MainRepo repo;
+    private readonly Repo repo;
 
-    public GlassController(MainRepo _data)
+    public GlassController(Repo _data)
     {
         repo = _data;
     }

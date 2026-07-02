@@ -13,9 +13,9 @@ namespace PropertySurveyService.Controllers
 {
     public class FitterVansController : Controller
     {
-        private readonly MainRepo repo;
+        private readonly Repo repo;
 
-        public FitterVansController(MainRepo _db)
+        public FitterVansController(Repo _db)
         {
             repo = _db;
         }

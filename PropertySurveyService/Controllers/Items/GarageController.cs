@@ -7,9 +7,9 @@ using PropertySurveyService.ViewModels;
 
 public class GarageController : Controller
 {
-    private readonly MainRepo repo;
+    private readonly Repo repo;
 
-    public GarageController(MainRepo _data)
+    public GarageController(Repo _data)
     {
         repo = _data;
     }

@@ -7,9 +7,9 @@ using PropertySurveyService.ViewModels;
 
 public class BifoldingController : Controller
 {
-    private readonly MainRepo repo;
+    private readonly Repo repo;
 
-    public BifoldingController(MainRepo _data)
+    public BifoldingController(Repo _data)
     {
         repo = _data;
     }

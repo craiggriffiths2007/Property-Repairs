@@ -7,9 +7,9 @@ using PropertySurveyService.ViewModels;
 
 public class UPVCController : Controller
 {
-    private readonly MainRepo repo;
+    private readonly Repo repo;
 
-    public UPVCController(MainRepo _db)
+    public UPVCController(Repo _db)
     {
         repo = _db;
     }

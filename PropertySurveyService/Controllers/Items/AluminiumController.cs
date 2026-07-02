@@ -7,9 +7,9 @@ using PropertySurveyService.ViewModels;
 
 public class AluminiumController : Controller
 {
-    private readonly MainRepo repo;
+    private readonly Repo repo;
 
-    public AluminiumController(MainRepo _data)
+    public AluminiumController(Repo _data)
     {
         repo = _data;
     }
