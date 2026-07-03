@@ -60,19 +60,19 @@
             {
                 <a asp-action="Index" asp-route-month="@prevMonth.Month" asp-route-year="@prevMonth.Year" asp-route-view="month" class="btn btn-outline-secondary btn-sm me-2" style="min-width:64px;">&laquo;</a>
                 <a asp-action="Index" asp-route-month="@nextMonth.Month" asp-route-year="@nextMonth.Year" asp-route-view="month" class="btn btn-outline-secondary btn-sm me-2" style="min-width:64px;">&raquo;</a>
-                <div class="fw-semibold">@currentDate.ToString("MMMM yyyy")</div>
+                <div class="fw-bold">@currentDate.ToString("MMMM yyyy")</div>
             }
             else if (Model.ViewMode == "week")
             {
                 <a asp-action="Index" asp-route-view="week" asp-route-weekStart="@prevWeek.ToString("yyyy-MM-dd")" class="btn btn-outline-secondary btn-sm me-2" style="min-width:64px;">&laquo;</a>
                 <a asp-action="Index" asp-route-view="week" asp-route-weekStart="@nextWeek.ToString("yyyy-MM-dd")" class="btn btn-outline-secondary btn-sm me-2" style="min-width:64px;">&raquo;</a>
-                <div class="fw-semibold">@weekStart.ToString("dd MMM") &ndash; @weekEnd.ToString("dd MMM yyyy")</div>
+                <div class="fw-bold">@weekStart.ToString("dd MMM") &ndash; @weekEnd.ToString("dd MMM yyyy")</div>
             }
             else
             {
                 <a asp-action="Index" asp-route-month="@prevMonth.Month" asp-route-year="@prevMonth.Year" asp-route-view="list" class="btn btn-outline-secondary btn-sm me-2" style="min-width:64px;">&laquo;</a>
                 <a asp-action="Index" asp-route-month="@nextMonth.Month" asp-route-year="@nextMonth.Year" asp-route-view="list" class="btn btn-outline-secondary btn-sm me-2" style="min-width:64px;">&raquo;</a>
-                <div class="fw-semibold">@currentDate.ToString("MMMM yyyy")</div>
+                <div class="fw-bold">@currentDate.ToString("MMMM yyyy")</div>
             }
         </div>
     </div>
