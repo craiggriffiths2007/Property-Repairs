@@ -21,6 +21,9 @@
     var weekEnd = weekStart.AddDays(6);
     var prevWeek = weekStart.AddDays(-7);
     var nextWeek = weekStart.AddDays(7);
+    // Compute the current week start (Monday) for "go to current" links
+    int diffNow = ((int)DateTime.Today.DayOfWeek - 1 + 7) % 7;
+    var thisWeekStart = DateTime.Today.AddDays(-diffNow);
     string[] weekDayNames = { "Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun" };
 
     // Build a lookup: dayOfWeek (0=Mon) -> hour -> list of jobs
@@ -60,25 +63,25 @@
             {
                 <a asp-action="Index" asp-route-month="@prevMonth.Month" asp-route-year="@prevMonth.Year" asp-route-view="month" class="btn btn-outline-secondary btn-sm me-2" style="min-width:64px;">&laquo;</a>
                 <a asp-action="Index" asp-route-month="@nextMonth.Month" asp-route-year="@nextMonth.Year" asp-route-view="month" class="btn btn-outline-secondary btn-sm me-2" style="min-width:64px;">&raquo;</a>
-                <div class="fw-bold fs-5">@currentDate.ToString("MMMM yyyy")</div>
+                <a asp-action="Index" asp-route-view="month" asp-route-month="@DateTime.Today.Month" asp-route-year="@DateTime.Today.Year" class="fw-bold fs-5 text-decoration-none text-reset" style="cursor:pointer;">@currentDate.ToString("MMMM yyyy")</a>
             }
             else if (Model.ViewMode == "week")
             {
                 <a asp-action="Index" asp-route-view="week" asp-route-weekStart="@prevWeek.ToString("yyyy-MM-dd")" class="btn btn-outline-secondary btn-sm me-2" style="min-width:64px;">&laquo;</a>
                 <a asp-action="Index" asp-route-view="week" asp-route-weekStart="@nextWeek.ToString("yyyy-MM-dd")" class="btn btn-outline-secondary btn-sm me-2" style="min-width:64px;">&raquo;</a>
-                <div class="fw-bold fs-5">@weekStart.ToString("dd MMM") &ndash; @weekEnd.ToString("dd MMM yyyy")</div>
+                <a asp-action="Index" asp-route-view="week" asp-route-weekStart="@thisWeekStart.ToString("yyyy-MM-dd")" class="fw-bold fs-5 text-decoration-none text-reset" style="cursor:pointer;">@weekStart.ToString("dd MMM") &ndash; @weekEnd.ToString("dd MMM yyyy")</a>
             }
             else
             {
                 <a asp-action="Index" asp-route-month="@prevMonth.Month" asp-route-year="@prevMonth.Year" asp-route-view="list" class="btn btn-outline-secondary btn-sm me-2" style="min-width:64px;">&laquo;</a>
                 <a asp-action="Index" asp-route-month="@nextMonth.Month" asp-route-year="@nextMonth.Year" asp-route-view="list" class="btn btn-outline-secondary btn-sm me-2" style="min-width:64px;">&raquo;</a>
-                <div class="fw-bold fs-5">@currentDate.ToString("MMMM yyyy")</div>
+                <a asp-action="Index" asp-route-view="list" asp-route-month="@DateTime.Today.Month" asp-route-year="@DateTime.Today.Year" class="fw-bold fs-5 text-decoration-none text-reset" style="cursor:pointer;">@currentDate.ToString("MMMM yyyy")</a>
             }
         </div>
     </div>
 
     <form method="get" asp-action="Index" class="d-flex align-items-center">
-        <input type="text" name="q" value="@Model.SearchQuery" class="form-control form-control-sm me-2" placeholder="Search contract, customer or agent" style="min-width:220px;" />
+        <input type="text" name="q" value="@Model.SearchQuery" class="form-control form-control-sm me-2" placeholder=".." style="min-width:220px;" />
         <input type="hidden" name="view" value="@Model.ViewMode" />
         <input type="hidden" name="month" value="@Model.Month" />
         <input type="hidden" name="year" value="@Model.Year" />
