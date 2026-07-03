@@ -77,12 +77,28 @@
 <div class="container">
     <div class="row">
         <!-- Row 1 -->
-        <div class="col-6 p-3 border">@Html.DisplayFor(model => model.signature_printed)<img src="data:image/png;base64,@ViewData["AuditSign"]" class="img-fluid rounded" /></div>
-        <div class="col-6 p-3 border">@Html.DisplayFor(model => model.signature_printed2)<img src="data:image/png;base64,@ViewData["FitSign"]" class="img-fluid rounded" /></div>
+        <div class="col-6 p-3 border">@Html.DisplayFor(model => model.signature_printed)
+            @{ var audit = ViewData["AuditSign"] as string; }
+            @if(!string.IsNullOrEmpty(audit))
+            {
+                <img src="@Url.Content($"~/images/{audit}")" class="img-fluid rounded" />
+            }
+        </div>
+        <div class="col-6 p-3 border">@Html.DisplayFor(model => model.signature_printed2)
+            @{ var fit = ViewData["FitSign"] as string; }
+            @if(!string.IsNullOrEmpty(fit))
+            {
+                <img src="@Url.Content($"~/images/{fit}")" class="img-fluid rounded" />
+            }
+        </div>
     </div>
     @foreach (var image in ViewBag.Images)
     {
-        <img src="data:image/png;base64,@image.Data" class="img-fluid rounded" />
+        var fname = image?.Filename as string;
+        if(!string.IsNullOrEmpty(fname))
+        {
+            <img src="@Url.Content($"~/images/{fname}")" class="img-fluid rounded" />
+        }
     }
 </div>
 

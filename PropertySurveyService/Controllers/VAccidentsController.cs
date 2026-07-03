@@ -34,7 +34,7 @@ public class VAccidentsController : Controller
             return NotFound();
         }
 
-        ViewData["Sign"] = _context.Images.Where(x => x.Filename == vaccident.CheckID+"_sig.jpg").FirstOrDefault()?.Data;
+        ViewData["Sign"] = _context.Images.Where(x => x.Filename == vaccident.CheckID+"_sig.jpg").FirstOrDefault()?.Filename;
 
         string pattern = $"{vaccident.CheckID}_________.jpg"; // using _ as a wildcard ( would have been cAZ and dAZ )
 

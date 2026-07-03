@@ -35,8 +35,8 @@ public class LadderChecksController : Controller
         }
 
 
-        ViewData["Sign1"] = _context.Images.Where(x => x.Filename == laddercheck.signature_filename).FirstOrDefault()?.Data;
-        ViewData["Sign2"] = _context.Images.Where(x => x.Filename == laddercheck.signature_filename_2).FirstOrDefault()?.Data;
+        ViewData["Sign1"] = _context.Images.Where(x => x.Filename == laddercheck.signature_filename).FirstOrDefault()?.Filename;
+        ViewData["Sign2"] = _context.Images.Where(x => x.Filename == laddercheck.signature_filename_2).FirstOrDefault()?.Filename;
 
 
         string pattern = $"{laddercheck.CheckID}_LadPi___.jpg"; // using _ as a wildcard ( would have been cAZ and dAZ )

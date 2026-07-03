@@ -50,12 +50,21 @@
     <div class="container">
         <div class="row">
             <!-- Row 1 -->
-            <div class="col-6 p-3 border">Start<img src="data:image/png;base64,@ViewData["StartImage"]" class="img-fluid rounded" /></div>
-            <div class="col-6 p-3 border">End<img src="data:image/png;base64,@ViewData["EndImage"]" class="img-fluid rounded" /></div>
+            <div class="col-6 p-3 border">Start
+                @{ var s = ViewData["StartImage"] as string; }
+                @if(!string.IsNullOrEmpty(s)) { <img src="@Url.Content($"~/images/{s}")" class="img-fluid rounded" /> }
+            </div>
+            <div class="col-6 p-3 border">End
+                @{ var e = ViewData["EndImage"] as string; }
+                @if(!string.IsNullOrEmpty(e)) { <img src="@Url.Content($"~/images/{e}")" class="img-fluid rounded" /> }
+            </div>
         </div>
         <div class="row">
             <!-- Row 2 -->
-            <div class="col-6 p-3 border">Signature<img src="data:image/png;base64,@ViewData["SignatureImage"]" class="img-fluid rounded" /></div>
+            <div class="col-6 p-3 border">Signature
+                @{ var sig = ViewData["SignatureImage"] as string; }
+                @if(!string.IsNullOrEmpty(sig)) { <img src="@Url.Content($"~/images/{sig}")" class="img-fluid rounded" /> }
+            </div>
             
         </div>
     </div>

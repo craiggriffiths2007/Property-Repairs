@@ -42,9 +42,9 @@ namespace PropertySurveyService.Controllers
                 return NotFound();
             }
 
-            ViewData["StartImage"] = _context.Images.Where(x => x.Filename == mileageSheet.photo_am).FirstOrDefault()?.Data;
-            ViewData["EndImage"] = _context.Images.Where(x => x.Filename == mileageSheet.photo_pm).FirstOrDefault()?.Data;
-            ViewData["SignatureImage"] = _context.Images.Where(x => x.Filename == mileageSheet.signature_filename).FirstOrDefault()?.Data;
+            ViewData["StartImage"] = _context.Images.Where(x => x.Filename == mileageSheet.photo_am).FirstOrDefault()?.Filename;
+            ViewData["EndImage"] = _context.Images.Where(x => x.Filename == mileageSheet.photo_pm).FirstOrDefault()?.Filename;
+            ViewData["SignatureImage"] = _context.Images.Where(x => x.Filename == mileageSheet.signature_filename).FirstOrDefault()?.Filename;
 
             return View(mileageSheet);
         }

@@ -142,12 +142,12 @@ else
     <div class="row">
         @foreach (var img in Model.Images)
         {
-            var ext = img.Filename.Substring(img.Filename.Length - 4)?.ToLowerInvariant();
+            var ext = System.IO.Path.GetExtension(img.Filename)?.ToLowerInvariant();
             if (ext == ".mp4" || ext == ".webm" || ext == ".ogg")
             {
                 <div class="col-12 mb-3">
                     <video controls class="img-fluid" style="max-width:100%; height:auto;">
-                        <source src="data:video/@(ext.TrimStart('.'));base64,@img.Data" type="video/@(ext.TrimStart('.'))" />
+                        <source src="@Url.Content($"/images/{img.Filename}")" type="video/@(ext.TrimStart('.'))" />
                         Your browser does not support the video tag.
                     </video>
                     <div class="small text-muted">@img.Filename (@img.DateTime)</div>
@@ -156,9 +156,8 @@ else
             else
             {
                 <div class="col-4 mb-3">
-                    <img src="data:image/png;base64,@img.Data" class="img-fluid rounded" />
-                  
-                </div> 
+                    <img src="@Url.Content($"/images/{img.Filename}")" class="img-fluid rounded" />
+                </div>
             }
         }
     </div>

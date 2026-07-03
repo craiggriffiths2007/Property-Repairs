@@ -42,8 +42,8 @@ namespace PropertySurveyService.Controllers
                 return NotFound();
             }
 
-            ViewData["sig_fname1"] = _context.Images.Where(x => x.Filename == fAccidents.sig_fname1).FirstOrDefault()?.Data;
-            ViewData["sig_fname2"] = _context.Images.Where(x => x.Filename == fAccidents.sig_fname2).FirstOrDefault()?.Data;
+            ViewData["sig_fname1"] = _context.Images.Where(x => x.Filename == fAccidents.sig_fname1).FirstOrDefault()?.Filename;
+            ViewData["sig_fname2"] = _context.Images.Where(x => x.Filename == fAccidents.sig_fname2).FirstOrDefault()?.Filename;
 
             string pattern = $"{fAccidents.CheckID}_FAcci___.jpg"; 
 

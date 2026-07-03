@@ -34,8 +34,8 @@ public class ToolChecksController : Controller
             return NotFound();
         }
 
-        ViewData["AuditSign"] = _context.Images.Where(x => x.Filename == toolcheck.signature_filename).FirstOrDefault()?.Data;
-        ViewData["FitSign"] = _context.Images.Where(x => x.Filename == toolcheck.signature_filename2).FirstOrDefault()?.Data;
+        ViewData["AuditSign"] = _context.Images.Where(x => x.Filename == toolcheck.signature_filename).FirstOrDefault()?.Filename;
+        ViewData["FitSign"] = _context.Images.Where(x => x.Filename == toolcheck.signature_filename2).FirstOrDefault()?.Filename;
 
         string pattern = $"{toolcheck.CheckID}_Tools___.jpg"; // using _ as a wildcard ( would have been cAZ and dAZ )
 

@@ -63,7 +63,11 @@
     <hr />
     @foreach (var image in ViewBag.Images)
     {
-        <img src="data:image/png;base64,@image.Data" class="img-fluid rounded" />
+        var fname = image?.Filename as string;
+        if(!string.IsNullOrEmpty(fname))
+        {
+            <img src="@Url.Content($"~/images/{fname}")" class="img-fluid rounded" />
+        }
     }
 
 

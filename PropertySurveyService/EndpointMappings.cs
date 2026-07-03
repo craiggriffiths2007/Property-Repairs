@@ -17,6 +17,9 @@ namespace PropertySurveyService
         {
             var config = app.ServiceProvider.GetRequiredService<IConfiguration>();
             string imageDirectory = config["ImageStoragePath"] ?? @"D:\PropertySurveyImages";
+
+
+
             app.MapPost("/AgentLogin", (AgentLoginDTO gs, AppDBContext db) =>
             {
                 var agent = db.Agent.FirstOrDefault(x => x.Code == gs.AgentCode);
