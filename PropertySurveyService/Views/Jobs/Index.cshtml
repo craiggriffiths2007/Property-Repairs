@@ -263,9 +263,10 @@ else if (Model.ViewMode == "list")
     <table class="table table-sm table-striped table-bordered">
         <thead class="table-light">
             <tr>
-                <th>Contract Code</th>
+                <th>Contract</th>
                 <th>Date</th>
                 <th>Time</th>
+                <th>Type</th>
                 <th>Customer</th>
                 <th>Agent</th>
                 <th>Damage</th>
@@ -281,10 +282,17 @@ else if (Model.ViewMode == "list")
                         <td>@job.ContractCode</td>
                         <td>@job.DiaryDate.ToString("dd/MM/yyyy")</td>
                         <td>@job.Time.ToString("HH:mm")</td>
+                        <td>
+                            @{
+                                string label = job.JobType.ToString();
+                                string cssClass = job.JobType == enum_job_type.Survey ? "job-type-survey" : job.JobType == enum_job_type.Fitting ? "job-type-fitting" : "job-type-remedial";
+                            }
+                            <span class="calendar-event @cssClass" style="font-weight:600">@label</span>
+                        </td>
                         <td>@job.Customer?.Name</td>
                         <td>@job.Agent?.Code</td>
                         <td>@job.DamageDesc</td>
-                        <td>
+                        <td align="right">
                             <a asp-action="Edit" asp-route-id="@job.Id" class="btn btn-outline-primary btn-sm">Edit</a>
                             <a asp-action="Details" asp-route-id="@job.Id" class="btn btn-outline-secondary btn-sm">Details</a>
                             <a asp-action="Delete" asp-route-id="@job.Id" class="btn btn-outline-danger btn-sm">Delete</a>
