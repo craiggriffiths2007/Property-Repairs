@@ -16,7 +16,7 @@ namespace PropertySurveyService
         public static void MapAPIEndpoints(this IEndpointRouteBuilder app)
         {
             var config = app.ServiceProvider.GetRequiredService<IConfiguration>();
-            string imageDirectory = config["ImageStoragePath"] ?? @"D:\PropertySurveyImages";
+            string imageDirectory = config["ImageStoragePath"] ?? @"C:\GlassOpsImages";
 
 
 
