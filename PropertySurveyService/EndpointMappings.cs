@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 //using System.Text.Json;
 using Newtonsoft.Json;
 using PropertySurveyService.Data;
+using Microsoft.Extensions.Configuration;
 
 using PropertySurveyService.Models;
 using System.Timers;
@@ -14,6 +15,8 @@ namespace PropertySurveyService
     {
         public static void MapAPIEndpoints(this IEndpointRouteBuilder app)
         {
+            var config = app.ServiceProvider.GetRequiredService<IConfiguration>();
+            string imageDirectory = config["ImageStoragePath"] ?? @"D:\PropertySurveyImages";
             app.MapPost("/AgentLogin", (AgentLoginDTO gs, AppDBContext db) =>
             {
                 var agent = db.Agent.FirstOrDefault(x => x.Code == gs.AgentCode);
@@ -297,11 +300,31 @@ namespace PropertySurveyService
                 if (image == null)
                     return Results.NotFound();
 
-                // image.Data may already be byte[]; if it's stored as base64 string decode it
-                byte[] bytes;
-                //if (image.Data is byte[] b) bytes = b;
-                if (image.Data is string s) bytes = Convert.FromBase64String(s);
-                else bytes = Array.Empty<byte>();
+                byte[] bytes = Array.Empty<byte>();
+
+                // Prefer reading from filesystem at D:\\PropertySurveyImages
+                try
+                {
+                    string directoryPath = imageDirectory;
+                    string filePath = Path.Combine(directoryPath, image.Filename);
+                    if (File.Exists(filePath))
+                    {
+                        bytes = File.ReadAllBytes(filePath);
+                    }
+                    else if (!string.IsNullOrEmpty(image.Data))
+                    {
+                        // Fallback to database-stored base64 data for legacy records
+                        bytes = Convert.FromBase64String(image.Data);
+                    }
+                    else
+                    {
+                        return Results.NotFound();
+                    }
+                }
+                catch (Exception)
+                {
+                    return Results.StatusCode(500);
+                }
 
                 var ext = Path.GetExtension(image.Filename)?.ToLowerInvariant();
                 var contentType = ext switch
@@ -547,15 +570,30 @@ namespace PropertySurveyService
                 // Prepare contract code safely
                 string contractCode = imageDTO.Filename.Length >= 8 ? imageDTO.Filename.Substring(0, 8) : string.Empty;
 
+                // Ensure directory exists and write file (store only metadata in DB)
                 try
                 {
-                    // If an image with the same filename exists, overwrite it; otherwise add a new record
+                    Directory.CreateDirectory(imageDirectory);
+                    string safeFilename = Path.GetFileName(imageDTO.Filename);
+                    string filePath = Path.Combine(imageDirectory, safeFilename);
+                    byte[] fileBytes = Convert.FromBase64String(imageDTO.Data ?? string.Empty);
+                    await File.WriteAllBytesAsync(filePath, fileBytes);
+                }
+                catch (Exception ex)
+                {
+                    return_record.comments = $"File Save Failed: {ex.Message}";
+                    return Results.Ok(return_record);
+                }
+
+                // Save metadata to database (do not keep base64 data in DB)
+                try
+                {
                     var existing = db.Images.FirstOrDefault(i => i.Filename == imageDTO.Filename);
                     if (existing != null)
                     {
-                        existing.Data = imageDTO.Data;
                         existing.DateTime = DateTime.Now;
                         existing.ContractCode = contractCode;
+                        existing.Data = string.Empty;
                         db.Update(existing);
                     }
                     else
@@ -563,7 +601,7 @@ namespace PropertySurveyService
                         PhotoImage image = new PhotoImage
                         {
                             Filename = imageDTO.Filename,
-                            Data = imageDTO.Data,
+                            Data = string.Empty,
                             DateTime = DateTime.Now,
                             ContractCode = contractCode
                         };
@@ -578,25 +616,70 @@ namespace PropertySurveyService
                     return Results.Ok(return_record);
                 }
 
-                // Save to file system (will overwrite existing file with same name)
-                try
-                {
-                    string directoryPath = @"D:\PropertySurveyImages";
-                    if (Directory.Exists(directoryPath))
-                    {
-                        string filePath = Path.Combine(directoryPath, imageDTO.Filename);
-                        byte[] fileBytes = Convert.FromBase64String(imageDTO.Data);
-                        File.WriteAllBytes(filePath, fileBytes);
-                    }
-                }
-                catch (Exception ex)
-                {
-                    return_record.comments = $"Database Success, File Save Failed: {ex.Message}";
-                    return Results.Ok(return_record);
-                }
-
                 return_record.comments = "Success";
                 return Results.Ok(return_record);
+            });
+
+            // Serve images by filename via GET so <img src="/images/filename"> works
+            app.MapGet("/images/{filename}", (string filename) =>
+            {
+                try
+                {
+                    string safe = Path.GetFileName(filename);
+                    string filePath = Path.Combine(imageDirectory, safe);
+                    if (!File.Exists(filePath)) return Results.NotFound();
+
+                    var ext = Path.GetExtension(safe)?.ToLowerInvariant();
+                    var contentType = ext switch
+                    {
+                        ".jpg" or ".jpeg" => "image/jpeg",
+                        ".png" => "image/png",
+                        ".gif" => "image/gif",
+                        ".bmp" => "image/bmp",
+                        ".webp" => "image/webp",
+                        ".mp4" => "video/mp4",
+                        _ => "application/octet-stream"
+                    };
+
+                    var bytes = File.ReadAllBytes(filePath);
+                    return Results.File(bytes, contentType, safe);
+                }
+                catch (Exception)
+                {
+                    return Results.StatusCode(500);
+                }
+            });
+
+            // Export images stored as base64 in DB to files and clear Data column
+            app.MapPost("/ExportImages", async (AppDBContext db) =>
+            {
+                var imagesWithData = db.Images.Where(i => !string.IsNullOrEmpty(i.Data)).ToList();
+                var errors = new List<string>();
+                int written = 0;
+
+                Directory.CreateDirectory(imageDirectory);
+
+                foreach (var img in imagesWithData)
+                {
+                    try
+                    {
+                        string safe = Path.GetFileName(img.Filename);
+                        string filePath = Path.Combine(imageDirectory, safe);
+                        byte[] bytes = Convert.FromBase64String(img.Data);
+                        await File.WriteAllBytesAsync(filePath, bytes);
+                        img.Data = string.Empty;
+                        db.Update(img);
+                        written++;
+                    }
+                    catch (Exception ex)
+                    {
+                        errors.Add($"{img.Filename}: {ex.Message}");
+                    }
+                }
+
+                await db.SaveChangesAsync();
+
+                return Results.Ok(new { written, errors });
             });
         }
     }
