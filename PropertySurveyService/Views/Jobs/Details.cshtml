@@ -134,7 +134,7 @@
                     <td>@header.AgentCode</td>
                     <td>@header.DiaryDate.ToShortDateString()</td>
                     <td>@header.DateTimeCompleted</td>
-                    <td>
+                    <td align="right">
                         <a asp-controller="JobHeaders" asp-action="Details" asp-route-id="@header.Id" asp-route-jobid="@Model.Id"
                            class="btn btn-outline-primary btn-sm">View</a>
                     </td>
