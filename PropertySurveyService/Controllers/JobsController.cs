@@ -31,7 +31,7 @@ namespace PropertySurveyService.Controllers
         }
 
         // GET: Jobs
-        public async Task<IActionResult> Index(int? Id, int? headerId, int? month, int? year, string? view, string? weekStart)
+        public async Task<IActionResult> Index(int? Id, int? headerId, int? month, int? year, string? view, string? weekStart, string? q)
         {
             var now = DateTime.Today;
             string viewMode = view ?? "month";
@@ -61,6 +61,62 @@ namespace PropertySurveyService.Controllers
                 WeekStartDate = weekStartDate
             };
 
+            // If a search query is provided, locate matching jobs across the entire DB first
+            // and adjust the requested period (month/week) so results are visible.
+            List<Job>? matchedJobs = null;
+            if (!string.IsNullOrWhiteSpace(q))
+            {
+                var qnorm = q.Trim();
+
+                matchedJobs = await _context.Job
+                    .Include(j => j.Customer)
+                    .Include(j => j.Agent)
+                    .Where(j => (!string.IsNullOrEmpty(j.ContractCode) && j.ContractCode.Contains(qnorm))
+                                || (j.Customer != null && j.Customer.Name.Contains(qnorm))
+                                || (j.Agent != null && j.Agent.Code.Contains(qnorm)))
+                    .OrderBy(j => j.DiaryDate)
+                    .ToListAsync();
+
+                // If there are matches, ensure the view period includes at least one matched job.
+                if (matchedJobs.Any())
+                {
+                    var firstMatchDate = matchedJobs.First().DiaryDate.Date;
+
+                    if (viewMode == "week")
+                    {
+                        // If no matches fall within the current week, move weekStartDate to the match week
+                        if (!matchedJobs.Any(m => m.DiaryDate >= weekStartDate && m.DiaryDate < weekStartDate.AddDays(7)))
+                        {
+                            int diff = ((int)firstMatchDate.DayOfWeek - 1 + 7) % 7;
+                            weekStartDate = firstMatchDate.AddDays(-diff);
+                            viewModel.WeekStartDate = weekStartDate;
+                        }
+                    }
+                    else // month or list/month default
+                    {
+                        if (firstMatchDate.Month != displayMonth || firstMatchDate.Year != displayYear)
+                        {
+                            displayMonth = firstMatchDate.Month;
+                            displayYear = firstMatchDate.Year;
+                            viewModel.Month = displayMonth;
+                            viewModel.Year = displayYear;
+                        }
+                    }
+
+                    // Narrow results to the matches so UI shows only relevant jobs
+                    // but we still use the date range queries below to populate headers correctly.
+                    // Store the query string on the viewmodel so the view can keep the search box value.
+                    viewModel.SearchQuery = qnorm;
+                }
+                else
+                {
+                    // No matches: set Jobs to empty and return view with search query
+                    viewModel.Jobs = new List<Job>();
+                    viewModel.SearchQuery = qnorm;
+                    return View(viewModel);
+                }
+            }
+
             if (viewMode == "week")
             {
                 viewModel.Jobs = await _context.Job
@@ -87,6 +143,13 @@ namespace PropertySurveyService.Controllers
                     .Where(j => j.DiaryDate.Year == displayYear && j.DiaryDate.Month == displayMonth)
                     .OrderBy(j => j.DiaryDate).ThenBy(j => j.Time)
                     .ToListAsync();
+            }
+
+            // If we performed a search, reduce the jobs to only those that matched the query
+            if (matchedJobs != null && matchedJobs.Any())
+            {
+                var matchedIds = new HashSet<int>(matchedJobs.Select(m => m.Id));
+                viewModel.Jobs = viewModel.Jobs?.Where(j => matchedIds.Contains(j.Id)).ToList() ?? new List<Job>();
             }
 
 

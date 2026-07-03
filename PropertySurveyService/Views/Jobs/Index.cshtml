@@ -53,6 +53,19 @@
        class="btn btn-sm @(Model.ViewMode == "list" ? "btn-primary" : "btn-outline-primary")">List</a>
 </div>
 
+<!-- Search box: single field to search contract code, customer name or agent code -->
+<form method="get" asp-action="Index" class="mb-3">
+    <div class="input-group">
+        <input type="text" name="q" value="@Model.SearchQuery" class="form-control" placeholder="Search by contract number, customer name or agent code" />
+        <input type="hidden" name="view" value="@Model.ViewMode" />
+        <input type="hidden" name="month" value="@Model.Month" />
+        <input type="hidden" name="year" value="@Model.Year" />
+        <input type="hidden" name="weekStart" value="@Model.WeekStartDate.ToString("yyyy-MM-dd")" />
+        <button class="btn btn-outline-primary" type="submit">Search</button>
+        <a class="btn btn-outline-secondary" href="@Url.Action("Index", new { view = Model.ViewMode, month = Model.Month, year = Model.Year })">Clear</a>
+    </div>
+</form>
+
 @if (Model.ViewMode == "month")
 {
     <!-- MONTH VIEW -->
