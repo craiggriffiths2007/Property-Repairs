@@ -43,39 +43,55 @@
 
 <h4>Diary</h4>
 
-<!-- View mode toggle -->
-<div class="btn-group mb-3" role="group">
-    <a asp-action="Index" asp-route-view="month" asp-route-month="@Model.Month" asp-route-year="@Model.Year"
-       class="btn btn-sm @(Model.ViewMode == "month" ? "btn-primary" : "btn-outline-primary")">Month</a>
-    <a asp-action="Index" asp-route-view="week" asp-route-weekStart="@weekStart.ToString("yyyy-MM-dd")"
-       class="btn btn-sm @(Model.ViewMode == "week" ? "btn-primary" : "btn-outline-primary")">Week</a>
-    <a asp-action="Index" asp-route-view="list" asp-route-month="@Model.Month" asp-route-year="@Model.Year"
-       class="btn btn-sm @(Model.ViewMode == "list" ? "btn-primary" : "btn-outline-primary")">List</a>
-</div>
+<!-- Top controls: view toggle (left), prev/next + title (center), search (right) -->
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <div class="d-flex align-items-center">
+        <div class="btn-group me-3" role="group">
+            <a asp-action="Index" asp-route-view="month" asp-route-month="@Model.Month" asp-route-year="@Model.Year"
+               class="btn btn-sm @(Model.ViewMode == "month" ? "btn-primary" : "btn-outline-primary")">Month</a>
+            <a asp-action="Index" asp-route-view="week" asp-route-weekStart="@weekStart.ToString("yyyy-MM-dd")"
+               class="btn btn-sm @(Model.ViewMode == "week" ? "btn-primary" : "btn-outline-primary")">Week</a>
+            <a asp-action="Index" asp-route-view="list" asp-route-month="@Model.Month" asp-route-year="@Model.Year"
+               class="btn btn-sm @(Model.ViewMode == "list" ? "btn-primary" : "btn-outline-primary")">List</a>
+        </div>
 
-<!-- Search box: single field to search contract code, customer name or agent code -->
-<form method="get" asp-action="Index" class="mb-3">
-    <div class="input-group">
-        <input type="text" name="q" value="@Model.SearchQuery" class="form-control" placeholder="Search by contract number, customer name or agent code" />
+        <div class="text-center d-none d-md-flex align-items-center">
+        @if (Model.ViewMode == "month")
+            {
+                <a asp-action="Index" asp-route-month="@prevMonth.Month" asp-route-year="@prevMonth.Year" asp-route-view="month" class="btn btn-outline-secondary btn-sm me-2" style="min-width:64px;">&laquo;</a>
+                <a asp-action="Index" asp-route-month="@nextMonth.Month" asp-route-year="@nextMonth.Year" asp-route-view="month" class="btn btn-outline-secondary btn-sm me-2" style="min-width:64px;">&raquo;</a>
+                <div class="fw-semibold">@currentDate.ToString("MMMM yyyy")</div>
+            }
+            else if (Model.ViewMode == "week")
+            {
+                <a asp-action="Index" asp-route-view="week" asp-route-weekStart="@prevWeek.ToString("yyyy-MM-dd")" class="btn btn-outline-secondary btn-sm me-2" style="min-width:64px;">&laquo;</a>
+                <a asp-action="Index" asp-route-view="week" asp-route-weekStart="@nextWeek.ToString("yyyy-MM-dd")" class="btn btn-outline-secondary btn-sm me-2" style="min-width:64px;">&raquo;</a>
+                <div class="fw-semibold">@weekStart.ToString("dd MMM") &ndash; @weekEnd.ToString("dd MMM yyyy")</div>
+            }
+            else
+            {
+                <a asp-action="Index" asp-route-month="@prevMonth.Month" asp-route-year="@prevMonth.Year" asp-route-view="list" class="btn btn-outline-secondary btn-sm me-2" style="min-width:64px;">&laquo;</a>
+                <a asp-action="Index" asp-route-month="@nextMonth.Month" asp-route-year="@nextMonth.Year" asp-route-view="list" class="btn btn-outline-secondary btn-sm me-2" style="min-width:64px;">&raquo;</a>
+                <div class="fw-semibold">@currentDate.ToString("MMMM yyyy")</div>
+            }
+        </div>
+    </div>
+
+    <form method="get" asp-action="Index" class="d-flex align-items-center">
+        <input type="text" name="q" value="@Model.SearchQuery" class="form-control form-control-sm me-2" placeholder="Search contract, customer or agent" style="min-width:220px;" />
         <input type="hidden" name="view" value="@Model.ViewMode" />
         <input type="hidden" name="month" value="@Model.Month" />
         <input type="hidden" name="year" value="@Model.Year" />
         <input type="hidden" name="weekStart" value="@Model.WeekStartDate.ToString("yyyy-MM-dd")" />
-        <button class="btn btn-outline-primary" type="submit">Search</button>
-        <a class="btn btn-outline-secondary" href="@Url.Action("Index", new { view = Model.ViewMode, month = Model.Month, year = Model.Year })">Clear</a>
-    </div>
-</form>
+        <button class="btn btn-outline-primary btn-sm" type="submit">Search</button>
+        <a class="btn btn-outline-secondary btn-sm ms-2" href="@Url.Action("Index", new { view = Model.ViewMode, month = Model.Month, year = Model.Year })">Clear</a>
+    </form>
+</div>
 
 @if (Model.ViewMode == "month")
 {
     <!-- MONTH VIEW -->
-    <div class="d-flex justify-content-between align-items-center mb-3">
-        <a asp-action="Index" asp-route-month="@prevMonth.Month" asp-route-year="@prevMonth.Year" asp-route-view="month"
-           class="btn btn-outline-secondary btn-sm">&laquo; Previous</a>
-        <h3 class="mb-0">@currentDate.ToString("MMMM yyyy")</h3>
-        <a asp-action="Index" asp-route-month="@nextMonth.Month" asp-route-year="@nextMonth.Year" asp-route-view="month"
-           class="btn btn-outline-secondary btn-sm">Next &raquo;</a>
-    </div>
+
 
     <p>
         <a asp-action="Create" class="btn btn-primary btn-sm">Add Diary Job</a>
@@ -147,15 +163,7 @@
 else if (Model.ViewMode == "week")
 {
     <!-- WEEK VIEW -->
-    <div class="d-flex justify-content-between align-items-center mb-3">
-        <a asp-action="Index" asp-route-view="week" asp-route-weekStart="@prevWeek.ToString("yyyy-MM-dd")"
-           class="btn btn-outline-secondary btn-sm">&laquo; Previous Week</a>
-        <h3 class="mb-0">
-            @weekStart.ToString("dd MMM") &ndash; @weekEnd.ToString("dd MMM yyyy")
-        </h3>
-        <a asp-action="Index" asp-route-view="week" asp-route-weekStart="@nextWeek.ToString("yyyy-MM-dd")"
-           class="btn btn-outline-secondary btn-sm">Next Week &raquo;</a>
-    </div>
+
 
     <p>
         <a asp-action="Create" class="btn btn-primary btn-sm">Add Diary Job</a>
@@ -219,13 +227,7 @@ else if (Model.ViewMode == "week")
 else if (Model.ViewMode == "list")
 {
     <!-- LIST VIEW -->
-    <div class="d-flex justify-content-between align-items-center mb-3">
-        <a asp-action="Index" asp-route-month="@prevMonth.Month" asp-route-year="@prevMonth.Year" asp-route-view="list"
-           class="btn btn-outline-secondary btn-sm">&laquo; Previous</a>
-        <h3 class="mb-0">@currentDate.ToString("MMMM yyyy")</h3>
-        <a asp-action="Index" asp-route-month="@nextMonth.Month" asp-route-year="@nextMonth.Year" asp-route-view="list"
-           class="btn btn-outline-secondary btn-sm">Next &raquo;</a>
-    </div>
+
 
     <p>
         <a asp-action="Create" class="btn btn-primary btn-sm">Create New Job</a>
