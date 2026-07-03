@@ -31,7 +31,7 @@ namespace PropertySurveyService.Controllers
         }
 
         // GET: Jobs
-        public async Task<IActionResult> Index(int? Id, int? headerId, int? month, int? year, string? view, string? weekStart, string? q)
+        public async Task<IActionResult> Index(int? Id, int? headerId, int? month, int? year, string? view, string? weekStart, string? q, string? allStart, string? allEnd)
         {
             var now = DateTime.Today;
             string viewMode = view ?? "month";
@@ -61,6 +61,24 @@ namespace PropertySurveyService.Controllers
                 WeekStartDate = weekStartDate
             };
 
+            // Initialize All date range (used when ViewMode == "list" which is now "All")
+            DateTime defaultAllStart = now.AddMonths(-1);
+            DateTime defaultAllEnd = now.AddMonths(1);
+            DateTime parsedAllStart;
+            DateTime parsedAllEnd;
+            if (!string.IsNullOrEmpty(allStart) && DateTime.TryParse(allStart, out var a1))
+                parsedAllStart = a1;
+            else
+                parsedAllStart = defaultAllStart;
+
+            if (!string.IsNullOrEmpty(allEnd) && DateTime.TryParse(allEnd, out var a2))
+                parsedAllEnd = a2;
+            else
+                parsedAllEnd = defaultAllEnd;
+
+            viewModel.AllStartDate = parsedAllStart;
+            viewModel.AllEndDate = parsedAllEnd;
+
             // If a search query is provided, locate matching jobs across the entire DB first
             // and adjust the requested period (month/week) so results are visible.
             List<Job>? matchedJobs = null;
@@ -77,44 +95,17 @@ namespace PropertySurveyService.Controllers
                     .OrderBy(j => j.DiaryDate)
                     .ToListAsync();
 
-                // If there are matches, ensure the view period includes at least one matched job.
-                if (matchedJobs.Any())
+                // Keep search query and matchedJobs but do NOT change the current period when searching.
+                // The UI will initially stay on the same month/week and be reduced to matching items.
+                if (!matchedJobs.Any())
                 {
-                    var firstMatchDate = matchedJobs.First().DiaryDate.Date;
-
-                    if (viewMode == "week")
-                    {
-                        // If no matches fall within the current week, move weekStartDate to the match week
-                        if (!matchedJobs.Any(m => m.DiaryDate >= weekStartDate && m.DiaryDate < weekStartDate.AddDays(7)))
-                        {
-                            int diff = ((int)firstMatchDate.DayOfWeek - 1 + 7) % 7;
-                            weekStartDate = firstMatchDate.AddDays(-diff);
-                            viewModel.WeekStartDate = weekStartDate;
-                        }
-                    }
-                    else // month or list/month default
-                    {
-                        if (firstMatchDate.Month != displayMonth || firstMatchDate.Year != displayYear)
-                        {
-                            displayMonth = firstMatchDate.Month;
-                            displayYear = firstMatchDate.Year;
-                            viewModel.Month = displayMonth;
-                            viewModel.Year = displayYear;
-                        }
-                    }
-
-                    // Narrow results to the matches so UI shows only relevant jobs
-                    // but we still use the date range queries below to populate headers correctly.
-                    // Store the query string on the viewmodel so the view can keep the search box value.
-                    viewModel.SearchQuery = qnorm;
-                }
-                else
-                {
-                    // No matches: set Jobs to empty and return view with search query
+                    // No matches anywhere: return empty result set with search preserved
                     viewModel.Jobs = new List<Job>();
                     viewModel.SearchQuery = qnorm;
                     return View(viewModel);
                 }
+
+                viewModel.SearchQuery = qnorm;
             }
 
             if (viewMode == "week")
@@ -128,11 +119,14 @@ namespace PropertySurveyService.Controllers
             }
             else if (viewMode == "list")
             {
+                // "All" view: return jobs within the AllStartDate..AllEndDate range in descending order
+                var start = viewModel.AllStartDate.Date;
+                var end = viewModel.AllEndDate.Date.AddDays(1); // make end inclusive
                 viewModel.Jobs = await _context.Job
                     .Include(j => j.Customer)
                     .Include(j => j.Agent)
-                    .Where(j => j.DiaryDate.Year == displayYear && j.DiaryDate.Month == displayMonth)
-                    .OrderBy(j => j.DiaryDate).ThenBy(j => j.Time)
+                    .Where(j => j.DiaryDate >= start && j.DiaryDate < end)
+                    .OrderByDescending(j => j.DiaryDate).ThenByDescending(j => j.Time)
                     .ToListAsync();
             }
             else

@@ -50,32 +50,54 @@
 <div class="d-flex justify-content-between align-items-center mb-3">
     <div class="d-flex align-items-center">
         <div class="btn-group me-3" role="group">
-            <a asp-action="Index" asp-route-view="month" asp-route-month="@Model.Month" asp-route-year="@Model.Year"
+            <a asp-action="Index" asp-route-view="month" asp-route-month="@Model.Month" asp-route-year="@Model.Year" asp-route-q="@Model.SearchQuery"
                class="btn btn-sm @(Model.ViewMode == "month" ? "btn-primary" : "btn-outline-primary")">Month</a>
-            <a asp-action="Index" asp-route-view="week" asp-route-weekStart="@weekStart.ToString("yyyy-MM-dd")"
+            <a asp-action="Index" asp-route-view="week" asp-route-weekStart="@weekStart.ToString("yyyy-MM-dd")" asp-route-q="@Model.SearchQuery"
                class="btn btn-sm @(Model.ViewMode == "week" ? "btn-primary" : "btn-outline-primary")">Week</a>
-            <a asp-action="Index" asp-route-view="list" asp-route-month="@Model.Month" asp-route-year="@Model.Year"
-               class="btn btn-sm @(Model.ViewMode == "list" ? "btn-primary" : "btn-outline-primary")">List</a>
+            <a asp-action="Index" asp-route-view="list" asp-route-month="@Model.Month" asp-route-year="@Model.Year" asp-route-q="@Model.SearchQuery"
+               class="btn btn-sm @(Model.ViewMode == "list" ? "btn-primary" : "btn-outline-primary")">All</a>
         </div>
 
         <div class="text-center d-none d-md-flex align-items-center">
         @if (Model.ViewMode == "month")
             {
-                <a asp-action="Index" asp-route-month="@prevMonth.Month" asp-route-year="@prevMonth.Year" asp-route-view="month" class="btn btn-outline-secondary btn-sm me-2" style="min-width:64px;">&laquo;</a>
-                <a asp-action="Index" asp-route-month="@nextMonth.Month" asp-route-year="@nextMonth.Year" asp-route-view="month" class="btn btn-outline-secondary btn-sm me-2" style="min-width:64px;">&raquo;</a>
-                <a asp-action="Index" asp-route-view="month" asp-route-month="@DateTime.Today.Month" asp-route-year="@DateTime.Today.Year" class="fw-bold fs-5 text-decoration-none text-reset" style="cursor:pointer;">@currentDate.ToString("MMMM yyyy")</a>
+                <a asp-action="Index" asp-route-month="@prevMonth.Month" asp-route-year="@prevMonth.Year" asp-route-view="month" asp-route-q="@Model.SearchQuery" class="btn btn-outline-secondary btn-sm me-2" style="min-width:64px;">&laquo;</a>
+                <a asp-action="Index" asp-route-month="@nextMonth.Month" asp-route-year="@nextMonth.Year" asp-route-view="month" asp-route-q="@Model.SearchQuery" class="btn btn-outline-secondary btn-sm me-2" style="min-width:64px;">&raquo;</a>
+                <a asp-action="Index" asp-route-view="month" asp-route-month="@DateTime.Today.Month" asp-route-year="@DateTime.Today.Year" asp-route-q="@Model.SearchQuery" class="fw-bold fs-5 text-decoration-none text-reset" style="cursor:pointer;">@currentDate.ToString("MMMM yyyy")</a>
             }
             else if (Model.ViewMode == "week")
             {
-                <a asp-action="Index" asp-route-view="week" asp-route-weekStart="@prevWeek.ToString("yyyy-MM-dd")" class="btn btn-outline-secondary btn-sm me-2" style="min-width:64px;">&laquo;</a>
-                <a asp-action="Index" asp-route-view="week" asp-route-weekStart="@nextWeek.ToString("yyyy-MM-dd")" class="btn btn-outline-secondary btn-sm me-2" style="min-width:64px;">&raquo;</a>
-                <a asp-action="Index" asp-route-view="week" asp-route-weekStart="@thisWeekStart.ToString("yyyy-MM-dd")" class="fw-bold fs-5 text-decoration-none text-reset" style="cursor:pointer;">@weekStart.ToString("dd MMM") &ndash; @weekEnd.ToString("dd MMM yyyy")</a>
+                <a asp-action="Index" asp-route-view="week" asp-route-weekStart="@prevWeek.ToString("yyyy-MM-dd")" asp-route-q="@Model.SearchQuery" class="btn btn-outline-secondary btn-sm me-2" style="min-width:64px;">&laquo;</a>
+                <a asp-action="Index" asp-route-view="week" asp-route-weekStart="@nextWeek.ToString("yyyy-MM-dd")" asp-route-q="@Model.SearchQuery" class="btn btn-outline-secondary btn-sm me-2" style="min-width:64px;">&raquo;</a>
+                <a asp-action="Index" asp-route-view="week" asp-route-weekStart="@thisWeekStart.ToString("yyyy-MM-dd")" asp-route-q="@Model.SearchQuery" class="fw-bold fs-5 text-decoration-none text-reset" style="cursor:pointer;">@weekStart.ToString("dd MMM") &ndash; @weekEnd.ToString("dd MMM yyyy")</a>
             }
             else
             {
-                <a asp-action="Index" asp-route-month="@prevMonth.Month" asp-route-year="@prevMonth.Year" asp-route-view="list" class="btn btn-outline-secondary btn-sm me-2" style="min-width:64px;">&laquo;</a>
-                <a asp-action="Index" asp-route-month="@nextMonth.Month" asp-route-year="@nextMonth.Year" asp-route-view="list" class="btn btn-outline-secondary btn-sm me-2" style="min-width:64px;">&raquo;</a>
-                <a asp-action="Index" asp-route-view="list" asp-route-month="@DateTime.Today.Month" asp-route-year="@DateTime.Today.Year" class="fw-bold fs-5 text-decoration-none text-reset" style="cursor:pointer;">@currentDate.ToString("MMMM yyyy")</a>
+                // For the All view, show inline start/end date pickers and an Apply button
+                var allStart = Model.AllStartDate;
+                var allEnd = Model.AllEndDate;
+                <form method="get" asp-action="Index" class="d-flex align-items-center">
+                    <input type="hidden" name="view" value="list" />
+                    <input type="hidden" name="q" value="@Model.SearchQuery" />
+
+                    <div class="me-2">
+                        <label class="form-label mb-0">From</label>
+                    </div>
+                    <div class="me-2">
+                        
+                        <input type="date" name="allStart" value="@Model.AllStartDate.ToString("yyyy-MM-dd")" class="form-control form-control-sm" />
+                    </div>
+                    <div class="me-2">
+                        <label class="form-label mb-0">To</label>
+                    </div>
+                    <div class="me-2">
+                        
+                        <input type="date" name="allEnd" value="@Model.AllEndDate.ToString("yyyy-MM-dd")" class="form-control form-control-sm" />
+                    </div>
+                    <div class="d-flex align-items-end">
+                        <button type="submit" class="btn btn-primary btn-sm">Apply</button>
+                    </div>
+                </form>
             }
         </div>
     </div>
@@ -90,6 +112,8 @@
         <a class="btn btn-outline-secondary btn-sm ms-2" href="@Url.Action("Index", new { view = Model.ViewMode, month = Model.Month, year = Model.Year })">Clear</a>
     </form>
 </div>
+
+<!-- Inline all-range picker no script required -->
 
 @if (Model.ViewMode == "month")
 {

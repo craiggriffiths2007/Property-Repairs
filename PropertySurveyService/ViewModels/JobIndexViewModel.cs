@@ -12,5 +12,8 @@ namespace PropertySurveyService.ViewModels
         public string ViewMode { get; set; } = "month";
         public DateTime WeekStartDate { get; set; }
         public string? SearchQuery { get; set; }
+        // For the All view: a date range to display
+        public DateTime AllStartDate { get; set; }
+        public DateTime AllEndDate { get; set; }
     }
 }
