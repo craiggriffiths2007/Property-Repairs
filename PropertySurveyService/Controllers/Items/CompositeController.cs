@@ -37,8 +37,17 @@ public class CompositeController : Controller
         }
 
         viewModel.Composite = composite;
-
         viewModel.Images = repo.GetSurveyItemImages(composite.ContractCode, composite.item_number);
+        var panel = await repo.Db.Panel.FirstOrDefaultAsync(p => p.HeaderId == composite.HeaderId && p.item_number == composite.item_number);
+        if(panel != null)
+        {
+            viewModel.Panel = panel;
+        }
+        var glass = await repo.Db.Glass.FirstOrDefaultAsync(g => g.HeaderId == composite.HeaderId && g.item_number == composite.item_number);
+        if (glass != null)
+        {
+            viewModel.Glass = glass;
+        }
 
         return View(viewModel);
     }

@@ -39,6 +39,16 @@ public class UPVCController : Controller
         viewModel.UPVC = upvc;
 
         viewModel.Images = repo.GetSurveyItemImages(upvc.ContractCode, upvc.item_number);
+        var panel = await repo.Db.Panel.FirstOrDefaultAsync(p => p.HeaderId == upvc.HeaderId && p.item_number == upvc.item_number);
+        if(panel != null)
+        {
+            viewModel.Panel = panel;
+        }
+        var glass = await repo.Db.Glass.FirstOrDefaultAsync(g => g.HeaderId == upvc.HeaderId && g.item_number == upvc.item_number);
+        if (glass != null)
+        {
+            viewModel.Glass = glass;
+        }
 
         return View(viewModel);
     }

@@ -40,6 +40,16 @@ public class TimberController : Controller
         viewModel.Timber = timber;
 
         viewModel.Images = repo.GetSurveyItemImages(timber.ContractCode, timber.item_number);
+        var panel = await repo.Db.Panel.FirstOrDefaultAsync(p => p.HeaderId == timber.HeaderId && p.item_number == timber.item_number);
+        if(panel != null)
+        {
+            viewModel.Panel = panel;
+        }
+        var glass = await repo.Db.Glass.FirstOrDefaultAsync(g => g.HeaderId == timber.HeaderId && g.item_number == timber.item_number);
+        if (glass != null)
+        {
+            viewModel.Glass = glass;
+        }
 
         return View(viewModel);
     }

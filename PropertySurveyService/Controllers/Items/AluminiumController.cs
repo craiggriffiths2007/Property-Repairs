@@ -40,6 +40,20 @@ public class AluminiumController : Controller
         viewModel.Aluminium = aluminium;
 
         viewModel.Images = repo.GetSurveyItemImages(aluminium.ContractCode, aluminium.item_number);
+        // If there's a matching Panel with same HeaderId and item_number, include its images after the main item
+        var panel = await repo.Db.Panel.FirstOrDefaultAsync(p => p.HeaderId == aluminium.HeaderId && p.item_number == aluminium.item_number);
+        if(panel != null)
+        {
+            viewModel.Panel = panel;
+            //viewModel.PanelImages = repo.GetSurveyItemImages(panel.ContractCode, panel.item_number);
+        }
+        // If there's a matching Glass with same HeaderId and item_number, include its images after the main item
+        var glass = await repo.Db.Glass.FirstOrDefaultAsync(g => g.HeaderId == aluminium.HeaderId && g.item_number == aluminium.item_number);
+        if (glass != null)
+        {
+            viewModel.Glass = glass;
+            //viewModel.GlassImages = repo.GetSurveyItemImages(glass.ContractCode, glass.item_number);
+        }
 
         return View(viewModel);
     }

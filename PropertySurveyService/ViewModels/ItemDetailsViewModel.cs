@@ -18,7 +18,8 @@ namespace PropertySurveyService.ViewModels
         public Timber? Timber { get; set; }
         public UPVC? UPVC { get; set; }
 
-  
+
         public IEnumerable<PhotoImage>? Images { get; set; }
+
     }
 }
