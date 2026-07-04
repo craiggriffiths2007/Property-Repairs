@@ -8,11 +8,17 @@ using Microsoft.Extensions.Configuration;
 
 using PropertySurveyService.Models;
 using System.Timers;
+
+using System.Collections.Concurrent;
+
+
 namespace PropertySurveyService
 {
 
     public static class EndpointMappings
     {
+        static ConcurrentDictionary<string, object> _uploadLocks = new();
+
         public static void MapAPIEndpoints(this IEndpointRouteBuilder app)
         {
             var config = app.ServiceProvider.GetRequiredService<IConfiguration>();
@@ -569,58 +575,127 @@ namespace PropertySurveyService
             app.MapPost("/SendImage", async (ImageDTO imageDTO, AppDBContext db) =>
             {
                 OKRecordDTO return_record = new OKRecordDTO();
-
-                // Prepare contract code safely
-                string contractCode = imageDTO.Filename.Length >= 8 ? imageDTO.Filename.Substring(0, 8) : string.Empty;
-
-                // Ensure directory exists and write file (store only metadata in DB)
                 try
                 {
+                    // sanitize filename
+                    string safeFilename = Path.GetFileName(imageDTO.Filename ?? string.Empty);
+                    if (string.IsNullOrWhiteSpace(safeFilename))
+                    {
+                        return_record.comments = "Invalid filename";
+                        return Results.Ok(return_record);
+                    }
+
+                    // optional: enforce allowed extensions and max size here
+                    var allowed = new[] { ".mp4", ".mov", ".jpg", ".jpeg", ".png" };
+                    string ext = Path.GetExtension(safeFilename).ToLowerInvariant();
+                    if (!allowed.Contains(ext))
+                    {
+                        return_record.comments = "File type not allowed";
+                        return Results.Ok(return_record);
+                    }
+
                     Directory.CreateDirectory(imageDirectory);
-                    string safeFilename = Path.GetFileName(imageDTO.Filename);
-                    string filePath = Path.Combine(imageDirectory, safeFilename);
-                    byte[] fileBytes = Convert.FromBase64String(imageDTO.Data ?? string.Empty);
-                    await File.WriteAllBytesAsync(filePath, fileBytes);
+                    string finalPath = Path.Combine(imageDirectory, safeFilename);
+                    string tempPath = finalPath + ".part";
+
+                    byte[] chunkBytes = Convert.FromBase64String(imageDTO.Data ?? string.Empty);
+
+                    // If chunk metadata present, handle chunked upload
+                    if (imageDTO.ChunkIndex.HasValue && imageDTO.TotalChunks.HasValue)
+                    {
+                        int chunkIndex = imageDTO.ChunkIndex.Value;
+                        int totalChunks = imageDTO.TotalChunks.Value;
+
+                        // lock per-file to avoid race conditions
+                        var fileKey = safeFilename;
+                        var lockObj = _uploadLocks.GetOrAdd(fileKey, _ => new object());
+
+                        try
+                        {
+                            lock (lockObj)
+                            {
+                                // Append chunk (assumes client uploads chunks in order)
+                                using (var fs = new FileStream(tempPath, FileMode.OpenOrCreate, FileAccess.Write, FileShare.None))
+                                {
+                                    fs.Seek(0, SeekOrigin.End);
+                                    fs.Write(chunkBytes, 0, chunkBytes.Length);
+                                    fs.Flush(true);
+                                }
+
+                                // If final chunk, move temp to final and update DB
+                                if (chunkIndex == totalChunks)
+                                {
+                                    if (File.Exists(finalPath))
+                                        File.Delete(finalPath);
+                                    File.Move(tempPath, finalPath);
+
+                                    // Save metadata to DB (only once after final chunk)
+                                    string contractCode = safeFilename.Length >= 8 ? safeFilename.Substring(0, 8) : string.Empty;
+                                    var existing = db.Images.FirstOrDefault(i => i.Filename == safeFilename);
+                                    if (existing != null)
+                                    {
+                                        existing.DateTime = DateTime.Now;
+                                        existing.ContractCode = contractCode;
+                                        existing.Data = string.Empty;
+                                        db.Update(existing);
+                                    }
+                                    else
+                                    {
+                                        PhotoImage image = new PhotoImage
+                                        {
+                                            Filename = safeFilename,
+                                            Data = string.Empty,
+                                            DateTime = DateTime.Now,
+                                            ContractCode = contractCode
+                                        };
+                                        db.Add(image);
+                                    }
+                                    db.SaveChanges();
+                                }
+                            } // lock
+                        }
+                        finally
+                        {
+                            _uploadLocks.TryRemove(fileKey, out _);
+                        }
+                    }
+                    else
+                    {
+                        // Non-chunked (backwards compatible): write full file and update DB now
+                        byte[] fileBytes = chunkBytes; // whole file
+                        await File.WriteAllBytesAsync(finalPath, fileBytes);
+
+                        string contractCode = safeFilename.Length >= 8 ? safeFilename.Substring(0, 8) : string.Empty;
+                        var existing = db.Images.FirstOrDefault(i => i.Filename == safeFilename);
+                        if (existing != null)
+                        {
+                            existing.DateTime = DateTime.Now;
+                            existing.ContractCode = contractCode;
+                            existing.Data = string.Empty;
+                            db.Update(existing);
+                        }
+                        else
+                        {
+                            PhotoImage image = new PhotoImage
+                            {
+                                Filename = safeFilename,
+                                Data = string.Empty,
+                                DateTime = DateTime.Now,
+                                ContractCode = contractCode
+                            };
+                            db.Add(image);
+                        }
+                        await db.SaveChangesAsync();
+                    }
+
+                    return_record.comments = "Success";
+                    return Results.Ok(return_record);
                 }
                 catch (Exception ex)
                 {
                     return_record.comments = $"File Save Failed: {ex.Message}";
                     return Results.Ok(return_record);
                 }
-
-                // Save metadata to database (do not keep base64 data in DB)
-                try
-                {
-                    var existing = db.Images.FirstOrDefault(i => i.Filename == imageDTO.Filename);
-                    if (existing != null)
-                    {
-                        existing.DateTime = DateTime.Now;
-                        existing.ContractCode = contractCode;
-                        existing.Data = string.Empty;
-                        db.Update(existing);
-                    }
-                    else
-                    {
-                        PhotoImage image = new PhotoImage
-                        {
-                            Filename = imageDTO.Filename,
-                            Data = string.Empty,
-                            DateTime = DateTime.Now,
-                            ContractCode = contractCode
-                        };
-                        db.Add(image);
-                    }
-
-                    await db.SaveChangesAsync();
-                }
-                catch (Exception exDb)
-                {
-                    return_record.comments = $"Database Save Failed: {exDb.Message}";
-                    return Results.Ok(return_record);
-                }
-
-                return_record.comments = "Success";
-                return Results.Ok(return_record);
             });
 
             // Serve images by filename via GET so <img src="/images/filename"> works

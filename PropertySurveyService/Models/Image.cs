@@ -21,8 +21,11 @@ namespace PropertySurveyService.Models
 
     public class ImageDTO
     {
-        public string? Filename { get; set; }
-        public string? Data { get; set; }
+        public string Filename { get; set; }
+        public string Data { get; set; }
+        // optional chunking metadata
+        public int? ChunkIndex { get; set; }
+        public int? TotalChunks { get; set; }
 
     }
 
