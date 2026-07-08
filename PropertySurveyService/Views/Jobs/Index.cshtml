@@ -161,21 +161,24 @@
                                 {
                                     @foreach (var job in jobsByDay[day])
                                     {
-                                        var hasRelevantHeader = false;
-                                        if (!string.IsNullOrEmpty(job.ContractCode) && Model.Headers != null)
-                                        {
-                                            hasRelevantHeader = Model.Headers.Any(h => h.ContractCode == job.ContractCode && h.JobType == job.JobType);
-                                        }
-                                        <div class="calendar-event @(job.JobType == enum_job_type.Survey ? "job-type-survey" : job.JobType == enum_job_type.Fitting ? "job-type-fitting" : "job-type-remedial") @(hasRelevantHeader ? "has-header" : "")">
-                                            <a asp-action="Details" asp-route-id="@job.Id" class="calendar-event-link">
-                                                @job.ContractCode - @job.Time.ToString("HH:mm") - @job.Agent.Code
-                                                <br/>
-                                                @if (job.Customer != null)
-                                                {
-                                                    <span>@job.Customer.Name - @job.Customer.Postcode</span>
-                                                }
-                                            </a>
-                                        </div>
+                                        <a asp-action="Details" asp-route-id="@job.Id" class="calendar-event-link">
+                                        @{
+                                            var hasRelevantHeader = false;
+                                            if (!string.IsNullOrEmpty(job.ContractCode) && Model.Headers != null)
+                                            {
+                                                hasRelevantHeader = Model.Headers.Any(h => h.ContractCode == job.ContractCode && h.JobType == job.JobType);
+                                            }
+                                            <div class="calendar-event @(job.JobType == enum_job_type.Survey ? "job-type-survey" : job.JobType == enum_job_type.Fitting ? "job-type-fitting" : "job-type-remedial") @(hasRelevantHeader ? "has-header" : "")">
+                                                    @job.ContractCode - @job.Time.ToString("HH:mm") - @job.Agent.Code
+                                                    <br/>
+                                                    @if (job.Customer != null)
+                                                    {
+                                                        <span>@job.Customer.Name - @job.Customer.Postcode</span>
+                                                    }
+                                            
+                                            </div>
+                                            }
+                                        </a>
                                     }
                                 }
                             </td>
@@ -226,21 +229,25 @@ else if (Model.ViewMode == "week")
                                 {
                                     @foreach (var job in weekJobs[d][hour])
                                     {
-                                        var hasRelevantHeader = false;
-                                        if (!string.IsNullOrEmpty(job.ContractCode) && Model.Headers != null)
-                                        {
-                                            hasRelevantHeader = Model.Headers.Any(h => h.ContractCode == job.ContractCode && h.JobType == job.JobType);
+                                        <a asp-action="Details" asp-route-id="@job.Id" class="calendar-event-link">
+                                        @{
+                                            var hasRelevantHeader = false;
+                                            if (!string.IsNullOrEmpty(job.ContractCode) && Model.Headers != null)
+                                            {
+                                                hasRelevantHeader = Model.Headers.Any(h => h.ContractCode == job.ContractCode && h.JobType == job.JobType);
+                                            }
+                                            <div class="calendar-event @(job.JobType == enum_job_type.Survey ? "job-type-survey" : job.JobType == enum_job_type.Fitting ? "job-type-fitting" : "job-type-remedial") @(hasRelevantHeader ? "has-header" : "")">
+                                            
+                                                    @job.ContractCode - @job.Time.ToString("HH:mm") - @job.Agent.Code
+                                                    <br />
+                                                    @if (job.Customer != null)
+                                                    {
+                                                        <span>@job.Customer.Name - @job.Customer.Postcode</span>
+                                                    }
+                                            
+                                            </div>
                                         }
-                                        <div class="calendar-event @(job.JobType == enum_job_type.Survey ? "job-type-survey" : job.JobType == enum_job_type.Fitting ? "job-type-fitting" : "job-type-remedial") @(hasRelevantHeader ? "has-header" : "")">
-                                            <a asp-action="Details" asp-route-id="@job.Id" class="calendar-event-link">
-                                                @job.ContractCode - @job.Time.ToString("HH:mm") - @job.Agent.Code
-                                                <br />
-                                                @if (job.Customer != null)
-                                                {
-                                                    <span>@job.Customer.Name - @job.Customer.Postcode</span>
-                                                }
-                                            </a>
-                                        </div>
+                                        </a>
                                     }
                                 }
                             </td>
@@ -293,8 +300,8 @@ else if (Model.ViewMode == "list")
                         <td>@job.Agent?.Code</td>
                         <td>@job.DamageDesc</td>
                         <td align="right">
+                            <a asp-action="Details" asp-route-id="@job.Id" class="btn btn-outline-secondary btn-sm">View</a>
                             <a asp-action="Edit" asp-route-id="@job.Id" class="btn btn-outline-primary btn-sm">Edit</a>
-                            <a asp-action="Details" asp-route-id="@job.Id" class="btn btn-outline-secondary btn-sm">Details</a>
                             <a asp-action="Delete" asp-route-id="@job.Id" class="btn btn-outline-danger btn-sm">Delete</a>
                         </td>
                     </tr>
