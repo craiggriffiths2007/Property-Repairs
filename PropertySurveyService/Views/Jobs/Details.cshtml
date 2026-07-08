@@ -1,10 +1,10 @@
-﻿@model PropertySurveyService.Models.Job
+﻿@model PropertySurveyService.ViewModels.JobDetailsViewModel
 
 @{
     ViewData["Title"] = "Details";
 }
 
-<h4>Diary Booking - @Html.DisplayFor(model => model.JobType)</h4>
+<h4>Diary Booking - @Html.DisplayFor(model => model.Job.JobType)</h4>
 <hr />
 <div>
 
@@ -12,52 +12,52 @@
         <div class="col-md-6">
             <dl class="row">
                 <dt class="col-sm-3">
-                    @Html.DisplayNameFor(model => model.ContractCode)
+                    @Html.DisplayNameFor(model => model.Job.ContractCode)
                 </dt>
                 <dd class="col-sm-9">
-                    @Html.DisplayFor(model => model.ContractCode)
+                    @Html.DisplayFor(model => model.Job.ContractCode)
                 </dd>
                 <dt class="col-sm-3">
-                    @Html.DisplayNameFor(model => model.DiaryDate)
+                    @Html.DisplayNameFor(model => model.Job.DiaryDate)
                 </dt>
                 <dd class="col-sm-9">
-                    @Html.DisplayFor(model => model.DiaryDate)
+                    @Html.DisplayFor(model => model.Job.DiaryDate)
                 </dd>
                 <dt class="col-sm-3">
-                    @Html.DisplayNameFor(model => model.JobType)
+                    @Html.DisplayNameFor(model => model.Job.JobType)
                 </dt>
                 <dd class="col-sm-9">
-                    @Html.DisplayFor(model => model.JobType)
+                    @Html.DisplayFor(model => model.Job.JobType)
                 </dd>
                 <dt class="col-sm-3">
-                    @Html.DisplayNameFor(model => model.Time)
+                    @Html.DisplayNameFor(model => model.Job.Time)
                 </dt>
                 <dd class="col-sm-9">
-                    @Html.DisplayFor(model => model.Time)
+                    @Html.DisplayFor(model => model.Job.Time)
                 </dd>
                 <dt class="col-sm-3">
-                    @Html.DisplayNameFor(model => model.InsuranceCompanyName)
+                    @Html.DisplayNameFor(model => model.Job.InsuranceCompanyName)
                 </dt>
                 <dd class="col-sm-9">
-                    @Html.DisplayFor(model => model.InsuranceCompanyName)
+                    @Html.DisplayFor(model => model.Job.InsuranceCompanyName)
                 </dd>
                 <dt class="col-sm-3">
-                    @Html.DisplayNameFor(model => model.DamageDesc)
+                    @Html.DisplayNameFor(model => model.Job.DamageDesc)
                 </dt>
                 <dd class="col-sm-9">
-                    @Html.DisplayFor(model => model.DamageDesc)
+                    @Html.DisplayFor(model => model.Job.DamageDesc)
                 </dd>
                 <dt class="col-sm-3">
-                    @Html.DisplayNameFor(model => model.CauseOfDamage)
+                    @Html.DisplayNameFor(model => model.Job.CauseOfDamage)
                 </dt>
                 <dd class="col-sm-9">
-                    @Html.DisplayFor(model => model.CauseOfDamage)
+                    @Html.DisplayFor(model => model.Job.CauseOfDamage)
                 </dd>
                 <dt class="col-sm-3">
-                    @Html.DisplayNameFor(model => model.Instructions)
+                    @Html.DisplayNameFor(model => model.Job.Instructions)
                 </dt>
                 <dd class="col-sm-9">
-                    @Html.DisplayFor(model => model.Instructions)
+                    @Html.DisplayFor(model => model.Job.Instructions)
                 </dd>
             </dl>
         </div>
@@ -66,53 +66,53 @@
 
 
                 <dt class="col-sm-3">
-                    @Html.DisplayNameFor(model => model.Agent)
+                    @Html.DisplayNameFor(model => model.Job.Agent)
                 </dt>
                 <dd class="col-sm-9">
-                    @Html.DisplayFor(model => model.Agent.Code) - @Html.DisplayFor(model => model.Agent.Name)
+                    @Html.DisplayFor(model => model.Job.Agent.Code) - @Html.DisplayFor(model => model.Job.Agent.Name)
                 </dd>
                 <dt class="col-sm-3">
-                    @Html.DisplayNameFor(model => model.Customer.Name)
+                    @Html.DisplayNameFor(model => model.Job.Customer.Name)
                 </dt>
                 <dd class="col-sm-9">
-                    @Html.DisplayFor(model => model.Customer.Name)
+                    @Html.DisplayFor(model => model.Job.Customer.Name)
                 </dd>
                 <dt class="col-sm-3">
-                    @Html.DisplayNameFor(model => model.Customer.Add1)
+                    @Html.DisplayNameFor(model => model.Job.Customer.Add1)
                 </dt>
                 <dd class="col-sm-9">
-                    @Html.DisplayFor(model => model.Customer.Add1)
-                </dd>
-                <dt class="col-sm-3">
-                    &nbsp;
-                </dt>
-                <dd class="col-sm-9">
-                    @Html.DisplayFor(model => model.Customer.Add2)
+                    @Html.DisplayFor(model => model.Job.Customer.Add1)
                 </dd>
                 <dt class="col-sm-3">
                     &nbsp;
                 </dt>
                 <dd class="col-sm-9">
-                    @Html.DisplayFor(model => model.Customer.Add3)
+                    @Html.DisplayFor(model => model.Job.Customer.Add2)
                 </dd>
                 <dt class="col-sm-3">
-                    @Html.DisplayNameFor(model => model.Customer.Postcode)
+                    &nbsp;
                 </dt>
                 <dd class="col-sm-9">
-                    @Html.DisplayFor(model => model.Customer.Postcode)
+                    @Html.DisplayFor(model => model.Job.Customer.Add3)
+                </dd>
+                <dt class="col-sm-3">
+                    @Html.DisplayNameFor(model => model.Job.Customer.Postcode)
+                </dt>
+                <dd class="col-sm-9">
+                    @Html.DisplayFor(model => model.Job.Customer.Postcode)
                 </dd>
             </dl>
         </div>
     </div>
 </div>
 <div>
-    <a asp-action="Edit" asp-route-id="@Model?.Id" >Edit</a> |
+    <a asp-action="Edit" asp-route-id="@Model.Job?.Id" >Edit</a> |
     <a href="javascript:history.go(-1);" >
         Back to Diary
     </a>
 </div>
 
-@if (ViewBag.Headers is IEnumerable<PropertySurveyService.Models.JobHeader> headers && headers.Any())
+@if(Model.JobHeaderIndex?.Any() == true)
 {
     <hr />
     <h4>Completed Jobs</h4>
@@ -127,7 +127,7 @@
             </tr>
         </thead>
         <tbody>
-            @foreach (var header in headers)
+            @foreach (var header in Model.JobHeaderIndex)
             {
                 <tr>
                     <td>@header.JobType</td>
@@ -135,7 +135,7 @@
                     <td>@header.DiaryDate.ToShortDateString()</td>
                     <td>@header.DateTimeCompleted</td>
                     <td align="right">
-                        <a asp-controller="JobHeaders" asp-action="Details" asp-route-id="@header.Id" asp-route-jobid="@Model.Id"
+                        <a asp-controller="JobHeaders" asp-action="Details" asp-route-id="@header.Id" asp-route-jobid="@Model.Job.Id"
                            class="btn btn-outline-primary btn-sm">View</a>
                     </td>
                 </tr>

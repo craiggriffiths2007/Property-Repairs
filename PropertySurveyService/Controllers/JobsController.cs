@@ -223,28 +223,32 @@ namespace PropertySurveyService.Controllers
         // GET: Jobs/Details/5
         public async Task<IActionResult> Details(int? id)
         {
+            JobDetailsViewModel viewModel = new JobDetailsViewModel();
+
             if (id == null || _context.Job == null)
             {
                 return NotFound();
             }
 
-            var job = await _context.Job
+            viewModel.Job = await _context.Job
                 .Include(j => j.Customer)
                 .Include(j => j.Agent)
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (job == null)
+            if (viewModel.Job == null)
             {
                 return NotFound();
             }
 
-            if (!string.IsNullOrEmpty(job.ContractCode))
+            if (!string.IsNullOrEmpty(viewModel.Job.ContractCode))
             {
-                ViewBag.Headers = await _context.JobHeader
-                    .Where(h => h.ContractCode == job.ContractCode)
-                    .ToListAsync();
+                viewModel.JobHeaderIndex = await _context.JobHeader
+                                .Where(h => h.ContractCode == viewModel.Job.ContractCode)
+                                .OrderDescending()
+                                .Select(h => h.AsJobHeaderIndex())
+                                .ToListAsync();
             }
 
-            return View(job);
+            return View(viewModel);
         }
 
 
@@ -270,13 +274,16 @@ namespace PropertySurveyService.Controllers
         // GET: Jobs/Create
         public IActionResult Create()
         {
-            Job job = new Job();
-            job.DiaryDate = DateTime.Now;
-            job.Time = DateTime.Now;
+            JobDetailsViewModel viewModel = new JobDetailsViewModel();
+
+            viewModel.Job = new Job();
+            viewModel.Job.DiaryDate = DateTime.Now;
+            viewModel.Job.Time = DateTime.Now;
             PopulateContractsDropDownList();
             PopulateAgentsDropDownList();
             PopulateJobTypeDropDownList();
-            return View(job);
+
+            return View(viewModel);
         }
 
         // POST: Jobs/Create
@@ -311,23 +318,25 @@ namespace PropertySurveyService.Controllers
         // GET: Jobs/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
+            JobDetailsViewModel viewModel = new JobDetailsViewModel();
+
             if (id == null || _context.Job == null)
             {
                 return NotFound();
             }
 
-            var job = await _context.Job.AsNoTracking()
+            viewModel.Job = await _context.Job.AsNoTracking()
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (job == null)
+            if (viewModel.Job == null)
             {
                 return NotFound();
             }
 
-            PopulateContractsDropDownList(job.ContractId);
-            PopulateAgentsDropDownList(job.AgentId);
-            PopulateJobTypeDropDownList(job.JobType);
+            PopulateContractsDropDownList();
+            PopulateAgentsDropDownList();
+            PopulateJobTypeDropDownList();
 
-            return View(job);
+            return View(viewModel);
         }
 
         // POST: Jobs/Edit/5
@@ -427,7 +436,24 @@ namespace PropertySurveyService.Controllers
             {
                 return Json(new { damageDescription = "" });
             }
+
             return Json(new { damageDescription = contract.DamageDescription ?? "", causeOfDamage = contract.CauseOfDamage ?? "", insuranceCompany = contract.InsuranceCompanyName ?? "" });
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetRecentSurvey(int id)
+        {
+            var contract = await _context.Contract.FindAsync(id);
+            if (contract == null)
+            {
+                return Json(new { jobHeaderIndex = "" });
+            }
+            JobHeaderIndex? jobHeaderIndexFirst = _context.JobHeader
+                                    .Where(h => h.ContractCode == contract.ContractCode)
+                                    .OrderDescending()
+                                    .Select(h => h.AsJobHeaderIndex())
+                                    .FirstOrDefault();
+            return Json(new { agentCode = jobHeaderIndexFirst?.AgentCode , diaryDate = jobHeaderIndexFirst?.DiaryDate.ToShortDateString() , completed = jobHeaderIndexFirst?.DateTimeCompleted.ToString() });
         }
 
         [HttpGet]
