@@ -1,116 +1,24 @@
 ﻿@model PropertySurveyService.ViewModels.JobDetailsViewModel
 
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = "Create";
 }
 
-<h4>Diary Booking</h4>
+<h4>Add Diary Booking</h4>
 <hr />
 <div class="row">
-    <!-- Increased to col-md-8 to comfortably fit two columns -->
     <div class="col-md-8">
-        <form asp-action="Edit">
+        <form asp-action="Edit" method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
             <input type="hidden" asp-for="Job.Id" />
-            <div class="row">
-                <!-- ================= LEFT COLUMN ================= -->
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <label asp-for="Job.DiaryDate" class="control-label"></label>
-                        <input asp-for="Job.DiaryDate" class="form-control" />
-                        <span asp-validation-for="Job.DiaryDate" class="text-danger"></span>
-                    </div>
 
-                    <div class="form-group">
-                        <label asp-for="Job.Time" class="control-label"></label>
-                        <input asp-for="Job.Time" class="form-control" />
-                        <span asp-validation-for="Job.Time" class="text-danger"></span>
-                    </div>
+            <partial name="_JobFormFields" model="Model" />
 
-                    <div class="form-group">
-                        <label asp-for="Job.ContractId" class="control-label">Contract</label>
-                        <select asp-for="Job.ContractId" class="form-control" asp-items="ViewBag.ContractId" id="ContractId">
-                            <option value="">-- Select Contract --</option>
-                        </select>
-                        <span asp-validation-for="Job.ContractId" class="text-danger"></span>
-                    </div>
-
-                    <div class="form-group">
-                        <label asp-for="Job.InsuranceCompanyName" class="control-label"></label>
-                        <input asp-for="Job.InsuranceCompanyName" class="form-control" />
-                        <span asp-validation-for="Job.InsuranceCompanyName" class="text-danger"></span>
-                    </div>
-
-                    <div class="form-group">
-                        <label asp-for="Job.DamageDesc" class="control-label"></label>
-                        <input asp-for="Job.DamageDesc" class="form-control" />
-                        <span asp-validation-for="Job.DamageDesc" class="text-danger"></span>
-                    </div>
-
-                    <div class="form-group">
-                        <label asp-for="Job.CauseOfDamage" class="control-label"></label>
-                        <input asp-for="Job.CauseOfDamage" class="form-control" />
-                        <span asp-validation-for="Job.CauseOfDamage" class="text-danger"></span>
-                    </div>
-
-                </div>
-
-                <!-- ================= RIGHT COLUMN ================= -->
-                <div class="col-md-6">
-
-
-                    <div class="form-group">
-                        <label asp-for="Job.Instructions" class="control-label"></label>
-                        <input asp-for="Job.Instructions" class="form-control" />
-                        <span asp-validation-for="Job.Instructions" class="text-danger"></span>
-                    </div>
-
-                    <div class="form-group">
-                        <label asp-for="Job.JobType" class="control-label">Job Type</label>
-                        <select asp-for="Job.JobType" class="form-control" asp-items="@((SelectList)ViewBag.JobTypes)" id="JobType"></select>
-                        <span asp-validation-for="Job.JobType" class="text-danger"></span>
-                    </div>
-
-                    <div class="form-group">
-                        <label asp-for="Job.AgentId" class="control-label">Agent</label>
-                        <select asp-for="Job.AgentId" class="form-control" asp-items="ViewBag.AgentId" id="AgentId"></select>
-                    </div>
-
-                    <!-- Checkboxes placed at the bottom right -->
-                    <div class="form-group form-check pt-2">
-                        <input asp-for="Job.bRequestRepudiation" class="form-check-input" />
-                        <label asp-for="Job.bRequestRepudiation" class="form-check-label">Repudiate if Wnt or Bad Workmanship</label>
-                        <span asp-validation-for="Job.bRequestRepudiation" class="text-danger"></span>
-                    </div>
-
-                    <div id="recentSurvey">
-                        <br/>
-                        <div>Recent Survey</div>
-                        <dl class="row">
-                            <dt class="col-sm-4">Agent</dt>
-                            <dd class="col-sm-8" id="surveyAgentCode"></dd>
-
-                            <dt class="col-sm-4">Diary Date</dt>
-                            <dd class="col-sm-8" id="surveyDiaryDate"></dd>
-
-                            <dt class="col-sm-4">Completed</dt>
-                            <dd class="col-sm-8" id="surveyCompleted"></dd>
-                         </dl>
-
-                        <div class="form-group form-check">
-                            <input asp-for="Job.bIncludeSurvey" class="form-check-input" id="includeRecentSurveyCheck" />
-                            <label asp-for="Job.bIncludeSurvey" class="form-check-label">Include Recent Survey</label>
-                            <span asp-validation-for="Job.bIncludeSurvey" class="text-danger"></span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- ================= BUTTONS (Full Width/Bottom) ================= -->
             <div class="row">
                 <div class="col-12 mt-3">
                     <div class="form-group">
-                        <input type="submit" value="Create" class="btn btn-primary" />
+                        <input type="submit" value="Save Changes" class="btn btn-primary" />
                     </div>
                 </div>
             </div>
@@ -126,88 +34,4 @@
     @{
         await Html.RenderPartialAsync("_ValidationScriptsPartial");
     }
-    <script>
-        document.getElementById('ContractId').addEventListener('change', function () {
-            var contractId = this.value;
-            if (contractId) {
-                fetch('@Url.Action("GetContractInformation", "Jobs")' + '?id=' + contractId)
-                    .then(response => response.json())
-                    .then(data => {
-                        document.getElementById('DamageDesc').value = data.damageDescription;
-                        document.getElementById('InsuranceCompanyName').value = data.insuranceCompany;
-                        document.getElementById('CauseOfDamage').value = data.causeOfDamage;
-                    });
-                    GetRecentSurvey();
-            } else {
-                document.getElementById('DamageDesc').value = '';
-                document.getElementById('InsuranceCompanyName').value = "";
-                document.getElementById('CauseOfDamage').value = "";
-            }
-        });
-
-        
-        function GetRecentSurvey()
-        {
-            var contractId = document.getElementById('ContractId').value;
-            if (contractId) {
-                fetch('@Url.Action("GetRecentSurvey", "Jobs")' + '?id=' + contractId)
-                    .then(response => response.json())
-                    .then(data => {
-                        if(data.agentCode == null)
-                        {
-                            hideSurvey();
-                        }
-                        else
-                        {
-                            document.getElementById('surveyAgentCode').textContent = data.agentCode;
-                            document.getElementById('surveyDiaryDate').textContent = data.diaryDate;
-                            document.getElementById('surveyCompleted').textContent = data.completed;
-                            showSurvey();
-                        }
-                    });
-            } else {
-                hideSurvey();
-            }
-
-        }
-        function hideSurvey() {
-            document.getElementById('recentSurvey').style.display = 'none';
-            document.getElementById('includeRecentSurveyCheck').checked = false;
-        }
-
-        // Function to show the survey
-        function showSurvey() {
-            document.getElementById('recentSurvey').style.display = 'block';
-        }
-        
-        
-        function UpdateAgentsList()
-        {
-            var jobType = document.getElementById('JobType');
-            if (jobType) {
-                debugger;
-                fetch('@Url.Action("GetAgentListForJobType", "Jobs")' + '?jobType=' + jobType.value)
-                    .then(response => response.json())
-                    .then(data => {
-                        debugger;
-                        const agentSelect = document.getElementById('AgentId');
-
-                    // Clear existing options
-                    agentSelect.innerHTML = '';
-
-                    // Add new options
-                    data.forEach(agent => {
-                        const option = document.createElement('option');
-                        option.value = agent.value;
-                        option.text = agent.text;
-                        agentSelect.appendChild(option);
-                    });
-
-                }); }
-        }
-
-        document.getElementById('JobType').addEventListener('change', function () {
-            UpdateAgentsList();
-             });
-    </script>
 }
