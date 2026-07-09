@@ -564,6 +564,7 @@ namespace PropertySurveyService
                         results.Add(new JobHeaderDTO
                         {
                             Head = jobHeader,
+                            Images = images
                         });
                     }
                 }
