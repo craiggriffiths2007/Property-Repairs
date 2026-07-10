@@ -266,10 +266,12 @@ namespace PropertySurveyService.Controllers
 
             string fname = string.Format("{0:00000000}_fandates.jpg", jobHeader.ContractCode);
             
-            ViewData["MandateSignature"] = _context.Images.Where(x => x.Filename == fname).FirstOrDefault()?.Data;
+            ViewData["MandateSignature"] = _context.Images.Where(x => x.Filename == fname).FirstOrDefault()?.Filename;
 
             return View(jobHeader);
         }
+
+
 
 
         // GET: Jobs/Create

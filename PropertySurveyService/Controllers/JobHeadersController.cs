@@ -151,7 +151,14 @@ namespace PropertySurveyService.Controllers
             }
             return View(header);
         }
+        public async Task<ActionResult> JobInstructions(int? id)
+        {
+            var jobHeader = await _context.JobHeader.FirstOrDefaultAsync(m => m.Id == id);
 
+
+            // Return the HTML string directly as a content result with the HTML mime-type
+            return Content(jobHeader.JobInstructions, "text/html");
+        }
         // POST: Headers/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.

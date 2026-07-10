@@ -164,9 +164,7 @@ namespace PropertySurveyService.Models
 
         #region Job, Instructions & Progress
 
-        [DisplayName("Instructions")]
-        public string Instructions { get; set; } = "";
-
+        [Browsable(false)]
         [DisplayName("Job Instructions")]
         public string JobInstructions { get; set; } = "";
 
@@ -333,9 +331,6 @@ namespace PropertySurveyService.Models
 
         [DisplayName("Fitter Name 2 (Alt)")]
         public string ffitter_name2 { get; set; } = "";
-
-        [DisplayName("Fitters Instructions")]
-        public string FitInstructions { get; set; } = "";
 
         [DisplayName("Fitter Work")]
         public string FitWorkCarriedOut { get; set; } = "";

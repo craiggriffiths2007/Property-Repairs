@@ -474,8 +474,9 @@ namespace PropertySurveyService
                     jobHeader.JobType = job.JobType;
                     jobHeader.ContractCode = job.ContractCode;
                     jobHeader.bRequestRepudiation = job.bRequestRepudiation;
-                    jobHeader.Instructions = job.Instructions;
-                    jobHeader.JobInstructions = "";
+
+                    jobHeader.JobInstructions = job.Instructions;
+
                     jobHeader.StartTime = job.Time.ToShortTimeString();
                     jobHeader.FinishTime = job.Time.AddHours(1).ToShortTimeString(); // doesnt have a finish time yet
                     jobHeader.DiaryDate = job.DiaryDate;
@@ -498,11 +499,6 @@ namespace PropertySurveyService
 
                     jobHeader.bComplete = false;
                     jobHeader.bSent = false;
-
-                    if (job.JobType > enum_job_type.Survey)
-                    {
-                        jobHeader.FitInstructions = job.Instructions;
-                    }
 
                     var images = new List<string>();
 

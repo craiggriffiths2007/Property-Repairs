@@ -95,6 +95,12 @@ else
         Signed Mandate
     </button>
 }
+
+<button type="button" 
+    onclick="openInstructions('@Url.Action("JobInstructions", "JobHeaders", new { id = Model.JobHeader.Id })')">
+    Job Instructions
+</button>
+
 <a href="javascript:history.go(-1);" >
     Back to Diary Job
 </a>
@@ -166,7 +172,12 @@ else
         }
     </div>
 }
-
+<script>
+    function openInstructions(url) {
+        // Opens a styled popup window with specific dimensions
+        window.open(url, 'JobInstructionsPopup', 'width=800,height=600,scrollbars=yes,resizable=yes');
+    }
+</script>
 
 <script>
     function openPrintWindow(type) {
@@ -182,6 +193,14 @@ else
         {
             window.open(
                 '@Url.Action("SignedMandate", "Jobs", new { id = Model.JobHeader.Id })',
+                '_blank',
+                'width=900,height=700'
+            );
+        }
+        if(type==3)
+        {
+            window.open(
+                '@Url.Action("JobInstructions", "Jobs", new { id = Model.JobHeader.Id })',
                 '_blank',
                 'width=900,height=700'
             );
