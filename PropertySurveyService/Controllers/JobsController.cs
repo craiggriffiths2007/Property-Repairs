@@ -8,6 +8,7 @@ using PropertySurveyService.Models;
 using PropertySurveyService.ViewModels;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.Contracts;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Xml.Linq;
@@ -375,7 +376,7 @@ namespace PropertySurveyService.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(Details), new { id = id });
             }
             PopulateContractsDropDownList(job.ContractId);
             PopulateAgentsDropDownList(job.AgentId);

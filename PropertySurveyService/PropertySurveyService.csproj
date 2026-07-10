@@ -41,6 +41,7 @@
     <Folder Include="Migrations\" />
     <Folder Include="Views\JobHeader\" />
     <Folder Include="Views\ToolCheck\" />
+    <Folder Include="wwwroot\lib\quill\" />
   </ItemGroup>
 
 </Project>

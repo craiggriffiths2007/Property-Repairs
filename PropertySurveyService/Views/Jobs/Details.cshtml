@@ -53,17 +53,6 @@
                 <dd class="col-sm-9">
                     @Html.DisplayFor(model => model.Job.CauseOfDamage)
                 </dd>
-                <dt class="col-sm-3">
-                    @Html.DisplayNameFor(model => model.Job.Instructions)
-                </dt>
-                <dd class="col-sm-9">
-                    @Html.DisplayFor(model => model.Job.Instructions)
-                </dd>
-            </dl>
-        </div>
-        <div class="col-md-6">
-            <dl class="row">
-
 
                 <dt class="col-sm-3">
                     @Html.DisplayNameFor(model => model.Job.Agent)
@@ -101,15 +90,27 @@
                 <dd class="col-sm-9">
                     @Html.DisplayFor(model => model.Job.Customer.Postcode)
                 </dd>
+                            </dl>
+        </div>
+        <div class="col-md-6">
+            <dl class="row">
+                <div class="instructions-display">
+                    <strong>
+                        @Html.DisplayNameFor(model => model.Job.Instructions)
+                    </strong>
+
+                    <div class="mt-2">
+                        @Html.Raw(Model.Job?.Instructions)
+                    </div>
+                </div>
+
             </dl>
         </div>
     </div>
 </div>
 <div>
     <a asp-action="Edit" asp-route-id="@Model.Job?.Id" >Edit</a> |
-    <a href="javascript:history.go(-1);" >
-        Back to Diary
-    </a>
+    <a asp-action="Index">Back to Diary</a>
 </div>
 
 @if(Model.JobHeaderIndex?.Any() == true)

@@ -14,6 +14,9 @@ namespace PropertySurveyService.Models
         [DisplayName("Sheet Date")]
         public string sheet_date { get; set; } = "";
 
+        [DisplayName("Claimant Name")]
+        public string claimant_name { get; set; } = "";
+
         [DisplayName("Vehicle Registration")]
         public string registration { get; set; } = "";
 

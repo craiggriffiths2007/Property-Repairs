@@ -5810,6 +5810,10 @@ namespace PropertySurveyService.Migrations
                     b.Property<bool>("bSigned")
                         .HasColumnType("bit");
 
+                    b.Property<string>("claimant_name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("comments")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
