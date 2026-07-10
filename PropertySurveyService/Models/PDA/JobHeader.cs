@@ -456,13 +456,13 @@ namespace PropertySurveyService.Models
 
 
         [DisplayName("Remedial Fault")]
-        public string r_fault { get; set; } = "";
+        public string RemedialFault { get; set; } = "";
+
+        public bool? RemedialCompleted { get; set; } // remedial completed
 
 
-
-
-        [DisplayName("Remedial Hours to Complete")]
-        public string rno_hours { get; set; } = "";
+        [DisplayName("Remedial Time to Complete")]
+        public string RemedialTimeToComplete { get; set; } = "";
 
         [DisplayName("Remedial Work Carried Out")]
         public string RemedialWork { get; set; } = "";

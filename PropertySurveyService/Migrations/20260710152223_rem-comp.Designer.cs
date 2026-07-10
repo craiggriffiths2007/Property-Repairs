@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PropertySurveyService.Data;
 
@@ -11,9 +12,11 @@ using PropertySurveyService.Data;
 namespace PropertySurveyService.Migrations
 {
     [DbContext(typeof(AppDBContext))]
-    partial class AppDBContextModelSnapshot : ModelSnapshot
+    [Migration("20260710152223_rem-comp")]
+    partial class remcomp
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -4312,17 +4315,6 @@ namespace PropertySurveyService.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool?>("RemedialCompleted")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("RemedialFault")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("RemedialTimeToComplete")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("RemedialWork")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -4746,6 +4738,13 @@ namespace PropertySurveyService.Migrations
                     b.Property<bool>("r_bsigned")
                         .HasColumnType("bit");
 
+                    b.Property<bool?>("r_comp")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("r_fault")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<bool>("readditimage")
                         .HasColumnType("bit");
 
@@ -4774,6 +4773,10 @@ namespace PropertySurveyService.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("risks_and_dangers")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("rno_hours")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
