@@ -478,8 +478,25 @@ namespace PropertySurveyService.Models
         public bool readditimage { get; set; }
 
         [DisplayName("Remedial Additional Text")]
-        public string readdtxt { get; set; } = "";
+        public string RemedialAdditionalInformation { get; set; } = "";
 
+        [DisplayName("Remedial Completion Form Complete")]
+        public bool bRemedialCompletionFormComplete { get; set; }
+
+        [DisplayName("Remedial Comments")]
+        public string RemedialReport { get; set; } = "";
+
+        [DisplayName("Remedial Completion Form Complete")]
+        public bool bRemedialCustomerSigned { get; set; }
+
+        [DisplayName("Remedial Completion Form Complete")]
+        public bool? bRemedialExcessPaid { get; set; }
+
+        [DisplayName("Remedial Completion Form Complete")]
+        public string RemedialReasonExcessNotPaid { get; set; } = "";
+
+        [DisplayName("Remedial Additional Image")]
+        public bool bRemedialAdditionalImage { get; set; }
 
         #endregion
 
