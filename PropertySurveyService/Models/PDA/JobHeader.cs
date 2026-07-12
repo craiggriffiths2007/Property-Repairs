@@ -67,18 +67,17 @@ namespace PropertySurveyService.Models
         public string FinishTime { get; set; } = "";
 
         [DisplayName("Surveyor Time Arrived")]
-        public string TimeArrived { get; set; } = "00:00";
+        public string TimeArrived { get; set; } = DateTime.Now.ToShortTimeString();
 
 
         [DisplayName("Completed DateTime")]
         public DateTime DateTimeCompleted { get; set; } = DateTime.Today;
 
 
-
         #endregion
 
 
-        #region Client & Contract Information
+        #region Customer & Contract Information
 
         //[Indexed]
         [Browsable(false)]
@@ -97,10 +96,6 @@ namespace PropertySurveyService.Models
         [DisplayName("Loss Adjuster Name")]
         public string LossAdjusterName { get; set; } = "";
 
-
-
-
-
         [DisplayName("Incident Date")]
         public string IncidentDate { get; set; } = "";
 
@@ -109,10 +104,6 @@ namespace PropertySurveyService.Models
 
         [DisplayName("Damage Description")]
         public string DamageDescription { get; set; } = "";
-
-
-
-
 
         [DisplayName("Name")]
         public string CustomerName { get; set; } = "";
@@ -150,7 +141,6 @@ namespace PropertySurveyService.Models
 
 
 
-
         [DisplayName("Type A")]
         public string typeA { get; set; } = "";
 
@@ -163,9 +153,8 @@ namespace PropertySurveyService.Models
         #endregion
 
         #region Job, Instructions & Progress
-
         [Browsable(false)]
-        [DisplayName("Job Instructions")]
+        [DisplayName("Instructions")]
         public string JobInstructions { get; set; } = "";
 
         [DisplayName("Booked on Day 1")]
@@ -332,6 +321,7 @@ namespace PropertySurveyService.Models
         [DisplayName("Fitter Name 2 (Alt)")]
         public string ffitter_name2 { get; set; } = "";
 
+
         [DisplayName("Fitter Work")]
         public string FitWorkCarriedOut { get; set; } = "";
 
@@ -352,13 +342,16 @@ namespace PropertySurveyService.Models
         public bool si_done { get; set; }
 
         [DisplayName("Fitting Complete")]
-        public int bfitter_complete { get; set; }
+        public bool bFitterJobComplete { get; set; } = true;
+
+        public bool bFitterCompletionFormComplete { get; set; }
 
         [DisplayName("Fitter Signature Date")]
         public string f_sign_date { get; set; } = "";
 
         [DisplayName("Directive Complete")]
         public int directive_complete { get; set; }
+
 
         #endregion
 
@@ -376,10 +369,10 @@ namespace PropertySurveyService.Models
 
 
         [DisplayName("Fitter Mandate Signed")]
-        public int fbmandate_signed { get; set; }
+        public bool? bFitterMandateSigned { get; set; }
 
         [DisplayName("Reason Mandate Not Signed")]
-        public string freason_mandate_not_signed { get; set; } = "";
+        public string FitterReasonMandateNotSigned { get; set; } = "";
 
         [Browsable(false)]
         [DisplayName("Mandate Sentence")]
@@ -390,7 +383,7 @@ namespace PropertySurveyService.Models
         public string funfinoth { get; set; } = "";
 
         [DisplayName("Completion Signed")]
-        public bool bcompletion_signed { get; set; }
+        public bool bFitterSigned { get; set; }
 
 
 
@@ -398,7 +391,7 @@ namespace PropertySurveyService.Models
         public string fparts_required { get; set; } = "";
 
         [DisplayName("Fitter Stock Usage Complete")]
-        public bool fbstockusagecomplete { get; set; }
+        public bool bFitterStockUsageComplete { get; set; }
 
 
         #endregion
@@ -426,17 +419,17 @@ namespace PropertySurveyService.Models
 
 
         [DisplayName("Fitter Excess Paid")]
-        public int fbexcess_paid { get; set; }
+        public bool? bFitterExcessPaid { get; set; }
 
         [DisplayName("Reason Excess Not Paid")]
-        public string freason_excess_not_paid { get; set; } = "";
+        public string FitterReasonExcessNotPaid { get; set; } = "";
 
 
         [DisplayName("Fitter Additional Paid")]
-        public int fbadditional_paid { get; set; }
+        public bool? bFitterAdditionalPaid { get; set; }
 
         [DisplayName("How Much Additional Paid (Fitter)")]
-        public string fhow_mutch_additional_paid { get; set; } = "";
+        public string FitterAdditionalAmmount { get; set; } = "";
 
 
         [DisplayName("Survey")]
@@ -863,13 +856,14 @@ namespace PropertySurveyService.Models
 
 
 
+
         [DisplayName("Globaldoor Link")]
         public string global_door_link { get; set; } = "";
         [DisplayName("Tower Scaffold")]
-        public bool? isTowerScaff { get; set; }
+        public bool? bFitterUsedTowerScaffolding { get; set; }
 
         [DisplayName("Lintel Signed")]
-        public bool lintel_signed { get; set; }
+        public bool bFitterLintelSigned { get; set; }
 
         [DisplayName("Number of Videos")]
         public int no_of_videos { get; set; }

@@ -285,32 +285,3 @@ body {
     background-color: rgba(0, 123, 255, 0.1); /* Soft Bootstrap blue highlight */
 }
 
-.instructions-display {
-    font-size: 14px;
-    line-height: 1.5;
-}
-
-.instructions-display h1 {
-    font-size: 20px;
-}
-
-.instructions-display h2 {
-    font-size: 18px;
-}
-
-.instructions-display p {
-    margin-bottom: 10px;
-}
-
-.instructions-display {
-    max-width: 100%;
-    overflow-wrap: break-word;
-    word-wrap: break-word;
-    word-break: break-word;
-}
-
-.instructions-display img {
-    max-width: 100%;
-    height: auto;
-}
-

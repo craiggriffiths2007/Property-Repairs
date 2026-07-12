@@ -1054,7 +1054,7 @@ namespace PropertySurveyService.Models
         public int fitters_own_power_tools_ladders_on_van { get; set; }
 
         [DisplayName("Auditor Score (Marks out of 10)")]
-        public string marks_out_of_10 { get; set; } = "";
+        public int marks_out_of_10 { get; set; } = 1;
 
         [DisplayName("Vehicle Registration")]
         public string vehicle_reg { get; set; } = "";
