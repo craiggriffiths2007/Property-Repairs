@@ -17,5 +17,9 @@ else
 {
 <partial name="_VehicleDetailsPartial" model="Model.SalesCar" />
 
+    <u>Marks out of 10</u>
+    <br />
+    <partial name="_StarRating" model="new Tuple<int, int>(Model.SalesCar.marks_out_of_10, 10)" />
+
 <partial name="_VehicleimagesPartial" model="Model" />
 }
