@@ -58,8 +58,93 @@
                     </strong>
                 </div>
             }
+
+
         }
     </div>
+    </br>
+    <div class="row">
+        <div class="col-md-3">
+            <u>Appearence</u>
+        </div>
+        <div class="col-md-4">
+            @if (Model.uspot_appearence >= 1 && Model.uspot_appearence <= 5)
+            {
+                @for (int i = 0; i < Model.uspot_appearence; i++)
+                {
+                    <img src="~/img/yellow-star.png" alt="Star" style="width: 20px; height: 20px; margin-right: 2px;" />
+                }
+                @for (int i = 0; i < 5-Model.uspot_appearence; i++)
+                {
+                    <img src="~/img/yellow-star-empty.png" alt="Star" style="width: 20px; height: 20px; margin-right: 2px;" />
+                }
+            }
+            else
+            {
+                <span>No rating available</span>
+            }
+        </div>
+    </div>
+    <div class="col-md-3">
+        @Model.uspot_appearence_improvements
+    </div>
+
+    <div class="row">
+        <div class="col-md-3">
+            <u>Quality of works</u>
+        </div>
+        <div class="col-md-4">
+            @if (Model.uspot_qualityofworks >= 1 && Model.uspot_qualityofworks <= 5)
+            {
+                @for (int i = 0; i < Model.uspot_qualityofworks; i++)
+                {
+                    <img src="~/img/yellow-star.png" alt="Star" style="width: 20px; height: 20px; margin-right: 2px;" />
+                }
+                @for (int i = 0; i < 5 - Model.uspot_qualityofworks; i++)
+                {
+                    <img src="~/img/yellow-star-empty.png" alt="Star" style="width: 20px; height: 20px; margin-right: 2px;" />
+                }
+            }
+            else
+            {
+                <span>No rating available</span>
+            }
+        </div>
+    </div>
+
+
+    <div class="col-md-3">
+        @Model.uspot_qualityofworks_improvements
+    </div>
+
+    <div class="row">
+    <div class="col-md-3">
+        <u>Customer satisfaction</u>
+        </div>
+            <div class="col-md-4">
+                @if (Model.uspot_customersatisfaction >= 1 && Model.uspot_customersatisfaction <= 5)
+                {
+                    @for (int i = 0; i < Model.uspot_customersatisfaction; i++)
+                    {
+                        <img src="~/img/yellow-star.png" alt="Star" style="width: 20px; height: 20px; margin-right: 2px;" />
+                    }
+                    @for (int i = 0; i < 5 - Model.uspot_customersatisfaction; i++)
+                    {
+                        <img src="~/img/yellow-star-empty.png" alt="Star" style="width: 20px; height: 20px; margin-right: 2px;" />
+                    }
+                }
+                else
+                {
+                    <span>No rating available</span>
+                }
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        @Model.uspot_customersatisfaction_improvements
+    </div>
+ 
+
     <hr />
     @foreach (var image in ViewBag.Images)
     {

@@ -390,6 +390,9 @@ namespace PropertySurveyService.Models
         [DisplayName("Shell Fuel Card")]
         public bool shell_fuel_card { get; set; }
 
+        [DisplayName("Auditor Score (Marks out of 10)")]
+        public int marks_out_of_10 { get; set; } = 1;
+
         public VehicleCheckVehicle AsVehicleCheckVehicle() { return new VehicleCheckVehicle(Id, enum_vehicle_type.delivery_hgv,Registration); }
     }
     public class DeliveryVan : VehicleCheck
@@ -536,6 +539,9 @@ namespace PropertySurveyService.Models
         public bool shell_fuel_card { get; set; }
         [DisplayName("Shell Fuel Card (string)")]
         public string shell_fuel_card_s { get; set; } = ""; // Shell Fuel Card
+
+        [DisplayName("Auditor Score (Marks out of 10)")]
+        public int marks_out_of_10 { get; set; } = 1;
 
         public VehicleCheckVehicle AsVehicleCheckVehicle() { return new VehicleCheckVehicle(Id, enum_vehicle_type.delivery_van, Registration); }
     }
@@ -1193,6 +1199,9 @@ namespace PropertySurveyService.Models
 
         [DisplayName("Tyre Condition (Notes)")]
         public string tyre_condition_s { get; set; } = "";
+
+        [DisplayName("Auditor Score (Marks out of 10)")]
+        public int marks_out_of_10 { get; set; } = 1;
 
         public VehicleCheckVehicle AsVehicleCheckVehicle() { return new VehicleCheckVehicle(Id, enum_vehicle_type.sales_car, Registration); }
     }

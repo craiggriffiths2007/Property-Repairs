@@ -67,27 +67,29 @@ namespace PropertySurveyService.Models
         public string Phone3 { get; set; } = "";
         [DisplayName("Damage")]
         public string DamageDesc { get; set; } = "";
+        [Browsable(false)]
         [DisplayName("Instructions")]
         public string Instructions { get; set; } = "";
 
 
         [DisplayName("Photos")]
         public int no_of_photos { get; set; }
+        [Browsable(false)]
         [DisplayName("Appearance")]
         public int uspot_appearence { get; set; }
-
+        [Browsable(false)]
         [DisplayName("Appearance Improvements")]
         public string uspot_appearence_improvements { get; set; } = string.Empty;
-
+        [Browsable(false)]
         [DisplayName("Quality of Works")]
         public int uspot_qualityofworks { get; set; }
-
+        [Browsable(false)]
         [DisplayName("Quality Improvements")]
         public string uspot_qualityofworks_improvements { get; set; } = string.Empty;
-
+        [Browsable(false)]
         [DisplayName("Customer Satisfaction")]
         public int uspot_customersatisfaction { get; set; }
-
+        [Browsable(false)]
         [DisplayName("Customer Satisfaction Improvements")]
         public string uspot_customersatisfaction_improvements { get; set; } = string.Empty;
 
