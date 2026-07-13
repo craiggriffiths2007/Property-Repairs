@@ -427,6 +427,12 @@ namespace PropertySurveyService.Models
 
         public string internal_lock { get; set; } = "...";
 
+        [DisplayName("New Timber Sub Frame")]
+        public bool? new_timber_sub_frame { get; set; }
+
+        [DisplayName("Cill on Subframe")]
+        public bool? cill_on_subframe { get; set; }
+
         public SurveyItem AsSurveyItem() { return new SurveyItem(Id, enum_item_type.lockin, item_number, ContractCode); }
 
     }
