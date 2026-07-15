@@ -232,7 +232,9 @@ namespace PropertySurveyService.Models
         public string timber_glazed { get; set; } = "...";
 
         [DisplayName("Different From Original")]
-        public bool bDifferentFromOriginal { get; set; }
+        public bool bDifferentFromOriginalSigned { get; set; }
+        [DisplayName("Different From Original")]
+        public bool? bDifferentFromOriginal { get; set; } = false;
 
         [DisplayName("Change Item To")]
         public string ChangeItemTo { get; set; } = "";

@@ -143,21 +143,20 @@ body {
     white-space: nowrap;
 }
 
-    .calendar-event.job-type-survey {
-        background-color: #52acc4;
-        color: #000;
-    }
-
-    .calendar-event.job-type-fitting {
-        background-color: #a4ca61;
-        color: #000;
-    }
-
-.calendar-event.job-type-remedial {
-    background-color: #da7064;
+.calendar-event.job-type-survey {
+    background-color: #52acc4;
     color: #000;
 }
 
+.calendar-event.job-type-fitting {
+    background-color: #a4ca61;
+    color: #000;
+}
+
+.calendar-event.job-type-remedial {
+    background-color: #fc83d0;
+    color: #000;
+}
 
 .calendar-event.has-header {
     border: 1px solid purple;

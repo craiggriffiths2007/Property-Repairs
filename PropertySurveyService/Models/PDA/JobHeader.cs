@@ -284,9 +284,13 @@ namespace PropertySurveyService.Models
         [DisplayName("Subcontract Text")]
         public string subcontracttext { get; set; } = "";
 
+
+        [DisplayName("Front House Photos")]
+        public int no_of_front_house_photos { get; set; }
+
         #endregion
 
-        #region Fitter Allocation & On-Site Performance
+        #region Fitting 
 
         [DisplayName("Number of Fitters")]
         public int no_of_fitters { get; set; }
@@ -352,6 +356,8 @@ namespace PropertySurveyService.Models
         [DisplayName("Directive Complete")]
         public int directive_complete { get; set; }
 
+        [DisplayName("Number of Photos")]
+        public int no_of_fitting_photos { get; set; }
 
         #endregion
 
@@ -359,14 +365,17 @@ namespace PropertySurveyService.Models
 
 
         [DisplayName("Unfinished Code")]
-        public string funfinished_code { get; set; } = "";
+        public string FitterUnfinishedCode { get; set; } = "";
 
         [DisplayName("Reason Unfinished (Other)")]
-        public string freason_unfinished { get; set; } = "";
+        public string FitterReasonJobNotCompleted { get; set; } = "";
 
         [DisplayName("Barrier Size")]
         public string size_of_barriers_required { get; set; } = "";
 
+
+        [DisplayName("Additional Image Complete")]
+        public bool bFitterAdditionalImage { get; set; }
 
         [DisplayName("Fitter Mandate Signed")]
         public bool? bFitterMandateSigned { get; set; }
@@ -388,7 +397,7 @@ namespace PropertySurveyService.Models
 
 
         [DisplayName("Fitter Parts Required")]
-        public string fparts_required { get; set; } = "";
+        public string FitterPartsRequiredToComplete { get; set; } = "";
 
         [DisplayName("Fitter Stock Usage Complete")]
         public bool bFitterStockUsageComplete { get; set; }
@@ -402,7 +411,7 @@ namespace PropertySurveyService.Models
         public string si_mpay { get; set; } = "";
 
         [DisplayName("Method of Payment")]
-        public string mop { get; set; } = "";
+        public string MethodOfPayment { get; set; } = "";
 
 
         [DisplayName("Excess Amount")]
@@ -415,7 +424,7 @@ namespace PropertySurveyService.Models
         public bool? bExcessCollected { get; set; }
 
         [DisplayName("Reason Excess Not Collected")]
-        public string reason_excess_not_collected { get; set; } = "";
+        public string ReasonExcessNotCollected { get; set; } = "";
 
 
         [DisplayName("Fitter Excess Paid")]
@@ -451,8 +460,11 @@ namespace PropertySurveyService.Models
         [DisplayName("Remedial Fault")]
         public string RemedialFault { get; set; } = "";
 
-        public bool? RemedialCompleted { get; set; } // remedial completed
+        [DisplayName("Remedial Job Completed")]
+        public bool? bRemedialCompleted { get; set; }
 
+        [DisplayName("Reason Remedial job Not Completed")]
+        public string ReasonRemedialNotCompleted { get; set; } = "";
 
         [DisplayName("Remedial Time to Complete")]
         public string RemedialTimeToComplete { get; set; } = "";
@@ -564,37 +576,6 @@ namespace PropertySurveyService.Models
 
         #endregion
 
-        #region Photos, Videos & Digital Media
-
-        [DisplayName("Number of Photos")]
-        public int no_of_photos { get; set; }
-
-        [DisplayName("Photo Front of House")]
-        public bool photo_front_of_house { get; set; }
-
-        [DisplayName("Front House Photos")]
-        public int front_house_photos { get; set; }
-
-        [DisplayName("Additional Image")]
-        public bool faddimage { get; set; }
-
-        [DisplayName("Additional Image Complete")]
-        public bool bad_image_complete { get; set; }
-
-        [DisplayName("Mandate Image")]
-        public bool fmanimage { get; set; }
-
-        [DisplayName("Signature Image")]
-        public bool fsigimage { get; set; }
-
-        [DisplayName("Fitter Videos")]
-        public int fitter_videos { get; set; }
-
-        [DisplayName("Number of Fitter Videos")]
-        public int fit_no_of_videos { get; set; }
-
-
-        #endregion
 
 
 
@@ -868,9 +849,7 @@ namespace PropertySurveyService.Models
         [DisplayName("Number of Videos")]
         public int no_of_videos { get; set; }
 
-        [DisplayName("Additional Summary Information")]
-        [Browsable(false)]
-        public bool? bAddSummaryInfo { get; set; }
+
 
 
         public JobHeaderIndex AsJobHeaderIndex() { return new JobHeaderIndex(Id, JobType, AgentCode, DiaryDate, DateTimeCompleted); }

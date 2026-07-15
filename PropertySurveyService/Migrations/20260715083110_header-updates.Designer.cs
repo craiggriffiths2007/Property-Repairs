@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PropertySurveyService.Data;
 
@@ -11,9 +12,11 @@ using PropertySurveyService.Data;
 namespace PropertySurveyService.Migrations
 {
     [DbContext(typeof(AppDBContext))]
-    partial class AppDBContextModelSnapshot : ModelSnapshot
+    [Migration("20260715083110_header-updates")]
+    partial class headerupdates
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -309,10 +312,7 @@ namespace PropertySurveyService.Migrations
                     b.Property<bool>("bComplete")
                         .HasColumnType("bit");
 
-                    b.Property<bool?>("bDifferentFromOriginal")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("bDifferentFromOriginalSigned")
+                    b.Property<bool>("bDifferentFromOriginal")
                         .HasColumnType("bit");
 
                     b.Property<bool>("bDoorComplete")
@@ -801,10 +801,7 @@ namespace PropertySurveyService.Migrations
                     b.Property<bool>("bComplete")
                         .HasColumnType("bit");
 
-                    b.Property<bool?>("bDifferentFromOriginal")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("bDifferentFromOriginalSigned")
+                    b.Property<bool>("bDifferentFromOriginal")
                         .HasColumnType("bit");
 
                     b.Property<bool>("bHandleDrawingComplete")
@@ -1031,10 +1028,7 @@ namespace PropertySurveyService.Migrations
                     b.Property<bool>("bComplete")
                         .HasColumnType("bit");
 
-                    b.Property<bool?>("bDifferentFromOriginal")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("bDifferentFromOriginalSigned")
+                    b.Property<bool>("bDifferentFromOriginal")
                         .HasColumnType("bit");
 
                     b.Property<bool>("bHandleDrawingComplete")
@@ -1364,10 +1358,7 @@ namespace PropertySurveyService.Migrations
                     b.Property<bool>("bComplete")
                         .HasColumnType("bit");
 
-                    b.Property<bool?>("bDifferentFromOriginal")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("bDifferentFromOriginalSigned")
+                    b.Property<bool>("bDifferentFromOriginal")
                         .HasColumnType("bit");
 
                     b.Property<bool?>("bDrawingsOnly")
@@ -3439,10 +3430,7 @@ namespace PropertySurveyService.Migrations
                     b.Property<bool>("bComplete")
                         .HasColumnType("bit");
 
-                    b.Property<bool?>("bDifferentFromOriginal")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("bDifferentFromOriginalSigned")
+                    b.Property<bool>("bDifferentFromOriginal")
                         .HasColumnType("bit");
 
                     b.Property<string>("cause_of_damage")
@@ -3690,10 +3678,7 @@ namespace PropertySurveyService.Migrations
                     b.Property<bool>("bComplete")
                         .HasColumnType("bit");
 
-                    b.Property<bool?>("bDifferentFromOriginal")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("bDifferentFromOriginalSigned")
+                    b.Property<bool>("bDifferentFromOriginal")
                         .HasColumnType("bit");
 
                     b.Property<string>("back_to_back_spacer_height")
@@ -4002,10 +3987,7 @@ namespace PropertySurveyService.Migrations
                     b.Property<bool>("bComplete")
                         .HasColumnType("bit");
 
-                    b.Property<bool?>("bDifferentFromOriginal")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("bDifferentFromOriginalSigned")
+                    b.Property<bool>("bDifferentFromOriginal")
                         .HasColumnType("bit");
 
                     b.Property<string>("base_size")
@@ -5137,10 +5119,7 @@ namespace PropertySurveyService.Migrations
                     b.Property<bool>("bComplete")
                         .HasColumnType("bit");
 
-                    b.Property<bool?>("bDifferentFromOriginal")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("bDifferentFromOriginalSigned")
+                    b.Property<bool>("bDifferentFromOriginal")
                         .HasColumnType("bit");
 
                     b.Property<bool>("bDoorComplete")
@@ -5990,10 +5969,7 @@ namespace PropertySurveyService.Migrations
                     b.Property<bool>("bComplete")
                         .HasColumnType("bit");
 
-                    b.Property<bool?>("bDifferentFromOriginal")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("bDifferentFromOriginalSigned")
+                    b.Property<bool>("bDifferentFromOriginal")
                         .HasColumnType("bit");
 
                     b.Property<string>("backgedit")
@@ -6852,10 +6828,7 @@ namespace PropertySurveyService.Migrations
                     b.Property<bool>("bComplete")
                         .HasColumnType("bit");
 
-                    b.Property<bool?>("bDifferentFromOriginal")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("bDifferentFromOriginalSigned")
+                    b.Property<bool>("bDifferentFromOriginal")
                         .HasColumnType("bit");
 
                     b.Property<bool>("bDoorComplete")
@@ -7665,10 +7638,7 @@ namespace PropertySurveyService.Migrations
                     b.Property<bool>("bComplete")
                         .HasColumnType("bit");
 
-                    b.Property<bool?>("bDifferentFromOriginal")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("bDifferentFromOriginalSigned")
+                    b.Property<bool>("bDifferentFromOriginal")
                         .HasColumnType("bit");
 
                     b.Property<bool>("bDoorComplete")

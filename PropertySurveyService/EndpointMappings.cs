@@ -441,13 +441,27 @@ namespace PropertySurveyService
                 if (agent == null)
                     return Task.FromResult<IResult>(Results.BadRequest(new { ReasonPhrase = "Agent Code Not Found : " + gs.AgentCode }));
 
-                var jobs = db.Job
-                    .Where(x => x.AgentId == agent.Id && 
-                    (x.DiaryDate == DateTime.Today ||
-                      x.DiaryDate == DateTime.Today.AddDays(1)))
-                    .Include(x => x.Customer)
-                    .Include(x => x.Contract)
-                    .ToList();
+                List<Job> jobs = new List<Job>();
+
+                if(gs.AgentCode=="ADMIN")
+                {
+                    jobs = db.Job
+                        .Where(x => x.DiaryDate == DateTime.Today ||
+                                    x.DiaryDate == DateTime.Today.AddDays(1))
+                        .Include(x => x.Customer)
+                        .Include(x => x.Contract)
+                        .ToList();
+                }
+                else
+                {
+                    jobs = db.Job
+                        .Where(x => x.AgentId == agent.Id && 
+                        (x.DiaryDate == DateTime.Today ||
+                          x.DiaryDate == DateTime.Today.AddDays(1)))
+                        .Include(x => x.Customer)
+                        .Include(x => x.Contract)
+                        .ToList();
+                }
 
                 var results = new List<JobHeaderDTO>();
 

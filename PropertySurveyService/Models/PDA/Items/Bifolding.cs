@@ -127,7 +127,9 @@ namespace PropertySurveyService.Models
         public string print_name { get; set; } = "";
 
         [DisplayName("Different From Original")]
-        public bool bDifferentFromOriginal { get; set; }
+        public bool bDifferentFromOriginalSigned { get; set; }
+        [DisplayName("Different From Original")]
+        public bool? bDifferentFromOriginal { get; set; } = false;
 
         [DisplayName("Glass Complete")]
         public bool glass_complete { get; set; }

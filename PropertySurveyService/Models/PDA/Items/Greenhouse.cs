@@ -28,7 +28,9 @@ namespace PropertySurveyService.Models
         public bool bComplete { get; set; }
 
         [DisplayName("Different From Original")]
-        public bool bDifferentFromOriginal { get; set; }
+        public bool bDifferentFromOriginalSigned { get; set; }
+        [DisplayName("Different From Original")]
+        public bool? bDifferentFromOriginal { get; set; } = false;
 
         [DisplayName("Cause of Damage")]
         public string cause_of_damage { get; set; } = "";

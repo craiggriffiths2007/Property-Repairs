@@ -180,7 +180,9 @@ namespace PropertySurveyService.Models
         public int no_of_vids { get; set; }
 
         [DisplayName("Different From Original")]
-        public bool bDifferentFromOriginal { get; set; }
+        public bool bDifferentFromOriginalSigned { get; set; }
+        [DisplayName("Different From Original")]
+        public bool? bDifferentFromOriginal { get; set; } = false;
 
         [DisplayName("Lock Other Text")]
         public string lock_other_text { get; set; } = "";
