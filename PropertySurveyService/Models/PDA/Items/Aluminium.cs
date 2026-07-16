@@ -139,7 +139,7 @@ namespace PropertySurveyService.Models
         [DisplayName("Print Name")]
         public string print_name { get; set; } = "";
         [DisplayName("Fencer")]
-        public bool bFencer { get; set; }
+        public bool bFenca { get; set; }
         [DisplayName("Fencer Rating")]
         public string FecerRating { get; set; } = "";
         [DisplayName("Long Comments")]

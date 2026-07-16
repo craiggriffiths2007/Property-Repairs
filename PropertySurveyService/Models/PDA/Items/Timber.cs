@@ -249,7 +249,7 @@ namespace PropertySurveyService.Models
         public string reasonnonstandard { get; set; } = "";
 
         [DisplayName("FENSA")]
-        public bool Fensa { get; set; }
+        public bool bFenca { get; set; }
 
         [DisplayName("WER Rating")]
         public string WER_rating { get; set; } = "";
