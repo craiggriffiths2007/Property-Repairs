@@ -9,6 +9,11 @@ namespace PropertySurveyService.Models
         [DisplayName("Record Id")]
         [Browsable(false)]
         public int Id { get; set; }
+
+        [Browsable(false)]
+        [DisplayName("Item Type")]
+        public enum_item_type item_type => enum_item_type.locking;
+
         [DisplayName("Header Id")]
         [Browsable(false)]
         public int HeaderId { get; set; }
@@ -27,8 +32,8 @@ namespace PropertySurveyService.Models
         [Browsable(false)]
         public bool bComplete { get; set; }
 
-        [DisplayName("Comments")]
-        public string comments { get; set; } = "";
+        [DisplayName("Summary")]
+        public string Summary { get; set; } = "";
 
         [DisplayName("Point of Entry")]
         public string point_of_entry { get; set; } = "";
@@ -71,6 +76,7 @@ namespace PropertySurveyService.Models
 
         [DisplayName("Different From Original")]
         public bool bDifferentFromOriginalSigned { get; set; }
+
         [DisplayName("Different From Original")]
         public bool? bDifferentFromOriginal { get; set; } = false;
 
@@ -183,7 +189,10 @@ namespace PropertySurveyService.Models
         public int l_itype7 { get; set; }
 
         [DisplayName("Long Comments")]
-        public string long_comments { get; set; } = ""; public SurveyItem AsSurveyItem() { return new SurveyItem(Id, enum_item_type.lockin, item_number, ContractCode); }
+        public string long_comments { get; set; } = "";
+
+
+        public SurveyItem AsSurveyItem() { return new SurveyItem(Id, enum_item_type.locking, item_number, ContractCode); }
 
 
     }

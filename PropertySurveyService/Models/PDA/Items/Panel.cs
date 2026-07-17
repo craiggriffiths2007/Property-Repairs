@@ -9,18 +9,21 @@ namespace PropertySurveyService.Models
         [Browsable(false)]
         [DisplayName("Record Id")]
         public int Id { get; set; }
+
+        [Browsable(false)]
+        [DisplayName("Item Type")]
+        public enum_item_type item_type => enum_item_type.panel;
+
         [Browsable(false)]
         [DisplayName("Header Id")]
         public int HeaderId { get; set; }
         [Browsable(false)]
         public Guid Guid { get; set; } = Guid.NewGuid();
-
-        [DisplayName("Contract Code")]
-        [Display(Order = 0)]
+        [Browsable(false)]
+        [DisplayName("Contract Number")]
         public string ContractCode { get; set; } = "";// Key field contract number
-
+        [Browsable(false)]
         [DisplayName("Item Number")]
-        [Display(Order = 1)]
         public int item_number { get; set; }
         [Browsable(false)]
         [DisplayName("Is Complete")]
@@ -91,6 +94,8 @@ namespace PropertySurveyService.Models
 
         [DisplayName("Different From Original")]
         public bool bDifferentFromOriginalSigned { get; set; }
+
+
         [DisplayName("Different From Original")]
         public bool? bDifferentFromOriginal { get; set; } = false;
 
@@ -100,8 +105,8 @@ namespace PropertySurveyService.Models
         [DisplayName("Print Name")]
         public string print_name { get; set; } = "";
 
-        [DisplayName("Comments")]
-        public string long_sptext { get; set; } = "";
+        [DisplayName("Summary")]
+        public string Summary { get; set; } = "";
 
         [DisplayName("Parts to Order")]
         public string parts_to_order { get; set; } = "";

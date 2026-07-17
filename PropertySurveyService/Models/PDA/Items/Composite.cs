@@ -9,6 +9,11 @@ namespace PropertySurveyService.Models
         [Browsable(false)]
         [DisplayName("Record Id")]
         public int Id { get; set; }
+
+        [Browsable(false)]
+        [DisplayName("Item Type")]
+        public enum_item_type item_type => enum_item_type.composite;
+
         [DisplayName("Header Id")]
         [Browsable(false)]
         public int HeaderId { get; set; }
@@ -114,8 +119,8 @@ namespace PropertySurveyService.Models
         [DisplayName("Special Glass")]
         public string special_glass { get; set; } = "";
 
-        [DisplayName("Comments")]
-        public string comments { get; set; } = "";
+        [DisplayName("Summary")]
+        public string Summary { get; set; } = "";
 
         [DisplayName("Lead C Width")]
         public int lead_CWidth { get; set; }
@@ -268,7 +273,7 @@ namespace PropertySurveyService.Models
         [DisplayName("Handles Text")]
         public string handles_text { get; set; } = "";
 
-        public SurveyItem AsSurveyItem() { return new SurveyItem(Id, enum_item_type.comp, item_number, ContractCode); }
+        public SurveyItem AsSurveyItem() { return new SurveyItem(Id, enum_item_type.composite, item_number, ContractCode); }
     }
 
 }

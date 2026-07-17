@@ -9,6 +9,11 @@ namespace PropertySurveyService.Models
         [DisplayName("Record Id")]
         [Browsable(false)]
         public int Id { get; set; }
+
+        [Browsable(false)]
+        [DisplayName("Item Type")]
+        public enum_item_type item_type => enum_item_type.timber;
+
         [DisplayName("Header Id")]
         [Browsable(false)]
         public int HeaderId { get; set; }
@@ -233,6 +238,8 @@ namespace PropertySurveyService.Models
 
         [DisplayName("Different From Original")]
         public bool bDifferentFromOriginalSigned { get; set; }
+
+
         [DisplayName("Different From Original")]
         public bool? bDifferentFromOriginal { get; set; } = false;
 
@@ -254,8 +261,8 @@ namespace PropertySurveyService.Models
         [DisplayName("WER Rating")]
         public string WER_rating { get; set; } = "";
 
-        [DisplayName("Long Timber Comments")]
-        public string long_timber_comments { get; set; } = "";
+        [DisplayName("Summary")]
+        public string Summary { get; set; } = "";
 
         [DisplayName("Lead Size A")]
         public int lead_sizeA { get; set; }

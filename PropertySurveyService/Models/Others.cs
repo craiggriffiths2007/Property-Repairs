@@ -23,8 +23,20 @@ namespace PropertySurveyService.Models
 
     public enum enum_item_type
     {
-        none, upvc, panel, glass, alum, garage, timber,
-        bifold, cons, lockin, comp, green, frame
+        none,
+        frame,
+        panel,
+        upvc,
+        aluminium,
+        conservatory,
+        garage,
+        timber,
+        locking,
+        glass,
+        composite,
+        greenhouse,
+        bifold,
+        house
     }
 
     public class VehicleCheckVehicle
@@ -90,14 +102,14 @@ namespace PropertySurveyService.Models
                 case enum_item_type.upvc: return "UPVC";
                 case enum_item_type.panel: return "Panel";
                 case enum_item_type.glass: return "Glass";
-                case enum_item_type.alum: return "Aluminium";
+                case enum_item_type.aluminium: return "Aluminium";
                 case enum_item_type.garage: return "Garage";
                 case enum_item_type.timber: return "Timber";
                 case enum_item_type.bifold: return "Bifolding";
-                case enum_item_type.lockin: return "Lock-mech";
-                case enum_item_type.green: return "Greenhouse";
-                case enum_item_type.cons: return "Conservatory";
-                case enum_item_type.comp: return "Composite";
+                case enum_item_type.locking: return "Lock-mech";
+                case enum_item_type.greenhouse: return "Greenhouse";
+                case enum_item_type.conservatory: return "Conservatory";
+                case enum_item_type.composite: return "Composite";
                 case enum_item_type.frame: return "Material";
             }
             return "";
@@ -110,14 +122,14 @@ namespace PropertySurveyService.Models
                 case enum_item_type.upvc: return "UPVC";
                 case enum_item_type.panel: return "Panel";
                 case enum_item_type.glass: return "Glass";
-                case enum_item_type.alum: return "Aluminium";
+                case enum_item_type.aluminium: return "Aluminium";
                 case enum_item_type.garage: return "Garage";
                 case enum_item_type.timber: return "Timber";
                 case enum_item_type.bifold: return "Bifolding";
-                case enum_item_type.lockin: return "Lockmech";
-                case enum_item_type.green: return "Greenhouse";
-                case enum_item_type.cons: return "Conservatory";
-                case enum_item_type.comp: return "Composite";
+                case enum_item_type.locking: return "Lockmech";
+                case enum_item_type.greenhouse: return "Greenhouse";
+                case enum_item_type.conservatory: return "Conservatory";
+                case enum_item_type.composite: return "Composite";
                 case enum_item_type.frame: return "Material";
             }
             return "";

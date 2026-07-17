@@ -14,6 +14,10 @@ namespace PropertySurveyService.Models
         [Browsable(false)]
         public int Id { get; set; }
 
+        [Browsable(false)]
+        [DisplayName("Item Type")]
+        public enum_item_type item_type => enum_item_type.greenhouse;
+
         [DisplayName("Header Id")]
         [Browsable(false)]
         public int HeaderId { get; set; }
@@ -35,6 +39,12 @@ namespace PropertySurveyService.Models
 
         [DisplayName("Repair Item")]
         public bool bRepair { get; set; }
+
+        [DisplayName("Different From Original")]
+        public bool bDifferentFromOriginalSigned { get; set; }
+
+        [DisplayName("Different From Original")]
+        public bool? bDifferentFromOriginal { get; set; } = false;
 
         // ===== MATERIAL =====
         [DisplayName("Material")]
@@ -120,9 +130,6 @@ namespace PropertySurveyService.Models
 
         [DisplayName("Special Glass")]
         public string special_glass { get; set; } = "";
-
-        [DisplayName("New Locking Mechanism")]
-        public int new_locking_mech { get; set; }
 
         [DisplayName("Lock Complete")]
         public bool bLockComplete { get; set; }
@@ -425,6 +432,9 @@ namespace PropertySurveyService.Models
         [DisplayName("Trickle vents")]
         public string trickle_vents { get; set; } = "...";
 
+        [DisplayName("Summary")]
+        public string Summary { get; set; } = "";
+
         public string internal_lock { get; set; } = "...";
 
         [DisplayName("New Timber Sub Frame")]
@@ -433,7 +443,7 @@ namespace PropertySurveyService.Models
         [DisplayName("Cill on Subframe")]
         public bool? cill_on_subframe { get; set; }
 
-        public SurveyItem AsSurveyItem() { return new SurveyItem(Id, enum_item_type.lockin, item_number, ContractCode); }
+        public SurveyItem AsSurveyItem() { return new SurveyItem(Id, enum_item_type.locking, item_number, ContractCode); }
 
     }
 }

@@ -9,6 +9,11 @@ namespace PropertySurveyService.Models
         [DisplayName("Record Id")]
         [Browsable(false)]
         public int Id { get; set; }
+
+        [Browsable(false)]
+        [DisplayName("Item Type")]
+        public enum_item_type item_type => enum_item_type.glass;
+
         [DisplayName("Header Id")]
         [Browsable(false)]
         public int HeaderId { get; set; }
@@ -190,8 +195,8 @@ namespace PropertySurveyService.Models
         [DisplayName("Glazing Type")]
         public string glazing_type { get; set; } = "";
 
-        [DisplayName("Long Comments")]
-        public string long_comments { get; set; } = "";
+        [DisplayName("Summary")]
+        public string Summary { get; set; } = "";
 
         [DisplayName("Lead Pos X")]
         public float lead_posX { get; set; }

@@ -58,7 +58,7 @@ namespace PropertySurveyService.Controllers
                             foreach (var p in _context.Panel.Where(x => x.HeaderId == viewModel.JobHeader.Id)) items.Add(p.AsSurveyItem()); break;
                         case enum_item_type.glass:
                             foreach (var p in _context.Glass.Where(x => x.HeaderId == viewModel.JobHeader.Id)) items.Add(p.AsSurveyItem()); break;
-                        case enum_item_type.alum:
+                        case enum_item_type.aluminium:
                             foreach (var p in _context.Aluminium.Where(x => x.HeaderId == viewModel.JobHeader.Id)) items.Add(p.AsSurveyItem()); break;
                         case enum_item_type.garage:
                             foreach (var p in _context.Garage.Where(x => x.HeaderId == viewModel.JobHeader.Id)) items.Add(p.AsSurveyItem()); break;
@@ -66,13 +66,13 @@ namespace PropertySurveyService.Controllers
                             foreach (var p in _context.Timber.Where(x => x.HeaderId == viewModel.JobHeader.Id)) items.Add(p.AsSurveyItem()); break;
                         case enum_item_type.bifold:
                             foreach (var p in _context.Bifolding.Where(x => x.HeaderId == viewModel.JobHeader.Id)) items.Add(p.AsSurveyItem()); break;
-                        case enum_item_type.lockin:
+                        case enum_item_type.locking:
                             foreach (var p in _context.Lockmech.Where(x => x.HeaderId == viewModel.JobHeader.Id)) items.Add(p.AsSurveyItem()); break;
-                        case enum_item_type.green:
+                        case enum_item_type.greenhouse:
                             foreach (var p in _context.Greenhouse.Where(x => x.HeaderId == viewModel.JobHeader.Id)) items.Add(p.AsSurveyItem()); break;
-                        case enum_item_type.comp:
+                        case enum_item_type.composite:
                             foreach (var p in _context.Composite.Where(x => x.HeaderId == viewModel.JobHeader.Id)) items.Add(p.AsSurveyItem()); break;
-                        case enum_item_type.cons:
+                        case enum_item_type.conservatory:
                             foreach (var p in _context.Conservatory.Where(x => x.HeaderId == viewModel.JobHeader.Id)) items.Add(p.AsSurveyItem()); break;
                         case enum_item_type.frame:
                             foreach (var p in _context.Frame.Where(x => x.HeaderId == viewModel.JobHeader.Id)) items.Add(p.AsSurveyItem()); break;

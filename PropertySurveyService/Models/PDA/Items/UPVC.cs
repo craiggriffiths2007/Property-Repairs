@@ -9,6 +9,11 @@ namespace PropertySurveyService.Models
         [DisplayName("Record Id")]
         [Browsable(false)]
         public int Id { get; set; }
+
+        [Browsable(false)]
+        [DisplayName("Item Type")]
+        public enum_item_type item_type => enum_item_type.upvc;
+
         [DisplayName("Header Id")]
         [Browsable(false)]
         public int HeaderId { get; set; }
@@ -198,8 +203,9 @@ namespace PropertySurveyService.Models
         [DisplayName("Threshold Type")]
         public string threshold_type { get; set; } = "";
 
-        [DisplayName("Different From Original")]
+        [DisplayName("Different From Original Signed")]
         public bool bDifferentFromOriginalSigned { get; set; }
+
         [DisplayName("Different From Original")]
         public bool? bDifferentFromOriginal { get; set; } = false;
 
@@ -215,8 +221,8 @@ namespace PropertySurveyService.Models
         [DisplayName("WER Rating")]
         public string WER_Rating { get; set; } = "";
 
-        [DisplayName("Long Comments")]
-        public string long_comments { get; set; } = "";
+        [DisplayName("Summary")]
+        public string Summary { get; set; } = "";
 
         [DisplayName("Door Complete")]
         public bool bDoorComplete { get; set; }

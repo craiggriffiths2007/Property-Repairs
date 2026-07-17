@@ -9,6 +9,11 @@ namespace PropertySurveyService.Models
         [DisplayName("Record Id")]
         [Browsable(false)]
         public int Id { get; set; }
+
+        [Browsable(false)]
+        [DisplayName("Item Type")]
+        public enum_item_type item_type => enum_item_type.conservatory;
+
         [DisplayName("Header Id")]
         [Browsable(false)]
         public int HeaderId { get; set; }
@@ -185,8 +190,8 @@ namespace PropertySurveyService.Models
         [DisplayName("Pitch Degree")]
         public string pitch_degree { get; set; } = "";
 
-        [DisplayName("Long Comments")]
-        public string long_comments { get; set; } = "";
+        [DisplayName("Summary")]
+        public string Summary { get; set; } = "";
 
         [DisplayName("Drawings Only")]
         public bool? bDrawingsOnly { get; set; }
@@ -269,7 +274,7 @@ namespace PropertySurveyService.Models
         [DisplayName("Overall Length of Sheet")]
         public string overall_length_of_sheet { get; set; } = "";
 
-        public SurveyItem AsSurveyItem() { return new SurveyItem(Id, enum_item_type.cons, item_number, ContractCode); }
+        public SurveyItem AsSurveyItem() { return new SurveyItem(Id, enum_item_type.conservatory, item_number, ContractCode); }
     }
 
 }

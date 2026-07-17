@@ -9,6 +9,11 @@ namespace PropertySurveyService.Models
         [Browsable(false)]
         [DisplayName("Record Id")]
         public int Id { get; set; }
+
+        [Browsable(false)]
+        [DisplayName("Item Type")]
+        public enum_item_type item_type => enum_item_type.bifold;
+
         [Browsable(false)]
         [DisplayName("Header Id")]
         public int HeaderId { get; set; }
@@ -66,8 +71,8 @@ namespace PropertySurveyService.Models
         [Browsable(false)]
         public bool bComplete { get; set; }
 
-        [DisplayName("Comments")]
-        public string comments { get; set; } = "";
+        [DisplayName("Summary")]
+        public string Summary { get; set; } = "";
 
         [DisplayName("Bifold Signed")]
         public int bifold_signed { get; set; }
