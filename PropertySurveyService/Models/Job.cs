@@ -70,6 +70,8 @@ namespace PropertySurveyService.Models
     {
         public string? AgentCode { get; set; }
 
+        public string? AuthenticationString { get; set; }
+
         public string? Password { get; set; }
 
         public string? Filename { get; set; } // for images

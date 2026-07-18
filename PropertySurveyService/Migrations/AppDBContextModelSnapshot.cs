@@ -5325,6 +5325,10 @@ namespace PropertySurveyService.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<string>("ChangeItemTo")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("ContractCode")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -5755,6 +5759,10 @@ namespace PropertySurveyService.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("point_of_entry")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("print_name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 

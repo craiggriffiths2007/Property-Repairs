@@ -12,8 +12,8 @@ using PropertySurveyService.Data;
 namespace PropertySurveyService.Migrations
 {
     [DbContext(typeof(AppDBContext))]
-    [Migration("20260716162149_fenca")]
-    partial class fenca
+    [Migration("20260718091835_initial-create")]
+    partial class initialcreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -302,6 +302,10 @@ namespace PropertySurveyService.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("LPHandles")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Summary")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -632,10 +636,6 @@ namespace PropertySurveyService.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("long_comments")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("midrail_height")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -786,6 +786,10 @@ namespace PropertySurveyService.Migrations
                     b.Property<int>("HeaderId")
                         .HasColumnType("int");
 
+                    b.Property<string>("Summary")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("WER_rating")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -843,10 +847,6 @@ namespace PropertySurveyService.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("colour_of_doors")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("comments")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -1016,6 +1016,10 @@ namespace PropertySurveyService.Migrations
                     b.Property<int>("HeaderId")
                         .HasColumnType("int");
 
+                    b.Property<string>("Summary")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("WER_rating")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -1066,10 +1070,6 @@ namespace PropertySurveyService.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("cills")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("comments")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -1344,6 +1344,10 @@ namespace PropertySurveyService.Migrations
                     b.Property<int>("HeaderId")
                         .HasColumnType("int");
 
+                    b.Property<string>("Summary")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("WER_rating")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -1412,10 +1416,6 @@ namespace PropertySurveyService.Migrations
 
                     b.Property<int>("item_number")
                         .HasColumnType("int");
-
-                    b.Property<string>("long_comments")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("material_type")
                         .IsRequired()
@@ -3428,6 +3428,10 @@ namespace PropertySurveyService.Migrations
                     b.Property<int>("HeaderId")
                         .HasColumnType("int");
 
+                    b.Property<string>("Summary")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("actual_door_height")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -3492,10 +3496,6 @@ namespace PropertySurveyService.Migrations
 
                     b.Property<int>("item_number")
                         .HasColumnType("int");
-
-                    b.Property<string>("long_comments")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("motor_position")
                         .IsRequired()
@@ -3683,6 +3683,10 @@ namespace PropertySurveyService.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("ProductInto")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Summary")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -3882,10 +3886,6 @@ namespace PropertySurveyService.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("long_comments")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<int>("no_of_photos")
                         .HasColumnType("int");
 
@@ -3999,6 +3999,10 @@ namespace PropertySurveyService.Migrations
                     b.Property<int>("HeaderId")
                         .HasColumnType("int");
 
+                    b.Property<string>("Summary")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("auto_or_manual")
                         .HasColumnType("int");
 
@@ -4090,10 +4094,6 @@ namespace PropertySurveyService.Migrations
 
                     b.Property<int>("roof_opening_lights")
                         .HasColumnType("int");
-
-                    b.Property<string>("summary")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("type_of_glass")
                         .IsRequired()
@@ -5137,6 +5137,10 @@ namespace PropertySurveyService.Migrations
                     b.Property<int>("HeaderId")
                         .HasColumnType("int");
 
+                    b.Property<string>("Summary")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<bool>("bComplete")
                         .HasColumnType("bit");
 
@@ -5163,10 +5167,6 @@ namespace PropertySurveyService.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("cause_of_damage_reason_different")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("comments")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -5328,6 +5328,10 @@ namespace PropertySurveyService.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<string>("ChangeItemTo")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("ContractCode")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -5340,6 +5344,10 @@ namespace PropertySurveyService.Migrations
 
                     b.Property<int>("HeaderId")
                         .HasColumnType("int");
+
+                    b.Property<string>("Summary")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("additional_locks")
                         .IsRequired()
@@ -5357,6 +5365,12 @@ namespace PropertySurveyService.Migrations
                         .HasColumnType("int");
 
                     b.Property<bool>("bComplete")
+                        .HasColumnType("bit");
+
+                    b.Property<bool?>("bDifferentFromOriginal")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("bDifferentFromOriginalSigned")
                         .HasColumnType("bit");
 
                     b.Property<bool>("bDoorComplete")
@@ -5705,9 +5719,6 @@ namespace PropertySurveyService.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("new_locking_mech")
-                        .HasColumnType("int");
-
                     b.Property<bool?>("new_timber_sub_frame")
                         .HasColumnType("bit");
 
@@ -5751,6 +5762,10 @@ namespace PropertySurveyService.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("point_of_entry")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("print_name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -5990,6 +6005,10 @@ namespace PropertySurveyService.Migrations
                     b.Property<int>("HeaderId")
                         .HasColumnType("int");
 
+                    b.Property<string>("Summary")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<bool>("bComplete")
                         .HasColumnType("bit");
 
@@ -6042,10 +6061,6 @@ namespace PropertySurveyService.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("letteredit")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("long_sptext")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -6841,6 +6856,10 @@ namespace PropertySurveyService.Migrations
                     b.Property<int>("HeaderId")
                         .HasColumnType("int");
 
+                    b.Property<string>("Summary")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("WER_rating")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -7204,10 +7223,6 @@ namespace PropertySurveyService.Migrations
                         .HasColumnType("real");
 
                     b.Property<string>("locks")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("long_timber_comments")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -7646,6 +7661,10 @@ namespace PropertySurveyService.Migrations
                     b.Property<int>("LPHandles")
                         .HasColumnType("int");
 
+                    b.Property<string>("Summary")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("WER_Rating")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -7980,10 +7999,6 @@ namespace PropertySurveyService.Migrations
                         .HasColumnType("real");
 
                     b.Property<string>("locking_type")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("long_comments")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 

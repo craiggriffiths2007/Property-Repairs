@@ -53,19 +53,21 @@ namespace PropertySurveyService.Data
                 ProfilePicture = imageBytes
 
             };
-            var craig = await userManager.FindByEmailAsync(craigUser.Email);
-            if (craig == null)
+            var result = await userManager.CreateAsync(craigUser, "pass1+");
+            if (result.Succeeded)
             {
-                var result = await userManager.CreateAsync(craigUser, "pass1+");
-                if (result.Succeeded)
-                {
-                    await userManager.AddToRoleAsync(craigUser, Roles.Basic.ToString());
-                    await userManager.AddToRoleAsync(craigUser, Roles.Moderator.ToString());
-                    await userManager.AddToRoleAsync(craigUser, Roles.Admin.ToString());
-                    await userManager.AddToRoleAsync(craigUser, Roles.SuperAdmin.ToString());
-                }
+                await userManager.AddToRoleAsync(craigUser, Roles.Basic.ToString());
+                await userManager.AddToRoleAsync(craigUser, Roles.Moderator.ToString());
+                await userManager.AddToRoleAsync(craigUser, Roles.Admin.ToString());
+                await userManager.AddToRoleAsync(craigUser, Roles.SuperAdmin.ToString());
             }
         }
+        /*
+        var craig = await userManager.FindByEmailAsync(craigUser.Email);
+            if (craig == null)
+            {
+          */      
+        //}
         public static void Initialize(AppDBContext context)
         {
             context.Database.EnsureCreated();

@@ -443,6 +443,10 @@ namespace PropertySurveyService.Models
         [DisplayName("Cill on Subframe")]
         public bool? cill_on_subframe { get; set; }
 
+        [DisplayName("Change Item To")]
+        public string ChangeItemTo { get; set; } = "";
+        [DisplayName("Print Name")]
+        public string print_name { get; set; } = "";
         public SurveyItem AsSurveyItem() { return new SurveyItem(Id, enum_item_type.locking, item_number, ContractCode); }
 
     }

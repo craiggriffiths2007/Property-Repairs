@@ -24,8 +24,6 @@ namespace PropertySurveyService
             var config = app.ServiceProvider.GetRequiredService<IConfiguration>();
             string imageDirectory = config["ImageStoragePath"] ?? @"C:\GlassOpsImages";
 
-
-
             app.MapPost("/AgentLogin", (AgentLoginDTO gs, AppDBContext db) =>
             {
                 var agent = db.Agent.FirstOrDefault(x => x.Code == gs.AgentCode);
@@ -436,10 +434,14 @@ namespace PropertySurveyService
 
             app.MapPost("/GetJobs", (GetDataDTO gs, AppDBContext db) =>
             {
-                var agent = db.Agent.FirstOrDefault(x => x.Code == gs.AgentCode);
+                if (gs.AuthenticationString == "null")
+                    return Task.FromResult<IResult>(Results.BadRequest(new { ReasonPhrase = "Not logged in" }));
+
+                var agent = db.Agent.FirstOrDefault(x => x.Code == gs.AgentCode && 
+                                                        x.AuthenticationString == gs.AuthenticationString);
 
                 if (agent == null)
-                    return Task.FromResult<IResult>(Results.BadRequest(new { ReasonPhrase = "Agent Code Not Found : " + gs.AgentCode }));
+                    return Task.FromResult<IResult>(Results.BadRequest(new { ReasonPhrase = "Authentication Failed" }));
 
                 List<Job> jobs = new List<Job>();
 
@@ -583,7 +585,7 @@ namespace PropertySurveyService
             });
 
 
-            app.MapPost("/SendImage", async (ImageDTO imageDTO, AppDBContext db) =>
+            app.MapPost("/SendMedia", async (ImageDTO imageDTO, AppDBContext db) =>
             {
                 OKRecordDTO return_record = new OKRecordDTO();
                 try
