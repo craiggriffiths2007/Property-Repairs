@@ -1,22 +1,19 @@
 ﻿using PropertySurveyService.Models;
 
-internal class JobHeaderDTO
+public class JobHeaderDTO
 {
-    //public JobDTO Job { get; set; }
-
     public JobHeader Head { get; set; }
-    public List<Material> Items { get; set; }
-    public List<Panel> Panels { get; set; }
-    public List<Aluminium> Aluminia { get; set; }
-    public List<Bifolding> Bifolds { get; set; }
-    public List<Composite> Composites { get; set; }
-    public List<Conservatory> Cons { get; set; }
-    public List<Garage> Garages { get; set; }
-    public List<Glass> Glass { get; set; }
-    public List<Greenhouse> Greens { get; set; }
-    public List<Lockmech> Locks { get; set; }
-    public List<Timber> Timbers { get; set; }
-    public List<UPVC> UPVCs { get; set; }
-    public List<string> Images { get; set; }
-
+    public List<Material> Material { get; set; } = new List<Material>();
+    public List<Panel> Panel { get; set; } = new List<Panel>();
+    public List<Aluminium> Aluminium { get; set; } = new List<Aluminium>();
+    public List<Bifolding> Bifolding { get; set; } = new List<Bifolding>();
+    public List<Composite> Composite { get; set; } = new List<Composite>();
+    public List<Conservatory> Conservatory { get; set; } = new List<Conservatory>();
+    public List<Garage> Garage { get; set; } = new List<Garage>();
+    public List<Glass> Glass { get; set; } = new List<Glass>();
+    public List<Greenhouse> Greenhouse { get; set; } = new List<Greenhouse>();
+    public List<Lockmech> Lockmech { get; set; } = new List<Lockmech>();
+    public List<Timber> Timber { get; set; } = new List<Timber>();
+    public List<UPVC> UPVC { get; set; } = new List<UPVC>();
+    public List<string> Images { get; set; } = new List<string>();
 }

@@ -389,44 +389,44 @@ namespace PropertySurveyService
                             }
                         }
 
-                        job.Items.ForEach(o => o.Id = 0);
-                        job.Panels.ForEach(o => o.Id = 0);
-                        job.Aluminia.ForEach(o => o.Id = 0);
-                        job.Bifolds.ForEach(o => o.Id = 0);
-                        job.Composites.ForEach(o => o.Id = 0);
-                        job.Cons.ForEach(o => o.Id = 0);
-                        job.Garages.ForEach(o => o.Id = 0);
+                        job.Material.ForEach(o => o.Id = 0);
+                        job.Panel.ForEach(o => o.Id = 0);
+                        job.Aluminium.ForEach(o => o.Id = 0);
+                        job.Bifolding.ForEach(o => o.Id = 0);
+                        job.Composite.ForEach(o => o.Id = 0);
+                        job.Conservatory.ForEach(o => o.Id = 0);
+                        job.Garage.ForEach(o => o.Id = 0);
                         job.Glass.ForEach(o => o.Id = 0);
-                        job.Greens.ForEach(o => o.Id = 0);
-                        job.Locks.ForEach(o => o.Id = 0);
-                        job.Timbers.ForEach(o => o.Id = 0);
-                        job.UPVCs.ForEach(o => o.Id = 0);
+                        job.Greenhouse.ForEach(o => o.Id = 0);
+                        job.Lockmech.ForEach(o => o.Id = 0);
+                        job.Timber.ForEach(o => o.Id = 0);
+                        job.UPVC.ForEach(o => o.Id = 0);
                         /*
-                        foreach (var item in job.Items) { db.Frame.Where(l => l.Guid == item.Guid).ExecuteDelete(); }
-                        foreach (var item in job.Panels) { db.Panel.Where(l => l.Guid == item.Guid).ExecuteDelete(); }
-                        foreach (var item in job.Aluminia) { db.Aluminium.Where(l => l.Guid == item.Guid).ExecuteDelete(); }
-                        foreach (var item in job.Bifolds) { db.Bifolding.Where(l => l.Guid == item.Guid).ExecuteDelete(); }
-                        foreach (var item in job.Composites) { db.Composite.Where(l => l.Guid == item.Guid).ExecuteDelete(); }
-                        foreach (var item in job.Cons) { db.Conservatory.Where(l => l.Guid == item.Guid).ExecuteDelete(); }
-                        foreach (var item in job.Garages) { db.Garage.Where(l => l.Guid == item.Guid).ExecuteDelete(); }
+                        foreach (var item in job.Material) { db.Frame.Where(l => l.Guid == item.Guid).ExecuteDelete(); }
+                        foreach (var item in job.Panel) { db.Panel.Where(l => l.Guid == item.Guid).ExecuteDelete(); }
+                        foreach (var item in job.Aluminium) { db.Aluminium.Where(l => l.Guid == item.Guid).ExecuteDelete(); }
+                        foreach (var item in job.Bifolding) { db.Bifolding.Where(l => l.Guid == item.Guid).ExecuteDelete(); }
+                        foreach (var item in job.Composite) { db.Composite.Where(l => l.Guid == item.Guid).ExecuteDelete(); }
+                        foreach (var item in job.Conservatory) { db.Conservatory.Where(l => l.Guid == item.Guid).ExecuteDelete(); }
+                        foreach (var item in job.Garage) { db.Garage.Where(l => l.Guid == item.Guid).ExecuteDelete(); }
                         foreach (var item in job.Glass) { db.Glass.Where(l => l.Guid == item.Guid).ExecuteDelete(); }
-                        foreach (var item in job.Greens) { db.Greenhouse.Where(l => l.Guid == item.Guid).ExecuteDelete(); }
-                        foreach (var item in job.Locks) { db.Lockmech.Where(l => l.Guid == item.Guid).ExecuteDelete(); }
-                        foreach (var item in job.Timbers) { db.Timber.Where(l => l.Guid == item.Guid).ExecuteDelete(); }
-                        foreach (var item in job.UPVCs) { db.UPVC.Where(l => l.Guid == item.Guid).ExecuteDelete(); }
+                        foreach (var item in job.Greenhouse) { db.Greenhouse.Where(l => l.Guid == item.Guid).ExecuteDelete(); }
+                        foreach (var item in job.Lockmech) { db.Lockmech.Where(l => l.Guid == item.Guid).ExecuteDelete(); }
+                        foreach (var item in job.Timber) { db.Timber.Where(l => l.Guid == item.Guid).ExecuteDelete(); }
+                        foreach (var item in job.UPVC) { db.UPVC.Where(l => l.Guid == item.Guid).ExecuteDelete(); }
                         */
-                        SaveItems(job.Items);
-                        SaveItems(job.Panels);
-                        SaveItems(job.Aluminia);
-                        SaveItems(job.Bifolds);
-                        SaveItems(job.Composites);
-                        SaveItems(job.Cons);
-                        SaveItems(job.Garages);
+                        SaveItems(job.Material);
+                        SaveItems(job.Panel);
+                        SaveItems(job.Aluminium);
+                        SaveItems(job.Bifolding);
+                        SaveItems(job.Composite);
+                        SaveItems(job.Conservatory);
+                        SaveItems(job.Garage);
                         SaveItems(job.Glass);
-                        SaveItems(job.Greens);
-                        SaveItems(job.Locks);
-                        SaveItems(job.Timbers);
-                        SaveItems(job.UPVCs);
+                        SaveItems(job.Greenhouse);
+                        SaveItems(job.Lockmech);
+                        SaveItems(job.Timber);
+                        SaveItems(job.UPVC);
 
                         await db.SaveChangesAsync();
                     }
@@ -554,18 +554,18 @@ namespace PropertySurveyService
                         results.Add(new JobHeaderDTO
                         {
                             Head = jobHeader,
-                            Items = db.Frame.Where(f => f.HeaderId == jobHeader.Id).ToList(),
-                            Panels = db.Panel.Where(p => p.HeaderId == jobHeader.Id).ToList(),
-                            Aluminia = db.Aluminium.Where(a => a.HeaderId == jobHeader.Id).ToList(),
-                            Bifolds = db.Bifolding.Where(b => b.HeaderId == jobHeader.Id).ToList(),
-                            Composites = db.Composite.Where(c => c.HeaderId == jobHeader.Id).ToList(),
-                            Cons = db.Conservatory.Where(c => c.HeaderId == jobHeader.Id).ToList(),
-                            Garages = db.Garage.Where(g => g.HeaderId == jobHeader.Id).ToList(),
+                            Material = db.Frame.Where(f => f.HeaderId == jobHeader.Id).ToList(),
+                            Panel = db.Panel.Where(p => p.HeaderId == jobHeader.Id).ToList(),
+                            Aluminium = db.Aluminium.Where(a => a.HeaderId == jobHeader.Id).ToList(),
+                            Bifolding = db.Bifolding.Where(b => b.HeaderId == jobHeader.Id).ToList(),
+                            Composite = db.Composite.Where(c => c.HeaderId == jobHeader.Id).ToList(),
+                            Conservatory = db.Conservatory.Where(c => c.HeaderId == jobHeader.Id).ToList(),
+                            Garage = db.Garage.Where(g => g.HeaderId == jobHeader.Id).ToList(),
                             Glass = db.Glass.Where(g => g.HeaderId == jobHeader.Id).ToList(),
-                            Greens = db.Greenhouse.Where(g => g.HeaderId == jobHeader.Id).ToList(),
-                            Locks = db.Lockmech.Where(l => l.HeaderId == jobHeader.Id).ToList(),
-                            Timbers = db.Timber.Where(t => t.HeaderId == jobHeader.Id).ToList(),
-                            UPVCs = db.UPVC.Where(u => u.HeaderId == jobHeader.Id).ToList(),
+                            Greenhouse = db.Greenhouse.Where(g => g.HeaderId == jobHeader.Id).ToList(),
+                            Lockmech = db.Lockmech.Where(l => l.HeaderId == jobHeader.Id).ToList(),
+                            Timber = db.Timber.Where(t => t.HeaderId == jobHeader.Id).ToList(),
+                            UPVC = db.UPVC.Where(u => u.HeaderId == jobHeader.Id).ToList(),
                             Images = images
                         });
                     }

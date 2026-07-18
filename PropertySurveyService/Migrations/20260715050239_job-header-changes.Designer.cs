@@ -5338,7 +5338,7 @@ namespace PropertySurveyService.Migrations
                     b.Property<bool>("bDoorComplete")
                         .HasColumnType("bit");
 
-                    b.Property<bool>("bFenca")
+                    b.Property<bool>("bFensa")
                         .HasColumnType("bit");
 
                     b.Property<bool>("bHandleDrawingComplete")

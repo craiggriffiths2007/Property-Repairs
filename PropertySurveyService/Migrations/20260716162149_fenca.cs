@@ -13,64 +13,64 @@ namespace PropertySurveyService.Migrations
             migrationBuilder.RenameColumn(
                 name: "fensa",
                 table: "UPVC",
-                newName: "bFenca");
+                newName: "bFensa");
 
             migrationBuilder.RenameColumn(
                 name: "Fensa",
                 table: "Timber",
-                newName: "bFenca");
+                newName: "bFensa");
 
             migrationBuilder.RenameColumn(
                 name: "fensa",
                 table: "Conservatory",
-                newName: "bFenca");
+                newName: "bFensa");
 
             migrationBuilder.RenameColumn(
                 name: "fensa",
                 table: "Composite",
-                newName: "bFenca");
+                newName: "bFensa");
 
             migrationBuilder.RenameColumn(
                 name: "fensa",
                 table: "Bifolding",
-                newName: "bFenca");
+                newName: "bFensa");
 
             migrationBuilder.RenameColumn(
                 name: "bFencer",
                 table: "Aluminium",
-                newName: "bFenca");
+                newName: "bFensa");
         }
 
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.RenameColumn(
-                name: "bFenca",
+                name: "bFensa",
                 table: "UPVC",
                 newName: "fensa");
 
             migrationBuilder.RenameColumn(
-                name: "bFenca",
+                name: "bFensa",
                 table: "Timber",
                 newName: "Fensa");
 
             migrationBuilder.RenameColumn(
-                name: "bFenca",
+                name: "bFensa",
                 table: "Conservatory",
                 newName: "fensa");
 
             migrationBuilder.RenameColumn(
-                name: "bFenca",
+                name: "bFensa",
                 table: "Composite",
                 newName: "fensa");
 
             migrationBuilder.RenameColumn(
-                name: "bFenca",
+                name: "bFensa",
                 table: "Bifolding",
                 newName: "fensa");
 
             migrationBuilder.RenameColumn(
-                name: "bFenca",
+                name: "bFensa",
                 table: "Aluminium",
                 newName: "bFencer");
         }

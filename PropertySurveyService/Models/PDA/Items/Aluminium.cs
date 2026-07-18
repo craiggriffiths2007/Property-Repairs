@@ -144,7 +144,7 @@ namespace PropertySurveyService.Models
         [DisplayName("Print Name")]
         public string print_name { get; set; } = "";
         [DisplayName("Fencer")]
-        public bool bFenca { get; set; }
+        public bool bFensa { get; set; }
         [DisplayName("Fencer Rating")]
         public string FecerRating { get; set; } = "";
         [DisplayName("Summary")]

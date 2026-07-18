@@ -1149,7 +1149,7 @@ namespace PropertySurveyService.Migrations
                     timber_wood = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     timber_frame_wood = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     item_summary = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    bFenca = table.Column<bool>(type: "bit", nullable: false),
+                    bFensa = table.Column<bool>(type: "bit", nullable: false),
                     doc_l_compliant_reason = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     doc_l_compliant = table.Column<int>(type: "int", nullable: false),
                     frame_depth = table.Column<string>(type: "nvarchar(max)", nullable: false),

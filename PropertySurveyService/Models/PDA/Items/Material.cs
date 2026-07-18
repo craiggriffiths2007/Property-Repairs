@@ -354,7 +354,7 @@ namespace PropertySurveyService.Models
         public string item_summary { get; set; } = "";
 
         [DisplayName("Fenca")]
-        public bool bFenca { get; set; }
+        public bool bFensa { get; set; }
 
         [DisplayName("Doc L Compliant Reason")]
         public string doc_l_compliant_reason { get; set; } = "";
