@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PropertySurveyService.Data;
 
@@ -11,9 +12,11 @@ using PropertySurveyService.Data;
 namespace PropertySurveyService.Migrations
 {
     [DbContext(typeof(AppDBContext))]
-    partial class AppDBContextModelSnapshot : ModelSnapshot
+    [Migration("20260718115242_removed-special-glass")]
+    partial class removedspecialglass
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -3610,9 +3613,6 @@ namespace PropertySurveyService.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("SpecialGlassType")
-                        .HasColumnType("int");
-
                     b.Property<string>("Summary")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -3630,18 +3630,11 @@ namespace PropertySurveyService.Migrations
                     b.Property<bool>("bDifferentFromOriginalSigned")
                         .HasColumnType("bit");
 
-                    b.Property<bool>("bSpecialGlassComplete")
-                        .HasColumnType("bit");
-
                     b.Property<string>("back_to_back_spacer_height")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("back_to_back_spacer_width")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("bar_thickness")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -3667,8 +3660,8 @@ namespace PropertySurveyService.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool>("gb_trim")
-                        .HasColumnType("bit");
+                    b.Property<int>("gb_trim")
+                        .HasColumnType("int");
 
                     b.Property<string>("glass_height")
                         .IsRequired()
@@ -3777,9 +3770,8 @@ namespace PropertySurveyService.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("lead_anti_rattle")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("lead_anti_rattle")
+                        .HasColumnType("int");
 
                     b.Property<bool>("lead_bBackToBackComplete")
                         .HasColumnType("bit");

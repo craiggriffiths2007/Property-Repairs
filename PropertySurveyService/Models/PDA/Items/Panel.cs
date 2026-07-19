@@ -121,7 +121,6 @@ namespace PropertySurveyService.Models
         public int was_it_locked { get; set; }
         [DisplayName("Parent Item")]
         public enum_item_type base_item { get; set; } = enum_item_type.none;
-
         public SurveyItem AsSurveyItem() { return new SurveyItem(Id, enum_item_type.panel, item_number, ContractCode); }
     }
 }

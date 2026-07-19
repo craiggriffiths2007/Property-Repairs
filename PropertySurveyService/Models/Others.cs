@@ -2,6 +2,15 @@
 
 namespace PropertySurveyService.Models
 {
+    public enum enum_special_glass_type
+    {
+        None = 0,
+        BackToBack = 1,
+        DiamondLead = 2,
+        GeorgainBar = 3,
+        GeorgianLead = 4
+    }
+
     public enum enum_job_type
     {
         Survey,

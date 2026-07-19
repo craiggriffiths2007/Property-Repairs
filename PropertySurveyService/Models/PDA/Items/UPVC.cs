@@ -295,9 +295,6 @@ namespace PropertySurveyService.Models
         [DisplayName("Hinge Colour")]
         public string hinge_colour { get; set; } = "";
 
-        [DisplayName("Lead Comments")]
-        public string lead_comments { get; set; } = "";
-
         [DisplayName("Collect and Copy")]
         public bool? collect_and_copy { get; set; }
 
@@ -318,12 +315,6 @@ namespace PropertySurveyService.Models
 
         [DisplayName("Was It Locked")]
         public int was_it_locked { get; set; }
-
-        [DisplayName("Back to Back Spacer Width")]
-        public string back_to_back_spacer_width { get; set; } = "";
-
-        [DisplayName("Back to Back Spacer Height")]
-        public string back_to_back_spacer_height { get; set; } = "";
 
         [DisplayName("Lock Size 1")]
         public string l_size1 { get; set; } = "";
@@ -399,18 +390,6 @@ namespace PropertySurveyService.Models
 
         [DisplayName("Lock IType7")]
         public int l_itype7 { get; set; }
-
-        [DisplayName("Lead C Width (float)")]
-        public float lead_CWidthf { get; set; }
-
-        [DisplayName("Lead C Height (float)")]
-        public float lead_CHeightf { get; set; }
-
-        [DisplayName("Lead C Widths")]
-        public string lead_CWidths { get; set; } = "";
-
-        [DisplayName("Lead C Heights")]
-        public string lead_CHeights { get; set; } = "";
 
         [DisplayName("Glass Complete")]
         public bool glass_complete { get; set; }

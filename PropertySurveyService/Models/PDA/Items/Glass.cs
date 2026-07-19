@@ -123,13 +123,22 @@ namespace PropertySurveyService.Models
         public string lead_CHeight { get; set; } = "";
 
         [DisplayName("Lead Anti Rattle")]
-        public int lead_anti_rattle { get; set; }
+        public string lead_anti_rattle { get; set; } = "";
 
         [DisplayName("Lead Thickness")]
         public string lead_thickness { get; set; } = "";
 
+        [DisplayName("Georgian Bar Thickness")]
+        public string bar_thickness { get; set; } = "";
+
         [DisplayName("Lead SOD")]
         public string lead_sod { get; set; } = "";
+
+        [DisplayName("Special Glass Type")]
+        public enum_special_glass_type SpecialGlassType { get; set; } = enum_special_glass_type.None;
+
+        [DisplayName("Special Glass Complete")]
+        public bool bSpecialGlassComplete { get; set; }
 
         [DisplayName("Lead Type")]
         public string lead_type { get; set; } = "";
@@ -167,7 +176,7 @@ namespace PropertySurveyService.Models
         public int no_of_photos { get; set; }
 
         [DisplayName("Georgian Bar Trim")]
-        public int gb_trim { get; set; }
+        public bool gb_trim { get; set; }
 
         [DisplayName("DOCL")]
         public string docl { get; set; } = "";
@@ -236,12 +245,6 @@ namespace PropertySurveyService.Models
 
         [DisplayName("Back to Back Spacer Height")]
         public string back_to_back_spacer_height { get; set; } = "";
-
-        [DisplayName("Lead C Width (float)")]
-        public float lead_CWidthf { get; set; }
-
-        [DisplayName("Lead C Height (float)")]
-        public float lead_CHeightf { get; set; }
 
         [DisplayName("Size A (float)")]
         public float sizeAf { get; set; }

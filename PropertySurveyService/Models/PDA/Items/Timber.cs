@@ -264,47 +264,6 @@ namespace PropertySurveyService.Models
         [DisplayName("Summary")]
         public string Summary { get; set; } = "";
 
-        [DisplayName("Lead Size A")]
-        public int lead_sizeA { get; set; }
-
-        [DisplayName("Lead Size B")]
-        public int lead_sizeB { get; set; }
-
-        [DisplayName("Lead Size C")]
-        public int lead_sizeC { get; set; }
-
-        [DisplayName("Lead Size D")]
-        public int lead_sizeD { get; set; }
-
-        [DisplayName("Lead C Width")]
-        public int lead_CWidth { get; set; }
-
-        [DisplayName("Lead C Height")]
-        public int lead_CHeight { get; set; }
-
-        [DisplayName("Lead Anti Rattle")]
-        public int lead_anti_rattle { get; set; }
-
-        [DisplayName("Lead Thickness")]
-        public string lead_thickness { get; set; } = "";
-
-        [DisplayName("Lead SOD")]
-        public string lead_sod { get; set; } = "";
-
-        [DisplayName("Lead Type")]
-        public string lead_type { get; set; } = "";
-        [DisplayName("Back to Back Complete")]
-        public bool lead_bBackToBackComplete { get; set; }
-
-        [DisplayName("Lead Diamond Complete")]
-        public bool lead_bDiamondComplete { get; set; }
-
-        [DisplayName("Lead Georgian Complete")]
-        public bool lead_bGeorgianComplete { get; set; }
-
-        [DisplayName("Lead Bar Complete")]
-        public bool lead_bBarComplete { get; set; }
-
         [DisplayName("Lock Make")]
         public string lock_make { get; set; } = "";
 
@@ -341,9 +300,6 @@ namespace PropertySurveyService.Models
         [DisplayName("Pre-glazed Door")]
         public bool? pre_glazed_door { get; set; }
 
-        [DisplayName("Lead Comments")]
-        public string lead_comments { get; set; } = "";
-
         [DisplayName("Weather Bar")]
         public bool? weather_bar { get; set; }
 
@@ -361,12 +317,6 @@ namespace PropertySurveyService.Models
 
         [DisplayName("Was It Locked")]
         public int was_it_locked { get; set; }
-
-        [DisplayName("Back to Back Spacer Width")]
-        public string back_to_back_spacer_width { get; set; } = "";
-
-        [DisplayName("Back to Back Spacer Height")]
-        public string back_to_back_spacer_height { get; set; } = "";
 
         [DisplayName("Lock Size 1")]
         public string l_size1 { get; set; } = "";
@@ -442,12 +392,6 @@ namespace PropertySurveyService.Models
 
         [DisplayName("Lock IType7")]
         public int l_itype7 { get; set; }
-
-        [DisplayName("Lead C Width (float)")]
-        public float lead_CWidthf { get; set; }
-
-        [DisplayName("Lead C Height (float)")]
-        public float lead_CHeightf { get; set; }
 
         [DisplayName("Lead C Widths")]
         public string lead_CWidths { get; set; } = "";

@@ -155,35 +155,6 @@ namespace PropertySurveyService.Models
         [DisplayName("Window Complete")]
         [Browsable(false)]
         public bool bWindowComplete { get; set; }
-        [DisplayName("Lead Size A")]
-        public int lead_sizeA { get; set; }
-        [DisplayName("Lead Size B")]
-        public int lead_sizeB { get; set; }
-        [DisplayName("Lead Size C")]
-        public int lead_sizeC { get; set; }
-        [DisplayName("Lead Size D")]
-        public int lead_sizeD { get; set; }
-        [DisplayName("Lead C Width")]
-        public int lead_CWidth { get; set; }
-        [DisplayName("Lead C Height")]
-        public int lead_CHeight { get; set; }
-        [DisplayName("Lead Anti Rattle")]
-        public int lead_anti_rattle { get; set; }
-        [DisplayName("Lead Thickness")]
-        public string lead_thickness { get; set; } = "";
-        [DisplayName("Lead SOD")]
-        public string lead_sod { get; set; } = "";
-        [DisplayName("Lead Type")]
-        public string lead_type { get; set; } = "";
-        [DisplayName("Back to Back Complete")]
-        public bool lead_bBackToBackComplete { get; set; }
-        [DisplayName("Lead Diamond Complete")]
-        public bool lead_bDiamondComplete { get; set; }
-        [DisplayName("Lead Georgian Complete")]
-        public bool lead_bGeorgianComplete { get; set; }
-        [DisplayName("Lead Bar Complete")]
-        public bool lead_bBarComplete { get; set; }
-        [DisplayName("Lead SG Design Complete")]
         public bool lead_bSGDesignComplete { get; set; }
         [DisplayName("Lock Make")]
         public string lock_make { get; set; } = "";
@@ -221,8 +192,7 @@ namespace PropertySurveyService.Models
         public string outer_section_height { get; set; } = "";       // Renamed from new_sspare2
         [DisplayName("Parts to Order")]
         public string parts_to_order { get; set; } = "";          // renamed from new_sspare4
-        [DisplayName("Lead Comments")]
-        public string lead_comments { get; set; } = "";
+
         [DisplayName("Is a Flat")]
         public bool? is_a_flat { get; set; }
         [DisplayName("Point of Entry")]
@@ -231,10 +201,7 @@ namespace PropertySurveyService.Models
         public string type_of_lockng_system_required { get; set; } = "";
         [DisplayName("Was It Locked")]
         public int was_it_locked { get; set; }
-        [DisplayName("Back to Back Spacer Width")]
-        public string back_to_back_spacer_width { get; set; } = "";   // Spacer Thickness - Renamed from ex_s_spare4
-        [DisplayName("Back to Back Spacer Height")]
-        public string back_to_back_spacer_height { get; set; } = "";  // Overall Spacer Width - Renamed from ex_s_spare5
+
         [DisplayName("Lock Size 1")]
         public string l_size1 { get; set; } = "";                    // Lock Mech
         [DisplayName("Lock Size 2")]
@@ -285,10 +252,7 @@ namespace PropertySurveyService.Models
         public int l_itype6 { get; set; }
         [DisplayName("Lock Type7")]
         public int l_itype7 { get; set; }
-        [DisplayName("Lead C Width (float)")]
-        public float lead_CWidthf { get; set; }
-        [DisplayName("Lead C Height (float)")]
-        public float lead_CHeightf { get; set; }
+
         [DisplayName("Lead C Widths")]
         public string lead_CWidths { get; set; } = "";
         [DisplayName("Lead C Heights")]
@@ -297,7 +261,6 @@ namespace PropertySurveyService.Models
         public bool glass_complete { get; set; }
         [DisplayName("Replace Glass")]
         public bool? replace_glass { get; set; }
-
 
 
         public SurveyItem AsSurveyItem() { return new SurveyItem(Id, enum_item_type.aluminium,item_number,ContractCode); }

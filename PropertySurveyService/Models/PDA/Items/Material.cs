@@ -194,11 +194,6 @@ namespace PropertySurveyService.Models
         [DisplayName("Was It Locked")]
         public int was_it_locked { get; set; }
 
-        [DisplayName("Back to Back Spacer Width")]
-        public string back_to_back_spacer_width { get; set; } = "";
-
-        [DisplayName("Back to Back Spacer Height")]
-        public string back_to_back_spacer_height { get; set; } = "";
 
         [DisplayName("Lock Number")]
         public int l_num { get; set; }
@@ -329,11 +324,6 @@ namespace PropertySurveyService.Models
         [DisplayName("Lead Bar Complete")]
         public bool lead_bBarComplete { get; set; }
 
-        [DisplayName("Lead C Width (float)")]
-        public float lead_CWidthf { get; set; }
-
-        [DisplayName("Lead C Height (float)")]
-        public float lead_CHeightf { get; set; }
 
         [DisplayName("Lead C Widths")]
         public string lead_CWidths { get; set; } = "";
@@ -442,7 +432,6 @@ namespace PropertySurveyService.Models
 
         [DisplayName("Cill on Subframe")]
         public bool? cill_on_subframe { get; set; }
-
         [DisplayName("Change Item To")]
         public string ChangeItemTo { get; set; } = "";
         [DisplayName("Print Name")]

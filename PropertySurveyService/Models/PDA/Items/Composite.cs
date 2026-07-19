@@ -210,8 +210,6 @@ namespace PropertySurveyService.Models
         [DisplayName("Reason Not Repaired")]
         public string reason_not_repaired { get; set; } = "";
 
-        [DisplayName("Lead Comments")]
-        public string lead_comments { get; set; } = "";
 
         [DisplayName("Parts to Order")]
         public string parts_to_order { get; set; } = "";
@@ -230,12 +228,6 @@ namespace PropertySurveyService.Models
 
         [DisplayName("Fire Door")]
         public bool? fire_door { get; set; }
-
-        [DisplayName("Lead C Width (float)")]
-        public float lead_CWidthf { get; set; }
-
-        [DisplayName("Lead C Height (float)")]
-        public float lead_CHeightf { get; set; }
 
         [DisplayName("Lead C Widths")]
         public string lead_CWidths { get; set; } = "";
