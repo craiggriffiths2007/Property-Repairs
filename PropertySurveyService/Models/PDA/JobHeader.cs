@@ -388,8 +388,8 @@ namespace PropertySurveyService.Models
         public string MandateSentence { get; set; } = "";
 
 
-        [DisplayName("Fitters Mandate Other")]
-        public string funfinoth { get; set; } = "";
+        [DisplayName("Other cause of damage")]
+        public string OtherCauseOfDamage { get; set; } = "";
 
         [DisplayName("Completion Signed")]
         public bool bFitterSigned { get; set; }
