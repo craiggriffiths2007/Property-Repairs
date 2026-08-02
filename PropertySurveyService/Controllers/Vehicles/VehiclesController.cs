@@ -20,9 +20,27 @@ namespace PropertySurveyService.Controllers
         }
 
         // GET: Vehicles
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(int page = 1)
         {
-            var appDBContext = _context.Vehicles.Include(v => v.Branch);
+            if (_context.Vehicles == null)
+            {
+                return Problem("Entity set 'PropertySurveyServiceContext.Vehicles' is null.");
+            }
+            const int pageSize = 10;
+            var totalCount = await _context.Vehicles.CountAsync();
+            var totalPages = (int)Math.Ceiling(totalCount / (double)pageSize);
+            if (page < 1) page = 1;
+            if (page > totalPages && totalPages > 0) page = totalPages;
+
+            var appDBContext = _context.Vehicles.Include(v => v.Branch)
+                .OrderBy(v => v.Name)
+                .Skip((page - 1) * pageSize)
+                .Take(pageSize);
+
+            ViewBag.PageNumber = page;
+            ViewBag.TotalPages = totalPages;
+            ViewBag.PageSize = pageSize;
+
             return View(await appDBContext.ToListAsync());
         }
 

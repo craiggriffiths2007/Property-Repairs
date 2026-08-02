@@ -15,12 +15,28 @@ public class ContractsController : Controller
         _context = context;
     }
 
-    // GET: CONTRACTS
-    public async Task<IActionResult> Index()
+    // GET: CONTRACTS (paginated)
+    public async Task<IActionResult> Index(int page = 1)
     {
-        return View(await _context.Contract
+        const int pageSize = 10;
+        var totalCount = await _context.Contract.CountAsync();
+        var totalPages = (int)Math.Ceiling(totalCount / (double)pageSize);
+
+        if (page < 1) page = 1;
+        if (page > totalPages && totalPages > 0) page = totalPages;
+
+        var contracts = await _context.Contract
             .Include(c => c.Customer)
-            .ToListAsync());
+            .OrderBy(c => c.Id)
+            .Skip((page - 1) * pageSize)
+            .Take(pageSize)
+            .ToListAsync();
+
+        ViewBag.PageNumber = page;
+        ViewBag.TotalPages = totalPages;
+        ViewBag.PageSize = pageSize;
+
+        return View(contracts);
     }
 
     [HttpPost]

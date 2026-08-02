@@ -20,9 +20,20 @@ namespace PropertySurveyService.Controllers
         }
 
         // GET: Users
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(int page = 1)
         {
-            var users = await _userManager.Users.ToListAsync();
+            const int pageSize = 10;
+            var totalCount = await _userManager.Users.CountAsync();
+            var totalPages = (int)System.Math.Ceiling(totalCount / (double)pageSize);
+            if (page < 1) page = 1;
+            if (page > totalPages && totalPages > 0) page = totalPages;
+
+            var users = await _userManager.Users
+                .OrderBy(u => u.UserName)
+                .Skip((page - 1) * pageSize)
+                .Take(pageSize)
+                .ToListAsync();
+
             var userList = new List<UserRolesViewModel>();
             foreach (var user in users)
             {
@@ -37,6 +48,11 @@ namespace PropertySurveyService.Controllers
                     ProfilePicture = user.ProfilePicture
                 });
             }
+
+            ViewBag.PageNumber = page;
+            ViewBag.TotalPages = totalPages;
+            ViewBag.PageSize = pageSize;
+
             return View(userList);
         }
 

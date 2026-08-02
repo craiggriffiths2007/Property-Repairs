@@ -14,9 +14,29 @@ public class LadderChecksController : Controller
     }
 
     // GET: LADDERCHECKS
-    public async Task<IActionResult> Index()    
+    public async Task<IActionResult> Index(int page = 1)    
     {
-        return View(await _context.LadderChecks.ToListAsync());
+        if (_context.LadderChecks == null)
+        {
+            return Problem("Entity set 'PropertySurveyServiceContext.LadderChecks' is null.");
+        }
+        const int pageSize = 10;
+        var totalCount = await _context.LadderChecks.CountAsync();
+        var totalPages = (int)Math.Ceiling(totalCount / (double)pageSize);
+        if (page < 1) page = 1;
+        if (page > totalPages && totalPages > 0) page = totalPages;
+
+        var items = await _context.LadderChecks
+            .OrderBy(l => l.Id)
+            .Skip((page - 1) * pageSize)
+            .Take(pageSize)
+            .ToListAsync();
+
+        ViewBag.PageNumber = page;
+        ViewBag.TotalPages = totalPages;
+        ViewBag.PageSize = pageSize;
+
+        return View(items);
     }
 
     // GET: LADDERCHECKS/Details/5

@@ -21,9 +21,28 @@ namespace PropertySurveyService.Controllers
         }
 
         // GET: VehicleChecks
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(int page = 1)
         {
-            return View(await repo.Db.VehicleCheckHeaders.ToListAsync());
+            if (repo.Db.VehicleCheckHeaders == null)
+            {
+                return Problem("Entity set 'Repo.Db.VehicleCheckHeaders' is null.");
+            }
+            const int pageSize = 10;
+            var totalCount = await repo.Db.VehicleCheckHeaders.CountAsync();
+            var totalPages = (int)Math.Ceiling(totalCount / (double)pageSize);
+            if (page < 1) page = 1;
+            if (page > totalPages && totalPages > 0) page = totalPages;
+
+            var items = repo.Db.VehicleCheckHeaders
+                .OrderBy(v => v.CheckWeekDate)
+                .Skip((page - 1) * pageSize)
+                .Take(pageSize);
+
+            ViewBag.PageNumber = page;
+            ViewBag.TotalPages = totalPages;
+            ViewBag.PageSize = pageSize;
+
+            return View(await items.ToListAsync());
         }
 
         // GET: VehicleChecks/Details/5

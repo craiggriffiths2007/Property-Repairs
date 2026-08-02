@@ -15,9 +15,24 @@ namespace PropertySurveyService.Controllers
             _roleManager = roleManager;
         }
         [Authorize(Roles = "SuperAdmin")]
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(int page = 1)
         {
-            var roles = await _roleManager.Roles.ToListAsync();
+            const int pageSize = 10;
+            var totalCount = await _roleManager.Roles.CountAsync();
+            var totalPages = (int)Math.Ceiling(totalCount / (double)pageSize);
+            if (page < 1) page = 1;
+            if (page > totalPages && totalPages > 0) page = totalPages;
+
+            var roles = await _roleManager.Roles
+                .OrderBy(r => r.Name)
+                .Skip((page - 1) * pageSize)
+                .Take(pageSize)
+                .ToListAsync();
+
+            ViewBag.PageNumber = page;
+            ViewBag.TotalPages = totalPages;
+            ViewBag.PageSize = pageSize;
+
             return View(roles);
         }
         [HttpPost]

@@ -30,11 +30,31 @@ namespace PropertySurveyService.Controllers
         }
 
         // GET: Agents
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(int page = 1)
         {
-              return _context.Agent != null ? 
-                          View(await _context.Agent.OrderBy(a => a.Type).ToListAsync()) :
-                          Problem("Entity set 'PropertySurveyServiceContext.Agent'  is null.");
+            if (_context.Agent == null)
+            {
+                return Problem("Entity set 'PropertySurveyServiceContext.Agent'  is null.");
+            }
+
+            const int pageSize = 10;
+            var totalCount = await _context.Agent.CountAsync();
+            var totalPages = (int)Math.Ceiling(totalCount / (double)pageSize);
+
+            if (page < 1) page = 1;
+            if (page > totalPages && totalPages > 0) page = totalPages;
+
+            var agents = await _context.Agent
+                .OrderBy(a => a.Type)
+                .Skip((page - 1) * pageSize)
+                .Take(pageSize)
+                .ToListAsync();
+
+            ViewBag.PageNumber = page;
+            ViewBag.TotalPages = totalPages;
+            ViewBag.PageSize = pageSize;
+
+            return View(agents);
         }
 
         // GET: Agents/Details/5

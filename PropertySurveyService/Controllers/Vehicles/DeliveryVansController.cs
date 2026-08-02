@@ -23,9 +23,28 @@ namespace PropertySurveyService.Controllers
         }
 
         // GET: DeliveryVans
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(int page = 1)
         {
-            return View(await repo.Db.DeliveryVans.ToListAsync());
+            if (repo.Db.DeliveryVans == null)
+            {
+                return Problem("Entity set 'Repo.Db.DeliveryVans' is null.");
+            }
+            const int pageSize = 10;
+            var totalCount = await repo.Db.DeliveryVans.CountAsync();
+            var totalPages = (int)Math.Ceiling(totalCount / (double)pageSize);
+            if (page < 1) page = 1;
+            if (page > totalPages && totalPages > 0) page = totalPages;
+
+            var items = repo.Db.DeliveryVans
+                .OrderBy(d => d.Id)
+                .Skip((page - 1) * pageSize)
+                .Take(pageSize);
+
+            ViewBag.PageNumber = page;
+            ViewBag.TotalPages = totalPages;
+            ViewBag.PageSize = pageSize;
+
+            return View(await items.ToListAsync());
         }
 
         // GET: DeliveryVans/Details/5

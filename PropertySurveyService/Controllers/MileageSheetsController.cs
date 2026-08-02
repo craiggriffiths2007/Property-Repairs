@@ -22,9 +22,29 @@ namespace PropertySurveyService.Controllers
         }
 
         // GET: MileageSheets
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(int page = 1)
         {
-            return View(await _context.MileageSheets.ToListAsync());
+            if (_context.MileageSheets == null)
+            {
+                return Problem("Entity set 'PropertySurveyServiceContext.MileageSheets' is null.");
+            }
+            const int pageSize = 10;
+            var totalCount = await _context.MileageSheets.CountAsync();
+            var totalPages = (int)Math.Ceiling(totalCount / (double)pageSize);
+            if (page < 1) page = 1;
+            if (page > totalPages && totalPages > 0) page = totalPages;
+
+            var items = await _context.MileageSheets
+                .OrderBy(m => m.Id)
+                .Skip((page - 1) * pageSize)
+                .Take(pageSize)
+                .ToListAsync();
+
+            ViewBag.PageNumber = page;
+            ViewBag.TotalPages = totalPages;
+            ViewBag.PageSize = pageSize;
+
+            return View(items);
         }
 
         // GET: MileageSheets/Details/5

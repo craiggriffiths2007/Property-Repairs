@@ -22,9 +22,30 @@ namespace PropertySurveyService.Controllers
         }
 
         // GET: FAccidents
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(int page = 1)
         {
-            return View(await _context.FAccidents.ToListAsync());
+            if (_context.FAccidents == null)
+            {
+                return Problem("Entity set 'PropertySurveyServiceContext.FAccidents'  is null.");
+            }
+
+            const int pageSize = 10;
+            var totalCount = await _context.FAccidents.CountAsync();
+            var totalPages = (int)Math.Ceiling(totalCount / (double)pageSize);
+            if (page < 1) page = 1;
+            if (page > totalPages && totalPages > 0) page = totalPages;
+
+            var items = await _context.FAccidents
+                .OrderBy(f => f.Id)
+                .Skip((page - 1) * pageSize)
+                .Take(pageSize)
+                .ToListAsync();
+
+            ViewBag.PageNumber = page;
+            ViewBag.TotalPages = totalPages;
+            ViewBag.PageSize = pageSize;
+
+            return View(items);
         }
 
         // GET: FAccidents/Details/5

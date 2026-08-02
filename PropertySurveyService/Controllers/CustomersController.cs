@@ -22,11 +22,31 @@ namespace PropertySurveyService.Controllers
         }
 
         // GET: Customers
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(int page = 1)
         {
-              return _context.Customer != null ? 
-                          View(await _context.Customer.ToListAsync()) :
-                          Problem("Entity set 'PropertySurveyServiceContext.Customer'  is null.");
+            if (_context.Customer == null)
+            {
+                return Problem("Entity set 'PropertySurveyServiceContext.Customer'  is null.");
+            }
+
+            const int pageSize = 10;
+            var totalCount = await _context.Customer.CountAsync();
+            var totalPages = (int)Math.Ceiling(totalCount / (double)pageSize);
+
+            if (page < 1) page = 1;
+            if (page > totalPages && totalPages > 0) page = totalPages;
+
+            var customers = await _context.Customer
+                .OrderBy(c => c.Name)
+                .Skip((page - 1) * pageSize)
+                .Take(pageSize)
+                .ToListAsync();
+
+            ViewBag.PageNumber = page;
+            ViewBag.TotalPages = totalPages;
+            ViewBag.PageSize = pageSize;
+
+            return View(customers);
         }
 
         // GET: Customers/Details/5

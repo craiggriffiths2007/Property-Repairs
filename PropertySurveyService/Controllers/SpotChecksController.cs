@@ -14,9 +14,29 @@ public class SpotChecksController : Controller
     }
 
     // GET: SPOTCHECKS
-    public async Task<IActionResult> Index()    
+    public async Task<IActionResult> Index(int page = 1)    
     {
-        return View(await _context.SpotChecks.ToListAsync());
+        if (_context.SpotChecks == null)
+        {
+            return Problem("Entity set 'PropertySurveyServiceContext.SpotChecks' is null.");
+        }
+        const int pageSize = 10;
+        var totalCount = await _context.SpotChecks.CountAsync();
+        var totalPages = (int)Math.Ceiling(totalCount / (double)pageSize);
+        if (page < 1) page = 1;
+        if (page > totalPages && totalPages > 0) page = totalPages;
+
+        var items = await _context.SpotChecks
+            .OrderBy(s => s.Id)
+            .Skip((page - 1) * pageSize)
+            .Take(pageSize)
+            .ToListAsync();
+
+        ViewBag.PageNumber = page;
+        ViewBag.TotalPages = totalPages;
+        ViewBag.PageSize = pageSize;
+
+        return View(items);
     }
 
     // GET: SPOTCHECKS/Details/5

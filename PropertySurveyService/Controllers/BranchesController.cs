@@ -22,9 +22,29 @@ namespace PropertySurveyService.Controllers
         }
 
         // GET: Branches
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(int page = 1)
         {
-            return View(await _context.Branches.ToListAsync());
+            if (_context.Branches == null)
+            {
+                return Problem("Entity set 'PropertySurveyServiceContext.Branches' is null.");
+            }
+            const int pageSize = 10;
+            var totalCount = await _context.Branches.CountAsync();
+            var totalPages = (int)Math.Ceiling(totalCount / (double)pageSize);
+            if (page < 1) page = 1;
+            if (page > totalPages && totalPages > 0) page = totalPages;
+
+            var items = await _context.Branches
+                .OrderBy(b => b.Name)
+                .Skip((page - 1) * pageSize)
+                .Take(pageSize)
+                .ToListAsync();
+
+            ViewBag.PageNumber = page;
+            ViewBag.TotalPages = totalPages;
+            ViewBag.PageSize = pageSize;
+
+            return View(items);
         }
 
         // GET: Branches/Details/5

@@ -22,9 +22,28 @@ namespace PropertySurveyService.Controllers
         }
 
         // GET: DeliveryHGVs
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(int page = 1)
         {
-            return View(await repo.Db.DeliveryHGVs.ToListAsync());
+            if (repo.Db.DeliveryHGVs == null)
+            {
+                return Problem("Entity set 'Repo.Db.DeliveryHGVs' is null.");
+            }
+            const int pageSize = 10;
+            var totalCount = await repo.Db.DeliveryHGVs.CountAsync();
+            var totalPages = (int)Math.Ceiling(totalCount / (double)pageSize);
+            if (page < 1) page = 1;
+            if (page > totalPages && totalPages > 0) page = totalPages;
+
+            var items = repo.Db.DeliveryHGVs
+                .OrderBy(d => d.Id)
+                .Skip((page - 1) * pageSize)
+                .Take(pageSize);
+
+            ViewBag.PageNumber = page;
+            ViewBag.TotalPages = totalPages;
+            ViewBag.PageSize = pageSize;
+
+            return View(await items.ToListAsync());
         }
 
         // GET: DeliveryHGVs/Details/5
