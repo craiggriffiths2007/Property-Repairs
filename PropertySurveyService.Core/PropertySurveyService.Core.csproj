@@ -1,0 +1,39 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+	<TargetFramework>net10.0</TargetFramework>
+	<Nullable>enable</Nullable>
+	<ImplicitUsings>enable</ImplicitUsings>
+	<GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+  </PropertyGroup>
+
+  <ItemGroup>
+	<PackageReference Include="Microsoft.EntityFrameworkCore" Version="10.0.9" />
+	<PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="10.0.9" />
+	<PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="10.0.9" />
+  </ItemGroup>
+
+	<ItemGroup>
+	<!-- Link domain model files into core. Exclude web-only view models that reference IFormFile.
+		 Note: only include the Models recursive pattern once to avoid duplicate compile items. -->
+	<Compile Include="..\PropertySurveyService\Models\**\*.cs">
+	  <Link>Models\%(RecursiveDir)%(Filename)%(Extension)</Link>
+	</Compile>
+	<!-- Include existing Migrations so tools can find them when migrations/updates are run against the shared context -->
+	<Compile Include="..\PropertySurveyService\Migrations\**\*.cs">
+	  <Link>Migrations\%(RecursiveDir)%(Filename)%(Extension)</Link>
+	</Compile>
+	<!-- Bring AppUser into the core so Identity types compile -->
+	<Compile Include="..\PropertySurveyService\Data\PropertySurveyServiceUser.cs">
+	  <Link>Data\PropertySurveyServiceUser.cs</Link>
+	</Compile>
+	<!-- Link the original AppDBContext from the web project so the shared context contains all DbSet properties -->
+	<Compile Include="..\PropertySurveyService\Data\PropertySurveyServiceContext.cs">
+	  <Link>Data\PropertySurveyServiceContext.cs</Link>
+	</Compile>
+	<!-- Exclude view-models that reference IFormFile (keeps core free of Http abstractions) -->
+	<Compile Remove="..\PropertySurveyService\Models\UserViewModels.cs" />
+  </ItemGroup>
+
+
+</Project>

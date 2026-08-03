@@ -30,6 +30,7 @@ public class ContractsController : Controller
             .OrderBy(c => c.Id)
             .Skip((page - 1) * pageSize)
             .Take(pageSize)
+            .OrderByDescending(c => c.IncidentDate)
             .ToListAsync();
 
         ViewBag.PageNumber = page;

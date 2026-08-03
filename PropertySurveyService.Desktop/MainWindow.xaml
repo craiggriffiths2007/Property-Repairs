@@ -1,0 +1,28 @@
+<Window x:Class="PropertySurveyService.Desktop.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Property Survey - Desktop" Height="450" Width="800">
+    <Grid Margin="8">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <StackPanel Orientation="Horizontal" Grid.Row="0" Margin="0,0,0,8">
+            <TextBox Width="250" Margin="0,0,8,0" Text="{Binding FilterText, UpdateSourceTrigger=PropertyChanged}" />
+            <Button Content="Search" Command="{Binding SearchCommand}" />
+        </StackPanel>
+
+        <DataGrid ItemsSource="{Binding Customers}" AutoGenerateColumns="True" Grid.Row="1" />
+
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Grid.Row="2" Margin="0,8,0,0">
+            <Button Content="Previous" Command="{Binding PrevPageCommand}" Margin="4" />
+            <TextBlock VerticalAlignment="Center" Margin="8">Page</TextBlock>
+            <TextBlock Text="{Binding PageNumber}" VerticalAlignment="Center" FontWeight="Bold" Margin="4" />
+            <TextBlock VerticalAlignment="Center" Margin="4">of</TextBlock>
+            <TextBlock Text="{Binding TotalPages}" VerticalAlignment="Center" Margin="4" />
+            <Button Content="Next" Command="{Binding NextPageCommand}" Margin="4" />
+        </StackPanel>
+    </Grid>
+</Window>

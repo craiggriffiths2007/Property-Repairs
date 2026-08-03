@@ -1,6 +1,4 @@
-﻿using Microsoft.CodeAnalysis.Elfie.Model.Tree;
-
-namespace PropertySurveyService.Models
+﻿namespace PropertySurveyService.Models
 {
     public enum enum_special_glass_type
     {

@@ -543,6 +543,9 @@ namespace PropertySurveyService.Models
         [DisplayName("Auditor Score (Marks out of 10)")]
         public int marks_out_of_10 { get; set; } = 1;
 
+        [DisplayName("Auditor Score (Marks out of 2)")]
+        public int marks_out_of_2 { get; set; } = 1;
+
         public VehicleCheckVehicle AsVehicleCheckVehicle() { return new VehicleCheckVehicle(Id, enum_vehicle_type.delivery_van, Registration); }
     }
     public class FitterVan : VehicleCheck

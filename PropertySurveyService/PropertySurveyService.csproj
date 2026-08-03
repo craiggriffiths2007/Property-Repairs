@@ -45,4 +45,31 @@
     <Folder Include="wwwroot\lib\quill\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <!-- Exclude domain model classes from the web project; they are compiled in PropertySurveyService.Core -->
+    <Compile Remove="Models\**\*.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- Exclude migrations from the web project because migrations are compiled from PropertySurveyService.Core -->
+    <Compile Remove="Migrations\**\*.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- Re-include web-only view models that reference IFormFile and other web-only types -->
+    <Compile Include="Models\UserViewModels.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- Reference the shared core project which now contains AppDBContext and shared domain models -->
+    <ProjectReference Include="..\PropertySurveyService.Core\PropertySurveyService.Core.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- Exclude the web-local AppDBContext and AppUser definitions (moved into core) to avoid duplicate types -->
+    <Compile Remove="Data\PropertySurveyServiceContext.cs" />
+    <Compile Remove="Data\PropertySurveyServiceUser.cs" />
+  </ItemGroup>
+
+
 </Project>

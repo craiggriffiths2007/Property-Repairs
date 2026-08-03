@@ -1,5 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.CodeAnalysis.Elfie.Model.Tree;
+﻿// Removed ASP.NET and Roslyn Elfie references so models can compile in the shared core project.
+// These usings were only needed for web-specific helpers; keep model POCOs framework-agnostic.
+// using Microsoft.AspNetCore.Mvc;
+// using Microsoft.CodeAnalysis.Elfie.Model.Tree;
 using Microsoft.EntityFrameworkCore;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
