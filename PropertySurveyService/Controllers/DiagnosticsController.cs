@@ -8,7 +8,7 @@ namespace PropertySurveyService.Controllers
         public ActionResult Index()
         {
             // Update this string or pull from Web.config
-            string connectionString = "Server=(localdb)\\mssqllocaldb;Database=GlassOps;Trusted_Connection=True;MultipleActiveResultSets=true";
+            string connectionString = "Server=(localdb)\\mssqllocaldb;Database=GlassOpsWPF;Trusted_Connection=True;MultipleActiveResultSets=true";
 
             try
             {
