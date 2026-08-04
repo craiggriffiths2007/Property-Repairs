@@ -18,42 +18,42 @@ namespace PropertySurveyService.Data
         {
         }
 
-        public DbSet<PropertySurveyService.Models.Job> Job { get; set; } = default!;
-        public DbSet<PropertySurveyService.Models.Customer> Customer { get; set; } = default!;
-        public DbSet<PropertySurveyService.Models.Contract> Contract { get; set; } = default!;
-        public DbSet<PropertySurveyService.Models.ContractNote> ContractNotes { get; set; } = default!;
-        public DbSet<PropertySurveyService.Models.Agent> Agent { get; set; } = default!;
-        public DbSet<PropertySurveyService.Models.JobHeader> JobHeader { get; set; } = default!;
-        public DbSet<PropertySurveyService.Models.Aluminium> Aluminium { get; set; } = default!;
-        public DbSet<PropertySurveyService.Models.Bifolding> Bifolding { get; set; } = default!;
-        public DbSet<PropertySurveyService.Models.Composite> Composite { get; set; } = default!;
-        public DbSet<PropertySurveyService.Models.Conservatory> Conservatory { get; set; } = default!;
-        public DbSet<PropertySurveyService.Models.Garage> Garage { get; set; } = default!;
-        public DbSet<PropertySurveyService.Models.Glass> Glass { get; set; } = default!;
-        public DbSet<PropertySurveyService.Models.Greenhouse> Greenhouse { get; set; } = default!;
-        public DbSet<PropertySurveyService.Models.Lockmech> Lockmech { get; set; } = default!;
-        public DbSet<PropertySurveyService.Models.Panel> Panel { get; set; } = default!;
-        public DbSet<PropertySurveyService.Models.Timber> Timber { get; set; } = default!;
-        public DbSet<PropertySurveyService.Models.UPVC> UPVC { get; set; } = default!;
-        public DbSet<PropertySurveyService.Models.Material> Frame { get; set; } = default!;
-        public DbSet<PropertySurveyService.Models.PhotoImage> Images { get; set; } = default!;
+        public DbSet<Job> Job { get; set; } = default!;
+        public DbSet<Customer> Customer { get; set; } = default!;
+        public DbSet<Contract> Contract { get; set; } = default!;
+        public DbSet<ContractNote> ContractNotes { get; set; } = default!;
+        public DbSet<Agent> Agent { get; set; } = default!;
+        public DbSet<JobHeader> JobHeader { get; set; } = default!;
+        public DbSet<Aluminium> Aluminium { get; set; } = default!;
+        public DbSet<Bifolding> Bifolding { get; set; } = default!;
+        public DbSet<Composite> Composite { get; set; } = default!;
+        public DbSet<Conservatory> Conservatory { get; set; } = default!;
+        public DbSet<Garage> Garage { get; set; } = default!;
+        public DbSet<Glass> Glass { get; set; } = default!;
+        public DbSet<Greenhouse> Greenhouse { get; set; } = default!;
+        public DbSet<Lockmech> Lockmech { get; set; } = default!;
+        public DbSet<Panel> Panel { get; set; } = default!;
+        public DbSet<Timber> Timber { get; set; } = default!;
+        public DbSet<UPVC> UPVC { get; set; } = default!;
+        public DbSet<Material> Frame { get; set; } = default!;
+        public DbSet<PhotoImage> Images { get; set; } = default!;
 
-        public DbSet<PropertySurveyService.Models.Branch> Branches { get; set; } = default!;
-        public DbSet<PropertySurveyService.Models.Vehicle> Vehicles { get; set; } = default!;
+        public DbSet<Branch> Branches { get; set; } = default!;
+        public DbSet<Vehicle> Vehicles { get; set; } = default!;
 
-        public DbSet<PropertySurveyService.Models.VehicleCheckHeader> VehicleCheckHeaders { get; set; } = default!;
+        public DbSet<VehicleCheckHeader> VehicleCheckHeaders { get; set; } = default!;
 
-        public DbSet<PropertySurveyService.Models.DeliveryVan> DeliveryVans { get; set; } = default!;
-        public DbSet<PropertySurveyService.Models.DeliveryHGV> DeliveryHGVs { get; set; } = default!;
-        public DbSet<PropertySurveyService.Models.FitterVan> FitterVans { get; set; } = default!;
-        public DbSet<PropertySurveyService.Models.SalesCar> SalesCars { get; set; } = default!;
-        public DbSet<PropertySurveyService.Models.VAccident> VAccidents { get; set; } = default!;
-        public DbSet<PropertySurveyService.Models.Whitness> Whitnesses { get; set; } = default!;
-        public DbSet<PropertySurveyService.Models.FAccident> FAccidents { get; set; } = default!;
-        public DbSet<PropertySurveyService.Models.ToolCheck> ToolChecks { get; set; } = default!;
-        public DbSet<PropertySurveyService.Models.MileageSheet> MileageSheets { get; set; } = default!;
-        public DbSet<PropertySurveyService.Models.LadderCheck> LadderChecks { get; set; } = default!;
-        public DbSet<PropertySurveyService.Models.SpotCheck> SpotChecks { get; set; } = default;
+        public DbSet<DeliveryVan> DeliveryVans { get; set; } = default!;
+        public DbSet<DeliveryHGV> DeliveryHGVs { get; set; } = default!;
+        public DbSet<FitterVan> FitterVans { get; set; } = default!;
+        public DbSet<SalesCar> SalesCars { get; set; } = default!;
+        public DbSet<VAccident> VAccidents { get; set; } = default!;
+        public DbSet<Whitness> Whitnesses { get; set; } = default!;
+        public DbSet<FAccident> FAccidents { get; set; } = default!;
+        public DbSet<ToolCheck> ToolChecks { get; set; } = default!;
+        public DbSet<MileageSheet> MileageSheets { get; set; } = default!;
+        public DbSet<LadderCheck> LadderChecks { get; set; } = default!;
+        public DbSet<SpotCheck> SpotChecks { get; set; } = default;
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
