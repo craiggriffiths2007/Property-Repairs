@@ -31,7 +31,7 @@ namespace PropertySurveyService
                 if (agent == null) 
                     return Task.FromResult<IResult>(Results.BadRequest(new { ReasonPhrase = "Agent Code Not Found : " + gs.AgentCode }));
                 else
-                    if(agent.Password != gs.Password)
+                    if(agent.Password.ToUpper() != gs.Password.ToUpper())
                         return Task.FromResult<IResult>(Results.BadRequest(new { ReasonPhrase = "Password Incorrect" + gs.AgentCode }));
 
                 AgentLoginDTO send_data = new AgentLoginDTO();
