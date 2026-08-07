@@ -67,7 +67,7 @@ namespace PropertySurveyService.Models
         public string FinishTime { get; set; } = "";
 
         [DisplayName("Surveyor Time Arrived")]
-        public string TimeArrived { get; set; } = DateTime.Now.ToShortTimeString();
+        public string TimeArrived { get; set; } = "00:00";
 
 
         [DisplayName("Completed DateTime")]
@@ -139,16 +139,8 @@ namespace PropertySurveyService.Models
 
         public string CustomerAddPhoneNumber2 { get; set; } = "";
 
-
-
-        [DisplayName("Type A")]
-        public string typeA { get; set; } = "";
-
-        [DisplayName("Type B")]
-        public string typeB { get; set; } = "";
-
         [DisplayName("Traffic Light")]
-        public int udi_tlight { get; set; }
+        public enum_tlight TrafficLight { get; set; }
 
         #endregion
 
@@ -165,12 +157,6 @@ namespace PropertySurveyService.Models
 
         [DisplayName("Number of Items")]
         public int NumberOfItems { get; set; }
-
-        [DisplayName("Job Grade")]
-        public string job_grade { get; set; } = "";
-
-        [DisplayName("Job Size")]
-        public string njs { get; set; } = "";
 
         [DisplayName("Report Text")]
         public string Report { get; set; } = "";
@@ -445,7 +431,7 @@ namespace PropertySurveyService.Models
         public bool bSurvey { get; set; }
 
         [DisplayName("Survey Complete")]
-        public bool? survey_complete { get; set; }
+        public bool? survey_complete { get; set; } = true;
 
         [DisplayName("Reason Not Complete")]
         public string reason_not_complete { get; set; } = "";
@@ -848,7 +834,6 @@ namespace PropertySurveyService.Models
 
         [DisplayName("Number of Videos")]
         public int no_of_videos { get; set; }
-
 
 
 

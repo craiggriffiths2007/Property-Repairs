@@ -18,6 +18,13 @@ namespace PropertySurveyService.Models
         Remedial
     }
 
+    public enum enum_tlight
+    {
+        Red,
+        Orange,
+        Green,
+    }
+
     public enum agent_type
     {
         Surveyor,

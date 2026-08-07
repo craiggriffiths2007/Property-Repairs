@@ -496,23 +496,26 @@ namespace PropertySurveyService
                     jobHeader.StartTime = job.Time.ToShortTimeString();
                     jobHeader.FinishTime = job.Time.AddHours(1).ToShortTimeString(); // doesnt have a finish time yet
                     jobHeader.DiaryDate = job.DiaryDate;
-
-                    jobHeader.CustomerName = job.Customer.Name;
-                    jobHeader.CustomerAddressLine1 = job.Customer.Add1;
-                    jobHeader.CustomerAddressLine2 = job.Customer.Add2;
-                    jobHeader.CustomerAddressLine3 = job.Customer.Add3;
-                    jobHeader.CustomerPostcode = job.Customer.Postcode;
-                    jobHeader.CustomerPhoneNumber = job.Customer.Phone1;
-                    jobHeader.CustomerPhoneNumber2 = job.Customer.Phone2;
-                    jobHeader.CustomerPhoneNumber3 = job.Customer.Phone3;
-
-                    jobHeader.InsuranceCompanyName = job.Contract.InsuranceCompanyName;
-                    jobHeader.IncidentDate = job.Contract.IncidentDate.ToShortDateString();
-                    jobHeader.CauseOfDamage = job.Contract.CauseOfDamage;
-                    jobHeader.PolicyNumber = job.Contract.PolicyNumber;
-                    jobHeader.Excess = job.Contract.Excess;
-                    jobHeader.DamageDescription = job.Contract.DamageDescription;
-
+                    if (job.Customer != null)
+                    {
+                        jobHeader.CustomerName = job.Customer.Name;
+                        jobHeader.CustomerAddressLine1 = job.Customer.Add1;
+                        jobHeader.CustomerAddressLine2 = job.Customer.Add2;
+                        jobHeader.CustomerAddressLine3 = job.Customer.Add3;
+                        jobHeader.CustomerPostcode = job.Customer.Postcode;
+                        jobHeader.CustomerPhoneNumber = job.Customer.Phone1;
+                        jobHeader.CustomerPhoneNumber2 = job.Customer.Phone2;
+                        jobHeader.CustomerPhoneNumber3 = job.Customer.Phone3;
+                    }
+                    if (job.Contract != null)
+                    {
+                        jobHeader.InsuranceCompanyName = job.Contract.InsuranceCompanyName;
+                        jobHeader.IncidentDate = job.Contract.IncidentDate.ToShortDateString();
+                        jobHeader.CauseOfDamage = job.Contract.CauseOfDamage;
+                        jobHeader.PolicyNumber = job.Contract.PolicyNumber;
+                        jobHeader.Excess = job.Contract.Excess;
+                        jobHeader.DamageDescription = job.Contract.DamageDescription;
+                    }
                     jobHeader.bComplete = false;
                     jobHeader.bSent = false;
 
@@ -522,9 +525,9 @@ namespace PropertySurveyService
                     {
                         string pattern = $"{jobHeader.ContractCode:00000000}_______%"; // using _ as a wildcard ( would have been cAZ and dAZ )
 
-                        List<string?> imagesRange = db.Images
+                        List<string> imagesRange = db.Images
                             .Where(x => EF.Functions.Like(x.Filename, pattern)).Select(f => f.Filename)
-                            .ToList();
+                            .ToList()??new List<string>();
 
                         foreach (var im in imagesRange)
                         {
@@ -535,13 +538,13 @@ namespace PropertySurveyService
                         }
                     }
 
-                    if(false)
+                    if(true)
                     { // add videos of job
                         string pattern = $"{jobHeader.ContractCode:00000000}_Videos%"; 
 
-                        List<string?> imagesRange = db.Images
+                        List<string> imagesRange = db.Images
                             .Where(x => EF.Functions.Like(x.Filename, pattern)).Select(f => f.Filename)
-                            .ToList();
+                            .ToList()??new List<string>();
 
                         foreach (var im in imagesRange)
                         {
