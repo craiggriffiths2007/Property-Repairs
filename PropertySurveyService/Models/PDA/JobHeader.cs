@@ -575,11 +575,7 @@ namespace PropertySurveyService.Models
 
 
 
-        [DisplayName("Signed (Motor Sheet)")]
-        public int i_signed { get; set; }
 
-        [DisplayName("Signed Customer (Motor Sheet)")]
-        public int i_signed_cust { get; set; }
 
         #endregion
 
@@ -776,13 +772,40 @@ namespace PropertySurveyService.Models
         public bool? additional_summary_info { get; set; }
 
 
-
-
-        #endregion
-
         [DisplayName("Garage Door Motor")]
         public bool? garage_door_motor { get; set; }
 
+        #endregion
+
+
+        public GarageDoorMotor? GarageDoorMotor { get; set; }
+
+
+
+
+        [DisplayName("Globaldoor Link")]
+        public string global_door_link { get; set; } = "";
+        [DisplayName("Tower Scaffold")]
+        public bool? bFitterUsedTowerScaffolding { get; set; }
+
+        [DisplayName("Lintel Signed")]
+        public bool bFitterLintelSigned { get; set; }
+
+        [DisplayName("Number of Videos")]
+        public int no_of_videos { get; set; }
+
+
+
+        public JobHeaderIndex AsJobHeaderIndex() { return new JobHeaderIndex(Id, JobType, AgentCode, DiaryDate, DateTimeCompleted); }
+
+    }
+
+    public class GarageDoorMotor
+    {
+        [Key]
+        public int Id { get; set; }
+
+        //public JobHeader JobHeader { get; set; } = null!;
 
         [Browsable(false)]
         [DisplayName("GD Type")]
@@ -822,25 +845,12 @@ namespace PropertySurveyService.Models
         [DisplayName("GD Sign Date")]
         public string gdm_sign_date { get; set; } = "";
 
+        [DisplayName("Signed (Motor Sheet)")]
+        public bool MotorSigned { get; set; }
 
-
-
-
-        [DisplayName("Globaldoor Link")]
-        public string global_door_link { get; set; } = "";
-        [DisplayName("Tower Scaffold")]
-        public bool? bFitterUsedTowerScaffolding { get; set; }
-
-        [DisplayName("Lintel Signed")]
-        public bool bFitterLintelSigned { get; set; }
-
-        [DisplayName("Number of Videos")]
-        public int no_of_videos { get; set; }
-
-
-
-        public JobHeaderIndex AsJobHeaderIndex() { return new JobHeaderIndex(Id, JobType, AgentCode, DiaryDate, DateTimeCompleted); }
-
+        [DisplayName("Signed Customer (Motor Sheet)")]
+        public bool MotorSignedCustomer { get; set; }
     }
+
 
 }

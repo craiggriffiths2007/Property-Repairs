@@ -12,8 +12,8 @@ using PropertySurveyService.Data;
 namespace PropertySurveyService.Migrations
 {
     [DbContext(typeof(AppDBContext))]
-    [Migration("20260718115242_removed-special-glass")]
-    partial class removedspecialglass
+    [Migration("20260808073325_initial-create")]
+    partial class initialcreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -1655,27 +1655,35 @@ namespace PropertySurveyService.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Add1")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Add2")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Add3")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Phone1")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Phone2")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Phone3")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Postcode")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
@@ -3587,6 +3595,70 @@ namespace PropertySurveyService.Migrations
                     b.ToTable("Garage");
                 });
 
+            modelBuilder.Entity("PropertySurveyService.Models.GarageDoorMotor", b =>
+                {
+                    b.Property<int>("Id")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("MotorSigned")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("MotorSignedCustomer")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("gdm_cust_name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("gdm_dec_made_by")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("gdm_door_manufacturer")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("gdm_door_size")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("gdm_door_type")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("gdm_model_type")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("gdm_operator_manufacturer")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("gdm_operator_type")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("gdm_powerered_operator_type")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("gdm_sign_date")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("gdm_site_address")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("gdm_unique_serial")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("GarageDoorMotor");
+                });
+
             modelBuilder.Entity("PropertySurveyService.Models.Glass", b =>
                 {
                     b.Property<int>("Id")
@@ -3613,6 +3685,9 @@ namespace PropertySurveyService.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("SpecialGlassType")
+                        .HasColumnType("int");
+
                     b.Property<string>("Summary")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -3630,11 +3705,18 @@ namespace PropertySurveyService.Migrations
                     b.Property<bool>("bDifferentFromOriginalSigned")
                         .HasColumnType("bit");
 
+                    b.Property<bool>("bSpecialGlassComplete")
+                        .HasColumnType("bit");
+
                     b.Property<string>("back_to_back_spacer_height")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("back_to_back_spacer_width")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("bar_thickness")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -3660,8 +3742,8 @@ namespace PropertySurveyService.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("gb_trim")
-                        .HasColumnType("int");
+                    b.Property<bool>("gb_trim")
+                        .HasColumnType("bit");
 
                     b.Property<string>("glass_height")
                         .IsRequired()
@@ -3770,8 +3852,9 @@ namespace PropertySurveyService.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("lead_anti_rattle")
-                        .HasColumnType("int");
+                    b.Property<string>("lead_anti_rattle")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("lead_bBackToBackComplete")
                         .HasColumnType("bit");
@@ -4282,6 +4365,10 @@ namespace PropertySurveyService.Migrations
                     b.Property<int>("NumberOfItems")
                         .HasColumnType("int");
 
+                    b.Property<string>("OtherCauseOfDamage")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("PolicyNumber")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -4341,6 +4428,9 @@ namespace PropertySurveyService.Migrations
                     b.Property<string>("TimeArrived")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("TrafficLight")
+                        .HasColumnType("int");
 
                     b.Property<string>("acc_text")
                         .IsRequired()
@@ -4530,60 +4620,8 @@ namespace PropertySurveyService.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("funfinoth")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<bool?>("garage_door_motor")
                         .HasColumnType("bit");
-
-                    b.Property<string>("gdm_cust_name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("gdm_dec_made_by")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("gdm_door_manufacturer")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("gdm_door_size")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("gdm_door_type")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("gdm_model_type")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("gdm_operator_manufacturer")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("gdm_operator_type")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("gdm_powerered_operator_type")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("gdm_sign_date")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("gdm_site_address")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("gdm_unique_serial")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<bool?>("genreq")
                         .HasColumnType("bit");
@@ -4606,12 +4644,6 @@ namespace PropertySurveyService.Migrations
                     b.Property<string>("hire_equipment_used_text")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("i_signed")
-                        .HasColumnType("int");
-
-                    b.Property<int>("i_signed_cust")
-                        .HasColumnType("int");
 
                     b.Property<int>("incomplete_alum")
                         .HasColumnType("int");
@@ -4656,10 +4688,6 @@ namespace PropertySurveyService.Migrations
                     b.Property<bool?>("items_above_roof")
                         .HasColumnType("bit");
 
-                    b.Property<string>("job_grade")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("lintel_present")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -4672,10 +4700,6 @@ namespace PropertySurveyService.Migrations
                         .HasColumnType("bit");
 
                     b.Property<string>("loose_brick_text")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("njs")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -4880,20 +4904,9 @@ namespace PropertySurveyService.Migrations
                     b.Property<int>("total_upvc")
                         .HasColumnType("int");
 
-                    b.Property<string>("typeA")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("typeB")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("type_of_equipment")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("udi_tlight")
-                        .HasColumnType("int");
 
                     b.Property<bool?>("work_at_height")
                         .HasColumnType("bit");
@@ -8392,6 +8405,15 @@ namespace PropertySurveyService.Migrations
                     b.Navigation("Customer");
                 });
 
+            modelBuilder.Entity("PropertySurveyService.Models.GarageDoorMotor", b =>
+                {
+                    b.HasOne("PropertySurveyService.Models.JobHeader", null)
+                        .WithOne("GarageDoorMotor")
+                        .HasForeignKey("PropertySurveyService.Models.GarageDoorMotor", "Id")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
             modelBuilder.Entity("PropertySurveyService.Models.Job", b =>
                 {
                     b.HasOne("PropertySurveyService.Models.Agent", "Agent")
@@ -8424,6 +8446,11 @@ namespace PropertySurveyService.Migrations
                         .IsRequired();
 
                     b.Navigation("Branch");
+                });
+
+            modelBuilder.Entity("PropertySurveyService.Models.JobHeader", b =>
+                {
+                    b.Navigation("GarageDoorMotor");
                 });
 #pragma warning restore 612, 618
         }

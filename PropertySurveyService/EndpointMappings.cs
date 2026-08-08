@@ -357,8 +357,17 @@ namespace PropertySurveyService
                     if (job.Head != null)
                     {
                         job.Head.Id = 0; // Ensure a new record is created
-                        db.JobHeader.Where(l => l.Guid == job.Head.Guid).ExecuteDelete();
+                        if (job.Head.GarageDoorMotor != null)
+                        {
+                            job.Head.GarageDoorMotor.Id = 0;
+                        }
+
+                        await db.JobHeader
+                            .Where(l => l.Guid == job.Head.Guid)
+                            .ExecuteDeleteAsync();
+
                         db.JobHeader.Add(job.Head);
+
                         await db.SaveChangesAsync();
                         int headerId = job.Head.Id;
 
@@ -476,9 +485,9 @@ namespace PropertySurveyService
                         jobHeader = db.JobHeader
                         .Where(h => h.ContractCode == job.ContractCode &&
                                     h.JobType == enum_job_type.Survey)
-                         .OrderByDescending(h => h.DateTimeCompleted)
-
-                        .FirstOrDefault() ?? new JobHeader();
+                                        .Include(g => g.GarageDoorMotor)
+                                        .OrderByDescending(h => h.DateTimeCompleted)
+                                        .FirstOrDefault() ?? new JobHeader();
 
                         if (jobHeader.Id > 0) // 
                         {

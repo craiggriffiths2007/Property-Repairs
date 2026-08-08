@@ -101,20 +101,6 @@ namespace PropertySurveyService.Migrations
                     Summary = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     bDoorComplete = table.Column<bool>(type: "bit", nullable: false),
                     bWindowComplete = table.Column<bool>(type: "bit", nullable: false),
-                    lead_sizeA = table.Column<int>(type: "int", nullable: false),
-                    lead_sizeB = table.Column<int>(type: "int", nullable: false),
-                    lead_sizeC = table.Column<int>(type: "int", nullable: false),
-                    lead_sizeD = table.Column<int>(type: "int", nullable: false),
-                    lead_CWidth = table.Column<int>(type: "int", nullable: false),
-                    lead_CHeight = table.Column<int>(type: "int", nullable: false),
-                    lead_anti_rattle = table.Column<int>(type: "int", nullable: false),
-                    lead_thickness = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    lead_sod = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    lead_type = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    lead_bBackToBackComplete = table.Column<bool>(type: "bit", nullable: false),
-                    lead_bDiamondComplete = table.Column<bool>(type: "bit", nullable: false),
-                    lead_bGeorgianComplete = table.Column<bool>(type: "bit", nullable: false),
-                    lead_bBarComplete = table.Column<bool>(type: "bit", nullable: false),
                     lead_bSGDesignComplete = table.Column<bool>(type: "bit", nullable: false),
                     lock_make = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     lock_codes = table.Column<string>(type: "nvarchar(max)", nullable: false),
@@ -133,13 +119,10 @@ namespace PropertySurveyService.Migrations
                     outer_section_width = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     outer_section_height = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     parts_to_order = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    lead_comments = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     is_a_flat = table.Column<bool>(type: "bit", nullable: true),
                     point_of_entry = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     type_of_lockng_system_required = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     was_it_locked = table.Column<int>(type: "int", nullable: false),
-                    back_to_back_spacer_width = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    back_to_back_spacer_height = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     l_size1 = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     l_size2 = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     l_sizeA = table.Column<string>(type: "nvarchar(max)", nullable: false),
@@ -165,8 +148,6 @@ namespace PropertySurveyService.Migrations
                     l_itype5 = table.Column<int>(type: "int", nullable: false),
                     l_itype6 = table.Column<int>(type: "int", nullable: false),
                     l_itype7 = table.Column<int>(type: "int", nullable: false),
-                    lead_CWidthf = table.Column<float>(type: "real", nullable: false),
-                    lead_CHeightf = table.Column<float>(type: "real", nullable: false),
                     lead_CWidths = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     lead_CHeights = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     glass_complete = table.Column<bool>(type: "bit", nullable: false),
@@ -372,15 +353,12 @@ namespace PropertySurveyService.Migrations
                     door_wood = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     hinged_on = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     reason_not_repaired = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    lead_comments = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     parts_to_order = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     is_a_flat = table.Column<bool>(type: "bit", nullable: true),
                     point_of_entry = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     type_of_lockng_system_required = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     was_it_locked = table.Column<int>(type: "int", nullable: false),
                     fire_door = table.Column<bool>(type: "bit", nullable: true),
-                    lead_CWidthf = table.Column<float>(type: "real", nullable: false),
-                    lead_CHeightf = table.Column<float>(type: "real", nullable: false),
                     lead_CWidths = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     lead_CHeights = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     glass_complete = table.Column<bool>(type: "bit", nullable: false),
@@ -519,14 +497,14 @@ namespace PropertySurveyService.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Add1 = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Add2 = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Add3 = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Postcode = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Phone1 = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Phone2 = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Phone3 = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Add1 = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Add2 = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Add3 = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Postcode = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Phone1 = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Phone2 = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Phone3 = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -1104,8 +1082,6 @@ namespace PropertySurveyService.Migrations
                     point_of_entry = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     type_of_lockng_system_required = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     was_it_locked = table.Column<int>(type: "int", nullable: false),
-                    back_to_back_spacer_width = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    back_to_back_spacer_height = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     l_num = table.Column<int>(type: "int", nullable: false),
                     lock_position = table.Column<float>(type: "real", nullable: false),
                     glass_complete = table.Column<bool>(type: "bit", nullable: false),
@@ -1149,8 +1125,6 @@ namespace PropertySurveyService.Migrations
                     lead_bDiamondComplete = table.Column<bool>(type: "bit", nullable: false),
                     lead_bGeorgianComplete = table.Column<bool>(type: "bit", nullable: false),
                     lead_bBarComplete = table.Column<bool>(type: "bit", nullable: false),
-                    lead_CWidthf = table.Column<float>(type: "real", nullable: false),
-                    lead_CHeightf = table.Column<float>(type: "real", nullable: false),
                     lead_CWidths = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     lead_CHeights = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     timber_wood = table.Column<string>(type: "nvarchar(max)", nullable: false),
@@ -1315,9 +1289,12 @@ namespace PropertySurveyService.Migrations
                     sizeD = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     lead_CWidth = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     lead_CHeight = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    lead_anti_rattle = table.Column<int>(type: "int", nullable: false),
+                    lead_anti_rattle = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     lead_thickness = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    bar_thickness = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     lead_sod = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    SpecialGlassType = table.Column<int>(type: "int", nullable: false),
+                    bSpecialGlassComplete = table.Column<bool>(type: "bit", nullable: false),
                     lead_type = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     lead_bBackToBackComplete = table.Column<bool>(type: "bit", nullable: false),
                     lead_bDiamondComplete = table.Column<bool>(type: "bit", nullable: false),
@@ -1330,7 +1307,7 @@ namespace PropertySurveyService.Migrations
                     no_of_pics = table.Column<int>(type: "int", nullable: false),
                     docl_old = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     no_of_photos = table.Column<int>(type: "int", nullable: false),
-                    gb_trim = table.Column<int>(type: "int", nullable: false),
+                    gb_trim = table.Column<bool>(type: "bit", nullable: false),
                     docl = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     room_location = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     no_of_vids = table.Column<int>(type: "int", nullable: false),
@@ -1354,8 +1331,6 @@ namespace PropertySurveyService.Migrations
                     was_it_locked = table.Column<int>(type: "int", nullable: false),
                     back_to_back_spacer_width = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     back_to_back_spacer_height = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    lead_CWidthf = table.Column<float>(type: "real", nullable: false),
-                    lead_CHeightf = table.Column<float>(type: "real", nullable: false),
                     sizeAf = table.Column<float>(type: "real", nullable: false),
                     sizeBf = table.Column<float>(type: "real", nullable: false),
                     sizeCf = table.Column<float>(type: "real", nullable: false),
@@ -1468,15 +1443,11 @@ namespace PropertySurveyService.Migrations
                     CustomerPhoneNumber3 = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     CustomerAddPhoneNumber1 = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     CustomerAddPhoneNumber2 = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    typeA = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    typeB = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    udi_tlight = table.Column<int>(type: "int", nullable: false),
+                    TrafficLight = table.Column<int>(type: "int", nullable: false),
                     JobInstructions = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     BookedOnDay1 = table.Column<bool>(type: "bit", nullable: true),
                     ReasonNotBookedOnDay1 = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     NumberOfItems = table.Column<int>(type: "int", nullable: false),
-                    job_grade = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    njs = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Report = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Summary = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     doorbell = table.Column<bool>(type: "bit", nullable: true),
@@ -1543,7 +1514,7 @@ namespace PropertySurveyService.Migrations
                     bFitterMandateSigned = table.Column<bool>(type: "bit", nullable: true),
                     FitterReasonMandateNotSigned = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     MandateSentence = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    funfinoth = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    OtherCauseOfDamage = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     bFitterSigned = table.Column<bool>(type: "bit", nullable: false),
                     FitterPartsRequiredToComplete = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     bFitterStockUsageComplete = table.Column<bool>(type: "bit", nullable: false),
@@ -1597,8 +1568,6 @@ namespace PropertySurveyService.Migrations
                     ss_secdoors_other = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     ss_time_required = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     ss_no_of_photos = table.Column<int>(type: "int", nullable: false),
-                    i_signed = table.Column<int>(type: "int", nullable: false),
-                    i_signed_cust = table.Column<int>(type: "int", nullable: false),
                     total_upvc = table.Column<int>(type: "int", nullable: false),
                     total_panels = table.Column<int>(type: "int", nullable: false),
                     total_glass = table.Column<int>(type: "int", nullable: false),
@@ -1645,18 +1614,6 @@ namespace PropertySurveyService.Migrations
                     hire_equipment_used_text = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     additional_summary_info = table.Column<bool>(type: "bit", nullable: true),
                     garage_door_motor = table.Column<bool>(type: "bit", nullable: true),
-                    gdm_door_type = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    gdm_model_type = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    gdm_unique_serial = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    gdm_door_size = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    gdm_door_manufacturer = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    gdm_powerered_operator_type = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    gdm_operator_type = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    gdm_operator_manufacturer = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    gdm_site_address = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    gdm_dec_made_by = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    gdm_cust_name = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    gdm_sign_date = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     global_door_link = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     bFitterUsedTowerScaffolding = table.Column<bool>(type: "bit", nullable: true),
                     bFitterLintelSigned = table.Column<bool>(type: "bit", nullable: false),
@@ -2169,20 +2126,6 @@ namespace PropertySurveyService.Migrations
                     bFensa = table.Column<bool>(type: "bit", nullable: false),
                     WER_rating = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Summary = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    lead_sizeA = table.Column<int>(type: "int", nullable: false),
-                    lead_sizeB = table.Column<int>(type: "int", nullable: false),
-                    lead_sizeC = table.Column<int>(type: "int", nullable: false),
-                    lead_sizeD = table.Column<int>(type: "int", nullable: false),
-                    lead_CWidth = table.Column<int>(type: "int", nullable: false),
-                    lead_CHeight = table.Column<int>(type: "int", nullable: false),
-                    lead_anti_rattle = table.Column<int>(type: "int", nullable: false),
-                    lead_thickness = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    lead_sod = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    lead_type = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    lead_bBackToBackComplete = table.Column<bool>(type: "bit", nullable: false),
-                    lead_bDiamondComplete = table.Column<bool>(type: "bit", nullable: false),
-                    lead_bGeorgianComplete = table.Column<bool>(type: "bit", nullable: false),
-                    lead_bBarComplete = table.Column<bool>(type: "bit", nullable: false),
                     lock_make = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     lock_codes = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     GearBox = table.Column<int>(type: "int", nullable: false),
@@ -2195,15 +2138,12 @@ namespace PropertySurveyService.Migrations
                     collect_and_copy = table.Column<bool>(type: "bit", nullable: true),
                     temporary = table.Column<int>(type: "int", nullable: false),
                     pre_glazed_door = table.Column<bool>(type: "bit", nullable: true),
-                    lead_comments = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     weather_bar = table.Column<bool>(type: "bit", nullable: true),
                     parts_to_order = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     is_a_flat = table.Column<bool>(type: "bit", nullable: true),
                     point_of_entry = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     type_of_lockng_system_required = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     was_it_locked = table.Column<int>(type: "int", nullable: false),
-                    back_to_back_spacer_width = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    back_to_back_spacer_height = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     l_size1 = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     l_size2 = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     l_sizeA = table.Column<string>(type: "nvarchar(max)", nullable: false),
@@ -2229,8 +2169,6 @@ namespace PropertySurveyService.Migrations
                     l_itype5 = table.Column<int>(type: "int", nullable: false),
                     l_itype6 = table.Column<int>(type: "int", nullable: false),
                     l_itype7 = table.Column<int>(type: "int", nullable: false),
-                    lead_CWidthf = table.Column<float>(type: "real", nullable: false),
-                    lead_CHeightf = table.Column<float>(type: "real", nullable: false),
                     lead_CWidths = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     lead_CHeights = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     glass_complete = table.Column<bool>(type: "bit", nullable: false),
@@ -2434,7 +2372,6 @@ namespace PropertySurveyService.Migrations
                     right_bolt = table.Column<int>(type: "int", nullable: false),
                     GearBox = table.Column<int>(type: "int", nullable: false),
                     hinge_colour = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    lead_comments = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     collect_and_copy = table.Column<bool>(type: "bit", nullable: true),
                     temporary = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     parts_to_order = table.Column<string>(type: "nvarchar(max)", nullable: false),
@@ -2442,8 +2379,6 @@ namespace PropertySurveyService.Migrations
                     point_of_entry = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     type_of_lockng_system_required = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     was_it_locked = table.Column<int>(type: "int", nullable: false),
-                    back_to_back_spacer_width = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    back_to_back_spacer_height = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     l_size1 = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     l_size2 = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     l_sizeA = table.Column<string>(type: "nvarchar(max)", nullable: false),
@@ -2469,10 +2404,6 @@ namespace PropertySurveyService.Migrations
                     l_itype5 = table.Column<int>(type: "int", nullable: false),
                     l_itype6 = table.Column<int>(type: "int", nullable: false),
                     l_itype7 = table.Column<int>(type: "int", nullable: false),
-                    lead_CWidthf = table.Column<float>(type: "real", nullable: false),
-                    lead_CHeightf = table.Column<float>(type: "real", nullable: false),
-                    lead_CWidths = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    lead_CHeights = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     glass_complete = table.Column<bool>(type: "bit", nullable: false),
                     replace_glass = table.Column<bool>(type: "bit", nullable: true)
                 },
@@ -2761,6 +2692,37 @@ namespace PropertySurveyService.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "GarageDoorMotor",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false),
+                    gdm_door_type = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    gdm_model_type = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    gdm_unique_serial = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    gdm_door_size = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    gdm_door_manufacturer = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    gdm_powerered_operator_type = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    gdm_operator_type = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    gdm_operator_manufacturer = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    gdm_site_address = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    gdm_dec_made_by = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    gdm_cust_name = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    gdm_sign_date = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    MotorSigned = table.Column<bool>(type: "bit", nullable: false),
+                    MotorSignedCustomer = table.Column<bool>(type: "bit", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_GarageDoorMotor", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_GarageDoorMotor_JobHeader_Id",
+                        column: x => x.Id,
+                        principalTable: "JobHeader",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Job",
                 columns: table => new
                 {
@@ -2926,6 +2888,9 @@ namespace PropertySurveyService.Migrations
                 name: "Garage");
 
             migrationBuilder.DropTable(
+                name: "GarageDoorMotor");
+
+            migrationBuilder.DropTable(
                 name: "Glass");
 
             migrationBuilder.DropTable(
@@ -2936,9 +2901,6 @@ namespace PropertySurveyService.Migrations
 
             migrationBuilder.DropTable(
                 name: "Job");
-
-            migrationBuilder.DropTable(
-                name: "JobHeader");
 
             migrationBuilder.DropTable(
                 name: "LadderChecks");
@@ -2984,6 +2946,9 @@ namespace PropertySurveyService.Migrations
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers");
+
+            migrationBuilder.DropTable(
+                name: "JobHeader");
 
             migrationBuilder.DropTable(
                 name: "Agent");

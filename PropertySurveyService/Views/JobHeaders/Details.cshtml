@@ -193,7 +193,7 @@ else
         if(type==1)
         {
             window.open(
-                '@Url.Action("GarageMotor", "Jobs")',
+                '@Url.Action("GarageMotor", "JobHeaders", new { id = Model.JobHeader.Id })',
                 '_blank',
                 'width=900,height=700'
             );
@@ -201,7 +201,7 @@ else
         if(type==2)
         {
             window.open(
-                '@Url.Action("SignedMandate", "Jobs", new { id = Model.JobHeader.Id })',
+                '@Url.Action("SignedMandate", "JobHeaders", new { id = Model.JobHeader.Id })',
                 '_blank',
                 'width=900,height=700'
             );
@@ -209,7 +209,7 @@ else
         if(type==3)
         {
             window.open(
-                '@Url.Action("JobInstructions", "Jobs", new { id = Model.JobHeader.Id })',
+                '@Url.Action("JobInstructions", "JobHeaders", new { id = Model.JobHeader.Id })',
                 '_blank',
                 'width=900,height=700'
             );

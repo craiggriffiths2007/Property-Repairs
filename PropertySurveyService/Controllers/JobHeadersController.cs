@@ -39,7 +39,9 @@ namespace PropertySurveyService.Controllers
             }
 
             viewModel.JobHeader = await _context.JobHeader
-                .FirstOrDefaultAsync(m => m.Id == id);
+                .Where(m => m.Id == id)
+                .Include(m => m.GarageDoorMotor)
+                .FirstOrDefaultAsync();
             if (viewModel.JobHeader == null)
             {
                 return NotFound();
@@ -114,11 +116,34 @@ namespace PropertySurveyService.Controllers
             return View(viewModel);
         }
 
+        public async Task<ActionResult> GarageMotor(int? id)
+        {
+            var job = await _context.JobHeader.Where(m => m.Id == id)
+                                        .Include(j => j.GarageDoorMotor)
+                                        .FirstOrDefaultAsync();
+
+            return View(job);
+        }
+
+        public async Task<ActionResult> SignedMandate(int? id)
+        {
+            var jobHeader = await _context.JobHeader.FirstOrDefaultAsync(m => m.Id == id);
+
+            string fname = string.Format("{0:00000000}_fandates.jpg", jobHeader.ContractCode);
+
+            ViewData["MandateSignature"] = _context.Images.Where(x => x.Filename == fname).FirstOrDefault()?.Filename;
+
+            return View(jobHeader);
+        }
+
+
+
         // GET: Headers/Create
         public IActionResult Create()
         {
             return View();
         }
+
 
         // POST: Headers/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
