@@ -158,6 +158,7 @@ namespace PropertySurveyService.Models
         [DisplayName("Number of Items")]
         public int NumberOfItems { get; set; }
 
+        [Browsable(false)]
         [DisplayName("Report Text")]
         public string Report { get; set; } = "";
 
@@ -318,6 +319,7 @@ namespace PropertySurveyService.Models
         [DisplayName("Parts Used")]
         public string FitPartsUsed { get; set; } = "";
 
+        [Browsable(false)]
         [DisplayName("Fitter Comments")]
         public string FitComments { get; set; } = "";
 

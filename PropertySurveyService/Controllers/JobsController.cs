@@ -244,7 +244,7 @@ namespace PropertySurveyService.Controllers
             {
                 viewModel.JobHeaderIndex = await _context.JobHeader
                                 .Where(h => h.ContractCode == viewModel.Job.ContractCode)
-                                .OrderDescending()
+                                .OrderByDescending(c => c.DateTimeCompleted)
                                 .Select(h => h.AsJobHeaderIndex())
                                 .ToListAsync();
             }
