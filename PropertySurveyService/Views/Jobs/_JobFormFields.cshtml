@@ -86,7 +86,30 @@
     <div class="col-md-8">
         <div class="form-group">
             <label asp-for="Job.Instructions" class="control-label"></label>
+            <div id="toolbar-container">
+                <span class="ql-formats">
+                    <select class="ql-size">
+                        <option value="small"></option>
+                        <option selected></option>
+                        <option value="large"></option>
+                        <option value="huge"></option>
 
+                    </select>
+
+                    <button class="ql-bold"></button>
+                    <button class="ql-italic"></button>
+                    <button class="ql-underline"></button>
+                    <button class="ql-strike"></button>
+
+                    <select class="ql-color"></select>
+                    <select class="ql-background"></select>
+
+                    <button class="ql-list" value="ordered"></button>
+                    <button class="ql-list" value="bullet"></button>
+
+                    <button class="ql-clean"></button>
+                </span>
+            </div>
             <input type="hidden" asp-for="Job.Instructions" id="instructions-hidden" />
 
             <div id="instructions-editor" style="height: 600px;">
@@ -107,17 +130,10 @@
 <script>
     // Initialize Quill editor with color pickers
     const quill = new Quill('#instructions-editor', {
-    theme: 'snow',
-    modules: {
-    toolbar: [
-    
-    // Added 'color' and 'background' here:
-    [{ 'color': [] }, { 'background': [] }],
-    ['bold', 'italic', 'underline', 'strike', 'list'],
-    [ 'image', 'blockquote', 'code-block'],
-    [{ 'list': 'ordered'}, { 'list': 'bullet' }]
-    ]
-    }
+        theme: 'snow',
+        modules: {
+            toolbar: '#toolbar-container'
+        }
     });
 
     // Find the closest form containing the editor
