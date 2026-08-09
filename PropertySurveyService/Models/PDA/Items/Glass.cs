@@ -90,7 +90,7 @@ namespace PropertySurveyService.Models
         public string glass_height8 { get; set; } = "";
 
         [DisplayName("Stepped Unit")]
-        public int stepped_unit { get; set; }
+        public bool? stepped_unit { get; set; }
 
         [DisplayName("Internal Width")]
         public string int_width { get; set; } = "";

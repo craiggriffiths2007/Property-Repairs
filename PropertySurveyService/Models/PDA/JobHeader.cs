@@ -802,47 +802,44 @@ namespace PropertySurveyService.Models
 
     public class GarageDoorMotor
     {
-        [Key]
-        public int Id { get; set; }
-
-        //public JobHeader JobHeader { get; set; } = null!;
+        public int Id { get; set; } // 1 to 1 with JobHeader
 
         [Browsable(false)]
-        [DisplayName("GD Type")]
+        [DisplayName("Type")]
         public string gdm_door_type { get; set; } = "";
         [Browsable(false)]
-        [DisplayName("GD Model Type")]
+        [DisplayName("Model Type")]
         public string gdm_model_type { get; set; } = "";
         [Browsable(false)]
-        [DisplayName("GD Unique Serial Number")]
+        [DisplayName("Unique Serial Number")]
         public string gdm_unique_serial { get; set; } = "";
         [Browsable(false)]
-        [DisplayName("GD Size")]
+        [DisplayName("Size")]
         public string gdm_door_size { get; set; } = "";
         [Browsable(false)]
-        [DisplayName("GD Manufacturer")]
+        [DisplayName("Manufacturer")]
         public string gdm_door_manufacturer { get; set; } = "";
         [Browsable(false)]
-        [DisplayName("GD Powered Operator Type")]
+        [DisplayName("Powered Operator Type")]
         public string gdm_powerered_operator_type { get; set; } = "";
         [Browsable(false)]
-        [DisplayName("GD Operator Type")]
+        [DisplayName("Operator Type")]
         public string gdm_operator_type { get; set; } = "";
         [Browsable(false)]
-        [DisplayName("GD Operator Manufactured By")]
+        [DisplayName("Operator Manufactured By")]
         public string gdm_operator_manufacturer { get; set; } = "";
         [Browsable(false)]
-        [DisplayName("GD Site Address")]
+        [DisplayName("Site Address")]
 
         public string gdm_site_address { get; set; } = "";
         [Browsable(false)]
-        [DisplayName("GD Decleration made by")]
+        [DisplayName("Decleration made by")]
         public string gdm_dec_made_by { get; set; } = "";
         [Browsable(false)]
-        [DisplayName("GD Customer Name")]
+        [DisplayName("Customer Name")]
         public string gdm_cust_name { get; set; } = "";
         [Browsable(false)]
-        [DisplayName("GD Sign Date")]
+        [DisplayName("Sign Date")]
         public string gdm_sign_date { get; set; } = "";
 
         [DisplayName("Signed (Motor Sheet)")]
@@ -851,6 +848,7 @@ namespace PropertySurveyService.Models
         [DisplayName("Signed Customer (Motor Sheet)")]
         public bool MotorSignedCustomer { get; set; }
     }
+
 
 
 }
