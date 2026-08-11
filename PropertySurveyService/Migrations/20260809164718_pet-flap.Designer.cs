@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PropertySurveyService.Data;
 
@@ -11,9 +12,11 @@ using PropertySurveyService.Data;
 namespace PropertySurveyService.Migrations
 {
     [DbContext(typeof(AppDBContext))]
-    partial class AppDBContextModelSnapshot : ModelSnapshot
+    [Migration("20260809164718_pet-flap")]
+    partial class petflap
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -363,8 +366,8 @@ namespace PropertySurveyService.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool?>("cill")
-                        .HasColumnType("bit");
+                    b.Property<int>("cill")
+                        .HasColumnType("int");
 
                     b.Property<bool?>("cill_on_subframe")
                         .HasColumnType("bit");
@@ -386,9 +389,8 @@ namespace PropertySurveyService.Migrations
                     b.Property<bool?>("drip")
                         .HasColumnType("bit");
 
-                    b.Property<string>("frame_type")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("frame_type")
+                        .HasColumnType("int");
 
                     b.Property<string>("gaskets")
                         .IsRequired()
@@ -615,9 +617,8 @@ namespace PropertySurveyService.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("pet_magnetic")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<bool?>("pet_magnetic")
+                        .HasColumnType("bit");
 
                     b.Property<string>("pet_type")
                         .IsRequired()

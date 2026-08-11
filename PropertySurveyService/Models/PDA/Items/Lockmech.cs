@@ -99,6 +99,7 @@ namespace PropertySurveyService.Models
         public int GearBox { get; set; }
 
         [DisplayName("Number of Videos")]
+        [Browsable(false)]
         public int no_of_vids { get; set; }
 
         [DisplayName("Left Bolt")]

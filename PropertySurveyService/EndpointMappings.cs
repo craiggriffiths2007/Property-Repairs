@@ -11,10 +11,8 @@ using System.Timers;
 
 using System.Collections.Concurrent;
 
-
 namespace PropertySurveyService
 {
-
     public static class EndpointMappings
     {
         static ConcurrentDictionary<string, object> _uploadLocks = new();
@@ -449,8 +447,8 @@ namespace PropertySurveyService
                 var agent = db.Agent.FirstOrDefault(x => x.Code == gs.AgentCode && 
                                                         x.AuthenticationString == gs.AuthenticationString);
 
-                if (agent == null)
-                    return Task.FromResult<IResult>(Results.BadRequest(new { ReasonPhrase = "Authentication Failed" }));
+                //if (agent == null)
+                //    return Task.FromResult<IResult>(Results.BadRequest(new { ReasonPhrase = "Authentication Failed" }));
 
                 List<Job> jobs = new List<Job>();
 

@@ -185,6 +185,7 @@ namespace PropertySurveyService.Models
         public string room_location { get; set; } = "";
 
         [DisplayName("Number of Videos")]
+        [Browsable(false)]
         public int no_of_vids { get; set; }
 
         [DisplayName("Different From Original")]

@@ -158,6 +158,7 @@ namespace PropertySurveyService.Models
         public string motor_position { get; set; } = "...";
 
         [DisplayName("Number of Videos")]
+        [Browsable(false)]
         public int no_of_vids { get; set; }
 
         [DisplayName("Different From Original")]

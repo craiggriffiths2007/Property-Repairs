@@ -73,9 +73,9 @@ namespace PropertySurveyService.Models
         [DisplayName("Internal Height")]
         public string internal_height { get; set; } = "";
         [DisplayName("Frame Type")]
-        public int frame_type { get; set; }
+        public string frame_type { get; set; } = "...";
         [DisplayName("Cill")]
-        public int cill { get; set; }
+        public bool? cill { get; set; }
         [DisplayName("Drip")]
         public bool? drip { get; set; }
         [DisplayName("Night Vent")]
@@ -95,7 +95,7 @@ namespace PropertySurveyService.Models
         [DisplayName("Pet Type")]
         public string pet_type { get; set; } = "";
         [DisplayName("Pet Magnetic")]
-        public int pet_magnetic { get; set; }
+        public string pet_magnetic { get; set; } = "...";
         [DisplayName("Opens")]
         public string opens { get; set; } = "...";
         [DisplayName("Handle Color")]
@@ -130,6 +130,7 @@ namespace PropertySurveyService.Models
         [DisplayName("Room Location")]
         public string room_location { get; set; } = "";
         [DisplayName("Number of Videos")]
+        [Browsable(false)]
         public int no_of_vids { get; set; }
         [DisplayName("LP Handles")]
         public string LPHandles { get; set; } = "...";

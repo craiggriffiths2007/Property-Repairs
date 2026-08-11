@@ -182,6 +182,7 @@ namespace PropertySurveyService.Models
         public int no_of_photos { get; set; }
 
         [DisplayName("Number of Videos")]
+        [Browsable(false)]
         public int no_of_vids { get; set; }
 
         [DisplayName("Different From Original")]
