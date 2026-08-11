@@ -44,4 +44,13 @@
     <Folder Include="Views\ToolCheck\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Content Update="wwwroot\lib\quill.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\lib\quill.snow.css">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
 </Project>

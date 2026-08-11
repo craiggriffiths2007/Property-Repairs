@@ -5,7 +5,7 @@ using PropertySurveyService.Models;
 using Microsoft.AspNetCore.Identity;
 using PropertySurveyService.Data;
 using PropertySurveyService;
-
+using Microsoft.AspNetCore.StaticFiles;
 using Newtonsoft.Json;
 using Microsoft.AspNetCore.Mvc.Razor;
 
@@ -35,6 +35,9 @@ builder.Services.AddIdentity<AppUser, IdentityRole>(options =>
            .AddRoles<IdentityRole>()
            .AddEntityFrameworkStores<AppDBContext>();
 
+
+
+
 // swagger
 builder.Services.AddEndpointsApiExplorer();
 /*
@@ -59,6 +62,15 @@ builder.Services.Configure<RazorViewEngineOptions>(options =>
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
+
+var provider = new FileExtensionContentTypeProvider();
+
+provider.Mappings[".glb"] = "model/gltf-binary";
+
+app.UseStaticFiles(new StaticFileOptions
+{
+    ContentTypeProvider = provider
+});
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())

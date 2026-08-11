@@ -33,7 +33,9 @@
         <!-- LEFT -->
         <div class="nav-left">
             <div class="logo">
-                <a asp-controller="Home" asp-action="Index"><img src="/img/cs.png" width="60" height="60"></a>
+                <a href="/about/index.html">
+                    <img src="/img/cs.png" width="60" height="60">
+                </a>
             </div>
             @if (User.IsInRole("User") || User.IsInRole("Manager") || User.IsInRole("Admin") || User.IsInRole("SuperAdmin"))
             {
@@ -104,6 +106,7 @@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+
     @await RenderSectionAsync("Scripts", required: false)
     <script>
         function printMain() {

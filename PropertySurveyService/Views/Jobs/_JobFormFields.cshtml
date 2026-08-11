@@ -88,6 +88,17 @@
             <label asp-for="Job.Instructions" class="control-label"></label>
             <div id="toolbar-container">
                 <span class="ql-formats">
+
+                    <select class="ql-background"></select>
+                    <select class="ql-color"></select>
+
+
+                    <button class="ql-list" value="bullet"></button>
+
+                    <button class="ql-bold"></button>
+                    <button class="ql-italic"></button>
+                    <button class="ql-underline"></button>
+
                     <select class="ql-size">
                         <option value="small"></option>
                         <option selected></option>
@@ -95,17 +106,6 @@
                         <option value="huge"></option>
 
                     </select>
-
-                    <button class="ql-bold"></button>
-                    <button class="ql-italic"></button>
-                    <button class="ql-underline"></button>
-                    <button class="ql-strike"></button>
-
-                    <select class="ql-color"></select>
-                    <select class="ql-background"></select>
-
-                    <button class="ql-list" value="ordered"></button>
-                    <button class="ql-list" value="bullet"></button>
 
                     <button class="ql-clean"></button>
                 </span>
@@ -124,7 +124,6 @@
 </div>
 
 <link href="~/lib/quill.snow.css" rel="stylesheet" />
-
 <script src="~/lib/quill.js"></script>
 
 <script>

@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width,
+                   initial-scale=1.0,
+                   maximum-scale=1.0,
+                   user-scalable=no">
+
+    <title>Glass Ops</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            font-family: Arial, Helvetica, sans-serif;
+            background: radial-gradient( circle at 50% 35%, #15283d 0%, #0d1927 45%, #07101a 100% );
+            color: white;
+        }
+
+        .page {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* -------------------------------------------------
+           3D model area
+           ------------------------------------------------- */
+
+        #model-container {
+            position: relative;
+            width: 100%;
+            height: 52%;
+            min-height: 280px;
+            overflow: hidden;
+        }
+
+            #model-container canvas {
+                width: 100% !important;
+                height: 100% !important;
+                display: block;
+            }
+
+        #loading {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 90%;
+            text-align: center;
+            color: #8c9cac;
+            font-size: 12px;
+            letter-spacing: 2px;
+            z-index: 10;
+        }
+
+        .glow {
+            position: absolute;
+            left: 50%;
+            bottom: 4%;
+            transform: translateX(-50%);
+            width: 230px;
+            height: 32px;
+            border-radius: 50%;
+            background: radial-gradient( ellipse, rgba(0, 140, 255, 0.62) 0%, rgba(0, 100, 255, 0.22) 48%, rgba(0, 0, 0, 0) 76% );
+            filter: blur(7px);
+            pointer-events: none;
+        }
+
+        /* -------------------------------------------------
+           Details
+           ------------------------------------------------- */
+
+        .details {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: -10px;
+        }
+
+        .title {
+            font-size: 34px;
+            font-weight: 500;
+            letter-spacing: 6px;
+            margin-bottom: 8px;
+        }
+
+            .title span {
+                color: #278cff;
+            }
+
+        .subtitle {
+            font-size: 15px;
+            letter-spacing: 5px;
+            color: #a2afbb;
+            text-transform: uppercase;
+            margin-bottom: 24px;
+        }
+
+        .info {
+            text-align: center;
+            font-size: 14px;
+            letter-spacing: 2px;
+            color: #aeb8c1;
+        }
+
+        .separator {
+            color: #278cff;
+            padding: 0 8px;
+        }
+
+        .version {
+            margin-top: 22px;
+            color: #278cff;
+            letter-spacing: 1px;
+        }
+
+        .copyright {
+            margin-top: 22px;
+            font-size: 12px;
+            color: #5e6c78;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="page">
+
+        <div id="model-container">
+
+            <div id="loading">
+                STARTING...
+            </div>
+
+            <div class="glow"></div>
+
+        </div>
+
+
+        <div class="details">
+
+            <div class="title">
+                GLASS <span>OPS</span>
+            </div>
+
+            <div class="subtitle">
+                Field Operations
+            </div>
+
+            <div class="info">
+
+                Surveying
+
+                <span class="separator">•</span>
+
+                Fitting
+
+                <span class="separator">•</span>
+
+                Remedials
+
+
+                <div class="version">
+                    Version 1.0
+                </div>
+
+            </div>
+
+            <div class="copyright">
+                © 2026 Glass Ops
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!--
+        IMPORTANT:
+        These must be classic/non-module versions.
+    -->
+
+    <script src="./lib/three.min.js"></script>
+    <script src="./lib/GLTFLoader.js"></script>
+
+
+    <script>
+
+        const loading =
+            document.getElementById("loading");
+
+
+        const container =
+            document.getElementById("model-container");
+
+
+        try {
+
+            // -------------------------------------------------
+            // Verify Three.js
+            // -------------------------------------------------
+
+            if (typeof THREE === "undefined") {
+
+                throw new Error(
+                    "THREE did not load"
+                );
+            }
+
+
+            if (typeof THREE.Scene !== "function") {
+
+                throw new Error(
+                    "Invalid Three.js file. Revision=" +
+                    THREE.REVISION +
+                    " Scene=" +
+                    typeof THREE.Scene
+                );
+            }
+
+
+            loading.innerText =
+                "THREE r" +
+                THREE.REVISION +
+                " OK";
+
+
+            // -------------------------------------------------
+            // Verify GLTF loader
+            // -------------------------------------------------
+
+            if (
+                typeof THREE.GLTFLoader !==
+                "function"
+            ) {
+
+                throw new Error(
+                    "GLTFLoader did not load"
+                );
+            }
+
+
+            // -------------------------------------------------
+            // Scene
+            // -------------------------------------------------
+
+            const scene =
+                new THREE.Scene();
+
+
+            // -------------------------------------------------
+            // Camera
+            // -------------------------------------------------
+
+            const camera =
+                new THREE.PerspectiveCamera(
+                    35,
+                    container.clientWidth /
+                    container.clientHeight,
+                    0.1,
+                    100
+                );
+
+
+            camera.position.set(
+                0,
+                0,
+                6
+            );
+
+
+            // -------------------------------------------------
+            // Renderer
+            // -------------------------------------------------
+
+            const renderer =
+                new THREE.WebGLRenderer({
+                    antialias: true,
+                    alpha: true
+                });
+
+
+            renderer.setPixelRatio(
+                Math.min(
+                    window.devicePixelRatio,
+                    2
+                )
+            );
+
+
+            renderer.setSize(
+                container.clientWidth,
+                container.clientHeight
+            );
+
+
+            renderer.setClearColor(
+                0x000000,
+                0
+            );
+
+
+            container.prepend(
+                renderer.domElement
+            );
+
+
+            // -------------------------------------------------
+            // Lights
+            // -------------------------------------------------
+
+            const ambient =
+                new THREE.AmbientLight(
+                    0xffffff,
+                    2.0
+                );
+
+            scene.add(ambient);
+
+
+            const keyLight =
+                new THREE.DirectionalLight(
+                    0xffffff,
+                    5.0
+                );
+
+            keyLight.position.set(
+                -4,
+                5,
+                6
+            );
+
+            scene.add(keyLight);
+
+
+            const blueLight =
+                new THREE.PointLight(
+                    0x40aaff,
+                    6.0,
+                    12
+                );
+
+            blueLight.position.set(
+                4,
+                2,
+                5
+            );
+
+            scene.add(blueLight);
+
+
+            const leftLight =
+                new THREE.PointLight(
+                    0x80cfff,
+                    4.0,
+                    12
+                );
+
+            leftLight.position.set(
+                -5,
+                1,
+                4
+            );
+
+            scene.add(leftLight);
+
+
+            const rearLight =
+                new THREE.DirectionalLight(
+                    0x168cff,
+                    4.0
+                );
+
+            rearLight.position.set(
+                2,
+                3,
+                -5
+            );
+
+            scene.add(rearLight);
+
+
+            // -------------------------------------------------
+            // Load model
+            // -------------------------------------------------
+
+            const loader =
+                new THREE.GLTFLoader();
+
+
+            let model = null;
+
+
+            loading.innerText =
+                "LOADING MODEL...";
+
+
+            loader.load(
+
+                "./models/glassops.glb",
+
+
+                function (gltf) {
+
+                    model =
+                        gltf.scene;
+
+
+                    // -----------------------------------------
+                    // Get bounds
+                    // -----------------------------------------
+
+                    const box =
+                        new THREE.Box3()
+                            .setFromObject(model);
+
+
+                    const centre =
+                        box.getCenter(
+                            new THREE.Vector3()
+                        );
+
+
+                    const size =
+                        box.getSize(
+                            new THREE.Vector3()
+                        );
+
+
+                    // -----------------------------------------
+                    // Centre model
+                    // -----------------------------------------
+
+                    model.position.set(
+                        -centre.x,
+                        -centre.y,
+                        -centre.z
+                    );
+
+
+                    // -----------------------------------------
+                    // Scale model
+                    // -----------------------------------------
+
+                    const largest =
+                        Math.max(
+                            size.x,
+                            size.y,
+                            size.z
+                        );
+
+
+                    const scale =
+                        3.5 / largest;
+
+
+                    model.scale.set(
+                        scale,
+                        scale,
+                        scale
+                    );
+
+
+                    // -----------------------------------------
+                    // Starting angle
+                    // -----------------------------------------
+
+                    model.rotation.x =
+                        -0.08;
+
+
+                    model.rotation.y =
+                        -0.35;
+
+
+                    // -----------------------------------------
+                    // Improve materials
+                    // -----------------------------------------
+
+                    model.traverse(function (object) {
+
+                        if (object.isMesh) {
+
+                            object.material =
+                                new THREE.MeshPhysicalMaterial({
+
+                                    color: 0x2d9cff,
+
+                                    transparent: true,
+                                    opacity: 0.78,
+
+                                    roughness: 0.12,
+                                    metalness: 0.0,
+
+                                    clearcoat: 1.0,
+                                    clearcoatRoughness: 0.04,
+
+                                    emissive: 0x003c80,
+                                    emissiveIntensity: 0.35,
+
+                                    side: THREE.DoubleSide,
+
+                                    depthWrite: true
+                                });
+                        }
+
+                    });
+
+
+                    scene.add(
+                        model
+                    );
+
+
+                    loading.style.display =
+                        "none";
+                },
+
+
+                function (xhr) {
+
+                    if (
+                        xhr.total &&
+                        xhr.total > 0
+                    ) {
+
+                        const percent =
+                            Math.round(
+                                xhr.loaded /
+                                xhr.total *
+                                100
+                            );
+
+
+                        loading.innerText =
+                            "LOADING MODEL " +
+                            percent +
+                            "%";
+
+                    }
+                    else {
+
+                        loading.innerText =
+                            "LOADING MODEL...";
+
+                    }
+
+                },
+
+
+                function (error) {
+
+                    console.error(
+                        error
+                    );
+
+
+                    loading.innerText =
+                        "MODEL ERROR: " +
+                        error;
+
+                }
+
+            );
+
+
+            // -------------------------------------------------
+            // Animation
+            // -------------------------------------------------
+
+            const clock =
+                new THREE.Clock();
+
+
+            function animate() {
+
+                requestAnimationFrame(
+                    animate
+                );
+
+
+                const delta =
+                    clock.getDelta();
+
+
+                if (model) {
+
+                    model.rotation.y +=
+                        delta * 0.42;
+
+                }
+
+
+                renderer.render(
+                    scene,
+                    camera
+                );
+
+            }
+
+
+            animate();
+
+
+            // -------------------------------------------------
+            // Resize
+            // -------------------------------------------------
+
+            window.addEventListener(
+
+                "resize",
+
+                function () {
+
+                    const width =
+                        container.clientWidth;
+
+
+                    const height =
+                        container.clientHeight;
+
+
+                    camera.aspect =
+                        width / height;
+
+
+                    camera.updateProjectionMatrix();
+
+
+                    renderer.setSize(
+                        width,
+                        height
+                    );
+
+                }
+
+            );
+
+        }
+        catch (error) {
+
+            console.error(
+                error
+            );
+
+
+            loading.innerText =
+                "ERROR: " +
+                error.message;
+
+        }
+
+    </script>
+
+</body>
+</html>

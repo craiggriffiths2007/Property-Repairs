@@ -84,13 +84,43 @@ else
         
         <div>
             <strong style="color:dimgrey">Report:</strong>
-            <strong>
-                @Model.JobHeader.Report
-            </strong>
+
+                <div id="instructions-editor" style="height: 600px;">
+                    @Html.Raw(Model.JobHeader.Report)
+                </div>
+
         </div>
 
     </div>
 }
+<link href="~/lib/quill.snow.css" rel="stylesheet" />
+
+<script src="~/lib/quill.js"></script>
+
+<script>
+    // Initialize Quill editor with color pickers
+    const quill = new Quill('#instructions-editor', {
+        theme: 'snow',
+        readOnly: true,
+        modules: {
+            toolbar: '#toolbar-container'
+        }
+    });
+
+    // Find the closest form containing the editor
+    const form = document.querySelector('#instructions-editor').closest('form');
+    const hiddenInput = document.getElementById('instructions-hidden');
+
+    // Intercept the form submit to pass Quill's HTML into the ASP.NET hidden input
+    form.addEventListener('submit', function() {
+        // Get HTML content from Quill
+        const htmlContent = quill.getSemanticHTML();
+
+        // Put it in the hidden input so ASP.NET can bind it to Job.Instructions
+        hiddenInput.value = htmlContent;
+    });
+</script>
+
 
 @if(Model.JobHeader.garage_door_motor==true)
 {
