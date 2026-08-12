@@ -24,7 +24,7 @@
             padding: 0;
             overflow: hidden;
             font-family: Arial, Helvetica, sans-serif;
-            background: radial-gradient( circle at 50% 35%, #15283d 0%, #0d1927 45%, #07101a 100% );
+            background: radial-gradient( circle at 50% 35%, #062062 0%, #0d1927 45%, #07101a 100% );
             color: white;
         }
 
@@ -164,15 +164,7 @@
 
             <div class="info">
 
-                Surveying
-
-                <span class="separator">•</span>
-
-                Fitting
-
-                <span class="separator">•</span>
-
-                Remedials
+          
 
 
                 <div class="version">
@@ -182,7 +174,7 @@
             </div>
 
             <div class="copyright">
-                © 2026 Glass Ops
+                Contact: craig.griffiths2077@gmail.com
             </div>
 
         </div>
@@ -198,7 +190,7 @@
     <script src="./lib/three.min.js"></script>
     <script src="./lib/GLTFLoader.js"></script>
 
-
+    <script src="./lib/addons/RoomEnvironment.js"></script>
     <script>
 
         const loading =
@@ -294,6 +286,9 @@
                     alpha: true
                 });
 
+            renderer.outputEncoding = THREE.sRGBEncoding;
+            renderer.toneMapping = THREE.ACESFilmicToneMapping;
+            renderer.toneMappingExposure = 1.5;
 
             renderer.setPixelRatio(
                 Math.min(
@@ -324,74 +319,35 @@
             // Lights
             // -------------------------------------------------
 
-            const ambient =
-                new THREE.AmbientLight(
-                    0xffffff,
-                    2.0
-                );
-
+            const ambient = new THREE.AmbientLight(
+                0xffffff,
+                0.2
+            );
             scene.add(ambient);
 
-
-            const keyLight =
-                new THREE.DirectionalLight(
-                    0xffffff,
-                    5.0
-                );
-
-            keyLight.position.set(
-                -4,
-                5,
-                6
+            const keyLight = new THREE.DirectionalLight(
+                0xffffff,
+                0.0
             );
 
+            keyLight.position.set(-4, 5, 6);
             scene.add(keyLight);
 
-
-            const blueLight =
-                new THREE.PointLight(
-                    0x40aaff,
-                    6.0,
-                    12
-                );
-
-            blueLight.position.set(
-                4,
-                2,
-                5
+            const blueLight = new THREE.PointLight(
+                0x40aaff,
+                4.0,
+                12
             );
 
+            blueLight.position.set(4, 2, 5);
             scene.add(blueLight);
 
-
-            const leftLight =
-                new THREE.PointLight(
-                    0x80cfff,
-                    4.0,
-                    12
-                );
-
-            leftLight.position.set(
-                -5,
-                1,
-                4
+            const rearLight = new THREE.DirectionalLight(
+                0x168cff,
+                0.0
             );
 
-            scene.add(leftLight);
-
-
-            const rearLight =
-                new THREE.DirectionalLight(
-                    0x168cff,
-                    4.0
-                );
-
-            rearLight.position.set(
-                2,
-                3,
-                -5
-            );
-
+            rearLight.position.set(2, 3, -5);
             scene.add(rearLight);
 
 
@@ -466,7 +422,7 @@
 
 
                     const scale =
-                        3.5 / largest;
+                        2.5 / largest;
 
 
                     model.scale.set(
@@ -493,32 +449,21 @@
                     // -----------------------------------------
 
                     model.traverse(function (object) {
-
                         if (object.isMesh) {
-
-                            object.material =
-                                new THREE.MeshPhysicalMaterial({
-
-                                    color: 0x2d9cff,
-
-                                    transparent: true,
-                                    opacity: 0.78,
-
-                                    roughness: 0.12,
-                                    metalness: 0.0,
-
-                                    clearcoat: 1.0,
-                                    clearcoatRoughness: 0.04,
-
-                                    emissive: 0x003c80,
-                                    emissiveIntensity: 0.35,
-
-                                    side: THREE.DoubleSide,
-
-                                    depthWrite: true
-                                });
+                            object.geometry.computeVertexNormals();
+                            // Option A: Fix the physical material setup
+                            object.material = new THREE.MeshStandardMaterial({
+                                color: 0x55baff,
+                                transparent: true,
+                                opacity: 0.55,
+                                roughness: 0.2,
+                                metalness: 0.1,
+                                emissive: 0x147dcc,
+                                emissiveIntensity: 0.1,
+                                side: THREE.FrontSide, // Fixes inverted normal lighting issues
+                                depthWrite: true       // Ensures correct front-to-back rendering
+                            });
                         }
-
                     });
 
 
@@ -601,7 +546,7 @@
                 if (model) {
 
                     model.rotation.y +=
-                        delta * 0.42;
+                        delta * 0.82;
 
                 }
 
