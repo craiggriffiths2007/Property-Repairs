@@ -494,228 +494,10 @@ namespace PropertySurveyService.Models
         #endregion
 
 
-        #region Security Surveys
-
-        [DisplayName("Security Survey")]
-        public int ss_bIsSecuritySurvey { get; set; }
-
-        [DisplayName("Security Survey Complete")]
-        public int ss_bIsComplete { get; set; }
-
-        [DisplayName("No Windows (Security Survey)")]
-        public string ss_nowindows { get; set; } = "";
-
-        [DisplayName("No Doors (Security Survey)")]
-        public string ss_nodoors { get; set; } = "";
-
-        [DisplayName("General Condition (Security Survey)")]
-        public string ss_gencondition { get; set; } = "";
-
-        [DisplayName("General Condition Other (Security Survey)")]
-        public string ss_gencondition_other { get; set; } = "";
-
-        [DisplayName("Material Windows (Security Survey)")]
-        public string ss_matwindows { get; set; } = "";
-
-        [DisplayName("Material Windows Other (Security Survey)")]
-        public string ss_matwindows_other { get; set; } = "";
-
-        [DisplayName("Material Doors (Security Survey)")]
-        public string ss_matdoors { get; set; } = "";
-
-        [DisplayName("Material Doors Other (Security Survey)")]
-        public string ss_matdoors_other { get; set; } = "";
-
-        [DisplayName("Lock Windows (Security Survey)")]
-        public string ss_lockwindows { get; set; } = "";
-
-        [DisplayName("Lock Windows Other (Security Survey)")]
-        public string ss_lockwindows_other { get; set; } = "";
-
-        [DisplayName("Lock Doors (Security Survey)")]
-        public string ss_lockdoors { get; set; } = "";
-
-        [DisplayName("Lock Doors Other (Security Survey)")]
-        public string ss_lockdoors_other { get; set; } = "";
-
-        [DisplayName("Add Window Security (Security Survey)")]
-        public int ss_add_window_security { get; set; }
-
-        [DisplayName("Location Windows Other (Security Survey)")]
-        public string ss_location_windows_other { get; set; } = "";
-
-        [DisplayName("Sec Windows Other (Security Survey)")]
-        public string ss_secwindows_other { get; set; } = "";
-
-        [DisplayName("Add Door Security (Security Survey)")]
-        public int ss_add_door_security { get; set; }
-
-        [DisplayName("Location Doors Other (Security Survey)")]
-        public string ss_location_doors_other { get; set; } = "";
-
-        [DisplayName("Sec Doors Other (Security Survey)")]
-        public string ss_secdoors_other { get; set; } = "";
-
-        [DisplayName("Time Required (Security Survey)")]
-        public string ss_time_required { get; set; } = "";
-
-        [DisplayName("Number of Security Survey Photos")]
-        public int ss_no_of_photos { get; set; }
-
-        #endregion
-
-
-
-
-        #region Framework Integrations, Insurers & External APIs
-
-
-
-
-
-
-
-
-
-        #endregion
-
-        #region Materials & Framework Performance Totals
-
-        [DisplayName("Total UPVC")]
-        [Browsable(false)]
-        public int total_upvc { get; set; }
-
-        [DisplayName("Total Panels")]
-        [Browsable(false)]
-        public int total_panels { get; set; }
-
-        [DisplayName("Total Glass")]
-        [Browsable(false)]
-        public int total_glass { get; set; }
-
-        [DisplayName("Total Aluminium")]
-        [Browsable(false)]
-        public int total_alum { get; set; }
-
-        [DisplayName("Total Garage")]
-        [Browsable(false)]
-        public int total_garage { get; set; }
-
-        [DisplayName("Total Timber")]
-        [Browsable(false)]
-        public int total_timber { get; set; }
-
-        [DisplayName("Total Cons")]
-        [Browsable(false)]
-        public int total_cons { get; set; }
-
-        [DisplayName("Total Lock")]
-        [Browsable(false)]
-        public int total_lock { get; set; }
-
-        [DisplayName("Total Composite")]
-        [Browsable(false)]
-        public int total_comp { get; set; }
-
-        [DisplayName("Total Green")]
-        [Browsable(false)]
-        public int total_green { get; set; }
-
-        [DisplayName("Total Bifold")]
-        [Browsable(false)]
-        public int total_bifold { get; set; }
-
-        [DisplayName("Total Frames")]
-        [Browsable(false)]
-        public int total_frames { get; set; }
-
-        [DisplayName("Incomplete Frames")]
-        [Browsable(false)]
-        public int incomplete_frames { get; set; }
-
-        [DisplayName("Incomplete UPVC")]
-        [Browsable(false)]
-        public int incomplete_upvc { get; set; }
-
-        [DisplayName("Incomplete Panels")]
-        [Browsable(false)]
-        public int incomplete_panels { get; set; }
-
-        [DisplayName("Incomplete Glass")]
-        [Browsable(false)]
-        public int incomplete_glass { get; set; }
-
-        [DisplayName("Incomplete Aluminium")]
-        [Browsable(false)]
-        public int incomplete_alum { get; set; }
-
-        [DisplayName("Incomplete Garage")]
-        [Browsable(false)]
-        public int incomplete_garage { get; set; }
-
-        [DisplayName("Incomplete Timber")]
-        [Browsable(false)]
-        public int incomplete_timber { get; set; }
-
-        [DisplayName("Incomplete Cons")]
-        [Browsable(false)]
-        public int incomplete_cons { get; set; }
-
-        [DisplayName("Incomplete Lock")]
-        [Browsable(false)]
-        public int incomplete_lock { get; set; }
-
-        [DisplayName("Incomplete Composite")]
-        [Browsable(false)]
-        public int incomplete_comp { get; set; }
-
-        [DisplayName("Incomplete Green")]
-        [Browsable(false)]
-        public int incomplete_green { get; set; }
-
-        [DisplayName("Incomplete Bifold")]
-        [Browsable(false)]
-        public int incomplete_bifold { get; set; }
-
-        #endregion
-
-
-
-
 
         #region Workflow Checkpoints & UI Flags
 
-        [DisplayName("Damage Ticked")]
-        [Browsable(false)]
-        public bool bDamTicked { get; set; }
 
-        [DisplayName("SS Ticked")]
-        [Browsable(false)]
-        public bool bSSTicked { get; set; }
-
-        [DisplayName("SR Finished")]
-        [Browsable(false)]
-        public bool bSRFin { get; set; }
-
-        [DisplayName("MOP Finished")]
-        [Browsable(false)]
-        public bool bMOPFin { get; set; }
-
-        [DisplayName("Rep Finished")]
-        [Browsable(false)]
-        public bool bRepFin { get; set; }
-
-        [DisplayName("Sum Finished")]
-        [Browsable(false)]
-        public bool bSumFin { get; set; }
-
-        [DisplayName("Haz Finished")]
-        [Browsable(false)]
-        public bool bHazFin { get; set; }
-
-        [DisplayName("Sub Finished")]
-        [Browsable(false)]
-        public bool bSubFin { get; set; }
 
         [DisplayName("Time to Complete")]
         public string time_to_complete { get; set; } = "";
@@ -738,9 +520,7 @@ namespace PropertySurveyService.Models
         public bool bRequestRepudiation { get; set; } = false;
 
 
-        [DisplayName("Repudiation completed")]
-        [Browsable(false)]
-        public bool bRepCom { get; set; }
+
 
         [DisplayName("Have you repudiated?")]
         public bool? have_you_repudiated { get; set; }
@@ -777,11 +557,8 @@ namespace PropertySurveyService.Models
 
         #endregion
 
-
-        public GarageDoorMotor? GarageDoorMotor { get; set; }
-
-
-
+        [DisplayName("Tower Scaffold Required")]
+        public bool? bRequiresTowerScaffolding { get; set; }
 
         [DisplayName("Globaldoor Link")]
         public string global_door_link { get; set; } = "";
@@ -795,14 +572,96 @@ namespace PropertySurveyService.Models
         public int no_of_videos { get; set; }
 
 
+        [Browsable(false)]
+        public GarageDoorMotor? GarageDoorMotor { get; set; }
+
+        [Browsable(false)]
+        public SecuritySurvey? SecuritySurvey { get; set; }
 
         public JobHeaderIndex AsJobHeaderIndex() { return new JobHeaderIndex(Id, JobType, AgentCode, DiaryDate, DateTimeCompleted); }
 
+
     }
+
+    public class SecuritySurvey
+    {
+
+        public int Id { get; set; }
+        [DisplayName("Security Survey")]
+        public int bIsSecuritySurvey { get; set; }
+
+        [DisplayName("Security Survey Complete")]
+        public int bIsComplete { get; set; }
+
+        [DisplayName("No Windows (Security Survey)")]
+        public string nowindows { get; set; } = "";
+
+        [DisplayName("No Doors (Security Survey)")]
+        public string nodoors { get; set; } = "";
+
+        [DisplayName("General Condition (Security Survey)")]
+        public string gencondition { get; set; } = "";
+
+        [DisplayName("General Condition Other (Security Survey)")]
+        public string gencondition_other { get; set; } = "";
+
+        [DisplayName("Material Windows (Security Survey)")]
+        public string matwindows { get; set; } = "";
+
+        [DisplayName("Material Windows Other (Security Survey)")]
+        public string matwindows_other { get; set; } = "";
+
+        [DisplayName("Material Doors (Security Survey)")]
+        public string matdoors { get; set; } = "";
+
+        [DisplayName("Material Doors Other (Security Survey)")]
+        public string matdoors_other { get; set; } = "";
+
+        [DisplayName("Lock Windows (Security Survey)")]
+        public string lockwindows { get; set; } = "";
+
+        [DisplayName("Lock Windows Other (Security Survey)")]
+        public string lockwindows_other { get; set; } = "";
+
+        [DisplayName("Lock Doors (Security Survey)")]
+        public string lockdoors { get; set; } = "";
+
+        [DisplayName("Lock Doors Other (Security Survey)")]
+        public string lockdoors_other { get; set; } = "";
+
+        [DisplayName("Add Window Security (Security Survey)")]
+        public int add_window_security { get; set; }
+
+        [DisplayName("Location Windows Other (Security Survey)")]
+        public string location_windows_other { get; set; } = "";
+
+        [DisplayName("Sec Windows Other (Security Survey)")]
+        public string secwindows_other { get; set; } = "";
+
+        [DisplayName("Add Door Security (Security Survey)")]
+        public int add_door_security { get; set; }
+
+        [DisplayName("Location Doors Other (Security Survey)")]
+        public string location_doors_other { get; set; } = "";
+
+        [DisplayName("Sec Doors Other (Security Survey)")]
+        public string secdoors_other { get; set; } = "";
+
+        [DisplayName("Time Required (Security Survey)")]
+        public string time_required { get; set; } = "";
+
+        [DisplayName("Number of Security Survey Photos")]
+        public int no_of_photos { get; set; }
+
+
+
+    }
+
 
     public class GarageDoorMotor
     {
-        public int Id { get; set; } // 1 to 1 with JobHeader
+
+        public int Id { get; set; }
 
         [Browsable(false)]
         [DisplayName("Type")]
@@ -848,7 +707,4 @@ namespace PropertySurveyService.Models
         [DisplayName("Signed Customer (Motor Sheet)")]
         public bool MotorSignedCustomer { get; set; }
     }
-
-
-
 }

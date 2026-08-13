@@ -25,7 +25,9 @@ namespace PropertySurveyService.Data
         public DbSet<Agent> Agent { get; set; } = default!;
         public DbSet<JobHeader> JobHeader { get; set; } = default!;
         public DbSet<GarageDoorMotor> GarageDoorMotor { get; set; } = default!;
-        
+
+        public DbSet<SecuritySurvey> SecuritySurveys { get; set; } = default!;
+
         public DbSet<Aluminium> Aluminium { get; set; } = default!;
         public DbSet<Bifolding> Bifolding { get; set; } = default!;
         public DbSet<Composite> Composite { get; set; } = default!;
@@ -86,6 +88,16 @@ namespace PropertySurveyService.Data
                     .OnDelete(DeleteBehavior.Cascade);
 
             builder.Entity<GarageDoorMotor>()
+                .Property(g => g.Id)
+                .ValueGeneratedNever();
+
+            builder.Entity<JobHeader>()
+                .HasOne(h => h.SecuritySurvey)
+                .WithOne()
+                .HasForeignKey<SecuritySurvey>(g => g.Id)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            builder.Entity<SecuritySurvey>()
                 .Property(g => g.Id)
                 .ValueGeneratedNever();
 
