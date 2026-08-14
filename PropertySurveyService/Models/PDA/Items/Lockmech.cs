@@ -142,26 +142,27 @@ namespace PropertySurveyService.Models
         [DisplayName("Lock Position")]
         public float lock_position { get; set; }
 
+
         [DisplayName("Lock IType1")]
-        public int l_itype1 { get; set; }
+        public string l_type1 { get; set; } = "";
 
         [DisplayName("Lock IType2")]
-        public int l_itype2 { get; set; }
+        public string l_type2 { get; set; } = "";
 
         [DisplayName("Lock IType3")]
-        public int l_itype3 { get; set; }
+        public string l_type3 { get; set; } = "";
 
         [DisplayName("Lock IType4")]
-        public int l_itype4 { get; set; }
+        public string l_type4 { get; set; } = "";
 
         [DisplayName("Lock IType5")]
-        public int l_itype5 { get; set; }
+        public string l_type5 { get; set; } = "";
 
         [DisplayName("Lock IType6")]
-        public int l_itype6 { get; set; }
+        public string l_type6 { get; set; } = "";
 
         [DisplayName("Lock IType7")]
-        public int l_itype7 { get; set; }
+        public string l_type7 { get; set; } = "";
 
 
 

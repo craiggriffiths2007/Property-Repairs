@@ -55,6 +55,12 @@ public class AluminiumController : Controller
             //viewModel.GlassImages = repo.GetSurveyItemImages(glass.ContractCode, glass.item_number);
         }
 
+        var locking = await repo.Db.Lockmech.FirstOrDefaultAsync(l => l.HeaderId == aluminium.HeaderId && l.item_number == aluminium.item_number);
+        if (locking != null)
+        {
+            viewModel.Lockmech = locking;
+        }
+
         return View(viewModel);
     }
 

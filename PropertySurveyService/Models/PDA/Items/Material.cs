@@ -152,7 +152,7 @@ namespace PropertySurveyService.Models
         public int collect_and_copy { get; set; }
 
         [DisplayName("Temporary")]
-        public int temporary { get; set; }
+        public string temporary { get; set; } = "...";
 
         [DisplayName("Parts to Order")]
         public string parts_to_order { get; set; } = "";

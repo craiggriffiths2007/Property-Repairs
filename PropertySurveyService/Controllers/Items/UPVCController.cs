@@ -49,7 +49,11 @@ public class UPVCController : Controller
         {
             viewModel.Glass = glass;
         }
-
+        var locking = await repo.Db.Lockmech.FirstOrDefaultAsync(l => l.HeaderId == upvc.HeaderId && l.item_number == upvc.item_number);
+        if (locking != null)
+        {
+            viewModel.Lockmech = locking;
+        }
         return View(viewModel);
     }
 

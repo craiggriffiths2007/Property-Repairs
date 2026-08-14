@@ -11,7 +11,7 @@ namespace PropertySurveyService.Models
 
         [Browsable(false)]
         [DisplayName("Item Type")]
-        public enum_item_type item_type => enum_item_type.upvc;
+        public enum_item_type item_type => enum_item_type.timber;
 
         [DisplayName("Header Id")]
         [Browsable(false)]
@@ -48,17 +48,14 @@ namespace PropertySurveyService.Models
         [DisplayName("Handles Text")]
         public string handles_text { get; set; } = "";
 
-        [DisplayName("Replace Panel")]
-        public bool? replace_panel { get; set; }
-
         [DisplayName("Replace Reason")]
         public string replace_reason { get; set; } = "";
 
         [DisplayName("Replace Explain")]
         public string replace_explain { get; set; } = "";
 
-        [DisplayName("UPVC Item")]
-        public string upvc_item { get; set; } = "";
+        [DisplayName("Timber Item")]
+        public string timber_item { get; set; } = "";
 
         [DisplayName("Cause of Damage")]
         public string cause_of_damage { get; set; } = "";
@@ -66,20 +63,14 @@ namespace PropertySurveyService.Models
         [DisplayName("Reason Damage Different")]
         public string cause_of_damage_reason_different { get; set; } = "";
 
-        [DisplayName("Colour")]
-        public string colour { get; set; } = "";
+        [DisplayName("Timber Wood")]
+        public string timber_wood { get; set; } = "";
 
-        [DisplayName("Cills")]
-        public string cills { get; set; } = "";
+        [DisplayName("Timber Frame Wood")]
+        public string timber_frame_wood { get; set; } = "";
 
-        [DisplayName("Outer Section Size")]
-        public string outer_section_size { get; set; } = "";
-
-        [DisplayName("Internal Width")]
-        public string internal_width { get; set; } = "";
-
-        [DisplayName("Internal Height")]
-        public string internal_height { get; set; } = "";
+        [DisplayName("New Timber Frame Required")]
+        public bool? timber_new_frame_req { get; set; }
 
         [DisplayName("Brick Width")]
         public string brick_width { get; set; } = "";
@@ -87,32 +78,38 @@ namespace PropertySurveyService.Models
         [DisplayName("Brick Height")]
         public string brick_height { get; set; } = "";
 
-        [DisplayName("Midrail")]
-        public bool? midrail { get; set; }
+        [DisplayName("Internal Width")]
+        public string internal_width { get; set; } = "";
 
-        [DisplayName("Addons")]
-        public bool? addons { get; set; }
+        [DisplayName("Internal Height")]
+        public string internal_height { get; set; } = "";
 
-        [DisplayName("Addon Width")]
-        public string addon_width { get; set; } = "";
+        [DisplayName("Repair Frame")]
+        public bool? repair_frame { get; set; }
 
-        [DisplayName("Addon Height")]
-        public string addon_height { get; set; } = "";
+        [DisplayName("Door Thickness")]
+        public string door_thickness { get; set; } = "";
+
+        [DisplayName("Door Width")]
+        public string door_width { get; set; } = "";
+
+        [DisplayName("Door Height")]
+        public string door_height { get; set; } = "";
+
+        [DisplayName("Opens (In/Out)")]
+        public string opens { get; set; } = "...";
+
+        [DisplayName("New Sash Required")]
+        public bool? new_sash_required { get; set; }
 
         [DisplayName("Head Drip")]
         public bool? head_drip { get; set; }
 
-        [DisplayName("Handle Colour")]
-        public string handle_colour { get; set; } = "";
+        [DisplayName("Cills")]
+        public string cills { get; set; } = "";
 
-        [DisplayName("Locking Type")]
-        public string locking_type { get; set; } = "";
-
-        [DisplayName("Letter Box")]
-        public string letter_box { get; set; } = "";
-
-        [DisplayName("Letter Box Position")]
-        public string letter_box_pos { get; set; } = "";
+        [DisplayName("Draught Strip")]
+        public bool? draught_strip { get; set; }
 
         [DisplayName("Pet Flap")]
         public string pet_flap { get; set; } = "";
@@ -123,23 +120,36 @@ namespace PropertySurveyService.Models
         [DisplayName("Pet Magnetic")]
         public string pet_magnetic { get; set; } = "...";
 
-        [DisplayName("Bead Type")]
-        public string bead_type { get; set; } = "";
 
-        [DisplayName("Opens (In/Out)")]
-        public string opens { get; set; } = "...";
+        [DisplayName("Require Fire Rated Glass")]
+        public bool fire_rated_glass { get; set; }
 
-        [DisplayName("Glaze (Internal/External)")]
-        public string glaze { get; set; } = "...";
+        [DisplayName("Thresher")]
+        public bool? thresher { get; set; }
 
-        [DisplayName("Trickle Vents (Yes/No)")]
-        public string trickle_vents { get; set; } = "...";
+        [DisplayName("Single/Double")]
+        public string single_double { get; set; } = "...";
+
+        [DisplayName("Trickle Vents")]
+        public string trickle_vents { get; set; } = "";
+
+        [DisplayName("Locks")]
+        public string locks { get; set; } = "";
+
+        [DisplayName("Hardware Color")]
+        public string hardware_color { get; set; } = "";
+
+        [DisplayName("Door Color")]
+        public string door_color { get; set; } = "";
+
+        [DisplayName("Frame Color")]
+        public string frame_color { get; set; } = "";
 
         [DisplayName("Spacer Thickness")]
         public string spacer_thickness { get; set; } = "";
 
-        [DisplayName("Spacer Colour")]
-        public string spacer_colour { get; set; } = "";
+        [DisplayName("Spacer Color")]
+        public string spacer_color { get; set; } = "";
 
         [DisplayName("Glass Type")]
         public string glass_type { get; set; } = "";
@@ -150,44 +160,56 @@ namespace PropertySurveyService.Models
         [DisplayName("Special Glass")]
         public string special_glass { get; set; } = "";
 
-        [DisplayName("Double/Tripple")]
-        public string double_tripple { get; set; } = "...";
-
-        [DisplayName("Internal Lock")]
-        public int internal_lock { get; set; }
-
         [DisplayName("New Locking Mechanism")]
         public bool? bNewLockingMech { get; set; }
-
-
-
-        [DisplayName("Midrail Height")]
-        public string midrail_height { get; set; } = "";
-
-
-
-        [DisplayName("Frame Depth")]
-        public string frame_depth { get; set; } = "";
 
         [DisplayName("DOCL")]
         public string docl { get; set; } = "";
 
-        [DisplayName("Profile Type")]
-        public string profile_type { get; set; } = "...";
+        [DisplayName("Sash Drawn")]
+        public bool bSashDrawn { get; set; }
+
+        [DisplayName("Section Drawn")]
+        public bool bSectionDrawn { get; set; }
+
+        [DisplayName("Moulding Drawn")]
+        public bool bMouldingDrawn { get; set; }
 
         [DisplayName("Room Location")]
         public string room_location { get; set; } = "";
 
+        [DisplayName("Doc L Compliant Reason")]
+        public string doc_l_compliant_reason { get; set; } = "";
 
+        [DisplayName("Doc L Compliant")]
+        public bool? doc_l_compliant { get; set; }
 
-        [DisplayName("LP Handles")]
-        public int LPHandles { get; set; }
+        [DisplayName("Door Color Out")]
+        public string door_color_out { get; set; } = "";
+
+        [DisplayName("Frame Color Out")]
+        public string frame_color_out { get; set; } = "";
+
+        [DisplayName("Door Color Code")]
+        public string door_color_code { get; set; } = "";
+
+        [DisplayName("Door Color Code Out")]
+        public string door_color_code_out { get; set; } = "";
+
+        [DisplayName("Frame Color Code")]
+        public string frame_color_code { get; set; } = "";
+
+        [DisplayName("Frame Color Code Out")]
+        public string frame_color_code_out { get; set; } = "";
+
+        [DisplayName("Signed")]
+        public bool b_signed { get; set; }
 
         [DisplayName("Slide Position")]
         public string slide_position { get; set; } = "...";
 
-        [DisplayName("Threshold Type")]
-        public string threshold_type { get; set; } = "";
+        [DisplayName("Timber Glazed")]
+        public string timber_glazed { get; set; } = "...";
 
         [DisplayName("Different From Original")]
         public bool? bDifferentFromOriginal { get; set; } = false;
@@ -198,44 +220,44 @@ namespace PropertySurveyService.Models
         [DisplayName("Print Name")]
         public string print_name { get; set; } = "";
 
+        [DisplayName("Standard Sizes")]
+        public string standard_sizes { get; set; } = "";
+
+        [DisplayName("Reason Nonstandard")]
+        public string reasonnonstandard { get; set; } = "";
+
         [DisplayName("FENSA")]
         public bool bFensa { get; set; } = true;
 
         [DisplayName("WER Rating")]
-        public string WER_Rating { get; set; } = "";
+        public string WER_rating { get; set; } = "";
 
         [DisplayName("Summary")]
         public string Summary { get; set; } = "";
 
+        [DisplayName("Letter Box")]
+        public string letter_box { get; set; } = "";
 
+        [DisplayName("Letter Box Position")]
+        public string letter_box_pos { get; set; } = "";
 
+        [DisplayName("Moulding")]
+        public string moulding { get; set; } = "";
 
-        [DisplayName("Lock Make")]
-        public string lock_make { get; set; } = "";
-
-        [DisplayName("Lock Codes")]
-        public string lock_codes { get; set; } = "";
-
-        [DisplayName("Panel Complete")]
-        public bool bPanelComplete { get; set; }
-
-        [DisplayName("Left Bolt")]
-        public int left_bolt { get; set; }
-
-        [DisplayName("Right Bolt")]
-        public int right_bolt { get; set; }
-
-        [DisplayName("Gear Box")]
-        public string GearBox { get; set; } = "...";
-
-        [DisplayName("Hinge Colour")]
-        public string hinge_colour { get; set; } = "";
+        [DisplayName("Hinge Type")]
+        public string hinge_type { get; set; } = "";
 
         [DisplayName("Collect and Copy")]
         public bool? collect_and_copy { get; set; }
 
         [DisplayName("Temporary")]
         public string temporary { get; set; } = "...";
+
+        [DisplayName("Pre-glazed Door")]
+        public bool? pre_glazed_door { get; set; }
+
+        [DisplayName("Weather Bar")]
+        public bool? weather_bar { get; set; }
 
         [DisplayName("Parts to Order")]
         public string parts_to_order { get; set; } = "";
@@ -251,81 +273,6 @@ namespace PropertySurveyService.Models
 
         [DisplayName("Was It Locked")]
         public int was_it_locked { get; set; }
-
-        [DisplayName("Lock Size 1")]
-        public string l_size1 { get; set; } = "";
-
-        [DisplayName("Lock Size 2")]
-        public string l_size2 { get; set; } = "";
-
-        [DisplayName("Lock Size A")]
-        public string l_sizeA { get; set; } = "";
-
-        [DisplayName("Lock Size B")]
-        public string l_sizeB { get; set; } = "";
-
-        [DisplayName("Lock Size C")]
-        public string l_sizeC { get; set; } = "";
-
-        [DisplayName("Lock Size D")]
-        public string l_sizeD { get; set; } = "";
-
-        [DisplayName("Lock Size E")]
-        public string l_sizeE { get; set; } = "";
-
-        [DisplayName("Lock Size F")]
-        public string l_sizeF { get; set; } = "";
-
-        [DisplayName("Lock Size G")]
-        public string l_sizeG { get; set; } = "";
-
-        [DisplayName("Lock Number")]
-        public int l_num { get; set; }
-
-        [DisplayName("Lock FPos1")]
-        public float l_fpos1 { get; set; }
-
-        [DisplayName("Lock FPos2")]
-        public float l_fpos2 { get; set; }
-
-        [DisplayName("Lock FPos3")]
-        public float l_fpos3 { get; set; }
-
-        [DisplayName("Lock FPos4")]
-        public float l_fpos4 { get; set; }
-
-        [DisplayName("Lock FPos5")]
-        public float l_fpos5 { get; set; }
-
-        [DisplayName("Lock FPos6")]
-        public float l_fpos6 { get; set; }
-
-        [DisplayName("Lock FPos7")]
-        public float l_fpos7 { get; set; }
-
-        [DisplayName("Lock Position")]
-        public float lock_position { get; set; }
-
-        [DisplayName("Lock IType1")]
-        public int l_itype1 { get; set; }
-
-        [DisplayName("Lock IType2")]
-        public int l_itype2 { get; set; }
-
-        [DisplayName("Lock IType3")]
-        public int l_itype3 { get; set; }
-
-        [DisplayName("Lock IType4")]
-        public int l_itype4 { get; set; }
-
-        [DisplayName("Lock IType5")]
-        public int l_itype5 { get; set; }
-
-        [DisplayName("Lock IType6")]
-        public int l_itype6 { get; set; }
-
-        [DisplayName("Lock IType7")]
-        public int l_itype7 { get; set; }
 
         [DisplayName("Glass Complete")]
         public bool glass_complete { get; set; }

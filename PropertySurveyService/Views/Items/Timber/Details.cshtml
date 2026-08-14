@@ -23,4 +23,11 @@
     <partial name="_ItemDetailsPartial" model="Model.Glass" />
 }
 
+@if (Model.Lockmech != null)
+{
+    <hr />
+    <h4>Associated Locking</h4>
+    <partial name="_ItemDetailsPartial" model="Model.Lockmech" />
+}
+
 <partial name="_ItemImagesPartial" model="Model.Images" />

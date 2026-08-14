@@ -140,19 +140,10 @@ namespace PropertySurveyService.Models
         [DisplayName("Summary")]
         public string Summary { get; set; } = "";
 
-        [DisplayName("Lock Make")]
-        public string lock_make { get; set; } = "";
-        [DisplayName("Lock Codes")]
-        public string lock_codes { get; set; } = "";
+
         [DisplayName("Panel Complete")]
         [Browsable(false)]
         public bool bPanelComplete { get; set; }
-        [DisplayName("Gear Box")]
-        public string GearBox { get; set; } = "...";
-        [DisplayName("Left Bolt")]
-        public int left_bolt { get; set; }
-        [DisplayName("Right Bolt")]
-        public int right_bolt { get; set; }
 
         [DisplayName("Cill on Subframe")]
         public bool? cill_on_subframe { get; set; }               // Renamed from i_spare1
@@ -184,61 +175,6 @@ namespace PropertySurveyService.Models
         [DisplayName("Was It Locked")]
         public int was_it_locked { get; set; }
 
-        [DisplayName("Lock Size 1")]
-        public string l_size1 { get; set; } = "";                    // Lock Mech
-        [DisplayName("Lock Size 2")]
-        public string l_size2 { get; set; } = "";
-        [DisplayName("Lock Size A")]
-        public string l_sizeA { get; set; } = "";
-        [DisplayName("Lock Size B")]
-        public string l_sizeB { get; set; } = "";
-        [DisplayName("Lock Size C")]
-        public string l_sizeC { get; set; } = "";
-        [DisplayName("Lock Size D")]
-        public string l_sizeD { get; set; } = "";
-        [DisplayName("Lock Size E")]
-        public string l_sizeE { get; set; } = "";
-        [DisplayName("Lock Size F")]
-        public string l_sizeF { get; set; } = "";
-        [DisplayName("Lock Size G")]
-        public string l_sizeG { get; set; } = "";
-        [DisplayName("Lock Number")]
-        public int l_num { get; set; }
-        [DisplayName("Lock FPos1")]
-        public float l_fpos1 { get; set; }
-        [DisplayName("Lock FPos2")]
-        public float l_fpos2 { get; set; }
-        [DisplayName("Lock FPos3")]
-        public float l_fpos3 { get; set; }
-        [DisplayName("Lock FPos4")]
-        public float l_fpos4 { get; set; }
-        [DisplayName("Lock FPos5")]
-        public float l_fpos5 { get; set; }
-        [DisplayName("Lock FPos6")]
-        public float l_fpos6 { get; set; }
-        [DisplayName("Lock FPos7")]
-        public float l_fpos7 { get; set; }
-        [DisplayName("Lock Position")]
-        public float lock_position { get; set; }
-        [DisplayName("Lock Type1")]
-        public int l_itype1 { get; set; }
-        [DisplayName("Lock Type2")]
-        public int l_itype2 { get; set; }
-        [DisplayName("Lock Type3")]
-        public int l_itype3 { get; set; }
-        [DisplayName("Lock Type4")]
-        public int l_itype4 { get; set; }
-        [DisplayName("Lock Type5")]
-        public int l_itype5 { get; set; }
-        [DisplayName("Lock Type6")]
-        public int l_itype6 { get; set; }
-        [DisplayName("Lock Type7")]
-        public int l_itype7 { get; set; }
-
-        [DisplayName("Lead C Widths")]
-        public string lead_CWidths { get; set; } = "";
-        [DisplayName("Lead C Heights")]
-        public string lead_CHeights { get; set; } = "";
         [DisplayName("Glass Complete")]
         public bool glass_complete { get; set; }
         [DisplayName("Replace Glass")]

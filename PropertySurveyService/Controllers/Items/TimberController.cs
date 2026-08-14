@@ -50,7 +50,11 @@ public class TimberController : Controller
         {
             viewModel.Glass = glass;
         }
-
+        var locking = await repo.Db.Lockmech.FirstOrDefaultAsync(l => l.HeaderId == timber.HeaderId && l.item_number == timber.item_number);
+        if (locking != null)
+        {
+            viewModel.Lockmech = locking;
+        }
         return View(viewModel);
     }
 

@@ -28,10 +28,6 @@ namespace PropertySurveyService.Models
         [Browsable(false)]
         public int item_number { get; set; }
 
-        [DisplayName("Is Complete")]
-        [Browsable(false)]
-        public bool bComplete { get; set; }
-
         [DisplayName("Repair Item")]
         public bool bRepair { get; set; }
 
@@ -164,20 +160,12 @@ namespace PropertySurveyService.Models
         [DisplayName("New Locking Mechanism")]
         public bool? bNewLockingMech { get; set; }
 
-        [DisplayName("Lock Complete")]
-        public bool bLockComplete { get; set; }
 
-        [DisplayName("Handle Drawing Complete")]
-        public bool bHandleDrawingComplete { get; set; }
-
-        [DisplayName("Number of Pictures")]
-        public int no_of_pics { get; set; }
 
         [DisplayName("Midrail Height")]
         public string midrail_height { get; set; } = "";
 
-        [DisplayName("Number of Photos")]
-        public int no_of_photos { get; set; }
+
 
         [DisplayName("Frame Depth")]
         public string frame_depth { get; set; } = "";
@@ -191,21 +179,16 @@ namespace PropertySurveyService.Models
         [DisplayName("Room Location")]
         public string room_location { get; set; } = "";
 
-        [DisplayName("Number of Videos")]
-        [Browsable(false)]
-        public int no_of_vids { get; set; }
+
 
         [DisplayName("LP Handles")]
-        public int LPHandles { get; set; }
+        public string LPHandles { get; set; } = "...";
 
         [DisplayName("Slide Position")]
         public string slide_position { get; set; } = "...";
 
         [DisplayName("Threshold Type")]
         public string threshold_type { get; set; } = "";
-
-        [DisplayName("Different From Original Signed")]
-        public bool bDifferentFromOriginalSigned { get; set; }
 
         [DisplayName("Different From Original")]
         public bool? bDifferentFromOriginal { get; set; } = false;
@@ -217,7 +200,7 @@ namespace PropertySurveyService.Models
         public string print_name { get; set; } = "";
 
         [DisplayName("FENSA")]
-        public bool bFensa { get; set; }
+        public bool bFensa { get; set; } = true;
 
         [DisplayName("WER Rating")]
         public string WER_Rating { get; set; } = "";
@@ -225,73 +208,12 @@ namespace PropertySurveyService.Models
         [DisplayName("Summary")]
         public string Summary { get; set; } = "";
 
-        [DisplayName("Door Complete")]
-        public bool bDoorComplete { get; set; }
 
-        [DisplayName("Window Complete")]
-        public bool bWindowComplete { get; set; }
 
-        [DisplayName("Lead Size A")]
-        public int lead_sizeA { get; set; }
 
-        [DisplayName("Lead Size B")]
-        public int lead_sizeB { get; set; }
-
-        [DisplayName("Lead Size C")]
-        public int lead_sizeC { get; set; }
-
-        [DisplayName("Lead Size D")]
-        public int lead_sizeD { get; set; }
-
-        [DisplayName("Lead C Width")]
-        public int lead_CWidth { get; set; }
-
-        [DisplayName("Lead C Height")]
-        public int lead_CHeight { get; set; }
-
-        [DisplayName("Lead Anti Rattle")]
-        public int lead_anti_rattle { get; set; }
-
-        [DisplayName("Lead Thickness")]
-        public string lead_thickness { get; set; } = "";
-
-        [DisplayName("Lead SOD")]
-        public string lead_sod { get; set; } = "";
-
-        [DisplayName("Lead Type")]
-        public string lead_type { get; set; } = "";
-        [DisplayName("Back to Back Complete")]
-        public bool lead_bBackToBackComplete { get; set; }
-
-        [DisplayName("Lead Diamond Complete")]
-        public bool lead_bDiamondComplete { get; set; }
-
-        [DisplayName("Lead Georgian Complete")]
-        public bool lead_bGeorgianComplete { get; set; }
-
-        [DisplayName("Lead Bar Complete")]
-        public bool lead_bBarComplete { get; set; }
-
-        [DisplayName("Lead SG Design Complete")]
-        public bool lead_bSGDesignComplete { get; set; }
-
-        [DisplayName("Lock Make")]
-        public string lock_make { get; set; } = "";
-
-        [DisplayName("Lock Codes")]
-        public string lock_codes { get; set; } = "";
 
         [DisplayName("Panel Complete")]
         public bool bPanelComplete { get; set; }
-
-        [DisplayName("Left Bolt")]
-        public int left_bolt { get; set; }
-
-        [DisplayName("Right Bolt")]
-        public int right_bolt { get; set; }
-
-        [DisplayName("Gear Box")]
-        public string GearBox { get; set; } = "...";
 
         [DisplayName("Hinge Colour")]
         public string hinge_colour { get; set; } = "";
@@ -317,86 +239,15 @@ namespace PropertySurveyService.Models
         [DisplayName("Was It Locked")]
         public int was_it_locked { get; set; }
 
-        [DisplayName("Lock Size 1")]
-        public string l_size1 { get; set; } = "";
-
-        [DisplayName("Lock Size 2")]
-        public string l_size2 { get; set; } = "";
-
-        [DisplayName("Lock Size A")]
-        public string l_sizeA { get; set; } = "";
-
-        [DisplayName("Lock Size B")]
-        public string l_sizeB { get; set; } = "";
-
-        [DisplayName("Lock Size C")]
-        public string l_sizeC { get; set; } = "";
-
-        [DisplayName("Lock Size D")]
-        public string l_sizeD { get; set; } = "";
-
-        [DisplayName("Lock Size E")]
-        public string l_sizeE { get; set; } = "";
-
-        [DisplayName("Lock Size F")]
-        public string l_sizeF { get; set; } = "";
-
-        [DisplayName("Lock Size G")]
-        public string l_sizeG { get; set; } = "";
-
-        [DisplayName("Lock Number")]
-        public int l_num { get; set; }
-
-        [DisplayName("Lock FPos1")]
-        public float l_fpos1 { get; set; }
-
-        [DisplayName("Lock FPos2")]
-        public float l_fpos2 { get; set; }
-
-        [DisplayName("Lock FPos3")]
-        public float l_fpos3 { get; set; }
-
-        [DisplayName("Lock FPos4")]
-        public float l_fpos4 { get; set; }
-
-        [DisplayName("Lock FPos5")]
-        public float l_fpos5 { get; set; }
-
-        [DisplayName("Lock FPos6")]
-        public float l_fpos6 { get; set; }
-
-        [DisplayName("Lock FPos7")]
-        public float l_fpos7 { get; set; }
-
-        [DisplayName("Lock Position")]
-        public float lock_position { get; set; }
-
-        [DisplayName("Lock IType1")]
-        public int l_itype1 { get; set; }
-
-        [DisplayName("Lock IType2")]
-        public int l_itype2 { get; set; }
-
-        [DisplayName("Lock IType3")]
-        public int l_itype3 { get; set; }
-
-        [DisplayName("Lock IType4")]
-        public int l_itype4 { get; set; }
-
-        [DisplayName("Lock IType5")]
-        public int l_itype5 { get; set; }
-
-        [DisplayName("Lock IType6")]
-        public int l_itype6 { get; set; }
-
-        [DisplayName("Lock IType7")]
-        public int l_itype7 { get; set; }
-
         [DisplayName("Glass Complete")]
         public bool glass_complete { get; set; }
 
         [DisplayName("Replace Glass")]
         public bool? replace_glass { get; set; }
+
+
+
+
         public SurveyItem AsSurveyItem() { return new SurveyItem(Id, enum_item_type.upvc, item_number, ContractCode); }
     }
 
