@@ -6,7 +6,6 @@ namespace PropertySurveyService.Models
     public class Conservatory
     {
         [Key]
-        [DisplayName("Record Id")]
         [Browsable(false)]
         public int Id { get; set; }
 
@@ -27,10 +26,6 @@ namespace PropertySurveyService.Models
         [DisplayName("Item Number")]
         [Browsable(false)]
         public int item_number { get; set; }
-
-        [DisplayName("Is Complete")]
-        [Browsable(false)]
-        public bool bComplete { get; set; }
 
         [DisplayName("Type")]
         public string type { get; set; } = "";
@@ -161,21 +156,9 @@ namespace PropertySurveyService.Models
         [DisplayName("Roof Glazing Thickness")]
         public string roof_glazing_thickness { get; set; } = "";
 
-        [DisplayName("Number of Pictures")]
-        public int no_of_pics { get; set; }
-
-        [DisplayName("Number of Photos")]
-        public int no_of_photos { get; set; }
-
         [DisplayName("Room Location")]
         public string room_location { get; set; } = "";
 
-        [DisplayName("Number of Videos")]
-        [Browsable(false)]
-        public int no_of_vids { get; set; }
-
-        [DisplayName("Different From Original")]
-        public bool bDifferentFromOriginalSigned { get; set; }
         [DisplayName("Different From Original")]
         public bool? bDifferentFromOriginal { get; set; } = false;
 
@@ -267,7 +250,7 @@ namespace PropertySurveyService.Models
         public bool bRepair { get; set; }
 
         [DisplayName("FENSA")]
-        public bool bFensa { get; set; }
+        public bool bFensa { get; set; } = true;
 
         [DisplayName("WER Rating")]
         public string WER_rating { get; set; } = "";

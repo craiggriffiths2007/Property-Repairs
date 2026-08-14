@@ -10,7 +10,6 @@ namespace PropertySurveyService.Models
     {
         // ===== Core / Shared =====
         [Key]
-        [DisplayName("Record Id")]
         [Browsable(false)]
         public int Id { get; set; }
 
@@ -33,15 +32,8 @@ namespace PropertySurveyService.Models
         [Browsable(false)]
         public int item_number { get; set; }
 
-        [DisplayName("Is Complete")]
-        [Browsable(false)]
-        public bool bComplete { get; set; }
-
         [DisplayName("Repair Item")]
         public bool bRepair { get; set; }
-
-        [DisplayName("Different From Original")]
-        public bool bDifferentFromOriginalSigned { get; set; }
 
         [DisplayName("Different From Original")]
         public bool? bDifferentFromOriginal { get; set; } = false;
@@ -131,21 +123,7 @@ namespace PropertySurveyService.Models
         [DisplayName("Special Glass")]
         public string special_glass { get; set; } = "";
 
-        [DisplayName("Lock Complete")]
-        public bool bLockComplete { get; set; }
 
-        [DisplayName("Handle Drawing Complete")]
-        public bool bHandleDrawingComplete { get; set; }
-
-        [DisplayName("Number of Pictures")]
-        public int no_of_pics { get; set; }
-
-        [DisplayName("Number of Photos")]
-        public int no_of_photos { get; set; }
-
-        [DisplayName("Number of Videos")]
-        [Browsable(false)]
-        public int no_of_vids { get; set; }
 
         [DisplayName("DOCL")]
         public string docl { get; set; } = "";
@@ -153,11 +131,7 @@ namespace PropertySurveyService.Models
         [DisplayName("Room Location")]
         public string room_location { get; set; } = "";
 
-        [DisplayName("Door Complete")]
-        public bool bDoorComplete { get; set; }
 
-        [DisplayName("Window Complete")]
-        public bool bWindowComplete { get; set; }
 
         [DisplayName("Lock Make")]
         public string lock_make { get; set; } = "";
@@ -166,7 +140,7 @@ namespace PropertySurveyService.Models
         public string lock_codes { get; set; } = "";
 
         [DisplayName("Gear Box")]
-        public int GearBox { get; set; }
+        public string GearBox { get; set; } = "...";
 
         [DisplayName("Left Bolt")]
         public int left_bolt { get; set; }
@@ -345,7 +319,7 @@ namespace PropertySurveyService.Models
         public string item_summary { get; set; } = "";
 
         [DisplayName("Fenca")]
-        public bool bFensa { get; set; }
+        public bool bFensa { get; set; } = true;
 
         [DisplayName("Doc L Compliant Reason")]
         public string doc_l_compliant_reason { get; set; } = "";
@@ -437,6 +411,8 @@ namespace PropertySurveyService.Models
         public string ChangeItemTo { get; set; } = "";
         [DisplayName("Print Name")]
         public string print_name { get; set; } = "";
+        
+        
         public SurveyItem AsSurveyItem() { return new SurveyItem(Id, enum_item_type.locking, item_number, ContractCode); }
 
     }

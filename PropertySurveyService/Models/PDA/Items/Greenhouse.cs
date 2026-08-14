@@ -6,7 +6,6 @@ namespace PropertySurveyService.Models
     public class Greenhouse
     {
         [Key]
-        [DisplayName("Record Id")]
         [Browsable(false)]
         public int Id { get; set; }
 
@@ -28,12 +27,6 @@ namespace PropertySurveyService.Models
         [Browsable(false)]
         public int item_number { get; set; }
 
-        [DisplayName("Is Complete")]
-        [Browsable(false)]
-        public bool bComplete { get; set; }
-
-        [DisplayName("Different From Original")]
-        public bool bDifferentFromOriginalSigned { get; set; }
         [DisplayName("Different From Original")]
         public bool? bDifferentFromOriginal { get; set; } = false;
 
@@ -85,16 +78,6 @@ namespace PropertySurveyService.Models
         [DisplayName("Summary")]
         public string Summary { get; set; } = "";
 
-        [DisplayName("Number of Pictures")]
-        public int no_of_pics { get; set; }
-
-        [DisplayName("Number of Photos")]
-        public int no_of_photos { get; set; }
-
-        [DisplayName("Number of Videos")]
-        [Browsable(false)]
-        public int no_of_vids { get; set; }
-
         [DisplayName("Parts to Order")]
         public string parts_to_order { get; set; } = "";
 
@@ -121,6 +104,7 @@ namespace PropertySurveyService.Models
 
         [DisplayName("Repair or Replace")]
         public int repair_or_replace { get; set; }
+
 
         public SurveyItem AsSurveyItem() { return new SurveyItem(Id, enum_item_type.greenhouse, item_number, ContractCode); }
     }

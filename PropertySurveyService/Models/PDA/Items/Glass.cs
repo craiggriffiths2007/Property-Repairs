@@ -6,7 +6,6 @@ namespace PropertySurveyService.Models
     public class Glass
     {
         [Key]
-        [DisplayName("Record Id")]
         [Browsable(false)]
         public int Id { get; set; }
 
@@ -27,10 +26,6 @@ namespace PropertySurveyService.Models
         [DisplayName("Item Number")]
         [Browsable(false)]
         public int item_number { get; set; }
-
-        [DisplayName("Is Complete")]
-        [Browsable(false)]
-        public bool bComplete { get; set; }
 
         [DisplayName("Cause of Damage")]
         public string cause_of_damage { get; set; } = "";
@@ -123,7 +118,7 @@ namespace PropertySurveyService.Models
         public string lead_CHeight { get; set; } = "";
 
         [DisplayName("Lead Anti Rattle")]
-        public string lead_anti_rattle { get; set; } = "";
+        public string lead_anti_rattle { get; set; } = "...";
 
         [DisplayName("Lead Thickness")]
         public string lead_thickness { get; set; } = "";
@@ -166,14 +161,12 @@ namespace PropertySurveyService.Models
         [DisplayName("Special Glass")]
         public string special_glass { get; set; } = "";
 
-        [DisplayName("Number of Pictures")]
-        public int no_of_pics { get; set; }
+
 
         [DisplayName("DOCL Old")]
         public string docl_old { get; set; } = "";
 
-        [DisplayName("Number of Photos")]
-        public int no_of_photos { get; set; }
+
 
         [DisplayName("Georgian Bar Trim")]
         public bool gb_trim { get; set; }
@@ -184,12 +177,7 @@ namespace PropertySurveyService.Models
         [DisplayName("Room Location")]
         public string room_location { get; set; } = "";
 
-        [DisplayName("Number of Videos")]
-        [Browsable(false)]
-        public int no_of_vids { get; set; }
 
-        [DisplayName("Different From Original")]
-        public bool bDifferentFromOriginalSigned { get; set; }
         [DisplayName("Different From Original")]
         public bool? bDifferentFromOriginal { get; set; } = false;
 

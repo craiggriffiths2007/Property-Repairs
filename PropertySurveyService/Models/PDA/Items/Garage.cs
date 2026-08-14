@@ -6,7 +6,6 @@ namespace PropertySurveyService.Models
     public class Garage
     {
         [Key]
-        [DisplayName("Record Id")]
         [Browsable(false)]
         public int Id { get; set; }
 
@@ -142,12 +141,6 @@ namespace PropertySurveyService.Models
         [DisplayName("Need Safety Release")]
         public bool? need_safety_release { get; set; }
 
-        [DisplayName("Number of Pictures")]
-        public int no_of_pics { get; set; }
-
-        [DisplayName("Number of Photos")]
-        public int no_of_photos { get; set; }	// Number of pictures
-
         [DisplayName("Insulated")]
         public bool? insulated { get; set; }
 
@@ -157,12 +150,6 @@ namespace PropertySurveyService.Models
         [DisplayName("Motor Position")]
         public string motor_position { get; set; } = "...";
 
-        [DisplayName("Number of Videos")]
-        [Browsable(false)]
-        public int no_of_vids { get; set; }
-
-        [DisplayName("Different From Original")]
-        public bool bDifferentFromOriginalSigned { get; set; }
         [DisplayName("Different From Original")]
         public bool? bDifferentFromOriginal { get; set; } = false;
         [DisplayName("Change Item To")]
@@ -173,10 +160,6 @@ namespace PropertySurveyService.Models
 
         [DisplayName("Summary")]
         public string Summary { get; set; } = "";
-
-        [DisplayName("Is Complete")]
-        [Browsable(false)]
-        public bool bComplete { get; set; }
 
         [DisplayName("Door Within Perimeter")]
         public bool? door_within_perimeter { get; set; }      // Is the garage door in the customers house perimeter? Renamed from i_spare1
@@ -213,6 +196,8 @@ namespace PropertySurveyService.Models
 
         [DisplayName("Where is Garage")]
         public string where_is_garage { get; set; } = "";
+
+
         public SurveyItem AsSurveyItem() { return new SurveyItem(Id, enum_item_type.garage, item_number, ContractCode); }
 
     }

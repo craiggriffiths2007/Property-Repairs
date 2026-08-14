@@ -9,7 +9,6 @@ namespace PropertySurveyService.Models
     public class Aluminium
     {
         [Key]
-        [DisplayName("Record Id")]
         [Browsable(false)]
         public int Id { get; set; }
 
@@ -113,31 +112,21 @@ namespace PropertySurveyService.Models
         [DisplayName("Sub Frame Color")]
         public string sub_frame_color { get; set; } = "";
         [DisplayName("New Locking Mechanism")]
-        public bool? bNewLockingMech { get; set; }			// 0-not selected 1-Yes 2-No
-        [DisplayName("Lock Complete")]
-        public int bLockComplete { get; set; }				// Is the locking mechanism complete ????????????
-        [DisplayName("Handle Drawing Complete")]
-        [Browsable(false)]
-        public bool bHandleDrawingComplete { get; set; }
-        [DisplayName("Number of Pictures")]
-        public int no_of_pics { get; set; }	// Number of pictures
+        public bool? bNewLockingMech { get; set; }
+
+
         [DisplayName("Midrail Height")]
         public string midrail_height { get; set; } = "";
-        [DisplayName("Number of Photos")]
-        public int no_of_photos { get; set; }	                // Number of pictures
         [DisplayName("DOCL")]
         public string docl { get; set; } = "";
         [DisplayName("Room Location")]
         public string room_location { get; set; } = "";
-        [DisplayName("Number of Videos")]
-        [Browsable(false)]
-        public int no_of_vids { get; set; }
+
         [DisplayName("LP Handles")]
         public string LPHandles { get; set; } = "...";
         [DisplayName("Threshold Type")]
         public string threshold_type { get; set; } = "";
-        [DisplayName("Different From Original")]
-        public bool bDifferentFromOriginalSigned { get; set; }
+
         [DisplayName("Different From Original")]
         public bool? bDifferentFromOriginal { get; set; } = false;
         [DisplayName("Change Item To")]
@@ -145,18 +134,12 @@ namespace PropertySurveyService.Models
         [DisplayName("Print Name")]
         public string print_name { get; set; } = "";
         [DisplayName("Fencer")]
-        public bool bFensa { get; set; }
+        public bool bFensa { get; set; } = true;
         [DisplayName("Fencer Rating")]
         public string FecerRating { get; set; } = "";
         [DisplayName("Summary")]
         public string Summary { get; set; } = "";
-        [DisplayName("Door Complete")]
-        [Browsable(false)]
-        public bool bDoorComplete { get; set; }
-        [DisplayName("Window Complete")]
-        [Browsable(false)]
-        public bool bWindowComplete { get; set; }
-        public bool lead_bSGDesignComplete { get; set; }
+
         [DisplayName("Lock Make")]
         public string lock_make { get; set; } = "";
         [DisplayName("Lock Codes")]
@@ -165,14 +148,12 @@ namespace PropertySurveyService.Models
         [Browsable(false)]
         public bool bPanelComplete { get; set; }
         [DisplayName("Gear Box")]
-        public int GearBox { get; set; }
+        public string GearBox { get; set; } = "...";
         [DisplayName("Left Bolt")]
         public int left_bolt { get; set; }
         [DisplayName("Right Bolt")]
         public int right_bolt { get; set; }
-        [DisplayName("Is Complete")]
-        [Browsable(false)]
-        public bool bComplete { get; set; }
+
         [DisplayName("Cill on Subframe")]
         public bool? cill_on_subframe { get; set; }               // Renamed from i_spare1
         [DisplayName("Cill Type")]

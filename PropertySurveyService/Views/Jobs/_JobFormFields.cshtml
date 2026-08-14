@@ -112,7 +112,7 @@
             </div>
             <input type="hidden" asp-for="Job.Instructions" id="instructions-hidden" />
 
-            <div id="instructions-editor" style="height: 600px;">
+            <div id="instructions-editor" >
                 @Html.Raw(Model.Job?.Instructions)
             </div>
 

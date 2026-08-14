@@ -199,7 +199,7 @@ namespace PropertySurveyService.Models
         public int LPHandles { get; set; }
 
         [DisplayName("Slide Position")]
-        public int slide_position { get; set; }
+        public string slide_position { get; set; } = "...";
 
         [DisplayName("Threshold Type")]
         public string threshold_type { get; set; } = "";
@@ -291,7 +291,7 @@ namespace PropertySurveyService.Models
         public int right_bolt { get; set; }
 
         [DisplayName("Gear Box")]
-        public int GearBox { get; set; }
+        public string GearBox { get; set; } = "...";
 
         [DisplayName("Hinge Colour")]
         public string hinge_colour { get; set; } = "";

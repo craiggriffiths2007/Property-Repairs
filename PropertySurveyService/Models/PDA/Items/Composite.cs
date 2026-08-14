@@ -7,7 +7,6 @@ namespace PropertySurveyService.Models
     {
         [Key]
         [Browsable(false)]
-        [DisplayName("Record Id")]
         public int Id { get; set; }
 
         [Browsable(false)]
@@ -27,10 +26,6 @@ namespace PropertySurveyService.Models
         [DisplayName("Item Number")]
         [Browsable(false)]
         public int item_number { get; set; }
-
-        [DisplayName("Is Complete")]
-        [Browsable(false)]
-        public bool bComplete { get; set; }
 
         [DisplayName("Cause of Damage")]
         public string cause_of_damage { get; set; } = "";
@@ -175,18 +170,7 @@ namespace PropertySurveyService.Models
         [DisplayName("Lead Bar Complete")]
         public bool lead_bBarComplete { get; set; }
 
-        [DisplayName("Number of Pictures")]
-        public int no_of_pics { get; set; }
 
-        [DisplayName("Number of Photos")]
-        public int no_of_photos { get; set; }
-
-        [DisplayName("Number of Videos")]
-        [Browsable(false)]
-        public int no_of_vids { get; set; }
-
-        [DisplayName("Different From Original")]
-        public bool bDifferentFromOriginalSigned { get; set; }
         [DisplayName("Different From Original")]
         public bool? bDifferentFromOriginal { get; set; } = false;
 
@@ -246,7 +230,7 @@ namespace PropertySurveyService.Models
         public bool bRepair { get; set; }
 
         [DisplayName("FENSA")]
-        public bool bFensa { get; set; }
+        public bool bFensa { get; set; } = true;
 
         [DisplayName("WER Rating")]
         public string WER_rating { get; set; } = "";
@@ -260,11 +244,9 @@ namespace PropertySurveyService.Models
         [DisplayName("Handles Required")]
         public bool? handles_req { get; set; }
 
-        [DisplayName("Handle Drawing Complete")]
-        public bool bHandleDrawingComplete { get; set; }
-
         [DisplayName("Handles Text")]
         public string handles_text { get; set; } = "";
+
 
         public SurveyItem AsSurveyItem() { return new SurveyItem(Id, enum_item_type.composite, item_number, ContractCode); }
     }

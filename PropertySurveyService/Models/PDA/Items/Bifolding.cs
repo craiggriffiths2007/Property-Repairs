@@ -7,7 +7,6 @@ namespace PropertySurveyService.Models
     {
         [Key]
         [Browsable(false)]
-        [DisplayName("Record Id")]
         public int Id { get; set; }
 
         [Browsable(false)]
@@ -57,20 +56,6 @@ namespace PropertySurveyService.Models
 
         [DisplayName("Threshold Type")]
         public string threshold_type { get; set; } = "";
-
-        [DisplayName("Number of Pictures")]
-        public int no_of_pics { get; set; }
-
-        [DisplayName("Number of Photos")]
-        public int no_of_photos { get; set; }
-
-        [DisplayName("Number of Videos")]
-        [Browsable(false)]
-        public int no_of_vids { get; set; }
-
-        [DisplayName("Is Complete")]
-        [Browsable(false)]
-        public bool bComplete { get; set; }
 
         [DisplayName("Summary")]
         public string Summary { get; set; } = "";
@@ -133,8 +118,6 @@ namespace PropertySurveyService.Models
         public string print_name { get; set; } = "";
 
         [DisplayName("Different From Original")]
-        public bool bDifferentFromOriginalSigned { get; set; }
-        [DisplayName("Different From Original")]
         public bool? bDifferentFromOriginal { get; set; } = false;
 
         [DisplayName("Glass Complete")]
@@ -150,7 +133,7 @@ namespace PropertySurveyService.Models
         public bool bRepair { get; set; }
 
         [DisplayName("FENSA")]
-        public bool bFensa { get; set; }
+        public bool bFensa { get; set; } = true;
 
         [DisplayName("WER Rating")]
         public string WER_rating { get; set; } = "";
@@ -164,9 +147,6 @@ namespace PropertySurveyService.Models
         [DisplayName("Handles Required")]
         public bool? handles_req { get; set; }
 
-        [DisplayName("Handle Drawing Complete")]
-        public bool bHandleDrawingComplete { get; set; }
-
         [DisplayName("Handles Text")]
         public string handles_text { get; set; } = "";
 
@@ -178,6 +158,8 @@ namespace PropertySurveyService.Models
 
         [DisplayName("Addon Height")]
         public string addon_height { get; set; } = "";
+
+
         public SurveyItem AsSurveyItem() { return new SurveyItem(Id, enum_item_type.bifold, item_number, ContractCode); }
 
     }

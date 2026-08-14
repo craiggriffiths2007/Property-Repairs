@@ -6,7 +6,6 @@ namespace PropertySurveyService.Models
     public class Lockmech
     {
         [Key]
-        [DisplayName("Record Id")]
         [Browsable(false)]
         public int Id { get; set; }
 
@@ -28,9 +27,6 @@ namespace PropertySurveyService.Models
         [Browsable(false)]
         public int item_number { get; set; }
 
-        [DisplayName("Is Complete")]
-        [Browsable(false)]
-        public bool bComplete { get; set; }
 
         [DisplayName("Summary")]
         public string Summary { get; set; } = "";
@@ -44,12 +40,6 @@ namespace PropertySurveyService.Models
         [DisplayName("Was It Locked")]
         public int was_it_locked { get; set; }
 
-        [DisplayName("Number of Pictures")]
-        public int no_of_pics { get; set; }
-
-        [DisplayName("Number of Photos")]
-        public int no_of_photos { get; set; }
-
         [DisplayName("Multipoint Locking")]
         public bool bMulti { get; set; }
 
@@ -62,20 +52,11 @@ namespace PropertySurveyService.Models
         [DisplayName("Locking Codes")]
         public string locking_codes { get; set; } = "";
 
-        [DisplayName("Door Complete")]
-        public bool bDoorComplete { get; set; }
-
-        [DisplayName("Window Complete")]
-        public bool bWindowComplete { get; set; }
-
         [DisplayName("Lock Colour")]
         public string lock_colour { get; set; } = "";
 
         [DisplayName("Page Number")]
         public string pagenum { get; set; } = "";
-
-        [DisplayName("Different From Original")]
-        public bool bDifferentFromOriginalSigned { get; set; }
 
         [DisplayName("Different From Original")]
         public bool? bDifferentFromOriginal { get; set; } = false;
@@ -96,11 +77,7 @@ namespace PropertySurveyService.Models
         public string cause_of_damage_reason_different { get; set; } = "";
 
         [DisplayName("Gear Box")]
-        public int GearBox { get; set; }
-
-        [DisplayName("Number of Videos")]
-        [Browsable(false)]
-        public int no_of_vids { get; set; }
+        public string GearBox { get; set; } = "...";
 
         [DisplayName("Left Bolt")]
         public int left_bolt { get; set; }
@@ -110,9 +87,6 @@ namespace PropertySurveyService.Models
 
         [DisplayName("Parts to Order")]
         public string parts_to_order { get; set; } = "";
-
-        [DisplayName("Lock Complete")]
-        public bool bLockComplete { get; set; }
 
         [DisplayName("Lock Size 1")]
         public string l_size1 { get; set; } = "";
@@ -189,8 +163,6 @@ namespace PropertySurveyService.Models
         [DisplayName("Lock IType7")]
         public int l_itype7 { get; set; }
 
-        [DisplayName("Long Comments")]
-        public string long_comments { get; set; } = "";
 
 
         public SurveyItem AsSurveyItem() { return new SurveyItem(Id, enum_item_type.locking, item_number, ContractCode); }

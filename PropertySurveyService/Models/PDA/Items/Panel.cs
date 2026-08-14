@@ -7,7 +7,6 @@ namespace PropertySurveyService.Models
     {
         [Key]
         [Browsable(false)]
-        [DisplayName("Record Id")]
         public int Id { get; set; }
 
         [Browsable(false)]
@@ -25,9 +24,6 @@ namespace PropertySurveyService.Models
         [Browsable(false)]
         [DisplayName("Item Number")]
         public int item_number { get; set; }
-        [Browsable(false)]
-        [DisplayName("Is Complete")]
-        public bool bComplete { get; set; }
 
         [DisplayName("Cause of Damage")]
         public string cause_of_damage { get; set; } = "";
@@ -80,21 +76,10 @@ namespace PropertySurveyService.Models
         [DisplayName("Pet Magnetic")]
         public string pet_magnetic { get; set; } = "...";
 
-        [DisplayName("Number of Pictures")]
-        public int no_of_pics { get; set; }
 
-        [DisplayName("Number of Photos")]
-        public int no_of_photos { get; set; }
-
-        [DisplayName("Number of Videos")]
-        [Browsable(false)]
-        public int no_of_vids { get; set; }
 
         [DisplayName("Room Location")]
         public string room_location { get; set; } = "";
-
-        [DisplayName("Different From Original")]
-        public bool bDifferentFromOriginalSigned { get; set; }
 
 
         [DisplayName("Different From Original")]
@@ -121,7 +106,10 @@ namespace PropertySurveyService.Models
         [DisplayName("Was It Locked")]
         public int was_it_locked { get; set; }
         [DisplayName("Parent Item")]
+
         public enum_item_type base_item { get; set; } = enum_item_type.none;
+
+
         public SurveyItem AsSurveyItem() { return new SurveyItem(Id, enum_item_type.panel, item_number, ContractCode); }
     }
 }
