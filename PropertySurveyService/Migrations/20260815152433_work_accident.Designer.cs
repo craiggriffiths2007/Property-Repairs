@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PropertySurveyService.Data;
 
@@ -11,9 +12,11 @@ using PropertySurveyService.Data;
 namespace PropertySurveyService.Migrations
 {
     [DbContext(typeof(AppDBContext))]
-    partial class AppDBContextModelSnapshot : ModelSnapshot
+    [Migration("20260815152433_work_accident")]
+    partial class work_accident
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -2268,8 +2271,9 @@ namespace PropertySurveyService.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("date_time")
-                        .HasColumnType("datetime2");
+                    b.Property<string>("date_time")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("filer_add1")
                         .IsRequired()
@@ -2295,6 +2299,10 @@ namespace PropertySurveyService.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("filer_sign_date")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("full_name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -2303,7 +2311,7 @@ namespace PropertySurveyService.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("injuries_sustained")
+                    b.Property<string>("injuries")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -2311,7 +2319,7 @@ namespace PropertySurveyService.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("no_of_photos")
+                    b.Property<int>("num_of_photographs")
                         .HasColumnType("int");
 
                     b.Property<string>("occupation")
@@ -2322,6 +2330,9 @@ namespace PropertySurveyService.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("person_signed")
+                        .HasColumnType("int");
+
                     b.Property<string>("sig_fname1")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -2329,6 +2340,13 @@ namespace PropertySurveyService.Migrations
                     b.Property<string>("sig_fname2")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("sign_date")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("supervisor_signed")
+                        .HasColumnType("int");
 
                     b.Property<string>("time_happened")
                         .IsRequired()
@@ -2338,11 +2356,11 @@ namespace PropertySurveyService.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("where_happ_acc")
+                    b.Property<string>("where_abouts")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("where_it_happened")
+                    b.Property<string>("where_happ_acc")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 

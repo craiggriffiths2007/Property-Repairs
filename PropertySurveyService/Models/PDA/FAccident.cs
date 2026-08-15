@@ -9,7 +9,6 @@ namespace PropertySurveyService.Models
         [Browsable(false)]
         public int Id { get; set; }
 
-        [DisplayName("Unique Record ID (GUID)")]
         [Browsable(false)]
         public Guid Guid { get; set; } = Guid.NewGuid();
         [Browsable(false)]
@@ -70,20 +69,20 @@ namespace PropertySurveyService.Models
         [DisplayName("Location of Accident")]
         public string where_happ_acc { get; set; } = "";
 
-        [DisplayName("Specific Location / Whereabouts")]
-        public string where_abouts { get; set; } = "";
-
         [DisplayName("Accident Type / Classification")]
         public string Type { get; set; } = "";
-
-        [DisplayName("Nature of Injuries")]
-        public string injuries { get; set; } = "";
 
         [DisplayName("What Happened (Brief Description)")]
         public string what_happened { get; set; } = "";
 
-        [DisplayName("How Did the Accident Happen? (Full Details)")]
+        [DisplayName("How Did the Accident Happen?")]
         public string how_did_accident_happen { get; set; } = "";
+
+        [DisplayName("Where Did the Accident Happen?")]
+        public string where_it_happened { get; set; } = "";
+
+        [DisplayName("Injuries Sustained")]
+        public string injuries_sustained { get; set; } = "";
 
 
         // --- Treatment & First Aid ---
@@ -94,39 +93,26 @@ namespace PropertySurveyService.Models
 
         // --- Signatures & Verification ---
 
-        [DisplayName("Injured Person Signed")]
-        public int person_signed { get; set; }
 
-        [DisplayName("Supervisor Signed")]
-        public int supervisor_signed { get; set; }
-
-        [DisplayName("Injured Person Signature Date")]
-        public string sign_date { get; set; } = "";
-
-        [DisplayName("Reporter Signature Date")]
-        public string filer_sign_date { get; set; } = "";
-
-        [DisplayName("Injured Person Signature Filename")]
         [Browsable(false)]
         public string sig_fname1 { get; set; } = "";
 
-        [DisplayName("Supervisor/Reporter Signature Filename")]
         [Browsable(false)]
         public string sig_fname2 { get; set; } = "";
 
 
         // --- Metadata & Photos ---
-        [Browsable(false)]
-        [DisplayName("Number of Photographs")]
-        public int num_of_photographs { get; set; }
 
-        [DisplayName("Date/Time Record Created")]
-        public string date_time { get; set; } = "";
         [Browsable(false)]
-        [DisplayName("Sent to Server")]
+        public int no_of_photos { get; set; }
+
+        [Browsable(false)]
+        public DateTime date_time { get; set; }
+
+        [Browsable(false)]
         public bool bSent { get; set; }
+
         [Browsable(false)]
-        [DisplayName("Is Completed")]
         public bool bComplete { get; set; }
     }
 }
