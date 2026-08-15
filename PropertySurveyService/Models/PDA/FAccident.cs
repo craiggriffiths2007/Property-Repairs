@@ -15,25 +15,25 @@ namespace PropertySurveyService.Models
         public string CheckID { get; set; } = ""; // consists of date, pda code, and unique Van Check ID number. Kind of a guid for the van check
         // --- Injured Person Details ---
 
-        [DisplayName("Injured Person: Full Name")]
+        [DisplayName("Injured: Full Name")]
         public string full_name { get; set; } = "";
 
-        [DisplayName("Injured Person: Address Line 1")]
+        [DisplayName("Injured: Address Line 1")]
         public string add1 { get; set; } = "";
 
-        [DisplayName("Injured Person: Address Line 2")]
+        [DisplayName("Injured: Address Line 2")]
         public string add2 { get; set; } = "";
 
-        [DisplayName("Injured Person: Address Line 3")]
+        [DisplayName("Injured: Address Line 3")]
         public string add3 { get; set; } = "";
 
-        [DisplayName("Injured Person: Postcode")]
+        [DisplayName("Injured: Postcode")]
         public string pcode { get; set; } = "";
 
-        [DisplayName("Injured Person: Occupation")]
+        [DisplayName("Injured: Occupation")]
         public string occupation { get; set; } = "";
 
-        [DisplayName("Declaration Type (Anonymous or Named)")]
+        [DisplayName("Declared by")]
         public string anon_or_name { get; set; } = "";
 
 
@@ -60,25 +60,25 @@ namespace PropertySurveyService.Models
 
         // --- Incident Details ---
 
-        [DisplayName("Date Incident Happened")]
+        [DisplayName("Date Happened")]
         public string date_happened { get; set; } = "";
 
-        [DisplayName("Time Incident Happened")]
+        [DisplayName("Time Happened")]
         public string time_happened { get; set; } = "";
 
-        [DisplayName("Location of Accident")]
+        [DisplayName("Location")]
         public string where_happ_acc { get; set; } = "";
 
-        [DisplayName("Accident Type / Classification")]
+        [DisplayName("Type")]
         public string Type { get; set; } = "";
 
-        [DisplayName("What Happened (Brief Description)")]
+        [DisplayName("What Happened")]
         public string what_happened { get; set; } = "";
 
-        [DisplayName("How Did the Accident Happen?")]
+        [DisplayName("How it Happen?")]
         public string how_did_accident_happen { get; set; } = "";
 
-        [DisplayName("Where Did the Accident Happen?")]
+        [DisplayName("Where it Happened?")]
         public string where_it_happened { get; set; } = "";
 
         [DisplayName("Injuries Sustained")]
@@ -87,7 +87,7 @@ namespace PropertySurveyService.Models
 
         // --- Treatment & First Aid ---
 
-        [DisplayName("First Aid Materials Used in Treatment")]
+        [DisplayName("Materials Used")]
         public string materials_used_in_treatment { get; set; } = "";
 
 
