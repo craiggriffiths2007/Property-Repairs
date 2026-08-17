@@ -394,7 +394,7 @@ namespace PropertySurveyService
                             }
                         }
 
-                        job.Material.ForEach(o => o.Id = 0);
+                        job.Assembly.ForEach(o => o.Id = 0);
                         job.Panel.ForEach(o => o.Id = 0);
                         job.Aluminium.ForEach(o => o.Id = 0);
                         job.Bifolding.ForEach(o => o.Id = 0);
@@ -420,7 +420,7 @@ namespace PropertySurveyService
                         foreach (var item in job.Timber) { db.Timber.Where(l => l.Guid == item.Guid).ExecuteDelete(); }
                         foreach (var item in job.UPVC) { db.UPVC.Where(l => l.Guid == item.Guid).ExecuteDelete(); }
                         */
-                        SaveItems(job.Material);
+                        SaveItems(job.Assembly);
                         SaveItems(job.Panel);
                         SaveItems(job.Aluminium);
                         SaveItems(job.Bifolding);

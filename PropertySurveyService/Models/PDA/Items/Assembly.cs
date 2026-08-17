@@ -5,15 +5,6 @@ using System.ComponentModel.DataAnnotations;
 namespace PropertySurveyService.Models
 
 {
-    [Flags]
-    public enum MaterialType
-    {
-        None = 0,
-        UPVC = 1,
-        Aluminium = 2,
-        Timber = 4
-    }
-
 
 
     [AttributeUsage(AttributeTargets.Property)]
@@ -59,7 +50,7 @@ namespace PropertySurveyService.Models
         // MATERIAL SELECTION
         // ============================================================
         [DisplayName("Material")]
-        public enum_material_type material { get; set; } = enum_material_type.None;
+        public enum_material_type material { get; set; } = enum_material_type.None; 
 
         [DisplayName("Opening Type")]
         public string opening_type { get; set; } = ""; // Door, Window etc
