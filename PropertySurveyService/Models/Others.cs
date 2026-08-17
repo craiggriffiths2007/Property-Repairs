@@ -32,6 +32,15 @@ namespace PropertySurveyService.Models
         Satellite
     }
 
+    public enum enum_material_type
+    {
+        None = 0,
+        UPVC = 1,
+        Aluminium = 2,
+        Timber = 4
+    }
+
+
     public enum enum_vehicle_type
     {
         delivery_hgv, delivery_van, fitter_van, sales_car
@@ -40,7 +49,7 @@ namespace PropertySurveyService.Models
     public enum enum_item_type
     {
         none,
-        material,
+        assembly,
         panel,
         upvc,
         aluminium,
@@ -126,7 +135,7 @@ namespace PropertySurveyService.Models
                 case enum_item_type.greenhouse: return "Greenhouse";
                 case enum_item_type.conservatory: return "Conservatory";
                 case enum_item_type.composite: return "Composite";
-                case enum_item_type.material: return "Material";
+                case enum_item_type.assembly: return "Material";
             }
             return "";
         }
@@ -146,7 +155,7 @@ namespace PropertySurveyService.Models
                 case enum_item_type.greenhouse: return "Greenhouse";
                 case enum_item_type.conservatory: return "Conservatory";
                 case enum_item_type.composite: return "Composite";
-                case enum_item_type.material: return "Material";
+                case enum_item_type.assembly: return "Material";
             }
             return "";
         }

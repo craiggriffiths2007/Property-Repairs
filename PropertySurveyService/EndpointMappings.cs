@@ -566,7 +566,7 @@ namespace PropertySurveyService
                         results.Add(new JobHeaderDTO
                         {
                             Head = jobHeader,
-                            Material = db.Frame.Where(f => f.HeaderId == jobHeader.Id).ToList(),
+                            Assembly = db.Assembly.Where(f => f.HeaderId == jobHeader.Id).ToList(),
                             Panel = db.Panel.Where(p => p.HeaderId == jobHeader.Id).ToList(),
                             Aluminium = db.Aluminium.Where(a => a.HeaderId == jobHeader.Id).ToList(),
                             Bifolding = db.Bifolding.Where(b => b.HeaderId == jobHeader.Id).ToList(),

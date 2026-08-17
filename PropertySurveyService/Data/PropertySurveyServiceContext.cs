@@ -39,7 +39,7 @@ namespace PropertySurveyService.Data
         public DbSet<Panel> Panel { get; set; } = default!;
         public DbSet<Timber> Timber { get; set; } = default!;
         public DbSet<UPVC> UPVC { get; set; } = default!;
-        public DbSet<Material> Frame { get; set; } = default!;
+        public DbSet<Assembly> Assembly { get; set; } = default!;
         public DbSet<PhotoImage> Images { get; set; } = default!;
 
         public DbSet<Branch> Branches { get; set; } = default!;

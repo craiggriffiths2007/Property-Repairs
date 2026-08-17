@@ -14,19 +14,20 @@ namespace PropertySurveyService.Models
         Timber = 4
     }
 
-    [AttributeUsage(AttributeTargets.Property)]
-    public sealed class MaterialForAttribute : Attribute
-    {
-        public MaterialType Materials { get; }
 
-        public MaterialForAttribute(MaterialType materials)
+
+    [AttributeUsage(AttributeTargets.Property)]
+    public sealed class AssemblyForAttribute : Attribute
+    {
+        public enum_material_type Materials { get; }
+
+        public AssemblyForAttribute(enum_material_type materials)
         {
             Materials = materials;
         }
     }
 
-
-    public class Material
+    public class Assembly
     {
         // ============================================================
         // COMMON - DATABASE / ITEM IDENTIFICATION
@@ -37,7 +38,7 @@ namespace PropertySurveyService.Models
 
         [Browsable(false)]
         [DisplayName("Item Type")]
-        public enum_item_type item_type => enum_item_type.material;
+        public enum_item_type item_type => enum_item_type.assembly;
 
         [DisplayName("Header Id")]
         [Browsable(false)]
@@ -58,10 +59,10 @@ namespace PropertySurveyService.Models
         // MATERIAL SELECTION
         // ============================================================
         [DisplayName("Material")]
-        public MaterialType material { get; set; } = MaterialType.UPVC;
+        public enum_material_type material { get; set; } = enum_material_type.None;
 
         [DisplayName("Opening Type")]
-        public string opening_type { get; set; } = "";
+        public string opening_type { get; set; } = ""; // Door, Window etc
 
         [DisplayName("WER Rating")]
         public string WER_Rating { get; set; } = "";
@@ -147,6 +148,9 @@ namespace PropertySurveyService.Models
         [DisplayName("Spacer Thickness")]
         public string spacer_thickness { get; set; } = "";
 
+        [DisplayName("Spacer Colour")]
+        public string spacer_colour { get; set; } = "";
+
         [DisplayName("Glass Type")]
         public string glass_type { get; set; } = "";
 
@@ -213,31 +217,31 @@ namespace PropertySurveyService.Models
         // ============================================================
         // UPVC + ALUMINIUM
         // ============================================================
-        [MaterialFor(MaterialType.UPVC | MaterialType.Aluminium)]
+        [AssemblyFor(enum_material_type.UPVC | enum_material_type.Aluminium)]
         [DisplayName("Replace Panel")]
         public bool? replace_panel { get; set; }
 
-        [MaterialFor(MaterialType.UPVC | MaterialType.Aluminium)]
+        [AssemblyFor(enum_material_type.UPVC | enum_material_type.Aluminium)]
         [DisplayName("Locking Type")]
         public string locking_type { get; set; } = "";
 
-        [MaterialFor(MaterialType.UPVC | MaterialType.Aluminium)]
+        [AssemblyFor(enum_material_type.UPVC | enum_material_type.Aluminium)]
         [DisplayName("Midrail Height")]
         public string midrail_height { get; set; } = "";
 
-        [MaterialFor(MaterialType.UPVC | MaterialType.Aluminium)]
+        [AssemblyFor(enum_material_type.UPVC | enum_material_type.Aluminium)]
         [DisplayName("LP Handles")]
         public string LPHandles { get; set; } = "...";
 
-        [MaterialFor(MaterialType.UPVC | MaterialType.Aluminium)]
+        [AssemblyFor(enum_material_type.UPVC | enum_material_type.Aluminium)]
         [DisplayName("Threshold Type")]
         public string threshold_type { get; set; } = "";
 
-        [MaterialFor(MaterialType.UPVC | MaterialType.Aluminium)]
+        [AssemblyFor(enum_material_type.UPVC | enum_material_type.Aluminium)]
         [DisplayName("Bead Type")]
         public string bead_type { get; set; } = "...";
 
-        [MaterialFor(MaterialType.UPVC | MaterialType.Aluminium)]
+        [AssemblyFor(enum_material_type.UPVC | enum_material_type.Aluminium)]
         [DisplayName("Panel Complete")]
         [Browsable(false)]
         public bool bPanelComplete { get; set; }
@@ -245,319 +249,306 @@ namespace PropertySurveyService.Models
         // ============================================================
         // UPVC + TIMBER
         // ============================================================
-        [MaterialFor(MaterialType.UPVC | MaterialType.Timber)]
+        [AssemblyFor(enum_material_type.UPVC | enum_material_type.Timber)]
         [DisplayName("Cills")]
         public string cills { get; set; } = "";
 
-        [MaterialFor(MaterialType.UPVC | MaterialType.Timber)]
+        [AssemblyFor(enum_material_type.UPVC | enum_material_type.Timber)]
         [DisplayName("Head Drip")]
         public bool? head_drip { get; set; }
 
-        [MaterialFor(MaterialType.UPVC | MaterialType.Timber)]
+        [AssemblyFor(enum_material_type.UPVC | enum_material_type.Timber)]
         [DisplayName("Trickle Vents (Yes/No)")]
         public string trickle_vents { get; set; } = "...";
 
-        [MaterialFor(MaterialType.UPVC | MaterialType.Timber)]
+        [AssemblyFor(enum_material_type.UPVC | enum_material_type.Timber)]
         [DisplayName("Slide Position")]
         public string slide_position { get; set; } = "...";
 
         // ============================================================
         // ALUMINIUM + TIMBER
         // ============================================================
-        [MaterialFor(MaterialType.Aluminium | MaterialType.Timber)]
+        [AssemblyFor(enum_material_type.Aluminium | enum_material_type.Timber)]
         [DisplayName("Spacer Color")]
         public string spacer_color { get; set; } = "";
 
         // ============================================================
         // UPVC ONLY
         // ============================================================
-        [MaterialFor(MaterialType.UPVC)]
-        [DisplayName("UPVC Item")]
-        public string upvc_item { get; set; } = "";
 
-        [MaterialFor(MaterialType.UPVC)]
+        [AssemblyFor(enum_material_type.UPVC)]
         [DisplayName("Colour")]
         public string colour { get; set; } = "";
 
-        [MaterialFor(MaterialType.UPVC)]
+        [AssemblyFor(enum_material_type.UPVC)]
         [DisplayName("Outer Section Size")]
         public string outer_section_size { get; set; } = "";
 
-        [MaterialFor(MaterialType.UPVC)]
+        [AssemblyFor(enum_material_type.UPVC)]
         [DisplayName("Midrail")]
         public bool? midrail { get; set; }
 
-        [MaterialFor(MaterialType.UPVC)]
+        [AssemblyFor(enum_material_type.UPVC)]
         [DisplayName("Addons")]
         public bool? addons { get; set; }
 
-        [MaterialFor(MaterialType.UPVC)]
+        [AssemblyFor(enum_material_type.UPVC)]
         [DisplayName("Addon Width")]
         public string addon_width { get; set; } = "";
 
-        [MaterialFor(MaterialType.UPVC)]
+        [AssemblyFor(enum_material_type.UPVC)]
         [DisplayName("Addon Height")]
         public string addon_height { get; set; } = "";
 
-        [MaterialFor(MaterialType.UPVC)]
+        [AssemblyFor(enum_material_type.UPVC)]
         [DisplayName("Handle Colour")]
         public string handle_colour { get; set; } = "";
 
-        [MaterialFor(MaterialType.UPVC)]
+        [AssemblyFor(enum_material_type.UPVC)]
         [DisplayName("Glaze (Internal/External)")]
         public string glaze { get; set; } = "...";
 
-        [MaterialFor(MaterialType.UPVC)]
-        [DisplayName("Spacer Colour")]
-        public string spacer_colour { get; set; } = "";
-
-        [MaterialFor(MaterialType.UPVC)]
+        [AssemblyFor(enum_material_type.UPVC)]
         [DisplayName("Double/Tripple")]
         public string double_tripple { get; set; } = "...";
 
-        [MaterialFor(MaterialType.UPVC)]
+        [AssemblyFor(enum_material_type.UPVC)]
         [DisplayName("Internal Lock")]
         public int internal_lock { get; set; }
 
-        [MaterialFor(MaterialType.UPVC)]
+        [AssemblyFor(enum_material_type.UPVC)]
         [DisplayName("Frame Depth")]
         public string frame_depth { get; set; } = "";
 
-        [MaterialFor(MaterialType.UPVC)]
+        [AssemblyFor(enum_material_type.UPVC)]
         [DisplayName("Profile Type")]
         public string profile_type { get; set; } = "...";
 
-        [MaterialFor(MaterialType.UPVC)]
+        [AssemblyFor(enum_material_type.UPVC)]
         [DisplayName("Hinge Colour")]
         public string hinge_colour { get; set; } = "";
 
         // ============================================================
         // ALUMINIUM ONLY
         // ============================================================
-        [MaterialFor(MaterialType.Aluminium)]
-        [DisplayName("Type")]
-        public string type { get; set; } = "";
 
-        [MaterialFor(MaterialType.Aluminium)]
+        [AssemblyFor(enum_material_type.Aluminium)]
         [DisplayName("Section Type")]
         public string section_type { get; set; } = "...";
 
-        [MaterialFor(MaterialType.Aluminium)]
+        [AssemblyFor(enum_material_type.Aluminium)]
         [DisplayName("New Timber Sub Frame")]
         public bool? new_timber_sub_frame { get; set; }
 
-        [MaterialFor(MaterialType.Aluminium)]
+        [AssemblyFor(enum_material_type.Aluminium)]
         [DisplayName("Sub Frame Depth")]
         public string sub_frame_depth { get; set; } = "";
 
-        [MaterialFor(MaterialType.Aluminium)]
+        [AssemblyFor(enum_material_type.Aluminium)]
         [DisplayName("Item Frame Width")]
-        public string item_frame_width { get; set; } = "";
+        public string sub_frame_width { get; set; } = "";
 
-        [MaterialFor(MaterialType.Aluminium)]
+        [AssemblyFor(enum_material_type.Aluminium)]
         [DisplayName("Item Frame Height")]
-        public string item_frame_height { get; set; } = "";
+        public string sub_frame_height { get; set; } = "";
 
-        [MaterialFor(MaterialType.Aluminium)]
+        [AssemblyFor(enum_material_type.Aluminium)]
         [DisplayName("Frame Type")]
         public string frame_type { get; set; } = "...";
 
-        [MaterialFor(MaterialType.Aluminium)]
+        [AssemblyFor(enum_material_type.Aluminium)]
         [DisplayName("Cill")]
         public bool? cill { get; set; }
 
-        [MaterialFor(MaterialType.Aluminium)]
+        [AssemblyFor(enum_material_type.Aluminium)]
         [DisplayName("Drip")]
         public bool? drip { get; set; }
 
-        [MaterialFor(MaterialType.Aluminium)]
+        [AssemblyFor(enum_material_type.Aluminium)]
         [DisplayName("Night Vent")]
         public string night_vent { get; set; } = "...";
 
-        [MaterialFor(MaterialType.Aluminium)]
+        [AssemblyFor(enum_material_type.Aluminium)]
         [DisplayName("Midrail Type")]
         public string midrail_type { get; set; } = "";
 
-        [MaterialFor(MaterialType.Aluminium)]
+        [AssemblyFor(enum_material_type.Aluminium)]
         [DisplayName("Item Color")]
         public string item_color { get; set; } = "";
 
-        [MaterialFor(MaterialType.Aluminium)]
+        [AssemblyFor(enum_material_type.Aluminium)]
         [DisplayName("Handle Color")]
         public string handle_color { get; set; } = "";
 
-        [MaterialFor(MaterialType.Aluminium)]
+        [AssemblyFor(enum_material_type.Aluminium)]
         [DisplayName("Sub Frame Color")]
         public string sub_frame_color { get; set; } = "";
 
-        [MaterialFor(MaterialType.Aluminium)]
+        [AssemblyFor(enum_material_type.Aluminium)]
         [DisplayName("Cill on Subframe")]
         public bool? cill_on_subframe { get; set; }
 
-        [MaterialFor(MaterialType.Aluminium)]
+        [AssemblyFor(enum_material_type.Aluminium)]
         [DisplayName("Cill Type")]
         public string cill_type { get; set; } = "...";
 
-        [MaterialFor(MaterialType.Aluminium)]
+        [AssemblyFor(enum_material_type.Aluminium)]
         [DisplayName("Spare 3")]
         public int i_spare3 { get; set; }
 
-        [MaterialFor(MaterialType.Aluminium)]
+        [AssemblyFor(enum_material_type.Aluminium)]
         [DisplayName("Glazed")]
         public string glazed { get; set; } = "...";
 
-        [MaterialFor(MaterialType.Aluminium)]
+        [AssemblyFor(enum_material_type.Aluminium)]
         [DisplayName("Outer Section Width")]
         public string outer_section_width { get; set; } = "";
 
-        [MaterialFor(MaterialType.Aluminium)]
+        [AssemblyFor(enum_material_type.Aluminium)]
         [DisplayName("Outer Section Height")]
         public string outer_section_height { get; set; } = "";
 
         // ============================================================
         // TIMBER ONLY
         // ============================================================
-        [MaterialFor(MaterialType.Timber)]
-        [DisplayName("Timber Item")]
-        public string timber_item { get; set; } = "";
 
-        [MaterialFor(MaterialType.Timber)]
+        [AssemblyFor(enum_material_type.Timber)]
         [DisplayName("Timber Wood")]
         public string timber_wood { get; set; } = "";
 
-        [MaterialFor(MaterialType.Timber)]
+        [AssemblyFor(enum_material_type.Timber)]
         [DisplayName("Timber Frame Wood")]
         public string timber_frame_wood { get; set; } = "";
 
-        [MaterialFor(MaterialType.Timber)]
+        [AssemblyFor(enum_material_type.Timber)]
         [DisplayName("New Timber Frame Required")]
         public bool? timber_new_frame_req { get; set; }
 
-        [MaterialFor(MaterialType.Timber)]
+        [AssemblyFor(enum_material_type.Timber)]
         [DisplayName("Repair Frame")]
         public bool? repair_frame { get; set; }
 
-        [MaterialFor(MaterialType.Timber)]
+        [AssemblyFor(enum_material_type.Timber)]
         [DisplayName("Door Thickness")]
         public string door_thickness { get; set; } = "";
 
-        [MaterialFor(MaterialType.Timber)]
+        [AssemblyFor(enum_material_type.Timber)]
         [DisplayName("Door Width")]
         public string door_width { get; set; } = "";
 
-        [MaterialFor(MaterialType.Timber)]
+        [AssemblyFor(enum_material_type.Timber)]
         [DisplayName("Door Height")]
         public string door_height { get; set; } = "";
 
-        [MaterialFor(MaterialType.Timber)]
+        [AssemblyFor(enum_material_type.Timber)]
         [DisplayName("New Sash Required")]
         public bool? new_sash_required { get; set; }
 
-        [MaterialFor(MaterialType.Timber)]
+        [AssemblyFor(enum_material_type.Timber)]
         [DisplayName("Draught Strip")]
         public bool? draught_strip { get; set; }
 
-        [MaterialFor(MaterialType.Timber)]
+        [AssemblyFor(enum_material_type.Timber)]
         [DisplayName("Require Fire Rated Glass")]
         public bool fire_rated_glass { get; set; }
 
-        [MaterialFor(MaterialType.Timber)]
+        [AssemblyFor(enum_material_type.Timber)]
         [DisplayName("Thresher")]
         public bool? thresher { get; set; }
 
-        [MaterialFor(MaterialType.Timber)]
+        [AssemblyFor(enum_material_type.Timber)]
         [DisplayName("Single/Double")]
         public string single_double { get; set; } = "...";
 
-        [MaterialFor(MaterialType.Timber)]
+        [AssemblyFor(enum_material_type.Timber)]
         [DisplayName("Locks")]
         public string locks { get; set; } = "";
 
-        [MaterialFor(MaterialType.Timber)]
+        [AssemblyFor(enum_material_type.Timber)]
         [DisplayName("Hardware Color")]
         public string hardware_color { get; set; } = "";
 
-        [MaterialFor(MaterialType.Timber)]
+        [AssemblyFor(enum_material_type.Timber)]
         [DisplayName("Door Color")]
         public string door_color { get; set; } = "";
 
-        [MaterialFor(MaterialType.Timber)]
+        [AssemblyFor(enum_material_type.Timber)]
         [DisplayName("Frame Color")]
         public string frame_color { get; set; } = "";
 
-        [MaterialFor(MaterialType.Timber)]
+        [AssemblyFor(enum_material_type.Timber)]
         [DisplayName("Sash Drawn")]
         public bool bSashDrawn { get; set; }
 
-        [MaterialFor(MaterialType.Timber)]
+        [AssemblyFor(enum_material_type.Timber)]
         [DisplayName("Section Drawn")]
         public bool bSectionDrawn { get; set; }
 
-        [MaterialFor(MaterialType.Timber)]
+        [AssemblyFor(enum_material_type.Timber)]
         [DisplayName("Moulding Drawn")]
         public bool bMouldingDrawn { get; set; }
 
-        [MaterialFor(MaterialType.Timber)]
+        [AssemblyFor(enum_material_type.Timber)]
         [DisplayName("Doc L Compliant Reason")]
         public string doc_l_compliant_reason { get; set; } = "";
 
-        [MaterialFor(MaterialType.Timber)]
+        [AssemblyFor(enum_material_type.Timber)]
         [DisplayName("Doc L Compliant")]
         public bool? doc_l_compliant { get; set; }
 
-        [MaterialFor(MaterialType.Timber)]
+        [AssemblyFor(enum_material_type.Timber)]
         [DisplayName("Door Color Out")]
         public string door_color_out { get; set; } = "";
 
-        [MaterialFor(MaterialType.Timber)]
+        [AssemblyFor(enum_material_type.Timber)]
         [DisplayName("Frame Color Out")]
         public string frame_color_out { get; set; } = "";
 
-        [MaterialFor(MaterialType.Timber)]
+        [AssemblyFor(enum_material_type.Timber)]
         [DisplayName("Door Color Code")]
         public string door_color_code { get; set; } = "";
 
-        [MaterialFor(MaterialType.Timber)]
+        [AssemblyFor(enum_material_type.Timber)]
         [DisplayName("Door Color Code Out")]
         public string door_color_code_out { get; set; } = "";
 
-        [MaterialFor(MaterialType.Timber)]
+        [AssemblyFor(enum_material_type.Timber)]
         [DisplayName("Frame Color Code")]
         public string frame_color_code { get; set; } = "";
 
-        [MaterialFor(MaterialType.Timber)]
+        [AssemblyFor(enum_material_type.Timber)]
         [DisplayName("Frame Color Code Out")]
         public string frame_color_code_out { get; set; } = "";
 
-        [MaterialFor(MaterialType.Timber)]
+        [AssemblyFor(enum_material_type.Timber)]
         [DisplayName("Signed")]
         public bool b_signed { get; set; }
 
-        [MaterialFor(MaterialType.Timber)]
+        [AssemblyFor(enum_material_type.Timber)]
         [DisplayName("Timber Glazed")]
         public string timber_glazed { get; set; } = "...";
 
-        [MaterialFor(MaterialType.Timber)]
+        [AssemblyFor(enum_material_type.Timber)]
         [DisplayName("Standard Sizes")]
         public string standard_sizes { get; set; } = "";
 
-        [MaterialFor(MaterialType.Timber)]
+        [AssemblyFor(enum_material_type.Timber)]
         [DisplayName("Reason Nonstandard")]
         public string reasonnonstandard { get; set; } = "";
 
-        [MaterialFor(MaterialType.Timber)]
+        [AssemblyFor(enum_material_type.Timber)]
         [DisplayName("Moulding")]
         public string moulding { get; set; } = "";
 
-        [MaterialFor(MaterialType.Timber)]
+        [AssemblyFor(enum_material_type.Timber)]
         [DisplayName("Hinge Type")]
         public string hinge_type { get; set; } = "";
 
-        [MaterialFor(MaterialType.Timber)]
+        [AssemblyFor(enum_material_type.Timber)]
         [DisplayName("Pre-glazed Door")]
         public bool? pre_glazed_door { get; set; }
 
-        [MaterialFor(MaterialType.Timber)]
+        [AssemblyFor(enum_material_type.Timber)]
         [DisplayName("Weather Bar")]
         public bool? weather_bar { get; set; }
 
@@ -587,7 +578,6 @@ namespace PropertySurveyService.Models
 
         [Browsable(false)]
         public int no_of_drawings { get; set; }
-
 
         public SurveyItem AsSurveyItem() { return new SurveyItem(Id, enum_item_type.locking, item_number, ContractCode); }
 

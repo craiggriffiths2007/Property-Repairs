@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PropertySurveyService.Data;
 
@@ -11,9 +12,11 @@ using PropertySurveyService.Data;
 namespace PropertySurveyService.Migrations
 {
     [DbContext(typeof(AppDBContext))]
-    partial class AppDBContextModelSnapshot : ModelSnapshot
+    [Migration("20260817174713_assembly-item")]
+    partial class assemblyitem
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -583,520 +586,6 @@ namespace PropertySurveyService.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Aluminium");
-                });
-
-            modelBuilder.Entity("PropertySurveyService.Models.Assembly", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("ChangeItemTo")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ContractCode")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<Guid>("Guid")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<int>("HeaderId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("LPHandles")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Summary")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("WER_Rating")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("additional_locks")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("addon_height")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("addon_width")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool?>("addons")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("bComplete")
-                        .HasColumnType("bit");
-
-                    b.Property<bool?>("bDifferentFromOriginal")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("bDifferentFromOriginalSigned")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("bDoorComplete")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("bFensa")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("bHandleDrawingComplete")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("bLockComplete")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("bMouldingDrawn")
-                        .HasColumnType("bit");
-
-                    b.Property<bool?>("bNewLockingMech")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("bPanelComplete")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("bRepair")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("bSashDrawn")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("bSectionDrawn")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("bWindowComplete")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("b_signed")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("bead_type")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("brick_height")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("brick_width")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("cause_of_damage")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("cause_of_damage_reason_different")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool?>("cill")
-                        .HasColumnType("bit");
-
-                    b.Property<bool?>("cill_on_subframe")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("cill_type")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("cills")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool?>("collect_and_copy")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("colour")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool?>("cosmetic_damage")
-                        .HasColumnType("bit");
-
-                    b.Property<bool?>("doc_l_compliant")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("doc_l_compliant_reason")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("docl")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("door_color")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("door_color_code")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("door_color_code_out")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("door_color_out")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("door_height")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("door_thickness")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("door_width")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("double_tripple")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool?>("draught_strip")
-                        .HasColumnType("bit");
-
-                    b.Property<bool?>("drip")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("fire_rated_glass")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("frame_color")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("frame_color_code")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("frame_color_code_out")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("frame_color_out")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("frame_depth")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("frame_type")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("gaskets")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("gaskets_text")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("glass_complete")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("glass_pattern")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("glass_type")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("glaze")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("glazed")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("handle_color")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("handle_colour")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool?>("handles_req")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("handles_text")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("hardware_color")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool?>("head_drip")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("hinge_colour")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("hinge_type")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("i_spare3")
-                        .HasColumnType("int");
-
-                    b.Property<string>("internal_height")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("internal_lock")
-                        .HasColumnType("int");
-
-                    b.Property<string>("internal_width")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool?>("is_a_flat")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("item_color")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("item_number")
-                        .HasColumnType("int");
-
-                    b.Property<string>("letter_box")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("letter_box_pos")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("locking_type")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("locks")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("material")
-                        .HasColumnType("int");
-
-                    b.Property<bool?>("midrail")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("midrail_height")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("midrail_type")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("moulding")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool?>("new_sash_required")
-                        .HasColumnType("bit");
-
-                    b.Property<bool?>("new_timber_sub_frame")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("night_vent")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("no_of_drawings")
-                        .HasColumnType("int");
-
-                    b.Property<int>("no_of_photos")
-                        .HasColumnType("int");
-
-                    b.Property<string>("opening_type")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("opens")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("outer_section_height")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("outer_section_size")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("outer_section_width")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("parts_to_order")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("pet_flap")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("pet_magnetic")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("pet_type")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("point_of_entry")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool?>("pre_glazed_door")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("print_name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("profile_type")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("reasonnonstandard")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool?>("repair_frame")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("replace_explain")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool?>("replace_glass")
-                        .HasColumnType("bit");
-
-                    b.Property<bool?>("replace_panel")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("replace_reason")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("room_location")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("section_type")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("single_double")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("slide_position")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("spacer_color")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("spacer_colour")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("spacer_thickness")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("special_glass")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("standard_sizes")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("sub_frame_color")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("sub_frame_depth")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("sub_frame_height")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("sub_frame_width")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("temporary")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool?>("thresher")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("threshold_type")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("timber_frame_wood")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("timber_glazed")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool?>("timber_new_frame_req")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("timber_wood")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("trickle_vents")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("type_of_lockng_system_required")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("was_it_locked")
-                        .HasColumnType("int");
-
-                    b.Property<bool?>("weather_bar")
-                        .HasColumnType("bit");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Frame");
                 });
 
             modelBuilder.Entity("PropertySurveyService.Models.Bifolding", b =>
@@ -5478,6 +4967,532 @@ namespace PropertySurveyService.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Lockmech");
+                });
+
+            modelBuilder.Entity("PropertySurveyService.Models.Material", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("ChangeItemTo")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ContractCode")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid>("Guid")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<int>("HeaderId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("LPHandles")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Summary")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("WER_Rating")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("additional_locks")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("addon_height")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("addon_width")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool?>("addons")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("bComplete")
+                        .HasColumnType("bit");
+
+                    b.Property<bool?>("bDifferentFromOriginal")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("bDifferentFromOriginalSigned")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("bDoorComplete")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("bFensa")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("bHandleDrawingComplete")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("bLockComplete")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("bMouldingDrawn")
+                        .HasColumnType("bit");
+
+                    b.Property<bool?>("bNewLockingMech")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("bPanelComplete")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("bRepair")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("bSashDrawn")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("bSectionDrawn")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("bWindowComplete")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("b_signed")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("bead_type")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("brick_height")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("brick_width")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("cause_of_damage")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("cause_of_damage_reason_different")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool?>("cill")
+                        .HasColumnType("bit");
+
+                    b.Property<bool?>("cill_on_subframe")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("cill_type")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("cills")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool?>("collect_and_copy")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("colour")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool?>("cosmetic_damage")
+                        .HasColumnType("bit");
+
+                    b.Property<bool?>("doc_l_compliant")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("doc_l_compliant_reason")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("docl")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("door_color")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("door_color_code")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("door_color_code_out")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("door_color_out")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("door_height")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("door_thickness")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("door_width")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("double_tripple")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool?>("draught_strip")
+                        .HasColumnType("bit");
+
+                    b.Property<bool?>("drip")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("fire_rated_glass")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("frame_color")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("frame_color_code")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("frame_color_code_out")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("frame_color_out")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("frame_depth")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("frame_type")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("gaskets")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("gaskets_text")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("glass_complete")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("glass_pattern")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("glass_type")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("glaze")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("glazed")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("handle_color")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("handle_colour")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool?>("handles_req")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("handles_text")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("hardware_color")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool?>("head_drip")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("hinge_colour")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("hinge_type")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("i_spare3")
+                        .HasColumnType("int");
+
+                    b.Property<string>("internal_height")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("internal_lock")
+                        .HasColumnType("int");
+
+                    b.Property<string>("internal_width")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool?>("is_a_flat")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("item_color")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("item_frame_height")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("item_frame_width")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("item_number")
+                        .HasColumnType("int");
+
+                    b.Property<string>("letter_box")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("letter_box_pos")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("locking_type")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("locks")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("material")
+                        .HasColumnType("int");
+
+                    b.Property<bool?>("midrail")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("midrail_height")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("midrail_type")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("moulding")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool?>("new_sash_required")
+                        .HasColumnType("bit");
+
+                    b.Property<bool?>("new_timber_sub_frame")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("night_vent")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("no_of_drawings")
+                        .HasColumnType("int");
+
+                    b.Property<int>("no_of_photos")
+                        .HasColumnType("int");
+
+                    b.Property<string>("opening_type")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("opens")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("outer_section_height")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("outer_section_size")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("outer_section_width")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("parts_to_order")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("pet_flap")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("pet_magnetic")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("pet_type")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("point_of_entry")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool?>("pre_glazed_door")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("print_name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("profile_type")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("reasonnonstandard")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool?>("repair_frame")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("replace_explain")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool?>("replace_glass")
+                        .HasColumnType("bit");
+
+                    b.Property<bool?>("replace_panel")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("replace_reason")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("room_location")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("section_type")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("single_double")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("slide_position")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("spacer_color")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("spacer_colour")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("spacer_thickness")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("special_glass")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("standard_sizes")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("sub_frame_color")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("sub_frame_depth")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("temporary")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool?>("thresher")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("threshold_type")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("timber_frame_wood")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("timber_glazed")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("timber_item")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool?>("timber_new_frame_req")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("timber_wood")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("trickle_vents")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("type")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("type_of_lockng_system_required")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("upvc_item")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("was_it_locked")
+                        .HasColumnType("int");
+
+                    b.Property<bool?>("weather_bar")
+                        .HasColumnType("bit");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Frame");
                 });
 
             modelBuilder.Entity("PropertySurveyService.Models.MileageSheet", b =>
