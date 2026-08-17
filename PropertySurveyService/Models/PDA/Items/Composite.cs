@@ -16,6 +16,7 @@ namespace PropertySurveyService.Models
         [DisplayName("Header Id")]
         [Browsable(false)]
         public int HeaderId { get; set; }
+
         [Browsable(false)]
         public Guid Guid { get; set; } = Guid.NewGuid();
 
@@ -27,44 +28,39 @@ namespace PropertySurveyService.Models
         [Browsable(false)]
         public int item_number { get; set; }
 
+
+        // ============================================================
+        // COMMON - BASIC ITEM / REPAIR INFORMATION
+        // ============================================================
+
+        [DisplayName("Repair Item")]
+        public bool bRepair { get; set; }
+
+        [DisplayName("Gaskets")]
+        public string gaskets { get; set; } = "...";
+
+        [DisplayName("Gaskets Text")]
+        public string gaskets_text { get; set; } = "";
+
+        [DisplayName("Handles Required")]
+        public bool? handles_req { get; set; }
+
+        [DisplayName("Handles Text")]
+        public string handles_text { get; set; } = "";
+
         [DisplayName("Cause of Damage")]
         public string cause_of_damage { get; set; } = "";
 
         [DisplayName("Reason Damage Different")]
         public string cause_of_damage_reason_different { get; set; } = "";
 
-        [DisplayName("Door Make")]
-        public string door_make { get; set; } = "";
+        [DisplayName("Reason Not Repaired")]
+        public string reason_not_repaired { get; set; } = "";
 
-        [DisplayName("Opens")]
-        public string opens { get; set; } = "...";
 
-        [DisplayName("Is Lock")]
-        public string is_lock { get; set; } = "...";
-
-        [DisplayName("Frame Colour Inside")]
-        public string frame_colour_inside { get; set; } = "";
-
-        [DisplayName("Frame Colour Outside")]
-        public string frame_colour_outside { get; set; } = "";
-
-        [DisplayName("Door Colour Inside")]
-        public string door_colour_inside { get; set; } = "";
-
-        [DisplayName("Door Colour Outside")]
-        public string door_colour_outside { get; set; } = "";
-
-        [DisplayName("Door Design")]
-        public string door_design { get; set; } = "";
-
-        [DisplayName("Glass Design")]
-        public string glass_design { get; set; } = "";
-
-        [DisplayName("Internal Width")]
-        public string internal_width { get; set; } = "";
-
-        [DisplayName("Internal Height")]
-        public string internal_height { get; set; } = "";
+        // ============================================================
+        // COMMON - SIZES
+        // ============================================================
 
         [DisplayName("Brick Width")]
         public string brick_width { get; set; } = "";
@@ -72,74 +68,19 @@ namespace PropertySurveyService.Models
         [DisplayName("Brick Height")]
         public string brick_height { get; set; } = "";
 
-        [DisplayName("Trickle Vents")]
-        public string trickle_vents { get; set; } = "";
+        [DisplayName("Internal Width")]
+        public string internal_width { get; set; } = "";
 
-        [DisplayName("Addons")]
-        public bool? addons { get; set; }
+        [DisplayName("Internal Height")]
+        public string internal_height { get; set; } = "";
 
-        [DisplayName("Addons Height")]
-        public string addons_height { get; set; } = "";
 
-        [DisplayName("Addons Width")]
-        public string addons_width { get; set; } = "";
+        // ============================================================
+        // COMMON - DOORS / OPENINGS / HARDWARE
+        // ============================================================
 
-        [DisplayName("Handle Colour")]
-        public string handle_colour { get; set; } = "";
-
-        [DisplayName("Threshold Type")]
-        public string threshold_type { get; set; } = "";
-
-        [DisplayName("Lever Pad Handles")]
-        public string lever_pad_handles { get; set; } = "...";
-
-        [DisplayName("Glass Pattern")]
-        public string glass_pattern { get; set; } = "";
-
-        [DisplayName("Glass Type")]
-        public string glass_type { get; set; } = "";
-
-        [DisplayName("Spacer Thickness")]
-        public string spacer_thickness { get; set; } = "";
-
-        [DisplayName("Spacer Colour")]
-        public string spacer_colour { get; set; } = "";
-
-        [DisplayName("Profile Type")]
-        public string profile_type { get; set; } = "...";
-
-        [DisplayName("Room Location")]
-        public string room_location { get; set; } = "";
-
-        [DisplayName("Special Glass")]
-        public string special_glass { get; set; } = "";
-
-        [DisplayName("Summary")]
-        public string Summary { get; set; } = "";
-
-        [DisplayName("Lead C Width")]
-        public int lead_CWidth { get; set; }
-
-        [DisplayName("Lead C Height")]
-        public int lead_CHeight { get; set; }
-
-        [DisplayName("Lead Anti Rattle")]
-        public int lead_anti_rattle { get; set; }
-
-        [DisplayName("Lead Thickness")]
-        public string lead_thickness { get; set; } = "";
-
-        [DisplayName("Lead SOD")]
-        public string lead_sod { get; set; } = "";
-
-        [DisplayName("Lead Type")]
-        public string lead_type { get; set; } = "";
-
-        [DisplayName("DOCL")]
-        public string docl { get; set; } = "";
-
-        [DisplayName("Letter Edit")]
-        public string letteredit { get; set; } = "";
+        [DisplayName("Opens")]
+        public string opens { get; set; } = "...";
 
         [DisplayName("Letter Box Position")]
         public string letter_box_pos { get; set; } = "";
@@ -153,48 +94,80 @@ namespace PropertySurveyService.Models
         [DisplayName("Pet Magnetic")]
         public string pet_magnetic { get; set; } = "...";
 
-        [DisplayName("Glaze")]
-        public string glaze { get; set; } = "...";
+        [DisplayName("Handle Colour")]
+        public string handle_colour { get; set; } = "";
 
-        [DisplayName("Print Name")]
-        public string print_name { get; set; } = "";
-        [DisplayName("Back to Back Complete")]
-        public bool lead_bBackToBackComplete { get; set; }
-
-        [DisplayName("Lead Diamond Complete")]
-        public bool lead_bDiamondComplete { get; set; }
-
-        [DisplayName("Lead Georgian Complete")]
-        public bool lead_bGeorgianComplete { get; set; }
-
-        [DisplayName("Lead Bar Complete")]
-        public bool lead_bBarComplete { get; set; }
-
-
-        [DisplayName("Different From Original")]
-        public bool? bDifferentFromOriginal { get; set; } = false;
-
-        [DisplayName("Lock Other Text")]
-        public string lock_other_text { get; set; } = "";
+        [DisplayName("Threshold Type")]
+        public string threshold_type { get; set; } = "";
 
         [DisplayName("Head Drip")]
         public bool? head_drip { get; set; }
 
-        [DisplayName("Change Item To")]
-        public string ChangeItemTo { get; set; } = "";
-
         [DisplayName("Cills")]
         public string cills { get; set; } = "";
 
-        [DisplayName("Door Wood")]
-        public string door_wood { get; set; } = "";
+        [DisplayName("Trickle Vents")]
+        public string trickle_vents { get; set; } = "";
 
-        [DisplayName("Hinged On")]
-        public string hinged_on { get; set; } = "...";
 
-        [DisplayName("Reason Not Repaired")]
-        public string reason_not_repaired { get; set; } = "";
+        // ============================================================
+        // COMMON - GLASS
+        // ============================================================
 
+        [DisplayName("Spacer Thickness")]
+        public string spacer_thickness { get; set; } = "";
+
+        [DisplayName("Spacer Colour")]
+        public string spacer_colour { get; set; } = "";
+
+        [DisplayName("Glass Type")]
+        public string glass_type { get; set; } = "";
+
+        [DisplayName("Glass Pattern")]
+        public string glass_pattern { get; set; } = "";
+
+        [DisplayName("Special Glass")]
+        public string special_glass { get; set; } = "";
+
+        [DisplayName("Replace Glass")]
+        public bool? replace_glass { get; set; }
+
+        [DisplayName("Glass Complete")]
+        public bool glass_complete { get; set; }
+
+
+        // ============================================================
+        // COMMON - COMPLIANCE / LOCATION / CHANGES
+        // ============================================================
+
+        [DisplayName("DOCL")]
+        public string docl { get; set; } = "";
+
+        [DisplayName("Room Location")]
+        public string room_location { get; set; } = "";
+
+        [DisplayName("Different From Original")]
+        public bool? bDifferentFromOriginal { get; set; } = false;
+
+        [DisplayName("Change Item To")]
+        public string ChangeItemTo { get; set; } = "";
+
+        [DisplayName("Print Name")]
+        public string print_name { get; set; } = "";
+
+        [DisplayName("FENSA")]
+        public bool bFensa { get; set; } = true;
+
+        [DisplayName("WER Rating")]
+        public string WER_rating { get; set; } = "";
+
+        [DisplayName("Summary")]
+        public string Summary { get; set; } = "";
+
+
+        // ============================================================
+        // COMMON - JOB / SECURITY
+        // ============================================================
 
         [DisplayName("Parts to Order")]
         public string parts_to_order { get; set; } = "";
@@ -211,41 +184,107 @@ namespace PropertySurveyService.Models
         [DisplayName("Was It Locked")]
         public int was_it_locked { get; set; }
 
+
+        // ============================================================
+        // SHARED / SIMILAR TO UPVC & TIMBER
+        // ============================================================
+
+        [DisplayName("Addons")]
+        public bool? addons { get; set; }
+
+        [DisplayName("Addons Height")]
+        public string addons_height { get; set; } = "";
+
+        [DisplayName("Addons Width")]
+        public string addons_width { get; set; } = "";
+
+        [DisplayName("Profile Type")]
+        public string profile_type { get; set; } = "...";
+
+        [DisplayName("Glaze")]
+        public string glaze { get; set; } = "...";
+
+
+        // ============================================================
+        // COMPOSITE - DOOR DETAILS
+        // ============================================================
+
+        [DisplayName("Door Make")]
+        public string door_make { get; set; } = "";
+
+        [DisplayName("Door Design")]
+        public string door_design { get; set; } = "";
+
+        [DisplayName("Door Wood")]
+        public string door_wood { get; set; } = "";
+
+        [DisplayName("Frame Colour Inside")]
+        public string frame_colour_inside { get; set; } = "";
+
+        [DisplayName("Frame Colour Outside")]
+        public string frame_colour_outside { get; set; } = "";
+
+        [DisplayName("Door Colour Inside")]
+        public string door_colour_inside { get; set; } = "";
+
+        [DisplayName("Door Colour Outside")]
+        public string door_colour_outside { get; set; } = "";
+
+        [DisplayName("Hinged On")]
+        public string hinged_on { get; set; } = "...";
+
         [DisplayName("Fire Door")]
         public bool? fire_door { get; set; }
 
-        [DisplayName("Lead C Widths")]
-        public string lead_CWidths { get; set; } = "";
 
-        [DisplayName("Lead C Heights")]
-        public string lead_CHeights { get; set; } = "";
+        // ============================================================
+        // COMPOSITE - LOCKING / HANDLES
+        // ============================================================
 
-        [DisplayName("Glass Complete")]
-        public bool glass_complete { get; set; }
+        [DisplayName("Is Lock")]
+        public string is_lock { get; set; } = "...";
 
-        [DisplayName("Replace Glass")]
-        public bool? replace_glass { get; set; }
+        [DisplayName("Lock Other Text")]
+        public string lock_other_text { get; set; } = "";
 
-        [DisplayName("Repair Item")]
-        public bool bRepair { get; set; }
+        [DisplayName("Lever Pad Handles")]
+        public string lever_pad_handles { get; set; } = "...";
 
-        [DisplayName("FENSA")]
-        public bool bFensa { get; set; } = true;
+        // ============================================================
+        // COMPOSITE - OTHER
+        // ============================================================
 
-        [DisplayName("WER Rating")]
-        public string WER_rating { get; set; } = "";
+        [DisplayName("Letter Edit")]
+        public string letteredit { get; set; } = "";
 
-        [DisplayName("Gaskets")]
-        public string gaskets { get; set; } = "...";
 
-        [DisplayName("Gaskets Text")]
-        public string gaskets_text { get; set; } = "";
+        // ============================================================
+        // COMMON HIDDEN / STATUS FIELDS
+        // ============================================================
 
-        [DisplayName("Handles Required")]
-        public bool? handles_req { get; set; }
+        [Browsable(false)]
+        public bool bComplete { get; set; }
 
-        [DisplayName("Handles Text")]
-        public string handles_text { get; set; } = "";
+        [Browsable(false)]
+        public bool bDifferentFromOriginalSigned { get; set; }
+
+        [Browsable(false)]
+        public bool bDoorComplete { get; set; }
+
+        [Browsable(false)]
+        public bool bWindowComplete { get; set; }
+
+        [Browsable(false)]
+        public bool bLockComplete { get; set; }
+
+        [Browsable(false)]
+        public bool bHandleDrawingComplete { get; set; }
+
+        [Browsable(false)]
+        public int no_of_photos { get; set; }
+
+        [Browsable(false)]
+        public int no_of_drawings { get; set; }
 
 
         public SurveyItem AsSurveyItem() { return new SurveyItem(Id, enum_item_type.composite, item_number, ContractCode); }

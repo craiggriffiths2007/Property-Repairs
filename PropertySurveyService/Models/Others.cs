@@ -40,7 +40,7 @@ namespace PropertySurveyService.Models
     public enum enum_item_type
     {
         none,
-        frame,
+        material,
         panel,
         upvc,
         aluminium,
@@ -126,7 +126,7 @@ namespace PropertySurveyService.Models
                 case enum_item_type.greenhouse: return "Greenhouse";
                 case enum_item_type.conservatory: return "Conservatory";
                 case enum_item_type.composite: return "Composite";
-                case enum_item_type.frame: return "Material";
+                case enum_item_type.material: return "Material";
             }
             return "";
         }
@@ -146,7 +146,7 @@ namespace PropertySurveyService.Models
                 case enum_item_type.greenhouse: return "Greenhouse";
                 case enum_item_type.conservatory: return "Conservatory";
                 case enum_item_type.composite: return "Composite";
-                case enum_item_type.frame: return "Material";
+                case enum_item_type.material: return "Material";
             }
             return "";
         }

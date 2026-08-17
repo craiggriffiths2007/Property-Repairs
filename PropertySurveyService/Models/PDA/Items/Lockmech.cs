@@ -16,6 +16,7 @@ namespace PropertySurveyService.Models
         [DisplayName("Header Id")]
         [Browsable(false)]
         public int HeaderId { get; set; }
+
         [Browsable(false)]
         public Guid Guid { get; set; } = Guid.NewGuid();
 
@@ -28,8 +29,51 @@ namespace PropertySurveyService.Models
         public int item_number { get; set; }
 
 
+        // ============================================================
+        // SUB-ITEM - PARENT RELATIONSHIP
+        // ============================================================
+
+        [DisplayName("Parent Item")]
+        public enum_item_type base_item { get; set; } = enum_item_type.none;
+
+
+        // ============================================================
+        // COMMON - BASIC ITEM / REPAIR INFORMATION
+        // ============================================================
+
+        [Browsable(false)]
+        public bool bRepair { get; set; }
+
+        [DisplayName("Cause of Damage")]
+        public string cause_of_damage { get; set; } = "";
+
+        [DisplayName("Reason Damage Different")]
+        public string cause_of_damage_reason_different { get; set; } = "";
+
+
+        // ============================================================
+        // COMMON - CHANGES / SUMMARY
+        // ============================================================
+
+        [DisplayName("Different From Original")]
+        public bool? bDifferentFromOriginal { get; set; } = false;
+
+        [DisplayName("Change Item To")]
+        public string ChangeItemTo { get; set; } = "";
+
+        [DisplayName("Print Name")]
+        public string print_name { get; set; } = "";
+
         [DisplayName("Summary")]
         public string Summary { get; set; } = "";
+
+
+        // ============================================================
+        // COMMON - JOB / SECURITY
+        // ============================================================
+
+        [DisplayName("Parts to Order")]
+        public string parts_to_order { get; set; } = "";
 
         [DisplayName("Point of Entry")]
         public string point_of_entry { get; set; } = "";
@@ -39,6 +83,11 @@ namespace PropertySurveyService.Models
 
         [DisplayName("Was It Locked")]
         public int was_it_locked { get; set; }
+
+
+        // ============================================================
+        // LOCK - BASIC DETAILS
+        // ============================================================
 
         [DisplayName("Multipoint Locking")]
         public bool bMulti { get; set; }
@@ -55,38 +104,19 @@ namespace PropertySurveyService.Models
         [DisplayName("Lock Colour")]
         public string lock_colour { get; set; } = "";
 
-        [DisplayName("Page Number")]
-        public string pagenum { get; set; } = "";
-
-        [DisplayName("Different From Original")]
-        public bool? bDifferentFromOriginal { get; set; } = false;
-
-        [DisplayName("Change Item To")]
-        public string ChangeItemTo { get; set; } = "";
-
-        [DisplayName("Print Name")]
-        public string print_name { get; set; } = "";
-
         [DisplayName("COD Code")]
         public string COD_Code { get; set; } = "";
-
-        [DisplayName("Cause of Damage")]
-        public string cause_of_damage { get; set; } = "";
-
-        [DisplayName("Reason Damage Different")]
-        public string cause_of_damage_reason_different { get; set; } = "";
 
         [DisplayName("Gear Box")]
         public string GearBox { get; set; } = "...";
 
-        [DisplayName("Left Bolt")]
-        public int left_bolt { get; set; }
+        [DisplayName("Page Number")]
+        public string pagenum { get; set; } = "";
 
-        [DisplayName("Right Bolt")]
-        public int right_bolt { get; set; }
 
-        [DisplayName("Parts to Order")]
-        public string parts_to_order { get; set; } = "";
+        // ============================================================
+        // LOCK - MAIN SIZES
+        // ============================================================
 
         [DisplayName("Lock Size 1")]
         public string l_size1 { get; set; } = "";
@@ -115,8 +145,27 @@ namespace PropertySurveyService.Models
         [DisplayName("Lock Size G")]
         public string l_sizeG { get; set; } = "";
 
+
+        // ============================================================
+        // LOCK - BOLTS / LOCK COUNT
+        // ============================================================
+
+        [DisplayName("Left Bolt")]
+        public int left_bolt { get; set; }
+
+        [DisplayName("Right Bolt")]
+        public int right_bolt { get; set; }
+
         [DisplayName("Lock Number")]
         public int l_num { get; set; }
+
+
+        // ============================================================
+        // LOCK - POSITIONS
+        // ============================================================
+
+        [DisplayName("Lock Position")]
+        public float lock_position { get; set; }
 
         [DisplayName("Lock FPos1")]
         public float l_fpos1 { get; set; }
@@ -139,9 +188,10 @@ namespace PropertySurveyService.Models
         [DisplayName("Lock FPos7")]
         public float l_fpos7 { get; set; }
 
-        [DisplayName("Lock Position")]
-        public float lock_position { get; set; }
 
+        // ============================================================
+        // LOCK - LOCK POINT TYPES
+        // ============================================================
 
         [DisplayName("Lock IType1")]
         public string l_type1 { get; set; } = "";
@@ -164,6 +214,34 @@ namespace PropertySurveyService.Models
         [DisplayName("Lock IType7")]
         public string l_type7 { get; set; } = "";
 
+
+        // ============================================================
+        // COMMON HIDDEN / STATUS FIELDS
+        // ============================================================
+
+        [Browsable(false)]
+        public bool bComplete { get; set; }
+
+        [Browsable(false)]
+        public bool bDifferentFromOriginalSigned { get; set; }
+
+        [Browsable(false)]
+        public bool bDoorComplete { get; set; }
+
+        [Browsable(false)]
+        public bool bWindowComplete { get; set; }
+
+        [Browsable(false)]
+        public bool bLockComplete { get; set; }
+
+        [Browsable(false)]
+        public bool bHandleDrawingComplete { get; set; }
+
+        [Browsable(false)]
+        public int no_of_photos { get; set; }
+
+        [Browsable(false)]
+        public int no_of_drawings { get; set; }
 
 
         public SurveyItem AsSurveyItem() { return new SurveyItem(Id, enum_item_type.locking, item_number, ContractCode); }

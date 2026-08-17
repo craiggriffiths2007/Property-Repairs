@@ -16,6 +16,7 @@ namespace PropertySurveyService.Models
         [DisplayName("Header Id")]
         [Browsable(false)]
         public int HeaderId { get; set; }
+
         [Browsable(false)]
         public Guid Guid { get; set; } = Guid.NewGuid();
 
@@ -27,8 +28,13 @@ namespace PropertySurveyService.Models
         [Browsable(false)]
         public int item_number { get; set; }
 
-        [DisplayName("Type")]
-        public string type { get; set; } = "";
+
+        // ============================================================
+        // COMMON - BASIC ITEM / REPAIR INFORMATION
+        // ============================================================
+
+        [DisplayName("Repair Item")]
+        public bool bRepair { get; set; }
 
         [DisplayName("Cause of Damage")]
         public string cause_of_damage { get; set; } = "";
@@ -36,8 +42,87 @@ namespace PropertySurveyService.Models
         [DisplayName("Reason Damage Different")]
         public string cause_of_damage_reason_different { get; set; } = "";
 
+        [DisplayName("Reason Not Repaired")]
+        public string reason_not_repaired { get; set; } = "";
+
+
+        // ============================================================
+        // COMMON - GLASS
+        // ============================================================
+
+        [DisplayName("Replace Glass")]
+        public bool? replace_glass { get; set; }
+
+        [DisplayName("Glass Complete")]
+        public bool glass_complete { get; set; }
+
+
+        // ============================================================
+        // COMMON - COMPLIANCE / LOCATION / CHANGES
+        // ============================================================
+
+        [DisplayName("Room Location")]
+        public string room_location { get; set; } = "";
+
+        [DisplayName("Different From Original")]
+        public bool? bDifferentFromOriginal { get; set; } = false;
+
+        [DisplayName("Change Item To")]
+        public string ChangeItemTo { get; set; } = "";
+
+        [DisplayName("Print Name")]
+        public string print_name { get; set; } = "";
+
+        [DisplayName("FENSA")]
+        public bool bFensa { get; set; } = true;
+
+        [DisplayName("WER Rating")]
+        public string WER_rating { get; set; } = "";
+
+        [DisplayName("Summary")]
+        public string Summary { get; set; } = "";
+
+
+        // ============================================================
+        // COMMON - JOB / SECURITY
+        // ============================================================
+
+        [DisplayName("Parts to Order")]
+        public string parts_to_order { get; set; } = "";
+
+        [DisplayName("Point of Entry")]
+        public string point_of_entry { get; set; } = "";
+
+        [DisplayName("Type of Locking System Required")]
+        public string type_of_lockng_system_required { get; set; } = "";
+
+        [DisplayName("Was It Locked")]
+        public int was_it_locked { get; set; }
+
+
+        // ============================================================
+        // CONSERVATORY - BASIC DETAILS
+        // ============================================================
+
+        [DisplayName("Type")]
+        public string type { get; set; } = "";
+
         [DisplayName("Material Type")]
         public string material_type { get; set; } = "...";
+
+        [DisplayName("Color")]
+        public string color { get; set; } = "";
+
+        [DisplayName("Roof Color")]
+        public string roof_color { get; set; } = "";
+
+        [DisplayName("Profile Section Size")]
+        public string profile_section_size { get; set; } = "";
+
+
+        // ============================================================
+        // CONSERVATORY - MAIN SIZES
+        // ============================================================
 
         [DisplayName("Size A")]
         public string sizeA { get; set; } = "";
@@ -60,6 +145,23 @@ namespace PropertySurveyService.Models
         [DisplayName("Size G")]
         public string sizeG { get; set; } = "";
 
+        [DisplayName("Pitch Height")]
+        public string pitch_height { get; set; } = "";
+
+        [DisplayName("Pitch Degree")]
+        public string pitch_degree { get; set; } = "";
+
+        [DisplayName("Ridge Length")]
+        public string ridge_length { get; set; } = "";
+
+        [DisplayName("Wall Position")]
+        public string wall_pos { get; set; } = "";
+
+
+        // ============================================================
+        // CONSERVATORY - ANGLES
+        // ============================================================
+
         [DisplayName("Angle 1")]
         public string angle1 { get; set; } = "";
 
@@ -72,11 +174,45 @@ namespace PropertySurveyService.Models
         [DisplayName("Angle 4")]
         public string angle4 { get; set; } = "";
 
-        [DisplayName("Pitch Height")]
-        public string pitch_height { get; set; } = "";
 
-        [DisplayName("Profile Section Size")]
-        public string profile_section_size { get; set; } = "";
+        // ============================================================
+        // CONSERVATORY - ROOF / FITTING
+        // ============================================================
+
+        [DisplayName("Flute Size")]
+        public string flute_size { get; set; } = "";
+
+        [DisplayName("Roof Glazing Thickness")]
+        public string roof_glazing_thickness { get; set; } = "";
+
+        [DisplayName("Overall Length of Sheet")]
+        public string overall_length_of_sheet { get; set; } = "";
+
+        [DisplayName("New Firrings Required")]
+        public bool? new_firrings_req { get; set; }
+
+        [DisplayName("New Gutters Required")]
+        public bool? new_gutters_req { get; set; }
+
+        [DisplayName("Drawings Only")]
+        public bool? bDrawingsOnly { get; set; }
+
+        [DisplayName("Roof Under Drawn")]
+        public bool cons_roof_under_drawn { get; set; }
+
+        [DisplayName("Does Roof Fit Under")]
+        public bool? does_roof_fit_under { get; set; }
+
+        [DisplayName("Spars Line Up")]
+        public bool? spars_line_up { get; set; }
+
+        [DisplayName("Good Conditions")]
+        public bool? good_conditions { get; set; }
+
+
+        // ============================================================
+        // CONSERVATORY - ROOF SHEET SIZES
+        // ============================================================
 
         [DisplayName("Sheet Width 1")]
         public string sheet_width_1 { get; set; } = "";
@@ -138,56 +274,10 @@ namespace PropertySurveyService.Models
         [DisplayName("Sheet Height 10")]
         public string sheet_height_10 { get; set; } = "";
 
-        [DisplayName("Flute Size")]
-        public string flute_size { get; set; } = "";
 
-        [DisplayName("Color")]
-        public string color { get; set; } = "";
-
-        [DisplayName("Roof Color")]
-        public string roof_color { get; set; } = "";
-
-        [DisplayName("New Firrings Required")]
-        public bool? new_firrings_req { get; set; }
-
-        [DisplayName("New Gutters Required")]
-        public bool? new_gutters_req { get; set; }
-
-        [DisplayName("Roof Glazing Thickness")]
-        public string roof_glazing_thickness { get; set; } = "";
-
-        [DisplayName("Room Location")]
-        public string room_location { get; set; } = "";
-
-        [DisplayName("Different From Original")]
-        public bool? bDifferentFromOriginal { get; set; } = false;
-
-        [DisplayName("Change Item To")]
-        public string ChangeItemTo { get; set; } = "";
-
-        [DisplayName("Print Name")]
-        public string print_name { get; set; } = "";
-
-        [DisplayName("Wall Position")]
-        public string wall_pos { get; set; } = "";
-
-        [DisplayName("Pitch Degree")]
-        public string pitch_degree { get; set; } = "";
-
-        [DisplayName("Summary")]
-        public string Summary { get; set; } = "";
-
-        [DisplayName("Drawings Only")]
-        public bool? bDrawingsOnly { get; set; }
-
-        [DisplayName("Roof Under Drawn")]
-        public bool cons_roof_under_drawn { get; set; }
-
-        [DisplayName("Does Roof Fit Under")]
-        public bool? does_roof_fit_under { get; set; }
-
-        [DisplayName("Spars Line Up")]
-        public bool? spars_line_up { get; set; }
+        // ============================================================
+        // CONSERVATORY - ROOF SHEET QUANTITIES
+        // ============================================================
 
         [DisplayName("Roof Sheets Quantity 1")]
         public int roof_sheets_quantity_1 { get; set; }
@@ -219,44 +309,34 @@ namespace PropertySurveyService.Models
         [DisplayName("Roof Sheets Quantity 10")]
         public int roof_sheets_quantity_10 { get; set; }
 
-        [DisplayName("Good Conditions")]
-        public bool? good_conditions { get; set; }
 
-        [DisplayName("Ridge Length")]
-        public string ridge_length { get; set; } = "";
+        // ============================================================
+        // COMMON HIDDEN / STATUS FIELDS
+        // ============================================================
 
-        [DisplayName("Parts to Order")]
-        public string parts_to_order { get; set; } = "";
+        [Browsable(false)]
+        public bool bComplete { get; set; }
 
-        [DisplayName("Point of Entry")]
-        public string point_of_entry { get; set; } = "";
+        [Browsable(false)]
+        public bool bDifferentFromOriginalSigned { get; set; }
 
-        [DisplayName("Type of Locking System Required")]
-        public string type_of_lockng_system_required { get; set; } = "";
+        [Browsable(false)]
+        public bool bDoorComplete { get; set; }
 
-        [DisplayName("Was It Locked")]
-        public int was_it_locked { get; set; }
+        [Browsable(false)]
+        public bool bWindowComplete { get; set; }
 
-        [DisplayName("Glass Complete")]
-        public bool glass_complete { get; set; }
+        [Browsable(false)]
+        public bool bLockComplete { get; set; }
 
-        [DisplayName("Replace Glass")]
-        public bool? replace_glass { get; set; }
+        [Browsable(false)]
+        public bool bHandleDrawingComplete { get; set; }
 
-        [DisplayName("Reason Not Repaired")]
-        public string reason_not_repaired { get; set; } = "";
+        [Browsable(false)]
+        public int no_of_photos { get; set; }
 
-        [DisplayName("Repair Item")]
-        public bool bRepair { get; set; }
-
-        [DisplayName("FENSA")]
-        public bool bFensa { get; set; } = true;
-
-        [DisplayName("WER Rating")]
-        public string WER_rating { get; set; } = "";
-
-        [DisplayName("Overall Length of Sheet")]
-        public string overall_length_of_sheet { get; set; } = "";
+        [Browsable(false)]
+        public int no_of_drawings { get; set; }
 
         public SurveyItem AsSurveyItem() { return new SurveyItem(Id, enum_item_type.conservatory, item_number, ContractCode); }
     }

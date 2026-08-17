@@ -27,6 +27,9 @@ namespace PropertySurveyService.Models
         [Browsable(false)]
         public int item_number { get; set; }
 
+        [Browsable(false)]
+        public bool bRepair { get; set; }
+
         [DisplayName("Different From Original")]
         public bool? bDifferentFromOriginal { get; set; } = false;
 
@@ -104,6 +107,25 @@ namespace PropertySurveyService.Models
 
         [DisplayName("Repair or Replace")]
         public int repair_or_replace { get; set; }
+
+
+
+        [Browsable(false)]
+        public bool bComplete { get; set; }
+        [Browsable(false)]
+        public bool bDifferentFromOriginalSigned { get; set; }
+        [Browsable(false)]
+        public bool bDoorComplete { get; set; }
+        [Browsable(false)]
+        public bool bWindowComplete { get; set; }
+        [Browsable(false)]
+        public int no_of_photos { get; set; }
+        [Browsable(false)]
+        public bool bLockComplete { get; set; }
+        [Browsable(false)]
+        public bool bHandleDrawingComplete { get; set; }
+        [Browsable(false)]
+        public int no_of_drawings { get; set; }
 
 
         public SurveyItem AsSurveyItem() { return new SurveyItem(Id, enum_item_type.greenhouse, item_number, ContractCode); }

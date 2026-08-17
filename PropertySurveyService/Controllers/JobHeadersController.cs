@@ -76,7 +76,7 @@ namespace PropertySurveyService.Controllers
                             foreach (var p in _context.Composite.Where(x => x.HeaderId == viewModel.JobHeader.Id)) items.Add(p.AsSurveyItem()); break;
                         case enum_item_type.conservatory:
                             foreach (var p in _context.Conservatory.Where(x => x.HeaderId == viewModel.JobHeader.Id)) items.Add(p.AsSurveyItem()); break;
-                        case enum_item_type.frame:
+                        case enum_item_type.material:
                             foreach (var p in _context.Frame.Where(x => x.HeaderId == viewModel.JobHeader.Id)) items.Add(p.AsSurveyItem()); break;
                     }
                 }
