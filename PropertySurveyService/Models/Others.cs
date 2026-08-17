@@ -135,7 +135,7 @@ namespace PropertySurveyService.Models
                 case enum_item_type.greenhouse: return "Greenhouse";
                 case enum_item_type.conservatory: return "Conservatory";
                 case enum_item_type.composite: return "Composite";
-                case enum_item_type.assembly: return "Material";
+                case enum_item_type.assembly: return "Assembly";
             }
             return "";
         }
@@ -155,7 +155,7 @@ namespace PropertySurveyService.Models
                 case enum_item_type.greenhouse: return "Greenhouse";
                 case enum_item_type.conservatory: return "Conservatory";
                 case enum_item_type.composite: return "Composite";
-                case enum_item_type.assembly: return "Material";
+                case enum_item_type.assembly: return "Assembly";
             }
             return "";
         }

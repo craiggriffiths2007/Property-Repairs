@@ -5,7 +5,7 @@ namespace PropertySurveyService.ViewModels
 {
     public class ItemDetailsViewModel
     {
-        public Assembly? Material { get; set; }
+        public Assembly? Assembly { get; set; }
         public Aluminium? Aluminium { get; set; }
         public Bifolding? Bifolding { get; set; }
         public Composite? Composite { get; set; }

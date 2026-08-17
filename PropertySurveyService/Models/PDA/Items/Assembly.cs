@@ -570,7 +570,7 @@ namespace PropertySurveyService.Models
         [Browsable(false)]
         public int no_of_drawings { get; set; }
 
-        public SurveyItem AsSurveyItem() { return new SurveyItem(Id, enum_item_type.locking, item_number, ContractCode); }
+        public SurveyItem AsSurveyItem() { return new SurveyItem(Id, enum_item_type.assembly, item_number, ContractCode); }
 
     }
 }
