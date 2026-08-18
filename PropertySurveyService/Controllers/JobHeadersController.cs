@@ -54,18 +54,12 @@ namespace PropertySurveyService.Controllers
                 {
                     switch (n)
                     {
-                        case enum_item_type.upvc:
-                            foreach (var p in _context.UPVC.Where(x => x.HeaderId == viewModel.JobHeader.Id)) items.Add(p.AsSurveyItem()); break;
                         case enum_item_type.panel:
                             foreach (var p in _context.Panel.Where(x => x.HeaderId == viewModel.JobHeader.Id)) items.Add(p.AsSurveyItem()); break;
                         case enum_item_type.glass:
                             foreach (var p in _context.Glass.Where(x => x.HeaderId == viewModel.JobHeader.Id)) items.Add(p.AsSurveyItem()); break;
-                        case enum_item_type.aluminium:
-                            foreach (var p in _context.Aluminium.Where(x => x.HeaderId == viewModel.JobHeader.Id)) items.Add(p.AsSurveyItem()); break;
                         case enum_item_type.garage:
                             foreach (var p in _context.Garage.Where(x => x.HeaderId == viewModel.JobHeader.Id)) items.Add(p.AsSurveyItem()); break;
-                        case enum_item_type.timber:
-                            foreach (var p in _context.Timber.Where(x => x.HeaderId == viewModel.JobHeader.Id)) items.Add(p.AsSurveyItem()); break;
                         case enum_item_type.bifold:
                             foreach (var p in _context.Bifolding.Where(x => x.HeaderId == viewModel.JobHeader.Id)) items.Add(p.AsSurveyItem()); break;
                         case enum_item_type.locking:

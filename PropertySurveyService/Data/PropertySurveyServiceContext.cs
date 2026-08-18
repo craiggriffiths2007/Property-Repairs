@@ -28,7 +28,6 @@ namespace PropertySurveyService.Data
 
         public DbSet<SecuritySurvey> SecuritySurveys { get; set; } = default!;
 
-        public DbSet<Aluminium> Aluminium { get; set; } = default!;
         public DbSet<Bifolding> Bifolding { get; set; } = default!;
         public DbSet<Composite> Composite { get; set; } = default!;
         public DbSet<Conservatory> Conservatory { get; set; } = default!;
@@ -37,8 +36,6 @@ namespace PropertySurveyService.Data
         public DbSet<Greenhouse> Greenhouse { get; set; } = default!;
         public DbSet<Lockmech> Lockmech { get; set; } = default!;
         public DbSet<Panel> Panel { get; set; } = default!;
-        public DbSet<Timber> Timber { get; set; } = default!;
-        public DbSet<UPVC> UPVC { get; set; } = default!;
         public DbSet<Assembly> Assembly { get; set; } = default!;
         public DbSet<PhotoImage> Images { get; set; } = default!;
 

@@ -6,7 +6,6 @@ namespace PropertySurveyService.ViewModels
     public class ItemDetailsViewModel
     {
         public Assembly? Assembly { get; set; }
-        public Aluminium? Aluminium { get; set; }
         public Bifolding? Bifolding { get; set; }
         public Composite? Composite { get; set; }
         public Conservatory? Conservatory { get; set; }
@@ -15,9 +14,6 @@ namespace PropertySurveyService.ViewModels
         public Greenhouse? Greenhouse { get; set; }
         public Lockmech? Lockmech { get; set; }
         public Panel? Panel { get; set; }
-        public Timber? Timber { get; set; }
-        public UPVC? UPVC { get; set; }
-
 
         public IEnumerable<PhotoImage>? Images { get; set; }
 

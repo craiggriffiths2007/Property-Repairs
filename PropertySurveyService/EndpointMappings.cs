@@ -396,7 +396,6 @@ namespace PropertySurveyService
 
                         job.Assembly.ForEach(o => o.Id = 0);
                         job.Panel.ForEach(o => o.Id = 0);
-                        job.Aluminium.ForEach(o => o.Id = 0);
                         job.Bifolding.ForEach(o => o.Id = 0);
                         job.Composite.ForEach(o => o.Id = 0);
                         job.Conservatory.ForEach(o => o.Id = 0);
@@ -404,8 +403,7 @@ namespace PropertySurveyService
                         job.Glass.ForEach(o => o.Id = 0);
                         job.Greenhouse.ForEach(o => o.Id = 0);
                         job.Lockmech.ForEach(o => o.Id = 0);
-                        job.Timber.ForEach(o => o.Id = 0);
-                        job.UPVC.ForEach(o => o.Id = 0);
+
                         /*
                         foreach (var item in job.Material) { db.Frame.Where(l => l.Guid == item.Guid).ExecuteDelete(); }
                         foreach (var item in job.Panel) { db.Panel.Where(l => l.Guid == item.Guid).ExecuteDelete(); }
@@ -422,7 +420,6 @@ namespace PropertySurveyService
                         */
                         SaveItems(job.Assembly);
                         SaveItems(job.Panel);
-                        SaveItems(job.Aluminium);
                         SaveItems(job.Bifolding);
                         SaveItems(job.Composite);
                         SaveItems(job.Conservatory);
@@ -430,8 +427,6 @@ namespace PropertySurveyService
                         SaveItems(job.Glass);
                         SaveItems(job.Greenhouse);
                         SaveItems(job.Lockmech);
-                        SaveItems(job.Timber);
-                        SaveItems(job.UPVC);
 
                         await db.SaveChangesAsync();
                     }
@@ -568,7 +563,6 @@ namespace PropertySurveyService
                             Head = jobHeader,
                             Assembly = db.Assembly.Where(f => f.HeaderId == jobHeader.Id).ToList(),
                             Panel = db.Panel.Where(p => p.HeaderId == jobHeader.Id).ToList(),
-                            Aluminium = db.Aluminium.Where(a => a.HeaderId == jobHeader.Id).ToList(),
                             Bifolding = db.Bifolding.Where(b => b.HeaderId == jobHeader.Id).ToList(),
                             Composite = db.Composite.Where(c => c.HeaderId == jobHeader.Id).ToList(),
                             Conservatory = db.Conservatory.Where(c => c.HeaderId == jobHeader.Id).ToList(),
@@ -576,8 +570,6 @@ namespace PropertySurveyService
                             Glass = db.Glass.Where(g => g.HeaderId == jobHeader.Id).ToList(),
                             Greenhouse = db.Greenhouse.Where(g => g.HeaderId == jobHeader.Id).ToList(),
                             Lockmech = db.Lockmech.Where(l => l.HeaderId == jobHeader.Id).ToList(),
-                            Timber = db.Timber.Where(t => t.HeaderId == jobHeader.Id).ToList(),
-                            UPVC = db.UPVC.Where(u => u.HeaderId == jobHeader.Id).ToList(),
                             Images = images
                         });
                     }

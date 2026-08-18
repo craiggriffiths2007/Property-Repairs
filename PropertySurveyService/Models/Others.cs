@@ -51,11 +51,8 @@ namespace PropertySurveyService.Models
         none,
         assembly,
         panel,
-        upvc,
-        aluminium,
         conservatory,
         garage,
-        timber,
         locking,
         glass,
         composite,
@@ -124,12 +121,9 @@ namespace PropertySurveyService.Models
         {
             switch (type)
             {
-                case enum_item_type.upvc: return "UPVC";
                 case enum_item_type.panel: return "Panel";
                 case enum_item_type.glass: return "Glass";
-                case enum_item_type.aluminium: return "Aluminium";
                 case enum_item_type.garage: return "Garage";
-                case enum_item_type.timber: return "Timber";
                 case enum_item_type.bifold: return "Bifolding";
                 case enum_item_type.locking: return "Lock-mech";
                 case enum_item_type.greenhouse: return "Greenhouse";
@@ -144,12 +138,9 @@ namespace PropertySurveyService.Models
         {
             switch (type)
             {
-                case enum_item_type.upvc: return "UPVC";
                 case enum_item_type.panel: return "Panel";
                 case enum_item_type.glass: return "Glass";
-                case enum_item_type.aluminium: return "Aluminium";
                 case enum_item_type.garage: return "Garage";
-                case enum_item_type.timber: return "Timber";
                 case enum_item_type.bifold: return "Bifolding";
                 case enum_item_type.locking: return "Lockmech";
                 case enum_item_type.greenhouse: return "Greenhouse";
