@@ -50,7 +50,9 @@ namespace PropertySurveyService.Models
         // MATERIAL SELECTION
         // ============================================================
         [DisplayName("Material")]
-        public enum_material_type material { get; set; } = enum_material_type.None; 
+        public enum_material_type material { get; set; } = enum_material_type.None;
+
+      
 
         [DisplayName("Opening Type")]
         public string opening_type { get; set; } = ""; // Door, Window etc
@@ -512,8 +514,8 @@ namespace PropertySurveyService.Models
         public string frame_color_code_out { get; set; } = "";
 
         [AssemblyFor(enum_material_type.Timber)]
-        [DisplayName("Signed")]
-        public bool b_signed { get; set; }
+        [DisplayName("Timber Colours Signed")]
+        public bool bTimberColoursSigned { get; set; }
 
         [AssemblyFor(enum_material_type.Timber)]
         [DisplayName("Timber Glazed")]
