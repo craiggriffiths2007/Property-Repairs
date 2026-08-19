@@ -5,10 +5,12 @@
     ViewData["Title"] = "Details";
 }
 
-<h3>Assembly</h3>
+<h3>
+    @Model.Assembly.material @(Model.Assembly.bRepair ? "Repair" : "Replace")
+</h3>
 <hr />
 
-<partial name="_ItemDetailsPartial" model="Model.Assembly" />
+<partial name="_AssemblyDetailsPartial" model="Model.Assembly" />
 
 @if (Model.Panel != null)
 {

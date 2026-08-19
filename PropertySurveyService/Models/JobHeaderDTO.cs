@@ -3,7 +3,7 @@
 public class JobHeaderDTO
 {
     public JobHeader Head { get; set; }
-    public List<Assembly> Assembly { get; set; } = new List<Assembly>();
+    public List<ItemAssembly> Assembly { get; set; } = new List<ItemAssembly>();
     public List<Panel> Panel { get; set; } = new List<Panel>();
     public List<Bifolding> Bifolding { get; set; } = new List<Bifolding>();
     public List<Composite> Composite { get; set; } = new List<Composite>();

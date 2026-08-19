@@ -1,0 +1,95 @@
+﻿@using System.ComponentModel
+@using System.ComponentModel.DataAnnotations
+@using System.Reflection
+@using PropertySurveyService.Models
+
+@model ItemAssembly
+
+<div class="grid-container-vertical">
+
+    <div>
+        <strong style="color:dimgrey">Contract Code:</strong>
+        <strong>@Model.ContractCode</strong>
+    </div>
+
+    <div>
+        <strong style="color:dimgrey">Item Number:</strong>
+        <strong>@Model.item_number</strong>
+    </div>
+
+    <div>&nbsp;</div>
+
+    @{
+        var properties = Model.GetType()
+            .GetProperties()
+            .Where(p =>
+            {
+                // Hide [Browsable(false)] properties
+                if (p.GetCustomAttribute<BrowsableAttribute>()?.Browsable == false)
+                    return false;
+
+                // Hide empty values
+                var value = p.GetValue(Model);
+
+                if (string.IsNullOrWhiteSpace(value?.ToString()))
+                    return false;
+
+                // Check whether this property is material-specific
+                var assemblyFor =
+                    p.GetCustomAttribute<AssemblyForAttribute>();
+
+                // No AssemblyFor attribute = common property
+                if (assemblyFor == null)
+                    return true;
+
+                // Otherwise only show it if it applies
+                // to this Assembly's selected material
+                return (assemblyFor.Materials & Model.material) != 0;
+            })
+            .Select(p =>
+            {
+                var display =
+                    p.GetCustomAttribute<DisplayAttribute>();
+
+                var label =
+                    display?.GetName()
+                    ?? p.GetCustomAttribute<DisplayNameAttribute>()?.DisplayName
+                    ?? p.Name;
+
+                var order =
+                    display?.GetOrder() ?? int.MaxValue;
+
+                return new
+                {
+                    Property = p,
+                    Label = label,
+                    Order = order
+                };
+            })
+            .OrderBy(x => x.Order);
+    }
+
+    @foreach (var item in properties)
+    {
+        var value = item.Property.GetValue(Model);
+
+        <div>
+            @item.Label:
+            <strong>
+                @if (value is bool b)
+                {
+                    var color = b ? "green" : "red";
+
+                    <span style="color:@color; font-weight:bold;">
+                        @(b ? "✔" : "✘")
+                    </span>
+                }
+                else
+                {
+                    @value
+                }
+            </strong>
+        </div>
+    }
+
+</div>

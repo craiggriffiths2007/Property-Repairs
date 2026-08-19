@@ -36,7 +36,7 @@ namespace PropertySurveyService.Data
         public DbSet<Greenhouse> Greenhouse { get; set; } = default!;
         public DbSet<Lockmech> Lockmech { get; set; } = default!;
         public DbSet<Panel> Panel { get; set; } = default!;
-        public DbSet<Assembly> Assembly { get; set; } = default!;
+        public DbSet<ItemAssembly> Assembly { get; set; } = default!;
         public DbSet<PhotoImage> Images { get; set; } = default!;
 
         public DbSet<Branch> Branches { get; set; } = default!;

@@ -18,7 +18,7 @@ namespace PropertySurveyService.Models
         }
     }
 
-    public class Assembly
+    public class ItemAssembly
     {
         // ============================================================
         // COMMON - DATABASE / ITEM IDENTIFICATION
@@ -443,7 +443,7 @@ namespace PropertySurveyService.Models
 
         [AssemblyFor(enum_material_type.Timber)]
         [DisplayName("Require Fire Rated Glass")]
-        public bool fire_rated_glass { get; set; }
+        public bool? fire_rated_glass { get; set; }
 
         [AssemblyFor(enum_material_type.Timber)]
         [DisplayName("Thresher")]
