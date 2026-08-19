@@ -108,31 +108,14 @@ namespace PropertySurveyService.Models
     public class SurveyItem
     {
         public int Id { get; set; }
+
+        public bool bRepar { get; set; }
+        public enum_material_type material { get; }
         public enum_item_type ItemType { get; set; }
-        public string? ItemName { get; set; }
+        public string? ItemTitle { get; set; }
         public int item_number { get; set; }
         public string? ControllerName { get; set; }
         public string ContractCode { get; set; } = "";
-        public string NameFromEnumType()
-        {
-            return NameFromEnumType(ItemType);
-        }
-        public string NameFromEnumType(enum_item_type type)
-        {
-            switch (type)
-            {
-                case enum_item_type.panel: return "Panel";
-                case enum_item_type.glass: return "Glass";
-                case enum_item_type.garage: return "Garage";
-                case enum_item_type.bifold: return "Bifolding";
-                case enum_item_type.locking: return "Lock-mech";
-                case enum_item_type.greenhouse: return "Greenhouse";
-                case enum_item_type.conservatory: return "Conservatory";
-                case enum_item_type.composite: return "Composite";
-                case enum_item_type.assembly: return "Assembly";
-            }
-            return "";
-        }
 
         public string ControllerNameFromEnumType(enum_item_type type)
         {
@@ -152,11 +135,11 @@ namespace PropertySurveyService.Models
         }
 
 
-        public SurveyItem(int id, enum_item_type type, int itemNumber, string contractCode)
+        public SurveyItem(int id, enum_item_type type, int itemNumber, string contractCode, string _itemName)
         {
             Id = id;
             ItemType = type;
-            ItemName = NameFromEnumType(type);
+            ItemTitle = _itemName;
             ControllerName = ControllerNameFromEnumType(type);
             item_number = itemNumber;
             ContractCode = contractCode;

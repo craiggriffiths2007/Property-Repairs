@@ -126,9 +126,16 @@ namespace PropertySurveyService.Models
         public bool bHandleDrawingComplete { get; set; }
         [Browsable(false)]
         public int no_of_drawings { get; set; }
+        [Browsable(false)]
+        public string ItemTitle => "Greenhouse";
 
-
-        public SurveyItem AsSurveyItem() { return new SurveyItem(Id, enum_item_type.greenhouse, item_number, ContractCode); }
+        public SurveyItem AsSurveyItem() =>
+            new SurveyItem(
+                Id,
+                enum_item_type.bifold,
+                item_number,
+                ContractCode,
+                ItemTitle);
     }
 
 

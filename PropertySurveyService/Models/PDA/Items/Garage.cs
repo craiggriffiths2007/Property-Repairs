@@ -291,9 +291,16 @@ namespace PropertySurveyService.Models
         [Browsable(false)]
         public int no_of_drawings { get; set; }
 
+        [Browsable(false)]
+        public string ItemTitle => "Garage";
 
-
-        public SurveyItem AsSurveyItem() { return new SurveyItem(Id, enum_item_type.garage, item_number, ContractCode); }
+        public SurveyItem AsSurveyItem() =>
+            new SurveyItem(
+                Id,
+                enum_item_type.bifold,
+                item_number,
+                ContractCode,
+                ItemTitle);
 
     }
 
