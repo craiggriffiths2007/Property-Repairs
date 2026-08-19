@@ -34,7 +34,7 @@ namespace PropertySurveyService.Models
         // ============================================================
         // SUB-ITEM - PARENT RELATIONSHIP
         // ============================================================
-
+        [Browsable(false)]
         [DisplayName("Parent Item")]
         public enum_item_type base_item { get; set; } = enum_item_type.none;
 

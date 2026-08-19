@@ -461,13 +461,7 @@ namespace PropertySurveyService.Models
         [DisplayName("Hardware Color")]
         public string hardware_color { get; set; } = "";
 
-        [AssemblyFor(enum_material_type.Timber)]
-        [DisplayName("Door Color")]
-        public string door_color { get; set; } = "";
 
-        [AssemblyFor(enum_material_type.Timber)]
-        [DisplayName("Frame Color")]
-        public string frame_color { get; set; } = "";
 
         [AssemblyFor(enum_material_type.Timber)]
         [DisplayName("Sash Drawn")]
@@ -489,29 +483,43 @@ namespace PropertySurveyService.Models
         [DisplayName("Doc L Compliant")]
         public bool? doc_l_compliant { get; set; }
 
-        [AssemblyFor(enum_material_type.Timber)]
-        [DisplayName("Door Color Out")]
-        public string door_color_out { get; set; } = "";
+
 
         [AssemblyFor(enum_material_type.Timber)]
-        [DisplayName("Frame Color Out")]
-        public string frame_color_out { get; set; } = "";
+        [DisplayName("Door Color")]
+        public string door_color { get; set; } = "";
 
         [AssemblyFor(enum_material_type.Timber)]
         [DisplayName("Door Color Code")]
         public string door_color_code { get; set; } = "";
 
         [AssemblyFor(enum_material_type.Timber)]
+        [DisplayName("Door Color Out")]
+        public string door_color_out { get; set; } = "";
+
+        [AssemblyFor(enum_material_type.Timber)]
         [DisplayName("Door Color Code Out")]
         public string door_color_code_out { get; set; } = "";
+
+
+
+        [AssemblyFor(enum_material_type.Timber)]
+        [DisplayName("Frame Color")]
+        public string frame_color { get; set; } = "";
 
         [AssemblyFor(enum_material_type.Timber)]
         [DisplayName("Frame Color Code")]
         public string frame_color_code { get; set; } = "";
 
+
+        [AssemblyFor(enum_material_type.Timber)]
+        [DisplayName("Frame Color Out")]
+        public string frame_color_out { get; set; } = "";
+
         [AssemblyFor(enum_material_type.Timber)]
         [DisplayName("Frame Color Code Out")]
         public string frame_color_code_out { get; set; } = "";
+
 
         [AssemblyFor(enum_material_type.Timber)]
         [DisplayName("Timber Colours Signed")]

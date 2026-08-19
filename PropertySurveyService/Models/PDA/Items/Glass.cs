@@ -28,11 +28,12 @@ namespace PropertySurveyService.Models
         [Browsable(false)]
         public int item_number { get; set; }
 
-
+        [DisplayName("Product Into")]
+        public string ProductInto { get; set; } = "";
         // ============================================================
         // SUB-ITEM - PARENT RELATIONSHIP
         // ============================================================
-
+        [Browsable(false)]
         [DisplayName("Parent Item")]
         public enum_item_type base_item { get; set; } = enum_item_type.none;
 
@@ -136,9 +137,6 @@ namespace PropertySurveyService.Models
 
         [DisplayName("Tape or Gasket")]
         public string TapeorGasket { get; set; } = "";
-
-        [DisplayName("Product Into")]
-        public string ProductInto { get; set; } = "";
 
 
         // ============================================================
