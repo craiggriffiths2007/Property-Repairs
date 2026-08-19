@@ -15,15 +15,22 @@
 @if (Model.Panel != null)
 {
     <hr />
-    <h4>Associated Panel</h4>
+    <h4>Panel</h4>
     <partial name="_ItemDetailsPartial" model="Model.Panel" />
 }
 
 @if (Model.Glass != null)
 {
     <hr />
-    <h4>Associated Glass</h4>
+    <h4>Glass</h4>
     <partial name="_ItemDetailsPartial" model="Model.Glass" />
+}
+
+@if (Model.Lockmech != null)
+{
+    <hr />
+    <h4>Lockmech</h4>
+    <partial name="_ItemDetailsPartial" model="Model.Lockmech" />
 }
 
 <partial name="_ItemImagesPartial" model="Model.Images" />

@@ -112,6 +112,7 @@ namespace PropertySurveyService.Models
         public bool bRepar { get; set; }
         public enum_material_type material { get; }
         public enum_item_type ItemType { get; set; }
+        public enum_item_type BaseItemType { get; set; }
         public string? ItemTitle { get; set; }
         public int item_number { get; set; }
         public string? ControllerName { get; set; }
@@ -135,10 +136,11 @@ namespace PropertySurveyService.Models
         }
 
 
-        public SurveyItem(int id, enum_item_type type, int itemNumber, string contractCode, string _itemName)
+        public SurveyItem(int id, enum_item_type type, enum_item_type base_type, int itemNumber, string contractCode, string _itemName)
         {
             Id = id;
             ItemType = type;
+            BaseItemType = base_type;
             ItemTitle = _itemName;
             ControllerName = ControllerNameFromEnumType(type);
             item_number = itemNumber;

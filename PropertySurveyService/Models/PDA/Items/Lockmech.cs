@@ -252,7 +252,8 @@ namespace PropertySurveyService.Models
         public SurveyItem AsSurveyItem() =>
             new SurveyItem(
                 Id,
-                enum_item_type.bifold,
+                item_type,
+                base_item,
                 item_number,
                 ContractCode,
                 ItemTitle);
