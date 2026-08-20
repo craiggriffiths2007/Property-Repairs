@@ -152,7 +152,7 @@ namespace PropertyRepairs.Models
         public string pet_type { get; set; } = "";
 
         [DisplayName("Pet Magnetic")]
-        public string pet_magnetic { get; set; } = "...";
+        public string pet_magnetic { get; set; } = "";
 
 
         // ============================================================

@@ -37,7 +37,7 @@ namespace PropertyRepairs.Models
         public bool bRepair { get; set; }
 
         [DisplayName("Gaskets")]
-        public string gaskets { get; set; } = "...";
+        public string gaskets { get; set; } = "";
 
         [DisplayName("Gaskets Text")]
         public string gaskets_text { get; set; } = "";
@@ -80,7 +80,7 @@ namespace PropertyRepairs.Models
         // ============================================================
 
         [DisplayName("Opens")]
-        public string opens { get; set; } = "...";
+        public string opens { get; set; } = "";
 
         [DisplayName("Letter Box Position")]
         public string letter_box_pos { get; set; } = "";
@@ -92,7 +92,7 @@ namespace PropertyRepairs.Models
         public string pet_type { get; set; } = "";
 
         [DisplayName("Pet Magnetic")]
-        public string pet_magnetic { get; set; } = "...";
+        public string pet_magnetic { get; set; } = "";
 
         [DisplayName("Handle Colour")]
         public string handle_colour { get; set; } = "";
@@ -199,10 +199,10 @@ namespace PropertyRepairs.Models
         public string addons_width { get; set; } = "";
 
         [DisplayName("Profile Type")]
-        public string profile_type { get; set; } = "...";
+        public string profile_type { get; set; } = "";
 
         [DisplayName("Glaze")]
-        public string glaze { get; set; } = "...";
+        public string glaze { get; set; } = "";
 
 
         // ============================================================
@@ -231,7 +231,7 @@ namespace PropertyRepairs.Models
         public string door_colour_outside { get; set; } = "";
 
         [DisplayName("Hinged On")]
-        public string hinged_on { get; set; } = "...";
+        public string hinged_on { get; set; } = "";
 
         [DisplayName("Fire Door")]
         public bool? fire_door { get; set; }
@@ -242,13 +242,13 @@ namespace PropertyRepairs.Models
         // ============================================================
 
         [DisplayName("Is Lock")]
-        public string is_lock { get; set; } = "...";
+        public string is_lock { get; set; } = "";
 
         [DisplayName("Lock Other Text")]
         public string lock_other_text { get; set; } = "";
 
         [DisplayName("Lever Pad Handles")]
-        public string lever_pad_handles { get; set; } = "...";
+        public string lever_pad_handles { get; set; } = "";
 
         // ============================================================
         // COMPOSITE - OTHER

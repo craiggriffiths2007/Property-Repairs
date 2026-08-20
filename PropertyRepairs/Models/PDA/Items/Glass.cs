@@ -80,7 +80,7 @@ namespace PropertyRepairs.Models
         public bool? collect_and_copy { get; set; }
 
         [DisplayName("Temporary")]
-        public string temporary { get; set; } = "...";
+        public string temporary { get; set; } = "";
 
         [DisplayName("Parts to Order")]
         public string parts_to_order { get; set; } = "";
@@ -103,7 +103,7 @@ namespace PropertyRepairs.Models
         public int units_required { get; set; }
 
         [DisplayName("Single or Double")]
-        public string single_or_double { get; set; } = "...";
+        public string single_or_double { get; set; } = "";
 
         [DisplayName("Glass Type")]
         public string glass_type { get; set; } = "";
@@ -133,7 +133,7 @@ namespace PropertyRepairs.Models
         public string glazing_type { get; set; } = "";
 
         [DisplayName("Glaze")]
-        public string glaze { get; set; } = "...";
+        public string glaze { get; set; } = "";
 
         [DisplayName("Tape or Gasket")]
         public string TapeorGasket { get; set; } = "";
@@ -247,7 +247,7 @@ namespace PropertyRepairs.Models
         public string lead_CHeights { get; set; } = "";
 
         [DisplayName("Lead Anti Rattle")]
-        public string lead_anti_rattle { get; set; } = "...";
+        public string lead_anti_rattle { get; set; } = "";
 
         [DisplayName("Lead Thickness")]
         public string lead_thickness { get; set; } = "";

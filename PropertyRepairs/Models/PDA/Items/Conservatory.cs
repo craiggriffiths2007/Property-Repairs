@@ -108,7 +108,7 @@ namespace PropertyRepairs.Models
         public string type { get; set; } = "";
 
         [DisplayName("Material Type")]
-        public string material_type { get; set; } = "...";
+        public string material_type { get; set; } = "";
 
         [DisplayName("Color")]
         public string color { get; set; } = "";

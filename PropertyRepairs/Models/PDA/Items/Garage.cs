@@ -88,16 +88,16 @@ namespace PropertyRepairs.Models
         public string opening_type { get; set; } = "";
 
         [DisplayName("Opening Direction")]
-        public string opening_direction { get; set; } = "...";
+        public string opening_direction { get; set; } = "";
 
         [DisplayName("Door Fits Into")]
-        public string door_fits_into { get; set; } = "...";
+        public string door_fits_into { get; set; } = "";
 
         [DisplayName("Frame Fix Type")]
-        public string frame_fix_type { get; set; } = "...";
+        public string frame_fix_type { get; set; } = "";
 
         [DisplayName("New Subframe Required")]
-        public string new_subframe_req { get; set; } = "...";
+        public string new_subframe_req { get; set; } = "";
 
         [DisplayName("Color")]
         public string color { get; set; } = "";
@@ -212,7 +212,7 @@ namespace PropertyRepairs.Models
         public string new_electric_operator_req { get; set; } = "";
 
         [DisplayName("Motor Position")]
-        public string motor_position { get; set; } = "...";
+        public string motor_position { get; set; } = "";
 
         [DisplayName("Power Points")]
         public bool? power_points { get; set; }

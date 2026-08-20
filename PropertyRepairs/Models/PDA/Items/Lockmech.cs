@@ -110,7 +110,7 @@ namespace PropertyRepairs.Models
         public string COD_Code { get; set; } = "";
 
         [DisplayName("Gear Box")]
-        public string GearBox { get; set; } = "...";
+        public string GearBox { get; set; } = "";
 
         [DisplayName("Page Number")]
         public string pagenum { get; set; } = "";

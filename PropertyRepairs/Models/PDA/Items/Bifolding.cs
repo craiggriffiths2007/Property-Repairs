@@ -37,7 +37,7 @@ namespace PropertyRepairs.Models
         public bool bRepair { get; set; }
 
         [DisplayName("Gaskets")]
-        public string gaskets { get; set; } = "...";
+        public string gaskets { get; set; } = "";
 
         [DisplayName("Gaskets Text")]
         public string gaskets_text { get; set; } = "";
@@ -74,7 +74,7 @@ namespace PropertyRepairs.Models
         // ============================================================
 
         [DisplayName("Opens (In/Out)")]
-        public string opens { get; set; } = "...";
+        public string opens { get; set; } = "";
 
         [DisplayName("Handle Colour")]
         public string handle_colour { get; set; } = "";

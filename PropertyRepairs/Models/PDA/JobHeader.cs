@@ -251,7 +251,7 @@ namespace PropertyRepairs.Models
         public string asvizex { get; set; } = "";
 
         [DisplayName("Lintel Present")]
-        public string lintel_present { get; set; } = "...";
+        public string lintel_present { get; set; } = "";
 
         [DisplayName("Lintel Present Text")]
         public string lintel_present_text { get; set; } = "";
@@ -540,7 +540,7 @@ namespace PropertyRepairs.Models
 
 
         [DisplayName("Hire equipment used")]
-        public string hire_equipment_used { get; set; } = "...";
+        public string hire_equipment_used { get; set; } = "";
 
         [DisplayName("Hire equipment used text")]
         public string hire_equipment_used_text { get; set; } = "";

@@ -73,7 +73,7 @@ namespace PropertyRepairs.Models
         public string additional_locks { get; set; } = "";
 
         [DisplayName("Gaskets")]
-        public string gaskets { get; set; } = "...";
+        public string gaskets { get; set; } = "";
 
         [DisplayName("Gaskets Text")]
         public string gaskets_text { get; set; } = "";
@@ -115,7 +115,7 @@ namespace PropertyRepairs.Models
         // COMMON - DOORS / OPENINGS / HARDWARE
         // ============================================================
         [DisplayName("Opens (In/Out)")]
-        public string opens { get; set; } = "...";
+        public string opens { get; set; } = "";
 
         [DisplayName("Letter Box")]
         public string letter_box { get; set; } = "";
@@ -130,7 +130,7 @@ namespace PropertyRepairs.Models
         public string pet_type { get; set; } = "";
 
         [DisplayName("Pet Magnetic")]
-        public string pet_magnetic { get; set; } = "...";
+        public string pet_magnetic { get; set; } = "";
 
         [DisplayName("New Locking Mechanism")]
         public bool? bNewLockingMech { get; set; }
@@ -190,7 +190,7 @@ namespace PropertyRepairs.Models
         public bool? collect_and_copy { get; set; }
 
         [DisplayName("Temporary")]
-        public string temporary { get; set; } = "...";
+        public string temporary { get; set; } = "";
 
         [DisplayName("Parts to Order")]
         public string parts_to_order { get; set; } = "";
@@ -224,7 +224,7 @@ namespace PropertyRepairs.Models
 
         [AssemblyFor(enum_material_type.UPVC | enum_material_type.Aluminium)]
         [DisplayName("LP Handles")]
-        public string LPHandles { get; set; } = "...";
+        public string LPHandles { get; set; } = "";
 
         [AssemblyFor(enum_material_type.UPVC | enum_material_type.Aluminium)]
         [DisplayName("Threshold Type")]
@@ -232,7 +232,7 @@ namespace PropertyRepairs.Models
 
         [AssemblyFor(enum_material_type.UPVC | enum_material_type.Aluminium)]
         [DisplayName("Bead Type")]
-        public string bead_type { get; set; } = "...";
+        public string bead_type { get; set; } = "";
 
         [AssemblyFor(enum_material_type.UPVC | enum_material_type.Aluminium)]
         [DisplayName("Panel Complete")]
@@ -252,11 +252,11 @@ namespace PropertyRepairs.Models
 
         [AssemblyFor(enum_material_type.UPVC | enum_material_type.Timber)]
         [DisplayName("Trickle Vents (Yes/No)")]
-        public string trickle_vents { get; set; } = "...";
+        public string trickle_vents { get; set; } = "";
 
         [AssemblyFor(enum_material_type.UPVC | enum_material_type.Timber)]
         [DisplayName("Slide Position")]
-        public string slide_position { get; set; } = "...";
+        public string slide_position { get; set; } = "";
 
         // ============================================================
         // ALUMINIUM + TIMBER
@@ -299,11 +299,11 @@ namespace PropertyRepairs.Models
 
         [AssemblyFor(enum_material_type.UPVC)]
         [DisplayName("Glaze (Internal/External)")]
-        public string glaze { get; set; } = "...";
+        public string glaze { get; set; } = "";
 
         [AssemblyFor(enum_material_type.UPVC)]
         [DisplayName("Double/Tripple")]
-        public string double_tripple { get; set; } = "...";
+        public string double_tripple { get; set; } = "";
 
         [AssemblyFor(enum_material_type.UPVC)]
         [DisplayName("Internal Lock")]
@@ -315,7 +315,7 @@ namespace PropertyRepairs.Models
 
         [AssemblyFor(enum_material_type.UPVC)]
         [DisplayName("Profile Type")]
-        public string profile_type { get; set; } = "...";
+        public string profile_type { get; set; } = "";
 
         [AssemblyFor(enum_material_type.UPVC)]
         [DisplayName("Hinge Colour")]
@@ -327,7 +327,7 @@ namespace PropertyRepairs.Models
 
         [AssemblyFor(enum_material_type.Aluminium)]
         [DisplayName("Section Type")]
-        public string section_type { get; set; } = "...";
+        public string section_type { get; set; } = "";
 
         [AssemblyFor(enum_material_type.Aluminium)]
         [DisplayName("New Timber Sub Frame")]
@@ -347,7 +347,7 @@ namespace PropertyRepairs.Models
 
         [AssemblyFor(enum_material_type.Aluminium)]
         [DisplayName("Frame Type")]
-        public string frame_type { get; set; } = "...";
+        public string frame_type { get; set; } = "";
 
         [AssemblyFor(enum_material_type.Aluminium)]
         [DisplayName("Cill")]
@@ -359,7 +359,7 @@ namespace PropertyRepairs.Models
 
         [AssemblyFor(enum_material_type.Aluminium)]
         [DisplayName("Night Vent")]
-        public string night_vent { get; set; } = "...";
+        public string night_vent { get; set; } = "";
 
         [AssemblyFor(enum_material_type.Aluminium)]
         [DisplayName("Midrail Type")]
@@ -383,7 +383,7 @@ namespace PropertyRepairs.Models
 
         [AssemblyFor(enum_material_type.Aluminium)]
         [DisplayName("Cill Type")]
-        public string cill_type { get; set; } = "...";
+        public string cill_type { get; set; } = "";
 
         [AssemblyFor(enum_material_type.Aluminium)]
         [DisplayName("Spare 3")]
@@ -391,7 +391,7 @@ namespace PropertyRepairs.Models
 
         [AssemblyFor(enum_material_type.Aluminium)]
         [DisplayName("Glazed")]
-        public string glazed { get; set; } = "...";
+        public string glazed { get; set; } = "";
 
         [AssemblyFor(enum_material_type.Aluminium)]
         [DisplayName("Outer Section Width")]
@@ -451,7 +451,7 @@ namespace PropertyRepairs.Models
 
         [AssemblyFor(enum_material_type.Timber)]
         [DisplayName("Single/Double")]
-        public string single_double { get; set; } = "...";
+        public string single_double { get; set; } = "";
 
         [AssemblyFor(enum_material_type.Timber)]
         [DisplayName("Locks")]
@@ -527,7 +527,7 @@ namespace PropertyRepairs.Models
 
         [AssemblyFor(enum_material_type.Timber)]
         [DisplayName("Timber Glazed")]
-        public string timber_glazed { get; set; } = "...";
+        public string timber_glazed { get; set; } = "";
 
         [AssemblyFor(enum_material_type.Timber)]
         [DisplayName("Standard Sizes")]
