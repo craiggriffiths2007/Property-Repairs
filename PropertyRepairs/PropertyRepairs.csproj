@@ -40,7 +40,6 @@
 
   <ItemGroup>
     <Folder Include="Migrations\" />
-    <Folder Include="ReleaseArt\" />
     <Folder Include="Views\JobHeader\" />
     <Folder Include="Views\ToolCheck\" />
   </ItemGroup>
