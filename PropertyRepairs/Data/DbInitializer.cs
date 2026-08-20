@@ -45,7 +45,7 @@ namespace PropertyRepairs.Data
             var craigUser = new AppUser
             {
                 UserName = "Superadmin",
-                Email = "craig.griffiths2077@gmail.com",
+                Email = "super.admin@gmail.com",
                 FirstName = "Super",
                 LastName = "Admin",
                 EmailConfirmed = true,
