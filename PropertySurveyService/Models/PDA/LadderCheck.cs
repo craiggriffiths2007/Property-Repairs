@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
-namespace PropertySurveyService.Models
+namespace PropertyRepairs.Models
 {
     public class LadderCheck
     {

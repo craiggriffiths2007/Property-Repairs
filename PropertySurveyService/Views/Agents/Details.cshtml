@@ -1,4 +1,4 @@
-@model PropertySurveyService.Models.Agent
+@model PropertyRepairs.Models.Agent
 
 @{
     ViewData["Title"] = "Details";
@@ -31,7 +31,7 @@
             @Html.DisplayNameFor(model => model.Type)
         </dt>
         <dd class = "col-sm-10">
-            @(((PropertySurveyService.Models.agent_type)Model.Type).ToString())
+            @(((PropertyRepairs.Models.agent_type)Model.Type).ToString())
         </dd>
     </dl>
 </div>

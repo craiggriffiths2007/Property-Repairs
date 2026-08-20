@@ -2,7 +2,7 @@
 
 #nullable disable
 
-namespace PropertySurveyService.Migrations
+namespace PropertyRepairs.Migrations
 {
     /// <inheritdoc />
     public partial class installedinto : Migration

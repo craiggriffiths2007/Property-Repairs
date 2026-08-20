@@ -1,9 +1,9 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using PropertySurveyService.Models;
+using PropertyRepairs.Models;
 using System.Diagnostics;
 
-namespace PropertySurveyService.Controllers
+namespace PropertyRepairs.Controllers
 {
     [Authorize]
     public class HomeController : Controller

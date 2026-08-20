@@ -1,15 +1,15 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using PropertySurveyService.Data;
-using PropertySurveyService.Models;
-using PropertySurveyService.ViewModels;
+using PropertyRepairs.Data;
+using PropertyRepairs.Models;
+using PropertyRepairs.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace PropertySurveyService.Controllers
+namespace PropertyRepairs.Controllers
 {
     public class FitterVansController : Controller
     {

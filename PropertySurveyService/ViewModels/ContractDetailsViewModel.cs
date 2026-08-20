@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using PropertySurveyService.Models;
+using PropertyRepairs.Models;
 
-namespace PropertySurveyService.ViewModels
+namespace PropertyRepairs.ViewModels
 {
     public class ContractDetailsViewModel
     {

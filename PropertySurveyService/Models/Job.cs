@@ -3,7 +3,7 @@ using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace PropertySurveyService.Models
+namespace PropertyRepairs.Models
 {
     public class Job
     {

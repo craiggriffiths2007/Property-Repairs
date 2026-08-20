@@ -11,9 +11,9 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using PropertySurveyService.Data;
+using PropertyRepairs.Data;
 
-namespace PropertySurveyService.Areas.Identity.Pages.Account.Manage
+namespace PropertyRepairs.Areas.Identity.Pages.Account.Manage
 {
     public class IndexModel : PageModel
     {

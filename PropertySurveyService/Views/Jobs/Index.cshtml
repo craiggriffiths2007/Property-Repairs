@@ -1,4 +1,4 @@
-﻿@model PropertySurveyService.ViewModels.JobIndexViewModel;
+﻿@model PropertyRepairs.ViewModels.JobIndexViewModel;
 
 @{
     ViewData["Title"] = "Diary";
@@ -14,7 +14,7 @@
     var jobsByDay = Model.Jobs?
         .GroupBy(j => j.DiaryDate.Day)
         .ToDictionary(g => g.Key, g => g.ToList())
-        ?? new Dictionary<int, List<PropertySurveyService.Models.Job>>();
+        ?? new Dictionary<int, List<PropertyRepairs.Models.Job>>();
 
     // Week view helpers
     var weekStart = Model.WeekStartDate;
@@ -27,9 +27,9 @@
     string[] weekDayNames = { "Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun" };
 
     // Build a lookup: dayOfWeek (0=Mon) -> hour -> list of jobs
-    var weekJobs = new Dictionary<int, Dictionary<int, List<PropertySurveyService.Models.Job>>>();
+    var weekJobs = new Dictionary<int, Dictionary<int, List<PropertyRepairs.Models.Job>>>();
     for (int d = 0; d < 7; d++)
-        weekJobs[d] = new Dictionary<int, List<PropertySurveyService.Models.Job>>();
+        weekJobs[d] = new Dictionary<int, List<PropertyRepairs.Models.Job>>();
 
     if (Model.Jobs != null)
     {
@@ -38,7 +38,7 @@
             int dayIdx = ((int)job.DiaryDate.DayOfWeek - 1 + 7) % 7;
             int hour = job.Time.Hour;
             if (!weekJobs[dayIdx].ContainsKey(hour))
-                weekJobs[dayIdx][hour] = new List<PropertySurveyService.Models.Job>();
+                weekJobs[dayIdx][hour] = new List<PropertyRepairs.Models.Job>();
             weekJobs[dayIdx][hour].Add(job);
         }
     }

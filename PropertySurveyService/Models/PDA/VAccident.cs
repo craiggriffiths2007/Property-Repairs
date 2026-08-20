@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System.ComponentModel;
 
-namespace PropertySurveyService.Models
+namespace PropertyRepairs.Models
 {
     public class AccidentsVehicleDTO
     {

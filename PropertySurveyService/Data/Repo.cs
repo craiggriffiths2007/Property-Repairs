@@ -1,12 +1,12 @@
 ﻿
 
 using Microsoft.EntityFrameworkCore;
-using PropertySurveyService.Data;
-using PropertySurveyService.Models;
-using PropertySurveyService.ViewModels;
+using PropertyRepairs.Data;
+using PropertyRepairs.Models;
+using PropertyRepairs.ViewModels;
 using SQLitePCL;
 
-namespace PropertySurveyService.Data
+namespace PropertyRepairs.Data
 {
     public interface IRepo // no real need for this interface
     {

@@ -5,11 +5,11 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using PropertySurveyService.Data;
-using PropertySurveyService.Models;
-using PropertySurveyService.ViewModels;
+using PropertyRepairs.Data;
+using PropertyRepairs.Models;
+using PropertyRepairs.ViewModels;
 
-namespace PropertySurveyService.Controllers
+namespace PropertyRepairs.Controllers
 {
     public class JobHeadersController : Controller
     {
@@ -25,7 +25,7 @@ namespace PropertySurveyService.Controllers
         {
               return _context.JobHeader != null ? 
                           View(await _context.JobHeader.ToListAsync()) :
-                          Problem("Entity set 'PropertySurveyServiceContext.Header'  is null.");
+                          Problem("Entity set 'PropertyRepairsContext.Header'  is null.");
         }
 
         // GET: Headers/Details/5
@@ -238,7 +238,7 @@ namespace PropertySurveyService.Controllers
         {
             if (_context.JobHeader == null)
             {
-                return Problem("Entity set 'PropertySurveyServiceContext.Header'  is null.");
+                return Problem("Entity set 'PropertyRepairsContext.Header'  is null.");
             }
             var header = await _context.JobHeader.FindAsync(id);
             if (header != null)

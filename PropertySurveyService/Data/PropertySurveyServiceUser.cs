@@ -5,9 +5,9 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
 
 
-namespace PropertySurveyService.Data
+namespace PropertyRepairs.Data
 {
-    // Add profile data for application users by adding properties to the PropertySurveyServiceUser class
+    // Add profile data for application users by adding properties to the PropertyRepairsUser class
     public class AppUser : IdentityUser
     {
         public string? FirstName { get; set; }

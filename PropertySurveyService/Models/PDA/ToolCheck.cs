@@ -2,7 +2,7 @@
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
-namespace PropertySurveyService.Models
+namespace PropertyRepairs.Models
 {
     public class ToolCheck
     {

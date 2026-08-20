@@ -2,10 +2,10 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using PropertySurveyService.Data;
-using PropertySurveyService.Models;
+using PropertyRepairs.Data;
+using PropertyRepairs.Models;
 
-namespace PropertySurveyService.Controllers
+namespace PropertyRepairs.Controllers
 {
     [Authorize(Roles = "Admin,SuperAdmin")]
     public class UsersController : Controller

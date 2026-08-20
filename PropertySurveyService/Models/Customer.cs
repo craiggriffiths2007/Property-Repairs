@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace PropertySurveyService.Models
+namespace PropertyRepairs.Models
 {
     public class Customer
     {

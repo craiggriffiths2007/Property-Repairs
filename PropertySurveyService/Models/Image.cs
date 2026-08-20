@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.Security.Policy;
 
-namespace PropertySurveyService.Models
+namespace PropertyRepairs.Models
 {
     [Index(nameof(Filename))]
     public class PhotoImage

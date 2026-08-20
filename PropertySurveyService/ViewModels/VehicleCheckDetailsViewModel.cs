@@ -1,8 +1,8 @@
-﻿using PropertySurveyService.Controllers;
-using PropertySurveyService.Models;
+﻿using PropertyRepairs.Controllers;
+using PropertyRepairs.Models;
 
 
-namespace PropertySurveyService.ViewModels
+namespace PropertyRepairs.ViewModels
 {
     public class VehicleCheckDetailsViewModel
     {

@@ -17,9 +17,9 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.Extensions.Logging;
-using PropertySurveyService.Data;
+using PropertyRepairs.Data;
 
-namespace PropertySurveyService.Areas.Identity.Pages.Account
+namespace PropertyRepairs.Areas.Identity.Pages.Account
 {
     [AllowAnonymous]
     public class ExternalLoginModel : PageModel

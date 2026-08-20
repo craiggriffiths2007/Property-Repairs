@@ -1,8 +1,8 @@
 
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using PropertySurveyService.Models;
-using PropertySurveyService.Data;
+using PropertyRepairs.Models;
+using PropertyRepairs.Data;
 
 public class ToolChecksController : Controller
 {
@@ -18,7 +18,7 @@ public class ToolChecksController : Controller
     {
         if (_context.ToolChecks == null)
         {
-            return Problem("Entity set 'PropertySurveyServiceContext.ToolChecks' is null.");
+            return Problem("Entity set 'PropertyRepairsContext.ToolChecks' is null.");
         }
         const int pageSize = 10;
         var totalCount = await _context.ToolChecks.CountAsync();

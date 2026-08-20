@@ -2,14 +2,14 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using PropertySurveyService.Data;
-using PropertySurveyService.Models;
+using PropertyRepairs.Data;
+using PropertyRepairs.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace PropertySurveyService.Controllers
+namespace PropertyRepairs.Controllers
 {
     [Authorize]
     public class CustomersController : Controller
@@ -26,7 +26,7 @@ namespace PropertySurveyService.Controllers
         {
             if (_context.Customer == null)
             {
-                return Problem("Entity set 'PropertySurveyServiceContext.Customer'  is null.");
+                return Problem("Entity set 'PropertyRepairsContext.Customer'  is null.");
             }
 
             const int pageSize = 10;
@@ -165,7 +165,7 @@ namespace PropertySurveyService.Controllers
         {
             if (_context.Customer == null)
             {
-                return Problem("Entity set 'PropertySurveyServiceContext.Customer'  is null.");
+                return Problem("Entity set 'PropertyRepairsContext.Customer'  is null.");
             }
             var customer = await _context.Customer.FindAsync(id);
             if (customer != null)

@@ -1,8 +1,8 @@
 
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using PropertySurveyService.Models;
-using PropertySurveyService.Data;
+using PropertyRepairs.Models;
+using PropertyRepairs.Data;
 
 public class LadderChecksController : Controller
 {
@@ -18,7 +18,7 @@ public class LadderChecksController : Controller
     {
         if (_context.LadderChecks == null)
         {
-            return Problem("Entity set 'PropertySurveyServiceContext.LadderChecks' is null.");
+            return Problem("Entity set 'PropertyRepairsContext.LadderChecks' is null.");
         }
         const int pageSize = 10;
         var totalCount = await _context.LadderChecks.CountAsync();

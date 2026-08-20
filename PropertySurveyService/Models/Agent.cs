@@ -1,7 +1,7 @@
 ﻿
 using System.ComponentModel.DataAnnotations;
 
-namespace PropertySurveyService.Models
+namespace PropertyRepairs.Models
 {
     public class Agent
     {

@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace PropertySurveyService.Migrations
+namespace PropertyRepairs.Migrations
 {
     /// <inheritdoc />
     public partial class initialcreate : Migration

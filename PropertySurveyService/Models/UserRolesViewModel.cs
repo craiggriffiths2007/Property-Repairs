@@ -1,4 +1,4 @@
-﻿namespace PropertySurveyService.Models
+﻿namespace PropertyRepairs.Models
 {
     public class UserRolesViewModel
     {

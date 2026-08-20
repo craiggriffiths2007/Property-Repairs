@@ -1,4 +1,4 @@
-﻿namespace PropertySurveyService.Models
+﻿namespace PropertyRepairs.Models
 {
     using System;
     using System.ComponentModel.DataAnnotations;

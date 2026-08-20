@@ -1,9 +1,9 @@
 
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using PropertySurveyService.Models;
-using PropertySurveyService.Data;
-using PropertySurveyService.ViewModels;
+using PropertyRepairs.Models;
+using PropertyRepairs.Data;
+using PropertyRepairs.ViewModels;
 public class PanelController : Controller
 {
     private readonly Repo repo;

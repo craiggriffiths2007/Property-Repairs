@@ -3,15 +3,15 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 //using System.Text.Json;
 using Newtonsoft.Json;
-using PropertySurveyService.Data;
+using PropertyRepairs.Data;
 using Microsoft.Extensions.Configuration;
 
-using PropertySurveyService.Models;
+using PropertyRepairs.Models;
 using System.Timers;
 
 using System.Collections.Concurrent;
 
-namespace PropertySurveyService
+namespace PropertyRepairs
 {
     public static class EndpointMappings
     {

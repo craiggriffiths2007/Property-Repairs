@@ -10,8 +10,8 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
-using PropertySurveyService.Data;
-namespace PropertySurveyService.Areas.Identity.Pages.Account
+using PropertyRepairs.Data;
+namespace PropertyRepairs.Areas.Identity.Pages.Account
 {
     public class LoginWithRecoveryCodeModel : PageModel
     {

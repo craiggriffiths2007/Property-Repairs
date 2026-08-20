@@ -1,4 +1,4 @@
-@model IEnumerable<PropertySurveyService.Models.Agent>
+@model IEnumerable<PropertyRepairs.Models.Agent>
 
 @{
     ViewData["Title"] = "Index";
@@ -35,7 +35,7 @@
 @foreach (var item in Model) {
             <tr class="clickable-row" data-href="@Url.Action("Details", new { id = item.Id })">
             <td>
-                @(((PropertySurveyService.Models.agent_type)item.Type).ToString())
+                @(((PropertyRepairs.Models.agent_type)item.Type).ToString())
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Code)

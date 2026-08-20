@@ -1,4 +1,4 @@
-﻿using PropertySurveyService.Models;
+﻿using PropertyRepairs.Models;
 
 public class JobHeaderDTO
 {

@@ -5,10 +5,10 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using PropertySurveyService.Data;
-using PropertySurveyService.Models;
+using PropertyRepairs.Data;
+using PropertyRepairs.Models;
 
-namespace PropertySurveyService.Controllers
+namespace PropertyRepairs.Controllers
 {
     public class VehiclesController : Controller
     {
@@ -24,7 +24,7 @@ namespace PropertySurveyService.Controllers
         {
             if (_context.Vehicles == null)
             {
-                return Problem("Entity set 'PropertySurveyServiceContext.Vehicles' is null.");
+                return Problem("Entity set 'PropertyRepairsContext.Vehicles' is null.");
             }
             const int pageSize = 10;
             var totalCount = await _context.Vehicles.CountAsync();

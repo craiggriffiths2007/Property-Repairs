@@ -1,10 +1,10 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
-using PropertySurveyService.Data;
-using PropertySurveyService.Models;
+using PropertyRepairs.Data;
+using PropertyRepairs.Models;
 using Microsoft.AspNetCore.Identity;
-using PropertySurveyService.Data;
-using PropertySurveyService;
+using PropertyRepairs.Data;
+using PropertyRepairs;
 using Microsoft.AspNetCore.StaticFiles;
 using Newtonsoft.Json;
 using Microsoft.AspNetCore.Mvc.Razor;
@@ -13,13 +13,13 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddDbContext<PropertySurveyService.Data.AppDBContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("PropertySurveyServiceContext") ?? throw new InvalidOperationException("Connection string 'PropertySurveyServiceContext' not found.")));
+builder.Services.AddDbContext<PropertyRepairs.Data.AppDBContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("PropertyRepairsContext") ?? throw new InvalidOperationException("Connection string 'PropertyRepairsContext' not found.")));
 
 //builder.Services.AddDefaultIdentity<AppUser>(options => options.SignIn.RequireConfirmedAccount = true).AddEntityFrameworkStores<AppDBContext>();
 
 //builder.Services.AddDefaultIdentity<AppUser>(options => options.SignIn.RequireConfirmedAccount = false)
-//    .AddEntityFrameworkStores<PropertySurveyService.Data.AppDBContext>();
+//    .AddEntityFrameworkStores<PropertyRepairs.Data.AppDBContext>();
 
 builder.Services.AddIdentity<AppUser, IdentityRole>(options =>
 {

@@ -1,8 +1,8 @@
 
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using PropertySurveyService.Models;
-using PropertySurveyService.Data;
+using PropertyRepairs.Models;
+using PropertyRepairs.Data;
 
 public class VAccidentsController : Controller
 {
@@ -18,7 +18,7 @@ public class VAccidentsController : Controller
     {
         if (_context.VAccidents == null)
         {
-            return Problem("Entity set 'PropertySurveyServiceContext.VAccidents' is null.");
+            return Problem("Entity set 'PropertyRepairsContext.VAccidents' is null.");
         }
         const int pageSize = 10;
         var totalCount = await _context.VAccidents.CountAsync();

@@ -1,11 +1,11 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using PropertySurveyService.Models;
+using PropertyRepairs.Models;
 using System;
 using System.Data;
 using System.Linq;
 
-namespace PropertySurveyService.Data
+namespace PropertyRepairs.Data
 {
     
     public enum Roles

@@ -3,9 +3,9 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.EntityFrameworkCore;
-using PropertySurveyService.Data;
-using PropertySurveyService.Models;
-using PropertySurveyService.ViewModels;
+using PropertyRepairs.Data;
+using PropertyRepairs.Models;
+using PropertyRepairs.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics.Contracts;
@@ -13,7 +13,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Xml.Linq;
 
-namespace PropertySurveyService.Controllers
+namespace PropertyRepairs.Controllers
 {
     [Authorize]
     public class JobsController : Controller
@@ -396,7 +396,7 @@ namespace PropertySurveyService.Controllers
         {
             if (_context.Job == null)
             {
-                return Problem("Entity set 'PropertySurveyServiceContext.Job'  is null.");
+                return Problem("Entity set 'PropertyRepairsContext.Job'  is null.");
             }
             var job = await _context.Job.FindAsync(id);
             if (job != null)

@@ -2,14 +2,14 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using PropertySurveyService.Data;
-using PropertySurveyService.Models;
+using PropertyRepairs.Data;
+using PropertyRepairs.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace PropertySurveyService.Controllers
+namespace PropertyRepairs.Controllers
 {
     [Authorize]
     public class MileageSheetsController : Controller
@@ -26,7 +26,7 @@ namespace PropertySurveyService.Controllers
         {
             if (_context.MileageSheets == null)
             {
-                return Problem("Entity set 'PropertySurveyServiceContext.MileageSheets' is null.");
+                return Problem("Entity set 'PropertyRepairsContext.MileageSheets' is null.");
             }
             const int pageSize = 10;
             var totalCount = await _context.MileageSheets.CountAsync();

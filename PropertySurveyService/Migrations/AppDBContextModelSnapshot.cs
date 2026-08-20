@@ -4,11 +4,11 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using PropertySurveyService.Data;
+using PropertyRepairs.Data;
 
 #nullable disable
 
-namespace PropertySurveyService.Migrations
+namespace PropertyRepairs.Migrations
 {
     [DbContext(typeof(AppDBContext))]
     partial class AppDBContextModelSnapshot : ModelSnapshot
@@ -155,7 +155,7 @@ namespace PropertySurveyService.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
-            modelBuilder.Entity("PropertySurveyService.Data.AppUser", b =>
+            modelBuilder.Entity("PropertyRepairs.Data.AppUser", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("nvarchar(450)");
@@ -234,7 +234,7 @@ namespace PropertySurveyService.Migrations
                     b.ToTable("AspNetUsers", (string)null);
                 });
 
-            modelBuilder.Entity("PropertySurveyService.Models.Agent", b =>
+            modelBuilder.Entity("PropertyRepairs.Models.Agent", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -269,7 +269,7 @@ namespace PropertySurveyService.Migrations
                     b.ToTable("Agent");
                 });
 
-            modelBuilder.Entity("PropertySurveyService.Models.Bifolding", b =>
+            modelBuilder.Entity("PropertyRepairs.Models.Bifolding", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -483,7 +483,7 @@ namespace PropertySurveyService.Migrations
                     b.ToTable("Bifolding");
                 });
 
-            modelBuilder.Entity("PropertySurveyService.Models.Branch", b =>
+            modelBuilder.Entity("PropertyRepairs.Models.Branch", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -505,7 +505,7 @@ namespace PropertySurveyService.Migrations
                     b.ToTable("Branches");
                 });
 
-            modelBuilder.Entity("PropertySurveyService.Models.Composite", b =>
+            modelBuilder.Entity("PropertyRepairs.Models.Composite", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -784,7 +784,7 @@ namespace PropertySurveyService.Migrations
                     b.ToTable("Composite");
                 });
 
-            modelBuilder.Entity("PropertySurveyService.Models.Conservatory", b =>
+            modelBuilder.Entity("PropertyRepairs.Models.Conservatory", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -1119,7 +1119,7 @@ namespace PropertySurveyService.Migrations
                     b.ToTable("Conservatory");
                 });
 
-            modelBuilder.Entity("PropertySurveyService.Models.Contract", b =>
+            modelBuilder.Entity("PropertyRepairs.Models.Contract", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -1163,7 +1163,7 @@ namespace PropertySurveyService.Migrations
                     b.ToTable("Contract");
                 });
 
-            modelBuilder.Entity("PropertySurveyService.Models.ContractNote", b =>
+            modelBuilder.Entity("PropertyRepairs.Models.ContractNote", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -1190,7 +1190,7 @@ namespace PropertySurveyService.Migrations
                     b.ToTable("ContractNotes");
                 });
 
-            modelBuilder.Entity("PropertySurveyService.Models.Customer", b =>
+            modelBuilder.Entity("PropertyRepairs.Models.Customer", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -1235,7 +1235,7 @@ namespace PropertySurveyService.Migrations
                     b.ToTable("Customer");
                 });
 
-            modelBuilder.Entity("PropertySurveyService.Models.DeliveryHGV", b =>
+            modelBuilder.Entity("PropertyRepairs.Models.DeliveryHGV", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -1558,7 +1558,7 @@ namespace PropertySurveyService.Migrations
                     b.ToTable("DeliveryHGVs");
                 });
 
-            modelBuilder.Entity("PropertySurveyService.Models.DeliveryVan", b =>
+            modelBuilder.Entity("PropertyRepairs.Models.DeliveryVan", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -1958,7 +1958,7 @@ namespace PropertySurveyService.Migrations
                     b.ToTable("DeliveryVans");
                 });
 
-            modelBuilder.Entity("PropertySurveyService.Models.FAccident", b =>
+            modelBuilder.Entity("PropertyRepairs.Models.FAccident", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -2086,7 +2086,7 @@ namespace PropertySurveyService.Migrations
                     b.ToTable("FAccidents");
                 });
 
-            modelBuilder.Entity("PropertySurveyService.Models.FitterVan", b =>
+            modelBuilder.Entity("PropertyRepairs.Models.FitterVan", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -2870,7 +2870,7 @@ namespace PropertySurveyService.Migrations
                     b.ToTable("FitterVans");
                 });
 
-            modelBuilder.Entity("PropertySurveyService.Models.Garage", b =>
+            modelBuilder.Entity("PropertyRepairs.Models.Garage", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -3136,7 +3136,7 @@ namespace PropertySurveyService.Migrations
                     b.ToTable("Garage");
                 });
 
-            modelBuilder.Entity("PropertySurveyService.Models.GarageDoorMotor", b =>
+            modelBuilder.Entity("PropertyRepairs.Models.GarageDoorMotor", b =>
                 {
                     b.Property<int>("Id")
                         .HasColumnType("int");
@@ -3200,7 +3200,7 @@ namespace PropertySurveyService.Migrations
                     b.ToTable("GarageDoorMotor");
                 });
 
-            modelBuilder.Entity("PropertySurveyService.Models.Glass", b =>
+            modelBuilder.Entity("PropertyRepairs.Models.Glass", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -3534,7 +3534,7 @@ namespace PropertySurveyService.Migrations
                     b.ToTable("Glass");
                 });
 
-            modelBuilder.Entity("PropertySurveyService.Models.Greenhouse", b =>
+            modelBuilder.Entity("PropertyRepairs.Models.Greenhouse", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -3684,7 +3684,7 @@ namespace PropertySurveyService.Migrations
                     b.ToTable("Greenhouse");
                 });
 
-            modelBuilder.Entity("PropertySurveyService.Models.ItemAssembly", b =>
+            modelBuilder.Entity("PropertyRepairs.Models.ItemAssembly", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -4198,7 +4198,7 @@ namespace PropertySurveyService.Migrations
                     b.ToTable("Assembly");
                 });
 
-            modelBuilder.Entity("PropertySurveyService.Models.Job", b =>
+            modelBuilder.Entity("PropertyRepairs.Models.Job", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -4271,7 +4271,7 @@ namespace PropertySurveyService.Migrations
                     b.ToTable("Job");
                 });
 
-            modelBuilder.Entity("PropertySurveyService.Models.JobHeader", b =>
+            modelBuilder.Entity("PropertyRepairs.Models.JobHeader", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -4819,7 +4819,7 @@ namespace PropertySurveyService.Migrations
                     b.ToTable("JobHeader");
                 });
 
-            modelBuilder.Entity("PropertySurveyService.Models.LadderCheck", b =>
+            modelBuilder.Entity("PropertyRepairs.Models.LadderCheck", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -4942,7 +4942,7 @@ namespace PropertySurveyService.Migrations
                     b.ToTable("LadderChecks");
                 });
 
-            modelBuilder.Entity("PropertySurveyService.Models.Lockmech", b =>
+            modelBuilder.Entity("PropertyRepairs.Models.Lockmech", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -5168,7 +5168,7 @@ namespace PropertySurveyService.Migrations
                     b.ToTable("Lockmech");
                 });
 
-            modelBuilder.Entity("PropertySurveyService.Models.MileageSheet", b =>
+            modelBuilder.Entity("PropertyRepairs.Models.MileageSheet", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -5310,7 +5310,7 @@ namespace PropertySurveyService.Migrations
                     b.ToTable("MileageSheets");
                 });
 
-            modelBuilder.Entity("PropertySurveyService.Models.Panel", b =>
+            modelBuilder.Entity("PropertyRepairs.Models.Panel", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -5460,7 +5460,7 @@ namespace PropertySurveyService.Migrations
                     b.ToTable("Panel");
                 });
 
-            modelBuilder.Entity("PropertySurveyService.Models.PhotoImage", b =>
+            modelBuilder.Entity("PropertyRepairs.Models.PhotoImage", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -5492,7 +5492,7 @@ namespace PropertySurveyService.Migrations
                     b.ToTable("Images");
                 });
 
-            modelBuilder.Entity("PropertySurveyService.Models.SalesCar", b =>
+            modelBuilder.Entity("PropertyRepairs.Models.SalesCar", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -5731,7 +5731,7 @@ namespace PropertySurveyService.Migrations
                     b.ToTable("SalesCars");
                 });
 
-            modelBuilder.Entity("PropertySurveyService.Models.SecuritySurvey", b =>
+            modelBuilder.Entity("PropertyRepairs.Models.SecuritySurvey", b =>
                 {
                     b.Property<int>("Id")
                         .HasColumnType("int");
@@ -5824,7 +5824,7 @@ namespace PropertySurveyService.Migrations
                     b.ToTable("SecuritySurveys");
                 });
 
-            modelBuilder.Entity("PropertySurveyService.Models.SpotCheck", b =>
+            modelBuilder.Entity("PropertyRepairs.Models.SpotCheck", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -6255,7 +6255,7 @@ namespace PropertySurveyService.Migrations
                     b.ToTable("SpotChecks");
                 });
 
-            modelBuilder.Entity("PropertySurveyService.Models.ToolCheck", b =>
+            modelBuilder.Entity("PropertyRepairs.Models.ToolCheck", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -6523,7 +6523,7 @@ namespace PropertySurveyService.Migrations
                     b.ToTable("ToolChecks");
                 });
 
-            modelBuilder.Entity("PropertySurveyService.Models.VAccident", b =>
+            modelBuilder.Entity("PropertyRepairs.Models.VAccident", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -6785,7 +6785,7 @@ namespace PropertySurveyService.Migrations
                     b.ToTable("VAccidents");
                 });
 
-            modelBuilder.Entity("PropertySurveyService.Models.Vehicle", b =>
+            modelBuilder.Entity("PropertyRepairs.Models.Vehicle", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -6815,7 +6815,7 @@ namespace PropertySurveyService.Migrations
                     b.ToTable("Vehicles");
                 });
 
-            modelBuilder.Entity("PropertySurveyService.Models.VehicleCheckHeader", b =>
+            modelBuilder.Entity("PropertyRepairs.Models.VehicleCheckHeader", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -6873,7 +6873,7 @@ namespace PropertySurveyService.Migrations
                     b.ToTable("VehicleCheckHeaders");
                 });
 
-            modelBuilder.Entity("PropertySurveyService.Models.Whitness", b =>
+            modelBuilder.Entity("PropertyRepairs.Models.Whitness", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -6930,7 +6930,7 @@ namespace PropertySurveyService.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
                 {
-                    b.HasOne("PropertySurveyService.Data.AppUser", null)
+                    b.HasOne("PropertyRepairs.Data.AppUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -6939,7 +6939,7 @@ namespace PropertySurveyService.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
                 {
-                    b.HasOne("PropertySurveyService.Data.AppUser", null)
+                    b.HasOne("PropertyRepairs.Data.AppUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -6954,7 +6954,7 @@ namespace PropertySurveyService.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("PropertySurveyService.Data.AppUser", null)
+                    b.HasOne("PropertyRepairs.Data.AppUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -6963,44 +6963,44 @@ namespace PropertySurveyService.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
                 {
-                    b.HasOne("PropertySurveyService.Data.AppUser", null)
+                    b.HasOne("PropertyRepairs.Data.AppUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("PropertySurveyService.Models.Contract", b =>
+            modelBuilder.Entity("PropertyRepairs.Models.Contract", b =>
                 {
-                    b.HasOne("PropertySurveyService.Models.Customer", "Customer")
+                    b.HasOne("PropertyRepairs.Models.Customer", "Customer")
                         .WithMany()
                         .HasForeignKey("CustomerId");
 
                     b.Navigation("Customer");
                 });
 
-            modelBuilder.Entity("PropertySurveyService.Models.GarageDoorMotor", b =>
+            modelBuilder.Entity("PropertyRepairs.Models.GarageDoorMotor", b =>
                 {
-                    b.HasOne("PropertySurveyService.Models.JobHeader", null)
+                    b.HasOne("PropertyRepairs.Models.JobHeader", null)
                         .WithOne("GarageDoorMotor")
-                        .HasForeignKey("PropertySurveyService.Models.GarageDoorMotor", "Id")
+                        .HasForeignKey("PropertyRepairs.Models.GarageDoorMotor", "Id")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("PropertySurveyService.Models.Job", b =>
+            modelBuilder.Entity("PropertyRepairs.Models.Job", b =>
                 {
-                    b.HasOne("PropertySurveyService.Models.Agent", "Agent")
+                    b.HasOne("PropertyRepairs.Models.Agent", "Agent")
                         .WithMany()
                         .HasForeignKey("AgentId");
 
-                    b.HasOne("PropertySurveyService.Models.Contract", "Contract")
+                    b.HasOne("PropertyRepairs.Models.Contract", "Contract")
                         .WithMany()
                         .HasForeignKey("ContractId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("PropertySurveyService.Models.Customer", "Customer")
+                    b.HasOne("PropertyRepairs.Models.Customer", "Customer")
                         .WithMany()
                         .HasForeignKey("CustomerId");
 
@@ -7011,18 +7011,18 @@ namespace PropertySurveyService.Migrations
                     b.Navigation("Customer");
                 });
 
-            modelBuilder.Entity("PropertySurveyService.Models.SecuritySurvey", b =>
+            modelBuilder.Entity("PropertyRepairs.Models.SecuritySurvey", b =>
                 {
-                    b.HasOne("PropertySurveyService.Models.JobHeader", null)
+                    b.HasOne("PropertyRepairs.Models.JobHeader", null)
                         .WithOne("SecuritySurvey")
-                        .HasForeignKey("PropertySurveyService.Models.SecuritySurvey", "Id")
+                        .HasForeignKey("PropertyRepairs.Models.SecuritySurvey", "Id")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("PropertySurveyService.Models.Vehicle", b =>
+            modelBuilder.Entity("PropertyRepairs.Models.Vehicle", b =>
                 {
-                    b.HasOne("PropertySurveyService.Models.Branch", "Branch")
+                    b.HasOne("PropertyRepairs.Models.Branch", "Branch")
                         .WithMany()
                         .HasForeignKey("BranchId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -7031,7 +7031,7 @@ namespace PropertySurveyService.Migrations
                     b.Navigation("Branch");
                 });
 
-            modelBuilder.Entity("PropertySurveyService.Models.JobHeader", b =>
+            modelBuilder.Entity("PropertyRepairs.Models.JobHeader", b =>
                 {
                     b.Navigation("GarageDoorMotor");
 

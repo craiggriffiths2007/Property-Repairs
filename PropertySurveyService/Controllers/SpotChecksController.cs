@@ -1,8 +1,8 @@
 
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using PropertySurveyService.Models;
-using PropertySurveyService.Data;
+using PropertyRepairs.Models;
+using PropertyRepairs.Data;
 
 public class SpotChecksController : Controller
 {
@@ -18,7 +18,7 @@ public class SpotChecksController : Controller
     {
         if (_context.SpotChecks == null)
         {
-            return Problem("Entity set 'PropertySurveyServiceContext.SpotChecks' is null.");
+            return Problem("Entity set 'PropertyRepairsContext.SpotChecks' is null.");
         }
         const int pageSize = 10;
         var totalCount = await _context.SpotChecks.CountAsync();

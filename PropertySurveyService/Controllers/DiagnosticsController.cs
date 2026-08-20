@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Data.SqlClient;
 
-namespace PropertySurveyService.Controllers
+namespace PropertyRepairs.Controllers
 {
     public class DiagnosticsController : Controller
     {

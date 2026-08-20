@@ -1,6 +1,6 @@
 {
   "profiles": {
-    "PropertySurveyService": {
+    "PropertyRepairs": {
       "commandName": "Project",
       "launchBrowser": true,
       "environmentVariables": {
