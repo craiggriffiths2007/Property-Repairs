@@ -73,8 +73,9 @@ namespace PropertyRepairs.Controllers
                         case enum_item_type.assembly:
                             foreach (var p in _context.Assembly.Where(x => x.HeaderId == viewModel.JobHeader.Id)) items.Add(p.AsSurveyItem()); break;
                     }
+
                 }
-                viewModel.SurveyItems = items;
+                viewModel.SurveyItems = items.OrderBy(i => i.item_number);
 
                 string photoPattern = $"{viewModel.JobHeader.ContractCode:00000000}_cAZHou%";
                 string videoPattern = $"{viewModel.JobHeader.ContractCode:00000000}_Videos%";
