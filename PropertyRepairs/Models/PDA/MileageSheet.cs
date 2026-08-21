@@ -93,7 +93,7 @@ namespace PropertyRepairs.Models
         // --- Toll & Expenses ---
 
         [DisplayName("Toll Charges Incurred")]
-        public int toll_charges { get; set; } = 0;
+        public bool toll_charges { get; set; } = false;
 
         [DisplayName("Toll Charge Location/Reason")]
         public string toll_charge_for { get; set; } = "";

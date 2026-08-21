@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PropertyRepairs.Data;
 
@@ -11,9 +12,11 @@ using PropertyRepairs.Data;
 namespace PropertyRepairs.Migrations
 {
     [DbContext(typeof(AppDBContext))]
-    partial class AppDBContextModelSnapshot : ModelSnapshot
+    [Migration("20260821085320_point_of_entry")]
+    partial class point_of_entry
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -446,8 +449,8 @@ namespace PropertyRepairs.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool?>("point_of_entry")
-                        .HasColumnType("bit");
+                    b.Property<int>("point_of_entry")
+                        .HasColumnType("int");
 
                     b.Property<string>("print_name")
                         .IsRequired()
@@ -475,8 +478,8 @@ namespace PropertyRepairs.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool?>("was_it_locked")
-                        .HasColumnType("bit");
+                    b.Property<int>("was_it_locked")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
@@ -729,8 +732,9 @@ namespace PropertyRepairs.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool?>("point_of_entry")
-                        .HasColumnType("bit");
+                    b.Property<string>("point_of_entry")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("print_name")
                         .IsRequired()
@@ -775,8 +779,8 @@ namespace PropertyRepairs.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool?>("was_it_locked")
-                        .HasColumnType("bit");
+                    b.Property<int>("was_it_locked")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
@@ -922,8 +926,9 @@ namespace PropertyRepairs.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool?>("point_of_entry")
-                        .HasColumnType("bit");
+                    b.Property<string>("point_of_entry")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("print_name")
                         .IsRequired()
@@ -1109,8 +1114,8 @@ namespace PropertyRepairs.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool?>("was_it_locked")
-                        .HasColumnType("bit");
+                    b.Property<int>("was_it_locked")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
@@ -2941,8 +2946,8 @@ namespace PropertyRepairs.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool?>("colour_match_roll_box")
-                        .HasColumnType("bit");
+                    b.Property<int>("colour_match_roll_box")
+                        .HasColumnType("int");
 
                     b.Property<string>("door_fits_into")
                         .IsRequired()
@@ -3052,8 +3057,9 @@ namespace PropertyRepairs.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool?>("point_of_entry")
-                        .HasColumnType("bit");
+                    b.Property<string>("point_of_entry")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<bool?>("power_points")
                         .HasColumnType("bit");
@@ -3117,8 +3123,8 @@ namespace PropertyRepairs.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool?>("was_it_locked")
-                        .HasColumnType("bit");
+                    b.Property<int>("was_it_locked")
+                        .HasColumnType("int");
 
                     b.Property<string>("where_is_garage")
                         .IsRequired()
@@ -3453,8 +3459,9 @@ namespace PropertyRepairs.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool?>("point_of_entry")
-                        .HasColumnType("bit");
+                    b.Property<string>("point_of_entry")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("print_name")
                         .IsRequired()
@@ -3522,8 +3529,8 @@ namespace PropertyRepairs.Migrations
                     b.Property<int>("units_required")
                         .HasColumnType("int");
 
-                    b.Property<bool?>("was_it_locked")
-                        .HasColumnType("bit");
+                    b.Property<int>("was_it_locked")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
@@ -3639,8 +3646,9 @@ namespace PropertyRepairs.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool?>("point_of_entry")
-                        .HasColumnType("bit");
+                    b.Property<string>("point_of_entry")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("print_name")
                         .IsRequired()
@@ -3667,8 +3675,8 @@ namespace PropertyRepairs.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool?>("was_it_locked")
-                        .HasColumnType("bit");
+                    b.Property<int>("was_it_locked")
+                        .HasColumnType("int");
 
                     b.Property<string>("window_opening_type")
                         .IsRequired()
@@ -4060,8 +4068,9 @@ namespace PropertyRepairs.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool?>("point_of_entry")
-                        .HasColumnType("bit");
+                    b.Property<string>("point_of_entry")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<bool?>("pre_glazed_door")
                         .HasColumnType("bit");
@@ -4181,8 +4190,8 @@ namespace PropertyRepairs.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool?>("was_it_locked")
-                        .HasColumnType("bit");
+                    b.Property<int>("was_it_locked")
+                        .HasColumnType("int");
 
                     b.Property<bool?>("weather_bar")
                         .HasColumnType("bit");
@@ -5139,8 +5148,9 @@ namespace PropertyRepairs.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool?>("point_of_entry")
-                        .HasColumnType("bit");
+                    b.Property<string>("point_of_entry")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("print_name")
                         .IsRequired()
@@ -5153,8 +5163,8 @@ namespace PropertyRepairs.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool?>("was_it_locked")
-                        .HasColumnType("bit");
+                    b.Property<int>("was_it_locked")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
@@ -5295,8 +5305,8 @@ namespace PropertyRepairs.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool>("toll_charges")
-                        .HasColumnType("bit");
+                    b.Property<int>("toll_charges")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
@@ -5413,8 +5423,9 @@ namespace PropertyRepairs.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool?>("point_of_entry")
-                        .HasColumnType("bit");
+                    b.Property<string>("point_of_entry")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("print_name")
                         .IsRequired()
@@ -5440,8 +5451,8 @@ namespace PropertyRepairs.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool?>("was_it_locked")
-                        .HasColumnType("bit");
+                    b.Property<int>("was_it_locked")
+                        .HasColumnType("int");
 
                     b.Property<string>("wedit")
                         .IsRequired()
@@ -5728,17 +5739,17 @@ namespace PropertyRepairs.Migrations
                     b.Property<int>("Id")
                         .HasColumnType("int");
 
-                    b.Property<bool?>("add_door_security")
-                        .HasColumnType("bit");
+                    b.Property<int>("add_door_security")
+                        .HasColumnType("int");
 
-                    b.Property<bool?>("add_window_security")
-                        .HasColumnType("bit");
+                    b.Property<int>("add_window_security")
+                        .HasColumnType("int");
 
                     b.Property<int>("bIsComplete")
                         .HasColumnType("int");
 
-                    b.Property<bool?>("bIsSecuritySurvey")
-                        .HasColumnType("bit");
+                    b.Property<int>("bIsSecuritySurvey")
+                        .HasColumnType("int");
 
                     b.Property<string>("gencondition")
                         .IsRequired()
@@ -6710,8 +6721,8 @@ namespace PropertyRepairs.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool>("y_driveable")
-                        .HasColumnType("bit");
+                    b.Property<int>("y_driveable")
+                        .HasColumnType("int");
 
                     b.Property<string>("y_driver_dob")
                         .IsRequired()

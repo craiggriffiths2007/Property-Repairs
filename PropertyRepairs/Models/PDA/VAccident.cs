@@ -174,7 +174,7 @@ namespace PropertyRepairs.Models
         public string y_vehicle_damage { get; set; } = "";
 
         [DisplayName("Your Vehicle: Driveable? (0 = No, 1 = Yes)")]
-        public int y_driveable { get; set; }
+        public bool y_driveable { get; set; }
 
         [DisplayName("Damage to Third-Party Property")]
         public string y_damage_to_property { get; set; } = "";

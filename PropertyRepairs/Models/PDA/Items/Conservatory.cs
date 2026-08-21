@@ -91,13 +91,13 @@ namespace PropertyRepairs.Models
         public string parts_to_order { get; set; } = "";
 
         [DisplayName("Point of Entry")]
-        public string point_of_entry { get; set; } = "";
+        public bool? point_of_entry { get; set; }
 
         [DisplayName("Type of Locking System Required")]
         public string type_of_lockng_system_required { get; set; } = "";
 
         [DisplayName("Was It Locked")]
-        public int was_it_locked { get; set; }
+        public bool? was_it_locked { get; set; }
 
 
         // ============================================================

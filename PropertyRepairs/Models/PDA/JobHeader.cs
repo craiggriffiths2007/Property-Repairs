@@ -585,10 +585,9 @@ namespace PropertyRepairs.Models
 
     public class SecuritySurvey
     {
-
         public int Id { get; set; }
         [DisplayName("Security Survey")]
-        public int bIsSecuritySurvey { get; set; }
+        public bool? bIsSecuritySurvey { get; set; }
 
         [DisplayName("Security Survey Complete")]
         public int bIsComplete { get; set; }
@@ -630,7 +629,7 @@ namespace PropertyRepairs.Models
         public string lockdoors_other { get; set; } = "";
 
         [DisplayName("Add Window Security (Security Survey)")]
-        public int add_window_security { get; set; }
+        public bool? add_window_security { get; set; }
 
         [DisplayName("Location Windows Other (Security Survey)")]
         public string location_windows_other { get; set; } = "";
@@ -639,7 +638,7 @@ namespace PropertyRepairs.Models
         public string secwindows_other { get; set; } = "";
 
         [DisplayName("Add Door Security (Security Survey)")]
-        public int add_door_security { get; set; }
+        public bool? add_door_security { get; set; }
 
         [DisplayName("Location Doors Other (Security Survey)")]
         public string location_doors_other { get; set; } = "";
@@ -652,8 +651,6 @@ namespace PropertyRepairs.Models
 
         [DisplayName("Number of Security Survey Photos")]
         public int no_of_photos { get; set; }
-
-
 
     }
 
